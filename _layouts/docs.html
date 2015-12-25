@@ -1,0 +1,32 @@
+---
+layout: default
+bodyclass: docs
+icon: <i class="fa fa-graduation-cap"></i>
+---
+
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="list-unstyled docs-side-nav" id="navbar">
+      <li class="submenu"><h4 class="arrow-r">Overview</h4>
+      <ul style="display:none;">
+      <li><a href="/docs/">Overview</a></li>
+      <li><a href="/docs/guides/concepts.html">Spine concepts</a></li>
+                 <li><a class="disabled" href="/docs/guides/error.html">Error handling and debugging</a></li>
+      </ul></li>
+      <li class="submenu"><h4 class="arrow-r">Tutorials</h4><ul style="display:none;">
+                <li><h5>Java Tutorials</h5><ul>
+      <li><a href="/docs/tutorials/basic/java.html">Spine Basics: Java</a></li></ul>
+      </ul></li>
+      <li class="submenu"><h4 class="arrow-r">Reference</h4><ul style="display:none;">
+      <li><a target="_blank" class="disabled" href="TBD">Java API</a></li>
+      </ul></li>
+      <li class="submenu"><h4 class="arrow-r">Related Materials</h4><ul style="display:none;">
+      <li><a href="https://developers.google.com/protocol-buffers/docs/proto3">Protocol Buffers</a></li>
+      <li><a href="http://www.grpc.io/">GRPC</a></ul></li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+      {{ content }}
+  </div>
+</div>
+
