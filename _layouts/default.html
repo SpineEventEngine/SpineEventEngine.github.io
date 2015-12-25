@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html>
+---
+layout: base
+---
 
-  {% include head.html %}
+{% include nav.html %}
 
-  <body>
+<div class="page-title-bar">
+  <div class="container">
+    <h1>{{ page.title }} <span style="float:right">{{ page.icon }}</span></h1>
+  </div>
+</div>
 
-    {% include header.html %}
+<div class="container vpad">
+  {{ content }}
+</div>
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
-
-    {% include footer.html %}
-
-  </body>
-
-</html>
+{% include footer.html %}

@@ -1,15 +1,40 @@
 ---
-layout: default
+layout: base
+bodyclass: post
 ---
-<div class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+{% include nav.html %}
 
-  <article class="post-content">
-    {{ content }}
-  </article>
+<!--Here Posts will be described
+<div class="page-title-bar">
+  <div class="container">
+    <a href="/posts/"><p class="lead">Posts/</p></a>
+  </div>
+</div>-->
 
+<div class="container vpad">
+  <div class="row">
+    <div class="col-md-3">
+      <!-- empty ok for improved readability on left screen edge -->
+    </div>
+    <div class="col-md-7">
+      <article class="post">
+        <h1>{{ page.title }}</h1>
+        <div class="postdate">
+          Posted on {{ page.date | date: "%A, %B %d %Y" }}.
+        </div>
+        <div class="content">
+          {{ content }}
+        </div>
+
+        {% if page.attribution %}
+        <div class="content-attribution">
+           {{ page.attribution }}
+        </div>
+        {% endif %}
+      </article>
+    </div>
+  </div>
 </div>
+
+{% include footer.html %}
