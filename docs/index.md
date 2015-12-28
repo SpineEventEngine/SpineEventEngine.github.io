@@ -20,22 +20,22 @@ Here we will place description of the  framework, what we are trying to bring to
 
 <a name="protocolbuffers"></a>
 
-### Working with protocol buffers
+### Working with Protocol Buffers
 
-By default Spine Event Engine uses *protocol buffers*, Google’s
+By default Spine Event Engine uses *Protocol Buffers*, Google’s
 mature open source mechanism for serializing structured data (although it
 can be used with other data formats such as JSON). You
-can find out lots more about protocol buffers in the [Protocol Buffers
+can find out lots more about Protocol Buffers in the [Protocol Buffers
 documentation](https://developers.google.com/protocol-buffers/docs/overview).
 
-#### Protocol buffer versions
+#### Protocol Buffer versions
 
-While protocol buffers have been available for open source users for some
-time, Spine uses a new flavor of protocol buffers called proto3,
+While Protocol Buffers have been available for open source users for some
+time, Spine uses a new flavor of Protocol Buffers called proto3,
 which has a slightly simplified syntax, some useful new features, and supports
 lots more languages. This is currently available as an beta release in
 Java and C++, with an alpha release for JavaNano (Android Java), Python, and
-Ruby from [the protocol buffers Github
+Ruby from [the Protocol Buffers Github
 repo](https://github.com/google/protobuf/releases), as well as a Go language
 generator from [the golang/protobuf Github repo](https://github.com/golang/protobuf), with more languages in development. You can find out more in the [proto3 language guide](https://developers.google.com/protocol-buffers/docs/proto3), and see
 the major differences from the current default version in the [release notes](https://github.com/google/protobuf/releases). 
@@ -45,7 +45,8 @@ the major differences from the current default version in the [release notes](ht
 ## Quick start
 To get up and running with Spine straight away, see the quick start for your chosen language, which provides links to installation instructions, quick instructions for building the example used in this guide, and more:
 
-* [Java](https://github.com/SpineEventEngine/Lobby)
+<!-- * [Java](https://github.com/SpineEventEngine/Lobby)-->
+* Java  - *TBD*
 
 You can find out about the Spine Event Engine source code repositories in
 [Spine](https://github.com/SpineEventEngine).
@@ -58,15 +59,6 @@ You can find out about the Spine Event Engine source code repositories in
 This section explains how to set up your local machine to work with
 the example code.
 
-#### Install Git
-
-You can download and install Git from [http://git-scm.com/download](http://git-scm.com/download). Once
-installed you should have access to the git command line tool. The main
-commands that you will need to use are:
-
-- git clone ... : clone a remote repository onto your local machine
-- git checkout ... : check out a particular branch or a tagged version of
-the code to hack on
 
 #### Install Spine
 
@@ -78,10 +70,11 @@ Here we will place links to the source code.
 
 <a name="servicedef"></a>
 
-### Defining a service
+### Defining an Aggregate
+Aggregate is described as a separate Protocol Buffer package. You should create a file describing an Aggregate state and two .proto files called *Commands* and *Events*. 
+This structure is important to follow for correct parsing by Spine. 
 
-TBD
-
+### Defining Services
 
 ## Read more!
 
