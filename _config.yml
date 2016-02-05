@@ -9,7 +9,7 @@ twitter_username: SpineEngine
 github_username:  SpineEventEngine
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 
 redcarpet:
   extensions: ["highlight", "with_toc_data", "tables"]
