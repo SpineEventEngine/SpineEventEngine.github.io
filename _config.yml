@@ -10,6 +10,7 @@ github_username:  SpineEventEngine
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 
 
 sass:
