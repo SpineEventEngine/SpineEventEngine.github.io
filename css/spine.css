@@ -462,13 +462,16 @@ a.fa {
         min-height: 42px;
     }
 }
-
-
 footer h2 {
     margin-bottom: 15px;
 }
-footer h2 img {
+img.footer-logo {
     height: 60px;
+}
+.contribute-block .icons-block {
+    padding-top: 35px;
+    margin-top: 35px;
+    border-top: 1px solid #eee;
 }
 .icons-block a {
     font-size: 40px;
@@ -478,10 +481,17 @@ footer h2 img {
     transform: scale(.8, .8);
     display: inline-block;
 }
+.contribute-block .icons-block a {
+    color: #000;
+    margin: 5px 15px;
+}
 .icons-block a:hover {
     transform: scale(1, 1);
     transition-delay: .3s;
     color: #fff;
+}
+.contribute-block .icons-block a:hover {
+    color: #000;
 }
 
 @media screen and (max-width: 480px) {
