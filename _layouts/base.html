@@ -25,8 +25,7 @@
   <meta name="og:title" content="Spine / {{page.title}}"/>
 </head>
 
-<body id="page-top"
-      class="{{ page.bodyclass }}"
+<body class="{{ page.bodyclass }} {% if page.slug %} blog {% endif %}"
       data-spy="scroll"
       data-target=".navbar-fixed-top">
 

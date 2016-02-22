@@ -3,9 +3,9 @@
  */
 
 /* Base structure */
-html {
-    width: 100%!important;
-    height: 100%!important;
+html, body {
+    width: 100% !important;
+    height: 100% !important;
     min-width: 320px;
 }
 
@@ -15,13 +15,13 @@ body {
     line-height: 1.5;
     color: #000;
     background-color: #fff;
-    min-height: 100%;
-    height: auto;
 }
 
-.postslist {
+body.blog {
     position: relative;
     padding-bottom: 230px;
+    min-height: 100%;
+    height: auto !important;
 }
 
 /* Preloader */
