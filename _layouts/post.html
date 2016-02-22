@@ -5,14 +5,32 @@ bodyclass: post
 
 {% include nav.html %}
 
+<header class="intro intro-sub-pages" style="background: url(/img/spine-bg.jpg) no-repeat 50% 50%; background-size: cover; height: 220px">
+  <div class="intro-body">
+    <h1 class="brand-heading">
+      {{ page.title }}
+    </h1>
+  </div>
+</header>
+
 <div class="container vpad">
   <div class="row">
     <div class="col-md-3">
-      <!-- empty ok for improved readability on left screen edge -->
+      <ul class="list-unstyled posts-side-nav">
+        <li><a href="{{ site.posts.url }}">
+          <i class="fa fa-angle-left"></i>
+          Blog
+        </a></li>
+        {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-8 col-md-push-1">
       <article class="post">
-        <h1>{{ page.title }}</h1>
+        <!--<h1>{{ page.title }}</h1>-->
         <div class="postdate">
           Posted on {{ page.date | date: "%A, %B %d %Y" }}.
         </div>
@@ -28,25 +46,6 @@ bodyclass: post
       </article>
     </div>
   </div>
-</div>
-
-<div class="fullwidth wow fadeIn white-bg contribute-block">
-  <section class="container-fluid">
-    <div class="col-sm-6 col-sm-push-3 text-center icons-block">
-      <a href="#" target="_blank">
-        <i class="fa fa-google-plus"></i>
-      </a>
-      <a href="https://github.com/SpineEventEngine/" target="_blank">
-        <i class="fa fa-github"></i>
-      </a>
-      <a href="#" target="_blank">
-        <i class="fa fa-stack-overflow"></i>
-      </a>
-      <a href="https://twitter.com/SpineEngine" target="_blank">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </div>
-  </section>
 </div>
 
 {% include footer.html %}
