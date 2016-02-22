@@ -465,7 +465,18 @@ a.fa {
 footer h2 {
     margin-bottom: 15px;
 }
-img.footer-logo {
+a.footer-logo {
+    color: #fff;
+    text-decoration: none;
+}
+a.footer-logo:hover {
+    color: #fff;
+    text-decoration: none;
+}
+a.footer-logo:hover span {
+    text-decoration: underline;
+}
+a.footer-logo img {
     height: 60px;
 }
 .contribute-block .icons-block {
