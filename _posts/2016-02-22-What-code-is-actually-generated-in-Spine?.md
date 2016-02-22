@@ -29,8 +29,8 @@ There are following code parts that are created during the build process:
  A business failure (unlike a technical error) is a condition under which a request cannot be complete (but there are ways for solving this situation). Example would be: CreditCardValidationDeclined, InsufficientAmount, TaskInProgressCannotBeRemoved.
  There are two parts of code per business failure that are generated.
  
- **Part 1:** a Java class for corresponding Protobuf message.
+ **Part 1:** a Java class for corresponding Protobuf message. This class is a sub-class of a Failures class in the `failures` sub-package of the corresponding aggregate.
 Unlike commands and events, failures are all gathered in the same enclosing class called Failures. This is done so because there's another piece of code related to a business failure.
  
- **Part 2:** a Java class derived from FailureThrowable. Each such class is top level class generated underfailures sub-package of the corresponding aggregate. Instances of the class would contain corresponding failure message.
+ **Part 2:** a Java class derived from FailureThrowable. Each such class is top level class generated under `failures` sub-package of the corresponding aggregate. Instances of the class would contain corresponding failure message.
  We generate these Throwable classes because Java does not support generic types for throwables. More on this read in <a href ="http://docs.spine3.org/biz-model/failures.html" target = "_blank">Failures</a> and <a href ="http://docs.spine3.org/java/code-generation.html" target ="_blank">Code Generation</a> chapters of the Spine documentation.
