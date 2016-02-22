@@ -410,6 +410,10 @@ a.fa {
     color: #fff;
 }
 
+.light-bg a {
+    text-shadow: 0 0 5px #999;
+}
+
 @media (min-width: 1200px) {
     .description-block h3 {
         min-height: 42px;
