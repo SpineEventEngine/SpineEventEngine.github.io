@@ -199,7 +199,20 @@ textarea {
     border: 2px solid #eee;
     outline: 0;
     color: #000!important;
-    background-color: #eee;
+    background-color: #747a85;
+}
+.btn-borderdark {
+    border: 2px solid #313B45;
+    outline: 0;
+    color: #313B45;
+    background-color: transparent;
+}
+.btn-borderdark:hover,
+.btn-borderdark:focus {
+    border: 2px solid #313B45;
+    outline: 0;
+    color: #fff !important;
+    background-color: #313B45;
 }
 .btn-white {
     border: 2px solid #fff;
@@ -472,14 +485,14 @@ a.fa {
 }
 
 .dark-bg {
-    background-color: #90A4AE;
+    background-color: #CFD8DC;
+    color: #313B45;
 }
 .light-bg {
     /*background: rgba(0, 0, 0, 0.5);*/
     background-color: #5B6E8C;
 }
 
-.dark-bg,
 .footer-bg,
 .light-bg {
     color: #fff;
@@ -491,15 +504,17 @@ a.fa {
 .light-bg h4,
 .light-bg h5,
 .light-bg h6,
+.footer-bg h3 {
+    color: #fff;
+}
+
 .dark-bg h1,
 .dark-bg h2,
 .dark-bg h3,
 .dark-bg h4,
 .dark-bg h5,
-.dark-bg h6,
-.footer-bg h3 {
-    color: #fff;
-
+.dark-bg h6 {
+    color: #000;
 }
 
 .footer-bg {
