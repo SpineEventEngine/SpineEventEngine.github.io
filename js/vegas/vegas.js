@@ -13,7 +13,7 @@
 
     var defaults = {
         slide:              0,
-        delay:              5000,
+        delay:              2000,
         preload:            false,
         preloadImage:       false,
         preloadVideo:       false,

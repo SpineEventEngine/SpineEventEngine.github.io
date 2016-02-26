@@ -3,13 +3,55 @@ layout: base
 bodyclass: postsingle
 ---
 
-{% include nav.html %}
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top wow fadeIn"
+     data-wow-duration="2s"
+     data-wow-delay=".2s"
+     role="navigation">
+  <div class="container-fluid">
 
-<header class="intro intro-sub-pages" style="background: url(/img/spine-bg.jpg) no-repeat 50% 50%; background-size: cover; height: 220px">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars fa-2x"></i>
+      </button>
+      <a class="navbar-brand page-scroll wow fadeInRight" href="{{ site.url }}"
+         data-wow-duration="1s"
+         data-wow-delay="1.4s">
+        <img class="logo" src="/img/spine-logo.png" alt="Spine Event Engine">
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.4s">
+        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+        <li>
+          <a href="http://docs.spine3.org/getting-started/index.html" target="_blank">Get Started</a>
+        </li>
+        <li>
+          <a href="http://docs.spine3.org" target="_blank">Docs</a>
+        </li>
+        <li class="current">
+          <a href="/posts/">Blog</a>
+        </li>
+        <li>
+          <a href="#">Questions</a>
+        </li>
+        <li>
+          <a href="https://github.com/SpineEventEngine" target="_blank">
+            <i class="fa fa-github-alt fa-lg"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="intro intro-sub-pages" style="background: url(/img/Engineering2.jpg) no-repeat 50% 50%; background-size: cover; height: 220px">
   <div class="intro-body">
-    <h1 class="brand-heading">
-      {{ page.title }}
-    </h1>
+    <h2 class="brand-heading">
+      Blog
+    </h2>
   </div>
 </header>
 
@@ -29,6 +71,9 @@ bodyclass: postsingle
       </ul>
     </div>
     <div class="col-md-8 col-md-push-1">
+      <h1>
+        {{ page.title }}
+      </h1>
       <article class="post">
         <!--<h1>{{ page.title }}</h1>-->
         <div class="postdate">
