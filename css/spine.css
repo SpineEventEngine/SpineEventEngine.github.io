@@ -536,16 +536,24 @@ footer .icons-block {
 
 /* blog */
 
-.intro-sub-pages {
+.hero-sub-pages {
     background: url(../img/Engineering2.jpg) no-repeat 50% 50%;
     background-size: cover;
     height: 220px;
     margin-bottom: 60px;
+    position: static;
 }
-.intro-sub-pages .intro-body .brand-heading {
-    margin: 50px 0 40px;
+.hero-sub-pages .hero-body {
+    padding-top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
 }
-.intro-sub-pages a {
+.hero-sub-pages .brand-heading {
+    padding: 100px 0 40px;
+    margin: 0;
+}
+.hero-sub-pages a {
     color: #fff;
 }
 .list-unstyled li {
