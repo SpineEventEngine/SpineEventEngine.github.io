@@ -241,12 +241,12 @@ p .btn {
     margin-bottom: 0;
     text-transform: uppercase;
     color: rgba(255,255,255,.8);
-    background-color: #5B6E8C;
     box-sizing: border-box;
+    background-color: #5B6E8C;
 }
 
 .logo {
-    height: 50px;
+    height: 30px;
     -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
@@ -257,7 +257,6 @@ p .btn {
 }
 
 .navbar-custom .navbar-brand:focus {
-
     outline: 0;
 }
 .navbar-custom .navbar-brand .navbar-toggle {
@@ -273,7 +272,7 @@ p .btn {
 
 .navbar-custom a {
     color: #fff;
-    padding: 0 15px 10px;
+    padding: 10px 15px 10px;
     text-decoration: none;
 }
 
@@ -334,6 +333,9 @@ p .btn {
     }
     .navbar-custom li.current a {
         border-bottom: 3px solid #fff;
+    }
+    .logo {
+        height: 50px;
     }
 }
 .navbar-toggle {
@@ -633,7 +635,7 @@ footer .icons-block {
 @media(max-width:768px) {
 
     section {
-        padding: 100px 0 80px;
+        padding: 50px 0 40px;
     }
 
     .hero-body {
@@ -656,14 +658,58 @@ footer .icons-block {
     h2.text-center {
         text-align: left;
     }
+
+    footer {
+        padding: 30px 0 20px;
+    }
+
+    footer .pull-left,
+    footer .pull-right {
+        width: 100%;
+    }
+
+    footer .icons-block {
+        padding-top: 0;
+    }
+
+    footer .icons-block a {
+        margin-left: 0;
+    }
+
+    .landscape .hero-body .brand-heading {
+        margin: 15px 0;
+        font-size: 24px;
+    }
+    .landscape .hero-body .brand-sub-heading {
+        font-size: 18px;
+    }
+    .landscape .subscribe-form {
+        margin: 40px 0;
+    }
+    .landscape .hero-body p.hero-text {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .landscape .hero-body .brand-heading {
+        font-size: 20px;
+    }
+    .landscape .hero-body .brand-sub-heading {
+        font-size: 16px;
+        text-transform: none;
+    }
+    .landscape .subscribe-form {
+        margin: 20px 0;
+    }
+    .landscape .hero-body p.hero-text {
+        text-transform: none;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .navbar-custom a {
         padding-top: 10px;
-    }
-    .logo {
-        height: 30px;
     }
     .hero-body .brand-heading {
         font-size: 23px;
@@ -685,6 +731,10 @@ footer .icons-block {
     }
     .icons-block a {
         margin: 5px 10px;
+    }
+
+    footer p {
+        margin-bottom: 10px;
     }
 }
 
