@@ -209,31 +209,70 @@ p .btn {
 
 /* Parallax */
 
-.parallax {
-    perspective: 1px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
+/*.parallax {*/
+    /*perspective: 1px;*/
+    /*transform-style: preserve-3d;*/
+    /*height: 100vh;*/
+    /*overflow: hidden;*/
+    /*overflow-y: auto;*/
+/*}*/
 
-.parallax__layer {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    padding: 100vh 0;
+/*.parallax__layer {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*padding: 100vh 0;*/
+    /*box-sizing: border-box;*/
+    /*transform-style: preserve-3d;*/
+/*}*/
+
+/*.parallax__layer--base {*/
+    /*transform: translateZ(0);*/
+/*}*/
+
+/*.parallax__layer--back {*/
+    /*transform: translateZ(-1px) scale(2);*/
+/*}*/
+
+div {
     box-sizing: border-box;
 }
 
-.parallax__layer--base {
-    transform: translateZ(0);
+.parallax {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    perspective: 1px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
-.parallax__layer--back {
+.group {
+    height: 2000px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.background {
     transform: translateZ(-1px) scale(2);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: -8px;
+    background: url(/img/Engineering2.jpg) no-repeat 50% 50%;
+    background-size: cover;
 }
 
+.foreground {
+    position: absolute;
+    padding-top: 100vh;
+    width: 100%;
+}
 
 /* NavBar */
 
@@ -345,12 +384,6 @@ p .btn {
 
 
 /* Hero */
-
-.parallax__layer--back {
-    background: url(/img/Engineering2.jpg) no-repeat 50% 50%;
-    background-size: cover;
-    left: -5px;
-}
 
 .overlay {
     position: absolute;
