@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,user-scalable=no">
   <title>Spine / {{ page.title }}</title>
 
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -12,7 +12,6 @@
 
   <link href="/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/animate.min.css" rel="stylesheet" type="text/css">
-  <link href="js/vegas/vegas.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/spine.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -29,9 +28,6 @@
       data-spy="scroll"
       data-target=".navbar-fixed-top">
 
-<!-- Preloader -->
-<div id="preloader"><div id="status">&nbsp;</div></div>
-
 {{ content }}
 
 
@@ -39,25 +35,9 @@
 <script src="/libs/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Plugin JavaScript -->
-<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/smoothscroll.js"></script>
 <script src="/js/device.min.js"></script>
 <script src="/js/wow.min.js"></script>
-<script src="/js/smoothscroll.js"></script>
-<script src="/js/form.js"></script>
-<script src="/js/jquery.placeholder.min.js"></script>
-
-<!-- Background image -->
-<script src="/js/vegas/vegas.min.js"></script>
-<script>
-  $('body').vegas({
-    transitionDuration: 2000,
-    slides: [
-      <!--{ src: '/img/spine-bg.jpg' }-->
-      {src: '/img/Engineering2.jpg'}
-    ],
-    transition: 'swirlRight'
-  });
-</script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/spine.js"></script>
