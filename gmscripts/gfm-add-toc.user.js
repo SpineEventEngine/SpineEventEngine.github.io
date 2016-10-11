@@ -61,8 +61,9 @@
   /* `button.className` changed according to StackOverflow advice:
      http://stackoverflow.com/questions/31844206/how-can-i-automatically-generate-tables-of-contents-in-a-github-wiki
      The original value was: 'minibutton function-button';
+     Make sure the className value in `setTimeout()` is also the same.
    */
-  button.className = 'btn btn-sm function-button';
+  button.className = 'btn btn-sm BtnGroup-item function-button';
   button.setAttribute('tabindex', '-1');
   button.setAttribute('title', 'Refresh table of contents');
   button.setAttribute('role', 'button');
@@ -75,7 +76,7 @@
   /* GitHub disables this button ;-) */
   /* Repeating the className with the same value as set above.
      The StackOverflow advice does not do this. */
-  setTimeout(function() { button.className = 'btn btn-sm function-button'; }, 100);
+  setTimeout(function() { button.className = 'btn btn-sm BtnGroup-item function-button'; }, 100);
 
   /* Helper to generate the Table of Contents entries */
   var toPlainText = function(list) {
@@ -107,7 +108,7 @@
     /* Strip out existing TOC, if any */
     // Value changed according to StackOverflow advice:
     //  http://stackoverflow.com/questions/31844206/how-can-i-automatically-generate-tables-of-contents-in-a-github-wiki
-    var tocStart = '>**Table of contents**\n\n>';
+    var tocStart = '**Table of contents**\n\n';
     if (md.startsWith(tocStart))
       md = md.substring(tocStart.length).replace(/[^]*?\n\n/m, '');
 
