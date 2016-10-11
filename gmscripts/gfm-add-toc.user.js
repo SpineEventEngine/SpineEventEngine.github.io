@@ -1,17 +1,42 @@
 // ==UserScript==
 // @name           GitHub TOC Button
 // @name:ru        Кнопка оглавления для GitHub страницы
-// @namespace      https://spine3.org/gmscripts
+// @namespace      https://spine3.org/gmscripts/
 // @description    Adds TOC button to GitHub page editor
 // @include        http://github.com/*/wiki/*/_edit*
 // @include        https://github.com/*/wiki/*/_edit*
 // @version        1.0.0
+// @author         Alexander Yevsyukov
+// @license        Creative Commons Attribution License
 // @grant          none
 // ==/UserScript==
 
 /*
-   This code is based on the script created by Tomancaklab.
-   See the original code at: http://tomancaklab.github.io/gfm-add-toc.user.js
+ * This file is a Greasemonkey user script.
+ *
+ * To install it for Firefox, you need the "Greasemonkey" plugin
+ * (URL: http://greasemonkey.mozdev.org/).
+ *
+ * After you installed the Greasemonkey extension, restart Firefox and revisit
+ * this script. Now you will see a new menu item "Install User Script"
+ * in your tools menu.
+ *
+ * To uninstall this script from Greasemonkey, go to your "Tools" menu and
+ * select "Manage User Scripts", then select this script from the list
+ * and click uninstall.
+ *
+ * To install it under Chrome, you need the "Tempermonkey" plugin:
+ * (URL: http://tampermonkey.net/)
+ *
+ * To uninstall the script from Tempermonkey, click on the plug-in button in
+ * the Chrome toolbar, then select "Dashboard" menu item. In the Dashbaord
+ * check the item with the script and click on the trash icon on the left.
+ *
+ * This code is based on the script created by Tomancaklab.
+ * See the original code at: http://tomancaklab.github.io/gfm-add-toc.user.js
+ *
+ * Creative Commons Attribution License:
+ * http://creativecommons.org/licenses/by/2.5/
 */
 
 (function(){
