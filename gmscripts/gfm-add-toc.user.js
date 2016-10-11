@@ -1,15 +1,17 @@
 // ==UserScript==
-// @name           Add a "TOC" button to GitHub wiki pages
-// @namespace      tomancaklab
+// @name           GitHub TOC Button
+// @name:ru        Кнопка оглавления для GitHub страницы
+// @namespace      https://spine3.org/gmscripts
+// @description    Adds TOC button to GitHub page editor
 // @include        http://github.com/*/wiki/*/_edit*
 // @include        https://github.com/*/wiki/*/_edit*
+// @version        1.0.0
 // @grant          none
 // ==/UserScript==
 
 /*
-   This code is based on script created by Tomancaklab
-   See the original code at:
-   http://tomancaklab.github.io/gfm-add-toc.user.js
+   This code is based on the script created by Tomancaklab.
+   See the original code at: http://tomancaklab.github.io/gfm-add-toc.user.js
 */
 
 (function(){
@@ -31,8 +33,10 @@
   var button = document.createElement('a');
   button.id = 'function-toc';
   button.href = '#';
-  /* Class changed according to StackOverflow advice:
-     http://stackoverflow.com/questions/31844206/how-can-i-automatically-generate-tables-of-contents-in-a-github-wiki */
+  /* `button.className` changed according to StackOverflow advice:
+     http://stackoverflow.com/questions/31844206/how-can-i-automatically-generate-tables-of-contents-in-a-github-wiki
+     The original value was: 'minibutton function-button';
+   */
   button.className = 'btn btn-sm function-button';
   button.setAttribute('tabindex', '-1');
   button.setAttribute('title', 'Refresh table of contents');
@@ -44,7 +48,9 @@
   h1Button.parentNode.insertBefore(button, h1Button);
 
   /* GitHub disables this button ;-) */
-  setTimeout(function() { button.className = 'minibutton function-button'; }, 100);
+  /* Repeating the className with the same value as set above.
+     The StackOverflow advice does not do this. */
+  setTimeout(function() { button.className = 'btn btn-sm function-button'; }, 100);
 
   /* Helper to generate the Table of Contents entries */
   var toPlainText = function(list) {
