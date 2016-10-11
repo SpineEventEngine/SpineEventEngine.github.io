@@ -118,7 +118,9 @@
     parsed.forEach(function(el) {
       if (Array.isArray(el) &&
           el[0] == 'header' &&
-          !(el.length > 2 && el[2].startsWith('!/bin/'))
+          !(    el.length > 2 &&
+                !!el[2].startsWith &&
+                el[2].startsWith('!/bin/'))
       ) {
         for (var i = 1; i < el[1].level; i++)
           toc += '\t';
