@@ -67,7 +67,7 @@
   button.setAttribute('tabindex', '-1');
   button.setAttribute('title', 'Refresh table of contents');
   button.setAttribute('role', 'button');
-  button.innerHTML = '<b>&nbsp;TOC&nbsp;</b>'
+  button.innerHTML = '<b>TOC</b>'
   button.onclick = function() {
     self.insertTOC(textarea);
   };
