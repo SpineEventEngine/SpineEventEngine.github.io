@@ -2,8 +2,8 @@
 title: Spine Event Engine
 email: spine-developers@teamdev.com
 # description: > # this means to ignore newlines until "baseurl:"
-baseurl: / # the subpath of your site, e.g. /blog/
-url: "http://spine3.org" # the base hostname & protocol for your site
+
+#url: "http://spine3.org" # the base hostname & protocol for your site
 twitter_username: SpineEngine
 github_username:  SpineEventEngine
 
@@ -12,6 +12,9 @@ github_username:  SpineEventEngine
 markdown: kramdown
 highlighter: rouge
 
+baseurl:
+
+githuburl: https://github.com/SpineEventEngine/SpineEventEngine.github.io/
 
 sass:
   style: compressed
