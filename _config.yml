@@ -18,3 +18,5 @@ githuburl: https://github.com/SpineEventEngine/SpineEventEngine.github.io/
 
 sass:
   style: compressed
+
+theme: jekyll-theme-cayman
