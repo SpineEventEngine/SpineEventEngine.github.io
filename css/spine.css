@@ -263,7 +263,7 @@ div {
     position: absolute;
     top: 0;
     left: -8px;
-    background: url(/img/Engineering2.jpg) no-repeat 50% 50%;
+    background: url(/img/unsplash-crossrail-walk.jpg) no-repeat 50% 50%;
     background-size: cover;
 }
 
@@ -600,7 +600,7 @@ footer .icons-block {
 /* blog */
 
 .hero-sub-pages {
-    background: url(../img/Engineering2.jpg) no-repeat 50% 50%;
+    background: url(../img/unsplash-crossrail-walk.jpg) no-repeat 50% 50%;
     background-size: cover;
     height: 220px;
     margin-bottom: 60px;
