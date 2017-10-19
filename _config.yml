@@ -1,4 +1,5 @@
 title: Spine Event Engine
+description: CQRS/ES framework for modern could applications
 
 kramdown:
   input: GFM
