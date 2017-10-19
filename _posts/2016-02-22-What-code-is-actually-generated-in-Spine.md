@@ -37,4 +37,4 @@ There are two parts of code per business failure that are generated.
 Unlike commands and events, failures are all gathered in the same enclosing class called Failures. This is done so because there's another piece of code related to a business failure.
 
 **Part 2:** a Java class derived from FailureThrowable. Each such class is top level class generated underfailures sub-package of the corresponding aggregate. Instances of the class would contain corresponding failure message.
-We generate these Throwable classes because Java does not support generic types for throwables. More on this read in  <a href ="http://docs.spine3.org/biz-model/failures.html" target ="_blank">Failures</a> and <a href ="http://docs.spine3.org/java/code-generation.hml" target ="_blank">Code Generation</a> chapters of the Spine documentation.
+We generate these Throwable classes because Java does not support generic types for throwables. More on this read in  <a href ="http://docs.spine.io/biz-model/failures.html" target ="_blank">Failures</a> and <a href ="http://docs.spine.io/java/code-generation.hml" target ="_blank">Code Generation</a> chapters of the Spine documentation.
