@@ -1,16 +1,15 @@
-# Site settings
 title: Spine Event Engine
-email: spine-developers@teamdev.com
-# description: > # this means to ignore newlines until "baseurl:"
 
-#url: "http://spine.io" # the base hostname & protocol for your site
-twitter_username: SpineEngine
-github_username:  SpineEventEngine
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
 
+markdown:
+  kramdown
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
+highlighter:
+  rouge
 
 baseurl:
 
@@ -19,4 +18,6 @@ githuburl: https://github.com/SpineEventEngine/SpineEventEngine.github.io/
 sass:
   style: compressed
 
-theme: jekyll-theme-cayman
+paginate_path: "/blog/page:num/"
+
+excerpt_separator: <!--more-->
