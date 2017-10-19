@@ -1,29 +1,39 @@
-<footer class="fullwidth footer-bg">
+<footer>
   <div class="container">
-
-    <div class="pull-left">
-      <h2>
-        <a class="footer-logo" href="https://www.teamdev.com/" target="_blank">
-          <img src="/img/TeamDevLogo-mono-white.png" alt="TeamDev">
-        </a>
-      </h2>
-      <p>Spine Event Engine is an open source product,<br>
-        created by TeamDev under Apache License, Version&nbsp;2.0</p>
+    <div class="left-links">
+      <img class="footer-logo" src="{{ site.baseurl }}/img/spine-logo.png" alt="Spine">
+      <p class="description">&copy; 2017 Spine Event Engine | CQRS/ES framework for modern cloud apps</p>
     </div>
-
-    <div class="pull-right icons-block">
-      <a href="#" target="_blank">
-        <i class="fa fa-google-plus"></i>
-      </a>
-      <a href="https://github.com/{{ site.data.social.github }}/" target="_blank">
-        <i class="fa fa-github"></i>
-      </a>
-      <a href="#" target="_blank">
-        <i class="fa fa-stack-overflow"></i>
-      </a>
-      <a href="https://twitter.com/{{ site.data.social.twitter }}" target="_blank">
-        <i class="fa fa-twitter"></i>
-      </a>
+    <div class="right-links">
+      <div class="col-md-4 col-sm-4 col-xs-12 footer-documentation">
+        <ul class="toggle">
+          <p class="right-link-headers">Documentation</p>
+          <li><a href="{{ site.baseurl }}/docs/"><p>Overview</p></a></li>
+          <li><a href="{{ site.baseurl }}/docs/quickstart"><p>Quick Start</p></a></li>
+          <li><a href="{{ site.baseurl }}/docs/guides"><p>Guides</p></a></li>
+          <li><a href="{{ site.baseurl }}/docs/tutorials"><p>Tutorials</p></a></li>
+          <li><a href="{{ site.baseurl }}/docs/reference"><p>API Reference</p></a></li>
+        </ul>
+      </div>
+      <hr class="footer-sections" />
+      <div class="col-md-3 col-sm-3 col-xs-12 footer-resources">
+        <ul class="toggle">
+          <p class="right-link-headers">Resources</p>
+          <li><a href="{{ site.baseurl }}/about"><p>About</p></a></li>
+          <li><a href="{{ site.baseurl }}/blog"><p>Blog</p></a></li>
+          <li><a href="{{ site.baseurl }}/faq"><p>FAQ</p></a></li>
+        </ul>
+      </div>
+      <hr class="footer-sections" />
+      <div class="col-md-5 col-sm-5 col-xs-12 footer-community">
+        <ul class="toggle">
+          <p class="right-link-headers">Community</p>
+          <li><a href="https://github.com/{{ site.data.social.github }}/" target="_blank"><p class="github community-links">Github</p></a></li>
+          <li><a href="https://twitter.com/{{ site.data.social.twitter }}" target="_blank"><p class="twitter community-links">Twitter</p></a></li>
+          <!--<li><a href="https://stackoverflow.com/tags/spine/" target="_blank"><p class="stack-overflow community-links">Stack Overflow</p></a></li>-->
+          <!--<li><a href="https://www.youtube.com/channel/abcd" target="_blank"><p class="youtube community-links">YouTube</p></a></li>-->
+        </ul>
+      </div>
     </div>
   </div>
 </footer>
