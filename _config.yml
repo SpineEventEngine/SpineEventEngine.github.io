@@ -1,6 +1,9 @@
 title: Spine Event Engine
 description: CQRS/ES framework for modern could applications
 
+twitter_username: SpineEngine
+github_username: SpineEventEngine
+
 kramdown:
   input: GFM
   hard_wrap: false
