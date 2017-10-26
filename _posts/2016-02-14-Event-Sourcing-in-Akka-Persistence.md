@@ -1,5 +1,7 @@
 ---
 layout: post
+title: Event Sourcing in Akka Persistence
+published: true
 ---
 
 The key concept behind Akka persistence is that only changes to an actor's internal state are persisted but never its current state directly (except for optional snapshots).

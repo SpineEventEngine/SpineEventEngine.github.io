@@ -1,8 +1,20 @@
 ---
-layout:  post
+layout: post
+title: What code is generated in Spine
+published: true
 ---
 
+TBD
+
 There are following code parts that are created during the build process:
+
+  1. Java classes
+  2. gRPC service implementations and stubs
+  3. Mapping from Proto types to Java classes
+  4. Command Validators
+  5. Business Failures
+
+<!--more-->
 
 ### 1. Java classes for:
 

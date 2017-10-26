@@ -22,6 +22,11 @@ githuburl: https://github.com/SpineEventEngine/SpineEventEngine.github.io/
 sass:
   style: compressed
 
+# Gems
+gems: [jekyll-paginate]
+
+paginate: 5
+
 paginate_path: "/blog/page:num/"
 
 excerpt_separator: <!--more-->
