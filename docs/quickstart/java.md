@@ -27,6 +27,7 @@ TBD
 ## What's next
 
 - TBD
-- TBD
+- Work through a more detailed tutorial in [Spine Basics: Java][]
 - TBD
 
+[Spine Basics: Java]:../tutorials/basic/java.html
