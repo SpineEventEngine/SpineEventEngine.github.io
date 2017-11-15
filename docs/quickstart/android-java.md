@@ -5,6 +5,9 @@ headline: Android Java Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---
+<p class="lead">Coming soon...</p>
+<hr>
+
 <p class="lead">This guide gets you started with Spine in Android Java with a simple
 working example.</p>
 
