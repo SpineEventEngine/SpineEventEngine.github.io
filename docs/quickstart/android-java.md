@@ -29,7 +29,7 @@ TBD
 
 TBD
 
-#### Connecting to the Hello World server via USB
+#### Connecting via USB
 
 To run the application on a physical device via USB debugging, you must
 configure USB port forwarding to allow the device to communicate with the server
@@ -47,7 +47,7 @@ listening on.
 Now you can run the Android Hello World app on your device, using `localhost`
 and `8080` as the `Host` and `Port`.
 
-#### Connecting to the Hello World server from an Android Virtual Device
+#### Connecting via Virtual Device
 
 To run the Hello World app on an Android Virtual Device, you don't need to
 enable port forwarding. Instead, the emulator can use the IP address
