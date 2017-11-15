@@ -282,7 +282,7 @@
 
   .slick-next {
     &:before {
-      background: url('../img/more-arrow.png') no-repeat center/cover;
+      background: url('../img/more-arrow.svg') no-repeat center/cover;
       content: '';
       display: inline-block;
       height: 25px;
@@ -296,7 +296,7 @@
     pointer-events: none;
 
     &:before {
-      background: url('../img/more-arrow.png') no-repeat center/cover;
+      background: url('../img/more-arrow.svg') no-repeat center/cover;
       content: '';
       display: inline-block;
       height: 25px;
