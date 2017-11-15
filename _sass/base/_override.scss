@@ -17,15 +17,16 @@ a:focus {
 
 a.external {
   &:after {
-    @extend .external-link-icon;
-    content: "";
-    margin-left: 5px;
+    content: "\025F9";
+    vertical-align: super;
+    font-size: smaller;
+    text-decoration: none;
     display: inline-block;
   }
 
   &:hover {
     &:after {
-      background: url('../img/external-link-dark.svg') no-repeat center/cover;
+      color: $secondBrandColor;
     }
   }
 }
