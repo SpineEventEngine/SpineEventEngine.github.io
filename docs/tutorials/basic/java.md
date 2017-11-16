@@ -13,10 +13,10 @@ working with Spine.</p>
 
 By walking through this example you'll learn how to:
 
-- Define events, commands, and rejections in .proto files.
-- Define state of aggregates, process managers, and projections in .proto files.
+- Define events, commands, and rejections in `.proto` files.
+- Define state of aggregates, process managers, and projections in `.proto` files.
 - Handle commands producing events.
-- Subscribe to events and build projections.
+- Subscribe to events and update projections.
 - TBD.
 
 <div id="toc"></div>
