@@ -1,3 +1,6 @@
+// Common navigation constants
+$currentItemCaret           : '\025B7  ';
+
 // Documentation Navigation Bar
 .doc-nav {
   display: block;
@@ -66,7 +69,7 @@
 
 	// Add caret to current page
 	.current:before{
-		content: '\025B7  ';
+		content: $currentItemCaret;
 	}
 
 	.doc-side-nav-title {
@@ -108,7 +111,7 @@
     color: $gray;
 
     &.active:before {
-      content: '> ';
+      content: $currentItemCaret;
     }
   }
 }
