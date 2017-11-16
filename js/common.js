@@ -95,6 +95,9 @@ $('a').filter(function() {
    return this.hostname && this.hostname !== location.hostname;
 }).addClass("external");
 
+// Remove external mark on Octocat icons, that already look external enough.
+$("i.fa-github-alt").parent().removeClass("external");
+
 //Set up tabs
 function setupTabs(rootElement) {
       rootElement = rootElement || document;
