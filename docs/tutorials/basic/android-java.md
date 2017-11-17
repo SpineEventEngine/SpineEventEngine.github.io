@@ -1,7 +1,7 @@
 ---
 layout: docs
 bodyclass: docs
-headline: gRPC Basics - Android Java
+headline: Spine Basics - Android Java
 sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---
@@ -23,7 +23,7 @@ familiar with:
  - The concepts of `Command`, `Event`, and `Projection`
  - TBD
 
-You can check the [Java guide](/docs/tutorials/basic/java.md) for more information.
+You can check the [Java guide](/docs/tutorials/basic/java.html) for more information.
 
 ## Why use Spine
 
