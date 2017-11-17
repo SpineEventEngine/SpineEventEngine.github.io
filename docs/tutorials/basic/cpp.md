@@ -1,7 +1,7 @@
 ---
-layout: docs
 bodyclass: docs
-headline: Spine Basics - Android Java
+layout: docs
+headline: Spine Basics - C++
 sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---
@@ -9,8 +9,8 @@ type: markdown
 <p class="lead">Coming soon...</p>
 <hr>
 
-<p class="lead">This tutorial provides a basic Android Java programmer's
-introduction to building a Spie-based client application.</p>
+<p class="lead">This tutorial provides a basic C++ programmer's introduction
+to creating a Spine-based client application.</p>
 
 By walking through this example you'll learn how to:
 
@@ -26,7 +26,7 @@ familiar with:
  - The concepts of `Command`, `Event`, and `Projection`
  - TBD
 
-You can check the [Java guide](/docs/tutorials/basic/java.html) for more information.
+<div id="toc"></div>
 
 ## Why use Spine
 
@@ -51,4 +51,5 @@ TBD
 ## Try it out!
 
 TBD
+
 
