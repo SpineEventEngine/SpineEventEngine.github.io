@@ -1,6 +1,6 @@
 ---
 bodyclass: docs
-headline: 'Spine Samples'
+headline: 'Spine Examples'
 layout: docs
 title: Examples
 type: markdown
@@ -10,8 +10,16 @@ type: markdown
 <p>If you want to see a bigger picture of a Spine-based application, have a look at
 <a target="_blank" href="https://github.com/SpineEventEngine/todo-list">ToDo List</a>.</p>
 
-<h3>Java</h3>
+## Java
 <ul>
     <li><a target="_blank" href="https://github.com/SpineEventEngine/examples-java/tree/master/hello-world">Hello World</a> — a minimal server-side app.</li>
     <li><a target="_blank" href="https://github.com/SpineEventEngine/examples-java/tree/master/server-examples/src/main/java/io/spine/examples/aggregate">Creating an aggregate</a> — shows how to define an aggregate which updates its state in response to commands.</li>
 </ul>
+
+## Android Java
+
+- TBD
+
+## C++
+
+- TBD
