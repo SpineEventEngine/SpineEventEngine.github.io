@@ -22,7 +22,7 @@ By walking through this example you'll learn how to:
 This tutorial assumes that you have read the [Overview](/docs/index.html) and are
 familiar with:
 
- - [Protocol buffers](https://developers.google.com/protocol-buffers/docs/overview)
+ - [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/overview)
  - The concepts of `Command`, `Event`, and `Projection`
  - TBD
 
