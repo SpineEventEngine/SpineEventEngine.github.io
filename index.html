@@ -23,8 +23,7 @@ title: Spine Event Engine
       <p class="col-sm-7">... rather than “plumbing”. A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
         <code>Projection</code>s will get all <code>Events</code> they need.
         <code>ProcessManagers</code> will cover more complex scenarios.
-        The framework also makes sure that data storage, message delivery, and other environment matters are isolated
-        from the business logic code.</p>
+        Storage, message delivery, and other environment matters are isolated from the main code.</p>
       <div class="col-sm-7">
         <a href="{{ site.baseurl }}/about#osp"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
       </div>
@@ -34,9 +33,8 @@ title: Spine Event Engine
   <div class="row" >
     <div class="col-md-11 nofloat center-block landing-row">
       <h3 class="col-sm-7 landing-row-title">Enjoy clear work separation</h3>
-      <p class="col-sm-7">Event-driven architecture allows more experienced developers to
-        work on the core domain, <code>Aggregates</code> and <code>ProcessManagers</code>.
-        The read-side models and <code>Projections</code> for them are created by the rest of the team.
+      <p class="col-sm-7">Allow more experienced developers to work on the core domain.
+        The read-side models and UI are created by the rest of the team.
         Developers don't add new database indexes or fields to core entities because of UI needs.</p>
       <div class="col-sm-7">
         <a href="{{ site.baseurl }}/docs/quickstart"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
