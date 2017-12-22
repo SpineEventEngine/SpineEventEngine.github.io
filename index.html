@@ -6,24 +6,25 @@ title: Spine Event Engine
 <div id="landing-content" class="container landing-content-container">
   <div class="row" >
     <div class="col-md-11 nofloat center-block landing-row">
-      <h3 class="col-sm-7 landing-row-title">Ubiquitous Language Accelerated</h3>
-      <p class="col-sm-7">Domain model language is Ubiquitous not only in people interactions,
-        but in computer communications, too. The model is defined and maintained in protobuf.
-        Most of the domain model code is automatically generated for all the programming languages of your project.</p>
+      <h3 class="col-sm-7 landing-row-title">Define rich, type-safe domain model</h3>
+      <p class="col-sm-7">Once, for all tiers and platforms. Don't mess with Json. DRY.</p>
       <div class="col-sm-7">
-        <a href="{{ site.baseurl }}/docs/guides/concepts.html#service-definition"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
+        <a href="{{ site.baseurl }}/docs/guides/concepts.html#model-definition">
+          <button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
       </div>
-      <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-1.svg" alt="Ubiquitous Language Accelerated">
+      <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-1.svg" alt="Define domain model">
     </div>
   </div>
 
   <div class="row" >
     <div class="col-md-11 nofloat center-block landing-row">
-      <img class="col-sm-5 landing-image" src="{{ site.baseurl }}/img/landing-2.svg" alt="Strongly Typed">
-      <h3 class="col-sm-7 landing-row-title">Strongly Typed Domain&nbsp;Model</h3>
-      <p class="col-sm-7">Unlike some CQRS/ES frameworks which treat commands and events as Json objects,
-        Spine promotes strong typing of all parts of a business model.
-        The model can be extended without breaking binary compatibility with client applications.</p>
+      <img class="col-sm-5 landing-image" src="{{ site.baseurl }}/img/landing-2.svg" alt="Focus on the business logic">
+      <h3 class="col-sm-7 landing-row-title">Focus on the business logic</h3>
+      <p class="col-sm-7">... rather than “plumbing”. A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
+        <code>Projection</code>s will get all <code>Events</code> they need.
+        <code>ProcessManagers</code> will cover more complex scenarios.
+        The framework also makes sure that data storage, message delivery, and other environment matters are isolated
+        from the business logic code.</p>
       <div class="col-sm-7">
         <a href="{{ site.baseurl }}/about#osp"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
       </div>
@@ -32,24 +33,50 @@ title: Spine Event Engine
 
   <div class="row" >
     <div class="col-md-11 nofloat center-block landing-row">
-      <h3 class="col-sm-7 landing-row-title">Choice of Storage and Deployment&nbsp;Platforms</h3>
-      <p class="col-sm-7">The framework promotes writing code which does not depend on storage media or deployment platform.
-        You can start with JDBC-based storage and later switch to Google Cloud Platform Datastore by changing one line of code.</p>
+      <h3 class="col-sm-7 landing-row-title">Enjoy clear work separation</h3>
+      <p class="col-sm-7">Event-driven architecture allows more experienced developers to
+        work on the core domain, <code>Aggregates</code> and <code>ProcessManagers</code>.
+        The read-side models and <code>Projections</code> for them are created by the rest of the team.
+        Developers don't add new database indexes or fields to core entities because of UI needs.</p>
       <div class="col-sm-7">
         <a href="{{ site.baseurl }}/docs/quickstart"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
       </div>
-      <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-3.svg" alt="Choice of Storage">
+      <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-3.svg" alt="Clear work separation">
     </div>
   </div>
 
   <div class="row" >
     <div class="col-md-11 nofloat center-block landing-row">
-      <img class="col-sm-5 landing-image" src="{{ site.baseurl }}/img/landing-4.svg" alt="Open Source">
+      <img class="col-sm-5 landing-image" src="{{ site.baseurl }}/img/landing-4.svg" alt="Start quickly">
+      <h3 class="col-sm-7 landing-row-title">Start quickly</h3>
+      <p class="col-sm-7">In-memory and JDBC-based storage implementations allow to implement and test the core logic
+        quickly. Adopt your application to selected deployment environment(s) with a few lines of code, added in one place.</p>
+      <div class="col-sm-7 col-sm-offset-5 col-sm-offset-0">
+        <a href="{{ site.baseurl }}/docs/guides/deploy.html"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" >
+    <div class="col-md-11 nofloat center-block landing-row">
+      <h3 class="col-sm-7 landing-row-title">Scale with micro-services</h3>
+      <p class="col-sm-7">CQRS architecture allows to scale read- and write- sides independently.
+        When further scaling is needed, Event-Driven Architecture allows to further separate and scale heavily loaded parts.</p>
+      <div class="col-sm-7">
+        <a href="{{ site.baseurl }}/docs/guides/scale.html"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
+      </div>
+      <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-5.svg" alt="Scale">
+    </div>
+  </div>
+
+  <div class="row" >
+    <div class="col-md-11 nofloat center-block landing-row">
+      <img class="col-sm-5 landing-image" src="{{ site.baseurl }}/img/landing-6.svg" alt="Open Source">
       <h3 class="col-sm-7 landing-row-title">Open Source</h3>
       <p class="col-sm-7">Permissive Apache License allows using the framework in closed-source projects.
-        You are welcome to contribute to the framework development.</p>
+        You are welcome to contribute to improving the framework development.</p>
       <div class="col-sm-7 col-sm-offset-5 col-sm-offset-0">
-        <a href="{{ site.baseurl }}/docs/guides/auth.html"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
+        <a href="{{ site.baseurl }}/contribute"><button class="btn btn-grpc waves-effect waves-light btn-read-more">READ MORE</button></a>
       </div>
     </div>
   </div>
