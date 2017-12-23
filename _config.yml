@@ -9,7 +9,7 @@ twitter_username: SpineEngine
 github_username: SpineEventEngine
 
 # Gems
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 # Conversion
 markdown:    kramdown
