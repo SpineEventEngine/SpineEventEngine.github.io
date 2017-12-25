@@ -13,7 +13,7 @@ type: markdown
 <p class="lead">This document introduces some key Event Sourcing concepts
 with an overview how they are used in a Spine-based application.</p>
 
-This document assumes that you've read [What is Spine?]({{site.baseurl}}/docs/guides).
+This document assumes that you've read the [Introduction]({{site.baseurl}}/docs/guides/introduction.html) guide.
 
 <div id="toc" class="toc mobile-toc"></div>
 

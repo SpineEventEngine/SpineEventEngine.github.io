@@ -1,7 +1,7 @@
 <ul class="doc-side-nav">
     {% assign current = page.url | downcase | split: '/' %}
     <li><h5 class="doc-side-nav-title">Guides</h5></li>
-    <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/index.html" {% if current[3] == 'index.html' %}class='current'{% endif %}>What is Spine?</a></li>
+    <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/introduction.html" {% if current[3] == 'introduction.html' %}class='current'{% endif %}>Introduction</a></li>
     <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/es-concepts.html" {% if current[3] == 'es-concepts.html' %}class='current'{% endif %}>Event Sourcing Concepts</a></li>
     <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/ddd-concepts.html" {% if current[3] == 'ddd-concepts.html' %}class='current'{% endif %}>DDD Concepts</a></li>
     <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/error.html" {% if current[3] == 'error.html' %}class='current'{% endif %}>Error handling and debugging</a></li>
