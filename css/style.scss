@@ -21,6 +21,8 @@
 @import "modules/_contribute-links";
 @import "modules/_subscribe-form";
 
+@import "materialize/materialize.scss";
+
 @import "pages/_blog";
 @import "pages/_docs";
 @import "pages/_faq";
@@ -28,4 +30,3 @@
 @import "pages/_about";
 @import "pages/_community";
 @import "pages/_contribute";
-@import "materialize/materialize.scss";

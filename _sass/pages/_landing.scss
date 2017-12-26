@@ -9,6 +9,10 @@
     padding-top: 90px;
   }
 
+  .row:nth-child(even){
+    background: $chip-bg-color;
+  }
+
   .landing-row {
     padding-top: 60px;
 
