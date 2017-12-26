@@ -7,7 +7,7 @@ body {
 
 a {
   color: $mainBrandColor;
-  font-weight: 350;
+  font-weight: 300;
 }
 
 a:hover,
@@ -49,8 +49,11 @@ p.note code {
 
 code {
   color: $codeColor;
-  background-color: $inverseBrandColor;
+  background-color: $codeBkColor;
   font-size: 14px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  padding: 2px 8px;
 }
 
 pre, pre.prettyprint {
