@@ -18,47 +18,47 @@ understand the basic [DDD, ES, and CQRS concepts]({{site.baseurl}}/docs/guides/c
 
 <div id="toc" class="toc mobile-toc"></div>
 
-# Event Storming
+## Event Storming
 
 TBD
 
-# Transforming Artifact into Code
+## Transforming Artifact into Code
 
 TBD
 
-## Defining Write-Side
+### Defining Write-Side
 
-### Events
-
-TBD
-
-### Commands
+#### Events
 
 TBD
 
-## Rejections
+#### Commands
 
 TBD
 
-## Defining State of Entities
-
-### Aggregates
+### Rejections
 
 TBD
 
-### Process Managers
+### Defining State of Entities
+
+#### Aggregates
 
 TBD
 
-## Defining Read-Side
+#### Process Managers
 
 TBD
 
-### Projections
+### Defining Read-Side
 
 TBD
 
-### Queries
+#### Projections
+
+TBD
+
+#### Queries
 
 TBD
 
