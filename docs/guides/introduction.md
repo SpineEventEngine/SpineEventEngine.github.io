@@ -7,8 +7,11 @@ title: Introduction
 type: markdown
 ---
 
-<p class="lead">This document introduces some key Event Sourcing concepts
-with an overview how they are used in a Spine-based application.</p>
+<p class="lead">Coming soon...</p>
+<hr>
+
+<p class="lead">This document gives overview of an architecture of
+a Spine-based application.</p>
 
 <div id="toc" class="toc mobile-toc"></div>
 
