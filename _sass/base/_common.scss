@@ -32,10 +32,16 @@
 .toc {
   border-left: 2px solid $light-gray;
   display: none !important;
-  padding: 0;
+  padding: 0 0 32px 24px;
+
+  &.blog-toc {padding: 48px 0px 32px 24px;}
 
   @media (min-width: 768px) {
       display: block !important;
+  }
+
+  .blog-toc-header {
+    margin-bottom: 8px;
   }
 
   ul {
