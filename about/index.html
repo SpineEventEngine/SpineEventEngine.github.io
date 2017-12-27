@@ -1,0 +1,108 @@
+---
+layout: default
+group: 'navigation'
+title: About
+bodyclass: about
+headline: 'About Spine'
+---
+<div class="container">
+    <div class="row">
+        <div class="col-md-11 nofloat center-block">
+            <div class="col-sm-12">
+                <section class="about-sections intro">
+                    <p class="about-max lead">Spine Event Engine is a framework for building modern cloud applications.
+                        It aims to free developers from creating boilerplate code as much as possible.
+                        Our framework is built on top of <a href="https://developers.google.com/protocol-buffers/" target="_blank">
+                            Protocol Buffers</a> and
+                        <a href="http://www.grpc.io/" target="_blank">gRPC</a> to make
+                        development of microservices much easier.</p>
+
+                    <p>The primary language of the backend is Java. Client applications and server-side modules can be
+                        written on JavaScript, Java, JavaNano (Android), Swift, Objective-C, C, C++, C#, Go, Python,
+                        Ruby, and PHP.
+                    </p>
+
+                    <h6 class="core-features-title">The main usage scenarios:</h6>
+                    <ul class="about-lists">
+                        <li><p>Connecting browser clients and mobile devices to backend services.</p></li>
+                        <li><p>Maintaining complex and evolving business logic.</p></li>
+                        <li><p>Integrating multi-platform and multi-language backend systems.</p></li>
+                    </ul>
+
+                    <h6 class="core-features-title">Core Features:</h6>
+                    <ul class="about-lists">
+                        <li><p><b>Strongly Typed Domain&nbsp;Model.</b>
+                            Spine promotes strong typing of all parts of a business model.
+                            You don't have to deal with Json.</p></li>
+
+                        <li><p><b>Model Extensibility.</b> Thanks to <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating" target="_blank">Protobuf support</a>,
+                            a model can be extended preserving backward compatibility with clients running older code.</p></li>
+
+                        <li><p><b>Built-in Validation.</b> Constrains defined in a business model are
+                            automatically checked for commands, events, and entity states.</p></li>
+
+                        <li><p><b>Code Generation.</b>
+                            The model is defined and maintained in Protobuf. The code is automatically generated
+                            for all the languages of your project, as you update the model.</p></li>
+
+                        <li><p><b>Promoted Immutability.</b> Messages like commands or events, entity state objects,
+                            query results, and many other business logic objects being immutable greatly simplify
+                            the code since they are automatically thread-safe, and as such are freely shared or
+                            referenced.</p></li>
+
+                        <li><p><b>Tracability and debuggability.</b>
+                            <a href="http://martinfowler.com/eaaDev/EventSourcing.html" target="_blank">Event Sourcing</a>
+                            makes it easier to analyze the history of business data evolution,
+                            and find causes if something goes wrong.</p>
+                        </li>
+
+                        <li><p><b>Easier and Faster Testing.</b> Since the code is storage-agnostic, unit tests are
+                            written and executed on an in-memory storage, which is much faster.
+                            Integration tests run for both in-memory and real storage which allows to spot possible
+                            timing issues.</p>
+                            </li>
+
+                        <li><p><b>Isolation of development responsibilities.</b>
+                            <a href="http://martinfowler.com/bliki/CQRS.html" target="_blank">CQRS</a> pattern
+                            allows to develop write- and read- sides of the backend independently.</p></li>
+
+                        <li><p><b>Easier scaling.</b> Thanks to CQRS pattern, read- and write- sides of the backend
+                            can be scaled independently, which reduces maintenance and license costs.</p></li>
+
+                        <li><p><b>Choice of Storage and Deployment&nbsp;Platforms.</b> The framework promotes writing
+                            storage- and platform-agnostic code. You can start with JDBC and later switch
+                            to Google Cloud Platform Datastore by changing few lines of code.</p></li>
+
+                        <li><p><b>Open Source.</b> Permissive Apache License allows using the framework in closed-source
+                            projects. You are welcome to contribute to the framework development.</p></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="section-divider" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-11 nofloat center-block">
+            <div class="col-sm-12">
+                <section class="about-sections story">
+                    <h5 class="about-max ">The story behind Spine</h5>
+                    <p class="about-max">
+                        We started working on the framework after two CQRS/ES projects. Having the experience of
+                        tons of manual work for creating commands, events, message handlers, delivering messages and
+                        data to web and mobile clients, we thought that there must be a more productive.</p>
+
+                    <p>Using existing CQRS/ES frameworks caused us to compromise on a number of things, including
+                        type safety, immutability, writing conversion code for inter-platform communications, etc.
+                        So in June 2015 we decided to build a tool for us and software developers like us.
+                    </p>
+                    <p class="more-story">For more background on why we created the framework, please read
+                        <a href="{{ site.baseurl }}/blog/motivation">Motivation and Design Principles blog post</a>.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

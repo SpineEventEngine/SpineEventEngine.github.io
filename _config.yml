@@ -1,22 +1,30 @@
-# Site settings
 title: Spine Event Engine
-email: spine-developers@teamdev.com
-# description: > # this means to ignore newlines until "baseurl:"
-
-#url: "http://spine3.org" # the base hostname & protocol for your site
-twitter_username: SpineEngine
-github_username:  SpineEventEngine
-
-
-# Build settings
-markdown: kramdown
-highlighter: rouge
+description: CQRS/ES framework for modern could applications
 
 baseurl:
 
 githuburl: https://github.com/SpineEventEngine/SpineEventEngine.github.io/
 
+twitter_username: SpineEngine
+github_username: SpineEventEngine
+
+# Gems
+plugins: [jekyll-paginate]
+
+# Conversion
+markdown:    kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+
 sass:
   style: compressed
 
-theme: jekyll-theme-cayman
+# Outputting
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
+

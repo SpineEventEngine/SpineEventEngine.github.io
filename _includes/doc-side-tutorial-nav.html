@@ -1,0 +1,13 @@
+<ul class="doc-side-nav doc-side-nav-tutorial">
+    {% assign current = page.url | downcase | split: '/' %}
+    <h5 class="doc-side-nav-title">Tutorial</h5>
+    <li class="submenu">
+        <h6 class="arrow-r">Basic</h6>
+        <div class="submenu-content">
+            <a class="submenu-link {% if current[4] == 'java.html' %}active{% endif %}" href="{{ site.baseurl }}/docs/tutorials/basic/java.html">Java</a>
+            <a class="submenu-link {% if current[4] == 'android-java.html' %}active{% endif %}" href="{{ site.baseurl }}/docs/tutorials/basic/android-java.html">Android Java</a>
+            <a class="submenu-link {% if current[4] == 'swift.html' %}active{% endif %}" href="{{ site.baseurl }}/docs/tutorials/basic/swift.html">Swift</a>
+            <a class="submenu-link {% if current[4] == 'cpp.html' %}active{% endif %}" href="{{ site.baseurl }}/docs/tutorials/basic/cpp.html">C++</a>
+        </div>
+    </li>
+</ul>
