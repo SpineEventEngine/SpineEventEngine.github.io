@@ -131,12 +131,14 @@
 
   .icon-caret {
     background: url('../img/caret.svg') no-repeat center/cover;
+    background-color: fade-out($white, 0.97);
     cursor: pointer;
-    height: 20px;
     position: absolute;
     right: $spacing--s;
-    top: 15px;
-    width: 45px;
+    top: 2px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
   }
 
   .nav-item {
