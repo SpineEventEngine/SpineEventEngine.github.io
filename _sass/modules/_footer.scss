@@ -30,6 +30,10 @@ footer {
       text-decoration-color: fade-out($white, 0.5);
     }
 
+    &:focus {
+      color: fade-out($white, 0.1);
+    }
+
     &::after {
       display: none;
     }
