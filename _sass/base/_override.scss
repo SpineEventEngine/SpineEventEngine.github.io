@@ -13,6 +13,7 @@ a {
 a:hover,
 a:focus {
   color: $linkHoverColor;
+  text-decoration-skip: ink;
 }
 
 a:focus {text-decoration: none;}

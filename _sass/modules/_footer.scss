@@ -27,6 +27,7 @@ footer {
     &:hover {
       text-decoration: underline;
       color: $white;
+      text-decoration-color: fade-out($white, 0.5);
     }
 
     &::after {
