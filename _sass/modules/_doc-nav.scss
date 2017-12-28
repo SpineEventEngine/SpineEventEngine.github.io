@@ -67,11 +67,6 @@ $currentItemCaret: '\025B7  ';
     padding: $spacing--xs 0 $spacing--xl;
   }
 
-  // Add caret to current page
-  .current:before {
-    content: $currentItemCaret;
-  }
-
   .doc-side-nav-title {
     padding: $spacing--s;
   }
@@ -85,7 +80,17 @@ $currentItemCaret: '\025B7  ';
       font-size: 13px;
       color: $dark-gray;
       font-weight: 400;
+
+      &.current {
+        font-weight: bold;
+        color: $linkHoverColor;
+      }
+
+      &:hover {
+        color: $linkHoverColor;
+      }
     }
+
   }
 }
 
