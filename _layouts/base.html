@@ -56,8 +56,13 @@
 </head>
 
 <body class={{page.bodyclass}}>
+  <div class="wrapper">
+    <div class="content">
+      {{ content }}
+    </div>
+    {% include footer.html %}
+  </div>
 
-  {{ content }}
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
   <script src="{{ site.baseurl }}/js/jquery.form.min.js"></script>
