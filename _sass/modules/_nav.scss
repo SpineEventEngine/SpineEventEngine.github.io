@@ -1,5 +1,5 @@
 // Top Static Nav
-#common-nav{
+#common-nav {
   background-color: transparent;
   padding-top: $spacing--xs;
 
@@ -26,7 +26,7 @@
   }
 
   @mixin underline() {
-    &:after{
+    &:after {
       background: $white;
       bottom: 8px;
       content: "";
@@ -37,7 +37,7 @@
       right: $spacing--xs;
     }
   }
-  
+
   .nav li a:active, .nav li a:focus, .nav li a:hover {
     background: initial;
     border-bottom: 0;
@@ -51,7 +51,7 @@
 
   .page-headline {
     color: $white;
-    font-weight: 300; 
+    font-weight: 300;
   }
 
   .nav-logo {
@@ -70,7 +70,7 @@
     margin-right: -6px;
   }
 
-  .nav .current{
+  .nav .current {
     @include underline();
   }
 }
@@ -79,7 +79,7 @@
 .arrow-r {
   cursor: pointer;
 
-  &::before{
+  &::before {
     font-family: monospace;
     font-size: 1.25em;
     font-weight: bold;
@@ -118,19 +118,19 @@
   @media (min-width: $tablet) {
     display: none;
   }
-  
+
   &.right {
     right: -300px;
   }
 
   &:not(.right) {
-    -webkit-box-shadow: -1px 0px 8px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: -1px 0px 8px 0px rgba(0,0,0,0.25);
-    box-shadow: -1px 0px 8px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.25);
   }
 
   .icon-caret {
-    background: url('../img/caret.svg') no-repeat center/cover;  
+    background: url('../img/caret.svg') no-repeat center/cover;
     cursor: pointer;
     height: 20px;
     position: absolute;
@@ -157,7 +157,7 @@
   }
 
   .doc-list {
-    
+
     li {
       display: none;
     }
@@ -184,7 +184,7 @@
     }
   }
   .icon-close {
-    background: url('../img/x.svg') no-repeat center/cover;  
+    background: url('../img/x.svg') no-repeat center/cover;
     cursor: pointer;
     height: 20px;
     position: absolute;
@@ -207,16 +207,18 @@
 }
 
 // Sticky Nav
-#sticky-nav{
-    @extend #common-nav;
-    background: url('../img/sticky-nav-bg.jpg') no-repeat center/cover;
-    position: fixed;    
-    width: 100%;
-    z-index: 9000;
-    top: -61px;
-    transition: $transition--secondary;
-    &.on-page {
-      top: 0;
-    }
+#sticky-nav {
+  @extend #common-nav;
+  background: url('../img/sticky-nav-bg.jpg') no-repeat center/cover;
+  position: fixed;
+  width: 100%;
+  z-index: 9000;
+  top: -61px;
+  transition: $transition--secondary;
+  padding-bottom: $spacing--xs;
+
+  &.on-page {
+    top: 0;
+  }
 }
 
