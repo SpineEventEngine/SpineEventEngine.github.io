@@ -45,6 +45,10 @@
     @include underline();
   }
 
+  .nav li a:focus {
+    color: fade-out($white, 0.2);
+  }
+
   .page-headline {
     color: $white;
     font-weight: 300; 
