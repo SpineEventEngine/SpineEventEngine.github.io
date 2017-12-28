@@ -15,6 +15,8 @@ a:focus {
   color: $linkHoverColor;
 }
 
+a:focus {text-decoration: none;}
+
 a.external {
   &:after {
     content: "\025F9";
