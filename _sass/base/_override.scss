@@ -13,11 +13,27 @@ a {
 a:hover,
 a:focus {
   color: $linkHoverColor;
+  text-decoration-skip: ink;
 }
+
+a:focus {text-decoration: none;}
 
 a.external {
   &:after {
-    content: "\025F9";
+    content: '\2192';
+    font-weight: 300;
+    width: 8px;
+    height: 8px;
+    overflow: hidden;
+    text-align: right;
+    line-height: 6px;
+    text-indent: -11px;
+    opacity: .6;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transition: opacity .16s ease-in;
+    transition: opacity .16s ease-in;
     vertical-align: super;
     font-size: smaller;
     text-decoration: none;

@@ -1,32 +1,32 @@
 // Common navigation constants
-$currentItemCaret           : '\025B7  ';
+$currentItemCaret: '\025B7  ';
 
 // Documentation Navigation Bar
 .doc-nav {
   display: block;
   margin-bottom: $spacing--xxxl;
   margin-top: $spacing--m;
-	.doc-caret {
-		margin-right: 10px;
-		@media (min-width: $tablet) {
-			display: none;
-		}
-	}
+  .doc-caret {
+    margin-right: 10px;
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
 
-	.tab {
-		display: inline-block;
+  .tab {
+    display: inline-block;
 
-		&.docs-tab a {
+    &.docs-tab a {
       border-bottom: 2px solid $gray;
       display: inline-block;
       font-weight: 300;
 
-			@media (min-width: $tablet) {
-				display: none;
-			}
-		}
+      @media (min-width: $tablet) {
+        display: none;
+      }
+    }
 
-		a {
+    a {
       border-bottom: 2px solid transparent;
       color: $gray;
       display: none;
@@ -35,58 +35,63 @@ $currentItemCaret           : '\025B7  ';
       letter-spacing: 0.5px;
       margin-right: 16px;
 
-			&:hover {
-				border-bottom: 2px solid $gray;
-			}
+      &:hover {
+        border-bottom: 2px solid $gray;
+      }
 
-			@media (min-width: $tablet) {
+      @media (min-width: $tablet) {
         display: inline-block;
         font-weight: 300;
-			}
-		}
+      }
+    }
 
-		.current {
+    .current {
       border-bottom: 2px solid $gray;
       color: $gray;
       display: inline-block;
 
-			@media (min-width: $tablet) {
-				border-bottom: 2px solid $secondBrandColor !important;
-				color: $secondBrandColor;
-			}
-		}
-	}
+      @media (min-width: $tablet) {
+        border-bottom: 2px solid $secondBrandColor !important;
+        color: $secondBrandColor;
+      }
+    }
+  }
 }
 
 // Documentation Side Navigation
 .doc-side-nav {
-	background-color: $light-gray;
-	margin-bottom: 20px;
-	@media (min-width: $tablet) {
+  background-color: $light-gray;
+  margin-bottom: 20px;
+  @media (min-width: $tablet) {
     margin-bottom: 0;
     padding: $spacing--xs 0 $spacing--xl;
-	}
+  }
 
-	// Add caret to current page
-	.current:before{
-		content: $currentItemCaret;
-	}
+  .doc-side-nav-title {
+    padding: $spacing--s;
+  }
 
-	.doc-side-nav-title {
-		padding: $spacing--s;
-	}
+  .doc-side-nav-list-item {
+    display: inline-block;
+    padding: 2px $spacing--s;
+    width: 100%;
 
-	.doc-side-nav-list-item {
-		display: inline-block;
-		padding: 2px $spacing--s;
-		width: 100%;
+    a {
+      font-size: 13px;
+      color: $dark-gray;
+      font-weight: 400;
 
-		a {
-			font-size: 13px;
-			color: $dark-gray;
-			font-weight: 400;
-		}
-	}
+      &.current {
+        font-weight: bold;
+        color: $linkHoverColor;
+      }
+
+      &:hover {
+        color: $linkHoverColor;
+      }
+    }
+
+  }
 }
 
 // Different styling for doc side nav for tutorial page with nested items
