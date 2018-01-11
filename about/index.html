@@ -61,24 +61,6 @@ headline: 'About Spine'
                             a multi-tenant one requires very few lines of code. You don't have to have <code>tenantId</code>
                             parameters for all the calls.</p></li>
 
-                        <li><p><b>Tracability and debuggability.</b>
-                            <a href="http://martinfowler.com/eaaDev/EventSourcing.html" target="_blank">Event Sourcing</a>
-                            makes it easier to analyze the history of business data evolution,
-                            and find causes if something goes wrong.</p></li>
-
-                        <li><p><b>Easier and Faster Testing.</b> Since the code is storage-agnostic, unit tests are
-                            written and executed on an in-memory storage, which is much faster.
-                            Integration tests run for both in-memory and real storage which allows to spot possible
-                            timing issues.</p>
-                        </li>
-
-                        <li><p><b>Isolation of development responsibilities.</b>
-                            <a href="http://martinfowler.com/bliki/CQRS.html" target="_blank">CQRS</a> pattern
-                            allows to develop write- and read- sides of the backend independently.</p></li>
-
-                        <li><p><b>Easier scaling.</b> Thanks to CQRS pattern, read- and write- sides of the backend
-                            can be scaled independently, which reduces maintenance and license costs.</p></li>
-
                         <li><p><b>Choice of Storage and Deployment&nbsp;Platforms.</b> The framework promotes writing
                             storage- and platform-agnostic code. You can start with JDBC and later switch
                             to Google Cloud Platform Datastore by changing few lines of code.</p></li>
