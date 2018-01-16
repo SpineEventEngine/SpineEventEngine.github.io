@@ -22,14 +22,21 @@ headline: 'About Spine'
                         Ruby, and PHP.
                     </p>
 
-                    <h6 class="core-features-title">The main usage scenarios:</h6>
-                    <ul class="about-lists">
-                        <li><p>Connecting browser clients and mobile devices to backend services.</p></li>
-                        <li><p>Maintaining complex and evolving business logic.</p></li>
-                        <li><p>Integrating multi-platform and multi-language backend systems.</p></li>
-                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
 
-                    <h6 class="core-features-title">Core Features:</h6>
+<hr class="section-divider" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-11 nofloat center-block">
+            <div class="col-sm-12">
+                <section class="about-sections intro">
+                    <h5 class="about-max ">Core Features</h5>
+
                     <ul class="about-lists">
                         <li><p><b>Strongly Typed Domain&nbsp;Model.</b>
                             Spine promotes strong typing of all parts of a business model.
@@ -50,24 +57,9 @@ headline: 'About Spine'
                             the code since they are automatically thread-safe, and as such are freely shared or
                             referenced.</p></li>
 
-                        <li><p><b>Tracability and debuggability.</b>
-                            <a href="http://martinfowler.com/eaaDev/EventSourcing.html" target="_blank">Event Sourcing</a>
-                            makes it easier to analyze the history of business data evolution,
-                            and find causes if something goes wrong.</p>
-                        </li>
-
-                        <li><p><b>Easier and Faster Testing.</b> Since the code is storage-agnostic, unit tests are
-                            written and executed on an in-memory storage, which is much faster.
-                            Integration tests run for both in-memory and real storage which allows to spot possible
-                            timing issues.</p>
-                            </li>
-
-                        <li><p><b>Isolation of development responsibilities.</b>
-                            <a href="http://martinfowler.com/bliki/CQRS.html" target="_blank">CQRS</a> pattern
-                            allows to develop write- and read- sides of the backend independently.</p></li>
-
-                        <li><p><b>Easier scaling.</b> Thanks to CQRS pattern, read- and write- sides of the backend
-                            can be scaled independently, which reduces maintenance and license costs.</p></li>
+                        <li><p><b>Multitenancy Support.</b> Transforming a single-tenant application into
+                            a multi-tenant one requires very few lines of code. You don't have to introduce
+                            <code>tenantId</code> parameters for all the calls.</p></li>
 
                         <li><p><b>Choice of Storage and Deployment&nbsp;Platforms.</b> The framework promotes writing
                             storage- and platform-agnostic code. You can start with JDBC and later switch
