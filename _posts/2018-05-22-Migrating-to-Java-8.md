@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blog is now live
+title: Migrating to Java 8
 published: true
 ---
 
