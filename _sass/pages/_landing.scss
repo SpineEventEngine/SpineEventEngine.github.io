@@ -71,7 +71,6 @@
 
 //Documentation call to action
 .doc-call-container {
-  //background-color: lighten($thirdBrandColor, 4%);
   background-color: $secondBrandColor;
   padding-bottom: 70px;
   padding-top: 70px;
@@ -90,11 +89,6 @@
     line-height: 1.5;
     color: rgba($white, 0.64);
   }
-
-  //.btn-doc-call {
-  //  font-size: 14px;
-  //  margin: 25px auto 45px;
-  //}
 
   .btn-doc-call-white {
     margin: 40px auto 0;

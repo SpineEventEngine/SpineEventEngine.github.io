@@ -137,8 +137,8 @@
   transition: all 0.34s ease-in-out;
 
   &:hover, &focus {
-    background-color: rgba(96, 196, 255, .2);
-    border: 1px solid rgb(96, 196, 255);
-    box-shadow: 0 5px 20px 0 rgba(9,83,140,0.28);
+    background-color: rgba($lightBlueColor, .2);
+    border: 1px solid $lightBlueColor;
+    box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
   }
 }
