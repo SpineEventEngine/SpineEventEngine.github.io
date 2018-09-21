@@ -3,6 +3,7 @@
 body {
   color: $textColor;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {

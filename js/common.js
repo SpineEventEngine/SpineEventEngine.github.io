@@ -206,6 +206,7 @@ $(document).ready(function() {
 
     $('.nav-doc-toggle').on('click', function(){
       $('.doc-list').toggleClass('active');
+      $(this).toggleClass('active');
     });
 
     $(window).on('resize',function(){

@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="57px" height="59px" viewBox="0 0 57 59" enable-background="new 0 0 57 59" xml:space="preserve">
-<polygon fill="#FFFFFF" points="39.436,21.061 37.314,18.939 28.5,27.754 19.686,18.939 17.564,21.061 26.379,29.875 17.564,38.689 
-	19.686,40.811 28.5,31.996 37.314,40.811 39.436,38.689 30.621,29.875 "/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="x" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M21.8388348,20.4246212 L28.5563492,27.1421356 C28.9468735,27.5326599 28.9468735,28.1658249 28.5563492,28.5563492 C28.1658249,28.9468735 27.5326599,28.9468735 27.1421356,28.5563492 L20.4246212,21.8388348 L13.7071068,28.5563492 C13.3165825,28.9468735 12.6834175,28.9468735 12.2928932,28.5563492 C11.9023689,28.1658249 11.9023689,27.5326599 12.2928932,27.1421356 L19.0104076,20.4246212 L12.2928932,13.7071068 C11.9023689,13.3165825 11.9023689,12.6834175 12.2928932,12.2928932 C12.6834175,11.9023689 13.3165825,11.9023689 13.7071068,12.2928932 L20.4246212,19.0104076 L27.1421356,12.2928932 C27.5326599,11.9023689 28.1658249,11.9023689 28.5563492,12.2928932 C28.9468735,12.6834175 28.9468735,13.3165825 28.5563492,13.7071068 L21.8388348,20.4246212 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
 </svg>

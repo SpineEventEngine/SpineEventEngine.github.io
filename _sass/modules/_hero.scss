@@ -1,6 +1,7 @@
 // Background for nav and hero
 .nav-hero-container {
-  background: url('../img/hero-bg.jpg') no-repeat center/cover;
+  /*background: url('../img/hero-bg.jpg') no-repeat center/cover;*/
+  background-color: $mainBrandColor;
   z-index: 9010;
   position: relative;
 }
@@ -28,6 +29,13 @@
     font-size: 18px;
     margin-top: 0;
     margin-bottom: $spacing--l;
-    font-weight: 200;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .hero-title {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    font-size: 56px;
   }
 }
