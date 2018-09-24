@@ -178,15 +178,16 @@
 
     &:hover {
 
-      a:first-child p {
+      a:first-child {
         text-decoration: none;
         color: rgba($white, 1);
         transition: all 0.4s ease-in-out;
       }
     }
 
-    p {
+    a {
       font-weight: 400;
+      font-size: 16px;
       line-height: 50px;
     }
   }
@@ -246,6 +247,7 @@
   a {
     color: rgba($white, 0.64);
   }
+
   a.current {
     text-decoration: underline;
     color: $white;
