@@ -41,21 +41,13 @@
     <li class="nav-item"><p><a href="{{ site.baseurl }}/docs/" {% if current[1] == 'docs' %}class='current'{% endif %}>Docs</a></p>
       <div class="nav-doc-toggle icon-caret"></div>
       <ul class="doc-list">
-        <a href="{{ site.baseurl }}/docs" {% if page.path == 'docs/index.html' %}class='current'{% endif %}><li class="nav-doc-tab">Overview</li></a>
-        <a href="{{ site.baseurl }}/docs/quickstart" {% if current[2] == 'quickstart' %}class='current'{% endif %}><li class="nav-doc-tab">Quick Start</li></a>
-        <a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}><li class="nav-doc-tab">Guides</li></a>
-        <a href="{{ site.baseurl }}/docs/tutorials" {% if current[2] == 'tutorials' %}class='current'{% endif %}><li class="nav-doc-tab">Tutorials</li></a>
-        <a href="{{ site.baseurl }}/docs/reference" {% if current[2] == 'reference' %}class='current'{% endif %}><li class="nav-doc-tab">Reference</li></a>
-        <a href="{{ site.baseurl }}/docs/examples" {% if current[2] == 'examples' %}class='current'{% endif %}><li class="nav-doc-tab">Examples</li></a>
+        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs" {% if page.path == 'docs/index.html' %}class='current'{% endif %}>Overview</a></li>
+        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2] == 'quickstart' %}class='current'{% endif %}>Quick Start</a></li>
+        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}>Guides</a></li>
+        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/tutorials" {% if current[2] == 'tutorials' %}class='current'{% endif %}>Tutorials</a></li>
+        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/reference" {% if current[2] == 'reference' %}class='current'{% endif %}>Reference</a></li>
+        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/examples" {% if current[2] == 'examples' %}class='current'{% endif %}>Examples</a></li>
       </ul>
-      <!--<ul class="doc-list">-->
-        <!--<li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs" {% if page.path == 'docs/index.html' %}class='current'{% endif %}>Overview</a></li>-->
-        <!--<li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2] == 'quickstart' %}class='current'{% endif %}>Quick Start</a></li>-->
-        <!--<li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}>Guides</a></li>-->
-        <!--<li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/tutorials" {% if current[2] == 'tutorials' %}class='current'{% endif %}>Tutorials</a></li>-->
-        <!--<li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/reference" {% if current[2] == 'reference' %}class='current'{% endif %}>Reference</a></li>-->
-        <!--<li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/examples" {% if current[2] == 'examples' %}class='current'{% endif %}>Examples</a></li>-->
-      <!--</ul>-->
     </li>
     <hr>
     <li class="nav-item"><p><a href="{{ site.baseurl }}/blog/" {% if current[1] == 'blog' %}class='current'{% endif %}>Blog</a></p></li>

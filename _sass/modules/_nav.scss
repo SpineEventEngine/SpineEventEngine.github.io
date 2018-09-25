@@ -176,19 +176,24 @@
     padding-left: $spacing--s;
     position: relative;
 
-    &:hover {
-
-      a:first-child {
-        text-decoration: none;
-        color: rgba($white, 1);
-        transition: all 0.4s ease-in-out;
-      }
-    }
-
     a {
       font-weight: 400;
       font-size: 16px;
       line-height: 50px;
+      color: rgba($white, 0.64);
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        color: rgba($white, 1);
+        padding-bottom: 2px;
+        border-bottom: 1px solid $white;
+      }
+    }
+
+    a.current {
+      padding-bottom: 2px;
+      border-bottom: 1px solid $white;
+      color: $white;
     }
   }
 
@@ -203,25 +208,34 @@
 
       li {
         display: block;
+        padding-left: $spacing--s;
       }
     }
 
     .nav-doc-tab {
-      color: rgba($white, 0.64);
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 1px;
-      line-height: 40px;
-      padding-left: $spacing--s;
+      a {
+        color: rgba($white, 0.64);
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 40px;
+        transition: all .3s ease-in-out;
 
-      &:hover {
-        text-decoration: none;
+        &:hover {
+          color: rgba($white, 1);
+          padding-bottom: 2px;
+          border-bottom: 1px solid $white;
+        }
+      }
+
+      a.current {
         color: rgba($white, 1);
-        transition: all 0.4s ease-in-out;
-        cursor: pointer;
+        padding-bottom: 2px;
+        border-bottom: 1px solid $white;
       }
     }
   }
+
   .icon-close {
     background: url('../img/x.svg') no-repeat center/cover;
     cursor: pointer;
@@ -242,15 +256,6 @@
   hr {
     margin: 0;
     border-top: 2px solid $footerColor;
-  }
-
-  a {
-    color: rgba($white, 0.64);
-  }
-
-  a.current {
-    text-decoration: underline;
-    color: $white;
   }
 }
 
