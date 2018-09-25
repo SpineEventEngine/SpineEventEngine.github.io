@@ -148,7 +148,7 @@ footer {
           opacity: 1;
           cursor: pointer;
           background-size: contain;
-          background-color: fade-out($white, 0.97);
+          background-color: fade-out($white, .97);
           border-radius: 50%;
         }
     }
@@ -179,7 +179,10 @@ footer {
     &.active {
       .right-link-headers {
         &:after {
+          opacity: 1;
           transform: rotate(180deg);
+          background-color: fade-out($white, .97);
+          border-radius: 50%;
         }
       }
     }

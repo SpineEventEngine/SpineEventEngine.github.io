@@ -156,18 +156,17 @@
     top: 2px;
     width: 40px;
     height: 40px;
+    transition: all .3s ease-in-out;
 
-    &:hover {
+    &:hover,
+    &.active {
       opacity: 1;
-      transition: all .15s ease-in-out;
+      background-color: fade-out($white, .97);
+      border-radius: 50%;
     }
 
     &.active {
       transform: rotate(180deg);
-      transition: all 0.25s ease-in-out;
-      opacity: 1;
-      background-color: fade-out($white, 0.97);
-      border-radius: 50%;
     }
   }
 
@@ -183,16 +182,11 @@
       color: rgba($white, 0.64);
       transition: all .3s ease-in-out;
 
-      &:hover {
+      &:hover,
+      &.current {
         color: rgba($white, 1);
         padding-bottom: 2px;
         border-bottom: 1px solid $white;
-      }
-
-      &.current {
-        padding-bottom: 2px;
-        border-bottom: 1px solid $white;
-        color: $white;
       }
     }
   }
@@ -221,12 +215,7 @@
         line-height: 40px;
         transition: all .3s ease-in-out;
 
-        &:hover {
-          color: rgba($white, 1);
-          padding-bottom: 2px;
-          border-bottom: 1px solid $white;
-        }
-
+        &:hover,
         &.current {
           color: rgba($white, 1);
           padding-bottom: 2px;
