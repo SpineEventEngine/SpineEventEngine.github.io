@@ -156,18 +156,17 @@
     top: 2px;
     width: 40px;
     height: 40px;
+    transition: all .3s ease-in-out;
 
-    &:hover {
+    &:hover,
+    &.active {
       opacity: 1;
-      transition: all .15s ease-in-out;
+      background-color: fade-out($white, .97);
+      border-radius: 50%;
     }
 
     &.active {
       transform: rotate(180deg);
-      transition: all 0.25s ease-in-out;
-      opacity: 1;
-      background-color: fade-out($white, 0.97);
-      border-radius: 50%;
     }
   }
 
@@ -176,18 +175,19 @@
     padding-left: $spacing--s;
     position: relative;
 
-    &:hover {
-
-      a:first-child p {
-        text-decoration: none;
-        color: rgba($white, 1);
-        transition: all 0.4s ease-in-out;
-      }
-    }
-
-    p {
+    a {
       font-weight: 400;
+      font-size: 16px;
       line-height: 50px;
+      color: rgba($white, 0.64);
+      transition: all .3s ease-in-out;
+
+      &:hover,
+      &.current {
+        color: rgba($white, 1);
+        padding-bottom: 2px;
+        border-bottom: 1px solid $white;
+      }
     }
   }
 
@@ -202,25 +202,29 @@
 
       li {
         display: block;
+        padding-left: $spacing--s;
       }
     }
 
     .nav-doc-tab {
-      color: rgba($white, 0.64);
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 1px;
-      line-height: 40px;
-      padding-left: $spacing--s;
+      a {
+        color: rgba($white, 0.64);
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 40px;
+        transition: all .3s ease-in-out;
 
-      &:hover {
-        text-decoration: none;
-        color: rgba($white, 1);
-        transition: all 0.4s ease-in-out;
-        cursor: pointer;
+        &:hover,
+        &.current {
+          color: rgba($white, 1);
+          padding-bottom: 2px;
+          border-bottom: 1px solid $white;
+        }
       }
     }
   }
+
   .icon-close {
     background: url('../img/x.svg') no-repeat center/cover;
     cursor: pointer;
@@ -241,14 +245,6 @@
   hr {
     margin: 0;
     border-top: 2px solid $footerColor;
-  }
-
-  a {
-    color: rgba($white, 0.64);
-  }
-  a.current {
-    text-decoration: underline;
-    color: $white;
   }
 }
 
