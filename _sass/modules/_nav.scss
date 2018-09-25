@@ -188,12 +188,12 @@
         padding-bottom: 2px;
         border-bottom: 1px solid $white;
       }
-    }
 
-    a.current {
-      padding-bottom: 2px;
-      border-bottom: 1px solid $white;
-      color: $white;
+      &.current {
+        padding-bottom: 2px;
+        border-bottom: 1px solid $white;
+        color: $white;
+      }
     }
   }
 
@@ -226,12 +226,12 @@
           padding-bottom: 2px;
           border-bottom: 1px solid $white;
         }
-      }
 
-      a.current {
-        color: rgba($white, 1);
-        padding-bottom: 2px;
-        border-bottom: 1px solid $white;
+        &.current {
+          color: rgba($white, 1);
+          padding-bottom: 2px;
+          border-bottom: 1px solid $white;
+        }
       }
     }
   }
