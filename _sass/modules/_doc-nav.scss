@@ -17,9 +17,10 @@ $currentItemCaret: '\025B7  ';
     display: inline-block;
 
     &.docs-tab a {
-      border-bottom: 2px solid $gray;
+      border-bottom: 1px solid $gray;
+      padding-bottom: 2px;
       display: inline-block;
-      font-weight: 300;
+      font-weight: 400;
 
       @media (min-width: $tablet) {
         display: none;
@@ -27,32 +28,39 @@ $currentItemCaret: '\025B7  ';
     }
 
     a {
-      border-bottom: 2px solid transparent;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 6px;
       color: $gray;
       display: none;
       font-size: .85rem;
       font-weight: 400;
       letter-spacing: 0.5px;
       margin-right: 16px;
+      transition: all .2s ease-in;
 
       &:hover {
-        border-bottom: 2px solid $gray;
+        border-bottom: 1px solid $black;
+        padding-bottom: 2px;
+        color: $black;
       }
 
       @media (min-width: $tablet) {
         display: inline-block;
-        font-weight: 300;
       }
     }
 
-    .current {
-      border-bottom: 2px solid $gray;
-      color: $gray;
+    .current,
+    .current:hover {
+      border-bottom: 1px solid $mainBrandColor;
+      padding-bottom: 2px;
+      color: $mainBrandColor;
       display: inline-block;
+      cursor: default;
 
       @media (min-width: $tablet) {
-        border-bottom: 2px solid $secondBrandColor !important;
-        color: $secondBrandColor;
+        border-bottom: 1px solid $mainBrandColor !important;
+        padding-bottom: 2px;
+        color: $mainBrandColor;
       }
     }
   }
