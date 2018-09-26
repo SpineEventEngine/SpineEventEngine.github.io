@@ -10,12 +10,12 @@ h2 {
   color: $black;
 }
 
-h3 {
-  font-size: $font-size--l;
-  letter-spacing: 1px;
-  font-weight: 300;
-  color: $black;
-}
+//h3 {
+//  font-size: $font-size--l;
+//  letter-spacing: 1px;
+//  font-weight: 300;
+//  color: $black;
+//}
 
 h4 {
   font-size: $font-size--l;
@@ -43,4 +43,11 @@ p {
 p.lead {
   font-size: 17px;
   font-weight: 400;
+}
+
+//New styles
+h3 {
+  font-size: $font-size--xl ;
+  font-weight: 500;
+  color: $black;
 }
