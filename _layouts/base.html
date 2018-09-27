@@ -87,6 +87,16 @@
   <script src="{{ site.baseurl }}/js/waves.js"></script>
   <script src="{{ site.baseurl }}/js/buttons.js"></script>
 
+  <!-- Automatic Copyright -->
+  <script>
+      function copyrightYear() {
+          var d = new Date();
+          var y = d.getFullYear();
+          document.getElementById("copyright").innerHTML = '&copy; ' + y;
+      }
+      copyrightYear();
+  </script>
+
   {% if page.path == 'blog/index.html' %}
   <script src="{{ site.baseurl }}/js/mc-validate.js"></script>
   {% endif %}
