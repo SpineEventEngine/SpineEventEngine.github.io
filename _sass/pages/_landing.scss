@@ -158,24 +158,40 @@
     text-align: center;
 
     li {
-      margin: 0 -3px;
+      //margin: 0 -3px;
+      margin-left: -7px;
       float: none;
       display: inline-block;
+
+      &:first-child {
+        a {
+          border-radius: 1.5rem 0 0 1.5rem;
+          border-left: 1px solid $tabsGrayColor;
+        }
+      }
+
+      &:last-child {
+        a {
+          border-radius: 0 1.5rem 1.5rem 0;
+        }
+      }
     }
 
     li a {
-      font-weight: 600;
-      font-size: 13px;
+      border: 1px solid $tabsGrayColor;
+      border-radius: 0;
+      //border-left: 0;
+      font-weight: 500;
+      font-size: 14px;
       letter-spacing: .2px;
-      text-transform: uppercase;
       color: rgba($black, .38);
       padding: 12px 32px 13px;
+      line-height: 1;
       transition: all .25s ease-in-out;
 
       &:hover {
         color: $mainBrandColor;
         background-color: transparent;
-        border-color: transparent;
       }
     }
 
@@ -186,32 +202,56 @@
         color: $mainBrandColor;
         background-color: rgba($mainBrandColor, .04);
         border: 1px solid #BFE4F8;
-        border-radius: 2px;
         cursor: default;
         transition: all .2s ease-in-out;
       }
+
+      &:first-child {
+        a {
+          border-radius: 1.5rem 0 0 1.5rem;
+        }
+      }
+
+      &:last-child {
+        a {
+          border-radius: 0 1.5rem 1.5rem 0;
+        }
+      }
     }
 
-    @media (max-width: 732px) {
+    @media (max-width: 680px) {
       padding: 0 24px;
 
       li a {
-        padding: 8px 18px 9px;
+        padding: 12px 20px 13px;
       }
     }
 
     @media (max-width: 568px) {
       li {
-        margin: 0 -3px 8px;
+        margin: 0 0 8px;
         width: 100%;
 
-        & a {
+        & a,
+        & a:first-child,
+        & a:last-child {
           border: 1px solid rgba($black, .12);
           border-radius: 2px;
+          padding: 12px 32px 13px;
 
           &:hover {
             color: $mainBrandColor;
             border: 1px solid rgba($black, .12);
+          }
+        }
+      }
+
+      li.active {
+        &:first-child,
+        &:last-child {
+          & a{
+            border-radius: 2px;
+            border: 1px solid #BFE4F8;
           }
         }
       }
