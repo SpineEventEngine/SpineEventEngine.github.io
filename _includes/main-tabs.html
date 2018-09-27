@@ -1,28 +1,25 @@
 <div id="main-tabs">
     <div class="row" >
         <div class="tabs-shadow">
-            <section class="container">
                 <div class="col-md-11 nofloat center-block landing-row" style="padding: 0;">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Developer</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Project Manager</a></li>
-                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                        <li role="presentation" class="active"><a href="#dev" aria-controls="home" role="tab" data-toggle="tab">Developer</a></li>
+                        <li role="presentation"><a href="#architect" aria-controls="profile" role="tab" data-toggle="tab">Lead / Architect</a></li>
+                        <li role="presentation"><a href="#manager" aria-controls="messages" role="tab" data-toggle="tab">Manager</a></li>
+                        <li role="presentation"><a href="#owner" aria-controls="settings" role="tab" data-toggle="tab">Owner / Stakeholder</a></li>
                     </ul>
                 </div>
-            </section>>
         </div>
 
         <!-- Tab panes -->
         <section class="container">
             <div class="col-md-7 nofloat center-block landing-row" style="padding: 0;">
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="home">{% include tabs/tab-dev.html %}</div>
-                    <div role="tabpanel" class="tab-pane" id="profile">tab-2</div>
-                    <div role="tabpanel" class="tab-pane" id="messages">tab-3</div>
-                    <div role="tabpanel" class="tab-pane" id="settings">tab-4</div>
+                    <div role="tabpanel" class="tab-pane active" id="dev">{% include tabs/tab-dev.html %}</div>
+                    <div role="tabpanel" class="tab-pane" id="architect">{% include tabs/tab-architect.html %}</div>
+                    <div role="tabpanel" class="tab-pane" id="manager">{% include tabs/tab-manager.html %}</div>
+                    <div role="tabpanel" class="tab-pane" id="owner">{% include tabs/tab-owner.html %}</div>
                 </div>
             </div>
         </section>
