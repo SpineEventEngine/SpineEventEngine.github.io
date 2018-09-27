@@ -185,7 +185,7 @@
       font-size: 14px;
       letter-spacing: .2px;
       color: rgba($black, .38);
-      padding: 12px 32px 13px;
+      padding: 12px 40px 13px;
       line-height: 1;
       transition: all .25s ease-in-out;
 
@@ -219,7 +219,7 @@
       }
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 744px) {
       padding: 0 24px;
 
       li a {
