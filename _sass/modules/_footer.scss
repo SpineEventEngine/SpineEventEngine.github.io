@@ -1,10 +1,10 @@
 // Footer
 footer {
   background-color: $footerColor;
-  box-shadow: 0px 500px 0px 500px $footerColor;
+  box-shadow: 0 500px 0 500px $footerColor;
   color: $white;
   overflow: hidden;
-  padding: 54px 0 0px;
+  padding: 54px 0 0;
   position: relative;
 
   @media (max-width: 767px) {
@@ -37,7 +37,7 @@ footer {
     }
 
     &:focus {
-      color: fade-out($white, 0.1);
+      color: fade-out($white, .1);
     }
 
     &::after {
@@ -265,5 +265,5 @@ footer {
 }
 
 .top-shadow {
-  box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16)
+  box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
 }

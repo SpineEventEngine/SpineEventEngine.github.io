@@ -25,6 +25,10 @@
       font-weight: 400;
       line-height: 1.7rem;
       color: $textColor;
+
+      &.landing-row-intro {
+        text-align: center;
+      }
     }
 
     h5 {
@@ -33,10 +37,12 @@
       color: $black;
       margin-bottom: 32px;
 
-      &.landing-row-intro {
-        color: rgba($black, .38);
+      &.landing-row-title {
+        font-size: 1.8rem;
+        color: $black;
         text-align: center;
         line-height: 1.5;
+        margin-bottom: 0;
       }
 
       & strong {
@@ -128,7 +134,7 @@
 //Main tabs
 #main-tabs {
 
-  margin-top: 32px;
+  margin-top: 48px;
 
   .tabs-shadow {
     background-color: $white;
