@@ -6,33 +6,15 @@
     content: " "; 
     margin-top: -1em;
     height: 1em;
-    visibility: hidden; 
+    visibility: hidden;
   }
 
   .doc-header {
     padding-top: 64px;
-    padding-bottom: 30px;
-  }
-  
-  .doc-description {
-    color: $dark-gray;
-    display: block;
-    margin: 0 0 40px;
+    padding-bottom: 24px;
 
-    p { 
-      font-size: 18px;
-      font-weight: 400;
-    }
-  }
-
-  .use-description {
-    color: $gray;
-    display: block;
-    margin: 20px 0;
-
-    p { 
-      font-size: 15px;
-      font-weight: 300;
+    @media (max-width: $phone-xlarge) {
+      padding-top: 48px;
     }
   }
 
@@ -130,9 +112,10 @@
     background-color: rgba($black, .03);
     border-radius: 4px;
     padding: 16px 24px;
-    margin: 0 12px;
+    margin: 16px 10px 0;
     p {
         font-size: 14px;
+        line-height: 1.5;
       }
   }
 }

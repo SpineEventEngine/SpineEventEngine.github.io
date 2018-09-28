@@ -2,42 +2,30 @@
 $currentItemCaret: '\025B7  ';
 
 // Documentation Navigation Bar
+.nav-mobile-toggle {
+  @media (max-width: $phone-xlarge){
+    display: none;
+  }
+}
+
 .doc-nav {
   display: block;
-  margin-bottom: $spacing--xxxl;
-  margin-top: $spacing--m;
-  .doc-caret {
-    margin-right: 10px;
-    @media (min-width: $tablet) {
-      display: none;
-    }
-  }
+  margin: $spacing--m 0;
 
   .tab {
     display: inline-block;
 
-    &.docs-tab a {
-      border-bottom: 1px solid $gray;
-      padding-bottom: 2px;
-      display: inline-block;
-      font-weight: 400;
-
-      @media (min-width: $tablet) {
-        display: none;
-      }
-    }
-
     a {
-      border-bottom: 1px solid transparent;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 16px;
       padding-bottom: 6px;
       color: $gray;
-      display: none;
       font-size: .85rem;
       font-weight: 400;
       letter-spacing: 0.5px;
-      margin-right: 16px;
+      border-bottom: 1px solid transparent;
       transition: all .2s ease-in;
-      text-decoration: none;
 
       &:hover {
         border-bottom: 1px solid $black;
@@ -45,23 +33,12 @@ $currentItemCaret: '\025B7  ';
         color: $black;
       }
 
-      @media (min-width: $tablet) {
-        display: inline-block;
-      }
-    }
-
-    .current,
-    .current:hover {
-      border-bottom: 1px solid $mainBrandColor;
-      padding-bottom: 2px;
-      color: $mainBrandColor;
-      display: inline-block;
-      cursor: default;
-
-      @media (min-width: $tablet) {
-        border-bottom: 1px solid $mainBrandColor !important;
+      &.current {
+        border-bottom: 1px solid $mainBrandColor;
         padding-bottom: 2px;
         color: $mainBrandColor;
+        display: inline-block;
+        cursor: default;
       }
     }
   }
