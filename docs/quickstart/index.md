@@ -6,14 +6,13 @@ title: Quick Start
 type: markdown
 sidenav: doc-side-quickstart-nav.html
 ---
-<p class="lead">
+<h2>
 Get started with Spine
-</p>
+</h2>
 
 <div id="toc" class="toc mobile-toc"></div>
 
 These pages show you how to get up and running in Spine.
-
 There is a Quick Start for a minimal server-side and client-side applications written in Java.
 
 There are also guides for clint-side applications written in other supported languages.

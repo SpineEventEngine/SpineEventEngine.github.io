@@ -10,7 +10,7 @@ $currentItemCaret: '\025B7  ';
 
 .doc-nav {
   display: block;
-  margin: $spacing--m 0;
+  margin: $spacing--m 0 40px;
 
   .tab {
     display: inline-block;
@@ -47,33 +47,49 @@ $currentItemCaret: '\025B7  ';
 // Documentation Side Navigation
 .doc-side-nav {
   background-color: $light-gray;
-  margin-bottom: 20px;
-  @media (min-width: $tablet) {
-    margin-bottom: 0;
-    padding: $spacing--xs 0 $spacing--xl;
+  border-radius: 4px;
+  padding: 24px 8px 40px;
+  margin-bottom: 32px;
+
+  @media (max-width: $phone-xlarge) {
+    margin-top: 16px;
   }
 
   .doc-side-nav-title {
-    padding: $spacing--s;
+    text-decoration: none;
+    display: block;
+    padding: 0 20px 13px;
+    font-size: 13px;
+    color: $black;
+    font-weight: 700;
+    transition: all .25s ease-in-out;
   }
 
-  .doc-side-nav-list-item {
+  li {
     display: inline-block;
-    padding: 2px $spacing--s;
     width: 100%;
 
     a {
+      text-decoration: none;
+      display: block;
+      padding: 11px 20px;
       font-size: 13px;
-      color: $dark-gray;
+      line-height: 18px;
+      color: $black;
       font-weight: 400;
+      transition: all .25s ease-in-out;
 
       &.current {
-        font-weight: bold;
-        color: $linkHoverColor;
+        font-weight: 700;
+        color: $mainBrandColor;
+        background-color: rgba($white, .8);
+        border-radius: 4px;
       }
 
       &:hover {
-        color: $linkHoverColor;
+        color: $mainBrandColor;
+        background-color: rgba($white, .5);
+        border-radius: 4px;
       }
     }
 

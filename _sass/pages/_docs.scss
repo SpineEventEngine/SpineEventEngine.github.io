@@ -112,7 +112,11 @@
     background-color: rgba($black, .03);
     border-radius: 4px;
     padding: 16px 24px;
-    margin: 16px 10px 0;
+    margin: 0 10px 0;
+
+    @media (max-width: $phone-xlarge){
+      margin-top: 16px;
+    }
     p {
         font-size: 14px;
         line-height: 1.5;
