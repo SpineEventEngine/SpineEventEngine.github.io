@@ -1,21 +1,10 @@
 // Landing page
 .landing-content-container {
   padding-bottom: 60px;
-  padding-top: 30px;
+  padding-top: 60px;
   position: relative;
 
-  @media (min-width: 767px) {
-    padding-bottom: 90px;
-    padding-top: 24px;
-  }
-
-  .row:nth-child(even){
-    background: $chip-bg-color;
-  }
-
   .landing-row {
-    padding-top: 60px;
-
     .landing-row-title {
       margin-bottom: 32px;
       text-align: center;
@@ -47,32 +36,6 @@
 
       & strong {
         color: $black;
-      }
-    }
-
-    @media (max-width: 767px) {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-
-      .landing-row-title {
-        margin: 0 auto 30px;
-        order: 1;
-      }
-
-      .landing-image {
-        margin: 0 auto 30px;
-        order: 2;
-      }
-
-      p {
-        margin: 0 auto;
-        order: 3;
-      }
-
-      div {
-        margin: 0 auto;
-        order: 4;
       }
     }
   }
@@ -216,9 +179,7 @@
       }
 
       &.active {
-        a,
-        & a:hover,
-        & a:focus {
+        a{
           color: $mainBrandColor;
           background-color: rgba($mainBrandColor, .04);
           border: 1px solid #BFE4F8;
@@ -231,10 +192,5 @@
 
   .tab-content {
     margin-top: 64px;
-
-    @media (max-width: 767px) {
-      text-align: left;
-      padding: 0 30px;
-    }
   }
 }
