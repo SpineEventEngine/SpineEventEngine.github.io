@@ -37,6 +37,7 @@ $currentItemCaret: '\025B7  ';
       letter-spacing: 0.5px;
       margin-right: 16px;
       transition: all .2s ease-in;
+      text-decoration: none;
 
       &:hover {
         border-bottom: 1px solid $black;

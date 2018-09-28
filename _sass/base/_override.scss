@@ -8,13 +8,15 @@ body {
 
 a {
   color: $mainBrandColor;
-  font-weight: 300;
+  font-weight: 400;
+  transition: all .3s ease-in-out;
 }
 
 a:hover,
 a:focus {
   color: $linkHoverColor;
-  text-decoration-skip: ink;
+  //text-decoration-skip: ink;
+  text-decoration: underline;
 }
 
 a:focus {text-decoration: none;}
@@ -52,7 +54,6 @@ a.disabled {
     color: #CCCCCC;
 }
 
-p,
 li {line-height: 22px;}
 
 p.note {
