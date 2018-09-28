@@ -68,8 +68,10 @@
   }
 
   .page-headline {
+    font-family: 'Roboto Mono', monospace;
+    font-size: $font-size--xl;
     color: $white;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .nav-logo {
