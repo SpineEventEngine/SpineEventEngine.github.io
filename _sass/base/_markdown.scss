@@ -1,5 +1,5 @@
 .markdown {
-  padding-bottom: 60px;
+  padding: 0 40px 60px;
   
   // Text Blocks
   p {
@@ -48,7 +48,9 @@
   }
 
   h1 {
-    color: $secondBrandColor;
+    color: $black;
+    margin-bottom: 24px;
+    margin-top: 16px;
   }
 
   // Section Headlines 
@@ -59,9 +61,9 @@
 
   // Section Headlines 
   h3 {
-    color: $dark-gray;
-    font-size: 18px;
-    font-weight: 300;
+    color: $black;
+    font-size: 22px;
+    font-weight: 400;
     letter-spacing: 1px;
     margin-bottom: 20px; 
     margin-top: 30px;

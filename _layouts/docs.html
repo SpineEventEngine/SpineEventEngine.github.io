@@ -39,4 +39,14 @@ bodyclass: docs
           {% endif %}
       {% endif %}
 
+<script>
+    var elementPosition = $('#toc').offset();
 
+    $(window).scroll(function(){
+        if($(window).scrollTop() > 10){
+            $('#toc').css('position','fixed').css('top','0');
+        } else {
+            $('#toc').css('position','static');
+        }
+    });
+</script>

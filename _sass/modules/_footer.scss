@@ -29,13 +29,12 @@ footer {
     line-height: 46px;
     color: rgba($white, .54);
     transition: all .3s ease-in-out;
-    border: transparent;
+    border-bottom: 1px solid transparent;
 
     &:hover {
       color: $white;
       padding-bottom: 2px;
-      //border-bottom: 1px solid $white;
-      border-bottom: 1px solid $lightBlueColor;
+      border-bottom-color: $lightBlueColor;
       text-decoration: none;
     }
 

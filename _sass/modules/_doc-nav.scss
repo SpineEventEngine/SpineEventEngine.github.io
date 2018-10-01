@@ -48,7 +48,7 @@ $currentItemCaret: '\025B7  ';
 .doc-side-nav {
   background-color: $light-gray;
   border-radius: 4px;
-  padding: 24px 8px 40px;
+  padding: 0 8px 40px;
   margin-bottom: 32px;
 
   @media (max-width: $phone-xlarge) {
@@ -56,13 +56,12 @@ $currentItemCaret: '\025B7  ';
   }
 
   .doc-side-nav-title {
-    text-decoration: none;
     display: block;
-    padding: 0 20px 13px;
-    font-size: 13px;
-    color: $black;
-    font-weight: 700;
-    transition: all .25s ease-in-out;
+    padding: 24px 20px 12px;
+    font-size: 12px;
+    color: rgba($black, .38);
+    font-weight: 500;
+    text-transform: uppercase;
   }
 
   li {
@@ -72,7 +71,7 @@ $currentItemCaret: '\025B7  ';
     a {
       text-decoration: none;
       display: block;
-      padding: 11px 20px;
+      padding: 8px 20px;
       font-size: 13px;
       line-height: 18px;
       color: $black;
@@ -82,14 +81,14 @@ $currentItemCaret: '\025B7  ';
       &.current {
         font-weight: 700;
         color: $mainBrandColor;
-        background-color: rgba($white, .8);
+        background-color: rgba($white, .87);
         border-radius: 4px;
       }
 
       &:hover {
         color: $mainBrandColor;
-        background-color: rgba($white, .5);
-        border-radius: 4px;
+        //background-color: rgba($white, .54);
+        //border-radius: 4px;
       }
     }
 

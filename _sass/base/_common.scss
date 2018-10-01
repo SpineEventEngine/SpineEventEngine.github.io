@@ -30,7 +30,7 @@
 }
 
 .toc {
-  border-left: 2px solid $light-gray;
+  border-left: 1px solid rgba($black, .12);
   display: none !important;
   padding: 0 0 0 12px;
 
@@ -46,22 +46,30 @@
     margin-bottom: 8px;
   }
 
+  >ul>li>a {
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 18px;
+  }
+
   ul {
     list-style-type: none !important;
-    padding-left: 10px;
+    padding-left: 9px;
     font-size: 12px;
-    font-weight: 500;
+
+    li {
+      line-height: 1.4;
+      margin-bottom: 18px;
+    }
 
     ul {
       font-weight: 400;
-      font-size: 11px;
     }
 
     a {
       color: $dark-gray;
-
       &:hover {
-        color: $linkHoverColor;
+        color:$mainBrandColor;
       }
     }
   }
