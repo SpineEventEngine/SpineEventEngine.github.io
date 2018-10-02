@@ -342,5 +342,13 @@ $.getScript("/js/jquery.collapsible.js", function(){
 
 $(function() {
 //Calls the tocify method on your HTML nav.
-    $("#toc").tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 85, extendPage: false });
+    $("#toc").tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 85, extendPage: false, highlightOnScroll: true });
+});
+
+// Remove class from the paren element when the child is active
+$(function() {
+    if ($('#doc-side-nav-inside a').hasClass('current')) {
+        var element = document.getElementById('side-nav-parent-item');
+        element.classList.remove('current');
+    }
 });

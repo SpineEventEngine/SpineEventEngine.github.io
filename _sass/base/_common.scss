@@ -29,17 +29,22 @@
   width: 100%;
 }
 
-#toc {
+.toc {
   border-left: 1px solid rgba($black, .12);
-  display: none !important;
   padding: 0 0 0 12px;
+  position: relative;
+  overflow: auto;
 
   &.blog-toc {
     margin: 48px 0 24px 0;
   }
 
-  @media (min-width: 768px) {
-    display: block !important;
+  &.fixed {
+    position:fixed;
+  }
+
+  @media (max-width: 1024px) {
+    display: none !important;
   }
 
   .blog-toc-header {
@@ -60,17 +65,20 @@
     li {
       line-height: 1.4;
       margin-bottom: 18px;
-    }
 
-    ul {
-      font-weight: 400;
+      &.active {
+         a {
+           color: $mainBrandColor;
+         }
+       }
     }
 
     a {
-      color: $dark-gray;
+      color: rgba($black, .54);
+      font-weight: 400;
       padding: 0;
       &:hover {
-        color:$mainBrandColor;
+        color:$black;
         background: none;
       }
     }

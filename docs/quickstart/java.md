@@ -6,10 +6,6 @@ sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---
 
-<div id="toc"></div>
-
-# Before you begin
-
 <p>This guide gets you started with minimal server-side application in Java with a simple
 working example.</p>
 
@@ -17,7 +13,7 @@ working example.</p>
 
 ### Prerequisites
 
-* `JDK`: version 7 or higher
+* `JDK` : version 7 or higher
 
 ## Download the example
 

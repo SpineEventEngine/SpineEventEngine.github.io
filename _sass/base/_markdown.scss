@@ -1,5 +1,6 @@
 .markdown {
   padding: 0 40px 60px;
+  //padding-bottom: 60px;
   
   // Text Blocks
   p {
@@ -9,6 +10,14 @@
     @media (min-width: $tablet) {
       margin: 20px 0;
     }
+  }
+
+  //Coming soon section
+  p.coming-soon {
+    color: rgba($black, .26);
+    font-weight: 500;
+    padding-bottom: 24px;
+    margin: 0;
   }
   
   em { 
@@ -28,15 +37,29 @@
     line-height: 24px;
   }
 
-  // Lists
   ol,
   ul {
-    list-style: initial;
-    list-style-position: disc outside;
+    list-style: none;
     font-size: 15px;
-    font-weight: 300;
-    margin-left: 1em;
-    margin: 0 20px;
+    line-height: 1.5;
+
+    li {
+      position: relative;
+      margin-left: 18px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        left: -18px;
+        top: 40%;
+        border-radius: 50%;
+        background: #C3CBD7;
+      }
+    }
 
     @media (max-width: 768px) {
       margin: 0;
@@ -55,26 +78,25 @@
 
   // Section Headlines 
   h2 {
+    padding-top: 40px;
     margin-bottom: 24px;
-    margin-top: 16px;
   }
 
   // Section Headlines 
   h3 {
     color: $black;
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    margin-bottom: 20px; 
-    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 16px;
+    margin-bottom: 20px;
   }
 
   // Section Subheadlines
   h4 {
-    margin: 30px 0 20px;
-    font-size: 16px;
-    font-weight: 300;
-    color: $dark-gray;
+    margin: 40px 0 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $black;
     
     // Text immediately following h4 should have same level of indention  
     + p {
@@ -94,10 +116,21 @@
     }
   }
 
-  // Lead Text Block
+   //Lead Text Block
   .lead {
     margin: 0 0 30px;
-    color: $dark-gray;
-    font-size: 18px;
+    color: $textColor;
+    font-size: 16px;
+    font-weight: 500;
   }
+
+  // Lead Text Gray
+  //.lead {
+  //  margin: 8px 0 24px;
+  //  color: rgba($black, .54);
+  //  font-size: 16px;
+  //  font-weight: 400;
+  //  border-left: 2px solid rgba($black, .12);
+  //  padding-left: 16px;
+  //}
 }

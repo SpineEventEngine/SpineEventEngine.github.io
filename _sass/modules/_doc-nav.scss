@@ -44,11 +44,17 @@ $currentItemCaret: '\025B7  ';
   }
 }
 
+.doc-side-nav-col {
+  @media (min-width: $tablet) {
+    max-width: 240px;
+  }
+}
+
 // Documentation Side Navigation
 .doc-side-nav {
   background-color: $light-gray;
   border-radius: 4px;
-  padding: 0 8px 40px;
+  padding: 8px 8px 48px;
   margin-bottom: 32px;
 
   @media (max-width: $phone-xlarge) {

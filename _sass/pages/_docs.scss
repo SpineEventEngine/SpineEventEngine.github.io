@@ -1,14 +1,5 @@
 // Docs layout specific
 .docs {
-  
-  *[id]:before { 
-    display: block; 
-    content: " "; 
-    margin-top: -1em;
-    height: 1em;
-    visibility: hidden;
-  }
-
   .doc-header {
     padding-top: 64px;
     padding-bottom: 24px;
@@ -109,7 +100,7 @@
   }
 
   .reworking-message {
-    background-color: rgba($black, .03);
+    background-color: $light-gray;
     border-radius: 4px;
     padding: 16px 24px;
     margin: 0 10px 0;
@@ -118,8 +109,8 @@
       margin-top: 16px;
     }
     p {
-        font-size: 14px;
-        line-height: 1.5;
-      }
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
 }
