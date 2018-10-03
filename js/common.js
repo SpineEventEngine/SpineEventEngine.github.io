@@ -342,7 +342,7 @@ $.getScript("/js/jquery.collapsible.js", function(){
 
 $(function() {
 //Calls the tocify method on your HTML nav.
-    $("#toc").tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 85, extendPage: false, highlightOnScroll: true });
+    $("#toc").tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 85, extendPage: false});
 });
 
 // Remove class from the paren element when the child is active
@@ -352,3 +352,17 @@ $(function() {
         element.classList.remove('current');
     }
 });
+
+//Fix TOC navigation on page while scrolling
+window.onscroll = function() {myFunction()};
+
+var tocNav = document.getElementById("toc");
+var sticky = tocNav.offsetTop;
+
+function myFunction() {
+    if (window.pageYOffset > 118) {
+        tocNav.classList.add("sticky");
+    } else {
+        tocNav.classList.remove("sticky");
+    }
+}

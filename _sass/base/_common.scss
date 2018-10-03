@@ -30,17 +30,18 @@
 }
 
 .toc {
-  border-left: 1px solid rgba($black, .12);
   padding: 0 0 0 12px;
   position: relative;
   overflow: auto;
+  min-width: 240px;
 
   &.blog-toc {
     margin: 48px 0 24px 0;
   }
 
-  &.fixed {
+  &.sticky {
     position:fixed;
+    margin-top: -120px;
   }
 
   @media (max-width: 1024px) {
