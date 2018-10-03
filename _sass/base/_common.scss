@@ -76,8 +76,9 @@
 
     a {
       color: rgba($black, .54);
-      font-weight: 400;
+      font-weight: 500;
       padding: 0;
+      letter-spacing: 0.05px;
       &:hover {
         color:$black;
         background: none;

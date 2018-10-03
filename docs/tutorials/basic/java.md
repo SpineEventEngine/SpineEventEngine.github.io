@@ -5,11 +5,11 @@ headline: Spine Basics - Java
 sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---
-<p class="lead">Coming soon...</p>
-<hr>
+<p class="coming-soon">Coming soon...</p>
 
 <p class="lead">This tutorial provides a basic Java programmer's introduction to
 working with Spine.</p>
+<hr>
 
 By walking through this example you'll learn how to:
 
@@ -18,8 +18,6 @@ By walking through this example you'll learn how to:
 - Handle commands producing events.
 - Subscribe to events and update projections.
 - TBD.
-
-<div id="toc"></div>
 
 ## Why use Spine Event Engine?
 

@@ -357,7 +357,6 @@ $(function() {
 window.onscroll = function() {myFunction()};
 
 var tocNav = document.getElementById("toc");
-var sticky = tocNav.offsetTop;
 
 function myFunction() {
     if (window.pageYOffset > 118) {

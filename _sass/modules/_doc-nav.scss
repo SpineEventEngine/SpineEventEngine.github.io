@@ -57,8 +57,9 @@ $currentItemCaret: '\025B7  ';
   padding: 8px 8px 48px;
   margin-bottom: 32px;
 
-  @media (max-width: $phone-xlarge) {
-    margin-top: 16px;
+  @media (max-width: $tablet) {
+    margin: 16px 0;
+    padding-bottom: 24px;
   }
 
   .doc-side-nav-title {
@@ -68,6 +69,14 @@ $currentItemCaret: '\025B7  ';
     color: rgba($black, .38);
     font-weight: 500;
     text-transform: uppercase;
+  }
+
+  .doc-side-nav-sub-title {
+    display: block;
+    padding: 24px 20px 8px;
+    font-size: 12px;
+    color: rgba($black, .38);
+    font-weight: 700;
   }
 
   li {
@@ -93,8 +102,6 @@ $currentItemCaret: '\025B7  ';
 
       &:hover {
         color: $mainBrandColor;
-        //background-color: rgba($white, .54);
-        //border-radius: 4px;
       }
     }
 

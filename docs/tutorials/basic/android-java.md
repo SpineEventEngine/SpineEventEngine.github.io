@@ -6,11 +6,12 @@ sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---
 
-<p class="lead">Coming soon...</p>
-<hr>
+<p class="coming-soon">Coming soon...</p>
 
-<p class="lead">This tutorial provides a basic Android Java programmer's
+<p>This tutorial provides a basic Android Java programmer's
 introduction to building a Spie-based client application.</p>
+
+<hr>
 
 By walking through this example you'll learn how to:
 

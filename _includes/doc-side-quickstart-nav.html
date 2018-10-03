@@ -2,10 +2,12 @@
     {% assign current = page.url | downcase | split: '/' %}
     <li class="doc-side-nav-title">Quick Start</li>
     <li><a id="side-nav-parent-item" href="{{ site.baseurl }}/docs/quickstart" {% if current[2] == 'quickstart' %}class='current'{% endif %}>Get started</a></li>
-    <ul id="doc-side-nav-inside">
-        <li><a href="{{ site.baseurl }}/docs/quickstart/java.html" {% if current[3] == 'java.html' %}class='current'{% endif %}>Java</a></li>
-        <li><a href="{{ site.baseurl }}/docs/quickstart/android-java.html" {% if current[3] == 'android-java.html' %}class='current'{% endif %}>Android Java</a></li>
-        <li><a href="{{ site.baseurl }}/docs/quickstart/cpp.html" {% if current[3] == 'cpp.html' %}class='current'{% endif %}>C++</a></li>
-        <li><a href="{{ site.baseurl }}/docs/quickstart/swift.html" {% if current[3] == 'swift.html' %}class='current'{% endif %}>Swift</a></li>
-    </ul>
+    <li>
+        <ul id="doc-side-nav-inside">
+            <li><a href="{{ site.baseurl }}/docs/quickstart/java.html" {% if current[3] == 'java.html' %}class='current'{% endif %}>Java</a></li>
+            <li><a href="{{ site.baseurl }}/docs/quickstart/android-java.html" {% if current[3] == 'android-java.html' %}class='current'{% endif %}>Android Java</a></li>
+            <li><a href="{{ site.baseurl }}/docs/quickstart/cpp.html" {% if current[3] == 'cpp.html' %}class='current'{% endif %}>C++</a></li>
+            <li><a href="{{ site.baseurl }}/docs/quickstart/swift.html" {% if current[3] == 'swift.html' %}class='current'{% endif %}>Swift</a></li>
+        </ul>
+    </li>
 </ul>
