@@ -44,6 +44,10 @@
     margin-top: -120px;
   }
 
+  &.hide-block {
+    display: none !important;
+  }
+
   @media (max-width: 1024px) {
     display: none !important;
   }

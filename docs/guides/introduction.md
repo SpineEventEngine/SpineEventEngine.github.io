@@ -12,7 +12,7 @@ type: markdown
 <p>This document gives overview of an architecture of
 a Spine-based application.</p>
 
-<div id="toc" class="toc mobile-toc"></div>
+<div id="toc" class="toc hide-block"></div>
 
 ## Overview
 
