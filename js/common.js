@@ -255,13 +255,17 @@ $(function() {
 
 //Fix TOC navigation on page while scrolling
 window.onscroll = function() {FixToc()};
+var tocNav = $('#toc');
 
-var tocNav = document.getElementById("toc");
 function FixToc() {
-    //offsetTop of the TOC - 120px = 118px
-    if (window.pageYOffset > 118) {
-        tocNav.classList.add("sticky");
-    } else {
-        tocNav.classList.remove("sticky");
+    if (tocNav.length > 0) {
+        //offsetTop of the TOC - 120px = 118px
+        if (window.pageYOffset > 118) {
+            tocNav.addClass("sticky");
+        }
+        else {
+            tocNav.removeClass("sticky");
+        }
     }
 }
+
