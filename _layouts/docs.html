@@ -11,15 +11,15 @@ bodyclass: docs
           <div class="container">
             <div class="row">
               <div class="col-md-11 nofloat center-block ">
-                <div class="col-sm-3">
-                  {% include {{page.sidenav}} %}
-                </div>
-                <div class="col-sm-7 {{ page.type }}">
-                  {{ content }}
-                </div>
-
-                <div id="toc" class="toc col-sm-2">
-                </div>
+                      <div class="col-sm-3 doc-side-nav-col">
+                          {% include {{page.sidenav}} %}
+                      </div>
+                      <div class="col-sm-7 {{ page.type }}">
+                          {{ content }}
+                      </div>
+                      <div class="col-sm-2">
+                          <div id="toc" class="toc"></div>
+                      </div>
               </div>
             </div>
           </div>
@@ -28,9 +28,9 @@ bodyclass: docs
               <div class="container {{ page.type }}">
                 <div class="row">
                   <div class="col-md-11 nofloat center-block ">
-                    <div class="col-sm-12">
-                      {{ content }}
-                    </div>
+                      <div class="col-md-7">
+                        {{ content }}
+                      </div>
                   </div>
                 </div>
               </div>
@@ -38,5 +38,3 @@ bodyclass: docs
               {{ content }}
           {% endif %}
       {% endif %}
-
-

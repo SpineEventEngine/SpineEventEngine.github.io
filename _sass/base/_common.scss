@@ -30,38 +30,62 @@
 }
 
 .toc {
-  border-left: 2px solid $light-gray;
-  display: none !important;
   padding: 0 0 0 12px;
+  position: relative;
+  overflow: auto;
+  min-width: 240px;
 
   &.blog-toc {
     margin: 48px 0 24px 0;
   }
 
-  @media (min-width: 768px) {
-    display: block !important;
+  &.sticky {
+    position:fixed;
+    margin-top: -120px;
+  }
+
+  &.hide-block {
+    display: none !important;
+  }
+
+  @media (max-width: 1024px) {
+    display: none !important;
   }
 
   .blog-toc-header {
     margin-bottom: 8px;
   }
 
+  >ul>li>a {
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 18px;
+  }
+
   ul {
     list-style-type: none !important;
-    padding-left: 10px;
+    padding-left: 9px;
     font-size: 12px;
-    font-weight: 500;
 
-    ul {
-      font-weight: 400;
-      font-size: 11px;
+    li {
+      line-height: 1.4;
+      margin-bottom: 18px;
+
+      &.active {
+         a {
+           color: $mainBrandColor;
+         }
+       }
     }
 
     a {
-      color: $dark-gray;
-
+      color: rgba($black, .54);
+      font-weight: 500;
+      padding: 0;
+      letter-spacing: 0.05px;
       &:hover {
-        color: $linkHoverColor;
+        color:$black;
+        background: none;
       }
     }
   }
@@ -91,4 +115,19 @@ table {
 
 th {
   background-color: $thirdBrandColor;
+}
+
+.info-block {
+  background-color: $light-gray;
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin: 0 10px 0;
+
+  @media (max-width: $phone-xlarge){
+    margin-top: 16px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
 }

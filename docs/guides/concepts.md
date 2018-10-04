@@ -7,15 +7,12 @@ title: Event Sourcing Concepts
 type: markdown
 ---
 
-<p class="lead">Coming soon...</p>
-<hr>
+<p class="coming-soon">Coming soon...</p>
 
-<p class="lead">This document introduces some key Event Sourcing concepts
+<p>This document introduces some key Event Sourcing concepts
 with an overview how they are used in a Spine-based application.</p>
-
+<hr>
 This document assumes that you've read the [Introduction]({{site.baseurl}}/docs/guides/introduction.html) guide.
-
-<div id="toc" class="toc mobile-toc"></div>
 
 ## Overview
 

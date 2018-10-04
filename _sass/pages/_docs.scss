@@ -1,38 +1,11 @@
 // Docs layout specific
 .docs {
-  
-  *[id]:before { 
-    display: block; 
-    content: " "; 
-    margin-top: -1em;
-    height: 1em;
-    visibility: hidden; 
-  }
-
   .doc-header {
-    padding-bottom: 30px;
-    padding-top: 30px;
-  }
-  
-  .doc-description {
-    color: $dark-gray;
-    display: block;
-    margin: 0 0 40px;
+    padding-top: 64px;
+    padding-bottom: 24px;
 
-    p { 
-      font-size: 18px;
-      font-weight: 400;
-    }
-  }
-
-  .use-description {
-    color: $gray;
-    display: block;
-    margin: 20px 0;
-
-    p { 
-      font-size: 15px;
-      font-weight: 300;
+    @media (max-width: $phone-xlarge) {
+      padding-top: 48px;
     }
   }
 
@@ -44,29 +17,85 @@
   .lang-card {
     display: inline-block;
     margin: 0 1% 30px;
-    text-align: center;
-    vertical-align: top;
+    padding: 24px 24px 32px;
     width: 30%;
+    background-image: linear-gradient(-180deg, $white 0%, #FAFAFA 100%);
+    box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
+    border-radius: 4px;
 
-    @media (max-width: $tablet) {
-      margin: 20px 1%;
-      padding: 6px 10px;
+    @media (max-width: $desktop-small) {
       width: 47%;
+    }
+
+    @media (max-width: $phone-xlarge) {
+      width: 98%;
     }
     
     .lang-card-title {
-      background: $light-gray;
       color: $dark-gray;
-      margin-bottom: 4px;
-      padding: 8px;
-      text-align: left;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    @mixin lang-icon($image-url) {
+      &::before {
+        content: '';
+        display: inline-block;
+        background: url($image-url) no-repeat center/cover;
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        margin: 0 16px 0 0;
+      }
+    }
+
+    .icon-java {
+      @include lang-icon('../img/icon-java.svg');
+    }
+
+    .icon-android {
+      @include lang-icon('../img/icon-android.svg');
+    }
+
+    .icon-cpp {
+      @include lang-icon('../img/icon-cpp.svg');
+    }
+
+    .icon-swift {
+      @include lang-icon('../img/icon-swift.svg');
     }
 
     .lang-card-link {
-      display: block;
-      font-size: 14px;
-      padding: 8px;
-      text-align: left;
+      padding-left: 40px;
+
+      li {
+        margin-bottom: 12px;
+
+        @media (max-width: $phone-xlarge){
+          margin-bottom: 14px;
+        }
+
+        a {
+          text-decoration: none;
+          color: $gray;
+          font-size: 14px;
+          line-height: 1.2;
+          transition: all .2s ease-in;
+          padding-bottom: 6px;
+
+          @media (max-width: $phone-xlarge) {
+            padding-bottom: 2px;
+            border-bottom: 1px solid rgba($gray, .54);
+          }
+
+          &:hover {
+            color: $black;
+            padding-bottom: 2px;
+            border-bottom: 1px solid rgba($black, .87);
+          }
+        }
+      }
     }
   }
 }

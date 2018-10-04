@@ -5,24 +5,23 @@ headline: Android Java Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---
-<p class="lead">Coming soon...</p>
+<p class="coming-soon">Coming soon...</p>
+
+<p>This guide gets you started with Spine in Android Java with a simple
+working example.</p>
 <hr>
 
-<p class="lead">This guide gets you started with Spine in Android Java with a simple
-working example.</p>
-
-<div id="toc"></div>
 
 ## Before you begin
 
 ### Prerequisites
 
-*   `JDK`: version 7 or higher
+*   `JDK` : version 7 or higher
 *   Android SDK
 *   An android device set up for [USB
-    debugging](https://developer.android.com/studio/command-line/adb.html#Enabling)
+    debugging](https://developer.android.com/studio/command-line/adb.html#Enabling){:target="_blank"}
     or an [Android Virtual
-    Device](https://developer.android.com/studio/run/managing-avds.html)
+    Device](https://developer.android.com/studio/run/managing-avds.html){:target="_blank"}
 
 ## Download the example
 

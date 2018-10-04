@@ -6,11 +6,12 @@ sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---
 
-<p class="lead">Coming soon...</p>
-<hr>
+<p class="coming-soon">Coming soon...</p>
 
-<p class="lead">This tutorial provides a basic C++ programmer's introduction
+<p>This tutorial provides a basic C++ programmer's introduction
 to creating a Spine-based client application.</p>
+
+<hr>
 
 By walking through this example you'll learn how to:
 
@@ -25,8 +26,6 @@ familiar with:
  - [Protocol buffers](https://developers.google.com/protocol-buffers/docs/overview)
  - The concepts of `Command`, `Event`, and `Projection`
  - TBD
-
-<div id="toc"></div>
 
 ## Why use Spine
 

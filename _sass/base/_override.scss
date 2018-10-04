@@ -8,13 +8,14 @@ body {
 
 a {
   color: $mainBrandColor;
-  font-weight: 300;
+  font-weight: 400;
+  transition: all .3s ease-in-out;
 }
 
 a:hover,
 a:focus {
   color: $linkHoverColor;
-  text-decoration-skip: ink;
+  text-decoration: underline;
 }
 
 a:focus {text-decoration: none;}
@@ -52,7 +53,6 @@ a.disabled {
     color: #CCCCCC;
 }
 
-p,
 li {line-height: 22px;}
 
 p.note {
@@ -95,14 +95,14 @@ p.note code {
   background-color: $inverseBrandColor;
 }
 
-//New styles for the code
+//Code styles
 code {
   color: rgba(0, 0, 0, .87);
   background-color: #E8EBEF;
   font-size: 14px;
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
-  padding: 2px 12px 3px;
+  padding: 1px 6px 2px;
 }
 
 pre, pre.prettyprint {
@@ -146,6 +146,3 @@ pre code {
     outline: none;
   }
 }
-
-
-

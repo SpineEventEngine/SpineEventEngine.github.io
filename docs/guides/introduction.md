@@ -7,13 +7,12 @@ title: Introduction
 type: markdown
 ---
 
-<p class="lead">Coming soon...</p>
-<hr>
+<p class="coming-soon">Coming soon...</p>
 
-<p class="lead">This document gives overview of an architecture of
+<p>This document gives overview of an architecture of
 a Spine-based application.</p>
 
-<div id="toc" class="toc mobile-toc"></div>
+<div id="toc" class="toc hide-block"></div>
 
 ## Overview
 

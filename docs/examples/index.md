@@ -5,9 +5,8 @@ layout: docs
 title: Examples
 type: markdown
 ---
-<p class="lead">Here are some example apps to help developers with certain aspects of the framework.</p>
-
-<p>If you want to see a bigger picture of a Spine-based application, have a look at
+<p>Here are some example apps to help developers with certain aspects of the framework.
+If&nbsp;you&nbsp;want&nbsp;to see a bigger picture of a Spine-based application, have a look at
 <a target="_blank" href="https://github.com/SpineEventEngine/todo-list">ToDo List</a>.</p>
 
 ## Java
