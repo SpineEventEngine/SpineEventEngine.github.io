@@ -240,9 +240,10 @@ $.getScript("/js/jquery.collapsible.js", function(){
   $('.submenu').collapsible();
 });
 
+var tocNav = $('#toc');
 $(function() {
 //Calls the tocify method on your HTML nav.
-    $("#toc").tocify({selectors:"h2, h3, h4", showAndHide: false, extendPage: false});
+    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, extendPage: false});
 });
 
 // Remove class from the paren element when the child is active
@@ -255,12 +256,11 @@ $(function() {
 
 //Fix TOC navigation on page while scrolling
 window.onscroll = function() {FixToc()};
-var tocNav = $('#toc');
 
 function FixToc() {
     if (tocNav.length > 0) {
-        //offsetTop of the TOC - 120px = 118px
-        if (window.pageYOffset > 118) {
+        var tocNavFixedPosition = 118; //Sticky Header height + gap below (67px + 51px = 118px)
+        if (window.pageYOffset > tocNavFixedPosition) {
             tocNav.addClass("sticky");
         }
         else {
@@ -268,4 +268,3 @@ function FixToc() {
         }
     }
 }
-
