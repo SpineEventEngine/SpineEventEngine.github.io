@@ -116,3 +116,18 @@ table {
 th {
   background-color: $thirdBrandColor;
 }
+
+.info-block {
+  background-color: $light-gray;
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin: 0 10px 0;
+
+  @media (max-width: $phone-xlarge){
+    margin-top: 16px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}

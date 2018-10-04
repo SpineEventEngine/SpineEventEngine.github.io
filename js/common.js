@@ -190,8 +190,6 @@ $(document).ready(function() {
       $('.slick-prev').addClass('active');
     });
 
-    // $('.toc').toc({ listType: 'ul' });
-
     $('.nav-toggle, .hamburger').on('click', function(){
       $('.top-nav').toggleClass('right');
     });
@@ -244,7 +242,7 @@ $.getScript("/js/jquery.collapsible.js", function(){
 
 $(function() {
 //Calls the tocify method on your HTML nav.
-    $("#toc").tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 85, extendPage: false});
+    $("#toc").tocify({selectors:"h2, h3, h4", showAndHide: false, extendPage: false});
 });
 
 // Remove class from the paren element when the child is active
@@ -256,11 +254,11 @@ $(function() {
 });
 
 //Fix TOC navigation on page while scrolling
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {FixToc()};
 
 var tocNav = document.getElementById("toc");
-
-function myFunction() {
+function FixToc() {
+    //offsetTop of the TOC - 120px = 118px
     if (window.pageYOffset > 118) {
         tocNav.classList.add("sticky");
     } else {
