@@ -240,18 +240,18 @@ $.getScript("/js/jquery.collapsible.js", function(){
   $('.submenu').collapsible();
 });
 
-var tocNav = $('#toc');
-$(function() {
-//Calls the tocify method on your HTML nav.
-    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, extendPage: false});
-});
-
 // Remove class from the paren element when the child is active
 $(function() {
     if ($('#doc-side-nav-inside a').hasClass('current')) {
         var element = document.getElementById('side-nav-parent-item');
         element.classList.remove('current');
     }
+});
+
+var tocNav = $('#toc');
+$(function() {
+//Calls the tocify method on your HTML nav.
+    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, extendPage: false});
 });
 
 //Fix TOC navigation on page while scrolling
