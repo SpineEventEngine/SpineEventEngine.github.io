@@ -15,7 +15,6 @@ a {
 a:hover,
 a:focus {
   color: $linkHoverColor;
-  //text-decoration-skip: ink;
   text-decoration: underline;
 }
 
@@ -147,6 +146,3 @@ pre code {
     outline: none;
   }
 }
-
-
-
