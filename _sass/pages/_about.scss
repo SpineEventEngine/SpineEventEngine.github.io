@@ -8,48 +8,9 @@
   }
 
   //Main blue section
-  .about-container {
-    background-color:$mainBrandColor;
-  }
-
-  .about-section-main {
-    margin: 8px 0 72px;
-    position: relative;
-    opacity:0;
-    animation: animateTitle 1.3s forwards;
-
-    p.lead {
-      font-size: $font-size--s;
-      line-height: 1.7;
-      font-weight: 400;
-      color: #a8e7f7;
-
-      & strong {
-        color: $white;
-        font-weight: 700;
-      }
-
-      a {
-        color: #a8e7f7;
-        border-bottom: 1px solid rgba(#a8e7f7, .54);
-        padding-bottom: 2px;
-        transition: all .2s ease-in-out;
-        &:hover {
-          text-decoration: none;
-          color: $white;
-          border-bottom-color: currentColor;
-        }
-        &.external {
-          &:hover {
-            &:after {
-              color: $white;
-              opacity: 1;
-            }
-          }
-        }
-      }
-    }
-  }
+  //.about-container {
+  //  background-color:$mainBrandColor;
+  //}
 
   @keyframes animateDescription {
     0% {
@@ -96,7 +57,7 @@
 
   //Language section
   .about-lang-section {
-    margin: 32px 0 40px;
+    margin: 32px 0 48px;
     padding: 24px 32px;
     background-image: linear-gradient(-180deg, $white 0%, #FAFAFA 100%);
     box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);

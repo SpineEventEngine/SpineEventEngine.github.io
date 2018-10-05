@@ -67,13 +67,6 @@
     }
   }
 
-  .page-headline {
-    font-family: 'Roboto Mono', monospace;
-    font-size: $font-size--xl;
-    color: $white;
-    font-weight: 400;
-  }
-
   .nav-logo {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -264,5 +257,52 @@
 
   &.on-page {
     top: 0;
+  }
+}
+
+// Page headline and description
+.page-headline {
+  font-family: 'Roboto Mono', monospace;
+  font-size: $font-size--xl;
+  color: $white;
+  font-weight: 400;
+}
+
+.description-section {
+  margin: 8px 0 72px;
+  position: relative;
+  opacity:0;
+  animation: animateTitle 1.3s forwards;
+
+  p.lead {
+    font-size: $font-size--s;
+    line-height: 1.7;
+    font-weight: 400;
+    color: #b6bece;
+
+    & strong {
+      color: $white;
+      font-weight: 700;
+    }
+
+    a {
+      color: #b6bece;
+      border-bottom: 1px solid rgba(#b6bece, .54);
+      padding-bottom: 2px;
+      transition: all .2s ease-in-out;
+      &:hover {
+        text-decoration: none;
+        color: $white;
+        border-bottom-color: currentColor;
+      }
+      &.external {
+        &:hover {
+          &:after {
+            color: $white;
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 }
