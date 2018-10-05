@@ -87,8 +87,11 @@
 //Documentation call to action
 .doc-call-container {
   background-color: $secondBrandColor;
-  padding-bottom: 70px;
-  padding-top: 70px;
+  padding: 80px 0 84px;
+
+  @media(max-width: $phone-xlarge) {
+    padding: 64px 0 72px;
+  }
 
   .doc-call-title {
     margin: 0 auto;
@@ -123,7 +126,6 @@
 
 //Main tabs
 #main-tabs {
-
   margin-top: 48px;
 
   .tabs-shadow {
