@@ -1,27 +1,4 @@
 .about {
-
-  .nav-hero-container {
-    background-color: $mainBrandColor !important;
-    //background-image: linear-gradient(152deg, #5E697D 0%, #232836 100%);
-    z-index: 9010;
-    position: relative;
-  }
-
-  //Main blue section
-  //.about-container {
-  //  background-color:$mainBrandColor;
-  //}
-
-  @keyframes animateDescription {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
   .story-section {
     margin: 88px 0 176px;
     position: relative;
@@ -128,7 +105,8 @@
     }
 
     .icon-domain-model {
-      @include feature-icon('../img/icon-java.svg');
+      @include feature-icon('../img/no-icon-yet.svg');
     }
   }
+
 }
