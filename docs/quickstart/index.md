@@ -20,7 +20,6 @@ For an overview of some of the core concepts, see [Spine Concepts]({{site.baseur
 For more tutorials and examples, see our [Tutorials]({{site.baseurl}}/docs/tutorials).
 
  - [Java](java.html)
- - [Android Java](android-java.html)
+ - [JavaScript](javascript.html)
  - [C++](cpp.html)
- - [Swift](swift.html)
 

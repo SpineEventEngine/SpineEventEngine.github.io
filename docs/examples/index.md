@@ -15,7 +15,7 @@ If&nbsp;you&nbsp;want&nbsp;to see a bigger picture of a Spine-based application,
     <li><a target="_blank" href="https://github.com/SpineEventEngine/examples-java/tree/master/server-examples/src/main/java/io/spine/examples/aggregate">Creating an aggregate</a> — shows how to define an aggregate which updates its state in response to commands.</li>
 </ul>
 
-## Android Java
+## JavaScript
 
 - TBD
 

@@ -1,7 +1,7 @@
 ---
 bodyclass: docs
 layout: docs
-headline: Android Java Quickstart
+headline: JavaScript Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---

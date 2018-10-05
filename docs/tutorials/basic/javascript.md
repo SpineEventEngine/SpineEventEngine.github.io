@@ -1,7 +1,7 @@
 ---
 layout: docs
 bodyclass: docs
-headline: Spine Basics - Android Java
+headline: Spine Basics - JavaScript
 sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---

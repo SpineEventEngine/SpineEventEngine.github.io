@@ -10,8 +10,12 @@
   }
 
   .lang-card-selector {
-    padding: 0 0 30px;
+    padding: 0 0 88px;
     width: 100%;
+
+    @media(max-width: $phone-xlarge){
+      padding-bottom: 24px;
+    }
   }
 
   .lang-card {
@@ -54,8 +58,8 @@
       @include lang-icon('../img/icon-java.svg');
     }
 
-    .icon-android {
-      @include lang-icon('../img/icon-android.svg');
+    .icon-javascript {
+      @include lang-icon('../img/icon-js.svg');
     }
 
     .icon-cpp {
