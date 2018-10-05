@@ -5,10 +5,6 @@
     background-color:$mainBrandColor;
   }
 
-  p {
-    padding-bottom: 16px;
-  }
-
   .about-section-main {
     margin: 8px 0 72px;
     position: relative;
@@ -20,7 +16,6 @@
       line-height: 1.7;
       font-weight: 400;
       color: #a8e7f7;
-      padding-bottom: 0;
 
       & strong {
         color: $white;
@@ -78,6 +73,10 @@
       color: rgba($textColor, .54);
     }
 
+    p {
+      padding-bottom: 16px;
+    }
+
     .link {
       display: inline-block;
       margin-top: 16px;
@@ -104,7 +103,6 @@
       font-size: 14px;
       line-height: 1.7;
       color: rgba($textColor, .7);
-      padding-bottom: 0;
 
       &.lead {
         color: $textColor;
@@ -151,7 +149,6 @@
     p {
       font-size: 14px;
       line-height: 22px;
-      padding-bottom: 0;
     }
 
     @mixin feature-icon($image-url) {
