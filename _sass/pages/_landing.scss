@@ -4,16 +4,40 @@
   padding-top: 60px;
   position: relative;
 
+  @media(max-width: $desktop-small) {
+    padding-top: 32px;
+  }
+
   .landing-row {
+    margin: 32px 0 106px;
+
+    @media(max-width: $desktop-small) {
+      margin: 24px 0 40px;
+    }
+
+    .col-style {
+      padding: 0 56px;
+      @media(max-width: $desktop-large) {
+        padding: 0 24px;
+      }
+
+      @media(max-width: $desktop-small) {
+        padding: 0 15px;
+      }
+    }
+
     .landing-row-title {
-      margin-bottom: 32px;
-      text-align: center;
+      font-size: 2rem;
+      color: $black;
+      margin: 8px 0 24px;
+      font-weight: 300;
     }
 
     p {
       font-weight: 400;
       line-height: 1.7rem;
       color: $textColor;
+      padding-bottom: 32px;
 
       &.landing-row-intro {
         text-align: center;
@@ -41,14 +65,17 @@
   }
 
   .landing-image {
+    max-width: 100%;
     height: auto;
-    max-width: 300px;
     object-fit: contain;
     object-position: top;
+    border-radius: 6px;
+    box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
 
-    @media (min-width: $tablet) {
-      max-width: initial;
-      padding-bottom: 60px;
+    @media(max-width: $desktop-small){
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 

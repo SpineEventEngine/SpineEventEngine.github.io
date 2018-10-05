@@ -254,7 +254,8 @@
 // Sticky Nav
 #sticky-nav {
   @extend #common-nav;
-  background-color: $mainBrandColor;
+  //background-color: $mainBrandColor;
+  background-color: $footerColor;
   position: fixed;
   width: 100%;
   z-index: 9000;
@@ -265,4 +266,3 @@
     top: 0;
   }
 }
-
