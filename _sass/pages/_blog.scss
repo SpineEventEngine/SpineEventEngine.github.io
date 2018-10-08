@@ -1,11 +1,13 @@
 .blog {
 
-  hr {
-    margin-bottom: 0;
-  }
+  .content-part {
+    hr {
+      margin-bottom: 0;
+    }
 
-  hr:last-of-type {
-    display: none;
+    hr:last-of-type {
+      display: none;
+    }
   }
 
   .post-thumbnail {
@@ -143,6 +145,14 @@
 
   .post-wrapper {
     padding-top: $spacing--xxxl;
+
+    @media(max-width: $tablet){
+      padding-top: $spacing--l;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+    }
   }
 
   .content-attribution {
@@ -150,5 +160,10 @@
     font-size: 15px;
     font-style: italic;
     margin: $spacing--xxxl 0 $spacing--xl;
+  }
+
+  .postdate {
+    color: rgba($textColor, .54);
+    margin-bottom: 40px;
   }
 }

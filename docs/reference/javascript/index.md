@@ -1,7 +1,7 @@
 ---
 bodyclass: docs
 layout: docs
-headline: Android Java Client API
+headline: JavaScript Client API
 type: markdown
 ---
 

@@ -3,22 +3,28 @@
 body {
   color: $textColor;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: $mainBrandColor;
-  font-weight: 300;
+  font-weight: 400;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 a:hover,
 a:focus {
   color: $linkHoverColor;
-  text-decoration-skip: ink;
+  text-decoration: underline;
 }
 
 a:focus {text-decoration: none;}
 
 a.external {
+  white-space: nowrap;
   &:after {
     content: '\2192';
     font-weight: 300;
@@ -51,7 +57,6 @@ a.disabled {
     color: #CCCCCC;
 }
 
-p,
 li {line-height: 22px;}
 
 p.note {
@@ -61,31 +66,6 @@ p.note {
 
 p.note code {
   background-color: $thirdBrandColor !important;
-}
-
-code {
-  color: $codeColor;
-  background-color: $codeBkColor;
-  font-size: 14px;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 500;
-  padding: 2px 8px;
-}
-
-pre, pre.prettyprint {
-  background-color: $codeBkColor;
-  color: #000000;
-  border: none !important;
-  font-size: 14px !important;
-  padding: 9.5px !important;
-}
-
-pre code {
-  white-space: pre;
-
-  @media print {
-    white-space: pre-wrap;
-  }
 }
 
 .inverse {
@@ -119,6 +99,60 @@ pre code {
   background-color: $inverseBrandColor;
 }
 
+//Code styles
+code {
+  color: rgba(0, 0, 0, .87);
+  background-color: #E8EBEF;
+  font-size: 14px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  padding: 1px 6px 2px;
+}
 
+pre, pre.prettyprint {
+  background-color: $codeBkColor;
+  -webkit-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
+  -moz-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
+  -o-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
+  box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
+  border: none !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  padding: 24px 32px !important;
+}
 
+pre code {
+  white-space: pre;
 
+  @media print {
+    white-space: pre-wrap;
+  }
+}
+
+.highlight {
+  position: relative;
+  margin: 8px 0 40px;
+}
+
+.icon-copy-code {
+  background: url('../img/copy-code.svg') no-repeat center/cover;
+  position: absolute;
+  cursor: pointer;
+  right: 16px;
+  top: 12px;
+  width: 32px;
+  height: 32px;
+  opacity: .26;
+  -webkit-transition: all .24s ease-in-out;
+  -moz-transition: all .24s ease-in-out;
+  -o-transition: all .24s ease-in-out;
+  transition: all .24s ease-in-out;
+
+  &:hover,
+  &:focus {
+    opacity: .4;
+    background-color: fade-out($black, .87);
+    border-radius: 50%;
+    outline: none;
+  }
+}

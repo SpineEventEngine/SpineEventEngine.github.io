@@ -1,66 +1,84 @@
 // Landing page
 .landing-content-container {
   padding-bottom: 60px;
-  padding-top: 30px;
+  padding-top: 60px;
   position: relative;
 
-  @media (min-width: 767px) {
-    padding-bottom: 90px;
-    padding-top: 90px;
-  }
-
-  .row:nth-child(even){
-    background: $chip-bg-color;
+  @media(max-width: $desktop-small) {
+    padding-top: 32px;
   }
 
   .landing-row {
-    padding-top: 60px;
+    margin: 32px 0 106px;
+
+    @media(max-width: $desktop-small) {
+      margin: 24px 0 40px;
+    }
+
+    .col-style {
+      padding: 0 56px;
+      @media(max-width: $desktop-large) {
+        padding: 0 24px;
+      }
+
+      @media(max-width: $desktop-small) {
+        padding: 0 15px;
+      }
+    }
 
     .landing-row-title {
-      margin-bottom: 15px;
+      font-size: 2rem;
+      color: $black;
+      margin: 8px 0 24px;
+      font-weight: 300;
     }
 
     p {
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.7rem;
+      color: $textColor;
+      padding-bottom: 32px;
+
+      &.landing-row-intro {
+        text-align: center;
+      }
     }
 
-    @media (max-width: 767px) {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+    h5 {
+      font-size: $font-size--s;
+      font-weight: 700;
+      color: $black;
+      margin-bottom: 32px;
 
-      .landing-row-title {
-        margin: 0 auto 30px;
-        order: 1;
+      &.landing-row-title {
+        font-size: 1.8rem;
+        color: $black;
+        text-align: center;
+        line-height: 1.5;
+        margin-bottom: 0;
       }
 
-      .landing-image {
-        margin: 0 auto 30px;
-        order: 2;
-      }
-
-      p {
-        margin: 0 auto;
-        order: 3;
-      }
-
-      div {
-        margin: 0 auto;
-        order: 4;
+      & strong {
+        color: $black;
       }
     }
   }
 
   .landing-image {
+    max-width: 100%;
     height: auto;
-    max-width: 300px;
     object-fit: contain;
     object-position: top;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
+    -moz-box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
+    -o-box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
+    box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
 
-    @media (min-width: $tablet) {
-      max-width: initial;
-      padding-bottom: 60px;
+    @media(max-width: $desktop-small){
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -71,22 +89,30 @@
 
 //Documentation call to action
 .doc-call-container {
-  background-color: lighten($thirdBrandColor, 4%);
-  padding-bottom: 70px;
-  padding-top: 70px;
+  background-color: $secondBrandColor;
+  padding: 80px 0 84px;
+
+  @media(max-width: $phone-xlarge) {
+    padding: 64px 0 72px;
+  }
 
   .doc-call-title {
     margin: 0 auto;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    color: $white;
   }
 
   .doc-call-text {
     margin: 0 auto;
-    padding-top: 5px;
+    padding-top: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba($white, 0.64);
   }
 
-  .btn-doc-call {
-    font-size: 14px;
-    margin: 25px auto 45px;
+  .btn-doc-call-white {
+    margin: 40px auto 0;
   }
 
   .lang-select-row {

@@ -2,92 +2,112 @@
 $currentItemCaret: '\025B7  ';
 
 // Documentation Navigation Bar
+.nav-mobile-toggle {
+  @media (max-width: $phone-xlarge){
+    display: none;
+  }
+}
+
 .doc-nav {
   display: block;
-  margin-bottom: $spacing--xxxl;
-  margin-top: $spacing--m;
-  .doc-caret {
-    margin-right: 10px;
-    @media (min-width: $tablet) {
-      display: none;
-    }
+  margin: $spacing--m 0 40px;
+  @media(max-width: $tablet){
+    margin-bottom: 24px;
   }
 
   .tab {
     display: inline-block;
 
-    &.docs-tab a {
-      border-bottom: 2px solid $gray;
-      display: inline-block;
-      font-weight: 300;
-
-      @media (min-width: $tablet) {
-        display: none;
-      }
-    }
-
     a {
-      border-bottom: 2px solid transparent;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 16px;
+      padding-bottom: 6px;
       color: $gray;
-      display: none;
       font-size: .85rem;
       font-weight: 400;
       letter-spacing: 0.5px;
-      margin-right: 16px;
+      border-bottom: 1px solid transparent;
+      -webkit-transition: all .2s ease-in;
+      -moz-transition: all .2s ease-in;
+      -o-transition: all .2s ease-in;
+      transition: all .2s ease-in;
 
       &:hover {
-        border-bottom: 2px solid $gray;
+        border-bottom: 1px solid $black;
+        padding-bottom: 2px;
+        color: $black;
       }
 
-      @media (min-width: $tablet) {
+      &.current {
+        border-bottom: 1px solid $mainBrandColor;
+        padding-bottom: 2px;
+        color: $mainBrandColor;
         display: inline-block;
-        font-weight: 300;
+        cursor: default;
       }
     }
+  }
+}
 
-    .current {
-      border-bottom: 2px solid $gray;
-      color: $gray;
-      display: inline-block;
-
-      @media (min-width: $tablet) {
-        border-bottom: 2px solid $secondBrandColor !important;
-        color: $secondBrandColor;
-      }
-    }
+.doc-side-nav-col {
+  @media (min-width: $tablet) {
+    max-width: 240px;
   }
 }
 
 // Documentation Side Navigation
 .doc-side-nav {
   background-color: $light-gray;
-  margin-bottom: 20px;
-  @media (min-width: $tablet) {
-    margin-bottom: 0;
-    padding: $spacing--xs 0 $spacing--xl;
+  border-radius: 4px;
+  padding: 8px 8px 48px;
+  margin-bottom: 32px;
+
+  @media (max-width: $tablet) {
+    margin: 16px 0;
+    padding-bottom: 24px;
   }
 
   .doc-side-nav-title {
-    padding: $spacing--s;
+    display: block;
+    padding: 24px 20px 12px;
+    font-size: 12px;
+    color: rgba($black, .38);
+    font-weight: 500;
+    text-transform: uppercase;
   }
 
-  .doc-side-nav-list-item {
+  .doc-side-nav-sub-title {
+    display: block;
+    padding: 24px 20px 8px;
+    font-size: 12px;
+    color: rgba($black, .38);
+    font-weight: 700;
+  }
+
+  li {
     display: inline-block;
-    padding: 2px $spacing--s;
     width: 100%;
 
     a {
+      text-decoration: none;
+      display: block;
+      padding: 8px 20px;
       font-size: 13px;
-      color: $dark-gray;
+      line-height: 18px;
+      color: $black;
       font-weight: 400;
+      transition: all .25s ease-in-out;
 
       &.current {
-        font-weight: bold;
-        color: $linkHoverColor;
+        font-weight: 700;
+        color: $mainBrandColor;
+        background-color: rgba($white, .87);
+        border-radius: 4px;
       }
 
       &:hover {
-        color: $linkHoverColor;
+        color: $mainBrandColor;
       }
     }
 

@@ -125,3 +125,26 @@
   width: 15px;
   height: 15px;
 }
+
+.btn-doc-call-white {
+  font-size: 14px;
+  font-weight: 500;
+  color: $white;
+  border: 1px solid $white;
+  background-color: transparent;
+  border-radius: 2px;
+  padding: 15px 56px;
+  -webkit-transition: all 0.34s ease-in-out;
+  -moz-transition: all 0.34s ease-in-out;
+  -o-transition: all 0.34s ease-in-out;
+  transition: all 0.34s ease-in-out;
+
+  &:hover, &focus {
+    background-color: rgba($lightBlueColor, .2);
+    border: 1px solid $lightBlueColor;
+    -moz-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+    -webkit-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+    -o-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+    box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+  }
+}

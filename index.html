@@ -4,107 +4,106 @@ title: Spine Event Engine
 ---
 
 <div id="landing-content" class="landing-content-container">
-  <div class="row" >
-    <section class="container">
-      <div class="col-md-11 nofloat center-block landing-row">
-        <h3 class="col-sm-7 landing-row-title">Define rich, type-safe domain model</h3>
-        <p class="col-sm-7">Once, for all tiers and platforms. Don't mess with Json. DRY.</p>
-        <div class="col-sm-7">
-          <a href="{{ site.baseurl }}/docs/guides/model-definition.html">
-            <button class="btn btn-spine waves-effect waves-light btn-read-more">READ MORE</button></a>
-        </div>
-        <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-domain-model.jpg" alt="Define domain model">
-      </div>
-    </section>
-  </div>
+  <section class="container">
 
-  <div class="row" >
-    <section class="container">
-      <div class="col-md-11 nofloat center-block landing-row">
-        <img class="col-sm-5 landing-image" src="{{ site.baseurl }}/img/landing-business-logic.jpg" alt="Focus on the business logic">
-        <h3 class="col-sm-7 landing-row-title">Focus on the business logic</h3>
-        <p class="col-sm-7">... rather than “plumbing”. A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
-          <code>Projection</code>s will get all <code>Event</code>s they need.
-          <code>ProcessManager</code>s will cover more complex scenarios.
-          Storage, message delivery, and other environment matters are isolated from the main code.</p>
-        <div class="col-sm-7">
-          <a href="{{ site.baseurl }}/about#osp"><button class="btn btn-spine waves-effect waves-light btn-read-more">READ MORE</button></a>
-        </div>
-      </div>
-    </section>
-  </div>
+    <div class="row" >
+      <div class="col-md-11 nofloat center-block">
+        <div class="col-sm-12">
 
-  <div class="row" >
-    <section class="container">
-      <div class="col-md-11 nofloat center-block landing-row">
-        <h3 class="col-sm-7 landing-row-title">Clear work separation</h3>
-        <p class="col-sm-7">Thanks to CQRS, more experienced developers can work on the core domain.
-          The&nbsp;read–side and UI are created by the rest of the team.
-          People don't add new database indexes or fields to core data because of UI needs.</p>
-        <div class="col-sm-7">
-          <a href="{{ site.baseurl }}/docs/quickstart"><button class="btn btn-spine waves-effect waves-light btn-read-more">READ MORE</button></a>
-        </div>
-        <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-cqrs.jpg" alt="Clear work separation">
-      </div>
-    </section>
-  </div>
+          <div class="row landing-row">
+            <div class="col-md-6 col-style">
+              <h2 class="landing-row-title">Define rich, type-safe domain&nbsp;model</h2>
+              <p>Once, for all tiers and platforms. Don't mess with Json. DRY.</p>
+            </div>
+            <div class="col-md-6 col-style">
+              <img class="landing-image" src="{{ site.baseurl }}/img/landing-domain-model.jpg" alt="Define domain model">
+            </div>
+          </div>
 
-  <div class="row" >
-    <section class="container">
-      <div class="col-md-11 nofloat center-block landing-row">
-        <img class="col-sm-5 landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg" alt="Start quickly">
-        <h3 class="col-sm-7 landing-row-title">Start quickly</h3>
-        <p class="col-sm-7">In-memory and JDBC-based storage implementations allow to implement and test the core logic
-          quickly. Adopt your application to selected deployment environment(s) with a few lines of code, added in one place.</p>
-        <div class="col-sm-7 col-sm-offset-5 col-sm-offset-0">
-          <a href="{{ site.baseurl }}/docs/guides/deploy.html"><button class="btn btn-spine waves-effect waves-light btn-read-more">READ MORE</button></a>
-        </div>
-      </div>
-    </section>
-  </div>
+          <!--right-text-->
+          <div class="row landing-row">
+            <div class="col-md-6 col-md-push-6 col-xs-12 col-style">
+              <h2 class="landing-row-title">Focus on the business logic</h2>
+              <p>... rather than “plumbing”. A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
+                <code>Projection</code>s will get all <code>Event</code>s they need.
+                <code>ProcessManager</code>s will cover more complex scenarios.
+                Storage, message delivery, and other environment matters are isolated from the main code.</p>
+            </div>
+            <div class="col-md-6 col-md-pull-6 col-xs-12 col-style">
+              <img class="landing-image" src="{{ site.baseurl }}/img/landing-business-logic.jpg" alt="Focus on the business logic">
 
-  <div class="row" >
-    <section class="container">
-      <div class="col-md-11 nofloat center-block landing-row">
-        <h3 class="col-sm-7 landing-row-title">Evolve your business model</h3>
-        <p class="col-sm-7">Add and remove fields while keeping binary compatibility with older code;
-        handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
-        Build new <code>Projections</code> on the whole event history of the system.</p>
-        <div class="col-sm-7 col-sm-offset-5 col-sm-offset-0">
-          <a href="{{ site.baseurl }}/docs/guides/deploy.html"><button class="btn btn-spine waves-effect waves-light btn-read-more">READ MORE</button></a>
-        </div>
-        <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-evolve-model.jpg" alt="Evolve your domain model">
-      </div>
-    </section>
-  </div>
+              <!--Instead of a picture here can be a code-->
+              <!--<div class="highlighter-rouge">-->
+                <!--<div class="highlight"><pre class="highlight"><code>adb reverse tcp:8080 tcp:50051<br>adb reverse tcp:8080 tcp:50051<br>adb reverse tcp:8080 tcp:50051</code></pre>-->
+                  <!--<a href="#" class="icon-copy-code"></a>-->
+                <!--</div>-->
+              <!--</div>-->
+            </div>
+          </div>
 
-  <div class="row" >
-    <section class="container">
-      <div class="col-md-11 nofloat center-block landing-row">
-        <img class="col-sm-5 landing-image" src="{{ site.baseurl }}/img/landing-scale.jpg" alt="Scale">
-        <h3 class="col-sm-7 landing-row-title">Scale with micro-services</h3>
-        <p class="col-sm-7">CQRS architecture allows to scale read- and write- sides independently.
-          When further scaling is needed, Event-Driven Architecture allows to further separate and scale heavily loaded parts.</p>
-        <div class="col-sm-7">
-          <a href="{{ site.baseurl }}/docs/guides/scale.html"><button class="btn btn-spine waves-effect waves-light btn-read-more">READ MORE</button></a>
-        </div>
-      </div>
-    </section>
-  </div>
+          <div class="row landing-row">
+            <div class="col-md-6 col-style">
+              <h2 class="landing-row-title">Clear work separation</h2>
+              <p>Thanks to CQRS, more experienced developers can work on the core domain.
+                The&nbsp;read–side and UI are created by the rest of the team.
+                People don't add new database indexes or fields to core data because of UI needs.</p>
+            </div>
+            <div class="col-md-6 col-style">
+              <img class="landing-image" src="{{ site.baseurl }}/img/landing-cqrs.jpg" alt="Clear work separation">
+            </div>
+          </div>
 
-  <div class="row" >
-    <section class="container">
-      <div class="col-md-11 nofloat center-block landing-row">
-        <h3 class="col-sm-7 landing-row-title">Use freely</h3>
-        <p class="col-sm-7">Permissive Apache License allows using the framework in closed-source projects.
-          You are welcome to contribute to improving the framework.</p>
-        <div class="col-sm-7 col-sm-offset-5 col-sm-offset-0">
-          <a href="{{ site.baseurl }}/contribute"><button class="btn btn-spine waves-effect waves-light btn-read-more">READ MORE</button></a>
+          <!--right-text-->
+          <div class="row landing-row">
+            <div class="col-md-6 col-md-push-6 col-xs-12 col-style">
+              <h2 class="landing-row-title">Start quickly</h2>
+              <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
+                quickly. Adopt your application to selected deployment environment(s) with a few lines of code, added in one place.</p>
+            </div>
+            <div class="col-md-6 col-md-pull-6 col-xs-12 col-style">
+              <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg" alt="Start quickly">
+            </div>
+          </div>
+
+          <div class="row landing-row">
+            <div class="col-md-6 col-style">
+              <h2 class="landing-row-title">Evolve your business model</h2>
+              <p>Add and remove fields while keeping binary compatibility with older code;
+                handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
+                Build new <code>Projections</code> on the whole event history of the system.</p>
+            </div>
+            <div class="col-md-6 col-style">
+              <img class="landing-image" src="{{ site.baseurl }}/img/landing-evolve-model.jpg" alt="Evolve your domain model">
+            </div>
+          </div>
+
+          <!--right-text-->
+          <div class="row landing-row">
+            <div class="col-md-6 col-md-push-6 col-xs-12 col-style">
+              <h2 class="landing-row-title">Scale with micro-services</h2>
+              <p>CQRS architecture allows to scale read- and write- sides independently.
+                When further scaling is needed, Event-Driven Architecture allows to further separate and scale heavily loaded parts.</p>
+            </div>
+            <div class="col-md-6 col-md-pull-6 col-xs-12 col-style">
+              <img class="landing-image" src="{{ site.baseurl }}/img/landing-scale.jpg" alt="Scale">
+            </div>
+          </div>
+
+          <div class="row landing-row">
+            <div class="col-md-6 col-style">
+              <h2 class="landing-row-title">Use freely</h2>
+              <p>Permissive Apache License allows using the framework in closed-source projects.
+                You are welcome to contribute to improving the framework.</p>
+            </div>
+            <div class="col-md-6 col-style">
+              <img class="landing-image" src="{{ site.baseurl }}/img/landing-open-source.jpg" alt="Open Source">
+            </div>
+          </div>
+
         </div>
-        <img class="col-sm-5 nofloat landing-image" src="{{ site.baseurl }}/img/landing-open-source.jpg" alt="Open Source">
       </div>
-    </section>
-  </div>
+    </div>
+
+  </section>
 
 </div>
-
