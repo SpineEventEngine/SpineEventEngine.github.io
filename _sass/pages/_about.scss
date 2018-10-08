@@ -117,6 +117,11 @@
     display: inline-block;
     margin: 24px 32px 48px;
 
+    @media(max-width: $desktop-small){
+      width: 100%;
+      margin: 24px 0 40px;
+    }
+
     &.first-col {
       margin-left: 0;
       margin-right: 64px;
@@ -133,11 +138,6 @@
       }
     }
 
-    @media(max-width: $desktop-small){
-      width: 100%;
-      margin: 24px 0 40px;
-    }
-
     .feature-card-title {
       color: $dark-gray;
       margin-bottom: 8px;
@@ -151,16 +151,15 @@
       line-height: 22px;
     }
 
-    @mixin feature-icon($image-url) {
+    .card-icon {
       display: inline-block;
-      background: url($image-url) no-repeat center/cover;
-      width: 32px;
-      height: 32px;
+      width: $icon-size--m;
+      height: $icon-size--m;
       margin-bottom: 12px;
-    }
 
-    .icon-domain-model {
-      @include feature-icon('../img/icon-java.svg');
+      &.domain-model {
+        background: url('../img/no-icon-yet.svg') no-repeat center/cover;
+      }
     }
   }
 }
