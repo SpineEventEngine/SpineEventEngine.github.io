@@ -1,6 +1,6 @@
 .about {
   .story-section {
-    margin: 88px 0 176px;
+    margin: 88px 0 40px;
     position: relative;
 
     @media(max-width: $tablet){
@@ -14,8 +14,25 @@
       font-weight: 700;
     }
 
-    .more-story {
-      color: rgba($textColor, .54);
+    .read-more {
+      padding: 40px;
+      background-color: #EDF8FF;
+      //border-radius: 0 24px;
+      border-radius: 6px;
+      p {
+        color: #9ab3d6;
+        line-height: 1.8;
+      }
+
+      a {
+        text-decoration: none;
+        font-weight: 500;
+        &:hover {
+          color: $mainBrandColor;
+          padding-bottom: 2px;
+          border-bottom: 1px solid rgba($mainBrandColor, .87);
+        }
+      }
     }
 
     p {
@@ -28,33 +45,15 @@
     }
   }
 
-  .section-title {
-    margin: 24px 0 16px;
+  .software {
+    margin: 48px 0 124px;
+    .section-title {
+      color: rgba($textColor, .54);
+    }
   }
 
-  //Language section
-  .about-lang-section {
-    margin: 32px 0 48px;
-    padding: 24px 32px;
-    background-image: linear-gradient(-180deg, $white 0%, #FAFAFA 100%);
-    box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
-    border-radius: 4px;
-
-    @media(max-width: $tablet){
-      margin: 24px 0 32px;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 1.7;
-      color: rgba($textColor, .7);
-
-      &.lead {
-        color: $textColor;
-        font-weight: 500;
-        margin-bottom: 2px;
-      }
-    }
+  .section-title {
+    margin: 24px 0 16px;
   }
 
   //Cards style

@@ -117,17 +117,25 @@ th {
   background-color: $thirdBrandColor;
 }
 
-.info-block {
+.info-section {
+  margin: 32px 0 48px;
+  padding: 24px 32px;
   background-color: $light-gray;
   border-radius: 4px;
-  padding: 16px 24px;
-  margin: 0 10px 0;
 
-  @media (max-width: $phone-xlarge){
-    margin-top: 16px;
+  @media(max-width: $tablet){
+    margin: 24px 0 32px;
   }
+
   p {
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.7;
+    color: rgba($textColor, .7);
+
+    &.lead {
+      color: $textColor;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
   }
 }

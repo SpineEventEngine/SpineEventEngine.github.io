@@ -247,7 +247,6 @@
 // Sticky Nav
 #sticky-nav {
   @extend #common-nav;
-  //background-color: $mainBrandColor;
   background-color: $footerColor;
   position: fixed;
   width: 100%;
