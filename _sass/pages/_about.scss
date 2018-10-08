@@ -72,6 +72,11 @@
     display: inline-block;
     margin: 24px 32px 48px;
 
+    @media(max-width: $desktop-small){
+      width: 100%;
+      margin: 24px 0 40px;
+    }
+
     &.first-col {
       margin-left: 0;
       margin-right: 64px;
@@ -86,11 +91,6 @@
       @media (max-width: $desktop-small) {
         margin-left: 0;
       }
-    }
-
-    @media(max-width: $desktop-small){
-      width: 100%;
-      margin: 24px 0 40px;
     }
 
     .feature-card-title {
@@ -108,13 +108,13 @@
 
     .card-icon {
       display: inline-block;
-      width: $icon-size--m ;
-      height: $icon-size--m ;
+      width: $icon-size--m;
+      height: $icon-size--m;
       margin-bottom: 12px;
+
       &.domain-model {
         background: url('../img/no-icon-yet.svg') no-repeat center/cover;
       }
     }
   }
-
 }
