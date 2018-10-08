@@ -11,6 +11,9 @@ $currentItemCaret: '\025B7  ';
 .doc-nav {
   display: block;
   margin: $spacing--m 0 40px;
+  @media(max-width: $tablet){
+    margin-bottom: 24px;
+  }
 
   .tab {
     display: inline-block;

@@ -1,5 +1,9 @@
 .markdown {
   padding-bottom: 60px;
+
+  @media(max-width: $tablet){
+    padding-top: 32px;
+  }
   
   // Text Blocks
   p {
