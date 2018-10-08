@@ -1,10 +1,10 @@
 .about {
   .story-section {
-    margin: 88px 0 40px;
+    margin: 88px 0 64px;
     position: relative;
 
     @media(max-width: $tablet){
-      margin: 32px 0 48px;
+      margin: 32px 0 24px;
     }
 
     h1 {
@@ -15,10 +15,15 @@
     }
 
     .read-more {
-      padding: 40px;
+      padding: 48px 40px;
       background-color: #EDF8FF;
       //border-radius: 0 24px;
       border-radius: 6px;
+
+      @media(max-width: $tablet){
+        padding: 32px 24px;
+      }
+
       p {
         color: #9ab3d6;
         line-height: 1.8;
@@ -47,9 +52,15 @@
 
   .software {
     margin: 48px 0 124px;
+
+    @media(max-width: $tablet){
+      margin: 32px 0 64px;
+    }
+
     .section-title {
       color: rgba($textColor, .54);
     }
+
   }
 
   .section-title {
@@ -95,16 +106,14 @@
       line-height: 24px;
     }
 
-    @mixin feature-icon($image-url) {
+    .card-icon {
       display: inline-block;
-      background: url($image-url) no-repeat center/cover;
-      width: 32px;
-      height: 32px;
+      width: $icon-size--m ;
+      height: $icon-size--m ;
       margin-bottom: 12px;
-    }
-
-    .icon-domain-model {
-      @include feature-icon('../img/no-icon-yet.svg');
+      &.domain-model {
+        background: url('../img/no-icon-yet.svg') no-repeat center/cover;
+      }
     }
   }
 
