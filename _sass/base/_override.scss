@@ -9,6 +9,9 @@ body {
 a {
   color: $mainBrandColor;
   font-weight: 400;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
 
@@ -108,6 +111,9 @@ code {
 
 pre, pre.prettyprint {
   background-color: $codeBkColor;
+  -webkit-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
+  -moz-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
+  -o-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
   box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
   border: none !important;
   font-size: 14px !important;
@@ -137,6 +143,9 @@ pre code {
   width: 32px;
   height: 32px;
   opacity: .26;
+  -webkit-transition: all .24s ease-in-out;
+  -moz-transition: all .24s ease-in-out;
+  -o-transition: all .24s ease-in-out;
   transition: all .24s ease-in-out;
 
   &:hover,

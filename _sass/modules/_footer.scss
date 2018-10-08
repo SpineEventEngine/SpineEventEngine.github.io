@@ -1,6 +1,9 @@
 // Footer
 footer {
   background-color: $footerColor;
+  -webkit-box-shadow: 0 500px 0 500px $footerColor;
+  -moz-box-shadow: 0 500px 0 500px $footerColor;
+  -o-box-shadow: 0 500px 0 500px $footerColor;
   box-shadow: 0 500px 0 500px $footerColor;
   color: $white;
   overflow: hidden;
@@ -28,6 +31,9 @@ footer {
     letter-spacing: .5px;
     line-height: 46px;
     color: rgba($white, .54);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     border-bottom: 1px solid transparent;
 
@@ -141,6 +147,9 @@ footer {
           width: 40px;
           height: 40px;
           opacity: .54;
+          -webkit-transition: all .3s ease-in-out;
+          -moz-transition: all .3s ease-in-out;
+          -o-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
         }
 
@@ -204,6 +213,9 @@ footer {
 
   .footer-community p {
     padding: 6px 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 
     &.community-links {
@@ -265,5 +277,8 @@ footer {
 }
 
 .top-shadow {
+  -webkit-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
+  -o-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
   box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
 }
