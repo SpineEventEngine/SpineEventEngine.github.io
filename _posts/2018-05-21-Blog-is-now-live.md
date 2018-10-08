@@ -2,6 +2,7 @@
 layout: post
 title: Blog is now live
 published: true
+bodyclass: post
 ---
 
 As we are getting closer to `1.0-GA` release of the framework we thought that it would be nice to start blogging about the framework development, the ES/CQRS-based projects, our insights etc.
