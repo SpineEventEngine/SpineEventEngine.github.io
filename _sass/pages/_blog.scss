@@ -1,6 +1,8 @@
 .blog {
 
   .content-part {
+    margin-top: 24px;
+
     hr {
       margin-bottom: 0;
     }
@@ -19,16 +21,30 @@
   }
 
   .post-title {
-    color: $black;
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin: $spacing--xxxl 0 8px;
+    margin: 48px 0 8px;
+
+    a {
+      color: $black;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -.003em;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        text-decoration: none;
+        color: $mainBrandColor;
+      }
+    }
   }
 
   .post-date {
-    color: $black;
-    font-size: 11px;
+    font-size: 13px;
+    color: rgba($black, .54);
+    margin-bottom: 16px;
   }
 
   .post-thumbnail {
@@ -73,33 +89,14 @@
     }
 
     p {
-      font-size: 14px;
-      margin-top: $spacing--m;
+      margin-bottom: 16px;
     }
   }
 
   .read-more {
-    font-size: 14px;
-    margin: $spacing--xl 0;
-
-    .read-more-text::after {
-      background: url('../img/more-arrow.svg') no-repeat center/contain;
-      content: '';
-      display: inline-block;
-      height: 24px;
-      margin: 0 0 0 10px;
-      vertical-align: middle;
-      width: 24px;
-    }
-
-    .read-more-text {
-      &:hover {
-        &:after {
-          background: url('../img/more-arrow-dark.svg') no-repeat center/contain;
-        }
-      }
-    }
+    margin: 40px 0 48px;
   }
+
   .pagination {
     padding-bottom: $spacing--xxl;
     width: 100%;
@@ -144,14 +141,22 @@
 .post {
 
   .post-wrapper {
-    padding-top: $spacing--xxxl;
+    padding-top: 64px;
 
     @media(max-width: $tablet){
       padding-top: $spacing--l;
     }
 
     h1 {
-      margin-bottom: 12px;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -.003em;
+      margin-bottom: 16px;
+    }
+
+    hr {
+      margin-bottom: 32px;
     }
   }
 
@@ -163,7 +168,9 @@
   }
 
   .postdate {
+    font-size: 14px;
+    font-weight: 500;
     color: rgba($textColor, .54);
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 }
