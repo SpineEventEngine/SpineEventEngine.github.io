@@ -104,13 +104,23 @@
 
 // Expandy nav items
 .arrow-r::before {
-  content: "+";
-  margin-right: 8px;
+  content: '';
+  position: absolute;
+  background: url('../img/icon-caret-right.svg') no-repeat center/cover;
+  width: 24px;
+  height: 24px;
+  margin-left: -40px;
+  opacity: .2;
+  -webkit-transition: transform .3s ease-in-out;
+  -moz-transition: transform .3s ease-in-out;
+  -o-transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
 }
 
 .arrow-d::before {
-  content: "-";
-  margin-right: 8px;
+  @extend .arrow-r::before;
+  transform: rotate(90deg);
+  opacity: .54;
 }
 
 .submenu-content {
