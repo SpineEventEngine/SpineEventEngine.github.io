@@ -171,4 +171,26 @@
     border: 1px solid rgba($mainBrandColor, .3);
   }
 
+  &.with-icon {
+    padding: 9px 16px 9px 10px;
+    &:before {
+      content: '';
+      display: inline-block;
+      background: url('../img/icon-arrow-back.svg') no-repeat center/cover;
+      width: $icon-size--xs;
+      height: $icon-size--xs;
+      vertical-align: middle;
+      margin: 0 8px 0 0;
+      opacity: .38;
+    }
+
+    &:hover, &:focus {
+      &:before {
+        background: $mainBrandColor;
+        -webkit-mask-image: url('../img/icon-arrow-back.svg');
+        mask-image: url('../img/icon-arrow-back.svg');
+        opacity: 1;
+      }
+    }
+  }
 }

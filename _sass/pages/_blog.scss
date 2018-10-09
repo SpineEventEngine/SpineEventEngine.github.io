@@ -21,7 +21,11 @@
   }
 
   .post-title {
-    margin: 48px 0 8px;
+    margin: 40px 0 8px;
+
+    @media(max-width: $tablet) {
+      margin-top: 16px;
+    }
 
     a {
       color: $black;
@@ -144,7 +148,7 @@
     padding-top: 64px;
 
     @media(max-width: $tablet){
-      padding-top: $spacing--l;
+      padding-top: 0;
     }
 
     h1 {
@@ -153,6 +157,10 @@
       line-height: 1.2;
       letter-spacing: -.003em;
       margin-bottom: 16px;
+
+      @media(max-width: $tablet){
+        font-size: 28px;
+      }
     }
 
     hr {
@@ -172,5 +180,9 @@
     font-weight: 500;
     color: rgba($textColor, .54);
     margin-bottom: 32px;
+  }
+
+  .btn-back {
+    margin-top: 32px;
   }
 }
