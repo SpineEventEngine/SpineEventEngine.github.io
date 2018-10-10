@@ -62,8 +62,8 @@
       &::before {
         content: '';
         display: inline-block;
-        width: 24px;
-        height: 24px;
+        width: $icon-size--s;
+        height: $icon-size--s;
         vertical-align: middle;
         margin: 0 16px 0 0;
       }

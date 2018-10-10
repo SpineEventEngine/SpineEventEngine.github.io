@@ -238,9 +238,14 @@ footer {
 
   @mixin social-icon($image-url) {
     &::before {
+      background: url($image-url) no-repeat center/cover;
+    }
+  }
+
+  [class^="icon-"] {
+    &::before {
       content: '';
       display: inline-block;
-      background: url($image-url) no-repeat center/cover;
       width: 35px;
       height: 35px;
       vertical-align: middle;
@@ -249,23 +254,23 @@ footer {
     }
   }
 
-  .github {
+  .icon-github {
     @include social-icon('../img/icon_github.svg');
   }
 
-  .google {
+  .icon-google {
     @include social-icon('../img/icon_google-plus.svg');
   }
 
-  .twitter {
+  .icon-twitter {
     @include social-icon('../img/icon_twitter.svg');
   }
 
-  .stack-overflow {
+  .icon-stack-overflow {
     @include social-icon('../img/icon_stack-overflow.svg');
   }
 
-  .youtube {
+  .icon-youtube {
     @include social-icon('../img/icon_youtube.svg');
   }
 }
