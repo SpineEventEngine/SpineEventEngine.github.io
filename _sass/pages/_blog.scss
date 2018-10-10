@@ -3,8 +3,8 @@
   .content-part {
     margin-top: 24px;
 
-    hr {
-      margin-bottom: 0;
+    @media(max-width: $tablet) {
+      margin-top: 0;
     }
 
     hr:last-of-type {
@@ -24,7 +24,7 @@
     margin: 40px 0 8px;
 
     @media(max-width: $tablet) {
-      margin-top: 16px;
+      margin-top: 32px;
     }
 
     a {
@@ -49,6 +49,10 @@
     font-size: 13px;
     color: rgba($black, .54);
     margin-bottom: 16px;
+
+    @media(max-width: $phone-xlarge) {
+      margin-bottom: 0;
+    }
   }
 
   .post-thumbnail {
@@ -99,6 +103,10 @@
 
   .read-more {
     margin: 40px 0 48px;
+
+    @media(max-width: $phone-xlarge) {
+      margin: 24px 0 40px;
+    }
   }
 
   .pagination {
