@@ -326,3 +326,56 @@
     }
   }
 }
+
+
+//New navigation
+#header {
+  background: $black;
+  width: 100%;
+  min-height: 64px;
+  z-index: 1000;
+
+  .navigation-holder {
+    background-color: $footerColor;
+    box-shadow: -1px 0px 8px 0px rgba(0,0,0, .25);
+    z-index: 1001;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    padding: 60px 24px;
+    overflow-x: auto;
+  }
+
+  .navigation {
+    .nav-item {
+      a {
+        text-decoration: none;
+        display: block;
+        padding: 16px 0;
+        font-size: 16px;
+        color: rgba($white, 0.64);
+        -webkit-transition: all .25s ease-in-out;
+        -moz-transition: all .25s ease-in-out;
+        -o-transition: all .25s ease-in-out;
+        transition: all .25s ease-in-out;
+
+        &:hover,
+        &.current {
+          color: rgba($white, 1);
+          text-decoration: none;
+        }
+      }
+
+      &.doc {
+        padding-left: 16px;
+        a {
+          font-size: 13px;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}
