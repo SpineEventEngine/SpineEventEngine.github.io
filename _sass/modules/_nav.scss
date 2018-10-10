@@ -367,6 +367,10 @@
           color: rgba($white, 1);
           text-decoration: none;
         }
+
+        &.current {
+          font-weight: 500;
+        }
       }
 
       &.doc {
@@ -374,6 +378,7 @@
         a {
           font-size: 13px;
           letter-spacing: 1px;
+          padding: 12px 0;
         }
       }
     }
