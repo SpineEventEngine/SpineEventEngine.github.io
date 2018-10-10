@@ -131,7 +131,7 @@
 // Mobile Navigation
 .top-nav {
   background-color: $footerColor;
-  padding: 5px 0 5px 5px;
+  padding: 5px 0 40px 5px;
   display: initial;
   height: 100vh;
   position: fixed;
@@ -140,6 +140,7 @@
   transition: $transition--secondary;
   width: 300px;
   z-index: $z-above-top;
+  overflow-x: hidden;
 
   @media (min-width: $tablet) {
     display: none;
