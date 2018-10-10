@@ -61,10 +61,7 @@
       &:hover {
         i {
           color: $lightBlueColor;
-          -webkit-transition: .3s cubic-bezier(.25,.8,.5,1);
-          -moz-transition: .3s cubic-bezier(.25,.8,.5,1);
-          -o-transition: .3s cubic-bezier(.25,.8,.5,1);
-          transition: .3s cubic-bezier(.25,.8,.5,1);
+          @include transition(all .3s ease-in-out);
         }
       }
     }
@@ -107,14 +104,11 @@
   content: '';
   position: absolute;
   background: url('../img/icon-caret-right.svg') no-repeat center/cover;
-  width: 24px;
-  height: 24px;
+  width: $icon-size--s;
+  height: $icon-size--s;
   margin-left: -40px;
   opacity: .2;
-  -webkit-transition: transform .3s ease-in-out;
-  -moz-transition: transform .3s ease-in-out;
-  -o-transition: transform .3s ease-in-out;
-  transition: transform .3s ease-in-out;
+  @include transition(all .3s ease-in-out);
 }
 
 .arrow-d::before {
@@ -165,10 +159,7 @@
     top: 2px;
     width: 40px;
     height: 40px;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    @include transition(all .3s ease-in-out);
 
     &:hover,
     &.active {
@@ -192,10 +183,7 @@
       font-size: 16px;
       line-height: 50px;
       color: rgba($white, 0.64);
-      -webkit-transition: all .3s ease-in-out;
-      -moz-transition: all .3s ease-in-out;
-      -o-transition: all .3s ease-in-out;
-      transition: all .3s ease-in-out;
+      @include transition(all .3s ease-in-out);
 
       &:hover,
       &.current {
@@ -229,10 +217,7 @@
         font-weight: 400;
         letter-spacing: 1px;
         line-height: 40px;
-        -webkit-transition: all .3s ease-in-out;
-        -moz-transition: all .3s ease-in-out;
-        -o-transition: all .3s ease-in-out;
-        transition: all .3s ease-in-out;
+        @include transition(all .3s ease-in-out);
 
         &:hover,
         &.current {
@@ -256,10 +241,7 @@
 
     &:hover {
       opacity: 1;
-      -webkit-transition: all 0.3s ease-in-out;
-      -moz-transition: all 0.3s ease-in-out;
-      -o-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out;
+      @include transition(all .3s ease-in-out);
       cursor: pointer;
     }
   }
@@ -317,10 +299,8 @@
       color: #b6bece;
       border-bottom: 1px solid rgba(#b6bece, .54);
       padding-bottom: 2px;
-      -webkit-transition: all .2s ease-in-out;
-      -moz-transition: all .2s ease-in-out;
-      -o-transition: all .2s ease-in-out;
-      transition: all .2s ease-in-out;
+      @include transition(all .2s ease-in-out);
+
       &:hover {
         text-decoration: none;
         color: $white;

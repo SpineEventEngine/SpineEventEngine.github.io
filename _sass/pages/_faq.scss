@@ -39,10 +39,7 @@
           &.arrow-d,
           &.arrow-r {
             &:before {
-              -webkit-transition: all .25s ease-in-out;
-              -moz-transition: all .25s ease-in-out;
-              -o-transition: all .25s ease-in-out;
-              transition: all .25s ease-in-out;
+              @include transition(all .25s ease-in-out);
               opacity: .54;
             }
           }
@@ -56,10 +53,7 @@
     line-height: 1.5;
     color: rgba($black, .7);
     font-weight: 400;
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    @include transition(all .25s ease-in-out);
   }
 
   h6.arrow-d,

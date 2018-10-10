@@ -135,10 +135,7 @@
   border-radius: 2px;
   padding: 15px 56px;
   text-transform: uppercase;
-  -webkit-transition: all 0.34s ease-in-out;
-  -moz-transition: all 0.34s ease-in-out;
-  -o-transition: all 0.34s ease-in-out;
-  transition: all 0.34s ease-in-out;
+  @include transition(all .34s ease-in-out);
 
   &:hover, &:focus {
     background-color: rgba($lightBlueColor, .2);
@@ -160,10 +157,7 @@
   border-radius: 2px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  -webkit-transition: all 0.34s ease-in-out;
-  -moz-transition: all 0.34s ease-in-out;
-  -o-transition: all 0.34s ease-in-out;
-  transition: all 0.34s ease-in-out;
+  @include transition(all .34s ease-in-out);
 
   &:hover, &:focus {
     color: $mainBrandColor;

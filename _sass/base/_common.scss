@@ -1,3 +1,12 @@
+//Usage: @include transition(all .3s ease-in-out);
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
 // Shared
 .vpad {
   padding-top: $vpad;
