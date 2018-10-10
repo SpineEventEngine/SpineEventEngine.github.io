@@ -189,6 +189,9 @@ footer {
       .right-link-headers {
         &:after {
           opacity: 1;
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
           transform: rotate(180deg);
           background-color: fade-out($white, .97);
           border-radius: 50%;
