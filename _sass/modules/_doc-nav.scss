@@ -28,9 +28,7 @@ $currentItemCaret: '\025B7  ';
       font-weight: 400;
       letter-spacing: 0.5px;
       border-bottom: 1px solid transparent;
-      -webkit-transition: all .2s ease-in;
-      -moz-transition: all .2s ease-in;
-      -o-transition: all .2s ease-in;
+      @include transition(all .2s ease-in-out);
       transition: all .2s ease-in;
 
       &:hover {
@@ -54,6 +52,10 @@ $currentItemCaret: '\025B7  ';
   @media (min-width: $tablet) {
     max-width: 240px;
   }
+
+  @media (max-width: $tablet) {
+    padding: 0;
+  }
 }
 
 // Documentation Side Navigation
@@ -64,7 +66,7 @@ $currentItemCaret: '\025B7  ';
   margin-bottom: 32px;
 
   @media (max-width: $tablet) {
-    margin: 16px 0;
+    margin: 16px 0 0;
     padding-bottom: 24px;
   }
 
@@ -75,6 +77,10 @@ $currentItemCaret: '\025B7  ';
     color: rgba($black, .38);
     font-weight: 500;
     text-transform: uppercase;
+
+    @media (max-width: $tablet) {
+      font-size: 13px;
+    }
   }
 
   .doc-side-nav-sub-title {
@@ -98,6 +104,11 @@ $currentItemCaret: '\025B7  ';
       color: $black;
       font-weight: 400;
       transition: all .25s ease-in-out;
+
+      @media(max-width: $tablet) {
+        padding: 16px 20px;
+        font-size: 14px;
+      }
 
       &.current {
         font-weight: 700;

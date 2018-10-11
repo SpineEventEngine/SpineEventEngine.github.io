@@ -1,3 +1,12 @@
+//Usage: @include transition(all .3s ease-in-out);
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
 // Shared
 .vpad {
   padding-top: $vpad;
@@ -36,7 +45,7 @@
   min-width: 240px;
 
   &.blog-toc {
-    margin: 48px 0 24px 0;
+    margin: 40px 0 24px;
   }
 
   &.sticky {
@@ -53,7 +62,12 @@
   }
 
   .blog-toc-header {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+    padding-left: 9px;
+    font-size: 12px;
+    color: rgba($black, .38);
+    font-weight: 500;
+    text-transform: uppercase;
   }
 
   >ul>li>a {
@@ -86,6 +100,7 @@
       &:hover {
         color:$black;
         background: none;
+        text-decoration: none;
       }
     }
   }

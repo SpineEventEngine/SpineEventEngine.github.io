@@ -10,8 +10,8 @@ footer {
   padding: 54px 0 0;
   position: relative;
 
-  @media (max-width: 767px) {
-    padding: 35px 0 120px;
+  @media (max-width: $tablet) {
+    padding: 35px 0 148px;
 
     ul {
       li {
@@ -31,10 +31,7 @@ footer {
     letter-spacing: .5px;
     line-height: 46px;
     color: rgba($white, .54);
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    @include transition(all .3s ease-in-out);
     border-bottom: 1px solid transparent;
 
     &:hover {
@@ -67,7 +64,7 @@ footer {
     padding: 0 0 10px 0;
     opacity: .62;
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet) {
       padding: 0 0 20px 0;
     }
   }
@@ -88,7 +85,7 @@ footer {
       line-height: 1.4rem;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet) {
       position: relative;
       margin: 0 auto;
       text-align: left;
@@ -96,17 +93,17 @@ footer {
       width: 39%;
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: $phone-small) {
       width: 78%;
     }
 
-    @media (min-width: 1025px) {
+    @media (min-width: $desktop-small) {
       width: 45%;
       margin-left: 5%;
     }
 
     .description {
-      @media (min-width: 768px) {
+      @media (min-width: $tablet) {
         padding-top: 4px;
       }
     }
@@ -122,7 +119,7 @@ footer {
       padding-bottom: 10px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet) {
       padding: 0 0 0 35px;
       margin: 0 0 50px 0;
     }
@@ -147,10 +144,7 @@ footer {
           width: 40px;
           height: 40px;
           opacity: .54;
-          -webkit-transition: all .3s ease-in-out;
-          -moz-transition: all .3s ease-in-out;
-          -o-transition: all .3s ease-in-out;
-          transition: all .3s ease-in-out;
+          @include transition(all .3s ease-in-out);
         }
 
         &:hover:after {
@@ -179,7 +173,7 @@ footer {
       }
     }
 
-    @media (min-width: 1025px) {
+    @media (min-width: $desktop-small) {
       width: 49.5%;
     }
   }
@@ -189,6 +183,9 @@ footer {
       .right-link-headers {
         &:after {
           opacity: 1;
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
           transform: rotate(180deg);
           background-color: fade-out($white, .97);
           border-radius: 50%;
@@ -213,10 +210,7 @@ footer {
 
   .footer-community p {
     padding: 6px 0;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    @include transition(all .3s ease-in-out);
 
     &.community-links {
       font-weight: 400;
@@ -244,9 +238,14 @@ footer {
 
   @mixin social-icon($image-url) {
     &::before {
+      background: url($image-url) no-repeat center/cover;
+    }
+  }
+
+  [class^="icon-"] {
+    &::before {
       content: '';
       display: inline-block;
-      background: url($image-url) no-repeat center/cover;
       width: 35px;
       height: 35px;
       vertical-align: middle;
@@ -255,23 +254,23 @@ footer {
     }
   }
 
-  .github {
+  .icon-github {
     @include social-icon('../img/icon_github.svg');
   }
 
-  .google {
+  .icon-google {
     @include social-icon('../img/icon_google-plus.svg');
   }
 
-  .twitter {
+  .icon-twitter {
     @include social-icon('../img/icon_twitter.svg');
   }
 
-  .stack-overflow {
+  .icon-stack-overflow {
     @include social-icon('../img/icon_stack-overflow.svg');
   }
 
-  .youtube {
+  .icon-youtube {
     @include social-icon('../img/icon_youtube.svg');
   }
 }

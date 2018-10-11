@@ -62,8 +62,8 @@
       &::before {
         content: '';
         display: inline-block;
-        width: 24px;
-        height: 24px;
+        width: $icon-size--s;
+        height: $icon-size--s;
         vertical-align: middle;
         margin: 0 16px 0 0;
       }
@@ -96,10 +96,7 @@
           color: $gray;
           font-size: 14px;
           line-height: 1.2;
-          -webkit-transition: all .2s ease-in;
-          -moz-transition: all .2s ease-in;
-          -o-transition: all .2s ease-in;
-          transition: all .2s ease-in;
+          @include transition(all .2s ease-in-out);
           padding-bottom: 6px;
 
           @media (max-width: $phone-xlarge) {

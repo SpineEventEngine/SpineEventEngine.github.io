@@ -9,10 +9,7 @@ body {
 a {
   color: $mainBrandColor;
   font-weight: 400;
-  -webkit-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  @include transition(all .3s ease-in-out);
 }
 
 a:hover,
@@ -38,8 +35,7 @@ a.external {
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    -webkit-transition: opacity .16s ease-in;
-    transition: opacity .16s ease-in;
+    @include transition(opacity .16s ease-in);
     vertical-align: super;
     font-size: smaller;
     text-decoration: none;
@@ -143,10 +139,7 @@ pre code {
   width: 32px;
   height: 32px;
   opacity: .26;
-  -webkit-transition: all .24s ease-in-out;
-  -moz-transition: all .24s ease-in-out;
-  -o-transition: all .24s ease-in-out;
-  transition: all .24s ease-in-out;
+  @include transition(all .24s ease-in-out);
 
   &:hover,
   &:focus {

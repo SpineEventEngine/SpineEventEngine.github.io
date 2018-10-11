@@ -4,6 +4,13 @@
   z-index: 9010;
   position: relative;
   padding-bottom: 12px;
+
+  &.home-hero {
+    @media(max-width: $phone-medium) {
+      height: 100vh;
+      padding-bottom: 0;
+    }
+  }
 }
 
 // Landing page hero
@@ -11,6 +18,10 @@
   padding-bottom: 148px;
   position: relative;
   text-align: center;
+
+  @media(max-width: $phone-medium) {
+    padding-bottom: 0;
+  }
 
   .logo {
     margin-top: $spacing--l;
@@ -28,10 +39,10 @@
       margin-bottom: 8px;
       font-weight: 400;
       opacity: 0;
-      animation: animateLead .8s .6s ease forwards;
-      -moz-animation: animateLead .8s .6s ease forwards;
       -webkit-animation: animateLead .8s .6s ease forwards;
+      -moz-animation: animateLead .8s .6s ease forwards;
       -o-animation: animateLead .8s .6s ease forwards;
+      animation: animateLead .8s .6s ease forwards;
     }
 
     p:nth-child(2) {
@@ -50,6 +61,10 @@
     -moz-animation: animateTitle 1.3s .2s forwards;
     -o-animation: animateTitle 1.3s .2s forwards;
     animation: animateTitle 1.3s .2s forwards;
+
+    @media(max-width: $phone-medium) {
+      margin-top: 24%;
+    }
   }
 }
 

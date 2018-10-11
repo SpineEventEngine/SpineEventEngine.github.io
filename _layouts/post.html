@@ -16,6 +16,7 @@ bodyclass: post
           <div class="postdate">
             Posted on {{ page.date | date: "%A, %B %d %Y" }}.
           </div>
+          <hr>
           <div class="content">
             {{ content }}
           </div>
@@ -25,8 +26,12 @@ bodyclass: post
             {{ page.attribution }}
           </div>
           {% endif %}
+          <div class="btn-back">
+            <a onclick="window.history.back()">
+              <button class="btn-bordered with-icon">Back to Blog</button>
+            </a>
+          </div>
         </article>
     </div>
   </div>
 </div>
-
