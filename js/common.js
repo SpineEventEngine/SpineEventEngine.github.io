@@ -251,7 +251,7 @@ $(function() {
 var tocNav = $('#toc');
 $(function() {
 //Calls the tocify method on your HTML nav.
-    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, extendPage: false});
+    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 56, extendPage: false});
 });
 
 //Fix TOC navigation on page while scrolling
@@ -268,3 +268,11 @@ function FixToc() {
         }
     }
 }
+
+//Headroom JS for the fixed header
+// grab an element
+var myElement = document.querySelector("header");
+// construct an instance of Headroom, passing the element
+var headroom  = new Headroom(myElement);
+// initialise
+headroom.init();

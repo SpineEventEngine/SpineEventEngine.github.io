@@ -1,7 +1,7 @@
 // Background for nav and hero
 .nav-hero-container {
   background-image: linear-gradient(152deg, #5E697D 0%, #232836 100%);
-  z-index: 9010;
+  //z-index: 9010;
   position: relative;
   padding-bottom: 12px;
 
@@ -55,7 +55,7 @@
     font-weight: 700;
     font-size: 56px;
     letter-spacing: -0.6px;
-    margin: 100px 0 22px;
+    margin: 140px 0 22px;
     opacity: 0;
     -webkit-animation: animateTitle 1.3s .2s forwards;
     -moz-animation: animateTitle 1.3s .2s forwards;

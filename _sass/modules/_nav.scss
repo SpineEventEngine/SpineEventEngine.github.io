@@ -268,11 +268,15 @@
 }
 
 // Page headline and description
+.page-headline-container {
+  padding-top: 64px;
+}
 .page-headline {
   font-family: 'Roboto Mono', monospace;
   font-size: $font-size--xl;
   color: $white;
   font-weight: 400;
+  margin: 20px 0 24px;
 }
 
 .description-section {
@@ -299,7 +303,7 @@
       color: #b6bece;
       border-bottom: 1px solid rgba(#b6bece, .54);
       padding-bottom: 2px;
-      @include transition(all .2s ease-in-out);
+      @include transition(all .25s ease-in-out);
 
       &:hover {
         text-decoration: none;
@@ -321,6 +325,7 @@
 
 //New navigation
 .navigation-opened {
+  overflow: hidden;
   #header {
     .navigation-holder {
       right: 0;
@@ -332,6 +337,8 @@
   width: 100%;
   min-height: 64px;
   z-index: 1000;
+  //background-color: black;
+  position: fixed;
 
   .logo {
     a {
@@ -398,8 +405,13 @@
         text-decoration: none;
         font-size: 16px;
         color: rgba($white, 0.64);
-        @include transition(all .25s ease-in-out);
+        @include transition(all .2s ease-in-out);
         -webkit-transform: translateZ(0);
+
+        @media(min-width: $tablet){
+          font-size: 15px;
+          letter-spacing: 0.5px;
+        }
 
         &:hover,
         &.current {
