@@ -329,7 +329,7 @@
 }
 
 #header {
-  background: $black;
+  //background: $black;
   width: 100%;
   min-height: 64px;
   z-index: 1000;
@@ -352,11 +352,7 @@
   }
 
   .navigation-holder {
-    @media(min-width: 769px){
-      float: right;
-    }
-
-    @media(max-width:$tablet) {
+    @media(max-width: 767px) {
       background-color: $footerColor;
       box-shadow: -1px 0px 8px 0px rgba(0,0,0, .25);
       z-index: 1001;
@@ -375,8 +371,15 @@
   .navigation {
     margin: 0 -24px;
 
+    @media(min-width: $tablet){
+      float: right;
+      margin: 5px 0;
+    }
+
     .nav-item {
-      @media(min-width: 769px){
+      position:relative;
+
+      @media(min-width: $tablet){
         display: inline-block;
       }
 
@@ -397,7 +400,7 @@
 
         &.current {
           font-weight: 500;
-          background-color: rgba(#b6bece, .04);
+          background-color: rgba($white, .05);
         }
       }
 
@@ -414,13 +417,55 @@
           }
         }
       }
+
+      &.home-item {
+        @media(min-width: $tablet){
+          display: none;
+        }
+      }
+
+      .icon-caret {
+        background: url('../img/caret.svg') no-repeat center/cover;
+        opacity: .54;
+        cursor: pointer;
+        position: absolute;
+        top: 2px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        @include transition(all .3s ease-in-out);
+
+        @media(min-width: $tablet){
+          display: none;
+        }
+
+        &:hover,
+        &.active {
+          opacity: 1;
+          background-color: fade-out($white, .97);
+          border-radius: 50%;
+        }
+
+        &.active {
+          transform: rotate(180deg);
+        }
+      }
     }
 
     .doc-list-inside {
+      display: none;
       margin-bottom: 8px;
 
       @media(min-width:$tablet){
         display: none;
+      }
+
+      &.active {
+        display: block;
+
+        @media(min-width:$tablet){
+          display: none;
+        }
       }
     }
   }
@@ -431,7 +476,7 @@
   margin-top: 16px;
   margin-right: 16px;
 
-  @media(min-width:769px){
+  @media(min-width: $tablet){
     display: none;
   }
 
