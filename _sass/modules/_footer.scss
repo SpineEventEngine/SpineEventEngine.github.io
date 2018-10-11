@@ -10,7 +10,7 @@ footer {
   padding: 54px 0 0;
   position: relative;
 
-  @media (max-width: $tablet) {
+  @media (max-width: 767px) {
     padding: 35px 0 148px;
 
     ul {
@@ -97,7 +97,7 @@ footer {
       width: 78%;
     }
 
-    @media (min-width: $desktop-small) {
+    @media (min-width: 1025px) {
       width: 45%;
       margin-left: 5%;
     }
@@ -173,7 +173,7 @@ footer {
       }
     }
 
-    @media (min-width: $desktop-small) {
+    @media (min-width: 1025px) {
       width: 49.5%;
     }
   }
