@@ -1,27 +1,80 @@
 <header id="header">
-    <div class="nav-container">
-        <div class="navigation-holder">
-            {% assign current = page.url | downcase | split: '/' %}
-            <nav class="navigation">
-                <ul>
-                    <li class="nav-item"><a href="{{ site.baseurl }}/">Home</a></li>
-                    <li class="nav-item"><a href="{{ site.baseurl }}/about/" {% if current[1] == 'about' %}class='current'{% endif %}>About</a></li>
-                    <li class="nav-item"><a href="{{ site.baseurl }}/docs/" {% if current[1] == 'docs' %}class='current'{% endif %}>Docs</a></li>
-                    <div></div>
+    <div class="nav-open-close">
+        <div id="nav-icon-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 
-                    <ul>
-                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path == 'docs/index.html' %}class='current'{% endif %}>Overview</a></li>
-                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2] == 'quickstart' %}class='current'{% endif %}>Quick Start</a></li>
-                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}>Guides</a></li>
-                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/tutorials" {% if current[2] == 'tutorials' %}class='current'{% endif %}>Tutorials</a></li>
-                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/reference" {% if current[2] == 'reference' %}class='current'{% endif %}>Reference</a></li>
-                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/examples" {% if current[2] == 'examples' %}class='current'{% endif %}>Examples</a></li>
-                    </ul>
+    <div class="nav-container container">
+        <div class="row">
+            <div class="col-md-11 nofloat center-block">
+                <div class="col-md-12">
+                    <div class="row">
 
-                    <li class="nav-item"><a href="{{ site.baseurl }}/blog/" {% if current[1] == 'blog' %}class='current'{% endif %}>Blog</a></li>
-                    <li class="nav-item"><a href="{{ site.baseurl }}/faq/" {% if current[1] == 'faq' %}class='current'{% endif %}>FAQ</a></li>
-                </ul>
-            </nav>
+                        <div class="col-xs-2 logo">
+                            <a href="{{ site.baseurl }}/">
+                                <img class="nav-logo" src="{{ site.baseurl }}/img/spine-logo-white.svg"
+                                     alt="Spine Event Engine">
+                            </a>
+                        </div>
+
+                        <div class="col-xs-10 navigation-holder">
+                            {% assign current = page.url | downcase | split: '/' %}
+                            <nav class="navigation">
+                                <ul>
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/">Home</a></li>
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/about/" {% if current[1]== 'about'
+                                        %}class='current'{% endif %}>About</a></li>
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/docs/" {% if current[1]== 'docs'
+                                        %}class='current'{% endif %}>Docs</a></li>
+                                    <div></div>
+
+                                    <ul class="doc-list-inside">
+                                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path==
+                                            'docs/index.html' %}class='current'{% endif %}>Overview</a></li>
+                                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quickstart" {% if
+                                                                    current[2]== 'quickstart' %}class='current'{% endif
+                                            %}>Quick Start</a></li>
+                                        <!--<li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}>Guides</a></li>-->
+                                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides"
+                                                                    class="current">Guides</a></li>
+                                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/tutorials" {% if
+                                                                    current[2]== 'tutorials' %}class='current'{% endif
+                                            %}>Tutorials</a></li>
+                                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/reference" {% if
+                                                                    current[2]== 'reference' %}class='current'{% endif
+                                            %}>Reference</a></li>
+                                        <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/examples" {% if
+                                                                    current[2]== 'examples' %}class='current'{% endif
+                                            %}>Examples</a></li>
+                                    </ul>
+
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/blog/" {% if current[1]== 'blog'
+                                        %}class='current'{% endif %}>Blog</a></li>
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/faq/" {% if current[1]== 'faq'
+                                        %}class='current'{% endif %}>FAQ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </header>
+
+<script>
+    $(document).ready(function(){
+        $('#nav-icon-menu').click(function(){
+            $(this).toggleClass('open');
+            $('body').toggleClass('navigation-opened');
+            return false;
+        });
+    });
+</script>
+
+
