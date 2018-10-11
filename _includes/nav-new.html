@@ -22,6 +22,7 @@
                         </div>
 
                         <div class="col-xs-10 navigation-holder">
+                            <div class="block-above-scroll-nav"></div>
                             {% assign current = page.url | downcase | split: '/' %}
                             <nav class="navigation">
                                 <ul>
@@ -33,8 +34,7 @@
                                             <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path== 'docs/index.html' %}class='current'{% endif %}>Overview</a></li>
                                             <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2]== 'quickstart' %}class='current'{% endif
                                                 %}>Quick Start</a></li>
-                                            <!--<li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}>Guides</a></li>-->
-                                            <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides" class="current">Guides</a></li>
+                                            <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}>Guides</a></li>
                                             <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/tutorials" {% if current[2]== 'tutorials' %}class='current'{% endif
                                                 %}>Tutorials</a></li>
                                             <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/reference" {% if current[2]== 'reference' %}class='current'{% endif

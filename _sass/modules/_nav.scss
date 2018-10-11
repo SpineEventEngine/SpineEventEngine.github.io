@@ -329,7 +329,6 @@
 }
 
 #header {
-  //background: $black;
   width: 100%;
   min-height: 64px;
   z-index: 1000;
@@ -337,8 +336,8 @@
   .logo {
     a {
       img {
-        width: 42px;
-        height: 32px;
+        width: 45px;
+        height: 34px;
         margin-top: 15px;
         @include transition(all .3s ease-in-out);
       }
@@ -362,14 +361,23 @@
       right: -316px;
       width: 300px;
       height: 100vh;
-      padding: 60px 24px;
+      padding: 48px 24px;
       overflow-x: auto;
       @include transition(all .4s ease-in-out);
+
+      .block-above-scroll-nav{
+        position: fixed;
+        width: 100%;
+        height: 56px;
+        background-color: rgba($footerColor, .95);
+        z-index: 1000;
+        margin: -48px -24px;
+      }
     }
   }
 
   .navigation {
-    margin: 0 -24px;
+    margin: 0 -24px 48px;
 
     @media(min-width: $tablet){
       float: right;
@@ -378,6 +386,9 @@
 
     .nav-item {
       position:relative;
+      display: block;
+      padding: 16px 20px;
+      -webkit-transform: translateZ(0);
 
       @media(min-width: $tablet){
         display: inline-block;
@@ -385,8 +396,6 @@
 
       a {
         text-decoration: none;
-        display: block;
-        padding: 16px 24px;
         font-size: 16px;
         color: rgba($white, 0.64);
         @include transition(all .25s ease-in-out);
@@ -396,25 +405,25 @@
         &.current {
           color: rgba($white, 1);
           text-decoration: none;
+          padding-bottom: 4px;
+          border-bottom: 1px solid $lightBlueColor;
+
+          &.github-icon {
+            border-bottom: none;
+          }
         }
 
         &.current {
           font-weight: 500;
-          background-color: rgba($white, .05);
         }
       }
 
       &.doc {
-        padding-left: 40px;
+        padding: 10px 0 10px 32px;
 
         a {
           font-size: 13px;
           letter-spacing: 1px;
-          padding: 8px 0;
-
-          &.current {
-            background-color: transparent;
-          }
         }
       }
 
@@ -454,7 +463,7 @@
 
     .doc-list-inside {
       display: none;
-      margin-bottom: 8px;
+      margin: 16px 0 0;
 
       @media(min-width:$tablet){
         display: none;
