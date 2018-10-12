@@ -254,12 +254,15 @@ $(function() {
     tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 56, extendPage: false});
 });
 
-//Fix TOC navigation on page while scrolling
-window.onscroll = function() {FixToc()};
+window.onscroll = function() {
+    FixToc();
+    FixHead();
+};
 
+//Fix TOC navigation on page while scrolling
 function FixToc() {
     if (tocNav.length > 0) {
-        var tocNavFixedPosition = 118; //Sticky Header height + gap below (67px + 51px = 118px)
+        var tocNavFixedPosition = 124; //Sticky Header height + gap below (68px + 56px = 124px)
         if (window.pageYOffset > tocNavFixedPosition) {
             tocNav.addClass("sticky");
         }
@@ -269,40 +272,16 @@ function FixToc() {
     }
 }
 
-//Headroom JS for the fixed header
-// grab an element
-var myElement = document.querySelector("header");
-// construct an instance of Headroom, passing the element
-var headroom  = new Headroom(myElement, {offset: 500});
-// initialise
-headroom.init();
-
-/*
-
-var headroom = new Headroom(elem,
-    {
-        offset: contentOffset,
-        tolerance: {
-            down: 0,
-            up: 20
-        },
-        onTop: function () {
-            isAlwaysShown = true;
-        },
-        onNotTop: function () {
-            isAlwaysShown = false;
-        },
-        onPin: function () {
-
-            setTimeout(function () {
-                if (!isAlwaysShown) {
-                    $mainNav.addClass("headroom--unpinned");
-
-                }
-            }, 3000);
+//Animation header on scroll
+function FixHead() {
+    var header = $('#header');
+    if (header.length > 0) {
+        var headerFixPosition = $(".nav-hero-container").innerHeight();
+        if (window.pageYOffset > headerFixPosition) {
+            header.addClass("pinned");
+        }
+        else {
+            header.removeClass("pinned");
         }
     }
-);
-*/
-
-
+}

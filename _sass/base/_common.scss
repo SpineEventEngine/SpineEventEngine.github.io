@@ -43,6 +43,8 @@
   position: relative;
   overflow: auto;
   min-width: 240px;
+  //Add this for the Chrome to fix jumping while scrolling
+  -webkit-transform: translateZ(0);
 
   &.blog-toc {
     margin: 40px 0 24px;
