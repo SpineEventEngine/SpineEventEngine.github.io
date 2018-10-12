@@ -1,7 +1,6 @@
 // Background for nav and hero
 .nav-hero-container {
   background-image: linear-gradient(152deg, #5E697D 0%, #232836 100%);
-  //z-index: 9010;
   position: relative;
   padding-bottom: 12px;
 
@@ -63,7 +62,7 @@
     animation: animateTitle 1.3s .2s forwards;
 
     @media(max-width: $phone-medium) {
-      margin-top: 24%;
+      margin-top: 50%;
     }
   }
 }

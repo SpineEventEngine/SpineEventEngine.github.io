@@ -65,7 +65,7 @@ $currentItemCaret: '\025B7  ';
   padding: 8px 8px 48px;
   margin-bottom: 32px;
 
-  @media (max-width: $tablet) {
+  @media (max-width: 767px) {
     margin: 16px 0 0;
     padding-bottom: 24px;
   }
@@ -78,7 +78,7 @@ $currentItemCaret: '\025B7  ';
     font-weight: 500;
     text-transform: uppercase;
 
-    @media (max-width: $tablet) {
+    @media (max-width: 767px) {
       font-size: 13px;
     }
   }
@@ -105,7 +105,7 @@ $currentItemCaret: '\025B7  ';
       font-weight: 400;
       transition: all .25s ease-in-out;
 
-      @media(max-width: $tablet) {
+      @media(max-width: 767px) {
         padding: 16px 20px;
         font-size: 14px;
       }

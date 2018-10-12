@@ -394,7 +394,6 @@
     .nav-item {
       position:relative;
       display: block;
-      padding: 16px 20px;
       -webkit-transform: translateZ(0);
 
       @media(min-width: $tablet){
@@ -403,25 +402,31 @@
 
       a {
         text-decoration: none;
+        display: inline-block;
+        padding: 16px 24px;
         font-size: 16px;
         color: rgba($white, 0.64);
         @include transition(all .2s ease-in-out);
         -webkit-transform: translateZ(0);
 
         @media(min-width: $tablet){
+          padding: 16px 20px;
           font-size: 15px;
           letter-spacing: 0.5px;
+        }
+
+        span {
+          @include transition(all .2s ease-in-out);
         }
 
         &:hover,
         &.current {
           color: rgba($white, 1);
           text-decoration: none;
-          padding-bottom: 4px;
-          border-bottom: 1px solid $lightBlueColor;
 
-          &.github-icon {
-            border-bottom: none;
+          span {
+            padding-bottom: 4px;
+            border-bottom: 1px solid $lightBlueColor;
           }
         }
 
@@ -431,11 +436,10 @@
       }
 
       &.doc {
-        padding: 10px 0 10px 32px;
-
         a {
           font-size: 13px;
           letter-spacing: 1px;
+          padding: 10px 0 10px 40px;
         }
       }
 
@@ -475,7 +479,7 @@
 
     .doc-list-inside {
       display: none;
-      margin: 16px 0 0;
+      margin-bottom: 8px;
 
       @media(min-width:$tablet){
         display: none;

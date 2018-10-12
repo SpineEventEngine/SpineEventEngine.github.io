@@ -149,11 +149,15 @@
 
 .post {
 
+  #header {
+    background-color: $footerColor;
+  }
+
   .post-wrapper {
-    padding-top: 64px;
+    padding-top: 112px;
 
     @media(max-width: $tablet){
-      padding-top: 0;
+      padding-top: 56px;
     }
 
     h1 {
