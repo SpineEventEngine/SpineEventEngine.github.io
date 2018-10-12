@@ -157,7 +157,8 @@
     padding-top: 112px;
 
     @media(max-width: $tablet){
-      padding-top: 56px;
+      padding: 56px 16px;
+      //padding-top: 56px;
     }
 
     h1 {
@@ -169,11 +170,16 @@
 
       @media(max-width: $tablet){
         font-size: 28px;
+        margin-bottom: 8px;
       }
     }
 
     hr {
       margin-bottom: 32px;
+
+      @media(max-width: $tablet){
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -187,8 +193,13 @@
   .postdate {
     font-size: 14px;
     font-weight: 500;
+    line-height: 1.4;
     color: rgba($textColor, .54);
     margin-bottom: 32px;
+
+    @media(max-width: $tablet){
+      margin-bottom: 24px;
+    }
   }
 
   .btn-back {
