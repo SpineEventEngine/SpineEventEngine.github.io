@@ -273,6 +273,36 @@ function FixToc() {
 // grab an element
 var myElement = document.querySelector("header");
 // construct an instance of Headroom, passing the element
-var headroom  = new Headroom(myElement);
+var headroom  = new Headroom(myElement, {offset: 500});
 // initialise
 headroom.init();
+
+/*
+
+var headroom = new Headroom(elem,
+    {
+        offset: contentOffset,
+        tolerance: {
+            down: 0,
+            up: 20
+        },
+        onTop: function () {
+            isAlwaysShown = true;
+        },
+        onNotTop: function () {
+            isAlwaysShown = false;
+        },
+        onPin: function () {
+
+            setTimeout(function () {
+                if (!isAlwaysShown) {
+                    $mainNav.addClass("headroom--unpinned");
+
+                }
+            }, 3000);
+        }
+    }
+);
+*/
+
+

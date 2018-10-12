@@ -325,7 +325,11 @@
 
 //New navigation
 .navigation-opened {
-  overflow: hidden;
+
+  @media(max-width: $tablet){
+    overflow: hidden;
+  }
+
   #header {
     .navigation-holder {
       right: 0;
@@ -370,7 +374,10 @@
       height: 100vh;
       padding: 48px 24px;
       overflow-x: auto;
-      @include transition(all .4s ease-in-out);
+
+      @media(max-width: $tablet){
+        @include transition(all .4s ease-in-out);
+      }
 
       .block-above-scroll-nav{
         position: fixed;
