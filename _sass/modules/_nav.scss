@@ -325,7 +325,10 @@
 
 //New navigation
 .navigation-opened {
-  overflow: hidden;
+  @media(max-width: $tablet){
+    overflow: hidden;
+  }
+
   #header {
     .navigation-holder {
       right: 0;
