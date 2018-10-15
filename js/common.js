@@ -1,3 +1,17 @@
+//Mobile navigation toggle
+$(document).ready(function(){
+    $('#nav-icon-menu').click(function(){
+        $(this).toggleClass('open');
+        $('body').toggleClass('navigation-opened');
+        return false;
+    });
+});
+
+//Mobile navigation — doc-list toggle
+$('.doc-list-toggle').on('click', function(){
+    $('.doc-list-inside').toggleClass('active');
+    $(this).toggleClass('active');
+});
 
 // Youtube Player API
 // create script tag and add to DOM
