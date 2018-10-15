@@ -155,10 +155,7 @@
     height: 68px;
 
     &.pinned {
-      -webkit-transform: translateY(0);
-      -moz-transform: translateY(0);
-      -o-transform: translateY(0);
-      transform: translateY(0);
+      @include translateY(0%);
       -webkit-animation: none;
       -moz-animation: none;
       -o-animation: none;
@@ -171,7 +168,6 @@
 
     @media(max-width: $tablet){
       padding: 56px 16px;
-      //padding-top: 56px;
     }
 
     h1 {

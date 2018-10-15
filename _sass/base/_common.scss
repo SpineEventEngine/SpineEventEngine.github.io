@@ -7,7 +7,7 @@
   transition: $args;
 }
 
-//Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forward);
+//Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
 @mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode) {
   -webkit-animation-name: $animation-name;
   -webkit-animation-duration: $duration;
