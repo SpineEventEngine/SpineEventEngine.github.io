@@ -242,18 +242,3 @@ th {
     }
   }
 }
-
-//Headroom JS
-.headroom {
-  will-change: transform;
-  transition: transform .2s ease-in-out;
-}
-
-.headroom--pinned {
-  display: block;
-  transform: translateY(0%);
-}
-.headroom--unpinned {
-  display: none;
-  transform: translateY(-100%);
-}

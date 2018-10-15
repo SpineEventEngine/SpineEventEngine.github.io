@@ -1,57 +1,75 @@
-<nav id="common-nav">
-  <div class="nav-container container">
-    <div class="row">
-      <div class="col-md-11 nofloat center-block">
-        <a class="col-xs-2" href="{{ site.baseurl }}/">
-          <img class="nav-logo" src="{{ site.baseurl }}/img/spine-logo-white.svg" alt="Spine Event Engine">
-        </a>
-
-        <div class="col-xs-2 col-xs-offset-8">
-          <button type="button" class="hamburger navbar-toggle collapsed" data-target="#navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+<header id="header">
+    <div class="nav-open-close">
+        <div id="nav-icon-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-
-        <ul class="nav col-xs-10">
-          {% assign current = page.url | downcase | split: '/' %}
-          <li><a href="{{ site.baseurl }}/about/" {% if current[1] == 'about' %}class='current'{% endif %}>About</a></li>
-          <li><a href="{{ site.baseurl }}/docs/" {% if current[1] == 'docs' %}class='current'{% endif %}>Docs</a></li>
-          <li><a href="{{ site.baseurl }}/blog/" {% if current[1] == 'blog' %}class='current'{% endif %}>Blog</a></li>
-          <li><a href="{{ site.baseurl }}/faq/" {% if current[1] == 'faq' %}class='current'{% endif %}>FAQ</a></li>
-          <li>
-            <a class="github-icon" href="https://github.com/SpineEventEngine" target="_blank">
-              <i class="fa fa-github-alt fa-lg"></i>
-            </a>
-          </li>
-        </ul>
-
-      </div>
     </div>
-  </div>
 
-  <div class="top-nav right">
-    {% assign current = page.url | downcase | split: '/' %}
-    <li class="nav-item"><p><a href="{{ site.baseurl }}/">Home</a></p><div class="nav-toggle icon-close"></div></li>
-    <hr>
-    <li class="nav-item"><p><a href="{{ site.baseurl }}/about/" {% if current[1] == 'about' %}class='current'{% endif %}>About</a></p></li>
-    <hr>
-    <li class="nav-item"><p><a href="{{ site.baseurl }}/docs/" {% if current[1] == 'docs' %}class='current'{% endif %}>Docs</a></p>
-      <div {% if current[1] == 'docs' %}class='nav-doc-toggle icon-caret active'{% else %}class='nav-doc-toggle icon-caret'{% endif %}></div>
-      <ul {% if current[1] == 'docs' %}class='doc-list active'{% else %}class='doc-list'{% endif %}>
-        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs" {% if page.path == 'docs/index.html' %}class='current'{% endif %}>Overview</a></li>
-        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2] == 'quickstart' %}class='current'{% endif %}>Quick Start</a></li>
-        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}>Guides</a></li>
-        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/tutorials" {% if current[2] == 'tutorials' %}class='current'{% endif %}>Tutorials</a></li>
-        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/reference" {% if current[2] == 'reference' %}class='current'{% endif %}>Reference</a></li>
-        <li class="nav-doc-tab"><a href="{{ site.baseurl }}/docs/examples" {% if current[2] == 'examples' %}class='current'{% endif %}>Examples</a></li>
-      </ul>
-    </li>
-    <hr>
-    <li class="nav-item"><p><a href="{{ site.baseurl }}/blog/" {% if current[1] == 'blog' %}class='current'{% endif %}>Blog</a></p></li>
-    <hr>
-    <li class="nav-item"><p><a href="{{ site.baseurl }}/faq/" {% if current[1] == 'faq' %}class='current'{% endif %}>FAQ</a></p></li>
-  </div>
-</nav>
+    <div class="nav-container container">
+        <div class="row">
+            <div class="col-md-11 nofloat center-block">
+                <div class="col-md-12">
+                    <div class="row">
+
+                        <div class="col-xs-2 logo">
+                            <a href="{{ site.baseurl }}/">
+                                <img class="nav-logo" src="{{ site.baseurl }}/img/spine-logo-white.svg"
+                                     alt="Spine Event Engine">
+                            </a>
+                        </div>
+
+                        <div class="col-xs-10 navigation-holder">
+                            <div class="block-above-scroll-nav"></div>
+                            {% assign current = page.url | downcase | split: '/' %}
+                            <nav class="navigation">
+                                <ul>
+                                    <li class="nav-item home-item"><a href="{{ site.baseurl }}/"><span>Home</span></a></li>
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/about/" {% if current[1]== 'about' %}class='current'{% endif %}><span>About</span></a></li>
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/docs/" {% if current[1]== 'docs' %}class='current'{% endif %}><span>Docs</span></a>
+                                        <div {% if current[1] =='docs' %}class='doc-list-toggle icon-caret active'{% else %}class='doc-list-toggle icon-caret'{% endif %}></div>
+                                        <ul {% if current[1] == 'docs' %}class='doc-list-inside active'{% else %}class='doc-list-inside'{% endif %}>
+                                            <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path== 'docs/index.html' %}class='current'{% endif %}><span>Overview</span></a></li>
+                                            <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2]== 'quickstart' %}class='current'{% endif
+                                                %}><span>Quick Start</span></a></li>
+                                            <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}><span>Guides</span></a></li>
+                                            <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/tutorials" {% if current[2]== 'tutorials' %}class='current'{% endif
+                                                %}><span>Tutorials</span></a></li>
+                                            <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/reference" {% if current[2]== 'reference' %}class='current'{% endif
+                                                %}><span>Reference</span></a></li>
+                                            <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/examples" {% if current[2]== 'examples' %}class='current'{% endif
+                                                %}><span>Examples</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/blog/" {% if current[1]== 'blog' %}class='current'{% endif %}><span>Blog</span></a></li>
+                                    <li class="nav-item"><a href="{{ site.baseurl }}/faq/" {% if current[1]== 'faq' %}class='current'{% endif %}><span>FAQ</span></a></li>
+                                    <li class="nav-item"><a class="github-icon" href="https://github.com/SpineEventEngine" target="_blank"><i class="fa fa-github-alt fa-lg"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    $(document).ready(function(){
+        $('#nav-icon-menu').click(function(){
+            $(this).toggleClass('open');
+            $('body').toggleClass('navigation-opened');
+            return false;
+        });
+    });
+
+    $('.doc-list-toggle').on('click', function(){
+        $('.doc-list-inside').toggleClass('active');
+        $(this).toggleClass('active');
+    });
+</script>
+
+

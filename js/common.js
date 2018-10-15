@@ -105,130 +105,6 @@ function setupTabs(rootElement) {
       }
 };
 
-// Make the table of contents
-$(document).ready(function() {
-    var $window = $(window);
-
-    // Sticky Nav on Scroll Up
-    var iScrollPos = 0;
-
-    $window.scroll(function () {
-      var iCurScrollPos = $(this).scrollTop();
-        if (iCurScrollPos > iScrollPos) {
-          //Scrolling Down
-          if ($('#sticky-nav').visible()){
-            $('#sticky-nav').removeClass("on-page");
-          }
-        } else {
-          //Scrolling Up
-          if ($('.nav-hero-container').visible(true) && $('#sticky-nav').visible()){
-            $('#sticky-nav').removeClass("on-page");
-          } else if (!$('.nav-hero-container').visible(true)) {
-            $('#sticky-nav').addClass("on-page");
-          }
-        }
-        iScrollPos = iCurScrollPos;
-    });
-
-    setTimeout(function(){
-      if (document.URL.indexOf("#") != -1 && document.URL.indexOf("contribute") == -1 ) {
-        $('#sticky-nav').addClass("on-page");
-      }
-    }, 1000);
-
-    // Scroll to sections
-    $('.btn-floating').on('click', function(){
-      $('html, body').scrollTo(('#' +($(this).data("target"))), 350);
-    })
-
-    // Invoke slick JS carousel 
-    // Detailed documentation: http://kenwheeler.github.io/slick/
-    $('.pt-container').slick({
-      arrows: true,
-      dots: false,
-      autoplay: false,
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 1, 
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            dots: false,
-            arrows: true 
-          }
-        },
-        {
-          breakpoint: 800,
-          settings: {
-            slidesToShow: 3,
-            dots: true,
-            arrows: false
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            dots: true,
-            arrows: false
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            dots: true,
-            arrows: false
-          }
-        }
-      ]
-    });                
-
-    $('.slick-next').on('click', function() {
-      $('.slick-prev').addClass('active');
-    });
-
-    $('.nav-toggle, .hamburger').on('click', function(){
-      $('.top-nav').toggleClass('right');
-    });
-
-    $('.nav-doc-toggle').on('click', function(){
-      $('.doc-list').toggleClass('active');
-      $(this).toggleClass('active');
-    });
-
-    $(window).on('resize',function(){
-       //send resize event to slick after it's been destroyed
-      $('.pt-container').slick('resize');
-
-      //reset event listener on resize
-      $('.slick-next').on('click', function() {
-        $('.slick-prev').addClass('active');
-      });
-
-      if ($(window).width() >= 768 && !($('.top-nav').hasClass('right'))) {
-        $('.top-nav').addClass('right');
-      }
-    });
-
-    $('.toggle').on('click',function(){
-      $(this).toggleClass('active');
-    });
-
-    var forwarding = window.location.hash.replace("#","");
-    if (forwarding) {
-        $("#generalInstructions").hide();
-        $("#continueEdit").show();
-        $("#continueEditButton").text("Edit " + forwarding);
-        $("#continueEditButton").attr("href", "{{ site.githuburl }}edit/master/" + forwarding)
-    } else {
-        $("#generalInstructions").show();
-        $("#continueEdit").hide();
-    }
-});
-
 // Prettyprint
 $('pre').addClass("prettyprint");
 $.getScript("https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js", function(){
@@ -251,7 +127,7 @@ $(function() {
 var tocNav = $('#toc');
 $(function() {
 //Calls the tocify method on your HTML nav.
-    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 56, extendPage: false});
+    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 64, extendPage: false});
 });
 
 window.onscroll = function() {
