@@ -503,8 +503,61 @@
     position: fixed;
     height: 68px;
     background-color: $footerColor;
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
     transform: translateY(-100%);
+    -webkit-animation: slideDownNav .4s .2s ease-in-out forwards;
+    -moz-animation: slideDownNav .4s .2s ease-in-out forwards;
+    -o-animation: slideDownNav .4s .2s ease-in-out forwards;
     animation: slideDownNav .4s .2s ease-in-out forwards;
+  }
+
+  &.not-Top {
+    &.unpinned {
+      display: block;
+      position: fixed;
+      height: 68px;
+      background-color: $footerColor;
+      -webkit-transform: translateY(0%);
+      -moz-transform: translateY(0%);
+      -o-transform: translateY(0%);
+      transform: translateY(0%);
+      -webkit-animation: slideUpNav .2s ease-in-out forwards;
+      -moz-animation: slideUpNav .2s ease-in-out forwards;
+      -o-animation: slideUpNav .2s ease-in-out forwards;
+      animation: slideUpNav .2s ease-in-out forwards;
+    }
+  }
+
+  @-webkit-keyframes slideDownNav {
+    0% {
+      -webkit-transform: translateY(-100%);
+    }
+
+    100% {
+      -webkit-transform: translateY(0%);
+    }
+  }
+
+  @-moz-keyframes slideDownNav {
+    0% {
+      -moz-transform: translateY(-100%);
+    }
+
+    100% {
+      -moz-transform: translateY(0%);
+    }
+  }
+
+  @-o-keyframes slideDownNav {
+    0% {
+      -o-transform: translateY(-100%);
+    }
+
+    100% {
+      -o-transform: translateY(0%);
+    }
   }
 
   @keyframes slideDownNav {
@@ -514,6 +567,46 @@
 
     100% {
       transform: translateY(0%);
+    }
+  }
+
+  @-webkit-keyframes slideUpNav {
+    0% {
+      -webkit-transform: translateY(0%);
+    }
+
+    100% {
+      -webkit-transform: translateY(-100%);
+    }
+  }
+
+  @-moz-keyframes slideUpNav {
+    0% {
+      -moz-transform: translateY(0%);
+    }
+
+    100% {
+      -moz-transform: translateY(-100%);
+    }
+  }
+
+  @-o-keyframes slideUpNav {
+    0% {
+      -o-transform: translateY(0%);
+    }
+
+    100% {
+      -o-transform: translateY(-100%);
+    }
+  }
+
+  @keyframes slideUpNav {
+    0% {
+      transform: translateY(0%);
+    }
+
+    100% {
+      transform: translateY(-100%);
     }
   }
 }

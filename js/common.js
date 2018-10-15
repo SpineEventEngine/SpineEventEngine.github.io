@@ -279,9 +279,17 @@ function FixHead() {
         var headerFixPosition = $(".nav-hero-container").innerHeight();
         if (window.pageYOffset > headerFixPosition) {
             header.addClass("pinned");
+            header.addClass("not-Top");
+            header.removeClass("unpinned");
         }
         else {
             header.removeClass("pinned");
+            header.addClass("unpinned");
+        }
+
+        if (window.pageYOffset === 0) {
+            header.removeClass("not-Top");
+            header.removeClass("unpinned");
         }
     }
 }

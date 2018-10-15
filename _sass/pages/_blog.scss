@@ -152,6 +152,18 @@
   #header {
     background-color: $footerColor;
     position: fixed;
+    height: 68px;
+
+    &.pinned {
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none;
+    }
   }
 
   .post-wrapper {
