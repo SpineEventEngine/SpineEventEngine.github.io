@@ -262,7 +262,7 @@ window.onscroll = function() {
 //Fix TOC navigation on page while scrolling
 function FixToc() {
     if (tocNav.length > 0) {
-        var tocNavFixedPosition = 124; //Sticky Header height + gap below (68px + 56px = 124px)
+        var tocNavFixedPosition = 120; //Sticky TOC offset
         if (window.pageYOffset > tocNavFixedPosition) {
             tocNav.addClass("sticky");
         }
@@ -278,8 +278,8 @@ function FixHead() {
     if (header.length > 0) {
         var headerFixPosition = $(".nav-hero-container").innerHeight();
         if (window.pageYOffset > headerFixPosition) {
-            header.addClass("pinned");
-            header.addClass("not-Top");
+            header.addClass("not-top"); //When navigation below offset
+            header.addClass("pinned"); //When navigation below hero section
             header.removeClass("unpinned");
         }
         else {
@@ -287,8 +287,9 @@ function FixHead() {
             header.addClass("unpinned");
         }
 
+        //Return classes to the initial state when the navigation at the top of the page
         if (window.pageYOffset === 0) {
-            header.removeClass("not-Top");
+            header.removeClass("not-top");
             header.removeClass("unpinned");
         }
     }
