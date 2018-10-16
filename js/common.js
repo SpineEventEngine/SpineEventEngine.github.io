@@ -186,7 +186,7 @@ function FixHead() {
         }
 
         //Return classes to the initial state when the navigation at the top of the page
-        if (window.pageYOffset === 0) {
+        if (window.pageYOffset < 64) {
             header.removeClass("not-top");
             header.removeClass("unpinned");
         }

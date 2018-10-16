@@ -2,6 +2,7 @@
 .navigation-opened {
   @media(max-width: $tablet){
     overflow: hidden;
+    position: fixed;
   }
 
   #header {
