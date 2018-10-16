@@ -13,6 +13,14 @@ $('.doc-list-toggle').on('click', function(){
     $(this).toggleClass('active');
 });
 
+//Mobile footer navitation
+$(document).ready(function() {
+    var $window = $(window);
+    $('.toggle').on('click',function(){
+        $(this).toggleClass('active');
+    });
+});
+
 // Youtube Player API
 // create script tag and add to DOM
 var tag = document.createElement('script');
