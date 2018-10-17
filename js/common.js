@@ -1,24 +1,18 @@
 //Mobile navigation toggle
-$(document).ready(function(){
-    $('#nav-icon-menu').click(function(){
-        $(this).toggleClass('open');
-        $('body').toggleClass('navigation-opened');
-        return false;
-    });
+$('#nav-icon-menu').click(function(){
+    $(this).toggleClass('open');
+    $('body').toggleClass('navigation-opened');
 });
 
 //Mobile navigation — doc-list toggle
-$('.doc-list-toggle').on('click', function(){
+$('.doc-list-toggle').click(function(){
     $('.doc-list-inside').toggleClass('active');
     $(this).toggleClass('active');
 });
 
 //Mobile footer navitation
-$(document).ready(function() {
-    var $window = $(window);
-    $('.toggle').on('click',function(){
-        $(this).toggleClass('active');
-    });
+$('.toggle').click(function(){
+    $(this).toggleClass('active');
 });
 
 // Youtube Player API
