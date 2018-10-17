@@ -146,10 +146,12 @@ $(function() {
     }
 });
 
+var InitialHeadHeight = $("#header").innerHeight();
 var tocNav = $('#toc');
 $(function() {
 //Calls the tocify method on your HTML nav.
-    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: 64, extendPage: false});
+//InitialHeadHeight + 12 (12px — small offset from the header navigation)
+    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: InitialHeadHeight+12, extendPage: false});
 });
 
 window.onscroll = function() {
@@ -186,7 +188,7 @@ function FixHead() {
         }
 
         //Return classes to the initial state when the navigation at the top of the page
-        if (window.pageYOffset < 64) {
+        if (window.pageYOffset < InitialHeadHeight) {
             header.removeClass("not-top");
             header.removeClass("unpinned");
         }
