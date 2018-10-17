@@ -103,6 +103,10 @@ code {
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   padding: 1px 6px 2px;
+  // sometimes code lines can be longer than screen is wide
+  @media(max-width: $phone-small){
+    word-break: break-all;
+  }
 }
 
 pre, pre.prettyprint {
@@ -115,10 +119,19 @@ pre, pre.prettyprint {
   font-size: 14px !important;
   font-weight: 400 !important;
   padding: 24px 32px !important;
+  display: inline-grid;
+  width: 100%;
+
+  @media(max-width: $phone-xlarge){
+    padding: 16px 24px !important;
+  }
 }
 
 pre code {
   white-space: pre;
+  overflow: auto;
+  //For the Safari browser
+  overflow-wrap: normal;
 
   @media print {
     white-space: pre-wrap;
@@ -127,7 +140,7 @@ pre code {
 
 .highlight {
   position: relative;
-  margin: 8px 0 40px;
+  margin: 16px 0 40px;
 }
 
 .icon-copy-code {

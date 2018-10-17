@@ -7,6 +7,64 @@
   transition: $args;
 }
 
+//Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
+@mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode) {
+  -webkit-animation-name: $animation-name;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-delay: $delay;
+  -webkit-animation-timing-function: $timing-function;
+  -webkit-animation-fill-mode: $fill-mode;
+
+  -moz-animation-name: $animation-name;
+  -moz-animation-duration: $duration;
+  -moz-animation-delay: $delay;
+  -moz-animation-timing-function: $timing-function;
+  -moz-animation-fill-mode: $fill-mode;
+
+  -o-animation-name: $animation-name;
+  -o-animation-duration: $duration;
+  -o-animation-delay: $delay;
+  -o-animation-timing-function: $timing-function;
+  -o-animation-fill-mode: $fill-mode;
+
+  animation-name: $animation-name;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: $fill-mode;
+}
+
+//Transform
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+//TranslateY
+//Usage @include translateY(0%);
+@mixin translateY($y) {
+  @include transform(translateY($y));
+}
+
+//Keyframes
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
 // Shared
 .vpad {
   padding-top: $vpad;
@@ -43,6 +101,8 @@
   position: relative;
   overflow: auto;
   min-width: 240px;
+  //Add this for the Chrome to fix jumping while scrolling
+  -webkit-transform: translateZ(0);
 
   &.blog-toc {
     margin: 40px 0 24px;
