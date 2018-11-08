@@ -155,44 +155,76 @@ message Task {
 
           <!-- First level -->
           <div class="row features-row">
-            <div class="col-md-4">
-              <div class="feature-card">
-                <i class="card-icon domain-model"></i>
-                <div class="card-content-text">
-                  <header class="feature-card-title">Clear work separation</header>
-                  <p>Thanks to CQRS, more experienced developers can work on the core domain.
-                    The&nbsp;read–side and UI are created by the rest of the team.
-                    People don't add new database indexes or fields to core data because of UI needs.</p>
-                </div>
+              
+              <div class="col-md-4">
+                  <div class="feature-card">
+                      <i class="card-icon domain-model"></i>
+                      <div class="card-content-text">
+                          <header class="feature-card-title">Type Safety</header>
+                          <p>Should you need <code>CustomerId</code> identifier or
+                          <code>WorkEstimate</code> value object, you can get it within seconds
+                          for multiple languages. And it comes with binary format,
+                          and automatic Json support.
+                          </p>
+                      </div>
+                  </div>
               </div>
-            </div>
 
-            <div class="col-md-4">
-              <div class="feature-card">
-                <i class="card-icon domain-model"></i>
-                <div class="card-content-text">
-                  <header class="feature-card-title">Evolve your business model</header>
-                  <p>Add and remove fields while keeping binary compatibility with older code;
-                    handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
-                    Build new <code>Projections</code> on the whole event history of the system.</p>
-                </div>
+              <div class="col-md-4">
+                  <div class="feature-card">
+                      <i class="card-icon domain-model"></i>
+                      <div class="card-content-text">
+                          <header class="feature-card-title">Promoted immutability</header>
+                          <p>All the data types are immutable, which makes it easy to cache
+                              and share. Mutations performed in a clearly
+                              defined cycles.</p>
+                      </div>
+                  </div>
               </div>
-            </div>
 
-            <div class="col-md-4">
-              <div class="feature-card">
-                <i class="card-icon domain-model"></i>
-                <div class="card-content-text">
-                  <header class="feature-card-title">Scale with micro-services</header>
-                  <p>CQRS architecture allows to scale read- and write- sides independently.
-                    When further scaling is needed, Event-Driven Architecture allows to further separate and scale heavily loaded parts.</p>
-                </div>
+              <div class="col-md-4">
+                  <div class="feature-card">
+                      <i class="card-icon domain-model"></i>
+                      <div class="card-content-text">
+                          <header class="feature-card-title">Evolve your business model</header>
+                          <p>Add and remove fields while keeping binary compatibility with older code;
+                              handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
+                              Build new <code>Projections</code> on the whole event history of the system.</p>
+                      </div>
+                  </div>
               </div>
-            </div>
+
           </div>
 
           <!-- Second level -->
           <div class="row features-row">
+
+            <div class="col-md-4">
+                  <div class="feature-card">
+                      <i class="card-icon domain-model"></i>
+                      <div class="card-content-text">
+                          <header class="feature-card-title">Develop faster, with better results</header>
+                          <p>Thanks to CQRS and Event-Driven Architecture,
+                              you can arrange clear work separate.
+                              More experienced developers work on the core domain and the write-side.
+                              The&nbsp;read–side and UI are created by the rest of the team.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+
+            <div class="col-md-4">
+                  <div class="feature-card">
+                      <i class="card-icon domain-model"></i>
+                      <div class="card-content-text">
+                          <header class="feature-card-title">Scale with micro-services</header>
+                          <p>CQRS architecture allows to scale read- and write- sides independently.
+                              When further scaling is needed, Event-Driven Architecture allows to
+                              further separate and scale heavily loaded parts.</p>
+                      </div>
+                  </div>
+              </div>
+
             <div class="col-md-4">
               <div class="feature-card">
                 <i class="card-icon domain-model"></i>
