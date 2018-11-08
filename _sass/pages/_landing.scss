@@ -1,6 +1,5 @@
 // Landing page
 .landing-content-container {
-  padding-bottom: 60px;
   padding-top: 60px;
   position: relative;
 
@@ -9,7 +8,7 @@
   }
 
   .landing-row {
-    margin: 32px 0 106px;
+    margin: 32px 0 148px;
 
     @media(max-width: $desktop-small) {
       margin: 24px 0 40px;
@@ -19,25 +18,14 @@
       margin-top: 0;
     }
 
-    .col-style {
-      padding: 0 56px;
-      @media(max-width: $desktop-large) {
-        padding: 0 24px;
-      }
-
-      @media(max-width: $desktop-small) {
-        padding: 0 15px;
-      }
-
-      @media(max-width: $phone-xlarge) {
-        padding: 0;
-      }
+    .col-style-text {
+      padding-right: 48px;
     }
 
     .landing-row-title {
       font-size: 2rem;
       color: $black;
-      margin: 8px 0 24px;
+      margin: 8px 0 12px;
       font-weight: 300;
 
       @media(max-width: $desktop-small) {
@@ -49,7 +37,7 @@
       font-weight: 400;
       line-height: 1.7rem;
       color: $textColor;
-      padding-bottom: 32px;
+      padding-bottom: 40px;
 
       @media(max-width: $phone-xlarge) {
         padding-bottom: 24px
@@ -109,18 +97,6 @@
 
   @media(max-width: $phone-xlarge) {
     padding: 40px 0 24px;
-  }
-
-  .features-row {
-    padding: 0 56px;
-
-    @media(max-width: $desktop-small) {
-      padding: 0 15px;
-    }
-
-    @media(max-width: $phone-xlarge) {
-      padding: 0;
-    }
   }
 
   .section-title {
