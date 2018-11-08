@@ -17,15 +17,45 @@ title: Spine Event Engine
             </div>
 
             <div class="col-md-4 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-domain-command.jpg" alt="Define command">
+              <div class="highlighter-rouge">
+                <div class="highlight">
+<pre class="highlight">
+<code>// A command to craete a new task.
+message CreateTask {
+    TaskId id = 1;
+    string name = 2 [(required) = true];
+    string description = 3;
+}</code></pre>
+                </div>
+              </div>
             </div>
 
             <div class="col-md-4 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-domain-event.jpg" alt="Define event">
+                <div class="highlighter-rouge">
+                    <div class="highlight">
+<pre class="highlight">
+<code>// An event generated when new task is created.
+message TaskCreated {
+    TaskId id = 1;
+    string name = 2 [(required) = true];
+    string description = 3;
+}</code></pre>
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-4 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-domain-entity.jpg" alt="Define entity state">
+                <div class="highlighter-rouge">
+                    <div class="highlight">
+<pre class="highlight">
+<code>// A state of the Task aggregate.
+message Task {
+    TaskId id = 1;
+    string name = 2 [(required) = true];
+    string description = 3;
+}</code></pre>
+                    </div>
+                </div>
             </div>
           </div>
 
@@ -41,7 +71,7 @@ title: Spine Event Engine
 
           <div class="row landing-row">
             <div class="col-md-12 col-style">
-              <h2 class="landing-row-title">Step 3. Define business logic in straight and testable way</h2>
+              <h2 class="landing-row-title">Step 3. Code business logic in straight and testable way</h2>
               <p>Focus on the business logic rather than “plumbing”.
                 A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
                 <code>Projection</code>s will get all <code>Event</code>s they need.
@@ -51,12 +81,49 @@ title: Spine Event Engine
 
             <!--Aggregate code -->
             <div class="col-md-6 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-business-logic.jpg" alt="Focus on the business logic">
+                <div class="highlighter-rouge">
+                    <div class="highlight">
+<pre class="highlight">
+<code>final class TaskAggregate
+    extends Aggregate&lt;TaskId, Task, TaskVBuilder&gt; {
+    ...
+    @Assign
+    TaskCreated handle(CreateTask cmd, CommandContext ctx) {
+        return TaskCreated
+                .newBuilder()
+                .setId(cmd.getId())
+                .setName(cmd.getName())
+                .setOwner(ctx.getActor())
+                .build();
+    }
+    ...
+}
+</code></pre>
+                    </div>
+                </div>
             </div>
 
             <!--Projection code -->
             <div class="col-md-6 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-business-logic.jpg" alt="Focus on the business logic">
+                <div class="highlighter-rouge">
+                    <div class="highlight">
+<pre class="highlight">
+<code>final class TaskProjection
+    extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
+    ...
+    @Subscribe
+    void on(TaskCreated e) {
+        getBuilder().setId(e.getId())
+                    .setName(e.getName())
+    }
+
+    @Subscribe
+    void on(TaskCompleted e, EventContext ctx) {
+        getBuilder().setWhenDone(ctx.getTimestamp());
+    }
+}</code></pre>
+                    </div>
+                </div>
             </div>
           </div>
 
@@ -64,7 +131,7 @@ title: Spine Event Engine
             <div class="col-md-6 col-style">
               <h2 class="landing-row-title">Step 4. Easily deploy to Google Cloud or a custom environment</h2>
               <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
-                quickly. Adopt your application to selected deployment environment(s) with a few lines of code, added in one place.</p>
+                quickly. Adopt your application to selected deployment environment(s) with a few lines of code.</p>
             </div>
             <div class="col-md-6 col-style">
               <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg" alt="Evolve your domain model">
