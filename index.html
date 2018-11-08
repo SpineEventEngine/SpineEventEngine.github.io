@@ -25,7 +25,9 @@ message CreateTask {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
-}</code></pre>
+}
+...
+</code></pre>
                 </div>
               </div>
             </div>
@@ -34,12 +36,14 @@ message CreateTask {
                 <div class="highlighter-rouge">
                     <div class="highlight">
 <pre class="highlight">
-<code>// An event generated when new task is created.
+<code>// A new task has been created.
 message TaskCreated {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
-}</code></pre>
+}
+...
+</code></pre>
                     </div>
                 </div>
             </div>
@@ -53,6 +57,7 @@ message Task {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
+    DeveloperId assignee = 4;
 }</code></pre>
                     </div>
                 </div>
@@ -65,7 +70,7 @@ message Task {
               <p>Java, JavaScript, and C++ are currently supported, with more languages to come soon.</p>
             </div>
             <div class="col-md-6 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-code-gen.jpg" alt="Generate code">
+              <img class="landing-image" src="{{ site.baseurl }}/img/landing-business-logic.jpg" alt="Generate code">
             </div>
           </div>
 
@@ -83,7 +88,7 @@ message Task {
             <div class="col-md-6 col-style">
                 <div class="highlighter-rouge">
                     <div class="highlight">
-<pre class="highlight">
+<pre class="highlight lang-java">
 <code>final class TaskAggregate
     extends Aggregate&lt;TaskId, Task, TaskVBuilder&gt; {
     ...
@@ -107,7 +112,7 @@ message Task {
             <div class="col-md-6 col-style">
                 <div class="highlighter-rouge">
                     <div class="highlight">
-<pre class="highlight">
+<pre class="highlight lang-java">
 <code>final class TaskProjection
     extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
     ...
@@ -161,9 +166,9 @@ message Task {
                       <i class="card-icon domain-model"></i>
                       <div class="card-content-text">
                           <header class="feature-card-title">Type Safety</header>
-                          <p>Should you need <code>CustomerId</code> identifier or
-                          <code>WorkEstimate</code> value object, you can get it within seconds
-                          for multiple languages. And it comes with binary format,
+                          <p>Should you need <code>CustomerId</code> or
+                          <code>WorkEstimate</code> value, you get it within seconds,
+                          for multiple languages. And it all comes with binary storage format,
                           and automatic Json support.
                           </p>
                       </div>
@@ -176,8 +181,8 @@ message Task {
                       <div class="card-content-text">
                           <header class="feature-card-title">Promoted immutability</header>
                           <p>All the data types are immutable, which makes it easy to cache
-                              and share. Mutations performed in a clearly
-                              defined cycles.</p>
+                          and share. Mutations are performed <em>only</em> in response
+                          to incoming messages via clearly defined cycles.</p>
                       </div>
                   </div>
               </div>
