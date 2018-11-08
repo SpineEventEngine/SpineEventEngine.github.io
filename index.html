@@ -6,7 +6,7 @@ title: Spine Event Engine
 <div id="landing-content" class="landing-content-container">
   <section class="container">
 
-    <div class="row" >
+    <div class="row">
       <div class="col-md-11 nofloat center-block">
         <div class="col-sm-12">
 
@@ -71,61 +71,75 @@ title: Spine Event Engine
             </div>
           </div>
 
-          <hr>
 
-          <!--right-text-->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-          <div class="row landing-row">
-            <div class="col-md-6 col-style">
-              <h2 class="landing-row-title">Clear work separation</h2>
-              <p>Thanks to CQRS, more experienced developers can work on the core domain.
-                The&nbsp;read–side and UI are created by the rest of the team.
-                People don't add new database indexes or fields to core data because of UI needs.</p>
+
+<div id="landing-content-features" class="features-section">
+  <section class="container">
+    <div class="row">
+      <div class="col-md-11 nofloat center-block">
+        <div class="col-sm-12">
+          <h2 class="section-title">Features</h2>
+
+          <!-- First level -->
+          <div class="row features-row">
+            <div class="col-md-4">
+              <div class="feature-card">
+                <i class="card-icon domain-model"></i>
+                <div class="card-content-text">
+                  <header class="feature-card-title">Clear work separation</header>
+                  <p>Thanks to CQRS, more experienced developers can work on the core domain.
+                    The&nbsp;read–side and UI are created by the rest of the team.
+                    People don't add new database indexes or fields to core data because of UI needs.</p>
+                </div>
+              </div>
             </div>
-            <div class="col-md-6 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-cqrs.jpg" alt="Clear work separation">
+
+            <div class="col-md-4">
+              <div class="feature-card">
+                <i class="card-icon domain-model"></i>
+                <div class="card-content-text">
+                  <header class="feature-card-title">Evolve your business model</header>
+                  <p>Add and remove fields while keeping binary compatibility with older code;
+                    handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
+                    Build new <code>Projections</code> on the whole event history of the system.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="feature-card">
+                <i class="card-icon domain-model"></i>
+                <div class="card-content-text">
+                  <header class="feature-card-title">Scale with micro-services</header>
+                  <p>CQRS architecture allows to scale read- and write- sides independently.
+                    When further scaling is needed, Event-Driven Architecture allows to further separate and scale heavily loaded parts.</p>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div class="row landing-row">
-            <div class="col-md-6 col-style">
-              <h2 class="landing-row-title">Evolve your business model</h2>
-              <p>Add and remove fields while keeping binary compatibility with older code;
-                handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
-                Build new <code>Projections</code> on the whole event history of the system.</p>
-            </div>
-            <div class="col-md-6 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-evolve-model.jpg" alt="Evolve your domain model">
-            </div>
-          </div>
 
-          <!--right-text-->
-          <div class="row landing-row">
-            <div class="col-md-6 col-md-push-6 col-xs-12 col-style">
-              <h2 class="landing-row-title">Scale with micro-services</h2>
-              <p>CQRS architecture allows to scale read- and write- sides independently.
-                When further scaling is needed, Event-Driven Architecture allows to further separate and scale heavily loaded parts.</p>
-            </div>
-            <div class="col-md-6 col-md-pull-6 col-xs-12 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-scale.jpg" alt="Scale">
-            </div>
-          </div>
-
-          <div class="row landing-row">
-            <div class="col-md-6 col-style">
-              <h2 class="landing-row-title">Use freely</h2>
-              <p>Permissive Apache License allows using the framework in closed-source projects.
-                You are welcome to contribute to improving the framework.</p>
-            </div>
-            <div class="col-md-6 col-style">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-open-source.jpg" alt="Open Source">
+          <!-- Second level -->
+          <div class="row features-row">
+            <div class="col-md-4">
+              <div class="feature-card">
+                <i class="card-icon domain-model"></i>
+                <div class="card-content-text">
+                  <header class="feature-card-title">Use freely</header>
+                  <p>Permissive Apache License allows using the framework in closed-source projects.
+                    You are welcome to contribute to improving the framework.</p>
+                </div>
+              </div>
             </div>
           </div>
 
         </div>
       </div>
     </div>
-
   </section>
-
 </div>
