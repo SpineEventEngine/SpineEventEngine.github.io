@@ -84,8 +84,7 @@ message Task {
                 <div class="highlighter-rouge">
                     <div class="highlight">
 <pre class="highlight">
-<code>
-final class TaskAggregate
+<code>final class TaskAggregate
     extends Aggregate&lt;TaskId, Task, TaskVBuilder&gt; {
     ...
     @Assign
@@ -97,10 +96,8 @@ final class TaskAggregate
                 .setOwner(ctx.getActor())
                 .build();
     }
-    
     ...
 }
-    
 </code></pre>
                     </div>
                 </div>
@@ -111,21 +108,18 @@ final class TaskAggregate
                 <div class="highlighter-rouge">
                     <div class="highlight">
 <pre class="highlight">
-<code>
-final class TaskProjection
+<code>final class TaskProjection
     extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
     ...
     @Subscribe
     void on(TaskCreated e) {
-        getBuilder()
-               .setId(e.getId())
-               .setName(e.getName())
+        getBuilder().setId(e.getId())
+                    .setName(e.getName())
     }
 
     @Subscribe
     void on(TaskCompleted e, EventContext ctx) {
-        getBuilder()
-               .setWhenDone(ctx.getTimestamp());
+        getBuilder().setWhenDone(ctx.getTimestamp());
     }
 }</code></pre>
                     </div>
@@ -137,7 +131,7 @@ final class TaskProjection
             <div class="col-md-6 col-style">
               <h2 class="landing-row-title">Step 4. Easily deploy to Google Cloud or a custom environment</h2>
               <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
-                quickly. Adopt your application to selected deployment environment(s) with a few lines of code, added in one place.</p>
+                quickly. Adopt your application to selected deployment environment(s) with a few lines of code.</p>
             </div>
             <div class="col-md-6 col-style">
               <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg" alt="Evolve your domain model">
