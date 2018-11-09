@@ -18,8 +18,17 @@
       margin-top: 0;
     }
 
+    .col-style {
+      @media(max-width: $tablet){
+        padding: 0;
+      }
+    }
+
     .col-style-text {
       padding-right: 48px;
+      @media(max-width: $tablet){
+        padding: 0;
+      }
     }
 
     .landing-row-title {
@@ -93,7 +102,7 @@
 
 .landing-features-section {
   background-color: $light-gray;
-  padding: 64px 0 80px;
+  padding: 72px 0 80px;
 
   @media(max-width: $phone-xlarge) {
     padding: 40px 0 24px;
@@ -105,6 +114,10 @@
     font-size: 2rem;
     color: $black;
     font-weight: 300;
+
+    @media(max-width: $phone-xlarge){
+      margin-bottom: 24px;
+    }
   }
 
   .features-row {
@@ -203,4 +216,8 @@
     padding-bottom: 10px;
     width: 75%;
   }
+}
+
+.landing-first-step-dark {
+  background-color: $codeBkColorDark;
 }
