@@ -1,14 +1,10 @@
 // Landing page
 .landing-content-container {
-  padding-top: 60px;
+  padding-top: 32px;
   position: relative;
 
-  @media(max-width: $desktop-small) {
-    padding-top: 32px;
-  }
-
   .landing-row {
-    margin: 32px 0 148px;
+    margin: 32px 0 92px;
 
     @media(max-width: $desktop-small) {
       margin: 24px 0 40px;
@@ -18,8 +14,17 @@
       margin-top: 0;
     }
 
+    .col-style {
+      @media(max-width: $tablet){
+        padding: 0;
+      }
+    }
+
     .col-style-text {
       padding-right: 48px;
+      @media(max-width: $tablet){
+        padding: 0;
+      }
     }
 
     .landing-row-title {
@@ -91,9 +96,9 @@
   }
 }
 
-.features-section {
+.landing-features-section {
   background-color: $light-gray;
-  padding: 64px 0 80px;
+  padding: 72px 0 80px;
 
   @media(max-width: $phone-xlarge) {
     padding: 40px 0 24px;
@@ -105,6 +110,19 @@
     font-size: 2rem;
     color: $black;
     font-weight: 300;
+
+    @media(max-width: $phone-xlarge){
+      margin-bottom: 24px;
+    }
+  }
+
+  .features-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media(max-width: 1200px) {
+      display: block;
+    }
   }
 
   // Cards style
@@ -112,12 +130,18 @@
     position: relative;
     display: inline-block;
     background-color: white;
-    margin-bottom: 32px;
+    margin: 0 15px 32px;
+    flex: 1 0 30%;
     border-radius: 6px;
     -webkit-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
     -moz-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
     -o-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
     box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
+
+    @media(max-width: 1200px) {
+      width: 100%;
+      margin: 0 0 32px;
+    }
 
     .card-icon {
       position: absolute;
@@ -188,4 +212,8 @@
     padding-bottom: 10px;
     width: 75%;
   }
+}
+
+.landing-first-step-dark {
+  background-color: $codeBkColorDark;
 }
