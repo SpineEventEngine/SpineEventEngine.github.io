@@ -1,6 +1,5 @@
 // Landing page
 .landing-content-container {
-  padding-bottom: 60px;
   padding-top: 60px;
   position: relative;
 
@@ -9,7 +8,7 @@
   }
 
   .landing-row {
-    margin: 32px 0 106px;
+    margin: 32px 0 148px;
 
     @media(max-width: $desktop-small) {
       margin: 24px 0 40px;
@@ -19,25 +18,14 @@
       margin-top: 0;
     }
 
-    .col-style {
-      padding: 0 56px;
-      @media(max-width: $desktop-large) {
-        padding: 0 24px;
-      }
-
-      @media(max-width: $desktop-small) {
-        padding: 0 15px;
-      }
-
-      @media(max-width: $phone-xlarge) {
-        padding: 0;
-      }
+    .col-style-text {
+      padding-right: 48px;
     }
 
     .landing-row-title {
       font-size: 2rem;
       color: $black;
-      margin: 8px 0 24px;
+      margin: 8px 0 12px;
       font-weight: 300;
 
       @media(max-width: $desktop-small) {
@@ -49,7 +37,7 @@
       font-weight: 400;
       line-height: 1.7rem;
       color: $textColor;
-      padding-bottom: 32px;
+      padding-bottom: 40px;
 
       @media(max-width: $phone-xlarge) {
         padding-bottom: 24px
@@ -103,7 +91,66 @@
   }
 }
 
-//Documentation call to action
+.features-section {
+  background-color: $light-gray;
+  padding: 64px 0 80px;
+
+  @media(max-width: $phone-xlarge) {
+    padding: 40px 0 24px;
+  }
+
+  .section-title {
+    text-align: center;
+    margin: 0 0 40px;
+    font-size: 2rem;
+    color: $black;
+    font-weight: 300;
+  }
+
+  // Cards style
+  .feature-card {
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 32px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
+    -moz-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
+    -o-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
+    box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
+
+    .card-icon {
+      position: absolute;
+      display: inline-block;
+      width: $icon-size--m;
+      height: $icon-size--m;
+      margin: 20px 24px;
+
+      &.domain-model {
+        background: url('../img/no-icon-yet.svg') no-repeat center/cover;
+      }
+    }
+
+    .card-content-text {
+      padding: 24px 24px 40px 72px;
+
+      .feature-card-title {
+        color: $dark-gray;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        line-height: 1.5;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+// Documentation call to action
 .doc-call-container {
   background-color: $secondBrandColor;
   padding: 80px 0 84px;
