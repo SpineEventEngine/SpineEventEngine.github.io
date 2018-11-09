@@ -95,7 +95,7 @@ p.note code {
   background-color: $inverseBrandColor;
 }
 
-//Code styles
+// Code styles
 code {
   color: rgba(0, 0, 0, .87);
   background-color: #E8EBEF;
@@ -119,18 +119,17 @@ pre, pre.prettyprint {
   font-size: 14px !important;
   font-weight: 400 !important;
   padding: 24px 20px !important;
-  display: inline-grid;
-  width: 100%;
+  word-wrap: normal;
 
   @media(max-width: $phone-xlarge){
-    padding: 16px 24px !important;
+    padding: 12px 16px !important;
   }
 }
 
 pre code {
   white-space: pre;
   overflow: auto;
-  //For the Safari browser
+  // For the Safari browser
   overflow-wrap: normal;
 
   @media print {
