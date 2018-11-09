@@ -91,7 +91,7 @@
   }
 }
 
-.features-section {
+.landing-features-section {
   background-color: $light-gray;
   padding: 64px 0 80px;
 
@@ -107,17 +107,32 @@
     font-weight: 300;
   }
 
+  .features-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media(max-width: 1200px) {
+      display: block;
+    }
+  }
+
   // Cards style
   .feature-card {
     position: relative;
     display: inline-block;
     background-color: white;
-    margin-bottom: 32px;
+    margin: 0 15px 32px;
+    flex: 1 0 30%;
     border-radius: 6px;
     -webkit-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
     -moz-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
     -o-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
     box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
+
+    @media(max-width: 1200px) {
+      width: 100%;
+      margin: 0 0 32px;
+    }
 
     .card-icon {
       position: absolute;
