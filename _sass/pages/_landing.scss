@@ -36,6 +36,10 @@
       @media(max-width: $desktop-small) {
         margin-bottom: 8px;
       }
+
+      .step {
+        color: rgba(0, 0, 0, .26);
+      }
     }
 
     p {
@@ -152,6 +156,18 @@
 
       &.domain-model {
         background: url('../img/no-icon-yet.svg') no-repeat center/cover;
+      }
+
+      &.scale-micro-services {
+        background: url('../img/icon-feature-scale.svg') no-repeat center/cover;
+      }
+
+      &.business-model {
+        background: url('../img/icon-feature-business-model.svg') no-repeat center/cover;
+      }
+
+      &.develop {
+        background: url('../img/icon-feature-develop.svg') no-repeat center/cover;
       }
     }
 
