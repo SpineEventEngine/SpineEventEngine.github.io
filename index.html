@@ -17,8 +17,6 @@ title: Spine Event Engine
             </div>
 
             <div class="col-md-4 col-style">
-              <div class="highlighter-rouge">
-                <div class="highlight">
 <pre class="highlight">
 <code>// A command to craete a new task.
 message CreateTask {
@@ -28,13 +26,9 @@ message CreateTask {
 }
 ...
 </code></pre>
-                </div>
-              </div>
             </div>
 
             <div class="col-md-4 col-style">
-                <div class="highlighter-rouge">
-                    <div class="highlight">
 <pre class="highlight">
 <code>// A new task has been created.
 message TaskCreated {
@@ -44,13 +38,9 @@ message TaskCreated {
 }
 ...
 </code></pre>
-                    </div>
-                </div>
             </div>
 
             <div class="col-md-4 col-style">
-                <div class="highlighter-rouge">
-                    <div class="highlight">
 <pre class="highlight">
 <code>// A state of the Task aggregate.
 message Task {
@@ -59,8 +49,6 @@ message Task {
     string description = 3;
     DeveloperId assignee = 4;
 }</code></pre>
-                    </div>
-                </div>
             </div>
           </div>
 
@@ -86,8 +74,6 @@ message Task {
 
             <!--Aggregate code -->
             <div class="col-md-6 col-style">
-                <div class="highlighter-rouge">
-                    <div class="highlight">
 <pre class="highlight lang-java">
 <code>final class TaskAggregate
     extends Aggregate&lt;TaskId, Task, TaskVBuilder&gt; {
@@ -104,14 +90,10 @@ message Task {
     ...
 }
 </code></pre>
-                    </div>
-                </div>
             </div>
 
             <!--Projection code -->
             <div class="col-md-6 col-style">
-                <div class="highlighter-rouge">
-                    <div class="highlight">
 <pre class="highlight lang-java">
 <code>final class TaskProjection
     extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
@@ -127,8 +109,6 @@ message Task {
         getBuilder().setWhenDone(ctx.getTimestamp());
     }
 }</code></pre>
-                    </div>
-                </div>
             </div>
           </div>
 
