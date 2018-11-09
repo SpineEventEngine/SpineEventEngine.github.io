@@ -1,14 +1,10 @@
 // Landing page
 .landing-content-container {
-  padding-top: 60px;
+  padding-top: 32px;
   position: relative;
 
-  @media(max-width: $desktop-small) {
-    padding-top: 32px;
-  }
-
   .landing-row {
-    margin: 32px 0 148px;
+    margin: 32px 0 92px;
 
     @media(max-width: $desktop-small) {
       margin: 24px 0 40px;

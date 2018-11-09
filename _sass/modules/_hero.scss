@@ -30,6 +30,11 @@
   }
 
   .hero-lead {
+    @media (max-width: $tablet){
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
     p {
       font-family: "Roboto Mono";
       color: $white;
