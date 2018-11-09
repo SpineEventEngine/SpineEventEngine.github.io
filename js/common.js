@@ -28,7 +28,7 @@ $("i.fa-github-alt").parent().removeClass("external");
 
 // Prettyprint
 $('pre').addClass("prettyprint");
-$.getScript("https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js", function(){
+$.getScript("/js/run_prettify.js", function(){
 });
 
 // Collapsible navbar menu, using https://github.com/jordnkr/collapsible
