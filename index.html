@@ -17,8 +17,6 @@ title: Spine Event Engine
             </div>
 
             <div class="col-md-4 col-style">
-              <div class="highlighter-rouge">
-                <div class="highlight">
 <pre class="highlight">
 <code>// A command to create a new task.
 message CreateTask {
@@ -28,13 +26,9 @@ message CreateTask {
 }
 ...
 </code></pre>
-                </div>
-              </div>
             </div>
 
             <div class="col-md-4 col-style">
-                <div class="highlighter-rouge">
-                    <div class="highlight">
 <pre class="highlight">
 <code>// A new task has been created.
 message TaskCreated {
@@ -44,13 +38,9 @@ message TaskCreated {
 }
 ...
 </code></pre>
-                    </div>
-                </div>
             </div>
 
             <div class="col-md-4 col-style">
-                <div class="highlighter-rouge">
-                    <div class="highlight">
 <pre class="highlight">
 <code>// Task Aggregate state.
 message Task {
@@ -59,8 +49,6 @@ message Task {
     string description = 3;
     DeveloperId assignee = 4;
 }</code></pre>
-                    </div>
-                </div>
             </div>
           </div>
 
@@ -86,8 +74,6 @@ message Task {
 
             <!--Aggregate code -->
             <div class="col-md-6 col-style">
-                <div class="highlighter-rouge">
-                    <div class="highlight">
 <pre class="highlight lang-java">
 <code>final class TaskAggregate
     extends Aggregate&lt;TaskId, Task, TaskVBuilder&gt; {
@@ -104,14 +90,10 @@ message Task {
     ...
 }
 </code></pre>
-                    </div>
-                </div>
             </div>
 
             <!--Projection code -->
             <div class="col-md-6 col-style">
-                <div class="highlighter-rouge">
-                    <div class="highlight">
 <pre class="highlight lang-java">
 <code>final class TaskProjection
     extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
@@ -127,8 +109,6 @@ message Task {
         getBuilder().setWhenDone(ctx.getTimestamp());
     }
 }</code></pre>
-                    </div>
-                </div>
             </div>
           </div>
 
@@ -151,101 +131,79 @@ message Task {
 </div>
 
 
-<div id="landing-content-features" class="features-section">
+<div id="landing-content-features" class="landing-features-section">
   <section class="container">
     <div class="row">
       <div class="col-md-11 nofloat center-block">
         <div class="col-sm-12">
           <h2 class="section-title">Features</h2>
 
-          <!-- First level -->
-          <div class="row features-row">
-              
-              <div class="col-md-4">
-                  <div class="feature-card">
-                      <i class="card-icon domain-model"></i>
-                      <div class="card-content-text">
-                          <header class="feature-card-title">Type Safety</header>
-                          <p>Should you need <code>CustomerId</code> or
-                          <code>WorkEstimate</code> value, you get it within seconds,
-                          for multiple languages. And it all comes with binary storage format,
-                          and automatic Json support.
-                          </p>
-                      </div>
+          <div class="features-row">
+              <!-- First level -->
+              <div class="feature-card">
+                  <i class="card-icon domain-model"></i>
+                  <div class="card-content-text">
+                      <header class="feature-card-title">Type Safety</header>
+                      <p>Should you need <code>CustomerId</code> or
+                      <code>WorkEstimate</code> value, you get it within seconds,
+                      for multiple languages. And it all comes with binary storage format,
+                      and automatic Json support.
+                      </p>
                   </div>
               </div>
 
-              <div class="col-md-4">
-                  <div class="feature-card">
-                      <i class="card-icon domain-model"></i>
-                      <div class="card-content-text">
-                          <header class="feature-card-title">Promoted immutability</header>
-                          <p>All the data types are immutable, which makes it easy to cache
-                          and share. Mutations are performed <em>only</em> in response
-                          to incoming messages via clearly defined cycles.</p>
-                      </div>
+              <div class="feature-card">
+                  <i class="card-icon domain-model"></i>
+                  <div class="card-content-text">
+                      <header class="feature-card-title">Promoted immutability</header>
+                      <p>All the data types are immutable, which makes it easy to cache
+                      and share. Mutations are performed <em>only</em> in response
+                      to incoming messages via clearly defined cycles.</p>
                   </div>
               </div>
 
-              <div class="col-md-4">
-                  <div class="feature-card">
-                      <i class="card-icon domain-model"></i>
-                      <div class="card-content-text">
-                          <header class="feature-card-title">Evolve your business model</header>
-                          <p>Add and remove fields while keeping binary compatibility with older code;
-                              handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
-                              Build new <code>Projections</code> on the whole event history of the system.</p>
-                      </div>
+              <div class="feature-card">
+                  <i class="card-icon domain-model"></i>
+                  <div class="card-content-text">
+                      <header class="feature-card-title">Evolve your business model</header>
+                      <p>Add and remove fields while keeping binary compatibility with older code;
+                          handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
+                          Build new <code>Projections</code> on the whole event history of the system.</p>
                   </div>
               </div>
 
+              <!-- Second level -->
+              <div class="feature-card">
+                  <i class="card-icon domain-model"></i>
+                  <div class="card-content-text">
+                      <header class="feature-card-title">Develop faster, with better results</header>
+                      <p>Thanks to CQRS and Event-Driven Architecture,
+                          you can arrange clear work separate.
+                          More experienced developers work on the core domain and the write-side.
+                          The&nbsp;read–side and UI are created by the rest of the team.
+                      </p>
+                  </div>
+              </div>
+
+              <div class="feature-card">
+                  <i class="card-icon domain-model"></i>
+                  <div class="card-content-text">
+                      <header class="feature-card-title">Scale with micro-services</header>
+                      <p>CQRS architecture allows to scale read- and write- sides independently.
+                          When further scaling is needed, Event-Driven Architecture allows to
+                          further separate and scale heavily loaded parts.</p>
+                  </div>
+              </div>
+
+              <div class="feature-card">
+                  <i class="card-icon domain-model"></i>
+                  <div class="card-content-text">
+                      <header class="feature-card-title">Use freely</header>
+                      <p>Permissive Apache License allows using the framework in closed-source projects.
+                          You are welcome to contribute to improving the framework.</p>
+                  </div>
+              </div>
           </div>
-
-          <!-- Second level -->
-          <div class="row features-row">
-
-              <div class="col-md-4">
-                  <div class="feature-card">
-                      <i class="card-icon domain-model"></i>
-                      <div class="card-content-text">
-                          <header class="feature-card-title">Develop faster, with better results
-                          </header>
-                          <p>Thanks to CQRS and Event-Driven Architecture,
-                              you can arrange clear work separate.
-                              More experienced developers work on the core domain and the
-                              write-side.
-                              The&nbsp;read–side and UI are created by the rest of the team.
-                          </p>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-md-4">
-                  <div class="feature-card">
-                      <i class="card-icon domain-model"></i>
-                      <div class="card-content-text">
-                          <header class="feature-card-title">Scale with micro-services</header>
-                          <p>CQRS architecture allows to scale read- and write- sides independently.
-                              When further scaling is needed, Event-Driven Architecture allows to
-                              further separate and scale heavily loaded parts.</p>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-md-4">
-                  <div class="feature-card">
-                      <i class="card-icon domain-model"></i>
-                      <div class="card-content-text">
-                          <header class="feature-card-title">Use freely</header>
-                          <p>Permissive Apache License allows using the framework in closed-source
-                              projects.
-                              You are welcome to contribute to improving the framework.</p>
-                      </div>
-                  </div>
-              </div>
-
-          </div>
-
         </div>
       </div>
     </div>
