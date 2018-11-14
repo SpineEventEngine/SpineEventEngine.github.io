@@ -7,7 +7,7 @@ footer {
   box-shadow: 0 500px 0 500px $footerColor;
   color: $white;
   overflow: hidden;
-  padding: 54px 0 0;
+  padding: 54px 0 72px; // Bottom padding is needed for the cookies section
   position: relative;
 
   @media (max-width: 767px) {
@@ -113,7 +113,7 @@ footer {
   .right-links {
       width: 100%;
       display: table;
-      margin: 0 0 60px 0;
+      margin: 0 0 32px 0;
 
     & > div {
       padding-bottom: 10px;
@@ -121,7 +121,7 @@ footer {
 
     @media (min-width: $tablet) {
       padding: 0 0 0 35px;
-      margin: 0 0 50px 0;
+      margin: 0 0 8px 0;
     }
 
     .footer-nav {

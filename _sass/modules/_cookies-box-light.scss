@@ -1,0 +1,81 @@
+#cookie-notif-box {
+  background-color: rgba(255, 255, 255, .97);
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  -webkit-box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
+  -moz-box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
+  -o-box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
+  box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
+  @include translateY(100%);
+  @include animation(slideUpCookieBox, $duration: .5s, $delay: 2s, $timing-function: ease-in-out, $fill-mode: forwards);
+
+  @media (max-width: $tablet){
+    padding: 8px;
+  }
+
+  @media (max-width: $phone-large){
+    padding: 4px;
+  }
+
+  .cookie-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $tablet){
+      padding: 0;
+    }
+  }
+
+  .content-text {
+    display: inline-block;
+
+    p {
+      font-size: 14px;
+      line-height: 22px;
+      color: rgba($textColor, .54);
+
+      @media (max-width: $phone-medium){
+        font-size: 13px;
+        line-height: 17px;
+      }
+
+      .privacy-link {
+        cursor: pointer;
+        color: rgba($textColor, .54);
+        border-bottom: 1px solid rgba($textColor, .38);
+
+        &:hover {
+          text-decoration: none;
+          color: $textColor;
+          border-bottom-color: $textColor;
+        }
+      }
+    }
+  }
+
+  .content-btn {
+    display: inline-block;
+    margin-left: 24px;
+
+    @media (max-width: $phone-medium){
+      margin-left: 16px;
+    }
+
+    .cookie-btn {
+      @media (max-width: $phone-xlarge){
+        border: 1px solid $mainBrandColor;
+        color: $mainBrandColor;
+      }
+    }
+  }
+
+  @include keyframes(slideUpCookieBox) {
+    0%   { transform: translateY(100%); }
+    100% { transform: translateY(0%); }
+  }
+}
