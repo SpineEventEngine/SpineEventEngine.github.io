@@ -1,0 +1,121 @@
+#cookieChoiceInfo {
+  left: 0;
+  right: 0;
+  bottom: -200px;
+  z-index: 100;
+  text-align: center;
+  background-color: rgba($footerColor, .97);
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba($white, .65);
+  transition: background 0.16s ease-in;
+  -webkit-box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
+  -moz-box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
+  -o-box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
+  box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
+  transform: translateZ(0);
+  transform : translate3d(0, 0, 0);
+  @include animation(slideUpCookieBox, $duration: 1s, $delay: 1.5s, $timing-function: ease-in, $fill-mode: forwards);
+  padding: 10px 15px 10px;
+}
+
+@include keyframes(slideUpCookieBox) {
+  to {
+    bottom: 0;
+  }
+}
+
+#contentText {
+  display: inline-block;
+  margin-top: 10px;
+
+  @media (max-width: 960px) {
+    padding-right: 65px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: $phone-medium) {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+}
+
+#cookieChoiceInfo a {
+  text-decoration: none;
+  color: $lightBlueColor;
+  border-bottom: 1px solid rgba($lightBlueColor, .87);
+
+  &:hover {
+    color: $mainBrandColor;
+    border-bottom-color: $mainBrandColor;
+    text-shadow: 0 0 1px rgba(144,144,144,0.6);
+  }
+}
+
+#cookieChoiceDismiss {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 12px 24px;
+  font-size: 14px;
+  color: $white;
+  border-radius: 2px;
+  background-color: $mainBrandColor;
+  @include transition(all .34s ease-in-out);
+  margin-left: 24px;
+
+  @media (max-width: $phone-medium){
+    margin-left: 16px;
+  }
+
+  @media (max-width: 960px) {
+    width: 65px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  &:hover, &:focus {
+    color: $white;
+    background-color: $lightBlueColor;
+    text-decoration: none;
+  }
+
+  #cookieChoiceDismissText {
+    @media (max-width: 960px) {
+      display: none;
+    }
+  }
+
+  #cookieChoiceDismissTextMob {
+    display: none;
+
+    @media (max-width: 960px) {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3D(-50%,-50%,0);
+    }
+  }
+}
+
+#cookieChoiceDismiss u {
+  text-decoration: none;
+}
+
+.cookieChoices {
+  .footer{
+    .container{
+      padding-bottom: 70px;
+    }
+  }
+}
