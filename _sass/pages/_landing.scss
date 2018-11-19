@@ -172,6 +172,18 @@
       &.develop {
         background: url('../img/icon-feature-develop.svg') no-repeat center/cover;
       }
+
+      &.freely {
+        background: url('../img/icon-feature-freely.svg') no-repeat center/cover;
+      }
+
+      &.immutable {
+        background: url('../img/icon-feature-immutable.svg') no-repeat center/cover;
+      }
+
+      &.type-safety {
+        background: url('../img/icon-feature-type-safety.svg') no-repeat center/cover;
+      }
     }
 
     .card-content-text {
