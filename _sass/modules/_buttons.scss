@@ -125,3 +125,65 @@
   width: 15px;
   height: 15px;
 }
+
+.btn-doc-call-white {
+  font-size: 14px;
+  font-weight: 500;
+  color: $white;
+  border: 1px solid $white;
+  background-color: transparent;
+  border-radius: 2px;
+  padding: 15px 56px;
+  text-transform: uppercase;
+  @include transition(all .34s ease-in-out);
+
+  &:hover, &:focus {
+    background-color: rgba($lightBlueColor, .2);
+    border: 1px solid $lightBlueColor;
+    -moz-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+    -webkit-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+    -o-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+    box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+  }
+}
+
+.btn-bordered {
+  font-size: 11px;
+  font-weight: 500;
+  color: $textColor;
+  border: 1px solid rgba($black, .2);
+  background-color: transparent;
+  padding: 9px 16px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  @include transition(all .34s ease-in-out);
+
+  &:hover, &:focus {
+    color: $mainBrandColor;
+    background-color: rgba($mainBrandColor, .08);
+    border: 1px solid rgba($mainBrandColor, .3);
+  }
+
+  &.with-icon {
+    padding: 9px 16px 9px 16px;
+    &:before {
+      content: '';
+      display: inline-block;
+      border: solid rgba($black, .38);
+      border-width: 0 1px 1px 0;
+      padding: 4px;
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+      vertical-align: middle;
+      margin: -2px 8px 0 0;
+      @include transition(all .34s ease-in-out);
+    }
+
+    &:hover, &:focus {
+      &:before {
+        border-color: $mainBrandColor;
+      }
+    }
+  }
+}

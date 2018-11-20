@@ -1,100 +1,303 @@
-// Top Static Nav
-#common-nav {
-  background-color: transparent;
-  padding-top: $spacing--xs;
+//Navigation
+.navigation-opened {
+  @media(max-width: $tablet){
+    overflow: hidden;
+  }
 
-  .nav {
-    display: none;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-align: right;
-    position: relative;
-    z-index: 9012;
-
-    li {
-      display: inline-block;
+  #header {
+    .navigation-holder {
+      right: 0;
     }
-
-    a {
-      color: $white;
-    }
-
-    @media (min-width: $tablet) {
-      display: initial;
-    }
-
-  }
-
-  @mixin underline() {
-    &:after {
-      background: $white;
-      bottom: 8px;
-      content: "";
-      height: 2px;
-      left: $spacing--xs;
-      margin: auto;
-      position: absolute;
-      right: $spacing--xs;
-    }
-  }
-
-  .nav li a:active, .nav li a:focus, .nav li a:hover {
-    background: initial;
-    border-bottom: 0;
-    color: $white;
-    @include underline();
-  }
-
-  .nav li a:focus {
-    color: fade-out($white, 0.2);
-  }
-
-  .page-headline {
-    color: $white;
-    font-weight: 300;
-  }
-
-  .nav-logo {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 45px;
-  }
-
-  .nav-logo-text {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100px;
-  }
-
-  .navbar-toggle {
-    margin-right: -6px;
-  }
-
-  .nav .current {
-    @include underline();
   }
 }
 
-.arrow-d,
-.arrow-r {
-  cursor: pointer;
+#header {
+  width: 100%;
+  min-height: 64px;
+  z-index: 1000;
+  position: absolute;
 
-  &::before {
-    font-family: monospace;
-    font-size: 1.25em;
-    font-weight: bold;
+  .logo {
+    a {
+      img {
+        width: 45px;
+        height: 34px;
+        margin-top: 15px;
+        @include transition(all .3s ease-in-out);
+      }
+
+      &:hover {
+        img {
+          opacity: .7;
+        }
+      }
+    }
+  }
+
+  .navigation-holder {
+    @media(max-width: 767px) {
+      background-color: $footerColor;
+      box-shadow: -1px 0px 8px 0px rgba(0,0,0, .25);
+      z-index: 1001;
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -316px;
+      width: 300px;
+      height: 100vh;
+      padding: 48px 24px;
+      overflow-x: auto;
+      @include transition(all .4s ease-in-out);
+
+      .block-above-scroll-nav{
+        position: fixed;
+        width: 100%;
+        height: 56px;
+        background-color: rgba($footerColor, .95);
+        z-index: 1000;
+        margin: -48px -24px;
+      }
+    }
+  }
+
+  .navigation {
+    margin: 0 -24px 48px;
+
+    @media(min-width: $tablet){
+      float: right;
+      margin: 5px 0;
+    }
+
+    .nav-item {
+      position:relative;
+      display: block;
+      -webkit-transform: translateZ(0);
+
+      @media(min-width: $tablet){
+        display: inline-block;
+      }
+
+      a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 16px 24px;
+        font-size: 16px;
+        color: rgba($white, 0.64);
+        @include transition(all .2s ease-in-out);
+        -webkit-transform: translateZ(0);
+
+        @media(min-width: $tablet){
+          padding: 16px 20px;
+          font-size: 15px;
+          letter-spacing: 0.5px;
+        }
+
+        span {
+          @include transition(all .2s ease-in-out);
+        }
+
+        &:hover,
+        &.current {
+          color: rgba($white, 1);
+          text-decoration: none;
+
+          span {
+            padding-bottom: 4px;
+            border-bottom: 1px solid $lightBlueColor;
+          }
+        }
+
+        &.current {
+          font-weight: 500;
+        }
+      }
+
+      &.doc {
+        a {
+          font-size: 13px;
+          letter-spacing: 1px;
+          padding: 10px 0 10px 40px;
+        }
+      }
+
+      &.home-item {
+        @media(min-width: $tablet){
+          display: none;
+        }
+      }
+
+      .icon-caret {
+        background: url('../img/caret.svg') no-repeat center/cover;
+        opacity: .54;
+        cursor: pointer;
+        position: absolute;
+        top: 2px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        @include transition(all .3s ease-in-out);
+
+        @media(min-width: $tablet){
+          display: none;
+        }
+
+        &:hover,
+        &.active {
+          opacity: 1;
+          background-color: fade-out($white, .97);
+          border-radius: 50%;
+        }
+
+        &.active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .doc-list-inside {
+      display: none;
+      margin-bottom: 8px;
+
+      @media(min-width:$tablet){
+        display: none;
+      }
+
+      &.active {
+        display: block;
+
+        @media(min-width:$tablet){
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.not-top {
+    display: block;
+    position: fixed;
+    height: 68px;
+    background-color: $footerColor;
+
+    &.pinned {
+      @include translateY(-100%);
+      @include animation(slideDownNav, .4s, .2s, ease-in-out, forwards);
+    }
+
+    &.unpinned {
+      @include translateY(0%);
+      @include animation(slideUpNav, .2s, initial, ease-in-out, forwards);
+    }
+  }
+
+  @include keyframes(slideDownNav) {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(0%); }
+  }
+
+  @include keyframes(slideUpNav) {
+    0%   { transform: translateY(0%); }
+    100% { transform: translateY(-100%); }
+  }
+}
+
+.nav-open-close {
+  float: right;
+  margin-top: 16px;
+  margin-right: 16px;
+
+  @media(min-width: $tablet){
+    display: none;
+  }
+
+  #nav-icon-menu {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    @include transition(.5s ease-in-out);
+    z-index: 9999;
+    cursor: pointer;
+  }
+
+  #nav-icon-menu span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 24px;
+    background: $white;
+    border-radius: 2px;
+    opacity: 1;
+    left: 4px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    @include transition(.25s ease-in-out);
+  }
+
+  #nav-icon-menu span:nth-child(1) {
+    top: 8px;
+  }
+
+  #nav-icon-menu span:nth-child(2),#nav-icon-menu span:nth-child(3) {
+    top: 15px;
+  }
+
+  #nav-icon-menu span:nth-child(4) {
+    top: 22px;
+  }
+
+  #nav-icon-menu.open span:nth-child(1) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+  }
+
+  #nav-icon-menu.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  #nav-icon-menu.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  #nav-icon-menu.open span:nth-child(4) {
+    top: 18px;
+    width: 0;
+    left: 50%;
   }
 }
 
 // Expandy nav items
+.arrow-d,
+.arrow-r {
+  cursor: pointer;
+}
+
 .arrow-r::before {
-  content: "+";
-  margin-right: 8px;
+  content: '';
+  position: absolute;
+  background: url('../img/icon-caret-right.svg') no-repeat center/cover;
+  width: $icon-size--s;
+  height: $icon-size--s;
+  margin-left: -40px;
+  opacity: .2;
+  @include transition(all .3s ease-in-out);
 }
 
 .arrow-d::before {
-  content: "-";
-  margin-right: 8px;
+  @extend .arrow-r::before;
+  transform: rotate(90deg);
+  opacity: .54;
 }
 
 .submenu-content {
@@ -102,124 +305,58 @@
   margin-left: $spacing--xl;
 }
 
-// Mobile Navigation
-.top-nav {
-  background-color: #4f4f4f;
-  padding: 5px 0 5px 5px;
-  display: initial;
-  height: 100vh;
-  position: fixed;
-  right: 0;
-  top: 0;
-  transition: $transition--secondary;
-  width: 300px;
-  z-index: $z-above-top;
 
-  @media (min-width: $tablet) {
-    display: none;
-  }
+// Page headline and description
+.page-headline-container {
+  padding-top: 64px;
+}
+.page-headline {
+  font-family: 'Roboto Mono', monospace;
+  font-size: $font-size--xl;
+  color: $white;
+  font-weight: 400;
+  margin: 20px 0 24px;
+}
 
-  &.right {
-    right: -300px;
-  }
+.description-section {
+  margin: 8px 0 56px;
+  position: relative;
+  opacity:0;
+  -webkit-animation: animateTitle 1.3s forwards;
+  -moz-animation: animateTitle 1.3s forwards;
+  -o-animation: animateTitle 1.3s forwards;
+  animation: animateTitle 1.3s forwards;
 
-  &:not(.right) {
-    -webkit-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.25);
-    box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.25);
-  }
+  p.lead {
+    font-size: $font-size--s;
+    line-height: 1.7;
+    font-weight: 400;
+    color: #b6bece;
 
-  .icon-caret {
-    background: url('../img/caret.svg') no-repeat center/cover;
-    background-color: fade-out($white, 0.97);
-    cursor: pointer;
-    position: absolute;
-    right: $spacing--s;
-    top: 2px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-
-  .nav-item {
-    list-style: none;
-    padding-left: $spacing--s;
-    position: relative;
-
-    &:hover {
-
-      a:first-child p {
-        text-decoration: underline;
-      }
-    }
-
-    p {
-      line-height: 50px;
-    }
-  }
-
-  .doc-list {
-
-    li {
-      display: none;
-    }
-
-    &.active {
-      padding-bottom: 15px;
-
-      li {
-        display: block;
-      }
-    }
-
-    .nav-doc-tab {
+    & strong {
       color: $white;
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: 1px;
-      line-height: 35px;
-      padding-left: $spacing--s;
+      font-weight: 700;
+    }
+
+    a {
+      color: #b6bece;
+      border-bottom: 1px solid rgba(#b6bece, .54);
+      padding-bottom: 2px;
+      @include transition(all .25s ease-in-out);
 
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        color: $white;
+        border-bottom-color: currentColor;
+      }
+      &.external {
+        &:hover {
+          &:after {
+            color: $white;
+            opacity: 1;
+          }
+        }
       }
     }
   }
-  .icon-close {
-    background: url('../img/x.svg') no-repeat center/cover;
-    cursor: pointer;
-    height: 20px;
-    position: absolute;
-    right: $spacing--s;
-    top: 15px;
-    width: 45px;
-  }
-
-  hr {
-    margin: 0;
-    border-top: 2px solid #565454;
-  }
-
-  a {
-    color: $white;
-  }
-  a.current {
-    text-decoration: underline;
-  }
 }
-
-// Sticky Nav
-#sticky-nav {
-  @extend #common-nav;
-  background: url('../img/sticky-nav-bg.jpg') no-repeat center/cover;
-  position: fixed;
-  width: 100%;
-  z-index: 9000;
-  transition: $transition--secondary;
-  padding-bottom: $spacing--xs;
-
-  &.on-page {
-    top: 0;
-  }
-}
-

@@ -14,6 +14,5 @@ If you just want to dive straight in with a working example first, see
 our [Quickstarts]({{site.baseurl}}/docs/quickstart).
 
  - [Java](basic/java.html)
- - [Android Java](basic/android-java.html)
- - [Swift](basic/swift.html)
+ - [JavaScript](basic/javascript.html)
  - [C++](basic/cpp.html)

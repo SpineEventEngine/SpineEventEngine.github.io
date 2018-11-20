@@ -2,14 +2,14 @@ html, body {
   height: 100%;
 }
 .wrapper {
-  display: table;
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 .content {
-  display: table-row;
-  height: 100%;
+  flex-grow: 1;
 }
 .footer {
-  display: table-row;
+  flex-shrink: 0;
 }

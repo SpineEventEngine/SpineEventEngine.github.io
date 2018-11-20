@@ -5,13 +5,11 @@ headline: Swift Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---
-<p class="lead">Coming soon...</p>
-<hr>
+<p class="coming-soon">Coming soon...</p>
 
-<p class="lead">This guide gets you started with Spine on the iOS platform in
+<p>This guide gets you started with Spine on the iOS platform in
 Swift with a simple working example.</p>
-
-<div id="toc"></div>
+<hr>
 
 ## Before you begin
 

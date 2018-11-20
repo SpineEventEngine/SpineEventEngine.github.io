@@ -1,3 +1,70 @@
+//Usage: @include transition(all .3s ease-in-out);
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+//Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
+@mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode) {
+  -webkit-animation-name: $animation-name;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-delay: $delay;
+  -webkit-animation-timing-function: $timing-function;
+  -webkit-animation-fill-mode: $fill-mode;
+
+  -moz-animation-name: $animation-name;
+  -moz-animation-duration: $duration;
+  -moz-animation-delay: $delay;
+  -moz-animation-timing-function: $timing-function;
+  -moz-animation-fill-mode: $fill-mode;
+
+  -o-animation-name: $animation-name;
+  -o-animation-duration: $duration;
+  -o-animation-delay: $delay;
+  -o-animation-timing-function: $timing-function;
+  -o-animation-fill-mode: $fill-mode;
+
+  animation-name: $animation-name;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: $fill-mode;
+}
+
+//Transform
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+//TranslateY
+//Usage @include translateY(0%);
+@mixin translateY($y) {
+  @include transform(translateY($y));
+}
+
+//Keyframes
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
 // Shared
 .vpad {
   padding-top: $vpad;
@@ -30,38 +97,70 @@
 }
 
 .toc {
-  border-left: 2px solid $light-gray;
-  display: none !important;
   padding: 0 0 0 12px;
+  position: relative;
+  overflow: auto;
+  min-width: 240px;
+  //Add this for the Chrome to fix jumping while scrolling
+  -webkit-transform: translateZ(0);
 
   &.blog-toc {
-    margin: 48px 0 24px 0;
+    margin: 40px 0 24px;
   }
 
-  @media (min-width: 768px) {
-    display: block !important;
+  &.sticky {
+    position:fixed;
+    margin-top: -120px;
+  }
+
+  &.hide-block {
+    display: none !important;
+  }
+
+  @media (max-width: 1024px) {
+    display: none !important;
   }
 
   .blog-toc-header {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+    padding-left: 9px;
+    font-size: 12px;
+    color: rgba($black, .38);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  >ul>li>a {
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 18px;
   }
 
   ul {
     list-style-type: none !important;
-    padding-left: 10px;
+    padding-left: 9px;
     font-size: 12px;
-    font-weight: 500;
 
-    ul {
-      font-weight: 400;
-      font-size: 11px;
+    li {
+      line-height: 1.4;
+      margin-bottom: 18px;
+
+      &.active {
+         a {
+           color: $mainBrandColor;
+         }
+       }
     }
 
     a {
-      color: $dark-gray;
-
+      color: rgba($black, .54);
+      font-weight: 500;
+      padding: 0;
+      letter-spacing: 0.2px;
       &:hover {
-        color: $linkHoverColor;
+        color:$black;
+        background: none;
+        text-decoration: none;
       }
     }
   }
@@ -91,4 +190,55 @@ table {
 
 th {
   background-color: $thirdBrandColor;
+}
+
+.info-section {
+  margin: 32px 0 48px;
+  padding: 24px 32px;
+  background-color: $light-gray;
+  border-radius: 4px;
+
+  @media(max-width: $tablet){
+    margin: 24px 0 32px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba($textColor, .7);
+
+    &.lead {
+      color: $textColor;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+//Use when a lot of information with title
+.info-section-with-shadow {
+  margin: 32px 0 40px;
+  padding: 24px 32px;
+  background-image: linear-gradient(-180deg, $white 0%, #FAFAFA 100%);
+  -webkit-box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
+  -moz-box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
+  -o-box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
+  box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
+  border-radius: 4px;
+
+  @media(max-width: $tablet){
+    margin: 24px 0 32px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba($textColor, .7);
+
+    &.lead {
+      color: $textColor;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+  }
 }

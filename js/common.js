@@ -1,93 +1,20 @@
----
----
-
-// Youtube Player API
-// create script tag and add to DOM
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// Array of videoIds
-// The key corresponds to the data attributes in about/index.html
-var playerInfoList = [
-    {type: 'yt', key: 'UOIJNygDNlE'}, 
-    {type: 'yt', key: 'nz-LcdoMYWA'}, 
-    {type: 'yt', key: 'sZx3oZt7LVg'}, 
-    {type: 'yt', key: 'RvUP7vX2P4s'}, 
-    {type: 'slideshare', key: 'https://www.slideshare.net/sujatatibre/g-rpc-talk-with-intel-3'}, 
-    {type: 'slideshare', key: 'https://www.slideshare.net/VarunTalwar4/grpc-design-and-implementation'},
-    {type: 'slideshare', key: 'https://www.slideshare.net/VarunTalwar4/grpc-overview'},
-    {type: 'slideshare', key: 'https://www.ustream.tv/recorded/86187859'}
-];  
-
-function createPlayer(key) {
-  $('#player').append('<iframe id="ytplayer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/'+key+'" frameborder="0" allowfullscreen>');
-}
-
-// click event for presentations/talks in about 
-$('.pt').on('click', function() {
-  var self = this,
-      video = playerInfoList.filter(function(obj) {
-        return obj.key == $(self).data('key'); 
-      })[0];
-
-
-  if (video.type == 'yt') {
-    createPlayer(video.key);
-  } else {
-    window.open(video.key);
-  }
-
-  resizePlayer();
-  $('#player iframe').on('load', function() {
-    $('.pt-lightbox').addClass('active');
-  });
+//Mobile navigation toggle
+$('#nav-icon-menu').click(function(){
+    $(this).toggleClass('open');
+    $('body').toggleClass('navigation-opened');
 });
 
-
-// Close lightbox when clicking anywhere on overlay
-$('.pt-lightbox').on('click', function() {
-  if ($(this).hasClass('active')) {
-    $(this).removeClass('active');
-    $(this).find('iframe').remove();
-    $('body, html').removeClass('noscroll');
-  }
+//Mobile navigation — doc-list toggle
+$('.doc-list-toggle').click(function(){
+    $('.doc-list-inside').toggleClass('active');
+    $(this).toggleClass('active');
 });
 
-// Resize Player 
-function resizePlayer() {
-  var $inner = $('.pt-player'),
-      defaultHeight = window.innerHeight || document.documentElement.clientHeight,
-      defaultWidth = window.innerWidth || document.documentElement.clientWidth,
-      maxHeight = defaultHeight*.75,
-      maxWidth = defaultWidth*.75,
-      newWidth = maxWidth,
-      newHeight = 16 * maxWidth / 9;
-
-  if (defaultWidth > defaultHeight){
-      if (newHeight > maxHeight){
-        newWidth = 16 * maxHeight / 9;
-        newHeight = maxHeight;
-      }   
-  } else {
-      newWidth = 16 * maxHeight / 9;
-      newHeight = maxHeight;
-      if (newWidth > maxWidth){
-          newHeight = 9 * maxWidth / 16; 
-          newWidth = maxWidth;
-      }   
-  }   
-
-  $inner.css({"width": newWidth, "height": newHeight});
-}
-
-
-
-// Jquery UI for tabbed panes
-$.getScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js", function(){
-  setupTabs();
+//Mobile footer navitation
+$('.toggle').click(function(){
+    $(this).toggleClass('active');
 });
+
 
 // Add the 'external' class to every outbound link on the site.
 // The css will add a small right arrow after the link.
@@ -98,149 +25,10 @@ $('a').filter(function() {
 // Remove external mark on Octocat icons, that already look external enough.
 $("i.fa-github-alt").parent().removeClass("external");
 
-//Set up tabs
-function setupTabs(rootElement) {
-      rootElement = rootElement || document;
-      var tabs = $(rootElement).find('div.tabs');
-      if(tabs.length > 0) {
-        tabs.tabs();
-      }
-};
-
-// Make the table of contents
-$(document).ready(function() {
-    var $window = $(window);
-
-    // Sticky Nav on Scroll Up
-    var iScrollPos = 0;
-
-    $window.scroll(function () {
-      var iCurScrollPos = $(this).scrollTop();
-        if (iCurScrollPos > iScrollPos) {
-          //Scrolling Down
-          if ($('#sticky-nav').visible()){
-            $('#sticky-nav').removeClass("on-page");
-          }
-        } else {
-          //Scrolling Up
-          if ($('.nav-hero-container').visible(true) && $('#sticky-nav').visible()){
-            $('#sticky-nav').removeClass("on-page");
-          } else if (!$('.nav-hero-container').visible(true)) {
-            $('#sticky-nav').addClass("on-page");
-          }
-        }
-        iScrollPos = iCurScrollPos;
-    });
-    
-    $('.toc').click(function(){
-      setTimeout(function(){
-        $('#sticky-nav').addClass("on-page");
-      }, 1000)
-    });
-
-    setTimeout(function(){
-      if (document.URL.indexOf("#") != -1 && document.URL.indexOf("contribute") == -1 ) {
-        $('#sticky-nav').addClass("on-page");
-      }
-    }, 1000);
-
-    // Scroll to sections
-    $('.btn-floating').on('click', function(){
-      $('html, body').scrollTo(('#' +($(this).data("target"))), 350);
-    })
-
-    // Invoke slick JS carousel 
-    // Detailed documentation: http://kenwheeler.github.io/slick/
-    $('.pt-container').slick({
-      arrows: true,
-      dots: false,
-      autoplay: false,
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 1, 
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            dots: false,
-            arrows: true 
-          }
-        },
-        {
-          breakpoint: 800,
-          settings: {
-            slidesToShow: 3,
-            dots: true,
-            arrows: false
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            dots: true,
-            arrows: false
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            dots: true,
-            arrows: false
-          }
-        }
-      ]
-    });                
-
-    $('.slick-next').on('click', function() {
-      $('.slick-prev').addClass('active');
-    });
-
-    $('.toc').toc({ listType: 'ul' });
-
-    $('.nav-toggle, .hamburger').on('click', function(){
-      $('.top-nav').toggleClass('right');
-    });
-
-    $('.nav-doc-toggle').on('click', function(){
-      $('.doc-list').toggleClass('active');
-    });
-
-    $(window).on('resize',function(){
-       //send resize event to slick after it's been destroyed
-      $('.pt-container').slick('resize');
-
-      //reset event listener on resize
-      $('.slick-next').on('click', function() {
-        $('.slick-prev').addClass('active');
-      });
-
-      if ($(window).width() >= 768 && !($('.top-nav').hasClass('right'))) {
-        $('.top-nav').addClass('right');
-      }
-    });
-
-    $('.toggle').on('click',function(){
-      $(this).toggleClass('active');
-    });
-
-    var forwarding = window.location.hash.replace("#","");
-    if (forwarding) {
-        $("#generalInstructions").hide();
-        $("#continueEdit").show();
-        $("#continueEditButton").text("Edit " + forwarding);
-        $("#continueEditButton").attr("href", "{{ site.githuburl }}edit/master/" + forwarding)
-    } else {
-        $("#generalInstructions").show();
-        $("#continueEdit").hide();
-    }
-});
 
 // Prettyprint
 $('pre').addClass("prettyprint");
-$.getScript("https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js", function(){
+$.getScript("/js/run_prettify.js", function(){
 });
 
 // Collapsible navbar menu, using https://github.com/jordnkr/collapsible
@@ -249,92 +37,59 @@ $.getScript("/js/jquery.collapsible.js", function(){
   $('.submenu').collapsible();
 });
 
-// TOC script
-// https://github.com/ghiculescu/jekyll-table-of-contents
-(function($){
-  $.fn.toc = function(options) {
-    var defaults = {
-      noBackToTopLinks: false,
-      title: '',
-      minimumHeaders: 2,
-      headers: 'h2, h3, h4, h5, h6',
-      listType: 'ol', // values: [ol|ul]
-      showEffect: 'show', // values: [show|slideDown|fadeIn|none]
-      showSpeed: 'slow' // set to 0 to deactivate effect
-    },
-    settings = $.extend(defaults, options);
-
-    function fixedEncodeURIComponent (str) {
-      return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
-        return '%' + c.charCodeAt(0).toString(16);
-      });
+// Remove class from the paren element when the child is active
+$(function() {
+    if ($('#doc-side-nav-inside a').hasClass('current')) {
+        var element = document.getElementById('side-nav-parent-item');
+        element.classList.remove('current');
     }
+});
 
-    var headers = $(settings.headers).filter(function() {
-      // get all headers with an ID
-      var previousSiblingName = $(this).prev().attr( "name" );
-      if (!this.id && previousSiblingName) {
-        this.id = $(this).attr( "id", previousSiblingName.replace(/\./g, "-") );
-      }
-      return this.id;
-    }), output = $(this);
-    if (!headers.length || headers.length < settings.minimumHeaders || !output.length) {
-      return;
-    }
+var InitialHeadHeight = $("#header").innerHeight();
+var tocNav = $('#toc');
+$(function() {
+//Calls the tocify method on your HTML nav.
+//InitialHeadHeight + 12 (12px — small offset from the header navigation)
+    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: InitialHeadHeight+12, extendPage: false});
+});
 
-    if (0 === settings.showSpeed) {
-      settings.showEffect = 'none';
-    }
+window.onscroll = function() {
+    FixToc();
+    FixHead();
+};
 
-    var render = {
-      show: function() { output.hide().html(html).show(settings.showSpeed); },
-      slideDown: function() { output.hide().html(html).slideDown(settings.showSpeed); },
-      fadeIn: function() { output.hide().html(html).fadeIn(settings.showSpeed); },
-      none: function() { output.html(html); }
-    };
-
-    var get_level = function(ele) { return parseInt(ele.nodeName.replace("H", ""), 10); }
-    var highest_level = headers.map(function(_, ele) { return get_level(ele); }).get().sort()[0];
-    var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
-
-    var level = get_level(headers[0]),
-      this_level,
-      html = settings.title + " <"+settings.listType+">";
-    headers.on('click', function() {
-      if (!settings.noBackToTopLinks) {
-        window.location.hash = this.id;
-      }
-    })
-    .addClass('clickable-header')
-    .each(function(_, header) {
-      this_level = get_level(header);
-      if (!settings.noBackToTopLinks && this_level === highest_level) {
-        $(header).addClass('top-level-header').after(return_to_top);
-      }
-      if (this_level === level) // same level as before; same indenting
-        html += "<li><a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
-      else if (this_level <= level){ // higher level than before; end parent ol
-        for(i = this_level; i < level; i++) {
-          html += "</li></"+settings.listType+">"
+//Fix TOC navigation on page while scrolling
+function FixToc() {
+    if (tocNav.length > 0) {
+        var tocNavFixedPosition = 120; //Sticky TOC offset
+        if (window.pageYOffset > tocNavFixedPosition) {
+            tocNav.addClass("sticky");
         }
-        html += "<li><a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
-      }
-      else if (this_level > level) { // lower level than before; expand the previous to contain a ol
-        for(i = this_level; i > level; i--) {
-          html += "<"+settings.listType+"><li>"
+        else {
+            tocNav.removeClass("sticky");
         }
-        html += "<a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
-      }
-      level = this_level; // update for the next one
-    });
-    html += "</"+settings.listType+">";
-    if (!settings.noBackToTopLinks) {
-      $(document).on('click', '.back-to-top', function() {
-        $(window).scrollTop(0);
-        window.location.hash = '';
-      });
     }
+}
 
-    render[settings.showEffect]();
-  };
-})(jQuery);
+//Animation header on scroll
+function FixHead() {
+    var header = $('#header');
+    if (header.length > 0) {
+        var headerFixPosition = $(".nav-hero-container").innerHeight();
+        if (window.pageYOffset > headerFixPosition) {
+            header.addClass("not-top"); //When navigation below offset
+            header.addClass("pinned"); //When navigation below hero section
+            header.removeClass("unpinned");
+        }
+        else {
+            header.removeClass("pinned");
+            header.addClass("unpinned");
+        }
+
+        //Return classes to the initial state when the navigation at the top of the page
+        if (window.pageYOffset < InitialHeadHeight) {
+            header.removeClass("not-top");
+            header.removeClass("unpinned");
+        }
+    }
+}

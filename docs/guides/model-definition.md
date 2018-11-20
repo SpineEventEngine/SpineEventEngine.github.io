@@ -7,16 +7,15 @@ title: Introduction
 type: markdown
 ---
 
-<p class="lead">Coming soon...</p>
-<hr>
+<p class="coming-soon">Coming soon...</p>
 
-<p class="lead">This document provides and overview of a process of
+<p>This document provides and overview of a process of
 business model definition in a Spine-based product.</p>
+
+<hr>
 
 This guide assumes that you've read the [Introduction]({{site.baseurl}}/docs/guides/introduction.html) and
 understand the basic [DDD, ES, and CQRS concepts]({{site.baseurl}}/docs/guides/concepts.html).
-
-<div id="toc" class="toc mobile-toc"></div>
 
 ## Event Storming
 

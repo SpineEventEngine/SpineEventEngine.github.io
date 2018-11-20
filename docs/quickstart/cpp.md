@@ -5,13 +5,11 @@ headline: C++ Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---
-<p class="lead">Coming soon...</p>
-<hr>
+<p class="coming-soon">Coming soon...</p>
 
-<p class="lead">This guide gets you started with Spine client-side app written in C++ with a simple
+<p>This guide gets you started with Spine client-side app written in C++ with a simple
 working example.</p>
 
-<div id="toc"></div>
 
 ## Before you begin
 
@@ -40,7 +38,7 @@ $ sudo make install
 ```
 
 See [the official Protocol Buffers install
-guide](https://github.com/google/protobuf/blob/master/src/README.md) for
+guide](https://github.com/google/protobuf/blob/master/src/README.md){:target="_blank"} for
 details.
 
 Note that you also need `pkg-config` installed on your system. On Ubuntu/Debian
