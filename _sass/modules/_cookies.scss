@@ -7,7 +7,7 @@
   background-color: rgba($footerColor, .97);
   font-size: 14px;
   line-height: 1.5;
-  color: rgba($white, .65);
+  color: rgba($white, .7);
   transition: background 0.16s ease-in;
   -webkit-box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
   -moz-box-shadow: 0 -1px 14px 0 rgba(0,0,0,0.06), 0 -1px 2px 0 rgba(0,0,0,0.04), 0 -5px 15px 0 rgba(0,0,0,0.04);
@@ -16,7 +16,7 @@
   transform: translateZ(0);
   transform : translate3d(0, 0, 0);
   @include animation(slideUpCookieBox, $duration: 1s, $delay: 1.5s, $timing-function: ease-in, $fill-mode: forwards);
-  padding: 10px 15px 10px;
+  padding: 12px 15px;
 }
 
 @include keyframes(slideUpCookieBox) {
@@ -29,7 +29,7 @@
   display: inline-block;
   margin-top: 10px;
 
-  @media (max-width: 960px) {
+  @media (max-width: $desktop-small) {
     padding-right: 65px;
     text-align: left;
     margin-bottom: 10px;
@@ -60,7 +60,7 @@
   font-weight: 500;
   letter-spacing: 1px;
   cursor: pointer;
-  padding: 12px 24px;
+  padding: 10px 24px;
   font-size: 14px;
   color: $white;
   border-radius: 2px;
@@ -72,7 +72,7 @@
     margin-left: 16px;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: $desktop-small) {
     width: 65px;
     position: absolute;
     top: 0;
@@ -90,7 +90,7 @@
   }
 
   #cookieChoiceDismissText {
-    @media (max-width: 960px) {
+    @media (max-width: $desktop-small) {
       display: none;
     }
   }
@@ -98,7 +98,7 @@
   #cookieChoiceDismissTextMob {
     display: none;
 
-    @media (max-width: 960px) {
+    @media (max-width: $desktop-small) {
       display: block;
       position: absolute;
       top: 50%;

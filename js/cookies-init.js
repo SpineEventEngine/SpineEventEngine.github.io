@@ -2,10 +2,10 @@ $(function handleSimpleIntegration() {
 
     cookieChoices.showCookieBar({
         linkHref: '#',
-        cookieText: 'spine.io uses cookies to&nbsp;store information. You can read more about it in&nbsp;our',
-        linkText: 'Terms&nbsp;and&nbsp;Privacy',
-        dismissText: 'I&nbsp;UNDERSTAND',
-        dismissTextAlt: 'AGREE',
+        cookieText: 'spine.io uses cookies to help operate the site and gather analytics data. You can read more about it in our',
+        linkText: 'Privacy&nbsp;Statement',
+        dismissText: 'I&nbsp;agree',
+        dismissTextAlt: 'I&nbsp;agree',
         styles: 'position: fixed;'
     });
 
