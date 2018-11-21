@@ -10,7 +10,7 @@ type: markdown
 <p>This document covers the naming conventions used in the Spine framework, and in applications 
 based on the framework that we wrote. Some of these contentions are used by the framework and 
 code generation tools. Others are our recommendations that we find useful for naming
-and structuring the code.
+and structuring the code.</p>
 
 ## Proto files
 
