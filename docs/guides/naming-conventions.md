@@ -204,17 +204,26 @@ Similarly to events, rejections are placed under the package called `rejection`:
  * `io.acme.todolist.project.rejection`
  * `io.acme.todolist.comment.rejection` 
 
+<!-- TODO:2018-11-21:alexander.yevsyukov: Make the text below a Note block with a link to guide on defining rejectiosn.proto file -->
+
+Unlike commands and events, rejection messages are generated under a file named `Rejections`. 
+The class, of course, is placed into a `rejection` package of the corresponding type.
+ 
+The package also contains generated `Throwable` _top-level_ classes that match rejection messages. 
+These classes are used in the `throws` clause of command handling methods.
+
+The arrangement with message classes nested under `Rejections` class, and top-level `Throwable`s
+is required to avoid name clashes while keeping these generated classes under the same package.
+
 #### Server-side code
 
 To avoid unwanted dependencies we find it useful to put server-side code under 
-a sub-package called server, with each Bounded Context coming as a separate package
+a sub-package called `server`, with sub-packages for corresponding entity types: 
 
- * `io.acme.todolist.server.tasks`
- * `io.acme.todolist.server.projects`
- * `io.acme.todolist.server.comments`
- 
-Notice the plural in the names of Bounded Context packages. 
- 
+ * `io.acme.todolist.server.task`
+ * `io.acme.todolist.server.project`
+ * `io.acme.todolist.server.comment`
+  
 ## Handcrafted Java Classes
 
 ### Entities 
@@ -223,15 +232,15 @@ Notice the plural in the names of Bounded Context packages.
 
 <!-- TODO:2018-11-21:alexander.yevsyukov: Write text. --> 
 
-### Process Manager
+#### Process Manager
 
-### Projection
+#### Projection
 
-### Repositories
+#### Repositories
 
 ### Bounded Contexts
 
-#### Name
+#### Names
 
 Names of Bounded Contexts follow `TitleCapitalization` favoring plurals:
 
@@ -240,15 +249,14 @@ Names of Bounded Contexts follow `TitleCapitalization` favoring plurals:
   * `DeliveredOrders`
   
 Although, singular names are perfectly fine too:
-  * `Registration`
-  * `Onboarding`
-  * `Cancellation`
+  * `FlightRegistration`
+  * `EmployeeOnboarding`
 
-#### Package
+#### Packages
 If a name of a Bounded Context is used in a package its name is transformed according to rules
 of a programming language.
 
-#### Factory class
+#### Factory classes
 A Java class that creates an configures an instance of a `BoundedContext` is named after the
 name of the context with the `Context` prefix:
 
