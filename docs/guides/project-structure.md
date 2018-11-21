@@ -43,7 +43,7 @@ myproject/
        main/
          java/
          resources/
-         spine
+         spine/
          ...
        test/
          java/
