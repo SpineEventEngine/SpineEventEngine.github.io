@@ -107,11 +107,19 @@ A command is defined as an imperative:
  
 ### Events
 
-Events are names as facts formulated as past participles:
+Events are named as facts formulated as past participles:
 
   * `ProjectCreated`
   * `TaskAssigned`
   * `CommentRemoved`   
+
+### Rejections
+
+Rejections are named similarly to events, as facts in the past:
+
+  * `TaskAlreadyExists`
+  * `TaskAlreadyCompleted`
+  * `CannotCancelProject` 
 
 ### Entity States
 
