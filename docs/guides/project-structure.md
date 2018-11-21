@@ -36,35 +36,39 @@ The sub-directories are:
 Here's how a typical project structure would look like:
 
 ```
-myproject
-  module-1
-    generated
-       main
-         java
-         resources
+myproject/
+  gradle/
+  module-one/
+    generated/
+       main/
+         java/
+         resources/
          spine
          ...
-       test
-         java
-         resources
-         spine
+       test/
+         java/
+         resources/
+         spine/
          ...   
-    src
-       main
-         java
-         proto
-       test
-         java
-         proto
+    src/
+       main/
+         java/
+         proto/
+       test/
+         java/
+         proto/
     ...     
     build.gradle
-  module-2
-    generated
+  module-two/
+    generated/
       ...
-    src
+    src/
       ...
     build.gradle
   ...
-  build.gradle           
+  build.gradle
+  gradlew
+  gradlew.bat
+  settings.gradle
 ``` 
 
