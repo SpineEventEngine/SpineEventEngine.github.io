@@ -128,9 +128,27 @@ because:
  
 ## Packages
 
+Packages allow to form namespaces for types, avoiding clashes. It is customary to have a “root” 
+package for an organization or a service name. Most likely, each Bounded Context would have 
+a dedicated package.
+
+Examples in this guide assume that a fictitious company called 
+[Acme Corporation](https://en.wikipedia.org/wiki/Acme_Corporation) creates a SaaS solution.
+The company has a web presence site with the domain name `acme.io`.
+The solution is a task management application called Todo List, 
+which will be hosted at`todolist.acme.io`.    
+
 ### Proto packages
 
- <!-- TODO:2018-11-21:alexander.yevsyukov: Write text. -->
+Packages in Protobuf do not follow the reverse Internet domain name convention, 
+which is customary in Java. It would make sense to have a root package for all the types defined
+in an organization under the root package with a lowercase company name.
+
+For the fictitious SaaS project of the Acme Corporation it would be:
+
+```proto
+package acme.todolist;
+```
 
 ### Java packages
 
