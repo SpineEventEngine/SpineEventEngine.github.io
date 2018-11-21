@@ -1,7 +1,8 @@
 ---
+title: Swift Quickstart
+headline: Swift Quickstart
 bodyclass: docs
 layout: docs
-headline: Swift Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---

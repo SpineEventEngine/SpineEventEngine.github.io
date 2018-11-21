@@ -1,8 +1,8 @@
 ---
-bodyclass: docs
-headline: Quick Start
-layout: docs
 title: Quick Start
+headline: Quick Start
+bodyclass: docs
+layout: docs
 type: markdown
 sidenav: doc-side-quickstart-nav.html
 ---

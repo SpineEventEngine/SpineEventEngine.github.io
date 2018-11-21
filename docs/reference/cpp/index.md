@@ -1,7 +1,8 @@
 ---
+title: C++ Client API
+headline: C++ Client API
 bodyclass: docs
 layout: docs
-headline: C++ Client API
 type: markdown
 ---
 

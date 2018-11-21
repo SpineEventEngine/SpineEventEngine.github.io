@@ -1,8 +1,8 @@
 ---
-bodyclass: docs
-headline: Tutorials
-layout: docs
 title: Tutorials
+headline: Tutorials
+bodyclass: docs
+layout: docs
 type: markdown
 sidenav: doc-side-tutorial-nav.html
 ---

@@ -1,8 +1,8 @@
 ---
-bodyclass: docs
-headline: 'Spine Examples'
-layout: docs
 title: Examples
+headline: 'Spine Examples'
+bodyclass: docs
+layout: docs
 type: markdown
 ---
 <p>Here are some example apps to help developers with certain aspects of the framework.

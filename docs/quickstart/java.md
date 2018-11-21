@@ -1,7 +1,8 @@
 ---
+title: Java Quickstart
+headline: Java Quickstart
 bodyclass: docs
 layout: docs
-headline: Java Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---

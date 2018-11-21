@@ -1,9 +1,9 @@
 ---
-bodyclass: docs
+title: Guides
 headline: Guides
+bodyclass: docs
 layout: docs
 sidenav: doc-side-guides-nav.html
-title: Guides
 type: markdown
 ---
 

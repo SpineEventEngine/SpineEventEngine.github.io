@@ -1,7 +1,8 @@
 ---
+title: Spine Basics - Swift
+headline: Spine Basics - Swift
 bodyclass: docs
 layout: docs
-headline: Spine Basics - Swift
 sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---
