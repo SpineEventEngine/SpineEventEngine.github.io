@@ -32,9 +32,9 @@ files defining the data model of the corresponding Bounded Context.
 ### Command definitions
 
 Commands are defined in a file which names end with `commands.proto`. 
-It can be simply `commands.proto`, but usually there are many commands that are handled by 
-different aggregates. So, it's convenient to name such files after the type of the target
-aggregate: 
+It can be simply `commands.proto`, but usually commands are handled by different entities. 
+So, it's convenient to name such a file after the type of the target entity, 
+for instance, an aggregate: 
 
  * `blog_commands.proto` 
  * `order_commands.proto` 
