@@ -1,9 +1,9 @@
 ---
-bodyclass: docs
+title: Project Structure
 headline: Project Structure
+bodyclass: docs
 layout: docs
 sidenav: doc-side-guides-nav.html
-title: Project Structure
 type: markdown
 ---
 
