@@ -97,12 +97,12 @@ p.note code {
 
 // Code styles
 code {
-  color: rgba(0, 0, 0, .87);
-  background-color: #E8EBEF;
+  color: $textColor;
+  background-color: transparent;
   font-size: 14px;
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
-  padding: 1px 6px 2px;
+  padding: 0;
   // sometimes code lines can be longer than screen is wide
   @media(max-width: $phone-small){
     word-break: break-all;
