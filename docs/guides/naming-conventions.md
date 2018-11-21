@@ -121,7 +121,8 @@ Protobuf messages for entity states are defined using nouns:
   
 Avoid using suffixes like `Aggregate`, `Projection`, `ProcessManager` when defining a proto type,
 because:
- 1. You may want to use these words when defining Java classes that use these data types.
+ 1. You may want to use such a word when creating an entity Java class which _uses_ 
+    a generated data type for holding the state of the entity.
  2. These data structures do not represent the whole `Aggregate` or `Projection` thing anyway. 
     They are just data.
  
