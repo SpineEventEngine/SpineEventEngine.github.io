@@ -1,7 +1,8 @@
 ---
+title: JavaScript Quickstart
+headline: JavaScript Quickstart
 bodyclass: docs
 layout: docs
-headline: JavaScript Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---

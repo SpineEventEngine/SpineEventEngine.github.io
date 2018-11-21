@@ -1,7 +1,8 @@
 ---
+title: Spine Basics - JavaScript
+headline: Spine Basics - JavaScript
 layout: docs
 bodyclass: docs
-headline: Spine Basics - JavaScript
 sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---

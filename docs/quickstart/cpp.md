@@ -1,7 +1,8 @@
 ---
+title: C++ Quickstart
+headline: C++ Quickstart
 bodyclass: docs
 layout: docs
-headline: C++ Quickstart
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---

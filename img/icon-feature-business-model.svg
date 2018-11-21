@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-feature-business-model</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-feature-business-model" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M25,19 L28,19 C29.1045695,19 30,19.8058875 30,20.8 L30,26.2 C30,27.1941125 29.1045695,28 28,28 L20,28 C18.8954305,28 18,27.1941125 18,26.2 L18,20.8 C18,19.8058875 18.8954305,19 20,19 L23,19 L23,17 L9,17 L9,19 L12,19 C13.1045695,19 14,19.8058875 14,20.8 L14,26.2 C14,27.1941125 13.1045695,28 12,28 L4,28 C2.8954305,28 2,27.1941125 2,26.2 L2,20.8 C2,19.8058875 2.8954305,19 4,19 L7,19 L7,16 L7.26756439,16 C7.61337381,15.4021986 8.25971764,15 9,15 L15,15 L15,12 L11,12 C9.8954305,12 9,11.1045695 9,10 L9,6 C9,4.8954305 9.8954305,4 11,4 L21,4 C22.1045695,4 23,4.8954305 23,6 L23,10 C23,11.1045695 22.1045695,12 21,12 L17,12 L17,15 L23,15 C23.7402824,15 24.3866262,15.4021986 24.7324356,16 L25,16 L25,19 Z M11,6 L11,10 L21,10 L21,6 L11,6 Z M4,21 L4,26 L12,26 L12,21 L4,21 Z M20,21 L20,26 L28,26 L28,21 L20,21 Z" id="Combined-Shape" fill="#1A96DE" fill-rule="nonzero"></path>
+    </g>
+</svg>
