@@ -60,7 +60,7 @@ Similarly to events, rejections are defined in files ending with `rejections.pro
   * `customer_rejections.proto`.
 
 For each aggregate you are likely to have all the three kinds of files because a command leads to
-an event, and it's likely there are conditions under which a command cannot be performed.
+an event, and it's likely there are conditions under which a command cannot be handled.
 
 ### Entity states
 
