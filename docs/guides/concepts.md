@@ -1,9 +1,9 @@
 ---
-bodyclass: docs
+title: Event Sourcing Concepts
 headline: Event Sourcing Concepts
+bodyclass: docs
 layout: docs
 sidenav: doc-side-guides-nav.html
-title: Event Sourcing Concepts
 type: markdown
 ---
 

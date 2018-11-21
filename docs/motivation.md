@@ -1,8 +1,8 @@
 ---
-bodyclass: docs
-headline: Motivation
-layout: docs
 title: Why we created Spine
+headline: Motivation
+bodyclass: docs
+layout: docs
 type: markdown
 ---
 

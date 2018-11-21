@@ -1,9 +1,9 @@
 ---
-bodyclass: docs
+title: Naming Conventions
 headline: Naming Conventions
+bodyclass: docs
 layout: docs
 sidenav: doc-side-guides-nav.html
-title: Naming Conventions
 type: markdown
 ---
 

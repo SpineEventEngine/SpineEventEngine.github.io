@@ -331,7 +331,7 @@
     font-size: $font-size--s;
     line-height: 1.7;
     font-weight: 400;
-    color: #b6bece;
+    color: #99e8ff;
 
     & strong {
       color: $white;
@@ -339,8 +339,8 @@
     }
 
     a {
-      color: #b6bece;
-      border-bottom: 1px solid rgba(#b6bece, .54);
+      color: #99e8ff;
+      border-bottom: 1px solid rgba(#99e8ff, .54);
       padding-bottom: 2px;
       @include transition(all .25s ease-in-out);
 

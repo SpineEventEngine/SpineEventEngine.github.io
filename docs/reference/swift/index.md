@@ -1,7 +1,8 @@
 ---
+title: Swift Client API
+headline: Swift Client API
 bodyclass: docs
 layout: docs
-headline: Swift Client API
 type: markdown
 ---
 

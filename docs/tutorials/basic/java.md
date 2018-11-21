@@ -1,7 +1,8 @@
 ---
+title: Spine Basics - Java
+headline: Spine Basics - Java
 bodyclass: docs
 layout: docs
-headline: Spine Basics - Java
 sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---

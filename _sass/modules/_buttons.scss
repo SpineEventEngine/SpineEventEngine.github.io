@@ -158,11 +158,13 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   @include transition(all .34s ease-in-out);
+  display: inline-block;
 
   &:hover, &:focus {
     color: $mainBrandColor;
     background-color: rgba($mainBrandColor, .08);
     border: 1px solid rgba($mainBrandColor, .3);
+    text-decoration: none;
   }
 
   &.with-icon {
@@ -185,5 +187,34 @@
         border-color: $mainBrandColor;
       }
     }
+  }
+
+  &.big-light {
+    font-size: 14px;
+    padding: 12px 24px;
+    color: rgba($textColor, .54);
+
+    &:hover, &:focus {
+      color: $mainBrandColor;
+    }
+  }
+}
+
+.btn-filled {
+  font-size: 14px;
+  padding: 12px 24px;
+  font-weight: 500;
+  color: $white;
+  background-color: $mainBrandColor;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  @include transition(all .34s ease-in-out);
+  display: inline-block;
+
+  &:hover, &:focus {
+    color: $white;
+    background-color: $lightBlueColor;
+    text-decoration: none;
   }
 }

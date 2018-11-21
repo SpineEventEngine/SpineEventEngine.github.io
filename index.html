@@ -12,7 +12,8 @@ title: Spine Event Engine
 
           <div class="row landing-row">
             <div class="col-md-12 col-style">
-              <h2 class="landing-row-title">Step 1. Define rich, type&#8209;safe domain&nbsp;model</h2>
+               <p class="step-title">Step 1.</p>
+               <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
               <p>Describe commands, events, and state of entities using <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.</p>
             </div>
 
@@ -54,7 +55,8 @@ message Task {
 
           <div class="row landing-row">
             <div class="col-md-6 col-style-text">
-              <h2 class="landing-row-title">Step 2. Generate the code for all tiers and multiple languages</h2>
+                <p class="step-title">Step 2.</p>
+                <h2 class="landing-row-title">Generate the code for all tiers and multiple languages</h2>
               <p>Java, JavaScript, and C++ are currently supported, with more languages to come soon.</p>
             </div>
             <div class="col-md-6 col-style">
@@ -64,7 +66,8 @@ message Task {
 
           <div class="row landing-row">
             <div class="col-md-12 col-style">
-              <h2 class="landing-row-title">Step 3. Code business logic in straight and testable way</h2>
+                <p class="step-title">Step 3.</p>
+                <h2 class="landing-row-title">Code business logic in straight and testable way</h2>
               <p>Focus on the business logic rather than “plumbing”.
                 A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
                 <code>Projection</code>s will get all <code>Event</code>s they need.
@@ -114,7 +117,8 @@ message Task {
 
           <div class="row landing-row">
             <div class="col-md-6 col-style-text">
-              <h2 class="landing-row-title">Step 4. Easily deploy to Google Cloud or a custom environment</h2>
+                <p class="step-title">Step 4.</p>
+                <h2 class="landing-row-title">Easily deploy to Google Cloud or a custom environment</h2>
               <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
                 quickly. Adopt your application to selected deployment environment(s) with a few lines of code.</p>
             </div>
@@ -141,7 +145,7 @@ message Task {
           <div class="features-row">
               <!-- First level -->
               <div class="feature-card">
-                  <i class="card-icon domain-model"></i>
+                  <i class="card-icon type-safety"></i>
                   <div class="card-content-text">
                       <header class="feature-card-title">Type Safety</header>
                       <p>Should you need <code>CustomerId</code> or
@@ -153,7 +157,7 @@ message Task {
               </div>
 
               <div class="feature-card">
-                  <i class="card-icon domain-model"></i>
+                  <i class="card-icon immutable"></i>
                   <div class="card-content-text">
                       <header class="feature-card-title">Promoted immutability</header>
                       <p>All the data types are immutable, which makes it easy to cache
@@ -163,7 +167,7 @@ message Task {
               </div>
 
               <div class="feature-card">
-                  <i class="card-icon domain-model"></i>
+                  <i class="card-icon business-model"></i>
                   <div class="card-content-text">
                       <header class="feature-card-title">Evolve your business model</header>
                       <p>Add and remove fields while keeping binary compatibility with older code;
@@ -174,7 +178,7 @@ message Task {
 
               <!-- Second level -->
               <div class="feature-card">
-                  <i class="card-icon domain-model"></i>
+                  <i class="card-icon develop"></i>
                   <div class="card-content-text">
                       <header class="feature-card-title">Develop faster, with better results</header>
                       <p>Thanks to CQRS and Event-Driven Architecture,
@@ -186,7 +190,7 @@ message Task {
               </div>
 
               <div class="feature-card">
-                  <i class="card-icon domain-model"></i>
+                  <i class="card-icon scale-micro-services"></i>
                   <div class="card-content-text">
                       <header class="feature-card-title">Scale with micro-services</header>
                       <p>CQRS architecture allows to scale read- and write- sides independently.
@@ -196,7 +200,7 @@ message Task {
               </div>
 
               <div class="feature-card">
-                  <i class="card-icon domain-model"></i>
+                  <i class="card-icon freely"></i>
                   <div class="card-content-text">
                       <header class="feature-card-title">Use freely</header>
                       <p>Permissive Apache License allows using the framework in closed-source projects.

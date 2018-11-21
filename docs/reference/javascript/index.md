@@ -1,7 +1,8 @@
 ---
+title: JavaScript Client API
+headline: JavaScript Client API
 bodyclass: docs
 layout: docs
-headline: JavaScript Client API
 type: markdown
 ---
 

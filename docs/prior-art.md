@@ -1,8 +1,8 @@
 ---
-bodyclass: docs
-headline: Prior Art
-layout: docs
 title: Prior Art
+headline: Prior Art
+bodyclass: docs
+layout: docs
 type: markdown
 ---
 

@@ -1,7 +1,8 @@
 ---
+title: Spine Basics - C++
+headline: Spine Basics - C++
 bodyclass: docs
 layout: docs
-headline: Spine Basics - C++
 sidenav: doc-side-tutorial-nav.html
 type: markdown
 ---
