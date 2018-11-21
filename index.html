@@ -19,7 +19,7 @@ title: Spine Event Engine
 
             <div class="col-md-4 col-style">
 <pre class="highlight">
-<code>// A command to craete a new task.
+<code>// A command to create a new task.
 message CreateTask {
     TaskId id = 1;
     string name = 2 [(required) = true];
@@ -43,7 +43,7 @@ message TaskCreated {
 
             <div class="col-md-4 col-style">
 <pre class="highlight">
-<code>// A state of the Task aggregate.
+<code>// Task Aggregate state.
 message Task {
     TaskId id = 1;
     string name = 2 [(required) = true];
