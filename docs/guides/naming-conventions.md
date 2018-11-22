@@ -181,7 +181,7 @@ It's easier to see everything related to a type, if all the generated code comes
  * `io.acme.todolist.project`
  * `io.acme.todolist.comment` 
 
-This package would be a part of the API shared between client- and server- side code of your 
+This package would be a part of the API shared between client- and server-side code of your 
 application.
 
 #### Commands
