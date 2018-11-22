@@ -133,7 +133,7 @@ Avoid using suffixes like `Aggregate`, `Projection`, `ProcessManager` when defin
 because:
  1. You may want to use such a word when creating an entity Java class which _uses_ 
     a generated data type for holding the state of the entity.
- 2. Such a data structure does not represent a whole `Aggregate` or a `ProcessManager` thing anyway. 
+ 2. Such a data structure does not represent a whole `Aggregate` or `ProcessManager` thing anyway. 
     It's just data.
  
 ## Packages
@@ -252,9 +252,9 @@ a sub-package called `server`, with sub-packages for corresponding entity types:
 
 Names of Bounded Contexts follow `TitleCapitalization` favoring plurals:
 
-  * `Users`
-  * `Tasks`
-  * `DeliveredOrders`
+  * `Billing`
+  * `Shipping`
+  * `DynamiteProduction`
   
 Although, singular names are perfectly fine too:
   * `FlightRegistration`
