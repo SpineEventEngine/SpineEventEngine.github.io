@@ -115,11 +115,12 @@ Events are named as facts formulated as past participles:
 
 ### Rejections
 
-Rejections are named similarly to events, as facts in the past:
+A rejection is named after a reason of why a command cannot be handled. It's a fact about a state
+of a domain model:
 
   * `TaskAlreadyExists`
-  * `TaskAlreadyCompleted`
-  * `CannotCancelProject` 
+  * `InsufficientFunds` 
+  * `ProjectAlreadyCompleted`
 
 ### Entity States
 
