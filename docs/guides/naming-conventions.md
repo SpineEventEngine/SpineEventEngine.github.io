@@ -253,19 +253,23 @@ a sub-package called `server`, with sub-packages for corresponding entity types:
 
 Names of Bounded Contexts follow `TitleCapitalization` favoring plurals:
 
+  * `Users`
+  * `Tasks`
+  * `DeliveredOrders`
+    
+Although, singular names are perfectly fine too:
+
   * `Billing`
   * `Shipping`
   * `DynamiteProduction`
-  
-Although, singular names are perfectly fine too:
-  * `FlightRegistration`
-  * `EmployeeOnboarding`
 
 #### Packages
-If a name of a Bounded Context is used in a package its name is transformed according to rules
+
+If a name of a Bounded Context is used in a package, its name is transformed according to rules
 of a programming language.
 
 #### Factory classes
+
 A Java class that creates and configures an instance of a `BoundedContext` is named after the
 name of the context with the `Context` prefix:
 
