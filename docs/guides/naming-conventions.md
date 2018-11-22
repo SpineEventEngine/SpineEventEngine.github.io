@@ -236,15 +236,26 @@ a sub-package called `server`, with sub-packages for corresponding entity types:
 
 ### Entities 
 
-#### Aggregate
+When naming entities we find it natural to start with a name of astate cass and then
+add a suffix which tells the type of the entity:
 
-<!-- TODO:2018-11-21:alexander.yevsyukov: Write text. --> 
+  * `ProjectAggregate`
+  * `OrderProcessManager`
+  * `TaskItemProjection`  
 
-#### Process Manager
-
-#### Projection
-
+The suffix helps when observing together with other entities in a package. For process managers
+it may be enough to have the `Process` suffix, dropping `Manager`, which frequently worked 
+for us too.
+  
 #### Repositories
+
+We recommend _not_ using a type infix for naming repository classes. Alphabetical sorting would
+make a repository class be next to an entity class. And you would not deal much with repository 
+classes anyway. So, it's just `SomethingRepository`, rather than `SomethingAggregateRepository`:
+
+  * `ProjectRepository`
+  * `OrderRepository`
+  * `TaskItemRepository` 
 
 ### Bounded Contexts
 
