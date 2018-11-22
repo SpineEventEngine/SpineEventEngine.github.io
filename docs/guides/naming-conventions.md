@@ -265,7 +265,7 @@ If a name of a Bounded Context is used in a package its name is transformed acco
 of a programming language.
 
 #### Factory classes
-A Java class that creates an configures an instance of a `BoundedContext` is named after the
+A Java class that creates and configures an instance of a `BoundedContext` is named after the
 name of the context with the `Context` prefix:
 
   * `UsersContext`
