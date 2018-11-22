@@ -133,8 +133,8 @@ Avoid using suffixes like `Aggregate`, `Projection`, `ProcessManager` when defin
 because:
  1. You may want to use such a word when creating an entity Java class which _uses_ 
     a generated data type for holding the state of the entity.
- 2. These data structures do not represent the whole `Aggregate` or `Projection` thing anyway. 
-    They are just data.
+ 2. Such a data structure does not represent a whole `Aggregate` or a `ProcessManager` thing anyway. 
+    It's just data.
  
 ## Packages
 
