@@ -7,10 +7,9 @@ sidenav: doc-side-guides-nav.html
 type: markdown
 ---
 
-<p>This document covers the naming conventions used in the Spine framework, and in applications 
-based on the framework that we wrote. Some of these contentions are used by the framework and 
-code generation tools. Others are our recommendations that we find useful for naming
-and structuring the code.</p>
+<p>This document covers the naming conventions for the code. Some of these contentions are used by 
+the framework and code generation, and as such are required. Others are our recommendations that 
+we find useful for making things clear and structuring the code.</p>
 
 ## Proto files
 
