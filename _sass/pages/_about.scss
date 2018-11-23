@@ -1,10 +1,39 @@
 .about {
+  .features-section {
+    padding: 48px 0 40px;
+
+    .col-feature-container {
+      padding: 0;
+
+      @media (max-width: 1200px) {
+        padding: 15px;
+      }
+    }
+
+    .section-title {
+      text-align: left;
+      padding-left: 15px;
+
+      @media (max-width: 1200px) {
+        padding-left: 0;
+      }
+    }
+
+    .feature-card {
+      flex: 0 0 30.9%; // To make the last row align to the right side
+
+      @media (max-width: 1439px) {  // 1439px — non-standard width when cards become into two columns
+        flex: 1 0 30.9%;
+      }
+    }
+  }
+
   .story-section {
-    margin: 88px 0 72px;
+    margin: 88px 0 8px;
     position: relative;
 
     @media(max-width: $tablet){
-      margin: 32px 0 24px;
+      margin: 32px 0 8px;
     }
 
     h1 {
@@ -58,62 +87,7 @@
 
     .section-title {
       color: rgba($textColor, .54);
-    }
-
-  }
-
-  .section-title {
-    margin: 24px 0 16px;
-  }
-
-  //Cards style
-  .feature-card {
-    display: inline-block;
-    margin: 24px 32px 48px;
-
-    @media(max-width: $desktop-small){
-      width: 100%;
-      margin: 24px 0 40px;
-    }
-
-    &.first-col {
-      margin-left: 0;
-      margin-right: 64px;
-      @media (max-width: $desktop-small) {
-        margin-right: 0;
-      }
-    }
-
-    &.last-col {
-      margin-right: 0;
-      margin-left: 64px;
-      @media (max-width: $desktop-small) {
-        margin-left: 0;
-      }
-    }
-
-    .feature-card-title {
-      color: $dark-gray;
-      margin-bottom: 8px;
-      font-size: 1rem;
-      line-height: 1.5;
-      font-weight: 500;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 24px;
-    }
-
-    .card-icon {
-      display: inline-block;
-      width: $icon-size--m;
-      height: $icon-size--m;
-      margin-bottom: 12px;
-
-      &.domain-model {
-        background: url('../img/no-icon-yet.svg') no-repeat center/cover;
-      }
+      margin: 24px 0 16px;
     }
   }
 }
