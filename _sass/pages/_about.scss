@@ -1,6 +1,19 @@
 .about {
+  .lang-info-section-container {
+    background-color: $light-gray;
+
+    .info-section {
+      background-color: rgba(0, 0, 0, .04);
+      margin-bottom: 16px;
+    }
+  }
+
   .features-section {
-    padding: 48px 0 40px;
+    padding: 32px 0 40px;
+
+    @media (max-width: $tablet) {
+      padding-top: 8px;
+    }
 
     .col-feature-container {
       padding: 0;
