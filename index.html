@@ -134,7 +134,6 @@ message Task {
   </section>
 </div>
 
-
 <div id="landing-content-features" class="features-section">
   <section class="container">
     <div class="row">
@@ -142,72 +141,79 @@ message Task {
         <div class="col-sm-12">
           <h2 class="section-title">Features</h2>
 
-          <div class="features-row">
-              <!-- First level -->
-              <div class="feature-card">
-                  <i class="card-icon type-safety"></i>
-                  <div class="card-content-text">
-                      <header class="feature-card-title">Type Safety</header>
-                      <p>Should you need <code>CustomerId</code> or
-                      <code>WorkEstimate</code> value, you get it within seconds,
-                      for multiple languages. And it all comes with binary storage format,
-                      and automatic Json support.
-                      </p>
-                  </div>
-              </div>
+            <div class="row">
+                <!-- First column -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Type Safety</header>
+                            <p>Should you need <code>CustomerId</code> or
+                                <code>WorkEstimate</code> value, you get it within seconds,
+                                for multiple languages. And it all comes with binary storage format,
+                                and automatic Json support.
+                            </p>
+                        </div>
+                    </div>
 
-              <div class="feature-card">
-                  <i class="card-icon immutable"></i>
-                  <div class="card-content-text">
-                      <header class="feature-card-title">Promoted immutability</header>
-                      <p>All the data types are immutable, which makes it easy to cache
-                      and share. Mutations are performed <em>only</em> in response
-                      to incoming messages via clearly defined cycles.</p>
-                  </div>
-              </div>
+                    <div class="feature-card">
+                        <i class="fas fa-fighter-jet card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Develop faster, with better results</header>
+                            <p>Thanks to CQRS and Event-Driven Architecture,
+                                you can arrange clear work separate.
+                                More experienced developers work on the core domain and the write-side.
+                                The&nbsp;read–side and UI are created by the rest of the team.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-              <div class="feature-card">
-                  <i class="card-icon business-model"></i>
-                  <div class="card-content-text">
-                      <header class="feature-card-title">Evolve your business model</header>
-                      <p>Add and remove fields while keeping binary compatibility with older code;
-                          handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
-                          Build new <code>Projections</code> on the whole event history of the system.</p>
-                  </div>
-              </div>
+                <!-- Second column -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-gem card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Promoted Immutability</header>
+                            <p>All the data types are immutable, which makes it easy to cache
+                                and share. Mutations are performed <em>only</em> in response
+                                to incoming messages via clearly defined cycles.</p>
+                        </div>
+                    </div>
 
-              <!-- Second level -->
-              <div class="feature-card">
-                  <i class="card-icon develop"></i>
-                  <div class="card-content-text">
-                      <header class="feature-card-title">Develop faster, with better results</header>
-                      <p>Thanks to CQRS and Event-Driven Architecture,
-                          you can arrange clear work separate.
-                          More experienced developers work on the core domain and the write-side.
-                          The&nbsp;read–side and UI are created by the rest of the team.
-                      </p>
-                  </div>
-              </div>
+                    <div class="feature-card">
+                        <i class="fas fa-server card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Scale with micro-services</header>
+                            <p>CQRS architecture allows to scale read- and write- sides independently.
+                                When further scaling is needed, Event-Driven Architecture allows to
+                                further separate and scale heavily loaded parts.</p>
+                        </div>
+                    </div>
+                </div>
 
-              <div class="feature-card">
-                  <i class="card-icon scale-micro-services"></i>
-                  <div class="card-content-text">
-                      <header class="feature-card-title">Scale with micro-services</header>
-                      <p>CQRS architecture allows to scale read- and write- sides independently.
-                          When further scaling is needed, Event-Driven Architecture allows to
-                          further separate and scale heavily loaded parts.</p>
-                  </div>
-              </div>
+                <!-- Third column -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Evolve your business model</header>
+                            <p>Add and remove fields while keeping binary compatibility with older code;
+                                handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
+                                Build new <code>Projections</code> on the whole event history of the system.</p>
+                        </div>
+                    </div>
 
-              <div class="feature-card">
-                  <i class="card-icon freely"></i>
-                  <div class="card-content-text">
-                      <header class="feature-card-title">Use freely</header>
-                      <p>Permissive Apache License allows using the framework in closed-source projects.
-                          You are welcome to contribute to improving the framework.</p>
-                  </div>
-              </div>
-          </div>
+                    <div class="feature-card">
+                        <i class="fas fa-feather-alt card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Use freely</header>
+                            <p>Permissive Apache License allows using the framework in closed-source projects.
+                                You are welcome to contribute to improving the framework.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>
