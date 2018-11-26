@@ -1,6 +1,6 @@
 .about {
   .lang-info-section-container {
-    background-color: $light-gray;
+    background-color: $light-gray-blue;
 
     .info-section {
       background-color: rgba(0, 0, 0, .04);
@@ -15,28 +15,12 @@
       padding-top: 8px;
     }
 
-    .col-feature-container {
-      padding: 0;
-
-      @media (max-width: 1200px) {
-        padding: 15px;
-      }
-    }
-
     .section-title {
       text-align: left;
       padding-left: 15px;
 
       @media (max-width: 1200px) {
         padding-left: 0;
-      }
-    }
-
-    .feature-card {
-      flex: 0 0 30.9%; // To make the last row align to the right side
-
-      @media (max-width: 1439px) {  // 1439px — non-standard width when cards become into two columns
-        flex: 1 0 30.9%;
       }
     }
   }

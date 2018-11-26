@@ -56,12 +56,13 @@ a.disabled {
 li {line-height: 22px;}
 
 p.note {
-  background-color: $thirdBrandColor;
-  padding: 9.5px;
-}
-
-p.note code {
-  background-color: $thirdBrandColor !important;
+  background-color: #e0f2ff;
+  border-left: 4px solid $mainBrandColor;
+  padding: 12px 24px 13px;
+  color: $black;
+  font-size: 15px;
+  line-height: 24px;
+  border-radius: 2px;
 }
 
 .inverse {
