@@ -144,6 +144,28 @@ message Task {
             <div class="row">
                 <!-- First column -->
                 <div class="col-md-4">
+
+                    <div class="feature-card">
+                        <i class="fas fa-magic card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Code Generation</header>
+                            <p>The code is automatically generated for all the languages of
+                            your project, as you update the model.
+                            Forget about missed <code>hashCode()</code> or <code>equals()</code>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="fas fa-clipboard-check card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Built-in Validation</header>
+                            <p>Constrains defined in a business model are
+                                automatically checked for commands, events, and entity states.</p>
+                        </div>
+                    </div>
+
+
                     <div class="feature-card">
                         <i class="fas fa-fighter-jet card-icon-font"></i>
                         <div class="card-content-text">
@@ -155,6 +177,28 @@ message Task {
                             </p>
                         </div>
                     </div>
+
+
+                </div>
+
+                <!-- Second column -->
+                <div class="col-md-4">
+
+                    <div class="feature-card">
+                        <i class="fas fa-lightbulb card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Clear API</header>
+                            <p>Concepts known from the DDD books right are right in the code.
+                                <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/aggregate/Aggregate.html">Aggregate</a></code>,
+                                <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/projection/Projection.html">Projection</a></code>,
+                                <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/procman/ProcessManager.html">ProcessManager</a></code>,
+                                <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/entity/Repository.html">Repository</a></code>.
+                                Ever guessed how to make a <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/BoundedContext.html">BoundedContext</a></code>?
+                                Guess no more.
+                            </p>
+                        </div>
+                    </div>
+
 
                     <div class="feature-card">
                         <i class="fas fa-shield-alt card-icon-font"></i>
@@ -168,10 +212,21 @@ message Task {
                         </div>
                     </div>
 
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line card-icon-font"></i>
+                        <div class="card-content-text">
+                            <header class="feature-card-title">Open for Business Changes</header>
+                            <p>Add and remove fields while keeping binary compatibility with older code;
+                                handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
+                                Build new <code>Projections</code> on the whole event history of the system.</p>
+                        </div>
+                    </div>
+                    
                 </div>
 
-                <!-- Second column -->
+                <!-- Third column -->
                 <div class="col-md-4">
+
                     <div class="feature-card">
                         <i class="fas fa-gem card-icon-font"></i>
                         <div class="card-content-text">
@@ -183,33 +238,20 @@ message Task {
                     </div>
 
                     <div class="feature-card">
-                        <i class="fas fa-server card-icon-font"></i>
+                        <i class="fas fa-database card-icon-font"></i>
                         <div class="card-content-text">
-                            <header class="feature-card-title">Scale with micro-services</header>
-                            <p>CQRS architecture allows to scale read- and write- sides independently.
-                                When further scaling is needed, Event-Driven Architecture allows to
-                                further separate and scale heavily loaded parts.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Third column -->
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <i class="fas fa-chart-line card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Evolve your business model</header>
-                            <p>Add and remove fields while keeping binary compatibility with older code;
-                                handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
-                                Build new <code>Projections</code> on the whole event history of the system.</p>
+                            <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
+                            <p>The framework promotes writing
+                                storage- and platform-agnostic code. You can start with JDBC and later switch
+                                to Google Cloud Platform Datastore by changing few lines of&nbsp;code.</p>
                         </div>
                     </div>
 
                     <div class="feature-card">
                         <i class="fas fa-feather-alt card-icon-font"></i>
                         <div class="card-content-text">
-                            <header class="feature-card-title">Use freely</header>
-                            <p>Permissive Apache License allows using the framework in closed-source projects.
+                            <header class="feature-card-title">Permissive Apache License</header>
+                            <p>Use freely in closed-source projects.
                                 You are welcome to contribute to improving the framework.</p>
                         </div>
                     </div>
