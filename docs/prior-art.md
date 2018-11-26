@@ -17,7 +17,7 @@ Spine is created for applications that follow the [CQRS](http://martinfowler.com
 and [Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html) architectural patterns.
 
 Spine didn’t appear out of the blue. While working on our own CQRS/ES based projects we were 
-amazed how much manual effort is spent on creating events and commands, delivering events and data
+alarmed at how much manual effort is spent on creating events and commands, delivering events and data
 to the web and mobile clients. It takes time, does not require much creativity from a developer,
 whilst this energy could have been spent on productive 
 [Event Storming](http://ziobrando.blogspot.com/2013/11/introducing-event-storming.html), 
