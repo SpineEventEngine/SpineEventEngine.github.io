@@ -7,10 +7,9 @@ sidenav: doc-side-guides-nav.html
 type: markdown
 ---
 
-<p>This document covers the naming conventions used in the Spine framework, and in applications 
-based on the framework that we wrote. Some of these contentions are used by the framework and 
-code generation tools. Others are our recommendations that we find useful for naming
-and structuring the code.</p>
+<p>This document covers the naming conventions for the code. Some of these contentions are used by 
+the framework and code generation, and as such are required. Others are our recommendations that 
+we find useful for making things clear and structuring the code.</p>
 
 ## Proto files
 
@@ -237,15 +236,28 @@ a sub-package called `server`, with sub-packages for corresponding entity types:
 
 ### Entities 
 
-#### Aggregate
+When naming entities we find it natural to start with a name of a state class and then
+add a suffix which tells the type of the entity:
 
-<!-- TODO:2018-11-21:alexander.yevsyukov: Write text. --> 
+  * `ProjectAggregate`
+  * `OrderProcessManager`
+  * `TaskItemProjection`  
 
-#### Process Manager
+The suffix helps when observing together with other entities in a package. 
 
-#### Projection
-
+For process managers it may be enough to have the `Process` suffix, dropping `Manager`, 
+which frequently worked for us too. Other options for suffixes are `Pm` or `Procman`. 
+It would be a good idea to decide on such a suffix as a team standard, before you start coding.  
+  
 #### Repositories
+
+We recommend _not_ using a type infix for naming repository classes. Alphabetical sorting would
+make a repository class be next to an entity class. And you would not deal much with repository 
+classes anyway. So, it's just `SomethingRepository`, rather than `SomethingAggregateRepository`:
+
+  * `ProjectRepository`
+  * `OrderRepository`
+  * `TaskItemRepository` 
 
 ### Bounded Contexts
 
