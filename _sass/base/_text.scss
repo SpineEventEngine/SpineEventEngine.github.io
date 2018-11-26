@@ -41,3 +41,17 @@ p {
   line-height: 1.7rem;
   color: $textColor;
 }
+
+blockquote {
+  border-left: 2px solid #eeeeee;
+  padding: 0 24px;
+  margin: 24px 0 32px;
+
+  p {
+    font-size: 22px;
+    line-height: 32px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba($textColor, .64);
+  }
+}

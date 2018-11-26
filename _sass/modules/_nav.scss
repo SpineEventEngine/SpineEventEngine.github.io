@@ -152,6 +152,14 @@
           transform: rotate(180deg);
         }
       }
+
+      .github-icon {
+        &.external {
+          &:after {
+            display: none;
+          }
+        }
+      }
     }
 
     .doc-list-inside {
