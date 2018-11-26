@@ -236,16 +236,18 @@ a sub-package called `server`, with sub-packages for corresponding entity types:
 
 ### Entities 
 
-When naming entities we find it natural to start with a name of astate cass and then
+When naming entities we find it natural to start with a name of a state class and then
 add a suffix which tells the type of the entity:
 
   * `ProjectAggregate`
   * `OrderProcessManager`
   * `TaskItemProjection`  
 
-The suffix helps when observing together with other entities in a package. For process managers
-it may be enough to have the `Process` suffix, dropping `Manager`, which frequently worked 
-for us too.
+The suffix helps when observing together with other entities in a package. 
+
+For process managers it may be enough to have the `Process` suffix, dropping `Manager`, 
+which frequently worked for us too. Other options for suffixes are `Pm` or `Procman`. 
+It would be a good idea to decide on such a suffix as a team standard, before you start coding.  
   
 #### Repositories
 
