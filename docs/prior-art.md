@@ -28,7 +28,7 @@ automatic **code generation** for multiple application clients.
 It is reached by using [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/overview).
 
 When creating an Event Sourcing application, you need to write classes for commands, events, 
-command handlers, aggregates, aggregate repository, DTOs etc.
+command handlers, aggregates, aggregate repositories, DTOs etc.
 And if your organization wants an application on, let’s say, a couple of mobile platforms,
 you would have to add a lot of work to deliver data to each client application.
 So you need to make your code work on another platform by writing it in another language *manually*,
