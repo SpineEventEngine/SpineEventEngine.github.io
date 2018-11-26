@@ -38,7 +38,7 @@ Json in the client apps.
 Using [Protobuf](https://developers.google.com/protocol-buffers/docs/overview) for formulating 
 the business domain allows us to make this language 
 [ubiquitous](http://martinfowler.com/bliki/UbiquitousLanguage.html) not only in human interaction, 
-but in communication of computing devices, too.
+but in communication of computing devices too.
 
 **Immutability** is another major concept we follow.
 Spine uses typed commands and events. Having commands and events as first class citizens in the 
@@ -47,7 +47,8 @@ forth with Json gives some performance advantage at the same time.
 
 We are greatly inspired by [Redux](http://redux.js.org) — one of the most exciting things happening
 in JavaScript at the moment. It stands out from the landscape of libraries and frameworks by 
-getting so many things absolutely right: a simple, predictable state model; an emphasis on functional programming and immutable data.
+getting so many things absolutely right: a simple, predictable state model; an emphasis on functional
+programming and immutable data.
 
 In Spine Event Engine we combined all of our experience and observations of the best-breed market
 products and solutions like [Axon](http://www.axonframework.org/), [Spring](https://spring.io/), 
