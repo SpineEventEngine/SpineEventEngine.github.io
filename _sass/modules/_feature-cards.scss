@@ -1,5 +1,5 @@
 .features-section {
-  background-color: $light-gray;
+  background-color: $light-gray-blue;
   padding: 72px 0 80px;
 
   @media(max-width: $phone-xlarge) {
@@ -18,32 +18,17 @@
     }
   }
 
-  .features-row {
-    display: flex;
-    flex-wrap: wrap;
-
-    @media(max-width: 1200px) {
-      display: block;
-    }
-  }
-
   // Cards style
   .feature-card {
     position: relative;
     display: inline-block;
     background-color: white;
-    margin: 0 15px 32px;
-    flex: 1 0 30%;
-    border-radius: 6px;
-    -webkit-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
-    -moz-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
-    -o-box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
-    box-shadow: 0 12px 20px 0 rgba($footerColor, .08);
-
-    @media(max-width: 1200px) {
-      width: 100%;
-      margin: 0 0 32px;
-    }
+    margin: 0 0 30px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 3px 0 rgba($footerColor, .08);
+    -moz-box-shadow: 0 1px 3px 0 rgba($footerColor, .08);
+    -o-box-shadow: 0 1px 3px 0 rgba($footerColor, .08);
+    box-shadow: 0 1px 3px 0 rgba($footerColor, .08);
 
     @media(max-width: $phone-medium) {
       margin-bottom: 16px;
@@ -56,36 +41,8 @@
       height: $icon-size--m;
       margin: 20px 24px;
 
-      @media (max-width: $phone-medium) {
-        margin: 16px 16px;
-      }
-
-      &.no-icon {
-        background: url('../img/icons-feature/no-icon-yet.svg') no-repeat center/cover;
-      }
-
-      &.scale-micro-services {
-        background: url('../img/icons-feature/icon-feature-scale.svg') no-repeat center/cover;
-      }
-
-      &.business-model {
-        background: url('../img/icons-feature/icon-feature-business-model.svg') no-repeat center/cover;
-      }
-
-      &.develop {
-        background: url('../img/icons-feature/icon-feature-develop.svg') no-repeat center/cover;
-      }
-
-      &.freely {
-        background: url('../img/icons-feature/icon-feature-freely.svg') no-repeat center/cover;
-      }
-
-      &.immutable {
-        background: url('../img/icons-feature/icon-feature-immutable.svg') no-repeat center/cover;
-      }
-
-      &.type-safety {
-        background: url('../img/icons-feature/icon-feature-type-safety.svg') no-repeat center/cover;
+      @media (max-width: $desktop-small) {
+        margin: 16px;
       }
     }
 
@@ -99,7 +56,7 @@
     .card-content-text {
       padding: 24px 24px 40px 72px;
 
-      @media (max-width: $phone-medium) {
+      @media (max-width: $desktop-small) {
         padding: 20px 20px 32px 64px;
       }
 

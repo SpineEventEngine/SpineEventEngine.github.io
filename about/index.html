@@ -31,88 +31,90 @@ headline: 'About Spine'
                 <div class="col-sm-12 col-feature-container">
                     <h2 class="section-title">Core Features</h2>
 
-                    <div class="features-row">
-                        <!-- First level -->
-                        <div class="feature-card">
-                            <i class="card-icon no-icon"></i>
-                            <!-- Unlink the next line to add FontAvesome icon-->
-                            <!--<i class="fas fa-laptop-code card-icon-font"></i>-->
-                            <div class="card-content-text">
-                                <header class="feature-card-title">Strongly Typed Domain Model</header>
-                                <p>Spine promotes strong typing of all parts of&nbsp;a business model.
-                                    You don't have to deal with Json.
-                                </p>
+                    <div class="row">
+                        <!-- First column -->
+                        <div class="col-md-4">
+                            <div class="feature-card">
+                                <i class="fas fa-shield-alt card-icon-font"></i>
+                                <div class="card-content-text">
+                                    <header class="feature-card-title">Strongly Typed Domain Model</header>
+                                    <p>Spine promotes strong typing of all parts of&nbsp;a business model.
+                                        You don't have to deal with Json.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <i class="fas fa-magic card-icon-font"></i>
+                                <div class="card-content-text">
+                                    <header class="feature-card-title">Code Generation</header>
+                                    <p>The model is defined and maintained in Protobuf. The code is automatically generated
+                                        for all the languages of your project, as you update the model.</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <i class="fas fa-database card-icon-font"></i>
+                                <div class="card-content-text">
+                                    <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
+                                    <p>The framework promotes writing
+                                        storage- and platform-agnostic code. You can start with JDBC and later switch
+                                        to Google Cloud Platform Datastore by changing few lines of&nbsp;code.</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="feature-card">
-                            <i class="card-icon no-icon"></i>
-                            <!--<i class="fas fa-laptop-code card-icon-font"></i>-->
-                            <div class="card-content-text">
-                                <header class="feature-card-title">Model Extensibility</header>
-                                <p>Thanks to <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating" target="_blank">Protobuf support</a>,
-                                    a model can be extended preserving backward compatibility with clients running older code.</p>
+                        <!-- Second column -->
+                        <div class="col-md-4">
+                            <div class="feature-card">
+                                <i class="fas fa-code-branch card-icon-font"></i>
+                                <div class="card-content-text">
+                                    <header class="feature-card-title">Model Extensibility</header>
+                                    <p>Thanks to <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating" target="_blank">Protobuf support</a>,
+                                        a model can be extended preserving backward compatibility with clients running older code.</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <i class="fas fa-gem card-icon-font"></i>
+                                <div class="card-content-text">
+                                    <header class="feature-card-title">Promoted Immutability</header>
+                                    <p>Messages like commands or events, entity state objects,
+                                        query results, and many other business logic objects being immutable greatly simplify
+                                        the code since they are automatically thread-safe, and as such are freely shared
+                                        or&nbsp;referenced.</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <i class="fas fa-feather-alt card-icon-font"></i>
+                                <div class="card-content-text">
+                                    <header class="feature-card-title">Open Source</header>
+                                    <p>Permissive Apache License allows using the framework in closed-source
+                                        projects. You are welcome to contribute to the framework development.</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="feature-card">
-                            <i class="fas fa-check card-icon-font"></i>
-                            <div class="card-content-text">
-                                <header class="feature-card-title">Built-in Validation</header>
-                                <p>Constrains defined in a business model are
-                                    automatically checked for commands, events, and entity states.</p>
+                        <!-- Third column -->
+                        <div class="col-md-4">
+                            <div class="feature-card">
+                                <i class="fas fa-clipboard-check card-icon-font"></i>
+                                <div class="card-content-text">
+                                    <header class="feature-card-title">Built-in Validation</header>
+                                    <p>Constrains defined in a business model are
+                                        automatically checked for commands, events, and entity states.</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Second level -->
-                        <div class="feature-card">
-                            <i class="fas fa-laptop-code card-icon-font"></i>
-                            <div class="card-content-text">
-                                <header class="feature-card-title">Code Generation</header>
-                                <p>The model is defined and maintained in Protobuf. The code is automatically generated
-                                    for all the languages of your project, as you update the model.</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-card">
-                            <i class="fas fa-lock card-icon-font"></i>
-                            <div class="card-content-text">
-                                <header class="feature-card-title">Promoted Immutability</header>
-                                <p>Messages like commands or events, entity state objects,
-                                    query results, and many other business logic objects being immutable greatly simplify
-                                    the code since they are automatically thread-safe, and as such are freely shared
-                                    or&nbsp;referenced.</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-card">
-                            <i class="fas fa-headset card-icon-font"></i>
-                            <div class="card-content-text">
-                                <header class="feature-card-title">Multitenancy Support</header>
-                                <p>Transforming a single-tenant application into
-                                    a&nbsp;multi-tenant one requires very few lines of code. You don't have to introduce
-                                    <code>tenantId</code> parameters for all the calls.</p>
-                            </div>
-                        </div>
-
-                        <!-- Third level -->
-                        <div class="feature-card">
-                            <i class="card-icon no-icon"></i>
-                            <!--<i class="fas fa-laptop-code card-icon-font"></i>-->
-                            <div class="card-content-text">
-                                <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
-                                <p>The framework promotes writing
-                                    storage- and platform-agnostic code. You can start with JDBC and later switch
-                                    to Google Cloud Platform Datastore by changing few lines of&nbsp;code.</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-card">
-                            <i class="fas fa-feather-alt card-icon-font"></i>
-                            <div class="card-content-text">
-                                <header class="feature-card-title">Open Source</header>
-                                <p>Permissive Apache License allows using the framework in closed-source
-                                    projects. You are welcome to contribute to the framework development.</p>
+                            <div class="feature-card">
+                                <i class="fas fa-boxes card-icon-font"></i>
+                                <div class="card-content-text">
+                                    <header class="feature-card-title">Multitenancy Support</header>
+                                    <p>Transforming a single-tenant application into
+                                        a&nbsp;multi-tenant one requires very few lines of code. You don't have to introduce
+                                        <code>tenantId</code> parameters for all the calls.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -121,9 +123,6 @@ headline: 'About Spine'
         </div>
     </section>
 </div>
-
-
-
 
 <div class="container">
     <div class="row">

@@ -89,12 +89,10 @@ Identifiers are usually defined after the name of the entity with the `Id` suffi
 You'll find such naming pattern in the API of the framework. For example, `EventId`, `CommandId`,
 `UserId`, `TenantId`, etc.    
 
-<!-- TODO:2018-11-21:alexander.yevsyukov: Make this as a Note block. -->
-
-This convention is not a requirement. We find `Id` suffix short yet meaningful for building a rich
-type-safe API. You may select another convention that fits your domain best. But please be informed
-that future version of the framework tools will use the `Id` suffix of the types and `_id` suffix
-of proto field names for code scaffolding and improving intelligence of code generation.  
+<p class="note">This convention is not a requirement. We find `Id` suffix short yet meaningful for building a rich
+                type-safe API. You may select another convention that fits your domain best. But please be informed
+                that future version of the framework tools will use the `Id` suffix of the types and `_id` suffix
+                of proto field names for code scaffolding and improving intelligence of code generation.</p>  
 
 ### Commands
 
