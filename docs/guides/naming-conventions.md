@@ -236,7 +236,7 @@ a sub-package called `server`, with sub-packages for corresponding entity types:
 
 ### Entities 
 
-When naming entities we find it natural to start with a name of astate cass and then
+When naming entities we find it natural to start with a name of a state class and then
 add a suffix which tells the type of the entity:
 
   * `ProjectAggregate`
