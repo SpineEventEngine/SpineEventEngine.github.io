@@ -100,8 +100,9 @@
   padding: 0 0 0 12px;
   position: relative;
   overflow: auto;
+  max-height: 90%;
   min-width: 240px;
-  //Add this for the Chrome to fix jumping while scrolling
+  // Add this for the Chrome to fix jumping while scrolling
   -webkit-transform: translateZ(0);
 
   &.blog-toc {
@@ -138,7 +139,7 @@
 
   ul {
     list-style-type: none !important;
-    padding-left: 9px;
+    padding-left: 12px;
     font-size: 12px;
 
     li {
