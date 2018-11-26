@@ -1,16 +1,31 @@
 .about {
-  .intro-section {
+
+  .about-description {
+    margin: 48px 0 56px;
+
+    @media (max-width: $tablet) {
+      margin-bottom: 40px;
+    }
 
     p {
-      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+
+    .lead {
+      font-size: 24px;
+      line-height: 1.5;
+
+      strong {
+        font-weight: 500;
+      }
     }
   }
 
   .features-section {
-    padding: 32px 0 40px;
+    padding: 64px 0 40px;
 
     @media (max-width: $tablet) {
-      padding-top: 8px;
+      padding-top: 40px;
     }
 
     .section-title {
@@ -74,7 +89,7 @@
   }
 
   .software {
-    margin: 48px 0 124px;
+    margin: 48px 0 100px;
 
     @media(max-width: $tablet){
       margin: 32px 0 64px;
