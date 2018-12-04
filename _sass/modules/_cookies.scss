@@ -30,7 +30,7 @@
   margin-top: 10px;
 
   @media (max-width: $desktop-small) {
-    padding-right: 65px;
+    padding-right: 92px;
     text-align: left;
     margin-bottom: 10px;
   }
@@ -73,7 +73,7 @@
   }
 
   @media (max-width: $desktop-small) {
-    width: 65px;
+    width: 92px;
     position: absolute;
     top: 0;
     right: 0;
@@ -103,7 +103,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate3D(-50%,-50%,0);
+      transform: translate(-50%, -50%);
     }
   }
 }
