@@ -52,9 +52,6 @@ var headerFixPosition = $(".nav-hero-container").innerHeight();
 var cookieContainerHeight = $("#cookieChoiceInfo").innerHeight();
 var tocNavFixedPosition = 120; // Sticky TOC offset
 
-var windowHeight = $(window).height();
-var scrollHeight = document.body.scrollHeight;
-
 
 $(function() {
 // Calls the tocify method on your HTML nav.
@@ -104,30 +101,26 @@ function FixHead() {
 
 function TocHeight() {
     if (tocNav.length > 0) {
-        var footerPosition = scrollHeight - initialFooterHeight - cookieContainerHeight - 1000;
 
-        // Initial TOC height — scroll at the top
-        if (window.pageYOffset < tocNavFixedPosition) {
-            $(tocNav).css('max-height', windowHeight - headerFixPosition - cookieContainerHeight - 200);
-        }
+        var scrollHeight = $(document).height();
+        var windowHeight = $(window).height();
+        var scrollPosition = windowHeight + $(window).scrollTop();
+        // The variable when position of the footer div begins
+        var footerPosition = scrollHeight - initialFooterHeight - cookieContainerHeight;
 
-        // Scroll at the bottom
-        else if (window.pageYOffset > footerPosition) {
-            $(tocNav).css('max-height', windowHeight - initialFooterHeight - 300);
+        // Scroll at the bottom near the footer
+        if (scrollPosition > footerPosition) {
+            $(tocNav).css('max-height', windowHeight - initialFooterHeight - cookieContainerHeight - 2*tocNavFixedPosition);
         }
 
         // Scroll at the middle
         else {
-            $(tocNav).css('max-height', windowHeight - 260);
+            $(tocNav).css('max-height', windowHeight - headerFixPosition - tocNavFixedPosition - cookieContainerHeight);
         }
     }
 }
 
-$(function() {
-    var footerPosition = scrollHeight - initialFooterHeight - cookieContainerHeight;
-    console.log('scroll-height', scrollHeight);
-    console.log('footer-height', initialFooterHeight);
-    console.log('footer-scroll-position', footerPosition);
-    console.log('scroll-position-now', window.pageYOffset);
-    console.log('headerFixPosition', headerFixPosition);
+// Resize TOC height when window height is changing
+$( window ).resize(function() {
+    TocHeight();
 });
