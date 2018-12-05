@@ -122,5 +122,7 @@ function TocHeight() {
 
 // Resize TOC height when window height is changing
 $( window ).resize(function() {
-    TocHeight();
+    if ($(window).height() > 600) {
+        TocHeight();
+    }
 });
