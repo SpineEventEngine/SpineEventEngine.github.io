@@ -1,16 +1,16 @@
-//Mobile navigation toggle
+// Mobile navigation toggle
 $('#nav-icon-menu').click(function(){
     $(this).toggleClass('open');
     $('body').toggleClass('navigation-opened');
 });
 
-//Mobile navigation — doc-list toggle
+// Mobile navigation — doc-list toggle
 $('.doc-list-toggle').click(function(){
     $('.doc-list-inside').toggleClass('active');
     $(this).toggleClass('active');
 });
 
-//Mobile footer navitation
+// Mobile footer navitation
 $('.toggle').click(function(){
     $(this).toggleClass('active');
 });
@@ -47,21 +47,27 @@ $(function() {
 
 var InitialHeadHeight = $("#header").innerHeight();
 var tocNav = $('#toc');
+var initialFooterHeight = $(".footer").innerHeight();
+var headerFixPosition = $(".nav-hero-container").innerHeight();
+var cookieContainerHeight = $("#cookieChoiceInfo").innerHeight();
+var tocNavFixedPosition = 120; // Sticky TOC offset
+
+
 $(function() {
-//Calls the tocify method on your HTML nav.
-//InitialHeadHeight + 12 (12px — small offset from the header navigation)
+// Calls the tocify method on your HTML nav.
+// InitialHeadHeight + 12 (12px — small offset from the header navigation)
     tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: InitialHeadHeight+12, extendPage: false});
 });
 
 window.onscroll = function() {
     FixToc();
     FixHead();
+    TocHeight();
 };
 
-//Fix TOC navigation on page while scrolling
+// Fix TOC navigation on page while scrolling
 function FixToc() {
     if (tocNav.length > 0) {
-        var tocNavFixedPosition = 120; //Sticky TOC offset
         if (window.pageYOffset > tocNavFixedPosition) {
             tocNav.addClass("sticky");
         }
@@ -75,10 +81,9 @@ function FixToc() {
 function FixHead() {
     var header = $('#header');
     if (header.length > 0) {
-        var headerFixPosition = $(".nav-hero-container").innerHeight();
         if (window.pageYOffset > headerFixPosition) {
-            header.addClass("not-top"); //When navigation below offset
-            header.addClass("pinned"); //When navigation below hero section
+            header.addClass("not-top"); // When navigation below offset
+            header.addClass("pinned"); // When navigation below hero section
             header.removeClass("unpinned");
         }
         else {
@@ -86,10 +91,38 @@ function FixHead() {
             header.addClass("unpinned");
         }
 
-        //Return classes to the initial state when the navigation at the top of the page
+        // Return classes to the initial state when the navigation at the top of the page
         if (window.pageYOffset < InitialHeadHeight) {
             header.removeClass("not-top");
             header.removeClass("unpinned");
         }
     }
 }
+
+function TocHeight() {
+    if (tocNav.length > 0) {
+
+        var scrollHeight = $(document).height();
+        var windowHeight = $(window).height();
+        var scrollPosition = windowHeight + $(window).scrollTop();
+        // The variable when position of the footer div begins
+        var footerPosition = scrollHeight - initialFooterHeight - cookieContainerHeight;
+
+        // Scroll at the bottom near the footer
+        if (scrollPosition > footerPosition) {
+            $(tocNav).css('max-height', windowHeight - initialFooterHeight - cookieContainerHeight - 2*tocNavFixedPosition);
+        }
+
+        // Scroll at the middle
+        else {
+            $(tocNav).css('max-height', windowHeight - headerFixPosition - tocNavFixedPosition - cookieContainerHeight);
+        }
+    }
+}
+
+// Resize TOC height when window height is changing
+$( window ).resize(function() {
+    if ($(window).height() > 600) {
+        TocHeight();
+    }
+});
