@@ -9,6 +9,10 @@
     }
   }
 
+  .doc-lead {
+    margin-top: 32px;
+  }
+
   .info-section {
     margin: 0 10px 0;
     @media (max-width: $phone-xlarge){
@@ -22,6 +26,15 @@
 
     @media(max-width: $phone-xlarge){
       padding-bottom: 24px;
+    }
+
+    &.display-flex {
+      display: flex;
+      flex-wrap: wrap;
+
+      @media(max-width: $phone-xlarge) {
+        display: block;
+      }
     }
   }
 
