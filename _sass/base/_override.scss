@@ -1,9 +1,13 @@
-
 // Override Bootstrap defaults
 body {
   color: $textColor;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+// By default Bootstrap v4 has display:flex. It breaks TOC navigation.
+.nav {
+  display: block;
 }
 
 a {
@@ -55,16 +59,6 @@ a.disabled {
 
 li {line-height: 22px;}
 
-p.note {
-  background-color: #e0f2ff;
-  border-left: 4px solid $mainBrandColor;
-  padding: 12px 24px 13px;
-  color: $black;
-  font-size: 15px;
-  line-height: 24px;
-  border-radius: 2px;
-}
-
 .inverse {
   background-color: $mainBrandColor;
   color: white;
@@ -85,10 +79,6 @@ p.note {
 
 .nofloat {
   float: none;
-}
-
-.lead {
-  color: $titleColor;
 }
 
 // Fix Bootstrap mobile menu colors on inverse navbar.

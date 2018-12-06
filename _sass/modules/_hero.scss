@@ -14,7 +14,7 @@
 
 // Landing page hero
 .hero {
-  padding-bottom: 102px;
+  padding: 96px 0;
   position: relative;
   text-align: center;
 
@@ -56,9 +56,10 @@
   .hero-title {
     font-family: 'Roboto Mono', monospace;
     font-weight: 700;
+    color: white;
     font-size: 56px;
     letter-spacing: -0.6px;
-    margin: 108px 0 22px;
+    margin-bottom: 22px;
     opacity: 0;
     @include animation(animateTitle, 1.3s, .2s, initial, forwards);
 

@@ -1,4 +1,4 @@
-//Usage: @include transition(all .3s ease-in-out);
+// Usage: @include transition(all .3s ease-in-out);
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -7,7 +7,7 @@
   transition: $args;
 }
 
-//Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
+// Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
 @mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode) {
   -webkit-animation-name: $animation-name;
   -webkit-animation-duration: $duration;
@@ -34,7 +34,7 @@
   animation-fill-mode: $fill-mode;
 }
 
-//Transform
+// Transform
 @mixin transform($transforms) {
   -webkit-transform: $transforms;
   -moz-transform: $transforms;
@@ -43,13 +43,13 @@
   transform: $transforms;
 }
 
-//TranslateY
-//Usage @include translateY(0%);
+// TranslateY
+// Usage @include translateY(0%);
 @mixin translateY($y) {
   @include transform(translateY($y));
 }
 
-//Keyframes
+// Keyframes
 @mixin keyframes($animationName) {
   @-webkit-keyframes #{$animationName} {
     @content;
@@ -62,6 +62,35 @@
   }
   @keyframes #{$animationName} {
     @content;
+  }
+}
+
+// Layout
+.content-holder {
+  max-width: 1260px;
+  @media(max-width: $desktop-medium){
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  @media(max-width: $tablet){
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  @media(max-width: $phone-medium){
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+// Sections
+.intro-section {
+  padding-top: 40px;
+  padding-bottom: 48px;
+  @media (max-width: $tablet) {
+    padding-top: 32px;
+    padding-bottom: 40px;
   }
 }
 
@@ -125,7 +154,7 @@
 
   .blog-toc-header {
     margin-bottom: 16px;
-    padding-left: 9px;
+    padding-left: 12px;
     font-size: 12px;
     color: rgba($black, .38);
     font-weight: 500;
@@ -151,6 +180,10 @@
          a {
            color: $mainBrandColor;
          }
+        // Override Bootstrap v4 default value
+        a:not([href]):not([tabindex]) {
+          color: $mainBrandColor;
+        }
        }
     }
 
@@ -164,6 +197,11 @@
         background: none;
         text-decoration: none;
       }
+    }
+
+    // Override Bootstrap v4 default value
+    a:not([href]):not([tabindex]) {
+      color: rgba($black, .54);
     }
   }
 }

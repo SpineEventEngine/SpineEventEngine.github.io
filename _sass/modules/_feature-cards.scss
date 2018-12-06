@@ -8,10 +8,7 @@
 
   .section-title {
     text-align: center;
-    margin: 0 0 40px;
-    font-size: 2rem;
-    color: $black;
-    font-weight: 300;
+    margin-bottom: 40px;
 
     @media(max-width: $phone-xlarge){
       margin-bottom: 24px;
@@ -21,7 +18,7 @@
   // Cards style
   .feature-card {
     position: relative;
-    display: inline-block;
+    //display: inline-block;
     background-color: white;
     margin: 0 0 30px;
     border-radius: 4px;

@@ -10,7 +10,7 @@ $currentItemCaret: '\025B7  ';
 
 .doc-nav {
   display: block;
-  margin: $spacing--m 0 40px;
+  margin: $spacing--m 0 $spacing--m;
   @media(max-width: $tablet){
     margin-bottom: 24px;
   }

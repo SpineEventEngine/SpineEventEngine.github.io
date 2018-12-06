@@ -4,26 +4,30 @@
   position: relative;
 
   .landing-row {
-    margin: 32px 0 92px;
+    //margin: 32px 0 92px;
+    margin-top: 32px;
+    margin-bottom: 92px;
 
     @media(max-width: $desktop-small) {
-      margin: 24px 0 40px;
+      //margin: 24px 0 40px;
+      margin-top: 24px;
+      margin-bottom: 40px;
     }
 
     @media(max-width: $phone-xlarge) {
       margin-top: 0;
     }
 
-    .col-style {
-      @media(max-width: $tablet){
-        padding: 0;
-      }
-    }
+    //.col-style {
+    //  @media(max-width: $tablet){
+    //    padding: 0;
+    //  }
+    //}
 
     .col-style-text {
       padding-right: 48px;
       @media(max-width: $tablet){
-        padding: 0;
+        padding-right: 0;
       }
     }
 
@@ -31,28 +35,15 @@
       font-size: 22px;
       color: rgba(0, 0, 0, .38);
       font-weight: 300;
+      margin-bottom: 8px;
       padding: 0;
     }
 
-    .landing-row-title {
-      font-size: 28px;
-      color: $black;
-      margin: 8px 0 12px;
-      font-weight: 300;
-
-      @media(max-width: $desktop-small) {
-        margin-bottom: 8px;
-      }
-    }
-
     p {
-      font-weight: 400;
-      line-height: 1.7rem;
-      color: $textColor;
-      padding-bottom: 40px;
+      margin-bottom: 40px;
 
       @media(max-width: $phone-xlarge) {
-        padding-bottom: 24px
+        margin-bottom: 24px
       }
 
       &.landing-row-intro {
