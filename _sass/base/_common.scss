@@ -126,12 +126,11 @@
 }
 
 .toc {
-  padding: 0 0 0 12px;
+  padding: 0;
   position: relative;
   overflow: auto;
   max-height: 80%;
   min-height: 100px;
-  min-width: 240px;
   // Add this for the Chrome to fix jumping while scrolling
   -webkit-transform: translateZ(0);
 
