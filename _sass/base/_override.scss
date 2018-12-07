@@ -1,9 +1,13 @@
-
 // Override Bootstrap defaults
 body {
   color: $textColor;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+// By default Bootstrap v4 has display:flex. It breaks TOC navigation.
+.nav {
+  display: block;
 }
 
 a {
@@ -55,16 +59,6 @@ a.disabled {
 
 li {line-height: 22px;}
 
-p.note {
-  background-color: #e0f2ff;
-  border-left: 4px solid $mainBrandColor;
-  padding: 12px 24px 13px;
-  color: $black;
-  font-size: 15px;
-  line-height: 24px;
-  border-radius: 2px;
-}
-
 .inverse {
   background-color: $mainBrandColor;
   color: white;
@@ -87,16 +81,12 @@ p.note {
   float: none;
 }
 
-.lead {
-  color: $titleColor;
-}
-
 // Fix Bootstrap mobile menu colors on inverse navbar.
 .navbar-toggle .icon-bar {
   background-color: $inverseBrandColor;
 }
 
-// Code styles
+// Code styles don't remove
 code {
   color: $textColor;
   background-color: transparent;
@@ -104,7 +94,7 @@ code {
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   padding: 0;
-  // sometimes code lines can be longer than screen is wide
+  // Sometimes code lines can be longer than screen is wide
   @media(max-width: $phone-small){
     word-break: break-all;
   }
@@ -121,6 +111,8 @@ pre, pre.prettyprint {
   font-weight: 400 !important;
   padding: 24px 20px !important;
   word-wrap: normal;
+  border-radius: 4px;
+  line-height: 1.4;
 
   @media(max-width: $phone-xlarge){
     padding: 12px 16px !important;

@@ -7,11 +7,11 @@ footer {
   box-shadow: 0 500px 0 500px $footerColor;
   color: $white;
   overflow: hidden;
-  padding: 54px 0 32px;
+  padding: 54px 0 80px;
   position: relative;
 
   @media (max-width: 767px) {
-    padding: 35px 0 40px;
+    padding: 35px 0 100px;
 
     ul {
       li {
@@ -22,6 +22,10 @@ footer {
         display: initial;
       }
     }
+  }
+
+  p {
+    margin-bottom: 0;
   }
 
   a {
@@ -72,16 +76,8 @@ footer {
   .left-links {
     color: $footerText;
     display: block;
-    margin: 0 15px;
     text-align: left;
     width: 88%;
-
-    p {
-      font-weight: 400;
-      font-size: .8em;
-      color: rgba($white, .54);
-      line-height: 1.4rem;
-    }
 
     @media (min-width: $tablet) {
       position: relative;
@@ -97,7 +93,13 @@ footer {
 
     @media (min-width: 1025px) {
       width: 45%;
-      margin-left: 5%;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: .8em;
+      color: rgba($white, .54);
+      line-height: 1.4rem;
     }
 
     .description {
@@ -127,7 +129,7 @@ footer {
         background: url('../img/caret.svg') no-repeat center/cover;
         cursor: pointer;
         position: absolute;
-        right: 0;
+        right: 12px; // Make icon align with hamburger menu
         top: 8px;
         width: 40px;
         height: 40px;

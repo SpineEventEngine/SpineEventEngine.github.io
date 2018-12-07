@@ -1,5 +1,13 @@
 // Docs layout specific
 .docs {
+  .docs-content {
+    margin-top: 24px;
+
+    @media (max-width: 767px) {
+      margin-top: 0;
+    }
+  }
+
   .doc-header {
     padding-top: 64px;
     padding-bottom: 24px;
@@ -9,14 +17,16 @@
     }
   }
 
-  .doc-lead {
-    margin-top: 32px;
-  }
-
   .info-section {
     margin: 0 10px 0;
     @media (max-width: $phone-xlarge){
       margin-top: 16px;
+    }
+  }
+
+  .lang-section-title {
+    @media(max-width: $desktop-small) {
+      margin-bottom: 16px;
     }
   }
 
@@ -32,17 +42,16 @@
       display: flex;
       flex-wrap: wrap;
 
-      @media(max-width: $phone-xlarge) {
+      @media(max-width: $tablet) {
         display: block;
       }
     }
   }
 
   .lang-card {
-    display: inline-block;
-    margin: 0 1% 30px;
+    margin: 0 15px 32px;
+    flex: 0 0 30%;
     padding: 24px 24px 32px;
-    width: 30%;
     background-image: linear-gradient(-180deg, $white 0%, #FAFAFA 100%);
     -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .06), 0 1px 2px 0 rgba(0, 0, 0, .05), 0 5px 15px 0 rgba(0, 0, 0, .05);
     -moz-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .06), 0 1px 2px 0 rgba(0, 0, 0, .05), 0 5px 15px 0 rgba(0, 0, 0, .05);
@@ -51,11 +60,7 @@
     border-radius: 4px;
 
     @media (max-width: $desktop-small) {
-      width: 47%;
-    }
-
-    @media (max-width: $phone-xlarge) {
-      width: 98%;
+      flex: 0 0 44%;
     }
     
     .lang-card-title {

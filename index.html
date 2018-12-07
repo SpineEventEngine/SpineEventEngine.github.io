@@ -3,18 +3,15 @@ layout: landing
 title: Spine Event Engine
 ---
 
-<div id="landing-content" class="landing-content-container">
-  <section class="container">
-
-    <div class="row">
-      <div class="col-md-11 nofloat center-block">
-        <div class="col-sm-12">
-
+<section id="landing-content" class="landing-content-container">
+  <div class="container-fluid content-holder">
           <div class="row landing-row">
             <div class="col-md-12 col-style">
                <p class="step-title">Step 1.</p>
                <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
-              <p>Describe commands, events, and state of entities using <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.</p>
+               <p>Describe commands, events, and state of entities using
+                   <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.
+               </p>
             </div>
 
             <div class="col-md-4 col-style">
@@ -56,7 +53,7 @@ message Task {
           <div class="row landing-row">
             <div class="col-md-6 col-style-text">
                 <p class="step-title">Step 2.</p>
-                <h2 class="landing-row-title">Generate the code for all tiers and multiple languages</h2>
+                <h2>Generate the code for all tiers and multiple languages</h2>
               <p>Java, JavaScript, and C++ are currently supported, with more languages to come soon.</p>
             </div>
             <div class="col-md-6 col-style">
@@ -67,7 +64,7 @@ message Task {
           <div class="row landing-row">
             <div class="col-md-12 col-style">
                 <p class="step-title">Step 3.</p>
-                <h2 class="landing-row-title">Code business logic in straight and testable way</h2>
+                <h2>Code business logic in straight and testable way</h2>
               <p>Focus on the business logic rather than “plumbing”.
                 A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
                 <code>Projection</code>s will get all <code>Event</code>s they need.
@@ -118,7 +115,7 @@ message Task {
           <div class="row landing-row">
             <div class="col-md-6 col-style-text">
                 <p class="step-title">Step 4.</p>
-                <h2 class="landing-row-title">Easily deploy to Google Cloud or a custom environment</h2>
+                <h2>Easily deploy to Google Cloud or a custom environment</h2>
               <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
                 quickly. Adopt your application to selected deployment environment(s) with a few lines of code.</p>
             </div>
@@ -126,139 +123,127 @@ message Task {
               <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg" alt="Evolve your domain model">
             </div>
           </div>
+  </div>
+</section>
 
+<section id="landing-content-features" class="features-section">
+  <div class="container-fluid content-holder">
+      <h1 class="light section-title">Why Spine</h1>
+      <div class="row">
+            <!-- First column -->
+            <div class="col-md-4">
 
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<div id="landing-content-features" class="features-section">
-  <section class="container">
-    <div class="row">
-      <div class="col-md-11 nofloat center-block">
-        <div class="col-sm-12">
-          <h2 class="section-title">Why Spine</h2>
-
-            <div class="row">
-                <!-- First column -->
-                <div class="col-md-4">
-
-                    <div class="feature-card">
-                        <i class="fas fa-magic card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Code Generation</header>
-                            <p>The code is automatically generated for all the languages of
-                            your project, as you update the model.
-                            Forget about missed <code>hashCode()</code> or <code>equals()</code>.
-                            </p>
-                        </div>
+                <div class="feature-card">
+                    <i class="fas fa-magic card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Code Generation</header>
+                        <p>The code is automatically generated for all the languages of
+                        your project, as you update the model.
+                        Forget about missed <code>hashCode()</code> or <code>equals()</code>.
+                        </p>
                     </div>
-
-                    <div class="feature-card">
-                        <i class="fas fa-clipboard-check card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Built-in Validation</header>
-                            <p>Constrains defined in a business model are
-                                automatically checked for commands, events, and entity states.</p>
-                        </div>
-                    </div>
-
-
-                    <div class="feature-card">
-                        <i class="fas fa-fighter-jet card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Develop faster, with better results</header>
-                            <p>Thanks to CQRS and Event-Driven Architecture,
-                                you can arrange clear work separate.
-                                More experienced developers work on the core domain and the write-side.
-                                The&nbsp;read–side and UI are created by the rest of the team.
-                            </p>
-                        </div>
-                    </div>
-
-
                 </div>
 
-                <!-- Second column -->
-                <div class="col-md-4">
-
-                    <div class="feature-card">
-                        <i class="fas fa-lightbulb-on card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Clear API</header>
-                            <p>Concepts known from the DDD books right are right in the code.
-                                <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/aggregate/Aggregate.html">Aggregate</a></code>,
-                                <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/projection/Projection.html">Projection</a></code>,
-                                <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/procman/ProcessManager.html">ProcessManager</a></code>,
-                                <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/entity/Repository.html">Repository</a></code>.
-                                Ever guessed how to cook a <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/BoundedContext.html">BoundedContext</a></code>?
-                                Guess no more.
-                            </p>
-                        </div>
+                <div class="feature-card">
+                    <i class="fas fa-clipboard-check card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Built-in Validation</header>
+                        <p>Constrains defined in a business model are
+                            automatically checked for commands, events, and entity states.</p>
                     </div>
-
-
-                    <div class="feature-card">
-                        <i class="fas fa-shield-alt card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Type Safety</header>
-                            <p>Should you need <code>CustomerId</code> or
-                                <code>WorkEstimate</code> value, you get it within seconds,
-                                for multiple languages. And it all comes with binary storage format,
-                                and automatic Json support.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card">
-                        <i class="fas fa-chart-line card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Open for Business Changes</header>
-                            <p>Add and remove fields while keeping binary compatibility with older code;
-                                handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
-                                Build new <code>Projections</code> on the whole event history of the system.</p>
-                        </div>
-                    </div>
-                    
                 </div>
 
-                <!-- Third column -->
-                <div class="col-md-4">
 
-                    <div class="feature-card">
-                        <i class="fas fa-gem card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Promoted Immutability</header>
-                            <p>All the data types are immutable, which makes it easy to cache
-                                and share. Mutations are performed <em>only</em> in response
-                                to incoming messages via clearly defined cycles.</p>
-                        </div>
+                <div class="feature-card">
+                    <i class="fas fa-fighter-jet card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Develop faster, with better results</header>
+                        <p>Thanks to CQRS and Event-Driven Architecture,
+                            you can arrange clear work separate.
+                            More experienced developers work on the core domain and the write-side.
+                            The&nbsp;read–side and UI are created by the rest of the team.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="feature-card">
-                        <i class="far fa-hexagon card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
-                            <p>The framework promotes writing
-                                storage- and platform-agnostic code. You can start with JDBC and later switch
-                                to Google Cloud Platform Datastore by changing few lines of&nbsp;code.</p>
-                        </div>
+
+            </div>
+
+            <!-- Second column -->
+            <div class="col-md-4">
+
+                <div class="feature-card">
+                    <i class="fas fa-lightbulb-on card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Clear API</header>
+                        <p>Concepts known from the DDD books right are right in the code.
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/aggregate/Aggregate.html">Aggregate</a></code>,
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/projection/Projection.html">Projection</a></code>,
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/procman/ProcessManager.html">ProcessManager</a></code>,
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/entity/Repository.html">Repository</a></code>.
+                            Ever guessed how to cook a <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/BoundedContext.html">BoundedContext</a></code>?
+                            Guess no more.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="feature-card">
-                        <i class="fas fa-feather-alt card-icon-font"></i>
-                        <div class="card-content-text">
-                            <header class="feature-card-title">Permissive Apache License</header>
-                            <p>Use freely in closed-source projects.
-                                You are welcome to contribute to improving the framework.</p>
-                        </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Type Safety</header>
+                        <p>Should you need <code>CustomerId</code> or
+                            <code>WorkEstimate</code> value, you get it within seconds,
+                            for multiple languages. And it all comes with binary storage format,
+                            and automatic Json support.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-chart-line card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Open for Business Changes</header>
+                        <p>Add and remove fields while keeping binary compatibility with older code;
+                            handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
+                            Build new <code>Projections</code> on the whole event history of the system.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Third column -->
+            <div class="col-md-4">
+
+                <div class="feature-card">
+                    <i class="fas fa-gem card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Promoted Immutability</header>
+                        <p>All the data types are immutable, which makes it easy to cache
+                            and share. Mutations are performed <em>only</em> in response
+                            to incoming messages via clearly defined cycles.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <i class="far fa-hexagon card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
+                        <p>The framework promotes writing
+                            storage- and platform-agnostic code. You can start with JDBC and later switch
+                            to Google Cloud Platform Datastore by changing few lines of&nbsp;code.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-feather-alt card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Permissive Apache License</header>
+                        <p>Use freely in closed-source projects.
+                            You are welcome to contribute to improving the framework.</p>
                     </div>
                 </div>
             </div>
-        </div>
       </div>
-    </div>
-  </section>
-</div>
+  </div>
+</section>

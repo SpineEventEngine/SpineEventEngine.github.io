@@ -1,56 +1,25 @@
 .about {
-
-  .about-description {
-    margin: 48px 0 56px;
-
-    @media (max-width: $tablet) {
-      margin-bottom: 40px;
-    }
-
-    p {
-      margin-bottom: 16px;
-    }
-
-    .lead {
-      font-size: 24px;
-      line-height: 1.5;
-
-      strong {
-        font-weight: 500;
-      }
-    }
-  }
-
   .features-section {
-    padding: 64px 0 40px;
+    padding: 40px 0 40px;
 
     @media (max-width: $tablet) {
-      padding-top: 40px;
+      padding-top: 32px;
     }
 
     .section-title {
       text-align: left;
-      padding-left: 15px;
-
-      @media (max-width: 1200px) {
-        padding-left: 0;
+      @media(max-width: $tablet){
+        text-align: center;
       }
     }
   }
 
   .story-section {
-    margin: 88px 0 8px;
+    padding-top: 56px;
     position: relative;
 
     @media(max-width: $tablet){
-      margin: 32px 0 8px;
-    }
-
-    h1 {
-      font-size: $font-size--xl;
-      color: $black;
-      margin: 24px 0 24px;
-      font-weight: 700;
+      padding-top: 32px;
     }
 
     .read-more {
@@ -64,7 +33,6 @@
 
       p {
         color: #9ab3d6;
-        line-height: 1.8;
       }
 
       a {
@@ -78,26 +46,24 @@
       }
     }
 
-    p {
-      padding-bottom: 16px;
-    }
-
     .link {
       display: inline-block;
       margin-top: 16px;
     }
   }
 
-  .software {
-    margin: 48px 0 100px;
+  .software-section {
+    padding-top: 32px;
+    padding-bottom: 80px;
 
     @media(max-width: $tablet){
-      margin: 32px 0 64px;
+      padding-top: 24px;
+      padding-bottom: 64px;
     }
 
     .section-title {
       color: rgba($textColor, .54);
-      margin: 24px 0 16px;
+      margin: 48px 0 12px;
     }
   }
 }

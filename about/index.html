@@ -6,184 +6,162 @@ bodyclass: about
 headline: 'About Spine'
 ---
 
-<div class="container">
-    <div class="intro-section">
+<section class="intro-section">
+    <div class="container-fluid content-holder">
         <div class="row">
-            <div class="col-md-11 nofloat center-block">
-                <div class="col-md-7">
-                    <section class="about-description">
-                        <p class="lead"><strong>Spine Event Engine</strong> is a framework for
-                            building cloud applications
-                            based on&nbsp;Event-Driven Architecture and CQRS pattern.
-                            </p>
+            <div class="col-lg-7">
+                <p class="lead"><strong>Spine Event Engine</strong> is a framework for
+                    building cloud applications
+                    based on&nbsp;Event-Driven Architecture and CQRS pattern.
+                    </p>
 
-                        <p>We want to free developers from writing boilerplate code as much
-                            as possible. The&nbsp;primary language of the backend is Java.
-                            Client libraries are available for
-                            <a href="https://github.com/SpineEventEngine/core-java/tree/master/client">Java</a>,
-                            <a href="https://github.com/SpineEventEngine/web">JavaScript</a>, and
-                            <a href="https://github.com/SpineEventEngine/client-cpp">C++</a>.
+                <p>We want to free developers from writing boilerplate code as much
+                    as possible. The&nbsp;primary language of the backend is Java.
+                    Client libraries are available for
+                    <a href="https://github.com/SpineEventEngine/core-java/tree/master/client">Java</a>,
+                    <a href="https://github.com/SpineEventEngine/web">JavaScript</a>, and
+                    <a href="https://github.com/SpineEventEngine/client-cpp">C++</a>.
+                </p>
+
+                <p>Libraries for client apps in Kotlin and Swift are in the priority list.
+                   We also plan to provide server-side API for Go and Node.js.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container-fluid content-holder">
+        <h1 class="light section-title">Features</h1>
+        <div class="row">
+            <!-- First column -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Strongly Typed Domain Model</header>
+                        <p>Spine promotes strong typing of all parts of&nbsp;a business model.
+                            You don't have to deal with Json.
                         </p>
+                    </div>
+                </div>
 
-                        <p>Libraries for client apps in Kotlin and Swift are in the priority list.
-                           We also plan to provide server-side API for Go and Node.js.</p>
-                    </section>
+                <div class="feature-card">
+                    <i class="fas fa-magic card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Code Generation</header>
+                        <p>The model is defined and maintained in Protobuf. The code is automatically generated
+                            for all the languages of your project, as you update the model.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <i class="far fa-hexagon card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
+                        <p>The framework promotes writing
+                            storage- and platform-agnostic code. You can start with JDBC and later switch
+                            to Google Cloud Platform Datastore by changing few lines of&nbsp;code.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second column -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-code-branch card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Model Extensibility</header>
+                        <p>Thanks to <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating" target="_blank">Protobuf support</a>,
+                            a model can be extended preserving backward compatibility with clients running older code.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-gem card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Promoted Immutability</header>
+                        <p>Commands, events, query results, entity states, and
+                        other data are immutable. This makes them automatically
+                        thread-safe, and as such are freely shared or referenced.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-feather-alt card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Open Source</header>
+                        <p>Permissive Apache License allows using the framework in closed-source
+                            projects. You are welcome to contribute to the framework development.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third column -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-clipboard-check card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Built-in Validation</header>
+                        <p>Constrains defined in a business model are
+                            automatically checked for commands, events, and entity states.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-boxes card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Multitenancy Support</header>
+                        <p>Transforming a single-tenant application into
+                            a&nbsp;multi-tenant one requires very few lines of code. You don't have to introduce
+                            <code>tenantId</code> parameters for all the calls.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<div class="features-section">
-    <section class="container">
+<section class="story-section">
+    <div class="container-fluid content-holder">
+        <h1 class="bold section-title">The story behind Spine</h1>
         <div class="row">
-            <div class="col-md-11 nofloat center-block">
-                <div class="col-sm-12 col-feature-container">
-                    <h2 class="section-title">Features</h2>
+            <div class="col-sm-7">
+                <p>
+                    We started working on the framework after two CQRS/ES projects. Having the experience of
+                    tons of manual work for creating commands, events, message handlers, delivering messages and
+                    data to web and mobile clients, we thought that there must be a more productive.</p>
 
-                    <div class="row">
-                        <!-- First column -->
-                        <div class="col-md-4">
-                            <div class="feature-card">
-                                <i class="fas fa-shield-alt card-icon-font"></i>
-                                <div class="card-content-text">
-                                    <header class="feature-card-title">Strongly Typed Domain Model</header>
-                                    <p>Spine promotes strong typing of all parts of&nbsp;a business model.
-                                        You don't have to deal with Json.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="feature-card">
-                                <i class="fas fa-magic card-icon-font"></i>
-                                <div class="card-content-text">
-                                    <header class="feature-card-title">Code Generation</header>
-                                    <p>The model is defined and maintained in Protobuf. The code is automatically generated
-                                        for all the languages of your project, as you update the model.</p>
-                                </div>
-                            </div>
-
-                            <div class="feature-card">
-                                <i class="far fa-hexagon card-icon-font"></i>
-                                <div class="card-content-text">
-                                    <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
-                                    <p>The framework promotes writing
-                                        storage- and platform-agnostic code. You can start with JDBC and later switch
-                                        to Google Cloud Platform Datastore by changing few lines of&nbsp;code.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Second column -->
-                        <div class="col-md-4">
-                            <div class="feature-card">
-                                <i class="fas fa-code-branch card-icon-font"></i>
-                                <div class="card-content-text">
-                                    <header class="feature-card-title">Model Extensibility</header>
-                                    <p>Thanks to <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating" target="_blank">Protobuf support</a>,
-                                        a model can be extended preserving backward compatibility with clients running older code.</p>
-                                </div>
-                            </div>
-
-                            <div class="feature-card">
-                                <i class="fas fa-gem card-icon-font"></i>
-                                <div class="card-content-text">
-                                    <header class="feature-card-title">Promoted Immutability</header>
-                                    <p>Commands, events, query results, entity states, and
-                                    other data are immutable. This makes them automatically
-                                    thread-safe, and as such are freely shared or referenced.</p>
-                                </div>
-                            </div>
-
-                            <div class="feature-card">
-                                <i class="fas fa-feather-alt card-icon-font"></i>
-                                <div class="card-content-text">
-                                    <header class="feature-card-title">Open Source</header>
-                                    <p>Permissive Apache License allows using the framework in closed-source
-                                        projects. You are welcome to contribute to the framework development.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Third column -->
-                        <div class="col-md-4">
-                            <div class="feature-card">
-                                <i class="fas fa-clipboard-check card-icon-font"></i>
-                                <div class="card-content-text">
-                                    <header class="feature-card-title">Built-in Validation</header>
-                                    <p>Constrains defined in a business model are
-                                        automatically checked for commands, events, and entity states.</p>
-                                </div>
-                            </div>
-
-                            <div class="feature-card">
-                                <i class="fas fa-boxes card-icon-font"></i>
-                                <div class="card-content-text">
-                                    <header class="feature-card-title">Multitenancy Support</header>
-                                    <p>Transforming a single-tenant application into
-                                        a&nbsp;multi-tenant one requires very few lines of code. You don't have to introduce
-                                        <code>tenantId</code> parameters for all the calls.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p>Using existing CQRS/ES frameworks caused us to compromise on a number of things, including
+                    type safety, immutability, writing conversion code for inter-platform communications, etc.
+                    So in June 2015 we decided to build a tool for us and software developers like us.
+                </p>
             </div>
-        </div>
-    </section>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-11 nofloat center-block">
-            <div class="col-sm-12">
-                <section class="story-section">
-                    <h1 class="section-title">The story behind Spine</h1>
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <p>
-                                We started working on the framework after two CQRS/ES projects. Having the experience of
-                                tons of manual work for creating commands, events, message handlers, delivering messages and
-                                data to web and mobile clients, we thought that there must be a more productive.</p>
-
-                            <p>Using existing CQRS/ES frameworks caused us to compromise on a number of things, including
-                                type safety, immutability, writing conversion code for inter-platform communications, etc.
-                                So in June 2015 we decided to build a tool for us and software developers like us.
-                            </p>
-                        </div>
-
-                        <!--This is a block with link to our Design Principles blog post-->
-                        <!--<div class="col-sm-4 col-sm-offset-1">-->
-                            <!--<section class="read-more">-->
-                                <!--<p>For more background on why we created the framework, please read-->
-                                    <!--<a href="{{ site.baseurl }}/blog/motivation">Motivation and Design Principles blog post</a>.</p>-->
-                            <!--</section>-->
-                        <!--</div>-->
-                    </div>
+            <!--This is a block with link to our Design Principles blog post-->
+            <!--<div class="col-sm-4 offset-sm-1">
+                <section class="read-more">
+                    <p>For more background on why we created the framework, please read
+                        <a href="{{ site.baseurl }}/blog/motivation">Motivation and Design Principles blog post</a>.</p>
                 </section>
+            </div>-->
+        </div>
+    </div>
+</section>
+
+<section class="software-section">
+    <div class="container-fluid content-holder">
+        <hr>
+        <h2 class="section-title">Software that help us build&nbsp;Spine</h2>
+        <div class="row">
+            <div class="col-sm-7">
+                <ul>
+                    <li>
+                        <a href="https://www.cloudrepo.io/maven.html" target="_blank">Maven Repositories</a> provided by
+                        <a href="https://www.cloudrepo.io" target="_blank">CloudRepo</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-11 nofloat center-block">
-            <div class="col-sm-12">
-                <hr>
-                <section class="software">
-                    <h2 class="section-title">Software that help us build&nbsp;Spine</h2>
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <ul>
-                                <li>
-                                    <a href="https://www.cloudrepo.io/maven.html" target="_blank">Maven Repositories</a> provided by <a href="https://www.cloudrepo.io" target="_blank">CloudRepo</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
+</section>

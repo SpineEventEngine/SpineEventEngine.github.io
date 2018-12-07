@@ -5,65 +5,62 @@ title: FAQ
 bodyclass: faq
 headline: 'Frequently Asked Questions'
 ---
-<div class="container">
+<div class="container-fluid content-holder">
     <div class="row">
-        <div class="col-md-11 nofloat center-block">
-            <!-- Constrain readable sections to 9 unit wide columns for improved readability. -->
-            <div class="col-md-9 faq-container">
+        <!-- Constrain readable sections to 9 unit wide columns for improved readability. -->
+        <div class="col-md-9 faq-container">
+            <ul class="list-unstyled">
 
-                <ul class="list-unstyled">
+                <li class="submenu">
+                    <h6 class="arrow-r">Why the framework is called Spine?</h6>
+                    <div class="submenu-content">
+                        <p>We want to be a framework that provides an infrastructure and connects so to say
+                            “service” parts of applications with their “brains” — business logic. Find out how
+                            following <a href="{{ site.baseurl }}/docs/prior-art.html">industry trends</a> we were
+                            <a href="{{ site.baseurl }}/docs/motivation.html">inspired</a> to create Spine.</p>
+                    </div>
+                </li>
 
-                    <li class="submenu">
-                        <h6 class="arrow-r">Why the framework is called Spine?</h6>
-                        <div class="submenu-content">
-                            <p>We want to be a framework that provides an infrastructure and connects so to say
-                                “service” parts of applications with their “brains” — business logic. Find out how
-                                following <a href="{{ site.baseurl }}/docs/prior-art.html">industry trends</a> we were
-                                <a href="{{ site.baseurl }}/docs/motivation.html">inspired</a> to create Spine.</p>
-                        </div>
-                    </li>
+                <li class="submenu">
+                    <h6 class="arrow-r">Why use Protobuf and not Json?</h6>
+                    <div class="submenu-content">
+                        <p>Because Protocol Buffers are implemented in a variety of languages, they make
+                            interoperability between polyglot applications in your architecture that much simpler.
+                            If you’re introducing a new service with one in Ruby or Go, or even communicating with a
+                            backend written in Node, or Clojure, you simply have to hand the proto file to the code
+                            generator written in the target language and you have some nice guarantees about the
+                            safety and interoperability between those architectures.
+                        </p>
 
-                    <li class="submenu">
-                        <h6 class="arrow-r">Why use Protobuf and not Json?</h6>
-                        <div class="submenu-content">
-                            <p>Because Protocol Buffers are implemented in a variety of languages, they make
-                                interoperability between polyglot applications in your architecture that much simpler.
-                                If you’re introducing a new service with one in Ruby or Go, or even communicating with a
-                                backend written in Node, or Clojure, you simply have to hand the proto file to the code
-                                generator written in the target language and you have some nice guarantees about the
-                                safety and interoperability between those architectures.
-                            </p>
+                        <p>The finer points of platform specific data types should be handled for you in the target
+                            language implementation, and you can get back to focusing on the hard parts of your
+                            problem instead of matching up fields and data types in your ad hoc JSON encoding and
+                            decoding schemes.</p>
+                    </div>
+                </li>
 
-                            <p>The finer points of platform specific data types should be handled for you in the target
-                                language implementation, and you can get back to focusing on the hard parts of your
-                                problem instead of matching up fields and data types in your ad hoc JSON encoding and
-                                decoding schemes.</p>
-                        </div>
-                    </li>
+                <li class="submenu">
+                    <h6 class="arrow-r">Why Protobuf instead of Cap'n Proto, or SBE, or FlatBuffers?</h6>
+                    <div class="submenu-content">
+                        <p>Have a look the <a href="https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html" target="_blank">comparison matrix</a>
+                            created by Kenton Varda, the author of Protobuf v2 and Cap'n Proto.
+                            The main features that make Protobuf best choice for our framework are:</p>
+                        <ul>
+                            <li><b>Schema evolution</b> — we need this as business models evolve as business grows.</li>
+                            <li><b>Usable as mutable state</b> — we need this for transforming Aggregate States and Stream Projections.</li>
+                            <li><b>Other languages</b> — we need a support of client applications written on JavaScript, JavaNano, Swift, Objective-C, etc.</li>
+                        </ul>
+                        <p>Also, the experience Google gained through years of using this technology internally is a major factor of preferring Protobuf over alternatives.</p>
+                    </div>
+                </li>
 
-                    <li class="submenu">
-                        <h6 class="arrow-r">Why Protobuf instead of Cap'n Proto, or SBE, or FlatBuffers?</h6>
-                        <div class="submenu-content">
-                            <p>Have a look the <a href="https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html" target="_blank">comparison matrix</a>
-                                created by Kenton Varda, the author of Protobuf v2 and Cap'n Proto.
-                                The main features that make Protobuf best choice for our framework are:</p>
-                            <ul>
-                                <li><b>Schema evolution</b> — we need this as business models evolve as business grows.</li>
-                                <li><b>Usable as mutable state</b> — we need this for transforming Aggregate States and Stream Projections.</li>
-                                <li><b>Other languages</b> — we need a support of client applications written on JavaScript, JavaNano, Swift, Objective-C, etc.</li>
-                            </ul>
-                            <p>Also, the experience Google gained through years of using this technology internally is a major factor of preferring Protobuf over alternatives.</p>
-                        </div>
-                    </li>
-
-                    <li class="submenu">
-                        <h6 class="arrow-r">Which version of Protobuf can I use?</h6>
-                        <div class="submenu-content">
-                            <p>The framework is based on and supports only <a href="https://developers.google.com/protocol-buffers/docs/proto3" target="_blank">proto3 dialect</a>.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                <li class="submenu">
+                    <h6 class="arrow-r">Which version of Protobuf can I use?</h6>
+                    <div class="submenu-content">
+                        <p>The framework is based on and supports only <a href="https://developers.google.com/protocol-buffers/docs/proto3" target="_blank">proto3 dialect</a>.</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

@@ -5,11 +5,6 @@
   @media(max-width: $tablet){
     padding-top: 32px;
   }
-  
-  // Text Blocks
-  p {
-    margin-bottom: 14px;
-  }
 
   //Coming soon section
   p.coming-soon {
@@ -48,10 +43,6 @@
       margin-left: 18px;
       margin-bottom: 6px;
     }
-
-    @media (max-width: $tablet) {
-      margin: 0;
-    }
   }
 
   ul {
@@ -77,47 +68,12 @@
     }
   }
 
-  h1 {
-    color: $black;
-    margin-bottom: 24px;
-    margin-top: 16px;
-    line-height: 1.2;
-  }
-
   // Section Headlines 
   h2 {
-    font-size: $font-size--l;
     padding-top: 40px;
-    margin-bottom: 16px;
 
     &.top {
       padding-top: 8px;
-    }
-  }
-
-  // Section Headlines 
-  h3 {
-    color: $black;
-    font-size: 1.375rem;
-    font-weight: 500;
-    padding-top: 22px;
-    margin-bottom: 16px;
-  }
-
-  // Section Subheadlines
-  h4 {
-    margin: 40px 0 8px;
-    font-size: $font-size--xs;
-    font-weight: 600;
-    color: $black;
-    
-    // Text immediately following h4 should have same level of indention  
-    + p {
-      margin: 10px 0;
-
-      @media (max-width: $tablet) {
-        margin: 5px 0;
-      }
     }
   }
 
@@ -129,10 +85,8 @@
     }
   }
 
-   //Lead Text Block
+   // Lead Text Block
   .lead {
-    margin: 0 0 30px;
-    color: $textColor;
     font-size: 16px;
     font-weight: 500;
   }

@@ -135,9 +135,11 @@
   border-radius: 2px;
   padding: 15px 56px;
   text-transform: uppercase;
+  cursor: pointer;
   @include transition(all .34s ease-in-out);
 
   &:hover, &:focus {
+    outline: none;
     background-color: rgba($lightBlueColor, .2);
     border: 1px solid $lightBlueColor;
     -moz-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
@@ -159,8 +161,10 @@
   letter-spacing: 1px;
   @include transition(all .34s ease-in-out);
   display: inline-block;
+  cursor: pointer;
 
   &:hover, &:focus {
+    outline: none;
     color: $mainBrandColor;
     background-color: rgba($mainBrandColor, .08);
     border: 1px solid rgba($mainBrandColor, .3);
@@ -211,8 +215,10 @@
   letter-spacing: 1px;
   @include transition(all .34s ease-in-out);
   display: inline-block;
+  cursor: pointer;
 
   &:hover, &:focus {
+    outline: none;
     color: $white;
     background-color: $lightBlueColor;
     text-decoration: none;
