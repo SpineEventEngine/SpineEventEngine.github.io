@@ -9,11 +9,12 @@
 
   .submenu-content {
     margin: 16px 0 0 40px;
+    padding-bottom: 2px; // It fix jumping items
 
-    p,li {
-      font-size: 14px;
-      font-weight: 400;
-      padding-bottom: 16px;
+    ul {
+      li {
+        line-height: 32px;
+      }
     }
   }
 
@@ -49,9 +50,9 @@
   }
 
   h6 {
-    font-size: 1rem;
+    font-size: $font-size--s;
     line-height: 1.5;
-    color: rgba($black, .7);
+    color: rgba($black, .54);
     font-weight: 400;
     @include transition(all .25s ease-in-out);
   }
@@ -64,5 +65,6 @@
 
   h6.arrow-d {
     color: $black;
+    font-weight: 500;
   }
 }
