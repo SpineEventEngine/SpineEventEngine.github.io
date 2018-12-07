@@ -76,7 +76,6 @@ footer {
   .left-links {
     color: $footerText;
     display: block;
-    //margin: 0 15px;
     text-align: left;
     width: 88%;
 
@@ -94,7 +93,6 @@ footer {
 
     @media (min-width: 1025px) {
       width: 45%;
-      //margin-left: 5%;
     }
 
     p {

@@ -20,6 +20,10 @@
 
   @media(max-width: $phone-medium) {
     padding-bottom: 0;
+    position: absolute;
+    top: 41%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
   }
 
   .logo {
@@ -62,10 +66,6 @@
     margin-bottom: 22px;
     opacity: 0;
     @include animation(animateTitle, 1.3s, .2s, initial, forwards);
-
-    @media(max-width: $phone-medium) {
-      margin-top: 50%;
-    }
 
     span {
       opacity: .54;

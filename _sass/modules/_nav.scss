@@ -36,7 +36,7 @@
   }
 
   .navigation-holder {
-    margin-left: auto; // Make float: right; for the Bootstrap4
+    margin-left: auto; // Make float:right; for the Bootstrap v4
 
     @media(max-width: 767px) {
       background-color: $footerColor;

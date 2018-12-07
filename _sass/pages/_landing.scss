@@ -4,12 +4,10 @@
   position: relative;
 
   .landing-row {
-    //margin: 32px 0 92px;
     margin-top: 32px;
     margin-bottom: 92px;
 
     @media(max-width: $desktop-small) {
-      //margin: 24px 0 40px;
       margin-top: 24px;
       margin-bottom: 40px;
     }
@@ -17,12 +15,6 @@
     @media(max-width: $phone-xlarge) {
       margin-top: 0;
     }
-
-    //.col-style {
-    //  @media(max-width: $tablet){
-    //    padding: 0;
-    //  }
-    //}
 
     .col-style-text {
       padding-right: 48px;

@@ -1,9 +1,9 @@
 .about {
   .features-section {
-    padding: 64px 0 40px;
+    padding: 40px 0 40px;
 
     @media (max-width: $tablet) {
-      padding-top: 40px;
+      padding-top: 32px;
     }
 
     .section-title {
@@ -21,13 +21,6 @@
     @media(max-width: $tablet){
       padding-top: 32px;
     }
-
-    //h1 {
-    //  font-size: $font-size--xl;
-    //  color: $black;
-    //  margin: 24px 0 24px;
-    //  font-weight: 700;
-    //}
 
     .read-more {
       padding: 48px 40px;
@@ -60,17 +53,17 @@
   }
 
   .software-section {
-    padding-top: 48px;
-    padding-bottom: 100px;
+    padding-top: 32px;
+    padding-bottom: 80px;
 
     @media(max-width: $tablet){
-      padding-top: 32px;
+      padding-top: 24px;
       padding-bottom: 64px;
     }
 
     .section-title {
       color: rgba($textColor, .54);
-      margin: 40px 0 16px;
+      margin: 48px 0 12px;
     }
   }
 }

@@ -86,7 +86,7 @@ li {line-height: 22px;}
   background-color: $inverseBrandColor;
 }
 
-// Code styles
+// Code styles don't remove
 code {
   color: $textColor;
   background-color: transparent;
@@ -94,7 +94,7 @@ code {
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   padding: 0;
-  // sometimes code lines can be longer than screen is wide
+  // Sometimes code lines can be longer than screen is wide
   @media(max-width: $phone-small){
     word-break: break-all;
   }
@@ -111,6 +111,7 @@ pre, pre.prettyprint {
   font-weight: 400 !important;
   padding: 24px 20px !important;
   word-wrap: normal;
+  border-radius: 4px;
 
   @media(max-width: $phone-xlarge){
     padding: 12px 16px !important;
