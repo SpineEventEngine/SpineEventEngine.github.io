@@ -125,12 +125,22 @@
   width: 100%;
 }
 
+.toc-col {
+  -ms-flex: 0 0 240px;
+  flex: 0 0 240px;
+
+  @media (max-width: $desktop-small) {
+    display: none;
+  }
+}
+
 .toc {
   padding: 0;
   position: relative;
   overflow: auto;
   max-height: 80%;
   min-height: 100px;
+  width: 210px; // 210px = col-width - paddings; 210px = 240px - 15px - 15px
   // Add this for the Chrome to fix jumping while scrolling
   -webkit-transform: translateZ(0);
 

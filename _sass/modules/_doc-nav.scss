@@ -50,7 +50,8 @@ $currentItemCaret: '\025B7  ';
 
 .doc-side-nav-col {
   @media (min-width: $tablet) {
-    max-width: 240px;
+    -ms-flex: 0 0 240px;
+    flex: 0 0 240px;
   }
 
   @media (max-width: $tablet) {
