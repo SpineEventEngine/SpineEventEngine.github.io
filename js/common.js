@@ -28,8 +28,12 @@ $("i.fa-github-alt").parent().removeClass("external");
 
 // Prettyprint
 $('pre').addClass("prettyprint");
-$.getScript("/libs/prettify/js/run_prettify.js", function(){
-});
+$.getScript("/libs/prettify/js/run_prettify.js", function(){});
+$.getScript("/libs/prettify/js/lang-css.js", function(){});
+$.getScript("/libs/prettify/js/lang-go.js", function(){});
+$.getScript("/libs/prettify/js/lang-proto.js", function(){});
+$.getScript("/libs/prettify/js/lang-swift.js", function(){});
+$.getScript("/libs/prettify/js/lang-yaml.js", function(){});
 
 // Collapsible navbar menu, using https://github.com/jordnkr/collapsible
 $.getScript("/js/jquery.collapsible.js", function(){
