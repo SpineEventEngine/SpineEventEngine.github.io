@@ -35,13 +35,8 @@ $.getScript("/libs/prettify/js/lang-proto.js", function(){});
 $.getScript("/libs/prettify/js/lang-swift.js", function(){});
 $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
 
-// Collapsible navbar menu, using https://github.com/jordnkr/collapsible
-$.getScript("/js/jquery.collapsible.js", function(){
-  highlightActive();
-  $('.submenu').collapsible();
-});
 
-// Remove class from the paren element when the child is active
+// Remove class from the parent element when the child is active
 $(function() {
     if ($('#doc-side-nav-inside a').hasClass('current')) {
         var element = document.getElementById('side-nav-parent-item');
@@ -58,9 +53,18 @@ var tocNavFixedPosition = 120; // Sticky TOC offset
 
 
 $(function() {
-// Calls the tocify method on your HTML nav.
-// InitialHeadHeight + 12 (12px — small offset from the header navigation)
+    ExpandItemOnHashChange();
+    // Calls the tocify method on your HTML nav.
+    // InitialHeadHeight + 12 (12px — small offset from the header navigation)
     tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: InitialHeadHeight+12, extendPage: false});
+});
+
+$(document).ready(function() {
+    scrollToAnchorInit();
+});
+
+jQuery(window).on('load', function() {
+    scrollToAnchor();
 });
 
 window.onscroll = function() {
@@ -81,7 +85,7 @@ function FixToc() {
     }
 }
 
-//Animation header on scroll
+// Animation header on scroll
 function FixHead() {
     var header = $('#header');
     if (header.length > 0) {
@@ -130,3 +134,36 @@ $( window ).resize(function() {
         TocHeight();
     }
 });
+
+// Make FAQ items linkable
+function ExpandItemOnHashChange() {
+    if ("onhashchange" in window) {
+        console.log("Hash",location.hash);
+        $(location.hash).collapse('show');
+    }
+}
+
+function scrollToAnchorInit() {
+    //This code help to avoid double scrolling if insert url with hash.
+    if (location.hash) {
+        var tempLocation = location.hash;
+        location.hash = '';
+        setTimeout(function() {
+            location.hash = tempLocation;
+            window.scrollTo(0, 0);
+        }, 0);
+    }
+}
+
+function scrollToAnchor() {
+    var anchor = location.hash;
+    ownAnchorHandler(anchor);
+
+    function ownAnchorHandler(target) {
+        var offset = -200; // Top offset for move header below fixed header
+
+        if ($(target).length) {
+            $(window).scrollTo($(target),500,{offset: offset});
+        }
+    }
+}

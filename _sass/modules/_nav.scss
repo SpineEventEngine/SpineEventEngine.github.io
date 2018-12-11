@@ -289,35 +289,6 @@
   }
 }
 
-// Expandy nav items
-.arrow-d,
-.arrow-r {
-  cursor: pointer;
-}
-
-.arrow-r::before {
-  content: '';
-  position: absolute;
-  background: url('../img/icon-caret-right.svg') no-repeat center/cover;
-  width: $icon-size--s;
-  height: $icon-size--s;
-  margin-left: -40px;
-  opacity: .2;
-  @include transition(all .3s ease-in-out);
-}
-
-.arrow-d::before {
-  @extend .arrow-r::before;
-  transform: rotate(90deg);
-  opacity: .54;
-}
-
-.submenu-content {
-  display: none;
-  margin-left: $spacing--xl;
-}
-
-
 // Page headline and description
 .page-headline-container {
   padding-top: 64px;
