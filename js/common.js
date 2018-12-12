@@ -156,13 +156,9 @@ function DoubleClickOnHashLink() {
 
 function scrollToAnchor() {
     var anchor = location.hash;
-    ownAnchorHandler(anchor);
+    var offset = -150; // Top offset for move header below fixed header
 
-    function ownAnchorHandler(target) {
-        var offset = -150; // Top offset for move header below fixed header
-
-        if ($(target).length) {
-            $(window).scrollTo($(target), 500, {offset: offset});
-        }
+    if ($(anchor).length) {
+        $(window).scrollTo($(anchor), 500, {offset: offset});
     }
 }
