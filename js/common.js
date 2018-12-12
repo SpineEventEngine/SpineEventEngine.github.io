@@ -54,18 +54,22 @@ var tocNavFixedPosition = 120; // Sticky TOC offset
 
 $(function() {
     ExpandItemOnHashChange();
+    DoubleClickOnHashLink();
+
     // Calls the tocify method on your HTML nav.
     // InitialHeadHeight + 12 (12px — small offset from the header navigation)
     tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: InitialHeadHeight+12, extendPage: false});
 });
 
-$(document).ready(function() {
-    scrollToAnchorInit();
-});
-
 jQuery(window).on('load', function() {
     scrollToAnchor();
 });
+
+// Make functions works immediately on hash change
+window.onhashchange = function() {
+    ExpandItemOnHashChange();
+    scrollToAnchor();
+};
 
 window.onscroll = function() {
     FixToc();
@@ -138,21 +142,16 @@ $( window ).resize(function() {
 // Make FAQ items linkable
 function ExpandItemOnHashChange() {
     if ("onhashchange" in window) {
-        console.log("Hash",location.hash);
         $(location.hash).collapse('show');
     }
 }
 
-function scrollToAnchorInit() {
-    //This code help to avoid double scrolling if insert url with hash.
-    if (location.hash) {
-        var tempLocation = location.hash;
-        location.hash = '';
-        setTimeout(function() {
-            location.hash = tempLocation;
-            window.scrollTo(0, 0);
-        }, 0);
-    }
+// Prevent default scroll on double click on the same hash
+function DoubleClickOnHashLink() {
+    $('.anchor-link').click(function(event) {
+        window.location.hash = $(this).attr("href");
+        event.preventDefault();
+    });
 }
 
 function scrollToAnchor() {
@@ -160,10 +159,10 @@ function scrollToAnchor() {
     ownAnchorHandler(anchor);
 
     function ownAnchorHandler(target) {
-        var offset = -200; // Top offset for move header below fixed header
+        var offset = -150; // Top offset for move header below fixed header
 
         if ($(target).length) {
-            $(window).scrollTo($(target),500,{offset: offset});
+            $(window).scrollTo($(target), 500, {offset: offset});
         }
     }
 }
