@@ -1,0 +1,37 @@
+.privacy-statements {
+  #header {
+    background-color: $footerColor;
+    position: fixed;
+    height: 68px;
+
+    &.pinned {
+      @include translateY(0%);
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none;
+    }
+  }
+}
+
+.privacy-section {
+  padding-top: 108px;
+  padding-bottom: 48px;
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    padding-top: 40px;
+
+    &.top {
+      padding-top: 8px;
+    }
+  }
+
+  .markdown {
+    min-height: 20px;
+    padding-bottom: 0;
+  }
+}
