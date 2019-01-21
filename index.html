@@ -40,8 +40,7 @@ message TaskCreated {
 
             <div class="col-md-4 col-style">
 <pre class="highlight lang-proto">
-<code>// Task Aggregate state.
-message Task {
+<code>message Task {
     (entity).kind = AGGREGATE;
     TaskId id = 1;
     string name = 2 [(required) = true];
