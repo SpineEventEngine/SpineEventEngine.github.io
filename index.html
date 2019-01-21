@@ -42,6 +42,7 @@ message TaskCreated {
 <pre class="highlight lang-proto">
 <code>// Task Aggregate state.
 message Task {
+    (entity).kind = AGGREGATE;
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
