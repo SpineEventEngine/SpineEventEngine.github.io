@@ -139,18 +139,22 @@ $( window ).resize(function() {
     }
 });
 
-// Make FAQ items linkable
+// Expand FAQ item on hash change
 function ExpandItemOnHashChange() {
     if ("onhashchange" in window) {
         $(location.hash).collapse('show');
     }
 }
 
-// Prevent default scroll on double click on the same hash
+// Prevent default scroll and double click on the same hash
 function DoubleClickOnHashLink() {
     $('.anchor-link').click(function(event) {
-        window.location.hash = $(this).attr("href");
+        var anchor = $(this).attr("href");
+        var x = window.pageXOffset;
+        var y = window.pageYOffset;
         event.preventDefault();
+        window.location.hash = anchor;
+        window.scrollTo(x, y);
     });
 }
 
