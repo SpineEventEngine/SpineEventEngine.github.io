@@ -143,21 +143,6 @@
 }
 
 .post {
-
-  #header {
-    background-color: $footerColor;
-    position: fixed;
-    height: 68px;
-
-    &.pinned {
-      @include translateY(0%);
-      -webkit-animation: none;
-      -moz-animation: none;
-      -o-animation: none;
-      animation: none;
-    }
-  }
-
   .post-wrapper {
     padding-top: 112px;
 

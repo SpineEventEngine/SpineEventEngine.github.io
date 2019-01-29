@@ -38,6 +38,12 @@ footer {
     @include transition(all .3s ease-in-out);
     border-bottom: 1px solid transparent;
 
+    &.privacy-link {
+      font-size: 0.8rem;
+      padding-bottom: 2px;
+      border-bottom-color: rgba($white, .26);
+    }
+
     &:hover {
       color: $white;
       padding-bottom: 2px;

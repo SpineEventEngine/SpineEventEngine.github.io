@@ -17,6 +17,22 @@
   z-index: 1000;
   position: absolute;
 
+  // Fixed dark header for small pages like Privacy Statement and Posts
+  // To use add `header-type: fixed-dark-header` on the page
+  &.fixed-dark-header {
+    background-color: $footerColor;
+    position: fixed;
+    height: 68px;
+
+    &.pinned {
+      @include translateY(0%);
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none;
+    }
+  }
+
   .logo {
     a {
       img {
