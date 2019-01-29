@@ -53,8 +53,8 @@ var tocNavFixedPosition = 120; // Sticky TOC offset
 
 
 $(function() {
-    ExpandItemOnHashChange();
-    DoubleClickOnHashLink();
+    expandItemOnHashChange();
+    preventDefaultScroll();
 
     // Calls the tocify method on your HTML nav.
     // InitialHeadHeight + 12 (12px — small offset from the header navigation)
@@ -67,7 +67,7 @@ jQuery(window).on('load', function() {
 
 // Make functions works immediately on hash change
 window.onhashchange = function() {
-    ExpandItemOnHashChange();
+    expandItemOnHashChange();
     scrollToAnchor();
 };
 
@@ -140,14 +140,14 @@ $( window ).resize(function() {
 });
 
 // Expand FAQ item on hash change
-function ExpandItemOnHashChange() {
+function expandItemOnHashChange() {
     if ("onhashchange" in window) {
         $(location.hash).collapse('show');
     }
 }
 
 // Prevent default scroll and double click on the same hash
-function DoubleClickOnHashLink() {
+function preventDefaultScroll() {
     $('.anchor-link').click(function(event) {
         var anchor = $(this).attr("href");
         var x = window.pageXOffset;
