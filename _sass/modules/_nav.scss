@@ -24,12 +24,22 @@
     position: fixed;
     height: 68px;
 
-    &.pinned {
-      @include translateY(0%);
-      -webkit-animation: none;
-      -moz-animation: none;
-      -o-animation: none;
-      animation: none;
+    &.not-top {
+      &.pinned {
+        @include translateY(0%);
+        -webkit-animation: none;
+        -moz-animation: none;
+        -o-animation: none;
+        animation: none;
+      }
+
+      &.unpinned {
+        @include translateY(0%);
+        -webkit-animation: none;
+        -moz-animation: none;
+        -o-animation: none;
+        animation: none;
+      }
     }
   }
 
