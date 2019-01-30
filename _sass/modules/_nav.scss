@@ -146,29 +146,33 @@
       }
 
       .icon-caret {
-        background: url('../img/caret.svg') no-repeat center/cover;
-        opacity: .54;
+        background: fade-out($white, .97) url('../img/caret.svg') no-repeat center/cover;
+        opacity: 1;
         cursor: pointer;
         position: absolute;
         top: 2px;
         right: 12px;
         width: 40px;
         height: 40px;
+        transform: rotate(180deg);
+        border-radius: 50%;
         @include transition(all .3s ease-in-out);
 
         @media(min-width: $tablet){
           display: none;
         }
 
-        &:hover,
-        &.active {
+        // Initial icon-caret state
+        &.collapsed {
+          opacity: .54;
+          transform: rotate(0);
+          background-color: transparent;
+        }
+
+        &:hover {
           opacity: 1;
           background-color: fade-out($white, .97);
           border-radius: 50%;
-        }
-
-        &.active {
-          transform: rotate(180deg);
         }
       }
 
@@ -182,19 +186,10 @@
     }
 
     .doc-list-inside {
-      display: none;
       margin-bottom: 8px;
 
       @media(min-width:$tablet){
         display: none;
-      }
-
-      &.active {
-        display: block;
-
-        @media(min-width:$tablet){
-          display: none;
-        }
       }
     }
   }

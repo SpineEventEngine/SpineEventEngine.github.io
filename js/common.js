@@ -4,12 +4,6 @@ $('#nav-icon-menu').click(function(){
     $('body').toggleClass('navigation-opened');
 });
 
-// Mobile navigation — doc-list toggle
-$('.doc-list-toggle').click(function(){
-    $('.doc-list-inside').toggleClass('active');
-    $(this).toggleClass('active');
-});
-
 // Mobile footer navitation
 $('.toggle').click(function(){
     $(this).toggleClass('active');
