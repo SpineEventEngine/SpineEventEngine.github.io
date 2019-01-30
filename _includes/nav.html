@@ -24,7 +24,7 @@
                         <li class="nav-item home-item"><a href="{{ site.baseurl }}/"><span>Home</span></a></li>
                         <li class="nav-item"><a href="{{ site.baseurl }}/about/" {% if current[1]== 'about' %}class='current'{% endif %}><span>About</span></a></li>
                         <li class="nav-item"><a href="{{ site.baseurl }}/docs/" {% if current[1]== 'docs' %}class='current'{% endif %}><span>Docs</span></a>
-                            <div {% if current[1] =='docs' %}class='icon-caret' aria-expanded='true'{% else %}class='icon-caret collapsed' aria-expanded='false'{% endif %} data-toggle="collapse" data-target="#docListInside" aria-controls="docListInside"></div>
+                            <div {% if current[1] =='docs' %}class='mobile-caret-icon' aria-expanded='true'{% else %}class='mobile-caret-icon collapsed' aria-expanded='false'{% endif %} data-toggle="collapse" data-target="#docListInside" aria-controls="docListInside"></div>
                             <ul {% if current[1] == 'docs' %}class='doc-list-inside collapse show'{% else %}class='doc-list-inside collapse'{% endif %} id="docListInside">
                                 <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path== 'docs/index.html' %}class='current'{% endif %}><span>Overview</span></a></li>
                                 <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2]== 'quickstart' %}class='current'{% endif

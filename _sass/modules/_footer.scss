@@ -121,35 +121,13 @@ footer {
     }
 
     .footer-list-header {
-      .caret-icon {
-        background: fade-out($white, .97) url('../img/caret.svg') no-repeat center/cover;
-        opacity: 1;
-        cursor: pointer;
-        position: absolute;
+      .mobile-caret-icon {
         top: 8px;
-        right: 12px; // Make icon align with hamburger menu
-        width: 40px;
-        height: 40px;
-        transform: rotate(180deg);
-        border-radius: 50%;
-        @include transition(all .3s ease-in-out);
-
-        @media(min-width: $tablet){
-          display: none;
-        }
-
-        &:hover {
-          opacity: 1;
-          cursor: pointer;
-          background-size: contain;
-          background-color: fade-out($white, .97);
-          border-radius: 50%;
-        }
       }
 
       // Initial caret-icon state
       &.collapsed {
-        .caret-icon {
+        .mobile-caret-icon {
           opacity: .54;
           transform: rotate(0);
           background-color: transparent;
