@@ -165,11 +165,9 @@ footer {
         visibility: visible;
       }
 
-      &.show {
-        li:last-child {
-          p {
-            padding-bottom: 12px;
-          }
+      li:last-child {
+        p {
+          padding-bottom: 12px;
         }
       }
     }
