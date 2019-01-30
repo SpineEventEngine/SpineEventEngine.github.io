@@ -4,11 +4,6 @@ $('#nav-icon-menu').click(function(){
     $('body').toggleClass('navigation-opened');
 });
 
-// Mobile footer navitation
-$('.toggle').click(function(){
-    $(this).toggleClass('active');
-});
-
 
 // Add the 'external' class to every outbound link on the site.
 // The css will add a small right arrow after the link.
