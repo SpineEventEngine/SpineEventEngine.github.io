@@ -7,7 +7,78 @@
     padding-bottom: 64px;
   }
 
-  .submenu-content {
+  .faq-item {
+    .faq-headline {
+      display: inline-block;
+      margin: 30px 0 5px 0;
+      padding-left: 40px;
+      cursor: pointer;
+    }
+
+    .panel-title {
+      font-size: $font-size--s;
+      line-height: 1.5;
+      color: $black;
+      font-weight: 500;
+
+      @include transition(all .25s ease-in-out);
+
+      &:before {
+        content: '';
+        position: absolute;
+        background: url('../img/icon-caret-right.svg') no-repeat center/cover;
+        width: $icon-size--s;
+        height: $icon-size--s;
+        margin-left: -40px;
+        opacity: .54;
+        transform: rotate(90deg);
+        @include transition(all .3s ease-in-out);
+      }
+
+      // Initial state of the title
+      &.collapsed {
+        color: rgba($black, .54);
+        font-weight: 400;
+
+        &:before {
+          opacity: .2;
+          transform: rotate(0);
+        }
+      }
+    }
+
+    &:hover {
+      .panel-title {
+        color: $black;
+        &:before {
+          opacity: .54;
+        }
+      }
+
+      .anchor-link {
+        display: inline-block;
+      }
+    }
+  }
+
+  .anchor-link {
+    padding-left: 4px;
+    font-size: 16px;
+    color: rgba($black, .38);
+    display: none;
+    @include transition(all .3s ease-in-out);
+
+    @media (max-width: $phone-large){
+      display: inline-block;
+      padding-left: 10px;
+    }
+
+    &:hover {
+      color: $mainBrandColor;
+    }
+  }
+
+  .faq-content {
     margin: 16px 0 0 40px;
     padding-bottom: 2px; // It fix jumping items
 
@@ -16,55 +87,5 @@
         line-height: 32px;
       }
     }
-  }
-
-  .lead,
-  .faq-title {
-    color: $titleColor;
-  }
-
-  .lead {
-    margin: 50px 0 40px 0;
-  }
-
-  .faq-title {
-    margin: 40px 0 0 0;
-  }
-
-  .list-unstyled {
-    li {
-      &:hover {
-        h6 {
-          color: $black;
-
-          &.arrow-d,
-          &.arrow-r {
-            &:before {
-              @include transition(all .25s ease-in-out);
-              opacity: .54;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  h6 {
-    font-size: $font-size--s;
-    line-height: 1.5;
-    color: rgba($black, .54);
-    font-weight: 400;
-    @include transition(all .25s ease-in-out);
-  }
-
-  h6.arrow-d,
-  h6.arrow-r {
-    margin: 30px 0 5px 0;
-    padding-left: 40px;
-  }
-
-  h6.arrow-d {
-    color: $black;
-    font-weight: 500;
   }
 }
