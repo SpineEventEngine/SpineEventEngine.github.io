@@ -13,13 +13,9 @@
     padding-bottom: 24px;
     margin: 0;
   }
-  
-  em { 
-    font-style: italic;
-  }
 
-  strong {
-    font-weight: bold;
+  em {
+    font-style: italic;
   }
 
   img {
@@ -60,7 +56,7 @@
       }
     }
   }
-  
+
   ol {
     list-style: decimal;
     li {
@@ -68,7 +64,7 @@
     }
   }
 
-  // Section Headlines 
+  // Section Headlines
   h2 {
     padding-top: 40px;
 
@@ -85,7 +81,7 @@
     }
   }
 
-   // Lead Text Block
+  // Lead Text Block
   .lead {
     font-size: 16px;
     font-weight: 500;
