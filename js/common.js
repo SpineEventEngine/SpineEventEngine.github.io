@@ -38,10 +38,12 @@ $(function() {
     expandItemOnHashChange();
     preventDefaultScroll();
     tocTocifySettings();
+    showScrollTopBtn();
 });
 
 jQuery(window).on('load', function() {
     scrollToAnchor();
+    ifCookiesExist();
 });
 
 // Make functions works immediately on hash change
@@ -54,7 +56,13 @@ window.onscroll = function() {
     fixToc();
     fixHead();
     tocHeight();
+    showScrollTopBtn();
 };
+
+$(window).resize(function() {
+    resizeTocHeightWithWindow();
+    ifCookiesExist();
+});
 
 // Remove class from the parent element when the child is active
 function switchDocSideNavItems() {
@@ -126,11 +134,11 @@ function tocHeight() {
 }
 
 // Resize TOC height when window height is changing
-$( window ).resize(function() {
+function resizeTocHeightWithWindow() {
     if ($(window).height() > 600) {
         tocHeight();
     }
-});
+}
 
 // Expand FAQ item on hash change
 function expandItemOnHashChange() {
@@ -158,4 +166,43 @@ function scrollToAnchor() {
     if ($(anchor).length) {
         $(window).scrollTo($(anchor), 500, {offset: offset});
     }
+}
+
+
+var goTopBtn = $("#go-top-btn");
+
+// If the cookieChoiceInfo panel exist show “Go to Top” button above this panel
+function ifCookiesExist() {
+    var cookieInfo = $("#cookieChoiceInfo"); // Not working in global variables
+    var cookieAgreeBtn = $("#cookieChoiceDismiss");
+    var cookieContainerHeight = cookieInfo.innerHeight();
+    var marginBottom = 10; // Bottom margin for the “Go to Top” button
+
+    if(cookieInfo!=null){
+        $(goTopBtn).css('bottom', cookieContainerHeight + marginBottom);
+
+        // If the cookie panel hides on the `Agree` button click leave only initial bottom margin
+        $(cookieAgreeBtn).click(function(){
+            $(goTopBtn).css('bottom', marginBottom);
+        });
+    }
+
+    else {
+        $(goTopBtn).css('bottom', marginBottom);
+    }
+}
+
+// When the user scrolls down 1500px from the top of the document, show the button ”Go to Top“
+function showScrollTopBtn() {
+    if ($(this).scrollTop() > 1500 ) {
+        $(goTopBtn).show();
+
+    } else {
+        $(goTopBtn).hide();
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    $("html, body").stop().animate({scrollTop: 0}, 500, 'swing'); return false;
 }
