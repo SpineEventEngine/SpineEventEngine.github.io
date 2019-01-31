@@ -25,15 +25,7 @@ $.getScript("/libs/prettify/js/lang-swift.js", function(){});
 $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
 
 
-// Remove class from the parent element when the child is active
-$(function() {
-    if ($('#doc-side-nav-inside a').hasClass('current')) {
-        var element = document.getElementById('side-nav-parent-item');
-        element.classList.remove('current');
-    }
-});
-
-var InitialHeadHeight = $("#header").innerHeight();
+var initialHeadHeight = $("#header").innerHeight();
 var tocNav = $('#toc');
 var initialFooterHeight = $(".footer").innerHeight();
 var headerFixPosition = $(".nav-hero-container").innerHeight();
@@ -42,12 +34,10 @@ var tocNavFixedPosition = 120; // Sticky TOC offset
 
 
 $(function() {
+    switchDocSideNavItems();
     expandItemOnHashChange();
     preventDefaultScroll();
-
-    // Calls the tocify method on your HTML nav.
-    // InitialHeadHeight + 12 (12px — small offset from the header navigation)
-    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: InitialHeadHeight+12, extendPage: false});
+    tocTocifySettings();
 });
 
 jQuery(window).on('load', function() {
@@ -61,13 +51,27 @@ window.onhashchange = function() {
 };
 
 window.onscroll = function() {
-    FixToc();
-    FixHead();
-    TocHeight();
+    fixToc();
+    fixHead();
+    tocHeight();
 };
 
+// Remove class from the parent element when the child is active
+function switchDocSideNavItems() {
+    if ($('#doc-side-nav-inside a').hasClass('current')) {
+        var element = document.getElementById('side-nav-parent-item');
+        element.classList.remove('current');
+    }
+}
+
+function tocTocifySettings() {
+    // Calls the tocify method on your HTML nav.
+    // InitialHeadHeight + 12 (12px — small offset from the header navigation)
+    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: initialHeadHeight+12, extendPage: false});
+}
+
 // Fix TOC navigation on page while scrolling
-function FixToc() {
+function fixToc() {
     if (tocNav.length > 0) {
         if (window.pageYOffset > tocNavFixedPosition) {
             tocNav.addClass("sticky");
@@ -79,7 +83,7 @@ function FixToc() {
 }
 
 // Animation header on scroll
-function FixHead() {
+function fixHead() {
     var header = $('#header');
     if (header.length > 0) {
         if (window.pageYOffset > headerFixPosition) {
@@ -93,14 +97,14 @@ function FixHead() {
         }
 
         // Return classes to the initial state when the navigation at the top of the page
-        if (window.pageYOffset < InitialHeadHeight) {
+        if (window.pageYOffset < initialHeadHeight) {
             header.removeClass("not-top");
             header.removeClass("unpinned");
         }
     }
 }
 
-function TocHeight() {
+function tocHeight() {
     if (tocNav.length > 0) {
 
         var scrollHeight = $(document).height();
@@ -124,7 +128,7 @@ function TocHeight() {
 // Resize TOC height when window height is changing
 $( window ).resize(function() {
     if ($(window).height() > 600) {
-        TocHeight();
+        tocHeight();
     }
 });
 
