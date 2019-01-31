@@ -161,6 +161,13 @@
           opacity: .54;
           transform: rotate(0);
           background-color: transparent;
+
+          &:hover {
+            opacity: 1;
+            background-size: contain;
+            background-color: fade-out($white, .97);
+            border-radius: 50%;
+          }
         }
       }
 
