@@ -111,13 +111,6 @@
   @media(min-width: $tablet){
     display: none;
   }
-
-  &:hover {
-    opacity: 1;
-    background-size: contain;
-    background-color: fade-out($white, .97);
-    border-radius: 50%;
-  }
 }
 
 // Shared
