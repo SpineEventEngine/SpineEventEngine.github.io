@@ -80,7 +80,7 @@ function tocTocifySettings() {
 
 // Fix TOC navigation on page while scrolling
 function fixToc() {
-    if (tocNav.length > 0) {
+    if (tocNav.length) {
         if (window.pageYOffset > tocNavFixedPosition) {
             tocNav.addClass("sticky");
         }
@@ -93,7 +93,7 @@ function fixToc() {
 // Animation header on scroll
 function fixHead() {
     var header = $('#header');
-    if (header.length > 0) {
+    if (header.length) {
         if (window.pageYOffset > headerFixPosition) {
             header.addClass("not-top"); // When navigation below offset
             header.addClass("pinned"); // When navigation below hero section
@@ -113,7 +113,7 @@ function fixHead() {
 }
 
 function tocHeight() {
-    if (tocNav.length > 0) {
+    if (tocNav.length) {
 
         var scrollHeight = $(document).height();
         var windowHeight = $(window).height();
@@ -173,12 +173,12 @@ var goTopBtn = $("#go-top-btn");
 
 // If the cookieChoiceInfo panel exist show “Go to Top” button above this panel
 function ifCookiesExist() {
-    var cookieInfo = $("#cookieChoiceInfo"); // Not working in global variables
+    var cookieInfo = $("#cookieChoiceInfo");
     var cookieAgreeBtn = $("#cookieChoiceDismiss");
     var cookieContainerHeight = cookieInfo.innerHeight();
     var marginBottom = 10; // Bottom margin for the “Go to Top” button
 
-    if(cookieInfo!=null){
+    if(cookieInfo.length){
         $(goTopBtn).css('bottom', cookieContainerHeight + marginBottom);
 
         // If the cookie panel hides on the `Agree` button click leave only initial bottom margin
