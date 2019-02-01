@@ -27,9 +27,7 @@ $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
 
 var initialHeadHeight = $("#header").innerHeight();
 var tocNav = $('#toc');
-var initialFooterHeight = $(".footer").innerHeight();
 var headerFixPosition = $(".nav-hero-container").innerHeight();
-var cookieContainerHeight = $("#cookieChoiceInfo").innerHeight();
 var tocNavFixedPosition = 120; // Sticky TOC offset
 
 
@@ -44,6 +42,7 @@ $(function() {
 jQuery(window).on('load', function() {
     scrollToAnchor();
     ifCookiesExist();
+    tocHeight();
 });
 
 // Make functions works immediately on hash change
@@ -114,21 +113,28 @@ function fixHead() {
 
 function tocHeight() {
     if (tocNav.length) {
-
-        var scrollHeight = $(document).height();
         var windowHeight = $(window).height();
-        var scrollPosition = windowHeight + $(window).scrollTop();
-        // The variable when position of the footer div begins
-        var footerPosition = scrollHeight - initialFooterHeight - cookieContainerHeight;
+        var scrollPosition = $(window).scrollTop();
+        var footerTopPoint = $(".footer").position().top;
+        var cookieContainerHeight = $("#cookieChoiceInfo").innerHeight();
+        var contentMarginBottom = 60; /* The distance from the TOC to the bottom of the window. The value the same
+        as a docs content. So the content and the TOC will be ended at the same line */
 
-        // Scroll at the bottom near the footer
-        if (scrollPosition > footerPosition) {
-            $(tocNav).css('max-height', windowHeight - initialFooterHeight - cookieContainerHeight - 2*tocNavFixedPosition);
+        /* Initial TOC max-height when the scroll at the top or middle of the page */
+        var initialTocHeight = windowHeight - tocNavFixedPosition - contentMarginBottom - cookieContainerHeight;
+
+        /* Dynamic value that changes on scroll. When the scroll at the bottom of the page, TOC height decreases. */
+        var maxHeightValue = footerTopPoint - scrollPosition - tocNavFixedPosition - contentMarginBottom;
+
+
+        /*The max-height value can be bigger than browser window if the scroll at the top of page.
+        * So here is added the check*/
+        if (maxHeightValue < initialTocHeight) {
+            $(tocNav).css('max-height', maxHeightValue);
         }
 
-        // Scroll at the middle
         else {
-            $(tocNav).css('max-height', windowHeight - headerFixPosition - tocNavFixedPosition - cookieContainerHeight);
+            $(tocNav).css('max-height', initialTocHeight);
         }
     }
 }
