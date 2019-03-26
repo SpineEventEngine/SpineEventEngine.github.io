@@ -2,7 +2,8 @@
 layout: landing
 title: Spine Event Engine
 ---
-
+<!--Todo: add a reworked product description. Current proposal to be discussed with PR and marketing team: "Apply reactive Domain-Driven Design quicker, with less code transforming EventStorming into a domain model code.
+"-->
 <section id="landing-content" class="landing-content-container">
   <div class="container-fluid content-holder">
           <div class="row landing-row">
@@ -54,8 +55,8 @@ message TaskCreated {
             <div class="col-md-6 col-style-text">
                 <p class="step-title">Step 2.</p>
                 <h2>Generate the code for all tiers and multiple languages</h2>
-              <p>Java, JavaScript, and C++ are currently supported, with more languages to come soon.</p>
-            </div>
+              <p>Java, JavaScript, and C++ are currently supported. </p>
+                <!--Add a link to Roadmap for more languages/technologies support when available. --></div>
             <div class="col-md-6 col-style">
               <img class="landing-image" src="{{ site.baseurl }}/img/landing-business-logic.jpg" alt="Generate code">
             </div>
@@ -65,7 +66,7 @@ message TaskCreated {
             <div class="col-md-12 col-style">
                 <p class="step-title">Step 3.</p>
                 <h2>Code business logic in straight and testable way</h2>
-              <p>Focus on the business logic rather than “plumbing”.
+              <p>Focus on business logic rather than “plumbing”.
                 A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
                 <code>Projection</code>s will get all <code>Event</code>s they need.
                 <code>ProcessManager</code>s will cover more complex scenarios.
@@ -128,7 +129,7 @@ message TaskCreated {
 
 <section id="landing-content-features" class="features-section">
   <div class="container-fluid content-holder">
-      <h1 class="light section-title">Why Spine</h1>
+      <h1 class="light section-title">Why Spine?</h1>
       <div class="row">
             <!-- First column -->
             <div class="col-md-4">
@@ -148,7 +149,7 @@ message TaskCreated {
                     <i class="fas fa-clipboard-check card-icon-font"></i>
                     <div class="card-content-text">
                         <header class="feature-card-title">Built-in Validation</header>
-                        <p>Constrains defined in a business model are
+                        <p>Constraints defined in a business model are
                             automatically checked for commands, events, and entity states.</p>
                     </div>
                 </div>
@@ -158,10 +159,9 @@ message TaskCreated {
                     <i class="fas fa-fighter-jet card-icon-font"></i>
                     <div class="card-content-text">
                         <header class="feature-card-title">Develop faster, with better results</header>
-                        <p>Thanks to CQRS and Event-Driven Architecture,
-                            you can arrange clear work separate.
-                            More experienced developers work on the core domain and the write-side.
-                            The&nbsp;read–side and UI are created by the rest of the team.
+                        <p>With CQRS and Event-Driven Architecture
+                            you can separate development workflows.
+                            More experienced team members can concentrate on the core domain and the write-side tasks while the&nbsp;read–side and UI are created by the rest of the team.
                         </p>
                     </div>
                 </div>
@@ -176,13 +176,13 @@ message TaskCreated {
                     <i class="fas fa-lightbulb-on card-icon-font"></i>
                     <div class="card-content-text">
                         <header class="feature-card-title">Clear API</header>
-                        <p>Concepts known from the DDD books right are right in the code.
-                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/aggregate/Aggregate.html">Aggregate</a></code>,
+                        <p>Concepts from the DDD books, such as
+                            <code><a href="hOpen for Business Changesttps://spine.io/core-java/javadoc/server/io/spine/server/aggregate/Aggregate.html">Aggregate</a></code>,
                             <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/projection/Projection.html">Projection</a></code>,
                             <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/procman/ProcessManager.html">ProcessManager</a></code>,
-                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/entity/Repository.html">Repository</a></code>.
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/entity/Repository.html">Repository</a></code> are right in the code.
                             Ever guessed how to cook a <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/BoundedContext.html">BoundedContext</a></code>?
-                            Guess no more.
+                            Guess no more!
                         </p>
                     </div>
                 </div>
@@ -194,8 +194,8 @@ message TaskCreated {
                         <header class="feature-card-title">Type Safety</header>
                         <p>Should you need <code>CustomerId</code> or
                             <code>WorkEstimate</code> value, you get it within seconds,
-                            for multiple languages. And it all comes with binary storage format,
-                            and automatic Json support.
+                            for multiple languages. You can also have binary storage format
+                            and automatic JSON support.
                         </p>
                     </div>
                 </div>
@@ -206,7 +206,7 @@ message TaskCreated {
                         <header class="feature-card-title">Open for Business Changes</header>
                         <p>Add and remove fields while keeping binary compatibility with older code;
                             handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
-                            Build new <code>Projections</code> on the whole event history of the system.</p>
+                            Build new <code>Projections</code> based on the whole event history of the system.</p>
                     </div>
                 </div>
 
@@ -221,17 +221,17 @@ message TaskCreated {
                         <header class="feature-card-title">Promoted Immutability</header>
                         <p>All the data types are immutable, which makes it easy to cache
                             and share. Mutations are performed <em>only</em> in response
-                            to incoming messages via clearly defined cycles.</p>
+                            to incoming messages using clearly defined cycles.</p>
                     </div>
                 </div>
 
                 <div class="feature-card">
                     <i class="far fa-hexagon card-icon-font"></i>
                     <div class="card-content-text">
-                        <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
-                        <p>The framework promotes writing
+                        <header class="feature-card-title">Multiple Storage and Deployment Platforms</header>
+                        <p>The framework promotes development of
                             storage- and platform-agnostic code. You can start with JDBC and later switch
-                            to Google Cloud Platform Datastore by changing few lines of&nbsp;code.</p>
+                            to Google Cloud Platform Datastore simply changing a few lines of&nbsp;code.</p>
                     </div>
                 </div>
 
@@ -240,10 +240,11 @@ message TaskCreated {
                     <div class="card-content-text">
                         <header class="feature-card-title">Permissive Apache License</header>
                         <p>Use freely in closed-source projects.
-                            You are welcome to contribute to improving the framework.</p>
+                            You are also welcome to contribute to improving our framework.</p>
+                        <!--TODO: provide a link to Contribute page when it becomes available. -->
+                    </div>
                     </div>
                 </div>
-            </div>
+          </div>
       </div>
-  </div>
-</section>
+    </section>
