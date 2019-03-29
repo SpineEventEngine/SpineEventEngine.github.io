@@ -1,0 +1,14 @@
+<ul class="doc-side-nav">
+    {% assign current = page.url | downcase | split: '/' %}
+    <li><h5 class="doc-side-nav-title">Concepts</h5></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/index.html" {% if current[3] == 'concepts.html' %}class='current'{% endif %}>Concepts</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/aggregate.html" {% if current[3] == 'aggregate.html' %}class='current'{% endif %}>Aggregate</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/commands.html" {% if current[3] == 'commands.html' %}class='current'{% endif %}>Commands</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/command-handler.html" {% if current[3] == 'command-handler.html' %}class='current'{% endif %}>Command Handler</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/events.html" {% if current[3] == 'events.html' %}class='current'{% endif %}>Events</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/event-bus.html" {% if current[3] == 'event-bus.html' %}class='current'{% endif %}>Event Bus</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/failure.html" {% if current[3] == 'failure.html' %}class='current'{% endif %}>Failure</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/identifiers.html" {% if current[3] == 'identifiers.html' %}class='current'{% endif %}>Identifiers</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/process-manager.html" {% if current[3] == 'process-manager.html' %}class='current'{% endif %}>Process Manager</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/projection.html" {% if current[3] == 'projection.html' %}class='current'{% endif %}>Projection</a></li>
+</ul>
