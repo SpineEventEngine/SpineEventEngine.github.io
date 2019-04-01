@@ -20,9 +20,6 @@ For more tutorials and examples, see the [Tutorials]({{site.baseurl}}/docs/tutor
  - [JavaScript](javascript.html)
  - [C++](cpp.html)
 
-<p class="note">Please note you will need a Java server-side application to run these examples.
-</p>
-
 ## Prerequisites
 
 1.  Make sure you have JDK 8 or higher installed.
