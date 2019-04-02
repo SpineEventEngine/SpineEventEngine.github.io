@@ -12,6 +12,5 @@ Process Manager is an independent component that reacts to domain events in a cr
 
 [Process manager](/java/process-manager.md) can be both Command Handler and Event Handler.
 
-Note: A constructor for  Process Manager can have no parameter at all.  
-
-Tip: We recommend to use process ID when integrating with side services. 
+<p class="note">We recommend to use process ID when integrating with side services. 
+</p>

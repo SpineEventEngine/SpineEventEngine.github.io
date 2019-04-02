@@ -11,4 +11,3 @@ type: markdown
 Command Handler is an object which receives commands, modifies the state of the application, and generates events if the modification was successful. 
 
 For more details, refer to [Java](/java/index.md) section.
-

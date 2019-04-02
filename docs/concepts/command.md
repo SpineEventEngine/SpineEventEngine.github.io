@@ -1,12 +1,12 @@
 ---
-title: Commands Concept
-headline: Commands
+title: Command Concept
+headline: Command
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html
 type: markdown
 ---
-<h2 class="top">Commands</h2> 
+<h2 class="top">Command</h2> 
 
 Commands are messages that instruct an entity within Spine framework to perform a certain action. Compared with events, command is not a statement of fact. They are a request, and, thus, can be refused. 
 

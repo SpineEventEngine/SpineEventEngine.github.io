@@ -1,12 +1,12 @@
 ---
-title: Identifiers Concept
+title: Identifier Concept
 headline: Identifier
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html
 type: markdown
 ---
-<h2 class="top">Identifiers</h2> 
+<h2 class="top">Identifier</h2> 
 
 Spine framework supports the following types of identifiers:
 
