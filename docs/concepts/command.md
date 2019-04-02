@@ -1,5 +1,5 @@
 ---
-title: Command Concept
+title: Command
 headline: Command
 bodyclass: docs
 layout: docs

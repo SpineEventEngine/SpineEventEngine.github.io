@@ -1,5 +1,5 @@
 ---
-title: Rejection Concept
+title: Rejection
 headline: Rejection
 bodyclass: docs
 layout: docs

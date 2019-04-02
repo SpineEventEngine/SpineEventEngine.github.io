@@ -1,5 +1,5 @@
 ---
-title: Projection Concept
+title: Projection
 headline: Projection
 bodyclass: docs
 layout: docs

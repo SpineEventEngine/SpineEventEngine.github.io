@@ -1,5 +1,5 @@
 ---
-title: Event Concept
+title: Event
 headline: Event
 bodyclass: docs
 layout: docs

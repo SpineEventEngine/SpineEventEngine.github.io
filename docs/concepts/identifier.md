@@ -1,5 +1,5 @@
 ---
-title: Identifier Concept
+title: Identifier
 headline: Identifier
 bodyclass: docs
 layout: docs

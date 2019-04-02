@@ -1,6 +1,6 @@
 ---
-title: Aggregate Concept
-headline: Event Sourcing Concepts
+title: Aggregate 
+headline: Aggregate
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html

@@ -1,5 +1,5 @@
 ---
-title: Command Handler Concept
+title: Command Handler
 headline: Command Handler
 bodyclass: docs
 layout: docs

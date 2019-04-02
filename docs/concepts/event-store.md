@@ -1,5 +1,5 @@
 ---
-title: Event Store Concept
+title: Event Store
 headline: Event Store
 bodyclass: docs
 layout: docs

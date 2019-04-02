@@ -1,5 +1,5 @@
 ---
-title: Repository Concept
+title: Repository
 headline: Repository
 bodyclass: docs
 layout: docs

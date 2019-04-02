@@ -1,5 +1,5 @@
 ---
-title: Process Manager Concept
+title: Process Manager
 headline: Process Manager
 bodyclass: docs
 layout: docs

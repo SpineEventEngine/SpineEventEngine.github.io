@@ -1,5 +1,5 @@
 ---
-title: Query Service Concept
+title: Query Service
 headline: Query Service
 bodyclass: docs
 layout: docs

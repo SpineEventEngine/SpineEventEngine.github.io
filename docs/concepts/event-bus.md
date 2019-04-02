@@ -1,5 +1,5 @@
 ---
-title: Event Bus Concept
+title: Event Bus
 headline: Event Bus
 bodyclass: docs
 layout: docs

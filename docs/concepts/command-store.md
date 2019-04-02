@@ -1,5 +1,5 @@
 ---
-title: Command Store Concept
+title: Command Store
 headline: Command Store
 bodyclass: docs
 layout: docs

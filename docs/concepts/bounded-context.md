@@ -1,6 +1,6 @@
 ---
-title: Bounded Context Concept
-headline: Bounded Context Concept
+title: Bounded Context
+headline: Bounded Context
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html
@@ -13,5 +13,5 @@ Large systems usually have multiple Bounded Contexts.
 
 For example, you can consider orders, user management, shipping as examples of the separate contexts within online retail system. 
 
-In Spine, interaction between Bounded Contexts is organized using Integration Events in Spine.
+In Spine, interaction between Bounded Contexts is organized using Integration Events.
 

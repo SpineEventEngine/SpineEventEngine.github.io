@@ -1,5 +1,5 @@
 ---
-title: Command Bus Concept
+title: Command Bus
 headline: Command Bus
 bodyclass: docs
 layout: docs
