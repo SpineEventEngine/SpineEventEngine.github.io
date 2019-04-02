@@ -1,7 +1,7 @@
 <ul class="doc-side-nav">
     {% assign current = page.url | downcase | split: '/' %}
     <li><h5 class="doc-side-nav-title">Quick Start</h5></li>
-    <li><a id="side-nav-parent-item" href="{{ site.baseurl }}/docs/quickstart" {% if current[2] == 'quickstart' %}class='current'{% endif %}>Get started</a></li>
+    <li><a id="side-nav-parent-item" href="{{ site.baseurl }}/docs/quickstart" {% if current[2] == 'quickstart' %}class='current'{% endif %}>Getting Started</a></li>
     <li>
         <ul id="doc-side-nav-inside">
             <li><a href="{{ site.baseurl }}/docs/quickstart/java.html" {% if current[3] == 'java.html' %}class='current'{% endif %}>Java</a></li>
