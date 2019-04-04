@@ -15,4 +15,4 @@ Spine framework supports the following types of identifiers:
 * String,
 * A generated Java class implementing the `Message`.
 
-We recommend you to select Identifiers for your IDs and encourage using message-based IDs to to make your API `strongly pronounced` and `type-safe`. 
+We recommend you to select Identifiers for your IDs and encourage using message-based IDs to to make your API strongly pronounced and type-safe. 

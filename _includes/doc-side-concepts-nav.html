@@ -1,8 +1,8 @@
 <ul class="doc-side-nav">
     {% assign current = page.url | downcase | split: '/' %}
     <li><h5 class="doc-side-nav-title">Concepts</h5></li>
-    <li><a href="{{ site.baseurl }}/docs/concepts/index.html" {% if current[3] == 'concepts.html' %}class='current'{% endif %}>Concepts</a></li>
     <li><a href="{{ site.baseurl }}/docs/concepts/aggregate.html" {% if current[3] == 'aggregate.html' %}class='current'{% endif %}>Aggregate</a></li>
+    <li><a href="{{ site.baseurl }}/docs/concepts/aggregate-mirror.html" {% if current[3] == 'aggregate-mirror.html' %}class='current'{% endif %}>Aggregate Mirror</a></li>
     <li><a href="{{ site.baseurl }}/docs/concepts/bounded-context.html" {% if current[3] == 'bounded-context.html' %}class='current'{% endif %}>Bounded Context</a></li>
     <li><a href="{{ site.baseurl }}/docs/concepts/command.html" {% if current[3] == 'command.html' %}class='current'{% endif %}>Command</a></li>
     <li><a href="{{ site.baseurl }}/docs/concepts/command-bus.html" {% if current[3] == 'command-bus.html' %}class='current'{% endif %}>Command Bus</a></li>

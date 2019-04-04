@@ -15,7 +15,6 @@ We assume that you are familiar with the basics of Domain-Driven Design.
 
 Below you can find a typical Spine Event Engine application architecture; its building blocks are also described below.
 
-To be added: Spine Event engine architecture overview.
 
 
 
