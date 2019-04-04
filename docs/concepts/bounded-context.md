@@ -11,7 +11,7 @@ type: markdown
 Bounded Context is an autonomous component with its own domain model and its own Ubiquitous Language. 
 Large systems usually have multiple Bounded Contexts. 
 
-For example, you can consider `Orders`, `User management`, `Shipping` as examples of the separate contexts within online retail system. 
+For example, you can consider `Orders`, `UserManagement`, `Shipping` as examples of the separate contexts within online retail system. 
 
 In Spine, interaction between Bounded Contexts is organized using Integration Events.
 
