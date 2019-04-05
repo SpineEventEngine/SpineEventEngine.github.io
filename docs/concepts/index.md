@@ -11,9 +11,20 @@ sidenav: doc-side-concepts-nav.html
 <div id="toc" class="toc hide-block"></div>
 This section introduces key concepts of Spine framework and its parts, helps you get a deeper understanding of how it works and provides some usage notes when creating Spine-based cloud application. 
 
-We assume that you are familiar with the basics of Domain-Driven Design. 
+<p class="note">We assume that you are familiar with the basics of Domain-Driven Design.</p> 
 
-Below you can find a typical Spine Event Engine application architecture; its building blocks are also described below.
+Here is a basic view of Spine Event Engine application architecture.
+
+<img src="{{ site.baseurl }}/img/concepts/spine-architecture-diagram-1.0.0.png" alt="Spine Event Engine Architecture">
+
+These are the parts of Spine architecture you are going to interact with when working with Spine. 
+
+<img src="{{ site.baseurl }}/img/concepts/spine-architecture-diagram-1.0.0-faded.png" alt="Spine Event Engine Architecture">
+
+
+
+ 
+ 
 
 
 

@@ -10,7 +10,7 @@ type: markdown
 
 Process Manager is an independent component that reacts to domain events in a cross-aggregate eventually consistent manner. It serves as a centralized processing unit that maintains the state sequence and defines the next processing step based on intermediate results. 
 
-[Process manager](/java/process-manager.md) can be both Command Handler and Event Handler.
+Process Manager can be both Command Handler and Event Subscriber.
 
 <p class="note">We recommend to use process ID when integrating with side services. 
 </p>
