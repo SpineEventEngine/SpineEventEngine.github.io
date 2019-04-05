@@ -33,8 +33,8 @@ The `model` module defines  [Ubiquitous Language](https://martinfowler.com/bliki
  
 The `model/src/main/proto` directory contains the Protobuf definitions of the domain model:
 * `Task` is an aggregate state type; as any entity type, it is marked with the `(entity)` option;
-* `TaskCreated` in `events.proto` is an event of the `TaskAggregate`;
 * `CreateTask` in `commands.proto` is a command handled by the `TaskAggregate`;
+* `TaskCreated` in `events.proto` is an event of the `TaskAggregate`.
 
 The model can also contain other message types, for example, identifiers (see `identifiers.proto`), value
   types, and so on.
