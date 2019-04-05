@@ -7,5 +7,4 @@ sidenav: doc-side-concepts-nav.html
 type: markdown
 ---
 <h2 class="top">Integration Event</h2> 
-
-Integration Event concept to be added.
+<p class="coming-soon">Integration Event concept to be added soon.</p>
