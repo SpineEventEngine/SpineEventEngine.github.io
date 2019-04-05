@@ -10,9 +10,8 @@ sidenav: doc-side-quickstart-nav.html
 
 <div id="toc" class="toc hide-block"></div>
 
-<p class="note">Before creating your first application with Spine, familiarize with its [basic concepts and architecture]({{site.baseurl}}/docs/concepts/).</p>
 We recommend you get started with Spine by creating an application in [Java](java.html).
-
+<p class="note">Before creating your first application with Spine, familiarize with its [basic concepts and architecture]({{site.baseurl}}/docs/concepts/).</p>
 For more detailed tutorials and examples, see the [Tutorials]({{site.baseurl}}/docs/tutorials) section for other supported languages:
  - [JavaScript](javascript.html)
  - [C++](cpp.html)

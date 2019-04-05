@@ -6,8 +6,9 @@ layout: docs
 sidenav: doc-side-quickstart-nav.html
 type: markdown
 ---
-<p>This guide gets you started with minimal server-side application in Java with a simple
+<p>This guide helps you get started with minimal server-side application in Java with a simple
 working example.</p>
+<hr>
 ## Prerequisites
 1.  Make sure you have JDK 8 or higher installed.
 2.  Clone the following source code into your Git repository: 
@@ -142,7 +143,5 @@ Keep experimenting with your model. To do so:
   ```
 7. Restart the server and run the client to make sure that the due date is set to the task. 
 
-
 ## What's Next
-- Detailed tutorial in [Spine Client Application in Java: Java][] 
-- [Spine Tutorial in Java]:../tutorials/basic/java.html
+- Detailed tutorial on <a href="https://spine.io/docs/tutorials/basic/java.html">creating Spine client application in Java</a>

@@ -9,7 +9,7 @@ type: markdown
 <p class="coming-soon">Coming soon...</p>
 
 <p>This guide lets you get started with Spine client-side application written in C++.</p>
-
+<hr>
 
 ## Before you begin
 

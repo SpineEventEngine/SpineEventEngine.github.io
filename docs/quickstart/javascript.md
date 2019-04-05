@@ -59,5 +59,8 @@ enter `10.0.2.2` and `50051` as the `Host` and `Port`.
 
 ## What's Next
 
-- Detailed tutorial in [Spine Client App Basics: Android Java][]
-- [Spine Client App Basics: Android Java]:../tutorials/basic/android.html
+- TBD
+- Detailed etailed tutorial in [Spine Client App Basics: Android Java][]
+- TBD
+
+[Spine Client App Basics: Android Java]:../tutorials/basic/android.html
