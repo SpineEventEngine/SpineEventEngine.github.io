@@ -1,6 +1,6 @@
 ---
-title: Swift Quickstart
-headline: Swift Quickstart
+title: Getting Started with Swift
+headline: Getting Started with Swift
 bodyclass: docs
 layout: docs
 sidenav: doc-side-quickstart-nav.html
@@ -8,8 +8,8 @@ type: markdown
 ---
 <p class="coming-soon">Coming soon...</p>
 
-<p>This guide gets you started with Spine on the iOS platform in
-Swift with a simple working example.</p>
+<p>This guide lets you started with Spine on the iOS platform in
+Swift.</p>
 <hr>
 
 ## Before you begin
@@ -47,10 +47,7 @@ TBD
 
 TBD
 
-## What's next
+## What's Next
 
-- TBD
-- Work through a more detailed tutorial in [Spine Basics: Swift][]
-- TBD
-
-[Spine Basics: Swift]:../tutorials/basic/swift.html
+- Detailed tutorial in [Spine Basics: Swift][]
+- [Spine Basics: Swift]:../tutorials/basic/swift.html

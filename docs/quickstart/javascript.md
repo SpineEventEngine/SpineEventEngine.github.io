@@ -1,6 +1,6 @@
 ---
-title: JavaScript Quickstart
-headline: JavaScript Quickstart
+title: Getting Started with Spine in JavaScript
+headline: Getting Started with Spine in JavaScript
 bodyclass: docs
 layout: docs
 sidenav: doc-side-quickstart-nav.html
@@ -57,10 +57,10 @@ enable port forwarding. Instead, the emulator can use the IP address
 `10.0.2.2` to refer to the host machine. Inside the Android Hello World app,
 enter `10.0.2.2` and `50051` as the `Host` and `Port`.
 
-## What's next
+## What's Next
 
 - TBD
-- Work through a more detailed tutorial in [Spine Client App Basics: Android Java][]
+- Detailed etailed tutorial in [Spine Client App Basics: Android Java][]
 - TBD
 
 [Spine Client App Basics: Android Java]:../tutorials/basic/android.html

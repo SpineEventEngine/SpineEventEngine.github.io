@@ -1,6 +1,6 @@
 ---
-title: C++ Quickstart
-headline: C++ Quickstart
+title: Getting Started with Spine in C++
+headline: Getting Started with Spine in C++
 bodyclass: docs
 layout: docs
 sidenav: doc-side-quickstart-nav.html
@@ -8,9 +8,8 @@ type: markdown
 ---
 <p class="coming-soon">Coming soon...</p>
 
-<p>This guide gets you started with Spine client-side app written in C++ with a simple
-working example.</p>
-
+<p>This guide lets you get started with Spine client-side application written in C++.</p>
+<hr>
 
 ## Before you begin
 
@@ -53,10 +52,7 @@ TBD
 
 TBD
 
-## What's next
+## What's Next
 
-- TBD
-- Work through a more detailed tutorial in [Spine Client App Basics: C++][]
-- TBD
-
-[Spine Client App Basics: C++]:../tutorials/basic/cpp.html
+- Detailed tutorial in [Spine Client App Basics: C++][]
+- [Spine Client App Basics: C++]:../tutorials/basic/cpp.html
