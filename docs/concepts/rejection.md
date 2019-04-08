@@ -13,6 +13,6 @@ Rejection is a state of business logic which can be handled by the end user. It'
 In Spine, rejections are defined as Protobuf messages. If an event is a fact of something that happened to a domain model, a rejection is a fact that states the reason why a command was not handled. 
 
 Consider the following examples of rejections: 
-* `CreditCardValidationDecllined`, 
+* `CreditCardValidationDeclined`, 
 * `OrderCannotBeEmpty`, 
 * `InsufficientFunds`.
