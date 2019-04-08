@@ -9,3 +9,4 @@ type: markdown
 <h2 class="top">Event Subscriber</h2> 
 
 Event Subscriber is an object that is subscribed to receive events.
+You can consider <a href="https://spine.io/docs/concepts/projection.html">Projection</a> as a type of Event Subscriber. 
