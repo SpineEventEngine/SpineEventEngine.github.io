@@ -119,7 +119,7 @@ You do not have to make any additional steps to use it in your domain.</p>
  }
   ```
 <p class="note">`vBuilder()` creates a Validating Builder, which checks the values against the validation options when a message is going to be build. The `newBuilder()` creates a standard Builder natively provided by Protobuf. It is safer to always use `vBuilder()`, and it does not make much sense to specify validating options, if `vBuilder()` is not used.
-For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side.</p> 
+For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer <a href="docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
 5. Apply the emitted event:
   ```java
  @Apply
