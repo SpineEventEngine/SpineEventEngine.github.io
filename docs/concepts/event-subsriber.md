@@ -9,3 +9,4 @@ type: markdown
 <h2 class="top">Event Subscriber</h2> 
 
 Event Subscriber is an object that is subscribed to receive events.
+Here is a code example which shows how a method which handles this kind of messages looks like.
