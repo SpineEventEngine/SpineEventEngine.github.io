@@ -75,9 +75,8 @@ Keep experimenting with your model. To do so:
      spine.time.LocalDate due_date = 2 [(valid) = true, (required) = true, (when).in = FUTURE];
  }
   ```
-<p class="note">Remember to import `LocalDate` via `import "spine/time/time.proto";`. This type is provided by
-                  the [Spine Time](https://github.com/SpineEventEngine/time) library. You do not have to make any
-                  additional steps to use it in your domain.</p>
+<p class="note">Remember to import `LocalDate` using `import "spine/time/time.proto";` and `import "spine/time/time.options.proto";`. The latter is needed for being able to do `(when).in = FUTURE`. This type is provided by the [Spine Time](https://github.com/SpineEventEngine/time) library. 
+You do not have to make any additional steps to use it in your domain.</p>
 2. Create a new event type in `events.proto`:
   ```proto
  message DueDateAssigned {
@@ -113,12 +112,14 @@ Keep experimenting with your model. To do so:
  @Assign
  DueDateAssigned handle(AssignDueDate command) {
      return DueDateAssignedVBuilder
-             .newBuilder()
+             .vBuilder()
              .setTaskId(command.getTaskId())
              .setDueDate(command.getDueDate())
              .build();
  }
   ```
+<p class="note">`vBuilder()` creates a Validating Builder, which checks the values against the validation options when a message is going to be build. The `newBuilder()` creates a standard Builder natively provided by Protobuf. It is safer to always use `vBuilder()`, and it does not make much sense to specify validating options, if `vBuilder()` is not used.
+For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer <a href="docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
 5. Apply the emitted event:
   ```java
  @Apply
@@ -129,12 +130,11 @@ Keep experimenting with your model. To do so:
 6. In `ClientApp`, extend the `main()` method by posting another command:
   ```java
  AssignDueDate dueDateCommand = AssignDueDateVBuilder
-         .newBuilder()
+         .vBuilder()
          .setTaskId(taskId)
          .setDueDate(LocalDates.of(2038, JANUARY, 19))
          .build();
- commandService.post(requestFactory.command()
-                                   .create(dueDateCommand));
+ commandService.post(requestFactory.command().create(dueDateCommand));
   ```
  and log the updated state:
   ```java
