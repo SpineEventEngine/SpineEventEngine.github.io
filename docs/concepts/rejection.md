@@ -16,3 +16,5 @@ Consider the following examples of rejections:
 * `CreditCardValidationDeclined`, 
 * `OrderCannotBeEmpty`, 
 * `InsufficientFunds`.
+
+For detailed instructions on creating rejection messages, refer to [Defining Rejections Guide](/docs/guides/creating-rejection-messages.html).
