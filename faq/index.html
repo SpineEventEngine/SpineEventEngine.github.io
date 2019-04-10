@@ -13,35 +13,34 @@ headline: 'Frequently Asked Questions'
 
                 <li class="faq-item">
                     <h6 class="faq-headline">
-                        <span class="panel-title collapsed" data-toggle="collapse" data-target="#why-spine" aria-expanded="false" aria-controls="why-spine">Why the framework is called Spine?</span>
+                        <span class="panel-title collapsed" data-toggle="collapse" data-target="#why-spine" aria-expanded="false" aria-controls="why-spine">Why is the framework called Spine?</span>
                         <a class="anchor-link" href="#why-spine"><i class="far fa-link"></i></a>
                     </h6>
 
                     <div class="faq-content collapse" id="why-spine">
-                        <p>We want to be a framework that provides an infrastructure and connects so to say
-                            “service” parts of applications with their “brains” — business logic. Find out how
-                            following <a href="{{ site.baseurl }}/docs/prior-art.html">industry trends</a> we were
-                            <a href="{{ site.baseurl }}/docs/motivation.html">inspired</a> to create Spine.</p>
+                        <p>We want to give our users a framework that provides an infrastructure and connects the
+                            “service” parts of applications with their “brains”, or in other words, business logic. Find out how <a href="{{ site.baseurl }}/docs/prior-art.html">industry trends</a>
+                            <a href="{{ site.baseurl }}/docs/motivation.html">inspired us</a> to create Spine.</p>
                     </div>
                 </li>
 
                 <li class="faq-item">
                     <h6 class="faq-headline">
-                        <span class="panel-title collapsed" data-toggle="collapse" data-target="#why-use-protobuf-and-not-json" aria-expanded="false" aria-controls="why-use-protobuf-and-not-json">Why use Protobuf and not Json?</span>
+                        <span class="panel-title collapsed" data-toggle="collapse" data-target="#why-use-protobuf-and-not-json" aria-expanded="false" aria-controls="why-use-protobuf-and-not-json">Why use Protobuf and not JSON?</span>
                         <a class="anchor-link" href="#why-use-protobuf-and-not-json"><i class="far fa-link"></i></a>
                     </h6>
                     <div class="faq-content collapse" id="why-use-protobuf-and-not-json">
-                        <p>Because Protocol Buffers are implemented in a variety of languages, they make
-                            interoperability between polyglot applications in your architecture that much simpler.
+                        <p>As Protocol Buffers are already implemented in a variety of languages, they make
+                            interoperability between polyglot applications in your architecture much simpler.
                             If you’re introducing a new service with one in Ruby or Go, or even communicating with a
-                            backend written in Node, or Clojure, you simply have to hand the proto file to the code
-                            generator written in the target language and you have some nice guarantees about the
+                            backend written in Node or Clojure, you simply have to hand the proto file to the code
+                            generator written in the target language, and you have some nice guarantees about
                             safety and interoperability between those architectures.
                         </p>
 
-                        <p>The finer points of platform specific data types should be handled for you in the target
-                            language implementation, and you can get back to focusing on the hard parts of your
-                            problem instead of matching up fields and data types in your ad hoc JSON encoding and
+                        <p>The finer points of platform-specific data types should be handled for you in the target
+                            language implementation, and you can get back to focusing on your
+                            tasks instead of matching up fields and data types in your ad hoc JSON encoding and
                             decoding schemes.</p>
                     </div>
                 </li>
@@ -52,15 +51,15 @@ headline: 'Frequently Asked Questions'
                         <a class="anchor-link" href="#why-protobuf-instead-of-proto"><i class="far fa-link"></i></a>
                     </h6>
                     <div class="faq-content collapse" id="why-protobuf-instead-of-proto">
-                        <p>Have a look the <a href="https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html" target="_blank">comparison matrix</a>
+                        <p>Have a look at the <a href="https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html" target="_blank">comparison matrix</a>
                             created by Kenton Varda, the author of Protobuf v2 and Cap'n Proto.
-                            The main features that make Protobuf best choice for our framework are:</p>
+                            Here are the main features that make Protobuf the best choice for our framework:</p>
                         <ul>
-                            <li><b>Schema evolution</b> — we need this as business models evolve as business grows.</li>
-                            <li><b>Usable as mutable state</b> — we need this for transforming Aggregate States and Stream Projections.</li>
-                            <li><b>Other languages</b> — we need a support of client applications written on JavaScript, JavaNano, Swift, Objective-C, etc.</li>
+                            <li><b>Schema evolution</b> — business models should evolve as the business grows.</li>
+                            <li><b>Usable as mutable state</b> — for transforming Aggregate States and Stream Projections.</li>
+                            <li><b>Other languages</b> — for supporting client applications written in JavaScript, JavaNano, Swift, Objective-C, and other programming languages.</li>
                         </ul>
-                        <p>Also, the experience Google gained through years of using this technology internally is a major factor of preferring Protobuf over alternatives.</p>
+                        <p>Also, proven success of Protobuf technology which Google gained over the years of its successful usage is a major factor for choosing Protobuf rather than other alternatives.</p>
                     </div>
                 </li>
 
