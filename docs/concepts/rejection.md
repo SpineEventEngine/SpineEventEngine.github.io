@@ -17,4 +17,4 @@ Consider the following examples of rejections:
 * `OrderCannotBeEmpty`, 
 * `InsufficientFunds`.
 
-For detailed instructions on creating rejection messages, refer to [Creating Rejection Messages Guide](/docs/guides/creating-rejection-messages.html).
+For detailed instructions on creating rejection messages, refer to [Defining Rejection Messages Guide](/docs/guides/creating-rejection-messages.html).

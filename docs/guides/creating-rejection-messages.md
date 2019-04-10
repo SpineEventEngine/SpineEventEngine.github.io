@@ -1,6 +1,6 @@
 ---
-title: Creating Rejection Messages
-headline: Creating Rejection Messages
+title: Defining Rejection Messages
+headline: Defining Rejection Messages
 bodyclass: docs
 layout: docs
 sidenav: doc-side-guides-nav.html
