@@ -3,6 +3,16 @@
     <li><h5 class="doc-side-nav-title">Concepts</h5></li>
     <li>
         <ul id="doc-side-nav-inside">
+            <li><h6 class="doc-side-nav-sub-title">Messaging</h6></li>
+            <li><a href="{{ site.baseurl }}/docs/concepts/command.html" {% if current[3] == 'command.html' %}class='current'{% endif %}>Command</a></li>
+            <li><a href="{{ site.baseurl }}/docs/concepts/event.html" {% if current[3] == 'event.html' %}class='current'{% endif %}>Event</a></li>
+            <li><a href="{{ site.baseurl }}/docs/concepts/rejection.html" {% if current[3] == 'rejection.html' %}class='current'{% endif %}>Rejection</a></li>
+            <li><a href="{{ site.baseurl }}/docs/concepts/command-handler.html" {% if current[3] == 'command-handler.html' %}class='current'{% endif %}>Command Handler</a></li>
+            <li><a href="{{ site.baseurl }}/docs/concepts/event-subsriber.html" {% if current[3] == 'event-subsriber.html' %}class='current'{% endif %}>Event Subscriber</a></li>
+        </ul>
+    </li>
+    <li>
+        <ul id="doc-side-nav-inside">
             <li><h6 class="doc-side-nav-sub-title">Entities</h6></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/identifier.html" {% if current[3] == 'identifier.html' %}class='current'{% endif %}>Identifier</a></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/aggregate.html" {% if current[3] == 'aggregate.html' %}class='current'{% endif %}>Aggregate</a></li>
@@ -25,7 +35,6 @@
     </li>
     <li>
         <ul id="doc-side-nav-inside">
-
             <li><h6 class="doc-side-nav-sub-title">Architecture</h6></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/bounded-context.html" {% if current[3] == 'bounded-context.html' %}class='current'{% endif %}>Bounded Context</a></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/integration-event.html" {% if current[3] == 'integration-event.html' %}class='current'{% endif %}>Integration Event</a></li>

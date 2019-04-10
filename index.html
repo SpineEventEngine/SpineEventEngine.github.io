@@ -80,7 +80,7 @@ message TaskCreated {
     @Assign
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
         return TaskCreated
-                .newBuilder()
+                .vBuilder()
                 .setId(cmd.getId())
                 .setName(cmd.getName())
                 .setOwner(ctx.getActor())
@@ -99,13 +99,13 @@ message TaskCreated {
     ...
     @Subscribe
     void on(TaskCreated e) {
-        getBuilder().setId(e.getId())
+        builder().setId(e.getId())
                     .setName(e.getName())
     }
 
     @Subscribe
     void on(TaskCompleted e, EventContext ctx) {
-        getBuilder().setWhenDone(ctx.getTimestamp());
+        builder().setWhenDone(ctx.getTimestamp());
     }
 }</code></pre>
             </div>
