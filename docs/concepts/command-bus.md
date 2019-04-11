@@ -1,6 +1,6 @@
 ---
 title: Command Bus
-headline: Command Bus
+headline: Concepts
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html

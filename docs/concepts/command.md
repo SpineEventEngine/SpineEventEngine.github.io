@@ -1,6 +1,6 @@
 ---
 title: Command
-headline: Command
+headline: Concepts
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html

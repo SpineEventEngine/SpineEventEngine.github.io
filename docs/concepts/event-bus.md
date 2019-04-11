@@ -1,6 +1,6 @@
 ---
 title: Event Bus
-headline: Event Bus
+headline: Concepts
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html

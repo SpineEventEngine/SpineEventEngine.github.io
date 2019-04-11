@@ -1,6 +1,6 @@
 ---
 title: Aggregate Mirror 
-headline: Aggregate Mirror
+headline: Concepts
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html

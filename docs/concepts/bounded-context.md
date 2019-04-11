@@ -1,6 +1,6 @@
 ---
 title: Bounded Context
-headline: Bounded Context
+headline: Concepts
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html

@@ -1,6 +1,6 @@
 ---
 title: Query Service
-headline: Query Service
+headline: Concepts
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html

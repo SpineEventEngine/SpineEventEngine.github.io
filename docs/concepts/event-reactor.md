@@ -1,6 +1,6 @@
 ---
 title: Event Reactor
-headline: Event Reactor
+headline: Concepts
 bodyclass: docs
 layout: docs
 sidenav: doc-side-concepts-nav.html
