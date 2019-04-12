@@ -133,6 +133,8 @@ because:
     a generated data type for holding the state of the entity.
  2. Such a data structure does not represent a whole `Aggregate` or `ProcessManager` thing anyway. 
     It's just data.
+
+<p class="note">For details on aggregates usage, refer to a [Defining Aggregate Guide](/docs/guides/defining-aggregate.html).</p>  
  
 ## Packages
 
@@ -220,6 +222,8 @@ These classes are used in the `throws` clause of command handling methods.
 
 The arrangement with message classes nested under `Rejections` class, and top-level `Throwable`s
 is required to avoid name clashes while keeping these generated classes under the same package.
+
+<p class="note">For details on rejections usage, refer to [Defining Rejections Guide](/docs/guides/creating-rejection-messages.html).</p>
 
 #### Server-side code
 
