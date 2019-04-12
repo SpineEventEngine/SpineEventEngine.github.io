@@ -10,4 +10,15 @@ type: markdown
 
 Event Subscriber is an object that is subscribed to receive events.
 
-You can consider [Projection](/concepts/projection.md) as a type of Event Subscriber. 
+Here is a code example which shows how a method which handles this kind of messages.
+
+  ```
+  final class TaskProjection
+      extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
+      ...
+      @Subscribe
+      void on(TaskCompleted e, EventContext ctx) {
+          builder().setWhenDone(ctx.getTimestamp());
+      }
+  }
+  ```
