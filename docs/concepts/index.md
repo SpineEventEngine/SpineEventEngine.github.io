@@ -11,11 +11,11 @@ sidenav: doc-side-concepts-nav.html
 This section introduces key concepts of Spine framework and its parts, helps you get a deeper understanding of how it works and provides some usage notes. 
 <p class="note">We assume that you are familiar with the basics of Domain-Driven Design.</p> 
 
-This is an overall view of Spine architecture:
-<img src="{{ site.baseurl }}/img/concepts/spine-architecture-diagram-1.0.0.png" alt="Spine Event Engine Architecture">
+Below is an overall view of <span class="architecture-link noselect" id="display-all-components">all Spine server components</span> and their relations. When developing with Spine, you will be interacting with <span class="architecture-link noselect" id="display-user-facing-components">some of them</span>.
 
-These are the parts of Spine architecture you are going to interact with when developing your applications: 
-<img src="{{ site.baseurl }}/img/concepts/spine-architecture-diagram-1.0.0-faded.png" alt="Spine Event Engine Architecture">
+<script src="/js/architecture-diagram.js" type="text/javascript" charset="utf-8"></script>
+
+{% include_relative diagrams/spine-architecture-diagram.svg %}
 
 
 
