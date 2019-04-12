@@ -65,7 +65,7 @@ $(window).resize(function() {
 
 // Remove class from the parent element when the child is active
 function switchDocSideNavItems() {
-    if ($('#doc-side-nav-inside a').hasClass('current')) {
+    if ($('.doc-side-nav-inside a').hasClass('current')) {
         var element = document.getElementById('side-nav-parent-item');
         element.classList.remove('current');
     }

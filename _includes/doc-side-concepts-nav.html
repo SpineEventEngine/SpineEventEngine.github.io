@@ -1,9 +1,9 @@
 <ul class="doc-side-nav doc-side-nav-concepts">
     {% assign current = page.url | downcase | split: '/' %}
     <li><h5 class="doc-side-nav-title">Concepts</h5></li>
-    <li><a href="{{ site.baseurl }}/docs/concepts/index.html" {% if current[3] == 'index.html' %}class='current'{% endif %}>Architecture Overview</a></li>
+    <li><a id="side-nav-parent-item" href="{{ site.baseurl }}/docs/concepts" {% if current[2] == 'concepts' %}class='current'{% endif %}>Architecture Overview</a></li>
     <li>
-        <ul id="doc-side-nav-inside">
+        <ul class="doc-side-nav-inside">
             <li><h6 class="doc-side-nav-sub-title">Messaging</h6></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/command.html" {% if current[3] == 'command.html' %}class='current'{% endif %}>Command</a></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/event.html" {% if current[3] == 'event.html' %}class='current'{% endif %}>Event</a></li>
@@ -13,7 +13,7 @@
         </ul>
     </li>
     <li>
-        <ul id="doc-side-nav-inside">
+        <ul class="doc-side-nav-inside">
             <li><h6 class="doc-side-nav-sub-title">Entities</h6></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/identifier.html" {% if current[3] == 'identifier.html' %}class='current'{% endif %}>Identifier</a></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/aggregate.html" {% if current[3] == 'aggregate.html' %}class='current'{% endif %}>Aggregate</a></li>
@@ -24,7 +24,7 @@
         </ul>
     </li>
     <li>
-        <ul id="doc-side-nav-inside">
+        <ul class="doc-side-nav-inside">
             <li><h6 class="doc-side-nav-sub-title">Messages</h6></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/command.html" {% if current[3] == 'command.html' %}class='current'{% endif %}>Command</a></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/event.html" {% if current[3] == 'event.html' %}class='current'{% endif %}>Event</a></li>
@@ -35,7 +35,7 @@
         </ul>
     </li>
     <li>
-        <ul id="doc-side-nav-inside">
+        <ul class="doc-side-nav-inside">
             <li><h6 class="doc-side-nav-sub-title">Architecture</h6></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/bounded-context.html" {% if current[3] == 'bounded-context.html' %}class='current'{% endif %}>Bounded Context</a></li>
             <li><a href="{{ site.baseurl }}/docs/concepts/integration-event.html" {% if current[3] == 'integration-event.html' %}class='current'{% endif %}>Integration Event</a></li>
