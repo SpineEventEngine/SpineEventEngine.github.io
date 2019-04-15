@@ -158,10 +158,9 @@
                     <foreignObject style="overflow:visible;" pointer-events="all" width="45"
                                    height="36"
                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption event-store"
                              style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 47px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
                             <div xmlns="http://www.w3.org/1999/xhtml"
-                                 class="box-caption event-store"
                                  style="display:inline-block;text-align:inherit;text-decoration:inherit;">
                                 Event<br/>Store
                                 <br/>
