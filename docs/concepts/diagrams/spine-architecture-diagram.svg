@@ -144,23 +144,7 @@
                 </switch>
             </g>
         </g>
-        <g transform="translate(958.5,405.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="43" height="14"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption events"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 128, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Events
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="22" y="14" fill="#FF8000" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">Events
-                </text>
-            </switch>
-        </g>
+
         <g class="g-caption event-store" pointer-events="all">
             <path class="event-store path"
                   d="M 1036 578 C 1036 551.33 1146 551.33 1146 578 L 1146 638 C 1146 664.67 1036 664.67 1036 638 Z"
@@ -256,48 +240,36 @@
         <path class="arrow integration-events" d="M 1283.47 77.06 Q 1297 50 1331.5 50 Q 1366 50 1366 81 Q 1366 112 1337.07 125.78"
               fill="none" stroke="#0066cc" stroke-width="4" stroke-miterlimit="10"
               pointer-events="none"/>
-        <path class="arrow integration-events" d="M 1279 86 L 1280.49 75.57 L 1286.45 78.55 Z" fill="#0066cc" stroke="#0066cc"
-              stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
-        <path class="arrow integration-events" d="M 1328.04 130.08 L 1335.63 122.77 L 1338.5 128.79 Z" fill="#0066cc"
-              stroke="#0066cc" stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
-        <g transform="translate(1295.5,65.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="66" height="30"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption integration-events"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+
+        <g class="g-arrow integration-events">
+            <path class="arrow integration-events" d="M 1279 86 L 1280.49 75.57 L 1286.45 78.55 Z"
+                  fill="#0066cc" stroke="#0066cc"
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+            <path class="arrow integration-events"
+                  d="M 1328.04 130.08 L 1335.63 122.77 L 1338.5 128.79 Z" fill="#0066cc"
+                  stroke="#0066cc" stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+            <g transform="translate(1295.5,65.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="66"
+                                   height="30"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Integration<br/> Events
-                            <br/>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="33" y="22" fill="#0066CC" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
-        </g>
-        <g transform="translate(1121.5,326.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="68" height="30"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption aggregate-states"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 70px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            <font style="font-size: 14px">Aggregate </font>
-                            <div>
-                                <font style="font-size: 14px">States</font>
+                             class="arrow-caption integration-events"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                Integration<br/> Events
+                                <br/>
                             </div>
                         </div>
-                    </div>
-                </foreignObject>
-                <text x="34" y="22" fill="#009900" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
+                    </foreignObject>
+                    <text x="33" y="22" fill="#0066CC" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">[Not supported by viewer]
+                    </text>
+                </switch>
+            </g>
         </g>
+
         <g class="g-caption command-service" pointer-events="all">
             <rect class="command-service rect" x="286" y="149" width="53" height="190" rx="3.18"
                   ry="3.18" fill="#3399ff"
@@ -373,120 +345,154 @@
                 </switch>
             </g>
         </g>
-        <path class="arrow ui-command-service end-user" d="M 175.86 217 L 269.53 217" fill="none" stroke="#0066cc" stroke-width="4"
-              stroke-miterlimit="10" pointer-events="none"/>
-        <path class="arrow ui-command-service end-user" d="M 279.53 217 L 269.53 220.33 L 269.53 213.67 Z" fill="#0066cc" stroke="#0066cc"
-              stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
 
-        <path class="arrow ui-query-service end-user" d="M 176.21 713.76 L 270.53 713.1" fill="none" stroke="#82b366" stroke-width="4"
-              stroke-miterlimit="10" pointer-events="none"/>
-        <path class="arrow ui-query-service end-user" d="M 280.53 713.03 L 270.55 716.43 L 270.51 709.77 Z" fill="#82b366" stroke="#82b366"
-              stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+        <g class="g-arrow ui-command-service" pointer-events="all">
+            <path class="arrow ui-command-service end-user" d="M 175.86 217 L 269.53 217"
+                  fill="none" stroke="#0066cc" stroke-width="4"
+                  stroke-miterlimit="10" pointer-events="all"/>
+            <path class="arrow ui-command-service end-user"
+                  d="M 279.53 217 L 269.53 220.33 L 269.53 213.67 Z" fill="#0066cc" stroke="#0066cc"
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+            <g transform="translate(187.5,196.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="72"
+                                   height="14"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml"
+                             class="arrow-caption ui-command-service end-user"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                Commands
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="36" y="14" fill="#0066CC" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">Commands
+                    </text>
+                </switch>
+            </g>
+        </g>
 
-        <path class="arrow query-service-ui end-user" d="M 286 766 L 191.47 766" fill="none" stroke="#82b366" stroke-width="4"
-              stroke-miterlimit="10" pointer-events="none"/>
-        <path class="arrow query-service-ui end-user" d="M 181.47 766 L 191.47 762.67 L 191.47 769.33 Z" fill="#82b366" stroke="#82b366"
-              stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+        <g class="g-arrow ui-query-service" pointer-events="all">
+            <path class="arrow ui-query-service end-user" d="M 176.21 713.76 L 270.53 713.1"
+                  fill="none" stroke="#82b366" stroke-width="4"
+                  stroke-miterlimit="10" pointer-events="none"/>
+            <path class="arrow ui-query-service end-user"
+                  d="M 280.53 713.03 L 270.55 716.43 L 270.51 709.77 Z" fill="#82b366"
+                  stroke="#82b366"
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+            <g transform="translate(202.5,692.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="50"
+                                   height="14"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml"
+                             class="arrow-caption ui-query-service end-user"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 50px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                <font style="font-size: 14px">Queries</font>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="25" y="14" fill="#009900" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">[Not supported by viewer]
+                    </text>
+                </switch>
+            </g>
+        </g>
 
-        <path class="arrow ui-subscription-service end-user" d="M 177 942 L 245 942 Q 255 942 262.76 942 L 270.53 942" fill="none" stroke="#82b366"
-              stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
-        <path class="arrow ui-subscription-service end-user" d="M 280.53 942 L 270.53 945.33 L 270.53 938.67 Z" fill="#82b366" stroke="#82b366"
-              stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+        <g class="g-arrow query-service-ui" pointer-events="all">
 
-        <path class="arrow subscription-service-ui end-user" d="M 286 987 L 185.24 987" fill="none" stroke="#82b366" stroke-width="2"
-              stroke-miterlimit="10" stroke-dasharray="6 6" pointer-events="none"/>
-        <path class="arrow subscription-service-ui end-user" d="M 179.24 987 L 187.24 984.33 L 185.24 987 L 187.24 989.67 Z" fill="#82b366"
-              stroke="#82b366" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+            <path class="arrow query-service-ui end-user" d="M 286 766 L 191.47 766" fill="none"
+                  stroke="#82b366" stroke-width="4"
+                  stroke-miterlimit="10" pointer-events="all"/>
+            <path class="arrow query-service-ui end-user"
+                  d="M 181.47 766 L 191.47 762.67 L 191.47 769.33 Z" fill="#82b366" stroke="#82b366"
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+            <g transform="translate(204.5,731.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="46"
+                                   height="42"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml"
+                             class="arrow-caption query-service-ui end-user"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 48px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                <p>
+                                    <font style="font-size: 14px">Results</font>
+                                </p>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="23" y="28" fill="#009900" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">[Not supported by viewer]
+                    </text>
+                </switch>
+            </g>
+        </g>
 
-        <g transform="translate(187.5,196.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="72" height="14"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption ui-command-service end-user"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap;">
+        <g class="g-arrow ui-subscription-service" pointer-events="all">
+            <path class="arrow ui-subscription-service end-user"
+                  d="M 177 942 L 245 942 Q 255 942 262.76 942 L 270.53 942" fill="none"
+                  stroke="#82b366"
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+            <path class="arrow ui-subscription-service end-user"
+                  d="M 280.53 942 L 270.53 945.33 L 270.53 938.67 Z" fill="#82b366" stroke="#82b366"
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+            <g transform="translate(194.5,907.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="63"
+                                   height="42"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Commands
+                             class="arrow-caption ui-subscription-service end-user"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 63px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                <p>
+                                    <font style="font-size: 14px">Subscribe</font>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </foreignObject>
-                <text x="36" y="14" fill="#0066CC" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">Commands
-                </text>
-            </switch>
+                    </foreignObject>
+                    <text x="32" y="28" fill="#009900" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">[Not supported by viewer]
+                    </text>
+                </switch>
+            </g>
         </g>
-        <g transform="translate(202.5,692.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="50" height="14"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption ui-query-service end-user"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 50px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
+
+        <g class="g-arrow subscription-service-ui" pointer-events="all">
+            <path class="arrow subscription-service-ui end-user" d="M 286 987 L 185.24 987"
+                  fill="none" stroke="#82b366" stroke-width="2"
+                  stroke-miterlimit="10" stroke-dasharray="6 6" pointer-events="all"/>
+            <path class="arrow subscription-service-ui end-user"
+                  d="M 179.24 987 L 187.24 984.33 L 185.24 987 L 187.24 989.67 Z" fill="#82b366"
+                  stroke="#82b366" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
+            <g transform="translate(201.5,965.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="53"
+                                   height="14"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            <font style="font-size: 14px">Queries</font>
+                             class="arrow-caption subscription-service-ui end-user"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 53px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                <font style="font-size: 14px">Updates</font>
+                            </div>
                         </div>
-                    </div>
-                </foreignObject>
-                <text x="25" y="14" fill="#009900" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
+                    </foreignObject>
+                    <text x="27" y="14" fill="#009900" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">[Not supported by viewer]
+                    </text>
+                </switch>
+            </g>
         </g>
-        <g transform="translate(204.5,731.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="46" height="42"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption query-service-ui end-user"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 48px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            <p>
-                                <font style="font-size: 14px">Results</font>
-                            </p>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="23" y="28" fill="#009900" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
-        </g>
-        <g transform="translate(194.5,907.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="63" height="42"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption ui-subscription-service end-user"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 63px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            <p>
-                                <font style="font-size: 14px">Subscribe</font>
-                            </p>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="32" y="28" fill="#009900" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
-        </g>
-        <g transform="translate(201.5,965.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="53" height="14"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption subscription-service-ui end-user"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 53px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            <font style="font-size: 14px">Updates</font>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="27" y="14" fill="#009900" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
-        </g>
+
         <g class="g-caption stand" pointer-events="all">
             <rect class="stand rect" x="460" y="639" width="53" height="423" rx="3.18" ry="3.18"
                   fill="#97d077"
@@ -819,11 +825,38 @@
         <path class="arrow stand-aggregate-mirror" d="M 517.76 832 L 527.76 828.67 L 527.76 835.33 Z" fill="#82b366" stroke="#82b366"
               stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
 
-        <path class="arrow aggregate-states" d="M 886 365.33 L 1176 365.01 Q 1186 365 1186 375 L 1186 967 Q 1186 977 1176 977.05 L 892.9 978.61"
-              fill="none" stroke="#82b366" stroke-width="2" stroke-miterlimit="10"
-              stroke-dasharray="6 6" pointer-events="none"/>
-        <path class="arrow aggregate-states" d="M 884.9 978.65 L 892.89 975.94 L 892.92 981.28 Z" fill="#82b366" stroke="#82b366"
-              stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <g class="g-arrow aggregate-states" pointer-events="all">
+            <path class="arrow aggregate-states"
+                  d="M 886 365.33 L 1176 365.01 Q 1186 365 1186 375 L 1186 967 Q 1186 977 1176 977.05 L 892.9 978.61"
+                  fill="none" stroke="#82b366" stroke-width="2" stroke-miterlimit="10"
+                  stroke-dasharray="6 6" pointer-events="all"/>
+            <path class="arrow aggregate-states"
+                  d="M 884.9 978.65 L 892.89 975.94 L 892.92 981.28 Z" fill="#82b366"
+                  stroke="#82b366"
+                  stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
+            <g transform="translate(1121.5,326.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="68"
+                                   height="30"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml"
+                             class="arrow-caption aggregate-states"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 70px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                <font style="font-size: 14px">Aggregate </font>
+                                <div>
+                                    <font style="font-size: 14px">States</font>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="34" y="22" fill="#009900" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">[Not supported by viewer]
+                    </text>
+                </switch>
+            </g>
+        </g>
 
         <path class="arrow aggregate-mirror-stand" d="M 601 987 L 524.24 987" fill="none" stroke="#82b366" stroke-width="2"
               stroke-miterlimit="10" stroke-dasharray="6 6" pointer-events="none"/>
@@ -943,10 +976,34 @@
         <path class="arrow aggregate-event-bus" d="M 934.51 574.19 L 931.21 564.19 L 937.87 564.2 Z" fill="#ff8000" stroke="#ff8000"
               stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
 
-        <path class="arrow event-bus-aggregate-repo" d="M 949.33 581.83 L 949.02 395 Q 949 385 939.74 385.05 L 930.47 385.09" fill="none"
-              stroke="#ff8000" stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
-        <path class="arrow event-bus-aggregate-repo" d="M 920.47 385.14 L 930.45 381.76 L 930.49 388.43 Z" fill="#ff8000" stroke="#ff8000"
-              stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+        <g class="g-arrow event-bus-aggregate-repo" pointer-events="all">
+            <path class="arrow event-bus-aggregate-repo"
+                  d="M 949.33 581.83 L 949.02 395 Q 949 385 939.74 385.05 L 930.47 385.09"
+                  fill="none"
+                  stroke="#ff8000" stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+            <path class="arrow event-bus-aggregate-repo"
+                  d="M 920.47 385.14 L 930.45 381.76 L 930.49 388.43 Z" fill="#ff8000"
+                  stroke="#ff8000"
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+            <g transform="translate(958.5,405.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="43"
+                                   height="14"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption event-bus-aggregate-repo"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 128, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                Events
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="22" y="14" fill="#FF8000" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">Events
+                    </text>
+                </switch>
+            </g>
+        </g>
 
         <path class="arrow aggregate-repo-aggregate-events end-user" d="M 719 391.67 L 756 391.93 Q 766 392 766.28 392.02 L 766.56 392.04" fill="none"
               stroke="#ff8000" stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
@@ -1011,27 +1068,32 @@
         <path class="arrow event-bus-pm-repo" d="M 861 554.47 L 864.33 564.47 L 857.67 564.47 Z" fill="#ff8000" stroke="#ff8000"
               stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
 
-        <path class="arrow command-service-ui end-user" d="M 286 271 L 192.47 271" fill="none" stroke="#0066cc" stroke-width="4"
-              stroke-miterlimit="10" pointer-events="none"/>
-        <path class="arrow command-service-ui end-user" d="M 182.47 271 L 192.47 267.67 L 192.47 274.33 Z" fill="#0066cc" stroke="#0066cc"
-              stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
-
-        <g transform="translate(216.5,250.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="30" height="14"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption command-service-ui end-user"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap;">
+        <g class="g-arrow command-service-ui" pointer-events="all">
+            <path class="arrow command-service-ui end-user" d="M 286 271 L 192.47 271" fill="none"
+                  stroke="#0066cc" stroke-width="4"
+                  stroke-miterlimit="10" pointer-events="all"/>
+            <path class="arrow command-service-ui end-user"
+                  d="M 182.47 271 L 192.47 267.67 L 192.47 274.33 Z" fill="#0066cc" stroke="#0066cc"
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+            <g transform="translate(216.5,250.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="30"
+                                   height="14"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Acks
+                             class="arrow-caption command-service-ui end-user"
+                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                Acks
+                            </div>
                         </div>
-                    </div>
-                </foreignObject>
-                <text x="15" y="14" fill="#0066CC" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">Acks
-                </text>
-            </switch>
+                    </foreignObject>
+                    <text x="15" y="14" fill="#0066CC" text-anchor="middle" font-size="14px"
+                          font-family="Helvetica">Acks
+                    </text>
+                </switch>
+            </g>
         </g>
 
         <path class="arrow command-bus-command-service" d="M 460 271 L 354.47 271" fill="none" stroke="#0066cc" stroke-width="4"

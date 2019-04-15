@@ -20,6 +20,7 @@ $(
         const boxCaptionClass = "box-caption";
         const arrowCaptionClass = "arrow-caption";
         const titleCaptionClass = "title-caption";
+        const arrowClass = "arrow";
 
         /**
          * CSS classes of the HTML elements on the page.
@@ -30,15 +31,17 @@ $(
 
         let useFacingLink = $("#display-user-facing-components");
         let allComponentLink = $("#display-all-components");
-        let selectedRectFill = "#8d28e0";
+        let selectedElementColor = "#8d28e0";
         let selectedCaptionColor = "#fafafa";
 
         const originColorAttr = "origin-color";
         const originFillAttr = "origin-fill";
+        const originStrokeAttr = "origin-stroke";
 
         const colorProp = "color";
         const fillAttr = "fill";
         const opacityAttr = "opacity";
+        const strokeAttr = "stroke";
         const fillOpacityAttr = "fill-opacity";
         const strokeOpacityAttr = "stroke-opacity";
 
@@ -66,11 +69,8 @@ $(
                 }
                 if (rectTag === elementName || pathTag === elementName) {
                     item.attr(originFillAttr, item.attr(fillAttr));
+                    item.attr(originStrokeAttr, item.attr(strokeAttr))
                 }
-
-                item.mouseenter(function() {
-                    console.log($(this)[0].nodeName);
-                })
             }
         }
 
@@ -164,7 +164,20 @@ $(
                 .attr("pointer-events", "all")
                 .mouseover(function () {
                     let matched = $(selector);
-                    matched.attr(fillAttr, selectedRectFill).css(colorProp, selectedCaptionColor)
+
+                    for (let index = 0; index < matched.length; index++) {
+                        const item = $(matched[index]);
+                        const elementName = item[0].nodeName.toLowerCase();
+                        if (divTag === elementName) {
+                            item.css(colorProp, selectedCaptionColor);
+                        }
+                        if (rectTag === elementName || pathTag === elementName) {
+                            item.attr(fillAttr, selectedElementColor);
+                        }
+                        if(hasClass(item[0], arrowClass)) {
+                            item.attr(strokeAttr, selectedElementColor);
+                        }
+                    }
                 })
                 .mouseout(function () {
                     let matched = $(selector);
@@ -179,12 +192,56 @@ $(
                             let originFillValue = item.attr(originFillAttr);
                             item.attr(fillAttr, originFillValue);
                         }
+
+                        if(hasClass(item[0], arrowClass)) {
+                            let originStrokeValue = item.attr(originStrokeAttr);
+                            item.attr(strokeAttr, originStrokeValue);
+                        }
                     }
 
                 })
                 .click(function () {
                     document.location.href = url;
                 });
+
+
+            $(".g-arrow" + selector)
+                .css("cursor", "pointer")
+                .attr("pointer-events", "all")
+                .mouseover(function () {
+                    let matched = $(selector);
+
+                    for (let index = 0; index < matched.length; index++) {
+                        const item = $(matched[index]);
+                        const elementName = item[0].nodeName.toLowerCase();
+                        if (divTag === elementName) {
+                            item.css(colorProp, selectedElementColor);
+                        }
+                        if(hasClass(item[0], arrowClass)) {
+                            item.attr(strokeAttr, selectedElementColor);
+                        }
+                    }
+                })
+                .mouseout(function () {
+                    let matched = $(selector);
+                    for (let index = 0; index < matched.length; index++) {
+                        const item = $(matched[index]);
+                        const elementName = item[0].nodeName.toLowerCase();
+                        if (divTag === elementName) {
+                            let originColorValue = item.attr(originColorAttr);
+                            item.css(colorProp, originColorValue);
+                        }
+                        if(hasClass(item[0], arrowClass)) {
+                            let originStrokeValue = item.attr(originStrokeAttr);
+                            item.attr(strokeAttr, originStrokeValue);
+                        }
+                    }
+
+                })
+                .click(function () {
+                    document.location.href = url;
+                });
+
         }
 
         /**
@@ -210,6 +267,8 @@ $(
         displayAll();
 
         // Link items to the corresponding pages.
+
+        // Boxes:
         makeClickable(".aggregate", "./aggregate.html");
         makeClickable(".bounded-context", "./bounded-context.html");
         makeClickable(".pm", "./process-manager.html");
@@ -226,5 +285,12 @@ $(
         makeClickable(".query-service", "./query-service.html");
         makeClickable(".subscription-service", "./subscription-service.html");
         makeClickable(".stand", "./stand.html");
+
+        // Arrows:
+
+        makeClickable(".ui-command-service", "./command.html");
+        makeClickable(".command-service-ui", "./acknowledgement.html");
+        makeClickable(".event-bus-aggregate-repo", "./event.html");
+        makeClickable(".integration-events", "./integration-event.html");
     }
 );
