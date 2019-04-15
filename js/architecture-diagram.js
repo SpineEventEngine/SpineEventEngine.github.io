@@ -12,10 +12,24 @@ $(
      */
     function () {
 
+        /**
+         * CSS classes used as selectors to manipulate the elements of SVG diagram.
+         */
+
         const endUserClass = "end-user";
         const boxCaptionClass = "box-caption";
         const arrowCaptionClass = "arrow-caption";
         const titleCaptionClass = "title-caption";
+
+        /**
+         * CSS classes of the HTML elements on the page.
+         * @type {string}
+         */
+        let architectureLinkClass = "architecture-link";
+        let noSelectClass = "noselect";
+
+        let useFacingLink = $("#display-user-facing-components");
+        let allComponentLink = $("#display-all-components");
 
         /**
          * Changes opacity of the elements, not marked as "end-user".
@@ -26,8 +40,7 @@ $(
          * @param elementOpacity the opacity to apply "rect" and "path" elements
          */
         function fade(textOpacity, elementOpacity) {
-            var contents = $(".diagram-content").find("*");
-            console.log("Total: " + contents.length);
+            let contents = $(".diagram-content").find("*");
             for (let index = 0; index < contents.length; index++) {
                 const item = $(contents[index]);
                 if (hasClass(item[0], endUserClass)) {
@@ -64,12 +77,39 @@ $(
          * @return `true` if such a class name is declared for this element, `false` otherwise.
          */
         function hasClass(element, className) {
-            for(var classIndex = 0; classIndex < element.classList.length; classIndex++) {
-                if(className === element.classList[classIndex]) {
+            for (let classIndex = 0; classIndex < element.classList.length; classIndex++) {
+                if (className === element.classList[classIndex]) {
                     return true;
                 }
             }
             return false;
+        }
+
+        /**
+         * Adds a link behavior to an element.
+         *
+         * @param linkElement the jQuery object wrapping the DOM element
+         * @param onClickCallback the callback to set upon 'click' event
+         */
+        function enableLink(linkElement, onClickCallback) {
+            linkElement
+                .addClass(architectureLinkClass)
+                .addClass(noSelectClass)
+                .click(function () {
+                    onClickCallback()
+                });
+        }
+
+        /**
+         * Disables a link behaviour of an element.
+         *
+         * @param linkElement the jQuery object wrapping the DOM element
+         */
+        function disableLink(linkElement) {
+            linkElement
+                .removeClass(architectureLinkClass)
+                .removeClass(noSelectClass)
+                .unbind("click");
         }
 
         /**
@@ -88,6 +128,8 @@ $(
                 items: ".aggregate",
                 content: "Aggregate description goes here."
             });
+            enableLink(allComponentLink, displayAll);
+            disableLink(useFacingLink);
         }
 
         /**
@@ -98,10 +140,10 @@ $(
         function displayAll() {
             fade("1", "1");
 
-            $(document).tooltip('disable');
+            enableLink(useFacingLink, displayUserFacing);
+            disableLink(allComponentLink);
         }
 
-        $("#display-user-facing-components").click(function() {displayUserFacing()});
-        $("#display-all-components").click(function() {displayAll()});
+        displayAll();
     }
 );

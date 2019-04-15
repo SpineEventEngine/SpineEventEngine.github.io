@@ -11,7 +11,7 @@ sidenav: doc-side-concepts-nav.html
 This section introduces key concepts of Spine framework and its parts, helps you get a deeper understanding of how it works and provides some usage notes. 
 <p class="note">We assume that you are familiar with the basics of Domain-Driven Design.</p> 
 
-Below is an overall view of <span class="architecture-link noselect" id="display-all-components">all Spine server components</span> and their relations. When developing with Spine, you will be interacting with <span class="architecture-link noselect" id="display-user-facing-components">some of them</span>.
+Below is an overall view of <span id="display-all-components">all Spine server components</span> and their relations. When developing with Spine, you will be interacting with <span id="display-user-facing-components">some of them</span>.
 
 <script src="/js/architecture-diagram.js" type="text/javascript" charset="utf-8"></script>
 
