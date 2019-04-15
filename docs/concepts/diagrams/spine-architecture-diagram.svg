@@ -216,10 +216,10 @@
         <g class="g-arrow integration-events">
             <path class="arrow integration-events" d="M 1279 86 L 1280.49 75.57 L 1286.45 78.55 Z"
                   fill="#0066cc" stroke="#0066cc"
-                  stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <path class="arrow integration-events"
                   d="M 1328.04 130.08 L 1335.63 122.77 L 1338.5 128.79 Z" fill="#0066cc"
-                  stroke="#0066cc" stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+                  stroke="#0066cc" stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(1295.5,65.5)">
                 <switch>
                     <foreignObject style="overflow:visible;" pointer-events="all" width="66"
@@ -349,11 +349,11 @@
         <g class="g-arrow ui-query-service" pointer-events="all">
             <path class="arrow ui-query-service end-user" d="M 176.21 713.76 L 270.53 713.1"
                   fill="none" stroke="#82b366" stroke-width="4"
-                  stroke-miterlimit="10" pointer-events="none"/>
+                  stroke-miterlimit="10" pointer-events="all"/>
             <path class="arrow ui-query-service end-user"
                   d="M 280.53 713.03 L 270.55 716.43 L 270.51 709.77 Z" fill="#82b366"
                   stroke="#82b366"
-                  stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
+                  stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(202.5,692.5)">
                 <switch>
                     <foreignObject style="overflow:visible;" pointer-events="all" width="50"
@@ -383,19 +383,17 @@
             <path class="arrow query-service-ui end-user"
                   d="M 181.47 766 L 191.47 762.67 L 191.47 769.33 Z" fill="#82b366" stroke="#82b366"
                   stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
-            <g transform="translate(204.5,731.5)">
+            <g transform="translate(204.5,742)">
                 <switch>
                     <foreignObject style="overflow:visible;" pointer-events="all" width="46"
-                                   height="42"
+                                   height="14"
                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml"
                              class="arrow-caption query-service-ui end-user"
                              style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 48px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
                             <div xmlns="http://www.w3.org/1999/xhtml"
                                  style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <p>
-                                    <font style="font-size: 14px">Results</font>
-                                </p>
+                                <font style="font-size: 14px">Results</font>
                             </div>
                         </div>
                     </foreignObject>
@@ -414,7 +412,7 @@
             <path class="arrow ui-subscription-service end-user"
                   d="M 280.53 942 L 270.53 945.33 L 270.53 938.67 Z" fill="#82b366" stroke="#82b366"
                   stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
-            <g transform="translate(194.5,907.5)">
+            <g transform="translate(194.5,918)">
                 <switch>
                     <foreignObject style="overflow:visible;" pointer-events="all" width="63"
                                    height="42"
@@ -424,9 +422,7 @@
                              style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 63px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
                             <div xmlns="http://www.w3.org/1999/xhtml"
                                  style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <p>
-                                    <font style="font-size: 14px">Subscribe</font>
-                                </p>
+                                <font style="font-size: 14px">Subscribe</font>
                             </div>
                         </div>
                     </foreignObject>
@@ -646,7 +642,7 @@
                         <div xmlns="http://www.w3.org/1999/xhtml"
                              style="display:inline-block;text-align:inherit;text-decoration:inherit;">
                             System Context
-                                <br/>
+                            <br/>
 
                         </div>
                     </div>
@@ -722,33 +718,33 @@
             </g>
         </g>
 
-    <g class="g-caption projection-repo" pointer-events="all">
-        <rect class="rect projection-repo layer-3 end-user" x="607.5" y="751.5" width="319" height="101" fill="#ffffff" stroke="#cfcfcf"
-              stroke-width="2" pointer-events="all"/>
-        <rect class="rect projection-repo layer-2 end-user" x="603" y="747.5" width="319" height="101" fill="#ffffff" stroke="#cfcfcf"
-              stroke-width="2" pointer-events="all"/>
-        <rect class="rect projection-repo layer-1 end-user" x="598.5" y="743" width="319" height="101" fill="#ffffff" stroke="#cfcfcf"
-              stroke-width="2" pointer-events="all"/>
+        <g class="g-caption projection-repo" pointer-events="all">
+            <rect class="rect projection-repo layer-3 end-user" x="607.5" y="751.5" width="319" height="101" fill="#ffffff" stroke="#cfcfcf"
+                  stroke-width="2" pointer-events="all"/>
+            <rect class="rect projection-repo layer-2 end-user" x="603" y="747.5" width="319" height="101" fill="#ffffff" stroke="#cfcfcf"
+                  stroke-width="2" pointer-events="all"/>
+            <rect class="rect projection-repo layer-1 end-user" x="598.5" y="743" width="319" height="101" fill="#ffffff" stroke="#cfcfcf"
+                  stroke-width="2" pointer-events="all"/>
 
-        <g transform="translate(620.5,777.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="77" height="36"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption projection-repo end-user"
-                         style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; vertical-align: top; width: 77px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Projection Repository
-                            <br/>
+            <g transform="translate(620.5,777.5)">
+                <switch>
+                    <foreignObject style="overflow:visible;" pointer-events="all" width="77" height="36"
+                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption projection-repo end-user"
+                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; vertical-align: top; width: 77px; white-space: normal; overflow-wrap: normal; text-align: center;">
+                            <div xmlns="http://www.w3.org/1999/xhtml"
+                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+                                Projection Repository
+                                <br/>
+                            </div>
                         </div>
-                    </div>
-                </foreignObject>
-                <text x="39" y="26" fill="#808080" text-anchor="middle" font-size="16px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
+                    </foreignObject>
+                    <text x="39" y="26" fill="#808080" text-anchor="middle" font-size="16px"
+                          font-family="Helvetica">[Not supported by viewer]
+                    </text>
+                </switch>
+            </g>
         </g>
-    </g>
 
         <path class="arrow stand-projection-repo" d="M 524.97 794 L 581.53 794" fill="none" stroke="#82b366" stroke-width="4"
               stroke-miterlimit="10" pointer-events="none"/>
@@ -907,7 +903,7 @@
                         <div xmlns="http://www.w3.org/1999/xhtml"
                              style="display:inline-block;text-align:inherit;text-decoration:inherit;">
                             Write-side
-                                <br style="font-size: 20px"/>
+                            <br style="font-size: 20px"/>
 
                         </div>
                     </div>
@@ -926,7 +922,7 @@
                         <div xmlns="http://www.w3.org/1999/xhtml"
                              style="display:inline-block;text-align:inherit;text-decoration:inherit;">
                             Read-side
-                                <br style="font-size: 20px"/>
+                            <br style="font-size: 20px"/>
 
                         </div>
                     </div>
