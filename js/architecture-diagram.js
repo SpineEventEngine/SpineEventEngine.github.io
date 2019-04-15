@@ -30,6 +30,50 @@ $(
 
         let useFacingLink = $("#display-user-facing-components");
         let allComponentLink = $("#display-all-components");
+        let selectedRectFill = "#8d28e0";
+        let selectedCaptionColor = "#fafafa";
+
+        const originColorAttr = "origin-color";
+        const originFillAttr = "origin-fill";
+
+        const colorProp = "color";
+        const fillAttr = "fill";
+        const opacityAttr = "opacity";
+        const fillOpacityAttr = "fill-opacity";
+        const strokeOpacityAttr = "stroke-opacity";
+
+        const divTag = "div";
+        const rectTag = "rect";
+        const pathTag = "path";
+
+        function setupLookAndFeel() {
+
+            // Back up the original fill color and color of elements to use in `mouseleave` later.
+            let contents = $(".diagram-content").find("*");
+            for (let index = 0; index < contents.length; index++) {
+                const item = $(contents[index]);
+                const elementName = item[0].nodeName.toLowerCase();
+                if (divTag === elementName) {
+
+                    if (item.hasClass(boxCaptionClass)
+                        || item.hasClass(arrowCaptionClass)
+                        || item.hasClass(titleCaptionClass)) {
+                        item.attr(originColorAttr, item.css(colorProp));
+
+                        // Make all DIVs non-selectable.
+                        item.addClass(noSelectClass);
+                    }
+                }
+                if (rectTag === elementName || pathTag === elementName) {
+                    item.attr(originFillAttr, item.attr(fillAttr));
+                }
+
+                item.mouseenter(function() {
+                    console.log($(this)[0].nodeName);
+                })
+            }
+        }
+
 
         /**
          * Changes opacity of the elements, not marked as "end-user".
@@ -47,21 +91,24 @@ $(
                     continue;
                 }
                 const elementName = item[0].nodeName.toLowerCase();
-                if ("div" === elementName) {
+
+                if (divTag === elementName) {
 
                     if (item.hasClass(boxCaptionClass)
                         || item.hasClass(arrowCaptionClass)
                         || item.hasClass(titleCaptionClass)) {
 
-                        item.css("opacity", textOpacity);
+
+                        item.css(opacityAttr, textOpacity);
                     }
                 }
-                if ("rect" === elementName) {
-                    item.attr("fill-opacity", elementOpacity);
+                if (rectTag === elementName) {
+                    item.attr(fillOpacityAttr, elementOpacity);
                 }
-                if ("path" === elementName) {
-                    item.attr("fill-opacity", elementOpacity);
-                    item.attr("stroke-opacity", elementOpacity);
+                if (pathTag === elementName) {
+                    item.attr(fillOpacityAttr, elementOpacity);
+
+                    item.attr(strokeOpacityAttr, elementOpacity);
                 }
             }
         }
@@ -94,7 +141,6 @@ $(
         function enableLink(linkElement, onClickCallback) {
             linkElement
                 .addClass(architectureLinkClass)
-                .addClass(noSelectClass)
                 .click(function () {
                     onClickCallback()
                 });
@@ -108,34 +154,50 @@ $(
         function disableLink(linkElement) {
             linkElement
                 .removeClass(architectureLinkClass)
-                .removeClass(noSelectClass)
                 .unbind("click");
+        }
+
+        function makeClickable(selector, url) {
+
+            $(".g-caption" + selector)
+                .css("cursor", "pointer")
+                .attr("pointer-events", "all")
+                .mouseover(function () {
+                    let matched = $(selector);
+                    matched.attr(fillAttr, selectedRectFill).css(colorProp, selectedCaptionColor)
+                })
+                .mouseout(function () {
+                    let matched = $(selector);
+                    for (let index = 0; index < matched.length; index++) {
+                        const item = $(matched[index]);
+                        const elementName = item[0].nodeName.toLowerCase();
+                        if (divTag === elementName) {
+                            let originColorValue = item.attr(originColorAttr);
+                            item.css(colorProp, originColorValue);
+                        }
+                        if (rectTag === elementName || pathTag === elementName) {
+                            let originFillValue = item.attr(originFillAttr);
+                            item.attr(fillAttr, originFillValue);
+                        }
+                    }
+
+                })
+                .click(function () {
+                    document.location.href = url;
+                });
         }
 
         /**
          * Displays the user-facing components and fades out the rest.
-         *
-         * Enables the tooltip mode.
          */
         function displayUserFacing() {
             fade("0.5", "0.3");
-
-            // Enable a tooltip for `Aggregate`
-            $(".aggregate")
-                .css("cursor", "pointer")
-                .attr("pointer-events", "all");
-            $(document).tooltip({
-                items: ".aggregate",
-                content: "Aggregate description goes here."
-            });
             enableLink(allComponentLink, displayAll);
             disableLink(useFacingLink);
         }
 
         /**
          * Displays all the Spine components and removes the fading.
-         *
-         * Disables the tooltip mode.
          */
         function displayAll() {
             fade("1", "1");
@@ -144,6 +206,25 @@ $(
             disableLink(allComponentLink);
         }
 
+        setupLookAndFeel();
         displayAll();
+
+        // Link items to the corresponding pages.
+        makeClickable(".aggregate", "./aggregate.html");
+        makeClickable(".bounded-context", "./bounded-context.html");
+        makeClickable(".pm", "./process-manager.html");
+        makeClickable(".projection", "./projection.html");
+        makeClickable(".aggregate-repo", "./repository.html");
+        makeClickable(".pm-repo", "./repository.html");
+        makeClickable(".projection-repo", "./repository.html");
+        makeClickable(".command-bus", "./command-bus.html");
+        makeClickable(".event-bus", "./event-bus.html");
+        makeClickable(".aggregate-mirror", "./aggregate-mirror.html");
+        makeClickable(".command-store", "./command-store.html");
+        makeClickable(".event-store", "./event-store.html");
+        makeClickable(".command-service", "./command-service.html");
+        makeClickable(".query-service", "./query-service.html");
+        makeClickable(".subscription-service", "./subscription-service.html");
+        makeClickable(".stand", "./stand.html");
     }
 );
