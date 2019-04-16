@@ -95,7 +95,7 @@ $(
                         || hasClass(item, arrowCaptionClass)
                         || hasClass(item, titleCaptionClass)) {
 
-                        item.attr(fillOpacityAttr, elementOpacity);
+                        item.attr(fillOpacityAttr, textOpacity);
                     }
                 }
                 if (rectTag === elementName) {
@@ -243,7 +243,7 @@ $(
          * Displays the user-facing components and fades out the rest.
          */
         function displayUserFacing() {
-            fade("0.5", "0.3");
+            fade("0.65", "0.3");
             enableLink(allComponentLink, displayAll);
             disableLink(useFacingLink);
         }
