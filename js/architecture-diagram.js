@@ -45,7 +45,7 @@ $(
         const fillOpacityAttr = "fill-opacity";
         const strokeOpacityAttr = "stroke-opacity";
 
-        const divTag = "div";
+        const textTag = "text";
         const rectTag = "rect";
         const pathTag = "path";
 
@@ -56,14 +56,14 @@ $(
             for (let index = 0; index < contents.length; index++) {
                 const item = $(contents[index]);
                 const elementName = item[0].nodeName.toLowerCase();
-                if (divTag === elementName) {
+                if (textTag === elementName) {
 
-                    if (item.hasClass(boxCaptionClass)
-                        || item.hasClass(arrowCaptionClass)
-                        || item.hasClass(titleCaptionClass)) {
-                        item.attr(originColorAttr, item.css(colorProp));
+                    if (hasClass(item, boxCaptionClass)
+                        || hasClass(item, arrowCaptionClass)
+                        || hasClass(item, titleCaptionClass)) {
+                        item.attr(originFillAttr, item.attr(fillAttr));
 
-                        // Make all DIVs non-selectable.
+                        // Make all TEXTs non-selectable.
                         item.addClass(noSelectClass);
                     }
                 }
@@ -87,19 +87,18 @@ $(
             let contents = $(".diagram-content").find("*");
             for (let index = 0; index < contents.length; index++) {
                 const item = $(contents[index]);
-                if (hasClass(item[0], endUserClass)) {
+                if (hasClass(item, endUserClass)) {
                     continue;
                 }
                 const elementName = item[0].nodeName.toLowerCase();
 
-                if (divTag === elementName) {
+                if (textTag === elementName) {
 
-                    if (item.hasClass(boxCaptionClass)
-                        || item.hasClass(arrowCaptionClass)
-                        || item.hasClass(titleCaptionClass)) {
+                    if (hasClass(item, boxCaptionClass)
+                        || hasClass(item, arrowCaptionClass)
+                        || hasClass(item, titleCaptionClass)) {
 
-
-                        item.css(opacityAttr, textOpacity);
+                        item.attr(fillOpacityAttr, elementOpacity);
                     }
                 }
                 if (rectTag === elementName) {
@@ -124,8 +123,9 @@ $(
          * @return `true` if such a class name is declared for this element, `false` otherwise.
          */
         function hasClass(element, className) {
-            for (let classIndex = 0; classIndex < element.classList.length; classIndex++) {
-                if (className === element.classList[classIndex]) {
+            const firstChild = element[0];
+            for (let classIndex = 0; classIndex < firstChild.classList.length; classIndex++) {
+                if (className === firstChild.classList[classIndex]) {
                     return true;
                 }
             }
@@ -168,13 +168,13 @@ $(
                     for (let index = 0; index < matched.length; index++) {
                         const item = $(matched[index]);
                         const elementName = item[0].nodeName.toLowerCase();
-                        if (divTag === elementName) {
-                            item.css(colorProp, selectedCaptionColor);
+                        if(textTag === elementName) {
+                            item.attr(fillAttr, selectedCaptionColor);
                         }
                         if (rectTag === elementName || pathTag === elementName) {
                             item.attr(fillAttr, selectedElementColor);
                         }
-                        if(hasClass(item[0], arrowClass)) {
+                        if(hasClass(item, arrowClass)) {
                             item.attr(strokeAttr, selectedElementColor);
                         }
                     }
@@ -184,16 +184,14 @@ $(
                     for (let index = 0; index < matched.length; index++) {
                         const item = $(matched[index]);
                         const elementName = item[0].nodeName.toLowerCase();
-                        if (divTag === elementName) {
-                            let originColorValue = item.attr(originColorAttr);
-                            item.css(colorProp, originColorValue);
-                        }
-                        if (rectTag === elementName || pathTag === elementName) {
+                        if (textTag === elementName
+                            || rectTag === elementName
+                            || pathTag === elementName) {
                             let originFillValue = item.attr(originFillAttr);
                             item.attr(fillAttr, originFillValue);
                         }
 
-                        if(hasClass(item[0], arrowClass)) {
+                        if(hasClass(item, arrowClass)) {
                             let originStrokeValue = item.attr(originStrokeAttr);
                             item.attr(strokeAttr, originStrokeValue);
                         }
@@ -214,10 +212,10 @@ $(
                     for (let index = 0; index < matched.length; index++) {
                         const item = $(matched[index]);
                         const elementName = item[0].nodeName.toLowerCase();
-                        if (divTag === elementName) {
-                            item.css(colorProp, selectedElementColor);
+                        if (textTag === elementName) {
+                            item.attr(fillAttr, selectedElementColor);
                         }
-                        if(hasClass(item[0], arrowClass)) {
+                        if(hasClass(item, arrowClass)) {
                             item.attr(strokeAttr, selectedElementColor);
                         }
                     }
@@ -227,11 +225,11 @@ $(
                     for (let index = 0; index < matched.length; index++) {
                         const item = $(matched[index]);
                         const elementName = item[0].nodeName.toLowerCase();
-                        if (divTag === elementName) {
-                            let originColorValue = item.attr(originColorAttr);
-                            item.css(colorProp, originColorValue);
+                        if (textTag === elementName) {
+                            let originFillValue = item.attr(originFillAttr);
+                            item.attr(fillAttr, originFillValue);
                         }
-                        if(hasClass(item[0], arrowClass)) {
+                        if(hasClass(item, arrowClass)) {
                             let originStrokeValue = item.attr(originStrokeAttr);
                             item.attr(strokeAttr, originStrokeValue);
                         }

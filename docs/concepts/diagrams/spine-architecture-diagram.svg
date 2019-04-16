@@ -96,27 +96,11 @@
             <rect class="bounded-context rect layer-1 end-user" x="410" y="92" width="883"
                   height="987" fill="#ffffff" stroke="#cfcfcf"
                   stroke-width="2" pointer-events="none"/>
-            <g transform="translate(749.5,108.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="200"
-                                   height="29"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="box-caption bounded-context end-user"
-                             style="display: inline-block; font-size: 26px; font-family: Helvetica; color: rgb(102, 102, 102); line-height: 1.2; vertical-align: top; width: 202px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <div align="left">
-                                    <span>Bounded Context</span>
-                                    <br/>
-                                </div>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="100" y="28" fill="#666666" text-anchor="middle" font-size="26px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+            <g transform="translate(749.5,106)">
+                <text x="100" y="28" fill="#666666" text-anchor="middle" font-size="26px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption bounded-context end-user">
+                    Bounded Context
+                </text>
             </g>
         </g>
 
@@ -125,23 +109,10 @@
                   ry="3.18" fill="#3399ff"
                   stroke="none" pointer-events="all"/>
             <g transform="translate(403.5,346.5)rotate(-90,82.5,14)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="165"
-                                   height="28"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption command-bus"
-                             style="display: inline-block; font-size: 25px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 167px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Command Bus
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="83" y="27" fill="#FFFFFF" text-anchor="middle" font-size="25px"
-                          font-family="Helvetica">Command Bus&lt;br&gt;
-                    </text>
-                </switch>
+                <text x="83" y="25" fill="#FFFFFF" text-anchor="middle" font-size="25px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption command-bus">
+                    Command Bus
+                </text>
             </g>
         </g>
 
@@ -149,61 +120,22 @@
         <rect class="ui rect end-user" x="121" y="92" width="56" height="1010" rx="3.36" ry="3.36" fill="#cda2be"
               stroke="none" pointer-events="none"/>
         <g transform="translate(69.5,582.5)rotate(-90,79,14)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="158"
-                               height="28"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption ui end-user"
-                         style="display: inline-block; font-size: 25px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 158px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            User Interface
-                            <br/>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="79" y="27" fill="#FFFFFF" text-anchor="middle" font-size="25px"
-                      font-family="Helvetica">User Interface&lt;br&gt;
-                </text>
-            </switch>
+            <text x="79" y="27" fill="#FFFFFF" text-anchor="middle" font-size="25px" pointer-events="all"
+                  font-family="Helvetica" class="box-caption ui end-user">
+                User Interface
+            </text>
         </g>
         <g transform="translate(32.5,16.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="263"
-                               height="36"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="title-caption"
-                         style="display: inline-block; font-size: 32px; font-family: Helvetica; color: rgb(186, 186, 186); line-height: 1.2; vertical-align: top; white-space: nowrap;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Client Applications
-                            <br/>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="132" y="34" fill="#BABABA" text-anchor="middle" font-size="32px"
-                      font-family="Helvetica">Client Applications&lt;br&gt;
-                </text>
-            </switch>
+            <text x="132" y="34" fill="#BABABA" text-anchor="middle" font-size="32px" pointer-events="all"
+                  font-family="Helvetica" class="title-caption">
+                Client Applications
+            </text>
         </g>
         <g transform="translate(728.5,16.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="249"
-                               height="36"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="title-caption"
-                         style="display: inline-block; font-size: 32px; font-family: Helvetica; color: rgb(186, 186, 186); line-height: 1.2; vertical-align: top; white-space: nowrap;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Cloud Application
-                            <br/>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="125" y="34" fill="#BABABA" text-anchor="middle" font-size="32px"
-                      font-family="Helvetica">Cloud Application&lt;br&gt;
-                </text>
-            </switch>
+            <text x="125" y="34" fill="#BABABA" text-anchor="middle" font-size="32px" pointer-events="all"
+                  font-family="Helvetica" class="title-caption">
+                Cloud Application
+            </text>
         </g>
         <path class="arrow command-dispatcher-pm-repo" d="M 555 375 L 555.93 466 Q 556 476 566 475.83 L 581.53 475.57" fill="none"
               stroke="#0066cc" stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
@@ -220,25 +152,12 @@
             <path class="arrow integration-events"
                   d="M 1328.04 130.08 L 1335.63 122.77 L 1338.5 128.79 Z" fill="#0066cc"
                   stroke="#0066cc" stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
-            <g transform="translate(1295.5,65.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="66"
-                                   height="30"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="arrow-caption integration-events"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Integration<br/> Events
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="33" y="22" fill="#0066CC" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+            <g transform="translate(1330,80)" requiredFeatures="http://www.w3.org/Graphics/SVG/feature/1.2/#TextFlow">
+                <text fill="#0066CC" text-anchor="middle" font-size="14px" font-family="Helvetica" pointer-events="all"
+                      class="arrow-caption integration-events">
+                    <tspan x="0" >Integration</tspan>
+                    <tspan x="0" dy="1.2em">Events</tspan>
+                </text>
             </g>
         </g>
 
@@ -247,23 +166,10 @@
                   ry="3.18" fill="#3399ff"
                   stroke="none" pointer-events="all"/>
             <g transform="translate(238.5,229.5)rotate(-90,74,14)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="148"
-                                   height="28"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="box-caption command-service"
-                             style="display: inline-block; font-size: 25px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 150px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <span style="font-size: 18px">Command Service</span>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="74" y="27" fill="#ffffff" text-anchor="middle" font-size="25px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="74" y="20" fill="#ffffff" text-anchor="middle" font-size="18px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption command-service">
+                    Command Service
+                </text>
             </g>
         </g>
         <g class="g-caption query-service" pointer-events="all">
@@ -271,24 +177,10 @@
                   ry="3.18" fill="#97d077"
                   stroke="none" pointer-events="all"/>
             <g transform="translate(255.5,719.5)rotate(-90,57,14)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="114"
-                                   height="28"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption query-service"
-                             style="display: inline-block; font-size: 25px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 116px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <div>
-                                    <font style="font-size: 18px">Query Service</font>
-                                </div>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="57" y="27" fill="#FFFFFF" text-anchor="middle" font-size="25px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="57" y="20" fill="#FFFFFF" text-anchor="middle" font-size="18px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption query-service">
+                    Query Service
+                </text>
             </g>
         </g>
         <g class="g-caption subscription-service" pointer-events="all">
@@ -296,25 +188,10 @@
                   rx="3.18" ry="3.18" fill="#97d077"
                   stroke="none" pointer-events="all"/>
             <g transform="translate(230.5,952.5)rotate(-90,82,14)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="164"
-                                   height="28"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="box-caption subscription-service"
-                             style="display: inline-block; font-size: 25px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 166px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <div>
-                                    <font style="font-size: 18px">Subscription Service</font>
-                                </div>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="82" y="27" fill="#FFFFFF" text-anchor="middle" font-size="25px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="82" y="20" fill="#FFFFFF" text-anchor="middle" font-size="18px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption subscription-service">
+                    Subscription Service
+                </text>
             </g>
         </g>
 
@@ -326,23 +203,10 @@
                   d="M 279.53 217 L 269.53 220.33 L 269.53 213.67 Z" fill="#0066cc" stroke="#0066cc"
                   stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(187.5,196.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="72"
-                                   height="14"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="arrow-caption ui-command-service end-user"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Commands
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="36" y="14" fill="#0066CC" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">Commands
-                    </text>
-                </switch>
+                <text x="36" y="14" fill="#0066CC" text-anchor="middle" font-size="14px" pointer-events="all"
+                      font-family="Helvetica" class="arrow-caption ui-command-service end-user">
+                    Commands
+                </text>
             </g>
         </g>
 
@@ -355,23 +219,10 @@
                   stroke="#82b366"
                   stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(202.5,692.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="50"
-                                   height="14"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="arrow-caption ui-query-service end-user"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 50px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <font style="font-size: 14px">Queries</font>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="25" y="14" fill="#009900" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="25" y="14" fill="#009900" text-anchor="middle" font-size="14px" pointer-events="all"
+                      font-family="Helvetica" class="arrow-caption ui-query-service end-user">
+                    Queries
+                </text>
             </g>
         </g>
 
@@ -384,23 +235,10 @@
                   d="M 181.47 766 L 191.47 762.67 L 191.47 769.33 Z" fill="#82b366" stroke="#82b366"
                   stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(204.5,742)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="46"
-                                   height="14"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="arrow-caption query-service-ui end-user"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 48px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <font style="font-size: 14px">Results</font>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="23" y="28" fill="#009900" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="23" y="16" fill="#009900" text-anchor="middle" font-size="14px" pointer-events="all"
+                      font-family="Helvetica" class="arrow-caption query-service-ui end-user">
+                    Results
+                </text>
             </g>
         </g>
 
@@ -413,23 +251,10 @@
                   d="M 280.53 942 L 270.53 945.33 L 270.53 938.67 Z" fill="#82b366" stroke="#82b366"
                   stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(194.5,918)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="63"
-                                   height="42"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="arrow-caption ui-subscription-service end-user"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 63px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <font style="font-size: 14px">Subscribe</font>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="32" y="28" fill="#009900" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="32" y="16" fill="#009900" text-anchor="middle" font-size="14px" pointer-events="all"
+                      font-family="Helvetica" class="arrow-caption ui-subscription-service end-user">
+                    Subscribe
+                </text>
             </g>
         </g>
 
@@ -441,23 +266,10 @@
                   d="M 179.24 987 L 187.24 984.33 L 185.24 987 L 187.24 989.67 Z" fill="#82b366"
                   stroke="#82b366" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(201.5,965.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="53"
-                                   height="14"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="arrow-caption subscription-service-ui end-user"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 53px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <font style="font-size: 14px">Updates</font>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="27" y="14" fill="#009900" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="27" y="14" fill="#009900" text-anchor="middle" font-size="14px" pointer-events="all"
+                      font-family="Helvetica" class="arrow-caption subscription-service-ui end-user">
+                    Updates
+                </text>
             </g>
         </g>
 
@@ -466,23 +278,10 @@
                   fill="#97d077"
                   stroke="none" pointer-events="all"/>
             <g transform="translate(453.5,836.5)rotate(-90,32.5,14)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="65"
-                                   height="28"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption stand"
-                             style="display: inline-block; font-size: 25px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 67px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Stand
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="33" y="27" fill="#FFFFFF" text-anchor="middle" font-size="25px"
-                          font-family="Helvetica">Stand&lt;br&gt;
-                    </text>
-                </switch>
+                <text x="33" y="25" fill="#FFFFFF" text-anchor="middle" font-size="25px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption stand">
+                    Stand
+                </text>
             </g>
         </g>
         <path class="arrow query-service-stand" d="M 339 713.76 L 443.53 713.76" fill="none" stroke="#82b366" stroke-width="4"
@@ -532,46 +331,22 @@
                   fill="none" stroke="#ffffff"
                   stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
 
-            <g transform="translate(798.5,237.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="73"
-                                   height="36"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption command-store"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 75px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Command<br/> Store
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="37" y="26" fill="#FFFFFF" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+            <g transform="translate(839,255)">
+                <text x="0" y="0" fill="#FFFFFF" text-anchor="middle" font-size="16px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption command-store">
+                    <tspan x="0">Command</tspan>
+                    <tspan x="0" dy="1.2em">Store</tspan>
+                </text>
             </g>
         </g>
         <rect class="rect command-dispatcher" x="596.5" y="206.5" width="140" height="75" fill="#3399ff" stroke="none"
               pointer-events="none"/>
-        <g transform="translate(597.5,225.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="138"
-                               height="36"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption command-dispatcher"
-                         style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 138px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Command Dispatcher
-                            <br/>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="69" y="26" fill="#FFFFFF" text-anchor="middle" font-size="16px"
-                      font-family="Helvetica">Command Dispatcher&lt;br&gt;
-                </text>
-            </switch>
+        <g transform="translate(670,240)">
+            <text x="0" y="0" fill="#FFFFFF" text-anchor="middle" font-size="16px" pointer-events="all"
+                  font-family="Helvetica" class="box-caption command-dispatcher">
+                <tspan x="2">Command</tspan>
+                <tspan x="0" dy="1.2em">Dispatcher</tspan>
+            </text>
         </g>
         <path class="arrow command-dispatcher-command-store" d="M 736.43 243 L 769.96 243" fill="none" stroke="#0066cc" stroke-width="4"
               stroke-miterlimit="10" pointer-events="none"/>
@@ -579,24 +354,10 @@
               stroke-width="4" stroke-miterlimit="10" pointer-events="none"/>
 
         <g transform="translate(680.5,169.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="112"
-                               height="17"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption system-context-top"
-                         style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(153, 153, 153); line-height: 1.2; vertical-align: top; width: 114px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            <font style="font-size: 16px">System Context
-                                <br/>
-                            </font>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="56" y="17" fill="#999999" text-anchor="middle" font-size="16px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
+            <text x="56" y="17" fill="#999999" text-anchor="middle" font-size="16px" pointer-events="all"
+                  font-family="Helvetica" class="box-caption system-context-top">
+                System Context
+            </text>
         </g>
         <path class="arrow command-dispatcher-aggregate-repo" d="M 631.29 281.57 L 631.07 312 Q 631 322 621 322 L 565 322 Q 555 322 555 332 L 555 373 Q 555 383 565 382.93 L 579.53 382.82"
               fill="none" stroke="#0066cc" stroke-width="4" stroke-miterlimit="10"
@@ -612,45 +373,17 @@
                   fill="#97d077" stroke="none"
                   pointer-events="all"/>
             <g transform="translate(680.5,963.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="120"
-                                   height="17"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="box-caption aggregate-mirror"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 122px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Aggregate Mirror
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="60" y="17" fill="#FFFFFF" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">Aggregate Mirror&lt;br&gt;
-                    </text>
-                </switch>
+                <text x="60" y="17" fill="#FFFFFF" text-anchor="middle" font-size="16px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption aggregate-mirror">
+                    Aggregate Mirror
+                </text>
             </g>
         </g>
         <g transform="translate(684.5,900.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="112"
-                               height="17"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption system-context-bottom"
-                         style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(153, 153, 153); line-height: 1.2; vertical-align: top; width: 114px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            System Context
-                            <br/>
-
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="56" y="17" fill="#999999" text-anchor="middle" font-size="16px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
+            <text x="56" y="17" fill="#999999" text-anchor="middle" font-size="16px" pointer-events="all"
+                  font-family="Helvetica" class="box-caption system-context-bottom">
+                System Context
+            </text>
         </g>
 
         <g class="g-caption pm-repo" pointer-events="all">
@@ -664,25 +397,13 @@
                   fill="#ffffff" stroke="#cfcfcf"
                   stroke-width="2" pointer-events="all"/>
 
-            <g transform="translate(621.5,469.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="77"
-                                   height="55"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="box-caption pm-repo end-user"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; vertical-align: top; width: 77px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Process Manager Repository
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="39" y="36" fill="#808080" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+            <g transform="translate(660,484)">
+                <text x="0" y="0" fill="#808080" text-anchor="middle" font-size="16px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption pm-repo end-user">
+                    <tspan x="0">Process</tspan>
+                    <tspan x="0" dy="1.2em">Manager</tspan>
+                    <tspan x="0" dy="1.2em">Repository</tspan>
+                </text>
             </g>
         </g>
 
@@ -697,24 +418,12 @@
                   height="101" fill="#ffffff" stroke="#cfcfcf"
                   stroke-width="2" pointer-events="all"/>
 
-            <g transform="translate(620.5,364.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="77"
-                                   height="36"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="box-caption aggregate-repo end-user"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; vertical-align: top; width: 77px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Aggregate Repository
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="39" y="26" fill="#808080" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">Aggregate Repository
-                    </text>
-                </switch>
+            <g transform="translate(660,380)">
+                <text x="0" y="0" fill="#808080" text-anchor="middle" font-size="16px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption aggregate-repo end-user">
+                    <tspan x="2">Aggregate</tspan>
+                    <tspan x="0" dy="1.2em">Repository</tspan>
+                </text>
             </g>
         </g>
 
@@ -726,23 +435,12 @@
             <rect class="rect projection-repo layer-1 end-user" x="598.5" y="743" width="319" height="101" fill="#ffffff" stroke="#cfcfcf"
                   stroke-width="2" pointer-events="all"/>
 
-            <g transform="translate(620.5,777.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="77" height="36"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption projection-repo end-user"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; vertical-align: top; width: 77px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Projection Repository
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="39" y="26" fill="#808080" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+            <g transform="translate(660,790)">
+                <text x="0" y="0" fill="#808080" text-anchor="middle" font-size="16px"  pointer-events="all"
+                      font-family="Helvetica" class="box-caption projection-repo end-user">
+                    <tspan x="2">Projection</tspan>
+                    <tspan x="0" dy="1.2em">Repository</tspan>
+                </text>
             </g>
         </g>
 
@@ -778,27 +476,12 @@
                   d="M 884.9 978.65 L 892.89 975.94 L 892.92 981.28 Z" fill="#82b366"
                   stroke="#82b366"
                   stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
-            <g transform="translate(1121.5,326.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="68"
-                                   height="30"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="arrow-caption aggregate-states"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 70px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                <font style="font-size: 14px">Aggregate </font>
-                                <div>
-                                    <font style="font-size: 14px">States</font>
-                                </div>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="34" y="22" fill="#009900" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+            <g transform="translate(1145,338)">
+                <text x="0" y="0" fill="#009900" text-anchor="middle" font-size="14px" pointer-events="all"
+                      font-family="Helvetica" class="arrow-caption aggregate-states">
+                    <tspan x="2">Aggregate</tspan>
+                    <tspan x="0" dy="1.2em">States</tspan>
+                </text>
             </g>
         </g>
 
@@ -807,23 +490,10 @@
                   ry="3.18" fill="#ffb366"
                   stroke="none" transform="rotate(90,784.5,608)" pointer-events="all"/>
             <g transform="translate(727.5,593.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="113"
-                                   height="28"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption event-bus"
-                             style="display: inline-block; font-size: 25px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 115px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Event Bus
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="57" y="27" fill="#FFFFFF" text-anchor="middle" font-size="25px"
-                          font-family="Helvetica">Event Bus&lt;br&gt;
-                    </text>
-                </switch>
+                <text x="57" y="25" fill="#FFFFFF" text-anchor="middle" font-size="25px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption event-bus">
+                    Event Bus
+                </text>
             </g>
         </g>
 
@@ -836,23 +506,10 @@
                   stroke="#ffffff"
                   stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(1066.5,601.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="45"
-                                   height="36"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption event-store"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 47px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Event<br/>Store
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="23" y="26" fill="#1B96DE" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="24" y="23" fill="#FFFFFF" text-anchor="middle" font-size="16px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption event-store">
+                    Event Store
+                </text>
             </g>
         </g>
 
@@ -866,25 +523,12 @@
         <path class="arrow stand-subscription-service" d="M 341.89 987 L 349.89 984.33 L 347.89 987 L 349.89 989.67 Z" fill="#82b366"
               stroke="#82b366" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
 
-        <g transform="translate(926.5,939.5)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="68" height="30"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption aggregate-states"
-                         style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 153, 0); line-height: 1.2; vertical-align: top; width: 70px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            <font style="font-size: 14px">Aggregate </font>
-                            <div>
-                                <font style="font-size: 14px">States</font>
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="34" y="22" fill="#009900" text-anchor="middle" font-size="14px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
+        <g transform="translate(960,950)">
+            <text x="0" y="0" fill="#009900" text-anchor="middle" font-size="14px" pointer-events="all"
+                  font-family="Helvetica" class="arrow-caption aggregate-states">
+                <tspan x="2">Aggregate</tspan>
+                <tspan x="0" dy="1.2em">States</tspan>
+            </text>
         </g>
 
         <path class="path write-side brace end-user" d="M 1251 122 L 1236.25 122 Q 1226.25 122 1226.25 132 L 1226.25 347 Q 1226.25 357 1216.25 357 L 1211.13 357 Q 1206 357 1216 357 L 1221.13 357 Q 1226.25 357 1226.25 367 L 1226.25 582 Q 1226.25 592 1236.25 592 L 1251 592"
@@ -895,42 +539,16 @@
               transform="rotate(180,1228.5,837)" pointer-events="none"/>
 
         <g transform="translate(1217.5,351.5)rotate(-90,44.5,11)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="89" height="22"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption write-side end-user"
-                         style="display: inline-block; font-size: 20px; font-family: Helvetica; color: rgb(207, 207, 207); line-height: 1.2; vertical-align: top; width: 91px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Write-side
-                            <br style="font-size: 20px"/>
-
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="45" y="21" fill="#CFCFCF" text-anchor="middle" font-size="20px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
+            <text x="45" y="21" fill="#CFCFCF" text-anchor="middle" font-size="20px" pointer-events="all"
+                  font-family="Helvetica" class="arrow-caption write-side end-user">
+                Write-side
+            </text>
         </g>
         <g transform="translate(1216.5,831.5)rotate(-90,45.5,11)">
-            <switch>
-                <foreignObject style="overflow:visible;" pointer-events="all" width="91" height="22"
-                               requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption read-side end-user"
-                         style="display: inline-block; font-size: 20px; font-family: Helvetica; color: rgb(207, 207, 207); line-height: 1.2; vertical-align: top; width: 93px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                            Read-side
-                            <br style="font-size: 20px"/>
-
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="46" y="21" fill="#CFCFCF" text-anchor="middle" font-size="20px"
-                      font-family="Helvetica">[Not supported by viewer]
-                </text>
-            </switch>
+            <text x="46" y="21" fill="#CFCFCF" text-anchor="middle" font-size="20px" pointer-events="all"
+                  font-family="Helvetica" class="arrow-caption read-side end-user">
+                Read-side
+            </text>
         </g>
 
         <g class="g-caption aggregate" pointer-events="all">
@@ -944,24 +562,10 @@
                   fill="#ffff99" stroke="#cfcfcf"
                   stroke-width="2" pointer-events="all"/>
             <g transform="translate(788.5,368.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="78"
-                                   height="17"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="box-caption aggregate end-user"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; vertical-align: top; width: 80px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Aggregate
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="39" y="17" fill="#808080" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">Aggregate &lt;br&gt;
-                    </text>
-                </switch>
+                <text x="39" y="17" fill="#808080" text-anchor="middle" font-size="16px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption aggregate end-user">
+                    Aggregate
+                </text>
             </g>
         </g>
         <path class="arrow aggregate-repo-aggregate-commands end-user" d="M 719 376.67 L 756 376.93 Q 766 377 766.28 377.02 L 766.56 377.04" fill="none"
@@ -984,22 +588,10 @@
                   stroke="#ff8000"
                   stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(958.5,405.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="43"
-                                   height="14"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="arrow-caption event-bus-aggregate-repo"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 128, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Events
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="22" y="14" fill="#FF8000" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">Events
-                    </text>
-                </switch>
+                <text x="22" y="14" fill="#FF8000" text-anchor="middle" font-size="14px" pointer-events="all"
+                      font-family="Helvetica" class="arrow-caption event-bus-aggregate-repo">
+                    Events
+                </text>
             </g>
         </g>
 
@@ -1019,24 +611,12 @@
                   fill="#ccccff" stroke="#9999ff"
                   stroke-width="2" pointer-events="all"/>
 
-            <g transform="translate(783.5,475.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="88"
-                                   height="36"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="box-caption pm end-user"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; vertical-align: top; width: 88px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Process Manager
-                                <br/>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="44" y="26" fill="#808080" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">Process Manager&lt;br&gt;
-                    </text>
-                </switch>
+            <g transform="translate(830,492)">
+                <text x="0" y="0" fill="#808080" text-anchor="middle" font-size="16px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption pm end-user">
+                    <tspan x="2">Process</tspan>
+                    <tspan x="0" dy="1.2em">Manager</tspan>
+                </text>
             </g>
         </g>
 
@@ -1074,23 +654,10 @@
                   d="M 182.47 271 L 192.47 267.67 L 192.47 274.33 Z" fill="#0066cc" stroke="#0066cc"
                   stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(216.5,250.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="30"
-                                   height="14"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="arrow-caption command-service-ui end-user"
-                             style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Acks
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="15" y="14" fill="#0066CC" text-anchor="middle" font-size="14px"
-                          font-family="Helvetica">Acks
-                    </text>
-                </switch>
+                <text x="15" y="14" fill="#0066CC" text-anchor="middle" font-size="14px" pointer-events="all"
+                      font-family="Helvetica" class="arrow-caption command-service-ui end-user">
+                    Acks
+                </text>
             </g>
         </g>
 
@@ -1111,23 +678,10 @@
                   stroke-width="2" pointer-events="all"/>
 
             <g transform="translate(795.5,779.5)">
-                <switch>
-                    <foreignObject style="overflow:visible;" pointer-events="all" width="72"
-                                   height="17"
-                                   requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="box-caption projection end-user"
-                             style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; vertical-align: top; width: 72px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                            <div xmlns="http://www.w3.org/1999/xhtml"
-                                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-                                Projection
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text x="36" y="17" fill="#808080" text-anchor="middle" font-size="16px"
-                          font-family="Helvetica">[Not supported by viewer]
-                    </text>
-                </switch>
+                <text x="36" y="17" fill="#FFFFFF" text-anchor="middle" font-size="16px" pointer-events="all"
+                      font-family="Helvetica" class="box-caption projection end-user">
+                    Projection
+                </text>
             </g>
         </g>
         <path class="arrow projection-repo-projection-events end-user" d="M 719 794 L 772.53 794" fill="none" stroke="#ff8000" stroke-width="4"
