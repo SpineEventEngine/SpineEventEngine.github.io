@@ -34,13 +34,10 @@ $(
         let selectedElementColor = "#8d28e0";
         let selectedCaptionColor = "#fafafa";
 
-        const originColorAttr = "origin-color";
         const originFillAttr = "origin-fill";
         const originStrokeAttr = "origin-stroke";
 
-        const colorProp = "color";
         const fillAttr = "fill";
-        const opacityAttr = "opacity";
         const strokeAttr = "stroke";
         const fillOpacityAttr = "fill-opacity";
         const strokeOpacityAttr = "stroke-opacity";
