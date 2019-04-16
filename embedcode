@@ -1,13 +1,7 @@
 #!/bin/bash
 
 # Update the code of the examples
-cd examples/examples-java
-git fetch
-cd ../../examples/quick-start
-git fetch
-cd ../../examples/todo-list
-git fetch
-cd ../..
+git submodule foreach --recursive git fetch --all
 
 # Find all the files with the `*.md` extension using the `find` utility.
 # Instruct the `find` utility to produce zero-delimited list of files to
