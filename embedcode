@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Update the code of the examples
+git submodule foreach --recursive git fetch --all
+
+# Find all the files with the `*.md` extension using the `find` utility.
+# Instruct the `find` utility to produce zero-delimited list of files to
+# avoid file names with unusual characters are also handled.
+#
+while IFS= read -r -d '' -u 9 file
+do
+   # Print the name of the file so that we see that it was not “forgotten”.
+   printf "$file\n"
+
+  # Display changes that are expected in the Markdown code because of applying changed or new file.
+  ~/go/bin/embedmd -d "$file"
+
+  # Embed the code.
+  ~/go/bin/embedmd -w "$file"
+
+done 9< <( find . -iname '*.md' -exec printf '%s\0' {} + )
