@@ -19,5 +19,11 @@ Below is an overall view of <span id="display-all-components">all Spine server c
 
 {% include_relative diagrams/spine-architecture-diagram.svg %}
 
+<a href="#" data-toggle="modal" data-target="#openSpineArchitectureDiagram">Open full-width</a>
+
+{% capture includeGuts %}
+{% include_relative diagrams/modal-full-width.html %}
+{% endcapture %}
+{{ includeGuts | replace: '    ', ''}}
 
 

@@ -1,0 +1,69 @@
+$modal-content-padding: 32px;
+
+.modal-dialog {
+  &.modal-custom-width {
+    max-width: 640px;
+  }
+
+  &.modal-full-screen {
+    min-width: 100%;
+    height: 100vh;
+    margin: 0;
+
+    .modal-content {
+      border-radius: 0;
+      height: 100vh;
+    }
+  }
+
+  .modal-content {
+    border: none;
+    -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .06), 0 1px 2px 0 rgba(0, 0, 0, .05), 0 5px 15px 0 rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .06), 0 1px 2px 0 rgba(0, 0, 0, .05), 0 5px 15px 0 rgba(0, 0, 0, .05);
+    -o-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .06), 0 1px 2px 0 rgba(0, 0, 0, .05), 0 5px 15px 0 rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .06), 0 1px 2px 0 rgba(0, 0, 0, .05), 0 5px 15px 0 rgba(0, 0, 0, .05);
+  }
+
+  .modal-header {
+    padding: $modal-content-padding $modal-content-padding 16px;
+    border-bottom: none;
+
+    .modal-title {
+      padding: 0;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .close-btn {
+      cursor: pointer;
+      line-height: 0;
+      padding: 1rem;  // to make clickable zone bigger on 16px
+      margin: -14px -1rem -1rem auto; // -14px to align the icon with the title text
+
+      .close-icon {
+        display: inline-block;
+        width: $icon-size--s;
+        height: $icon-size--s;
+        background: url('../img/x-black.svg') no-repeat center/cover;
+        opacity: .26;
+        @include transition(all .3s ease-in-out);
+      }
+
+      &:hover {
+        .close-icon {
+          opacity: .87;
+        }
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 8px $modal-content-padding 32px;
+
+    ul {
+      li {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
