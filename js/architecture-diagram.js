@@ -264,28 +264,28 @@ $(
         // Link items to the corresponding pages.
 
         // Boxes:
-        makeClickable(".aggregate", "./aggregate.html");
-        makeClickable(".bounded-context", "./bounded-context.html");
-        makeClickable(".pm", "./process-manager.html");
-        makeClickable(".projection", "./projection.html");
-        makeClickable(".aggregate-repo", "./repository.html");
-        makeClickable(".pm-repo", "./repository.html");
-        makeClickable(".projection-repo", "./repository.html");
-        makeClickable(".command-bus", "./command-bus.html");
-        makeClickable(".event-bus", "./event-bus.html");
-        makeClickable(".aggregate-mirror", "./aggregate-mirror.html");
-        makeClickable(".command-store", "./command-store.html");
-        makeClickable(".event-store", "./event-store.html");
-        makeClickable(".command-service", "./command-service.html");
-        makeClickable(".query-service", "./query-service.html");
-        makeClickable(".subscription-service", "./subscription-service.html");
-        makeClickable(".stand", "./stand.html");
+        makeClickable(".aggregate", "/docs/concepts/aggregate.html");
+        makeClickable(".bounded-context", "/docs/concepts/bounded-context.html");
+        makeClickable(".pm", "/docs/concepts/process-manager.html");
+        makeClickable(".projection", "/docs/concepts/projection.html");
+        makeClickable(".aggregate-repo", "/docs/concepts/repository.html");
+        makeClickable(".pm-repo", "/docs/concepts/repository.html");
+        makeClickable(".projection-repo", "/docs/concepts/repository.html");
+        makeClickable(".command-bus", "/docs/concepts/command-bus.html");
+        makeClickable(".event-bus", "/docs/concepts/event-bus.html");
+        makeClickable(".aggregate-mirror", "/docs/concepts/aggregate-mirror.html");
+        makeClickable(".command-store", "/docs/concepts/command-store.html");
+        makeClickable(".event-store", "/docs/concepts/event-store.html");
+        makeClickable(".command-service", "/docs/concepts/command-service.html");
+        makeClickable(".query-service", "/docs/concepts/query-service.html");
+        makeClickable(".subscription-service", "/docs/concepts/subscription-service.html");
+        makeClickable(".stand", "/docs/concepts/stand.html");
 
         // Arrows:
 
-        makeClickable(".ui-command-service", "./command.html");
-        makeClickable(".command-service-ui", "./acknowledgement.html");
-        makeClickable(".event-bus-aggregate-repo", "./event.html");
-        makeClickable(".integration-events", "./integration-event.html");
+        makeClickable(".ui-command-service", "/docs/concepts/command.html");
+        makeClickable(".command-service-ui", "/docs/concepts/acknowledgement.html");
+        makeClickable(".event-bus-aggregate-repo", "/docs/concepts/event.html");
+        makeClickable(".integration-events", "/docs/concepts/integration-event.html");
     }
 );
