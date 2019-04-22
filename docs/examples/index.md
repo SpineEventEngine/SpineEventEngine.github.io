@@ -5,9 +5,9 @@ bodyclass: docs
 layout: docs
 type: markdown
 ---
-<p>Here are some example apps to help developers with certain aspects of the framework.
-If&nbsp;you&nbsp;want&nbsp;to see a bigger picture of a Spine-based application, have a look at
-<a target="_blank" href="https://github.com/SpineEventEngine/todo-list">ToDo List</a>.</p>
+<p>Here are some example apps to familiarize with certain aspects of the framework.
+If&nbsp;you&nbsp;want&nbsp;to see a bigger picture of a Spine-based application, have a look at our
+<a target="_blank" href="https://github.com/SpineEventEngine/todo-list">ToDo List</a> example.</p>
 
 ## Java
 <ul>
@@ -17,8 +17,8 @@ If&nbsp;you&nbsp;want&nbsp;to see a bigger picture of a Spine-based application,
 
 ## JavaScript
 
-- TBD
+<p class="coming-soon">Coming soon...</p>
 
 ## C++
 
-- TBD
+<p class="coming-soon">Coming soon...</p>
