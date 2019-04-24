@@ -34,6 +34,8 @@ $(
         let allComponentLink = $("#display-all-components");
         let selectedElementColor = "#8d28e0";
         let selectedCaptionColor = "#fafafa";
+        let selectedBodyBgColor = "#e7ecfa";
+        let selectedBodyBgCaptionColor = "#505050";
 
         const originFillAttr = "origin-fill";
         const originStrokeAttr = "origin-stroke";
@@ -214,14 +216,14 @@ $(
                         const item = $(matched[index]);
                         const elementName = item[0].nodeName.toLowerCase();
                         if(textTag === elementName) {
-                            item.attr(fillAttr, selectedRepoCaptionColor);
+                            item.attr(fillAttr, selectedBodyBgCaptionColor);
                         }
                         if (rectTag === elementName || pathTag === elementName) {
                             item.attr(pointerEvents, "none");
-                            item.attr(fillAttr, selectedRepoColor);
+                            item.attr(fillAttr, selectedBodyBgColor);
                         }
                         if(hasClass(item, arrowClass)) {
-                            item.attr(strokeAttr, selectedRepoColor);
+                            item.attr(strokeAttr, selectedBodyBgColor);
                         }
                     }
                 })
@@ -331,6 +333,7 @@ $(
         makeClickable(".stand", "/docs/concepts/stand.html");
 
         // Arrows:
+
         makeClickable(".ui-command-service", "/docs/concepts/command.html");
         makeClickable(".command-service-ui", "/docs/concepts/acknowledgement.html");
         makeClickable(".event-bus-aggregate-repo", "/docs/concepts/event.html");
