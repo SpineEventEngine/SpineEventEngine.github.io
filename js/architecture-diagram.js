@@ -243,7 +243,7 @@ $(
          * Displays the user-facing components and fades out the rest.
          */
         function displayUserFacing() {
-            fade("0.65", "0.3");
+            fade("0.65", "0.2");
             enableLink(allComponentLink, displayAll);
             disableLink(useFacingLink);
         }
