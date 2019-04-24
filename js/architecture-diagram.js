@@ -21,6 +21,7 @@ $(
         const arrowCaptionClass = "arrow-caption";
         const titleCaptionClass = "title-caption";
         const arrowClass = "arrow";
+        const pathOnlyClass = "path-only";
 
         /**
          * CSS classes of the HTML elements on the page.
@@ -41,6 +42,7 @@ $(
         const strokeAttr = "stroke";
         const fillOpacityAttr = "fill-opacity";
         const strokeOpacityAttr = "stroke-opacity";
+        const pointerEvents = "pointer-events";
 
         const textTag = "text";
         const rectTag = "rect";
@@ -174,6 +176,53 @@ $(
                         if(hasClass(item, arrowClass)) {
                             item.attr(strokeAttr, selectedElementColor);
                         }
+                        if(hasClass(item, pathOnlyClass)) {
+                            item.attr(fillAttr, "none");
+                        }
+                    }
+                })
+                .mouseout(function () {
+                    let matched = $(selector);
+                    for (let index = 0; index < matched.length; index++) {
+                        const item = $(matched[index]);
+                        const elementName = item[0].nodeName.toLowerCase();
+                        if (textTag === elementName
+                            || rectTag === elementName
+                            || pathTag === elementName) {
+                            let originFillValue = item.attr(originFillAttr);
+                            item.attr(fillAttr, originFillValue);
+                        }
+
+                        if(hasClass(item, arrowClass)) {
+                            let originStrokeValue = item.attr(originStrokeAttr);
+                            item.attr(strokeAttr, originStrokeValue);
+                        }
+                    }
+
+                })
+                .click(function () {
+                    document.location.href = url;
+                });
+
+            $(".g-caption-bounded-context" + selector)
+                .css("cursor", "pointer")
+                .attr("pointer-events", "all")
+                .mouseover(function () {
+                    let matched = $(selector);
+
+                    for (let index = 0; index < matched.length; index++) {
+                        const item = $(matched[index]);
+                        const elementName = item[0].nodeName.toLowerCase();
+                        if(textTag === elementName) {
+                            item.attr(fillAttr, selectedRepoCaptionColor);
+                        }
+                        if (rectTag === elementName || pathTag === elementName) {
+                            item.attr(pointerEvents, "none");
+                            item.attr(fillAttr, selectedRepoColor);
+                        }
+                        if(hasClass(item, arrowClass)) {
+                            item.attr(strokeAttr, selectedRepoColor);
+                        }
                     }
                 })
                 .mouseout(function () {
@@ -213,7 +262,7 @@ $(
                             item.attr(fillAttr, selectedElementColor);
                         }
                         if(hasClass(item, arrowClass)) {
-                            item.attr(strokeAttr, selectedElementColor);
+                            item.attr(fillAttr, selectedElementColor);
                         }
                     }
                 })
@@ -227,8 +276,8 @@ $(
                             item.attr(fillAttr, originFillValue);
                         }
                         if(hasClass(item, arrowClass)) {
-                            let originStrokeValue = item.attr(originStrokeAttr);
-                            item.attr(strokeAttr, originStrokeValue);
+                            let originFillValue = item.attr(originFillAttr);
+                            item.attr(fillAttr, originFillValue);
                         }
                     }
 
@@ -282,7 +331,6 @@ $(
         makeClickable(".stand", "/docs/concepts/stand.html");
 
         // Arrows:
-
         makeClickable(".ui-command-service", "/docs/concepts/command.html");
         makeClickable(".command-service-ui", "/docs/concepts/acknowledgement.html");
         makeClickable(".event-bus-aggregate-repo", "/docs/concepts/event.html");
