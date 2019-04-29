@@ -13,9 +13,9 @@ Links to smaller examples are listed below.
 
 ## Java
 <ul>
-    <li><a target="_blank" href="https://github.com/spine-examples/examples-java/tree/master/hello/">Hello World</a> — a minimal server-side app.</li>
+    <li><a target="_blank" href="https://github.com/spine-examples/examples-java/tree/master/hello-world/">Hello World</a> — a minimal server-side app.</li>
     <li><a target="_blank" href="https://github.com/spine-examples/examples-java/tree/master/blog/">Blog</a> — shows server-side functionality of a simple blog.</li>
-    <li><a target="_blank" href="https://github.com/spine-examples/examples-java/tree/master/kanban/">Kabban</a> — demonstrates how to orchestrate work of Aggregates using ProcessManagers.</li>
+    <li><a target="_blank" href="https://github.com/spine-examples/examples-java/tree/master/kanban-board/">Kabban</a> — demonstrates how to orchestrate work of Aggregates using ProcessManagers.</li>
 </ul>
 
 ## JavaScript
