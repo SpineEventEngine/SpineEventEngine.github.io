@@ -14,4 +14,4 @@ From the application point of view it consists of the following:
 3. How these events influence the state of an aggregate.
 
 [Aggregates](http://martinfowler.com/bliki/DDD_Aggregate.html) guarantee consistency of data modifications in response to commands they receive. Aggregate is the most common case of Command Handler. It modifies its state and produces one or more events in response to a command. These events are used later to restore the state of the aggregate.
-In Spine, aggregates are [defined as Java classes](/java/aggregate.md), and their states are [defined as protobuf messages](/biz-model/aggregate-states.md).
+In Spine, aggregates are <a href="https://spine.io/docs/tutorials/basic/java.html">defined as Java classes</a>, and their states are <a href="https://developers.google.com/protocol-buffers/docs/overview">defined as protobuf messages</a>.

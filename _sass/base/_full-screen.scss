@@ -1,0 +1,64 @@
+.preview-content {
+  .preview-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+
+    .preview-title {
+      padding: 0;
+    }
+
+    .preview-subtitle {
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .close-btn-wrapper {
+      float: right;
+      
+      .close-btn {
+        display: block;
+        cursor: pointer;
+        line-height: 0;
+        padding: 1rem;  // Makes a clickable zone bigger on 16px
+        margin: -14px -1rem -1rem auto; // `-14px` is used to align the icon with the title text
+
+        .close-icon {
+          display: inline-block;
+          width: $icon-size--s;
+          height: $icon-size--s;
+          background: url('../img/x-black.svg') no-repeat center/cover;
+          opacity: .26;
+          @include transition(all .3s ease-in-out);
+        }
+
+        &:hover {
+          .close-icon {
+            opacity: .87;
+          }
+        }
+      }
+    }
+  }
+
+  .preview-body {
+    padding: 24px 24px 56px;
+
+    svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 1312px;
+    }
+  }
+}
+
+.full-screen-link {
+  margin-top: 24px;
+
+  i {
+    margin-right: 8px;
+  }
+
+  span {
+    font-size: 15px;
+  }
+}

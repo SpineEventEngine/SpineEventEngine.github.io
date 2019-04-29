@@ -20,8 +20,8 @@ Links to smaller examples are listed below.
 
 ## JavaScript
 
-- TBD
+<p class="coming-soon">Coming soon...</p>
 
 ## C++
 
-- TBD
+<p class="coming-soon">Coming soon...</p>

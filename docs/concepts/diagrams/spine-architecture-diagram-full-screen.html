@@ -1,0 +1,27 @@
+---
+layout: full-screen
+title: Diagram Preview
+---
+
+<div class="preview-content">
+    <div class="preview-header">
+        <div class="close-btn-wrapper">
+            <a class="close-btn" href="{{ site.baseurl }}/docs/concepts">
+                <i class="close-icon" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="header-wrapper">
+            <h3 class="preview-title">Spine Architecture Diagram</h3>
+            <p class="preview-subtitle">Below is an overall view of <span id="display-all-components">all Spine server components</span>
+                and their relations.<br>
+                When developing with Spine, you will be interacting with
+                <span id="display-user-facing-components">some of them</span>.</p>
+        </div>
+    </div>
+    <div class="preview-body">
+        {% include_relative spine-architecture-diagram.svg %}
+    </div>
+</div>
+
+<script src="{{ site.baseurl }}/js/architecture-diagram.js" type="text/javascript" charset="utf-8"></script>
+
