@@ -10,3 +10,6 @@
 [submodule "examples/blog"]
 	path = examples/blog
 	url = https://github.com/spine-examples/blog.git
+[submodule "examples/kanban"]
+	path = examples/kanban
+	url = https://github.com/spine-examples/kanban.git
