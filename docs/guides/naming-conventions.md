@@ -16,6 +16,9 @@ we find useful for making things clear and structuring the code.</p>
 Proto files are named using the `snake_case`, as defined by Protobuf. There are several special
 kinds of files.
 
+<p class="note">We recommend using `java_outer_classname` in proto files names to make their names obvious. Otherwise Protobuf Compiler tries to use the name of the file for the Java class. For example, for `identifiers.proto` it will be `Identifiers.java`. Though sometimes it can be `SomethingOuterClass` when there is a type which conflicts with CamelCase version of the file name.
+You may also want to use names like `Identifiers` for utility classes related to your domain.</p>
+
 ### Identifiers   
 
 Commands and events reference model entities using their identifiers. 

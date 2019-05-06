@@ -69,14 +69,14 @@ To start the client and see how it connects to the server, run `ClientApp.main()
  
 Keep experimenting with your model. To do so: 
 1.  Create a new command type in `commands.proto` 
-  ```proto
- message AssignDueDate {
-     TaskId task_id = 1;
-     spine.time.LocalDate due_date = 2 [(valid) = true, (required) = true, (when).in = FUTURE];
- }
-  ```
-<p class="note">Remember to import `LocalDate` using `import "spine/time/time.proto";` and `import "spine/time/time.options.proto";`. The latter is needed for being able to do `(when).in = FUTURE`. This type is provided by the [Spine Time](https://github.com/SpineEventEngine/time) library. 
-You do not have to make any additional steps to use it in your domain.</p>
+      ```proto
+     message AssignDueDate {
+         TaskId task_id = 1;
+         spine.time.LocalDate due_date = 2 [(valid) = true, (required) = true, (when).in = FUTURE];
+     }
+      ```
+    <p class="note">Remember to import `LocalDate` using `import "spine/time/time.proto";` and `import "spine/time/time.options.proto";`. The latter is needed for being able to do `(when).in = FUTURE`. This type is provided by the [Spine Time](https://github.com/SpineEventEngine/time) library. 
+    You do not have to make any additional steps to use it in your domain.</p>
 2. Create a new event type in `events.proto`:
   ```proto
  message DueDateAssigned {
@@ -108,18 +108,18 @@ You do not have to make any additional steps to use it in your domain.</p>
  gradlew.bat clean build
   ```
 4. Handle the `AssignDueDate` command in the `TaskAggregate`:
-  ```java
- @Assign
- DueDateAssigned handle(AssignDueDate command) {
-     return DueDateAssignedVBuilder
-             .vBuilder()
-             .setTaskId(command.getTaskId())
-             .setDueDate(command.getDueDate())
-             .build();
- }
-  ```
-<p class="note">`vBuilder()` creates a Validating Builder, which checks the values against the validation options when a message is going to be build. The `newBuilder()` creates a standard Builder natively provided by Protobuf. It is safer to always use `vBuilder()`, and it does not make much sense to specify validating options, if `vBuilder()` is not used.
-For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer <a href="docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
+      ```java
+     @Assign
+     DueDateAssigned handle(AssignDueDate command) {
+         return DueDateAssignedVBuilder
+                 .vBuilder()
+                 .setTaskId(command.getTaskId())
+                 .setDueDate(command.getDueDate())
+                 .build();
+     }
+      ```
+    <p class="note">`vBuilder()` creates a Validating Builder, which checks the values against the validation options when a message is going to be build. The `newBuilder()` creates a standard Builder natively provided by Protobuf. It is safer to always use `vBuilder()`, and it does not make much sense to specify validating options, if `vBuilder()` is not used.
+    For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer <a href="docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
 5. Apply the emitted event:
   ```java
  @Apply

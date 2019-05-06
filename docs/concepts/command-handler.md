@@ -12,7 +12,7 @@ Command Handler is an object which receives commands, modifies the state of the 
 
 ```
 final class TaskAggregate
-    extends Aggregate&lt;TaskId, Task, TaskVBuilder&gt; {
+    extends Aggregate<TaskId, Task, TaskVBuilder> {
     ...
     @Assign
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
@@ -26,4 +26,8 @@ final class TaskAggregate
     ...
 }
 ```
+<p class="note">[Aggregate](https://spine.io/docs/concepts/aggregate.html) is an example of such classes. 
+Objects can be `Aggregate`, `ProcessManager` and others inheriting `AbstractCommandHandler`. 
+All above-mentioned classes implement `CommandHandler` interface.</p>
+
 For more details, refer to [Java](/java/index.md) section.

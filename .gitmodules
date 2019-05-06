@@ -1,9 +1,9 @@
 [submodule "examples/examples-java"]
 	path = examples/examples-java
-	url = https://github.com/SpineEventEngine/examples-java
+	url = https://github.com/spine-examples/examples-java
 [submodule "examples/quick-start"]
 	path = examples/quick-start
-	url = https://github.com/SpineEventEngine/server-quickstart
+	url = https://github.com/spine-examples/server-quickstart
 [submodule "examples/todo-list"]
 	path = examples/todo-list
-	url = https://github.com/SpineEventEngine/todo-list
+	url = https://github.com/spine-examples/todo-list
