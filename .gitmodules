@@ -1,6 +1,3 @@
-[submodule "examples/examples-java"]
-	path = examples/examples-java
-	url = https://github.com/spine-examples/examples-java
 [submodule "examples/quick-start"]
 	path = examples/quick-start
 	url = https://github.com/spine-examples/server-quickstart
