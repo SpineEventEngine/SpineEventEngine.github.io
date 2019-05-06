@@ -1,9 +1,15 @@
-[submodule "examples/examples-java"]
-	path = examples/examples-java
-	url = https://github.com/spine-examples/examples-java
 [submodule "examples/quick-start"]
 	path = examples/quick-start
 	url = https://github.com/spine-examples/server-quickstart
 [submodule "examples/todo-list"]
 	path = examples/todo-list
 	url = https://github.com/spine-examples/todo-list
+[submodule "examples/hello"]
+	path = examples/hello
+	url = https://github.com/spine-examples/hello.git
+[submodule "examples/blog"]
+	path = examples/blog
+	url = https://github.com/spine-examples/blog.git
+[submodule "examples/kanban"]
+	path = examples/kanban
+	url = https://github.com/spine-examples/kanban.git
