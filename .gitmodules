@@ -7,3 +7,6 @@
 [submodule "examples/hello"]
 	path = examples/hello
 	url = https://github.com/spine-examples/hello.git
+[submodule "examples/blog"]
+	path = examples/blog
+	url = https://github.com/spine-examples/blog.git
