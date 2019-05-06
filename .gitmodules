@@ -4,3 +4,6 @@
 [submodule "examples/todo-list"]
 	path = examples/todo-list
 	url = https://github.com/spine-examples/todo-list
+[submodule "examples/hello"]
+	path = examples/hello
+	url = https://github.com/spine-examples/hello.git
