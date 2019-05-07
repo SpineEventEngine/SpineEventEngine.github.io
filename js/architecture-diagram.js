@@ -21,6 +21,7 @@ $(
         const arrowCaptionClass = "arrow-caption";
         const titleCaptionClass = "title-caption";
         const arrowClass = "arrow";
+        const pathOnlyClass = "path-only";
 
         /**
          * CSS classes of the HTML elements on the page.
@@ -33,6 +34,8 @@ $(
         let allComponentLink = $("#display-all-components");
         let selectedElementColor = "#8d28e0";
         let selectedCaptionColor = "#fafafa";
+        let selectedBodyBgColor = "#e7ecfa";
+        let selectedBodyBgCaptionColor = "#505050";
 
         const originFillAttr = "origin-fill";
         const originStrokeAttr = "origin-stroke";
@@ -41,6 +44,7 @@ $(
         const strokeAttr = "stroke";
         const fillOpacityAttr = "fill-opacity";
         const strokeOpacityAttr = "stroke-opacity";
+        const pointerEvents = "pointer-events";
 
         const textTag = "text";
         const rectTag = "rect";
@@ -174,6 +178,53 @@ $(
                         if(hasClass(item, arrowClass)) {
                             item.attr(strokeAttr, selectedElementColor);
                         }
+                        if(hasClass(item, pathOnlyClass)) {
+                            item.attr(fillAttr, "none");
+                        }
+                    }
+                })
+                .mouseout(function () {
+                    let matched = $(selector);
+                    for (let index = 0; index < matched.length; index++) {
+                        const item = $(matched[index]);
+                        const elementName = item[0].nodeName.toLowerCase();
+                        if (textTag === elementName
+                            || rectTag === elementName
+                            || pathTag === elementName) {
+                            let originFillValue = item.attr(originFillAttr);
+                            item.attr(fillAttr, originFillValue);
+                        }
+
+                        if(hasClass(item, arrowClass)) {
+                            let originStrokeValue = item.attr(originStrokeAttr);
+                            item.attr(strokeAttr, originStrokeValue);
+                        }
+                    }
+
+                })
+                .click(function () {
+                    document.location.href = url;
+                });
+
+            $(".g-caption-bounded-context" + selector)
+                .css("cursor", "pointer")
+                .attr("pointer-events", "all")
+                .mouseover(function () {
+                    let matched = $(selector);
+
+                    for (let index = 0; index < matched.length; index++) {
+                        const item = $(matched[index]);
+                        const elementName = item[0].nodeName.toLowerCase();
+                        if(textTag === elementName) {
+                            item.attr(fillAttr, selectedBodyBgCaptionColor);
+                        }
+                        if (rectTag === elementName || pathTag === elementName) {
+                            item.attr(pointerEvents, "none");
+                            item.attr(fillAttr, selectedBodyBgColor);
+                        }
+                        if(hasClass(item, arrowClass)) {
+                            item.attr(strokeAttr, selectedBodyBgColor);
+                        }
                     }
                 })
                 .mouseout(function () {
@@ -213,7 +264,7 @@ $(
                             item.attr(fillAttr, selectedElementColor);
                         }
                         if(hasClass(item, arrowClass)) {
-                            item.attr(strokeAttr, selectedElementColor);
+                            item.attr(fillAttr, selectedElementColor);
                         }
                     }
                 })
@@ -227,8 +278,8 @@ $(
                             item.attr(fillAttr, originFillValue);
                         }
                         if(hasClass(item, arrowClass)) {
-                            let originStrokeValue = item.attr(originStrokeAttr);
-                            item.attr(strokeAttr, originStrokeValue);
+                            let originFillValue = item.attr(originFillAttr);
+                            item.attr(fillAttr, originFillValue);
                         }
                     }
 
@@ -243,7 +294,7 @@ $(
          * Displays the user-facing components and fades out the rest.
          */
         function displayUserFacing() {
-            fade("0.65", "0.3");
+            fade("0.65", "0.2");
             enableLink(allComponentLink, displayAll);
             disableLink(useFacingLink);
         }
