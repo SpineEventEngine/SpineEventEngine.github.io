@@ -16,13 +16,6 @@
       margin-top: 0;
     }
 
-    .col-style-text {
-      padding-right: 48px;
-      @media(max-width: $tablet){
-        padding-right: 0;
-      }
-    }
-
     .step-title {
       font-size: 22px;
       color: rgba(0, 0, 0, .38);
@@ -64,7 +57,7 @@
   }
 
   .landing-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     object-fit: contain;
     object-position: top;
@@ -76,8 +69,13 @@
 
     @media(max-width: $desktop-small){
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+    }
+
+    &.no-shadow {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none;
     }
   }
 
