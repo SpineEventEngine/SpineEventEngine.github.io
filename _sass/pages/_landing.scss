@@ -77,20 +77,6 @@
       -o-box-shadow: none;
       box-shadow: none;
     }
-
-    &.visible-mobile {
-      display: none;
-    }
-
-    @media (max-width: $tablet) {
-      &.visible-mobile {
-        display: block !important;
-      }
-
-      &.hidden-mobile {
-        display: none !important;
-      }
-    }
   }
 
   .btn-read-more {

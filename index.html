@@ -56,8 +56,11 @@ message TaskCreated {
                 <p>Java, JavaScript, and C++ are currently supported. </p>
             </div>
             <div class="col-md-12">
-                <img class="landing-image no-shadow hidden-mobile" src="{{ site.baseurl }}/img/landing/generate-code.svg" alt="Generate code">
-                <img class="landing-image no-shadow visible-mobile" src="{{ site.baseurl }}/img/landing/generate-code-mobile.svg" alt="Generate code">
+                <picture>
+                    <source srcset="{{ site.baseurl }}/img/landing/generate-code.svg" media="(min-width: 768px)">
+                    <source srcset="{{ site.baseurl }}/img/landing/generate-code-mobile.svg">
+                    <img class="landing-image no-shadow" alt="Generate code" src="{{ site.baseurl }}/img/landing/generate-code.svg">
+                </picture>
             </div>
           </div>
 
