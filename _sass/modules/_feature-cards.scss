@@ -50,10 +50,10 @@
     }
 
     .card-content-text {
-      padding: 24px 24px 40px 72px;
+      padding: 24px 24px 24px 72px;
 
       @media (max-width: $desktop-small) {
-        padding: 20px 20px 32px 64px;
+        padding: 20px 20px 20px 64px;
       }
 
       .feature-card-title {
