@@ -5,7 +5,7 @@ title: Spine Event Engine
 <section id="landing-content" class="landing-content-container">
   <div class="container-fluid content-holder">
           <div class="row landing-row">
-            <div class="col-md-12 col-style">
+            <div class="col-md-12">
                <p class="step-title">Step 1.</p>
                <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
                <p>Describe commands, events, and state of entities using
@@ -13,7 +13,7 @@ title: Spine Event Engine
                </p>
             </div>
 
-            <div class="col-md-4 col-style">
+            <div class="col-md-4">
 <pre class="highlight lang-proto">
 <code>// A command to create a new task.
 message CreateTask {
@@ -25,7 +25,7 @@ message CreateTask {
 </code></pre>
             </div>
 
-            <div class="col-md-4 col-style">
+            <div class="col-md-4">
 <pre class="highlight lang-proto">
 <code>// A new task has been created.
 message TaskCreated {
@@ -37,7 +37,7 @@ message TaskCreated {
 </code></pre>
             </div>
 
-            <div class="col-md-4 col-style">
+            <div class="col-md-4">
 <pre class="highlight lang-proto">
 <code>message Task {
     (entity).kind = AGGREGATE;
@@ -50,19 +50,19 @@ message TaskCreated {
           </div>
 
           <div class="row landing-row">
-            <div class="col-md-12 col-style-text">
+            <div class="col-md-12">
                 <p class="step-title">Step 2.</p>
                 <h2>Generate the code for all tiers and multiple languages</h2>
                 <p>Java, JavaScript, and C++ are currently supported. </p>
             </div>
-            <div class="col-md-12 col-style">
+            <div class="col-md-12">
                 <img class="landing-image hidden-mobile" src="{{ site.baseurl }}/img/landing/generate-code.svg" alt="Generate code">
                 <img class="landing-image visible-mobile" src="{{ site.baseurl }}/img/landing/generate-code-mobile.svg" alt="Generate code">
             </div>
           </div>
 
           <div class="row landing-row">
-            <div class="col-md-12 col-style">
+            <div class="col-md-12">
                 <p class="step-title">Step 3.</p>
                 <h2>Code business logic in straight and testable way</h2>
               <p>Focus on business logic rather than “plumbing”.
@@ -73,7 +73,7 @@ message TaskCreated {
             </div>
 
             <!--Aggregate code -->
-            <div class="col-md-6 col-style">
+            <div class="col-md-6">
 <pre class="highlight lang-java">
 <code>final class TaskAggregate
     extends Aggregate&lt;TaskId, Task, TaskVBuilder&gt; {
@@ -93,7 +93,7 @@ message TaskCreated {
             </div>
 
             <!--Projection code -->
-            <div class="col-md-6 col-style">
+            <div class="col-md-6">
 <pre class="highlight lang-java">
 <code>final class TaskProjection
     extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
@@ -113,13 +113,13 @@ message TaskCreated {
           </div>
 
           <div class="row landing-row">
-            <div class="col-md-6 col-style-text">
+            <div class="col-md-6">
                 <p class="step-title">Step 4.</p>
                 <h2>Easily deploy to Google Cloud or a custom environment</h2>
               <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
                 quickly. Adopt your application to selected deployment environment(s) with a few lines of code.</p>
             </div>
-            <div class="col-md-6 col-style">
+            <div class="col-md-6">
               <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg" alt="Evolve your domain model">
             </div>
           </div>
