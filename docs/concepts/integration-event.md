@@ -7,4 +7,8 @@ sidenav: doc-side-concepts-nav.html
 type: markdown
 ---
 <h2 class="top">Integration Event</h2> 
-<p class="coming-soon">Integration Event concept to be added soon.</p>
+
+Integration Events are Events used to communicate between different Bounded Contexts. 
+
+In Spine, every domain Event may become an Integration Event, if it is emitted by the given Bounded Context and consumed by other Bounded Contexts. 
+
