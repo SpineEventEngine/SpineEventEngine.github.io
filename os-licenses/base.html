@@ -1,0 +1,12 @@
+---
+layout: licenses
+title: Base Licenses
+headline: Base Licenses
+bodyclass: licenses
+type: markdown
+---
+
+<div>
+    {% capture p1 %}{% include_relative licenses/base.md %}{% endcapture %}
+    {{ p1 | markdownify }}
+</div>
