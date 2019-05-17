@@ -1,0 +1,17 @@
+.licenses-list {
+  h1, h2, h3, h2 {
+    code {
+      font-size: inherit;
+    }
+  }
+
+  h1 + h2 {
+    padding-top: 0;
+  }
+
+  li {
+    ul {
+      margin-top: 10px;
+    }
+  }
+}
