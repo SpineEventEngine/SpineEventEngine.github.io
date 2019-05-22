@@ -3,10 +3,30 @@ layout: licenses
 title: Licenses
 headline: Licenses
 bodyclass: licenses
+type: markdown
 ---
 
-<h2>Add title here</h2>
-<ul>
-    <li><a href="{{ site.baseurl }}/os-licenses/base.html">Base</a></li>
-    <li><a href="{{ site.baseurl }}/os-licenses/core-java.html">Core Java</a></li>
-</ul>
+<div class="licenses-container">
+    <a class="collapsible-panel-title collapsed"
+       id="load-md-btn-base"
+       repo="https://raw.githubusercontent.com/SpineEventEngine/base"
+       loaded="false"
+       href="#md-destination-base"
+       data-toggle="collapse"
+       aria-expanded="false"
+       aria-controls="md-destination">Spine Base</a>
+    <div class="collapse license-content" id="md-destination-base"></div>
+
+    <a class="collapsible-panel-title collapsed"
+       id="load-md-btn-core-java"
+       repo="https://raw.githubusercontent.com/SpineEventEngine/core-java"
+       loaded="false"
+       href="#md-destination-core-java"
+       data-toggle="collapse"
+       aria-expanded="false"
+       aria-controls="md-destination">Spine Core Java</a>
+    <div class="collapse" id="md-destination-core-java"></div>
+</div>
+
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="{{ site.baseurl }}/js/os-licenses.js" type="text/javascript" charset="utf-8"></script>
