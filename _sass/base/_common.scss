@@ -303,3 +303,35 @@ th {
     }
   }
 }
+
+// Expandable title with caret icon before
+%expandable-title {
+  font-size: $font-size--s;
+  line-height: 1.5;
+  color: $black;
+  font-weight: 500;
+  @include transition(all .25s ease-in-out);
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: url('../img/icon-caret-right.svg') no-repeat center/cover;
+    width: $icon-size--s;
+    height: $icon-size--s;
+    margin-left: -40px;
+    opacity: .54;
+    transform: rotate(90deg);
+    @include transition(all .3s ease-in-out);
+  }
+
+  // Initial state of the title
+  &.collapsed {
+    color: rgba($black, .54);
+    font-weight: 400;
+
+    &:before {
+      opacity: .2;
+      transform: rotate(0);
+    }
+  }
+}
