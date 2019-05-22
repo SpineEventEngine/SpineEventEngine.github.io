@@ -1,17 +1,29 @@
-.licenses-list {
-  h1, h2, h3, h2 {
-    code {
-      font-size: inherit;
+$panel-padding: 16px 56px;
+
+.licenses-container {
+  margin-top: 40px;
+}
+
+.licenses {
+  .collapsible-panel-title {
+    display: block;
+    padding: $panel-padding;
+    border-bottom: none;
+    border-radius: 4px 0;
+    background-color: rgba($mainBrandColor, .06);
+    @include transition(all .25s ease-in-out);
+
+    &.collapsed {
+      border-bottom: $divider;
+      background-color: transparent;
     }
+
+    @extend %expandable-title;
   }
 
-  h1 + h2 {
-    padding-top: 0;
-  }
-
-  li {
-    ul {
-      margin-top: 10px;
-    }
+  .license-content {
+    min-height: 100px;
+    padding: $panel-padding;
+    border-bottom: $divider;
   }
 }
