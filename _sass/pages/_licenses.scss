@@ -26,4 +26,38 @@ $panel-padding: 16px 56px;
     padding: $panel-padding;
     border-bottom: $divider;
   }
+
+  .dependencies-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: $textColor;
+  }
+
+  .collapse-link {
+    margin: 0;
+    padding: 8px 64px;
+    font-size: 16px;
+    cursor: pointer;
+    @include transition(all .25s ease-in-out);
+    @extend %expandable-title;
+    background-color: rgba($mainBrandColor, .1);
+    border-radius: 4px 0;
+
+    &.collapsed {
+      background-color: transparent;
+    }
+
+    &:hover {
+      color: $black;
+      &:before {
+        opacity: .54;
+      }
+    }
+  }
+
+  .dependencies-container {
+    padding: 16px 64px 8px;
+    margin: 0;
+  }
 }
