@@ -1,4 +1,6 @@
 $panel-padding: 16px 56px;
+$inner-content-offset: 56px;
+$panel-border-radius: 4px;
 $panel-active-color: rgba($mainBrandColor, .09);
 $panel-hover-color: rgba($mainBrandColor, .04);
 
@@ -11,7 +13,7 @@ $panel-hover-color: rgba($mainBrandColor, .04);
     display: block;
     padding: $panel-padding;
     border-bottom: none;
-    border-radius: 4px;
+    border-radius: $panel-border-radius;
     background-color: $panel-active-color;
     @include transition(all .25s ease-in-out);
     text-decoration: none;
@@ -41,18 +43,18 @@ $panel-hover-color: rgba($mainBrandColor, .04);
   }
 
   .dependencies-title {
+    font-family: 'Roboto Mono', monospace;
     font-size: 16px;
-    font-weight: 700;
     margin-bottom: 16px;
-    color: $textColor;
+    color: $black;
   }
 
   .collapse-link {
     margin: 0;
-    padding: 8px 64px;
+    padding: 8px $inner-content-offset;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: $panel-border-radius;
     background-color: $panel-active-color;
     @include transition(all .25s ease-in-out);
     @extend %expandable-title;
@@ -74,7 +76,7 @@ $panel-hover-color: rgba($mainBrandColor, .04);
 
   .dependencies-container,
   .report-info {
-    padding: 0 64px;
+    padding: 0 $inner-content-offset;
     margin: 16px 0 8px; // Top and bottom margins prevents content jumping
   }
 }

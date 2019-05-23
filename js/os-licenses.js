@@ -30,6 +30,11 @@ $(
 
             h1Elements.addClass("dependencies-title");
 
+            h1Elements.each(function() {
+                var text = $(this).text();
+                $(this).text(text.replace('Dependencies of', ''));
+            });
+
             linkElements.addClass("external");
             linkElements.attr("target", "_blank");
 
