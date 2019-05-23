@@ -56,8 +56,9 @@ $panel-padding: 16px 56px;
     }
   }
 
-  .dependencies-container {
-    padding: 16px 64px 8px;
-    margin: 0;
+  .dependencies-container,
+  .report-info {
+    padding: 0 64px;
+    margin: 16px 0 8px; // Top and bottom margins prevents content jumping
   }
 }
