@@ -9,15 +9,17 @@ $(
         var converter = new showdown.Converter();
         const loadedAttr = "loaded";
         const repoAttr = "repo";
+        const repoName = "repo-name";
 
         /**
-         * Loads `license-report` file from the `SpineEventEngine/base` repository.
+         * Loads `license-report` file from the repository.
          *
          * <p>Executes by clicking on the corresponding link.
          */
-        $("#load-md-btn-base").click(function () {
+        $(".collapsible-panel-title").click(function () {
             var clickedElement = $(this);
-            var mdDestinationID = $("#md-destination-base");
+            var clickedElRepoName = clickedElement.attr(repoName);
+            var mdDestinationEl = $("#md-destination-" + clickedElRepoName);
             var loaded = clickedElement.attr(loadedAttr);
 
             if (loaded === "false") {
@@ -26,9 +28,9 @@ $(
                     repositoryUrl + "/master/license-report.md",
                     function (data) {
                         var html = converter.makeHtml(data);
-                        mdDestinationID.html(html);
+                        mdDestinationEl.html(html);
                         clickedElement.attr(loadedAttr, "true");
-                        makeCollapsibleTitle(mdDestinationID);
+                        makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
                     }
                 );
             }
@@ -37,12 +39,13 @@ $(
         /**
          * Makes a `license-report` content collapsible.
          *
-         * @param mdDestinationID id of the `div` with a markdown content
+         * @param mdDestinationEl it is a `div` with a markdown content
+         * @param clickedElRepoName a repository name from the link attribute
          */
-        function makeCollapsibleTitle(mdDestinationID) {
-            var h1Elements = mdDestinationID.find("h1");
-            var h2Elements = mdDestinationID.find("h2");
-            var linkElements = mdDestinationID.find("a");
+        function makeCollapsibleTitle(mdDestinationEl, clickedElRepoName) {
+            var h1Elements = mdDestinationEl.find("h1");
+            var h2Elements = mdDestinationEl.find("h2");
+            var linkElements = mdDestinationEl.find("a");
 
             h1Elements.addClass("dependencies-title");
 
@@ -64,7 +67,7 @@ $(
              * Adds required classes and attributes to make titles and content collapsible.
              */
             h2Elements.each(function(index, element) {
-                const titleID = this.id + "_1";
+                const titleID =  clickedElRepoName + "-" + this.id + "-md";
                 const collapsibleContent = $(element).next("ol");
                 const reportInfoContent = collapsibleContent.next("p");
 
@@ -76,22 +79,25 @@ $(
                 collapsibleContent.attr("id", titleID);
 
                 reportInfoContent.addClass("report-info collapse");
-                reportInfoContent.attr("id", titleID + "_p");
+                reportInfoContent.attr("id", titleID + "-p");
             });
 
-            /**
-             * Inserts a new collapsible title for the paragraph with the report information.
-             */
-            $("<h2 class='report-info-title collapse-link collapsed'>Report info</h2>").insertBefore(".report-info");
-            makeReportInfoCollapsible(mdDestinationID);
+            makeReportInfoCollapsible(mdDestinationEl);
         }
 
         /**
          * Makes report information content collapsible.
-         * @param mdDestinationID id of the `div` with a markdown content
+         *
+         * @param mdDestinationEl it is a `div` with a markdown content
          */
-        function makeReportInfoCollapsible(mdDestinationID) {
-            var reportInfoContent = mdDestinationID.find(".report-info");
+        function makeReportInfoCollapsible(mdDestinationEl) {
+            var reportInfoContent = mdDestinationEl.find(".report-info");
+
+            /**
+             * Inserts a new collapsible title for the paragraph with a report information.
+             */
+            var reportInfoTitleEl = "<h2 class='report-info-title collapse-link collapsed'>Report info</h2>";
+            $(reportInfoTitleEl).insertBefore(reportInfoContent);
 
             reportInfoContent.each(function (index, element) {
                 const reportInfoID = this.id;
