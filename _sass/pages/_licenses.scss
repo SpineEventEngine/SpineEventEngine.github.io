@@ -1,4 +1,6 @@
 $panel-padding: 16px 56px;
+$panel-active-color: rgba($mainBrandColor, .09);
+$panel-hover-color: rgba($mainBrandColor, .04);
 
 .licenses-container {
   margin-top: 40px;
@@ -9,13 +11,24 @@ $panel-padding: 16px 56px;
     display: block;
     padding: $panel-padding;
     border-bottom: none;
-    border-radius: 4px 0;
-    background-color: rgba($mainBrandColor, .06);
+    border-radius: 4px;
+    background-color: $panel-active-color;
     @include transition(all .25s ease-in-out);
+    text-decoration: none;
 
     &.collapsed {
       border-bottom: $divider;
       background-color: transparent;
+      &:hover {
+        background-color: $panel-hover-color;
+      }
+    }
+
+    &:hover {
+      color: $black;
+      &:before {
+        opacity: .54;
+      }
     }
 
     @extend %expandable-title;
@@ -39,13 +52,16 @@ $panel-padding: 16px 56px;
     padding: 8px 64px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 4px;
+    background-color: $panel-active-color;
     @include transition(all .25s ease-in-out);
     @extend %expandable-title;
-    background-color: rgba($mainBrandColor, .1);
-    border-radius: 4px 0;
 
     &.collapsed {
       background-color: transparent;
+      &:hover {
+        background-color: $panel-hover-color;
+      }
     }
 
     &:hover {
