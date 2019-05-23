@@ -24,7 +24,8 @@ $panel-hover-color: rgba($mainBrandColor, .04);
   .collapsible-panel-title {
     display: block;
     padding: $panel-padding;
-    border-bottom: none;
+    border-bottom-color: $dividerColor; // Fixes border blinking
+    border-style: none;
     border-radius: $panel-border-radius $panel-border-radius 0 0;
     background-color: $panel-active-color;
     @include transition(all .25s ease-in-out);
