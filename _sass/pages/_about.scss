@@ -64,6 +64,28 @@
     .section-title {
       color: rgba($textColor, .54);
       margin: 48px 0 12px;
+
+      &:not(:first-child) {
+        margin-top: 64px;
+      }
+    }
+
+    .logos-list {
+      li {
+        display: inline-block;
+        margin-right: 64px;
+
+        a {
+          &.external {
+            &:after {
+              display: none;
+            }
+          }
+          img {
+            height: 72px;
+          }
+        }
+      }
     }
   }
 
@@ -71,15 +93,11 @@
     margin-top: 16px;
     .software-link {
       text-decoration: none;
-      color: rgba($black, .87);
-      font-weight: 700;
       padding-bottom: 2px;
-      border-bottom: 1px solid rgba($black, .54);
       @include transition(all .2s easy-in-out);
 
       &:hover {
-        color: $mainBrandColor;
-        border-bottom-color: $mainBrandColor;
+        border-bottom: 1px solid $mainBrandColor;
       }
     }
   }
