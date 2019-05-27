@@ -14,13 +14,20 @@ $panel-hover-color: rgba($mainBrandColor, .04);
   }
 }
 
-.licenses-container {
-  @media (min-width: $tablet) {
-    margin-top: 40px;
-  }
-}
-
 .licenses {
+  .page-description {
+    margin: 40px 0 24px;
+
+    @media (max-width: $tablet) {
+      margin-top: 0;
+    }
+
+    @media (max-width: $phone-medium) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
   .collapsible-panel-title {
     display: block;
     padding: $panel-padding;
