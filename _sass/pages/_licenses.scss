@@ -8,6 +8,12 @@ $panel-active-color: rgba($mainBrandColor, .09);
 $panel-hover-color: rgba($mainBrandColor, .04);
 
 .licenses-list {
+  margin-top: 40px;
+
+  @media (max-width: $tablet) {
+    margin-top: 0;
+  }
+
   @media (max-width: $phone-medium) {
     padding-left: 0;
     padding-right: 0;
@@ -16,11 +22,7 @@ $panel-hover-color: rgba($mainBrandColor, .04);
 
 .licenses {
   .page-description {
-    margin: 40px 0 24px;
-
-    @media (max-width: $tablet) {
-      margin-top: 0;
-    }
+    margin-bottom: 24px;
 
     @media (max-width: $phone-medium) {
       padding-left: 15px;
