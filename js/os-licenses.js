@@ -59,6 +59,14 @@ $(
             });
 
             /**
+             * Removes `dependencies:` from the titles inside the Spine Web repository.
+             */
+            h2Elements.each(function () {
+               var text = $(this).text();
+                $(this).text(text.replace('dependencies:', ''));
+            });
+
+            /**
              * Makes all markdown links external.
              */
             linkElements.addClass("external");
