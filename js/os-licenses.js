@@ -14,7 +14,8 @@ $(
         /**
          * Loads `license-report` file from the repository.
          *
-         * <p>Executes by clicking on the corresponding link.
+         * <p>Executes by clicking on the corresponding link. The destination `div` element should have
+         * the `id` like `md-destination-REPO_NAME`.
          */
         $(".collapsible-panel-title").click(function () {
             var clickedElement = $(this);
@@ -67,6 +68,7 @@ $(
              * Adds required classes and attributes to make titles and content collapsible.
              */
             h2Elements.each(function(index, element) {
+                // `-md` makes the destination ID different from the collapsible title ID
                 const titleID =  clickedElRepoName + "-" + this.id + "-md";
                 const collapsibleContent = $(element).next("ol");
                 const reportInfoContent = collapsibleContent.next("p");
@@ -87,6 +89,8 @@ $(
 
         /**
          * Makes report information content collapsible.
+         *
+         * <p>Report information contains a generation date and the name of the plugin.
          *
          * @param mdDestinationEl it is a `div` with a markdown content
          */
