@@ -4,6 +4,10 @@ $secondBrandColor: #116db4;
 $thirdBrandColor: #ddeaf4;
 $inverseBrandColor: #FFFFFF;
 
+// Dividers
+$dividerColor: rgba(0, 0, 0, .08);
+$divider: 1px solid $dividerColor;
+
 // Use as an accent color in small quantities to balance out the main theme.
 $popBrandColor: hsl(22, 91%, 74%);
 $lightPopBrandColor: lighten($popBrandColor, 15%);

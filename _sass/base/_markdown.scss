@@ -14,6 +14,16 @@
     margin: 0;
   }
 
+  h1, h2, h3, h2 {
+    code {
+      font-size: inherit;
+    }
+  }
+
+  h1 + h2 {
+    padding-top: 0;
+  }
+
   em {
     font-style: italic;
   }
@@ -25,6 +35,10 @@
   // List Items
   li {
     line-height: 24px;
+
+    ul {
+      margin-top: 10px;
+    }
   }
 
   ol,

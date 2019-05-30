@@ -63,7 +63,54 @@
 
     .section-title {
       color: rgba($textColor, .54);
-      margin: 48px 0 12px;
+      margin: 64px 0 12px;
+    }
+
+    .logo-card {
+      margin: 16px 24px 0 0;
+      padding: 0 24px;
+      border-radius: 4px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
+      @include transition(all .25s ease-in-out);
+
+      @media (max-width: $phone-xlarge) {
+        width: 46%;
+        margin-right: 8px;
+      }
+
+      @media(max-width: $phone-large) {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .12);
+      }
+
+      &.external {
+        &:after {
+          display: none;
+        }
+      }
+
+      img {
+        height: 64px;
+      }
+    }
+  }
+
+  .software-link-holder {
+    margin-top: 16px;
+    .software-link {
+      text-decoration: none;
+      padding-bottom: 2px;
+      @include transition(all .2s easy-in-out);
+
+      &:hover {
+        border-bottom: 1px solid $mainBrandColor;
+      }
     }
   }
 }

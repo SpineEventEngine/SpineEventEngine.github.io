@@ -8,30 +8,34 @@
 }
 
 // Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
-@mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode) {
+@mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode, $iteration-count: 1) {
   -webkit-animation-name: $animation-name;
   -webkit-animation-duration: $duration;
   -webkit-animation-delay: $delay;
   -webkit-animation-timing-function: $timing-function;
   -webkit-animation-fill-mode: $fill-mode;
+  -webkit-animation-iteration-count: $iteration-count;
 
   -moz-animation-name: $animation-name;
   -moz-animation-duration: $duration;
   -moz-animation-delay: $delay;
   -moz-animation-timing-function: $timing-function;
   -moz-animation-fill-mode: $fill-mode;
+  -moz-animation-iteration-count: $iteration-count;
 
   -o-animation-name: $animation-name;
   -o-animation-duration: $duration;
   -o-animation-delay: $delay;
   -o-animation-timing-function: $timing-function;
   -o-animation-fill-mode: $fill-mode;
+  -o-animation-iteration-count: $iteration-count;
 
   animation-name: $animation-name;
   animation-duration: $duration;
   animation-delay: $delay;
   animation-timing-function: $timing-function;
   animation-fill-mode: $fill-mode;
+  animation-iteration-count: $iteration-count;
 }
 
 // Transform
@@ -300,6 +304,38 @@ th {
       color: $textColor;
       font-weight: 500;
       margin-bottom: 2px;
+    }
+  }
+}
+
+// Expandable title with caret icon before
+%expandable-title {
+  font-size: $font-size--s;
+  line-height: 1.5;
+  color: $black;
+  font-weight: 500;
+  @include transition(all .25s ease-in-out);
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: url('../img/icon-caret-right.svg') no-repeat center/cover;
+    width: $icon-size--s;
+    height: $icon-size--s;
+    margin-left: -40px;
+    opacity: .54;
+    transform: rotate(90deg);
+    @include transition(all .3s ease-in-out);
+  }
+
+  // Initial state of the title
+  &.collapsed {
+    color: rgba($black, .54);
+    font-weight: 400;
+
+    &:before {
+      opacity: .2;
+      transform: rotate(0);
     }
   }
 }
