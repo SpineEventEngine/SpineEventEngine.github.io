@@ -79,16 +79,16 @@ message TaskCreated {
             <div class="col-md-6">
 <pre class="highlight lang-java">
 <code>final class TaskAggregate
-    extends Aggregate&lt;TaskId, Task, TaskVBuilder&gt; {
+    extends Aggregate&lt;TaskId, Task, Task.Builder&gt; {
     ...
     @Assign
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
         return TaskCreated
-                .vBuilder()
+                .newBuilder()
                 .setId(cmd.getId())
                 .setName(cmd.getName())
                 .setOwner(ctx.getActor())
-                .build();
+                .vBuild();
     }
     ...
 }
@@ -99,12 +99,12 @@ message TaskCreated {
             <div class="col-md-6">
 <pre class="highlight lang-java">
 <code>final class TaskProjection
-    extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
+    extends Projection&lt;TaskId, TaskItem, TaskItem.Builder&gt; {
     ...
     @Subscribe
     void on(TaskCreated e) {
         builder().setId(e.getId())
-                    .setName(e.getName())
+                 .setName(e.getName())
     }
 
     @Subscribe
