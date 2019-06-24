@@ -176,25 +176,34 @@ function scrollToAnchor() {
 
 
 var goTopBtn = $("#go-top-btn");
+var copyrightEl = $(".copyright");
 
-// If the cookieChoiceInfo panel exist show “Go to Top” button above this panel
+/**
+ * Adds additional padding values if the `cookieChoiceInfo` exist on the page.
+ */
 function ifCookiesExist() {
     var cookieInfo = $("#cookieChoiceInfo");
     var cookieAgreeBtn = $("#cookieChoiceDismiss");
     var cookieContainerHeight = cookieInfo.innerHeight();
-    var marginBottom = 10; // Bottom margin for the “Go to Top” button
+    var marginBottom = 10; // A bottom margin for the `Go to Top` button
+    var copyrightPaddingBottom = 24; // A bottom padding for the `Copyright` div element
 
     if(cookieInfo.length){
         $(goTopBtn).css('bottom', cookieContainerHeight + marginBottom);
+        $(copyrightEl).css('padding-bottom', cookieContainerHeight + copyrightPaddingBottom);
 
-        // If the cookie panel hides on the `Agree` button click leave only initial bottom margin
+        /**
+         * Removes additional padding values on the `Agree` button click.
+         */
         $(cookieAgreeBtn).click(function(){
             $(goTopBtn).css('bottom', marginBottom);
+            $(copyrightEl).css('padding-bottom', copyrightPaddingBottom);
         });
     }
 
     else {
         $(goTopBtn).css('bottom', marginBottom);
+        $(copyrightEl).css('padding-bottom', copyrightPaddingBottom);
     }
 }
 
