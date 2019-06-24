@@ -2,6 +2,8 @@ $footer-header-color: #54595c;
 $footer-link-color: #b4bcbf;
 $copyright-bg-color: #1e2021;
 $copyright-text-color: #7e8183;
+$icon-border-color: #7e8183;
+$footer-icon-size: 34px;
 
 footer {
   background-color: $footerColor;
@@ -216,32 +218,29 @@ footer {
     &::before {
       content: '';
       display: inline-block;
-      width: $icon-size--s;
-      height: $icon-size--s;
+      width: $footer-icon-size;
+      height: $footer-icon-size;
       vertical-align: middle;
       margin: 0 12px 0 0;
-      opacity: .38;
+      border-radius: 50%;
+      border: 2px solid rgba($icon-border-color, .2);
     }
   }
 
   .icon-github {
-    @include social-icon('../img/icon_github.svg');
-  }
-
-  .icon-google {
-    @include social-icon('../img/icon_google-plus.svg');
+    @include social-icon('../img/icons/icon-github.svg');
   }
 
   .icon-twitter {
-    @include social-icon('../img/icon_twitter.svg');
+    @include social-icon('../img/icons/icon-twitter.svg');
   }
 
   .icon-stack-overflow {
-    @include social-icon('../img/icon_stack-overflow.svg');
+    @include social-icon('../img/icons/icon-stack-overflow.svg');
   }
 
   .icon-youtube {
-    @include social-icon('../img/icon_youtube.svg');
+    @include social-icon('../img/icons/icon-youtube.svg');
   }
 
   .copyright {
