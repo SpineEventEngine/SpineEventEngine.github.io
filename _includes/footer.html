@@ -1,8 +1,8 @@
 <footer class="top-shadow">
-  <div class="container-fluid content-holder">
+  <div class="container-fluid content-holder clearfix">
     <div class="right-links">
-      <div class="row">
-        <div class="col-md-4 offset-md-1 col-sm-12 footer-documentation">
+      <div class="row justify-content-lg-end">
+        <div class="col-sm-12 col-md-4 col-xl-4 footer-documentation">
           <div class="footer-list-header collapsed" data-toggle="collapse" data-target="#footerDocList" aria-expanded="false" aria-controls="footerDocList">
             <p class="right-link-headers">Documentation</p><i class="mobile-caret-icon"></i>
           </div>
@@ -16,7 +16,7 @@
           </ul>
         </div>
         <hr class="footer-sections" />
-        <div class="col-md-3 col-sm-12 footer-resources">
+        <div class="col-sm-12 col-md-4 col-xl-3 footer-resources">
           <div class="footer-list-header collapsed" data-toggle="collapse" data-target="#footerResourcesList" aria-expanded="false" aria-controls="footerResourcesList">
             <p class="right-link-headers">Resources</p><i class="mobile-caret-icon"></i>
           </div>
@@ -27,7 +27,7 @@
           </ul>
         </div>
         <hr class="footer-sections" />
-        <div class="col-md-4 col-sm-12 footer-community">
+        <div class="col-sm-12 col-md-4 col-xl-3 footer-community">
           <div class="footer-list-header collapsed" data-toggle="collapse" data-target="#footerCommunityList" aria-expanded="false" aria-controls="footerCommunityList">
             <p class="right-link-headers">Community</p><i class="mobile-caret-icon"></i>
           </div>
@@ -42,9 +42,13 @@
     </div>
     <div class="left-links">
       <img class="footer-logo" src="{{ site.baseurl }}/img/spine-logo-name-white.svg" alt="Spine">
-      <p class="description"><span id="copyright"></span> Spine Event Engine</p>
-      <p>CQRS/ES framework for modern cloud applications</p>
-      <a href="{{ site.baseurl }}/privacy/" class="privacy-link">Privacy Statement</a>
     </div>
+  </div>
+
+  <div class="copyright">
+    <a href="{{ site.baseurl }}/privacy/" class="privacy-link">Privacy Statement</a>
+    <span class="description"><span id="copyright"></span>
+      <a href="https://www.teamdev.com/" style="font-style: normal">TeamDev</a>. All rights reserved.
+    </span>
   </div>
 </footer>

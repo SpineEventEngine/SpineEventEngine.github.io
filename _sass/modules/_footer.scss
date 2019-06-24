@@ -1,4 +1,8 @@
-// Footer
+$footer-header-color: #54595c;
+$footer-link-color: #b4bcbf;
+$copyright-bg-color: #1e2021;
+$copyright-text-color: #7e8183;
+
 footer {
   background-color: $footerColor;
   -webkit-box-shadow: 0 500px 0 500px $footerColor;
@@ -7,11 +11,11 @@ footer {
   box-shadow: 0 500px 0 500px $footerColor;
   color: $white;
   overflow: hidden;
-  padding: 54px 0 80px;
+  padding: 40px 0 0;
   position: relative;
 
   @media (max-width: 767px) {
-    padding: 35px 0 100px;
+    padding: 35px 0 0;
   }
 
   p {
@@ -20,18 +24,16 @@ footer {
 
   a {
     font-weight: 400;
-    font-size: 13px;
+    font-size: 14px;
     padding: 6px 0;
-    letter-spacing: .5px;
-    line-height: 46px;
-    color: rgba($white, .54);
+    letter-spacing: .6px;
+    line-height: 38px;
+    color: $footer-link-color;
     @include transition(all .3s ease-in-out);
     border-bottom: 1px solid transparent;
 
-    &.privacy-link {
-      font-size: 0.8rem;
-      padding-bottom: 2px;
-      border-bottom-color: rgba($white, .26);
+    @media (max-width: $tablet) {
+      line-height: 46px;
     }
 
     &:hover {
@@ -61,12 +63,8 @@ footer {
   .footer-logo {
     width: 120px;
     margin-left: -4px;
-    padding: 0 0 10px 0;
+    padding: 13px 0 10px 0;
     opacity: .62;
-
-    @media (min-width: $tablet) {
-      padding: 0 0 20px 0;
-    }
   }
 
   .left-links {
@@ -80,15 +78,7 @@ footer {
       margin: 0 auto;
       text-align: left;
       display: inline-block;
-      width: 39%;
-    }
-
-    @media (max-width: $phone-small) {
-      width: 78%;
-    }
-
-    @media (min-width: 1025px) {
-      width: 45%;
+      width: 24%;
     }
 
     p {
@@ -97,13 +87,6 @@ footer {
       color: rgba($white, .54);
       line-height: 1.4rem;
     }
-
-    .description {
-      @media (min-width: $tablet) {
-        padding-top: 4px;
-      }
-    }
-
   }
 
   .right-links {
@@ -111,16 +94,27 @@ footer {
     margin: 0 0 32px 0;
     float: right;
 
+    @media (min-width: $tablet) {
+      padding: 0;
+      display: inline-block;
+      vertical-align: top;
+      width: 76%;
+      margin: 0 0 8px 0;
+    }
+
+    @media (max-width: 960px) {
+      width: 100%;
+    }
+
     & > div {
       padding-bottom: 10px;
     }
 
-    @media (min-width: $tablet) {
-      padding: 0 0 0 35px;
-      margin: 0 0 8px 0;
-    }
-
     .footer-list-header {
+      .mobile-caret-icon {
+        top: 14px;
+      }
+
       // Initial caret-icon state
       &.collapsed {
         .mobile-caret-icon {
@@ -141,7 +135,6 @@ footer {
     }
 
     .footer-nav-list {
-      // To collapse items only on mobile
       @media (min-width: $tablet) {
         display: block !important;
         height: auto !important;
@@ -156,31 +149,18 @@ footer {
     }
 
     .right-link-headers {
-      font-weight: 700;
-      font-size: 12px;
-      color: $white;
-      letter-spacing: 1.2px;
-      padding: 15px 0;
+      font-weight: 300;
+      font-size: 28px;
+      color: $footer-header-color;
+      letter-spacing: .5px;
+      padding: 16px 0;
       position: relative;
-      cursor: pointer;
-      text-transform: uppercase;
-    }
 
-    @media (min-width: $tablet) {
-      padding: 0;
-      display: inline-block;
-      width: 58%;
-      vertical-align: top;
-
-      .right-link-headers {
-        padding: 6px 0 16px;
-        line-height: 1em;
-        cursor: default;
+      @media (max-width: $tablet) {
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
       }
-    }
-
-    @media (min-width: 1025px) {
-      width: 49.5%;
     }
   }
 
@@ -262,6 +242,47 @@ footer {
 
   .icon-youtube {
     @include social-icon('../img/icon_youtube.svg');
+  }
+
+  .copyright {
+    margin-top: 40px;
+    background-color: $copyright-bg-color;
+    color: $copyright-text-color;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 24px;
+
+    a {
+      color: $copyright-text-color;
+      font-size: 12px;
+      line-height: 2;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    .privacy-link {
+      margin-right: 24px;
+
+      @media (max-width: $tablet) {
+        padding-bottom: 2px;
+        border-bottom-color: rgba($white, .26);
+      }
+
+      @media (max-width: $phone-large) {
+        margin-right: 0;
+      }
+    }
+
+    .description {
+      font-size: 13px;
+      letter-spacing: .6px;
+      
+      @media (max-width: $phone-large) {
+        display: block;
+      }
+    }
   }
 }
 
