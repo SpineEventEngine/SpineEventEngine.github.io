@@ -100,7 +100,7 @@
 
 // Collapsible caret-icon in the mobile navigation and footer
 .mobile-caret-icon {
-  background: fade-out($white, .97) url('../img/caret.svg') no-repeat center/cover;
+  background: fade-out($white, .97) url('../img/icons/caret.svg') no-repeat center/cover;
   opacity: 1;
   cursor: pointer;
   position: absolute;
@@ -319,7 +319,7 @@ th {
   &:before {
     content: '';
     position: absolute;
-    background: url('../img/icon-caret-right.svg') no-repeat center/cover;
+    background: url('../img/icons/icon-caret-right.svg') no-repeat center/cover;
     width: $icon-size--s;
     height: $icon-size--s;
     margin-left: -40px;

@@ -107,7 +107,7 @@
   }
 
   @mixin caret($deg) {
-    background: url('../img/caret.svg') no-repeat center/contain;
+    background: url('../img/icons/caret.svg') no-repeat center/contain;
     content: '';
     display: inline-block;
     height: 24px;
@@ -136,7 +136,7 @@
   .previous a {
     &:hover {
       span {
-        background: url("../img/caret-dark.svg") no-repeat center/contain;
+        background: url("../img/icons/caret-dark.svg") no-repeat center/contain;
       }
     }
   }
