@@ -186,15 +186,15 @@ footer {
 
     &.community-links {
       font-weight: 400;
-      font-size: 13px;
-      letter-spacing: .5px;
+      font-size: 14px;
+      letter-spacing: .6px;
       line-height: 46px;
-      color: rgba($white, .54);
+      color: $footer-link-color;
     }
 
     &:hover {
       &::before {
-        opacity: .76;
+        border-color: rgba($icon-border-color, .54);
       }
 
       &.community-links {
@@ -224,6 +224,7 @@ footer {
       margin: 0 12px 0 0;
       border-radius: 50%;
       border: 2px solid rgba($icon-border-color, .2);
+      @include transition(all .3s ease-in-out);
     }
   }
 
