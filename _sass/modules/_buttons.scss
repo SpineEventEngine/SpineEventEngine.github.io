@@ -248,8 +248,8 @@
     content: "";
     background: rgba($secondBrandColor, .26) url('../img/icons/caret.svg') no-repeat;
     border-radius: 5px;
-    width: 40px;
-    height: 40px;
+    width: $icon-size--l;
+    height: $icon-size--l;
     @include transform(rotate(-180deg));
     @include transition(all .3s ease-in-out);
 
