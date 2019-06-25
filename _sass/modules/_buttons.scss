@@ -109,7 +109,7 @@
 }
 
 .icon-caret {
-  background: url('../img/caret.svg') no-repeat center/cover;
+  background: url('../img/icons/caret.svg') no-repeat center/cover;
   height: 20px;
   margin: 3px auto 0;
   width: 24px;
@@ -121,7 +121,7 @@
 }
 
 .external-link-icon {
-  background: url('../img/external-link.svg') no-repeat center/cover;
+  background: url('../img/icons/external-link.svg') no-repeat center/cover;
   width: 15px;
   height: 15px;
 }
@@ -246,10 +246,10 @@
     margin-left: -20px;
     margin-top: -20px;
     content: "";
-    background: rgba($secondBrandColor, .26) url('../img/caret.svg') no-repeat;
+    background: rgba($secondBrandColor, .26) url('../img/icons/caret.svg') no-repeat;
     border-radius: 5px;
-    width: 40px;
-    height: 40px;
+    width: $icon-size--l;
+    height: $icon-size--l;
     @include transform(rotate(-180deg));
     @include transition(all .3s ease-in-out);
 

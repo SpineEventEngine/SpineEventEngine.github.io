@@ -88,15 +88,15 @@
     }
 
     .icon-java {
-      @include lang-icon('../img/icon-java.svg');
+      @include lang-icon('../img/icons/icon-java.svg');
     }
 
     .icon-javascript {
-      @include lang-icon('../img/icon-js.svg');
+      @include lang-icon('../img/icons/icon-js.svg');
     }
 
     .icon-cpp {
-      @include lang-icon('../img/icon-cpp.svg');
+      @include lang-icon('../img/icons/icon-cpp.svg');
     }
 
     .lang-card-link {
