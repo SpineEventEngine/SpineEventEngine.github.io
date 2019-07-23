@@ -35,6 +35,7 @@ $(function() {
     switchDocSideNavItems();
     expandItemOnHashChange();
     preventDefaultScroll();
+    hideTocTocify();
     tocTocifySettings();
     showScrollTopBtn();
 });
@@ -68,6 +69,18 @@ function switchDocSideNavItems() {
     if ($('.doc-side-nav-inside a').hasClass('current')) {
         var element = document.getElementById('side-nav-parent-item');
         element.classList.remove('current');
+    }
+}
+
+/**
+ * Hides `toc` navigation if a page has less than 4 headers.
+ */
+function hideTocTocify() {
+    const docsContainer = $(".docs-content");
+    const headersQuantity = docsContainer.find("h2, h3, h4");
+
+    if (headersQuantity.length < 4 && tocNav.length) {
+        tocNav.css('display', 'none');
     }
 }
 
