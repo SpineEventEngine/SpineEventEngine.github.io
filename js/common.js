@@ -73,13 +73,13 @@ function switchDocSideNavItems() {
 }
 
 /**
- * Hides `toc` navigation if a page has less than 4 headers.
+ * Hides `toc` navigation if a page has less than 3 headers.
  */
 function hideTocTocify() {
     const docsContainer = $(".docs-content");
     const headersQuantity = docsContainer.find("h2, h3, h4");
 
-    if (headersQuantity.length < 4 && tocNav.length) {
+    if (headersQuantity.length < 3 && tocNav.length) {
         tocNav.css('display', 'none');
     }
 }
