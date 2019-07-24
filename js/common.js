@@ -34,8 +34,7 @@ var tocNavFixedPosition = 120; // Sticky TOC offset
 $(function() {
     expandItemOnHashChange();
     preventDefaultScroll();
-    hideTocTocify();
-    tocTocifySettings();
+    initTocTocify();
     showScrollTopBtn();
 });
 
@@ -64,21 +63,23 @@ $(window).resize(function() {
 });
 
 /**
- * Hides `toc` navigation if a page has less than 3 headers.
+ * Inits `toc` navigation if a page has more than 2 headers.
+ *
+ * @see {@link http://gregfranko.com/jquery.tocify.js/ Toc Tocify}
  */
-function hideTocTocify() {
+function initTocTocify() {
     const docsContainer = $(".docs-content");
     const headersQuantity = docsContainer.find("h2, h3, h4");
+    const topOffset = 12; // Offset from the `header` navigation
 
-    if (headersQuantity.length < 3 && tocNav.length) {
-        tocNav.css('display', 'none');
+    if (headersQuantity.length >= 3 && tocNav.length) {
+        tocNav.tocify({
+            selectors: "h2, h3, h4",
+            showAndHide: false,
+            scrollTo: initialHeadHeight + topOffset,
+            extendPage: false
+        });
     }
-}
-
-function tocTocifySettings() {
-    // Calls the tocify method on your HTML nav.
-    // InitialHeadHeight + 12 (12px — small offset from the header navigation)
-    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: initialHeadHeight+12, extendPage: false});
 }
 
 // Fix TOC navigation on page while scrolling
