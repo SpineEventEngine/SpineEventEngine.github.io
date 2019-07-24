@@ -32,10 +32,9 @@ var tocNavFixedPosition = 120; // Sticky TOC offset
 
 
 $(function() {
-    switchDocSideNavItems();
     expandItemOnHashChange();
     preventDefaultScroll();
-    tocTocifySettings();
+    initTocTocify();
     showScrollTopBtn();
 });
 
@@ -63,18 +62,24 @@ $(window).resize(function() {
     ifCookiesExist();
 });
 
-// Remove class from the parent element when the child is active
-function switchDocSideNavItems() {
-    if ($('.doc-side-nav-inside a').hasClass('current')) {
-        var element = document.getElementById('side-nav-parent-item');
-        element.classList.remove('current');
-    }
-}
+/**
+ * Inits `toc` navigation if a page has more than 2 headers.
+ *
+ * @see {@link http://gregfranko.com/jquery.tocify.js/ Toc Tocify}
+ */
+function initTocTocify() {
+    const docsContainer = $(".docs-content");
+    const headersQuantity = docsContainer.find("h2, h3, h4");
+    const topOffset = 12; // Offset from the `header` navigation
 
-function tocTocifySettings() {
-    // Calls the tocify method on your HTML nav.
-    // InitialHeadHeight + 12 (12px — small offset from the header navigation)
-    tocNav.tocify({selectors:"h2, h3, h4", showAndHide: false, scrollTo: initialHeadHeight+12, extendPage: false});
+    if (headersQuantity.length >= 3) {
+        tocNav.tocify({
+            selectors: "h2, h3, h4",
+            showAndHide: false,
+            scrollTo: initialHeadHeight + topOffset,
+            extendPage: false
+        });
+    }
 }
 
 // Fix TOC navigation on page while scrolling
