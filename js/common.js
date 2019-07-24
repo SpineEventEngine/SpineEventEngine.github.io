@@ -32,7 +32,6 @@ var tocNavFixedPosition = 120; // Sticky TOC offset
 
 
 $(function() {
-    switchDocSideNavItems();
     expandItemOnHashChange();
     preventDefaultScroll();
     hideTocTocify();
@@ -63,14 +62,6 @@ $(window).resize(function() {
     resizeTocHeightWithWindow();
     ifCookiesExist();
 });
-
-// Remove class from the parent element when the child is active
-function switchDocSideNavItems() {
-    if ($('.doc-side-nav-inside a').hasClass('current')) {
-        var element = document.getElementById('side-nav-parent-item');
-        element.classList.remove('current');
-    }
-}
 
 /**
  * Hides `toc` navigation if a page has less than 3 headers.
