@@ -72,7 +72,7 @@ function initTocTocify() {
     const headersQuantity = docsContainer.find("h2, h3, h4");
     const topOffset = 12; // Offset from the `header` navigation
 
-    if (headersQuantity.length >= 3 && tocNav.length) {
+    if (headersQuantity.length >= 3) {
         tocNav.tocify({
             selectors: "h2, h3, h4",
             showAndHide: false,
