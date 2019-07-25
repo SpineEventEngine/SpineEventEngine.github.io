@@ -14,7 +14,7 @@ Here is a code example which shows how a method which handles this kind of messa
 
   ```
   final class TaskProjection
-      extends Projection&lt;TaskId, TaskItem, TaskItemVBuilder&gt; {
+      extends Projection<TaskId, TaskItem, TaskItemVBuilder> {
       ...
       @Subscribe
       void on(TaskCompleted e, EventContext ctx) {
