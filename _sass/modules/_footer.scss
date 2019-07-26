@@ -232,6 +232,10 @@ footer {
     @include social-icon('../img/icons/icon-github.svg');
   }
 
+  .icon-gitter {
+    @include social-icon('../img/icons/icon-gitter.svg');
+  }
+
   .icon-twitter {
     @include social-icon('../img/icons/icon-twitter.svg');
   }
