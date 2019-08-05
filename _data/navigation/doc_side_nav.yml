@@ -1,0 +1,77 @@
+concepts:
+  - page: Architecture Overview
+    url: /docs/concepts
+  - page: Messaging
+    url: '#messaging'
+    sub_nav_id: messaging
+    sub_nav:
+      - page: Command
+        url: command.html
+      - page: Event
+        url: event.html
+      - page: Rejection
+        url: rejection.html
+      - page: Command Handler
+        url: command-handler.html
+      - page: Event Subscriber
+        url: event-subsriber.html
+      - page: Event Reactor
+        url: event-reactor.html
+  - page: Entities
+    url: '#entities'
+    sub_nav_id: entities
+    sub_nav:
+    - page: Identifier
+      url: identifier.html
+    - page: Aggregate
+      url: aggregate.html
+    - page: Process Manager
+      url: process-manager.html
+    - page: Projection
+      url: projection.html
+    - page: Repository
+      url: repository.html
+    - page: Snapshot
+      url: snapshot.html
+    - page: Entities
+      url: '#entities2'
+      sub_sub_nav_id: entities2
+      sub_sub_nav:
+      - page: Identifier
+        url: identifier.html
+      - page: Aggregate
+        url: aggregate.html
+      - page: Process Manager
+        url: process-manager.html
+      - page: Projection
+        url: projection.html
+      - page: Repository
+        url: repository.html
+      - page: Snapshot
+        url: snapshot.html
+  - page: Architecture
+    url: '#architecture'
+    sub_nav_id: architecture
+    sub_nav:
+    - page: Bounded Context
+      url: bounded-context.html
+    - page: Command Bus
+      url: command-bus.html
+    - page: Command Store
+      url: command-store.html
+    - page: Command Service
+      url: command-service.html
+    - page: Event Bus
+      url: event-bus.html
+    - page: Event Store
+      url: event-store.html
+    - page: Integration Event
+      url: integration-event.html
+    - page: Aggregate Mirror
+      url: aggregate-mirror.html
+    - page: Stand
+      url: stand.html
+    - page: Query Service
+      url: query-service.html
+    - page: Subscription Service
+      url: subscription-service.html

@@ -1,0 +1,23 @@
+<ul class="docs-side-nav">
+    {% if site.data.navigation.doc_side_nav[page.sidenav_list][0] %}
+        {% for item in site.data.navigation.doc_side_nav.[page.sidenav_list] %}
+            <li><a class="side-nav-link collapsed" href="{{ item.url }}" aria-expanded="false">{{ item.page }}</a>
+                {% if item.sub_nav[0] %}
+                <ul id="{{ item.sub_nav_id }}" class="sub-nav collapse">
+                    {% for entry in item.sub_nav %}
+                    <li><a class="side-nav-link collapsed" href="{{ entry.url }}">{{ entry.page }}</a>
+                        {% if entry.sub_sub_nav[0] %}
+                        <ul id="{{ entry.sub_sub_nav_id }}" class="sub-nav collapse">
+                            {% for subentry in entry.sub_sub_nav %}
+                            <li><a class="side-nav-link collapsed" href="{{ subentry.url }}">{{ subentry.page }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
