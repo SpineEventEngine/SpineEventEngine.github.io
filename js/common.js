@@ -36,6 +36,7 @@ $(function() {
     preventDefaultScroll();
     initTocTocify();
     showScrollTopBtn();
+    addCollapseAttr();
 });
 
 jQuery(window).on('load', function() {
@@ -225,4 +226,11 @@ function showScrollTopBtn() {
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     $("html, body").stop().animate({scrollTop: 0}, 500, 'swing'); return false;
+}
+
+/**
+ * Adds a `data-toggle: collapse` attribute to the link if a `<li>` element has a child `<ul>` sub-menu.
+ */
+function addCollapseAttr() {
+    $('ul.docs-side-nav li ul').siblings('a').attr('data-toggle', 'collapse');
 }
