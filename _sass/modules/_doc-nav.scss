@@ -152,3 +152,45 @@ $currentItemCaret: '\025B7  ';
     }
   }
 }
+
+.docs-side-nav {
+  margin: 0 0 40px -8px;
+
+  .side-nav-link {
+    display: block;
+    font-size: 13px;
+    padding: 8px 12px;
+    color: rgba(#000, .54);
+    font-weight: 400;
+
+    &:hover {
+      background-color: rgba(#000, .03);
+      text-decoration: none;
+    }
+  }
+
+  .sub-nav {
+    .side-nav-link {
+      padding-left: 32px;
+    }
+
+    .sub-nav {
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        background: rgba(#000, .08);
+        display: block;
+        left: 32px;
+        top: 13px;
+        bottom: 13px;
+        width: 2px;
+      }
+
+      .side-nav-link {
+        padding-left: 48px;
+      }
+    }
+  }
+}
