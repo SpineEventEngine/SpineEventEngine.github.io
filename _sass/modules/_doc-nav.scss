@@ -167,6 +167,11 @@ $currentItemCaret: '\025B7  ';
       background-color: rgba(#000, .03);
       text-decoration: none;
     }
+
+    &.active {
+      color: $black;
+      font-weight: 600;
+    }
   }
 
   .sub-nav {
