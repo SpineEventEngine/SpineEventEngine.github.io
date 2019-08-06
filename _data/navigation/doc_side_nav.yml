@@ -69,3 +69,27 @@ quickstart:
     url: javascript.html
   - page: C++
     url: cpp.html
+
+guides:
+  - page: Introduction
+    url: guides-introduction.html
+  - page: Project Structure
+    url: project-structure.html
+  - page: Naming Conventions
+    url: naming-conventions.html
+  - page: Model Definition
+    url: model-definition.html
+  - page: Validation User Guide
+    url: validation-user-guide.html
+  - page: Defining Rejections
+    url: creating-rejection-messages.html
+  - page: Defining Aggregate
+    url: defining-aggregate.html
+  - page: Related Guides
+    url: '#related-guides'
+    sub_nav_id: related-guides
+    sub_nav:
+       - page: Protocol Buffers
+         url: https://developers.google.com/protocol-buffers/docs/overview
+       - page: gRPC
+         url: https://grpc.io/docs/guides/index.html
