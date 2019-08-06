@@ -260,3 +260,11 @@ function expandNavigation() {
 function openNavLinkInNewTab() {
     $('.side-nav-link.external').attr('target', '_blank');
 }
+
+$('#docs-side-nav-toggle').click(function(){
+    $('body').addClass('docs-side-navigation-openened');
+});
+
+$('.navigation-title-on-mobile a.close-btn').click(function(){
+    $('body').removeClass('docs-side-navigation-openened');
+});

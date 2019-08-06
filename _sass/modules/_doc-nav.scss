@@ -274,4 +274,68 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
       }
     }
   }
+
+  .navigation-title-on-mobile {
+    display: none;
+  }
+}
+
+.docs-side-navigation-openened {
+  @media(max-width: $tablet){
+    overflow: hidden;
+  }
+
+  .docs-side-nav-holder {
+    display: block;
+  }
+}
+
+#docs-side-nav-toggle {
+  display: none;
+
+  @media(max-width: $tablet){
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+}
+
+.docs-side-nav-holder {
+  @media(max-width: 767px) {
+    z-index: 1001;
+    display: none;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 32px;
+    @include transition(all .4s ease-in-out);
+
+    .docs-side-nav {
+      .navigation-title-on-mobile {
+        display: block;
+        margin-bottom: 16px;
+
+        .title {
+          display: inline-block;
+        }
+
+        .close-btn {
+          float: right;
+          margin-top: 6px;
+          cursor: pointer;
+
+          .close-icon {
+            display: inline-block;
+            width: $icon-size--s;
+            height: $icon-size--s;
+            background: url('../img/x-black.svg') no-repeat center/cover;
+            opacity: .26;
+            @include transition(all .3s ease-in-out);
+          }
+        }
+      }
+    }
+  }
 }
