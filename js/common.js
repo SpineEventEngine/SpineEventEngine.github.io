@@ -38,6 +38,7 @@ $(function() {
     showScrollTopBtn();
     addCollapseAttr();
     expandNavigation();
+    openNavLinkInNewTab();
 });
 
 jQuery(window).on('load', function() {
@@ -251,4 +252,11 @@ function expandNavigation() {
     const activeElementContainer = $('.sub-nav a.active').parents('.sub-nav');
     activeElementContainer.addClass('show');
     activeElementContainer.prev('.side-nav-link.collapsed').removeClass('collapsed');
+}
+
+/**
+ * Opens a docs navigation links in a new tab if they have an external `href`.
+ */
+function openNavLinkInNewTab() {
+    $('.side-nav-link.external').attr('target', '_blank');
 }
