@@ -239,6 +239,19 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
 
       .side-nav-link {
         padding-left: $nav-third-level-left-padding;
+
+        &.active {
+          &:before {
+            content: '';
+            position: absolute;
+            background: rgba(#000, .6);
+            display: block;
+            width: 2px;
+            height: 20px;
+            top: 9px;
+            left: $nav-second-level-left-padding;
+          }
+        }
       }
     }
   }
