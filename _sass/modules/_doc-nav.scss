@@ -169,6 +169,14 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
   margin-bottom: 40px;
   margin-left: -$nav-first-level-left-padding;
 
+  @media(max-width: $tablet){
+    margin: 0;
+  }
+
+  @media(max-width: $phone-xlarge){
+    margin-top: 24px;
+  }
+
   .side-nav-link {
     position: relative;
     display: block;
