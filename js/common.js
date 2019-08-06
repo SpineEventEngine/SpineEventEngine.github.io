@@ -37,6 +37,7 @@ $(function() {
     initTocTocify();
     showScrollTopBtn();
     addCollapseAttr();
+    expandNavigation();
 });
 
 jQuery(window).on('load', function() {
@@ -238,4 +239,16 @@ function addCollapseAttr() {
     const $collapsibleTitleLink = $('ul.docs-side-nav li ul');
     $collapsibleTitleLink.siblings('a').attr('data-toggle', 'collapse');
     $collapsibleTitleLink.siblings('a').addClass('tree-title collapsed');
+}
+
+/**
+ * Expands docs side-navigation to show currently active page.
+ *
+ * <p>When the user clicks on the link in the side navigation, the page reloads and the navigation collapses.
+ * To avoid this the navigation will be expanded automatically when the page is reloaded.
+ */
+function expandNavigation() {
+    const activeElementContainer = $('.sub-nav a.active').parents('.sub-nav');
+    activeElementContainer.addClass('show');
+    activeElementContainer.prev('.side-nav-link.collapsed').removeClass('collapsed');
 }
