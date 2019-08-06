@@ -27,11 +27,11 @@
                             <div {% if current[1] =='docs' %}class='mobile-caret-icon' aria-expanded='true'{% else %}class='mobile-caret-icon collapsed' aria-expanded='false'{% endif %} data-toggle="collapse" data-target="#docListInside" aria-controls="docListInside"></div>
                             <ul {% if current[1] == 'docs' %}class='doc-list-inside collapse show'{% else %}class='doc-list-inside collapse'{% endif %} id="docListInside">
                                 <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path== 'docs/index.html' %}class='current'{% endif %}><span>Home</span></a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/concepts" {% if current[2] == 'concepts' %}class='current'{% endif %}>Concepts</a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2]== 'quickstart' %}class='current'{% endif
+                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/concepts/architecture-overview.html" {% if current[2] == 'concepts' %}class='current'{% endif %}>Concepts</a></li>
+                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quickstart/quick-start.html" {% if current[2]== 'quickstart' %}class='current'{% endif
                                     %}><span>Quick Start</span></a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}><span>Guides</span></a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/tutorials" {% if current[2]== 'tutorials' %}class='current'{% endif
+                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides/guides-introduction.html" {% if current[2] == 'guides' %}class='current'{% endif %}><span>Guides</span></a></li>
+                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/tutorials/tutorials-overview.html" {% if current[2]== 'tutorials' %}class='current'{% endif
                                     %}><span>Tutorials</span></a></li>
                                 <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/reference" {% if current[2]== 'reference' %}class='current'{% endif
                                     %}><span>Reference</span></a></li>
