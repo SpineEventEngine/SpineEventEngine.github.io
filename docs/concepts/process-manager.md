@@ -3,7 +3,8 @@ title: Process Manager
 headline: Concepts
 bodyclass: docs
 layout: docs
-sidenav: doc-side-concepts-nav.html
+sidenav_list: concepts
+sidenav: doc-side-nav.html
 type: markdown
 ---
 <h2 class="top">Process Manager</h2> 

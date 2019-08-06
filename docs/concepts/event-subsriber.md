@@ -3,7 +3,8 @@ title: Event Subscriber
 headline: Concepts
 bodyclass: docs
 layout: docs
-sidenav: doc-side-concepts-nav.html
+sidenav_list: concepts
+sidenav: doc-side-nav.html
 type: markdown
 ---
 <h2 class="top">Event Subscriber</h2> 
