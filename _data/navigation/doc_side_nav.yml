@@ -1,6 +1,6 @@
 concepts:
   - page: Architecture Overview
-    url: /docs/concepts
+    url: architecture-overview.html
   - page: Messaging
     url: '#messaging'
     sub_nav_id: messaging
