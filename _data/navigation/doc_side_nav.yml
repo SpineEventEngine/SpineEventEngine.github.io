@@ -21,22 +21,6 @@ concepts:
     url: '#entities'
     sub_nav_id: entities
     sub_nav:
-    - page: Identifier
-      url: identifier.html
-    - page: Aggregate
-      url: aggregate.html
-    - page: Process Manager
-      url: process-manager.html
-    - page: Projection
-      url: projection.html
-    - page: Repository
-      url: repository.html
-    - page: Snapshot
-      url: snapshot.html
-    - page: Entities
-      url: '#entities2'
-      sub_sub_nav_id: entities2
-      sub_sub_nav:
       - page: Identifier
         url: identifier.html
       - page: Aggregate
@@ -53,25 +37,25 @@ concepts:
     url: '#architecture'
     sub_nav_id: architecture
     sub_nav:
-    - page: Bounded Context
-      url: bounded-context.html
-    - page: Command Bus
-      url: command-bus.html
-    - page: Command Store
-      url: command-store.html
-    - page: Command Service
-      url: command-service.html
-    - page: Event Bus
-      url: event-bus.html
-    - page: Event Store
-      url: event-store.html
-    - page: Integration Event
-      url: integration-event.html
-    - page: Aggregate Mirror
-      url: aggregate-mirror.html
-    - page: Stand
-      url: stand.html
-    - page: Query Service
-      url: query-service.html
-    - page: Subscription Service
-      url: subscription-service.html
+      - page: Bounded Context
+        url: bounded-context.html
+      - page: Command Bus
+        url: command-bus.html
+      - page: Command Store
+        url: command-store.html
+      - page: Command Service
+        url: command-service.html
+      - page: Event Bus
+        url: event-bus.html
+      - page: Event Store
+        url: event-store.html
+      - page: Integration Event
+        url: integration-event.html
+      - page: Aggregate Mirror
+        url: aggregate-mirror.html
+      - page: Stand
+        url: stand.html
+      - page: Query Service
+        url: query-service.html
+      - page: Subscription Service
+        url: subscription-service.html
