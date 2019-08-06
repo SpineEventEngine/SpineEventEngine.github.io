@@ -153,19 +153,55 @@ $currentItemCaret: '\025B7  ';
   }
 }
 
+$nav-link-font-size: 13px;
+$nav-link-color: rgba(#000, .54);
+$nav-link-chevron-border-size: 1px solid rgba(#000, .26);
+$nav-link-chevron-size: 6px;
+
+$nav-first-level-left-padding: 24px;
+$nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
+$nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
+
 .docs-side-nav {
   margin: 0 0 40px -8px;
 
   .side-nav-link {
+    position: relative;
     display: block;
-    font-size: 13px;
-    padding: 8px 12px;
-    color: rgba(#000, .54);
+    font-size: $nav-link-font-size;
+    padding: 8px $nav-first-level-left-padding;
+    color: $nav-link-color;
     font-weight: 400;
+    @include transition(all .3s ease-in-out);
+
+    // Tree title with chevron
+    &.tree-title {
+      &:before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        border-right: $nav-link-chevron-border-size;
+        border-bottom: $nav-link-chevron-border-size;
+        width: $nav-link-chevron-size;
+        height: $nav-link-chevron-size;
+        top: 13px;
+        left: 6px;
+        transform: rotate(45deg);
+        @include transition(all .3s ease-in-out);
+      }
+
+      &.collapsed {
+        &:before {
+          top: 14px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
 
     &:hover {
       background-color: rgba(#000, .03);
       text-decoration: none;
+      border-radius: 2px;
     }
 
     &.active {
@@ -176,25 +212,33 @@ $currentItemCaret: '\025B7  ';
 
   .sub-nav {
     .side-nav-link {
-      padding-left: 32px;
+      padding-left: $nav-second-level-left-padding;
+
+      // Tree title with chevron
+      &.tree-title {
+        &:before {
+          left:  calc(#{$nav-first-level-left-padding} - 3px);
+        }
+      }
     }
 
     .sub-nav {
       position: relative;
 
+      // Side nav vertical progress bar
       &:before {
         content: '';
         position: absolute;
         background: rgba(#000, .08);
         display: block;
-        left: 32px;
+        left: $nav-second-level-left-padding;
         top: 13px;
         bottom: 13px;
         width: 2px;
       }
 
       .side-nav-link {
-        padding-left: 48px;
+        padding-left: $nav-third-level-left-padding;
       }
     }
   }

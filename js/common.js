@@ -230,7 +230,12 @@ function topFunction() {
 
 /**
  * Adds a `data-toggle: collapse` attribute to the link if a `<li>` element has a child `<ul>` sub-menu.
+ *
+ * <p>Also, adds `tree-title` and `collapsed` classes that is needed to style opened and collapsed states.
+ * Styles you can find in the `sass/modules/doc-nav.scss`file.
  */
 function addCollapseAttr() {
-    $('ul.docs-side-nav li ul').siblings('a').attr('data-toggle', 'collapse');
+    const $collapsibleTitleLink = $('ul.docs-side-nav li ul');
+    $collapsibleTitleLink.siblings('a').attr('data-toggle', 'collapse');
+    $collapsibleTitleLink.siblings('a').addClass('tree-title collapsed');
 }
