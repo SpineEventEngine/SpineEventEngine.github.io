@@ -59,3 +59,13 @@ concepts:
         url: query-service.html
       - page: Subscription Service
         url: subscription-service.html
+
+quickstart:
+  - page: Quick Start
+    url: quick-start.html
+  - page: Java
+    url: java.html
+  - page: JavaScript
+    url: javascript.html
+  - page: C++
+    url: cpp.html

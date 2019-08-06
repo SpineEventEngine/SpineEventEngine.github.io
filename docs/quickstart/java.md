@@ -3,7 +3,8 @@ title: Getting Started with Spine in Java
 headline: Getting Started with Spine in Java
 bodyclass: docs
 layout: docs
-sidenav: doc-side-quickstart-nav.html
+sidenav_list: quickstart
+sidenav: doc-side-nav.html
 type: markdown
 ---
 <p>This guide helps you get started with minimal server-side application in Java with a simple
