@@ -1,6 +1,6 @@
 concepts:
   - page: Architecture Overview
-    url: /docs/concepts/architecture-overview.html
+    url: /docs/concepts/
   - page: Messaging
     url: '#messaging'
     sub_nav_id: messaging
@@ -62,7 +62,7 @@ concepts:
 
 quickstart:
   - page: Quick Start
-    url: /docs/quickstart/quick-start.html
+    url: /docs/quickstart/
   - page: Java
     url: /docs/quickstart/java.html
   - page: JavaScript
@@ -72,7 +72,7 @@ quickstart:
 
 guides:
   - page: Introduction
-    url: /docs/guides/guides-introduction.html
+    url: /docs/guides/
   - page: Project Structure
     url: /docs/guides/project-structure.html
   - page: Naming Conventions
@@ -96,7 +96,7 @@ guides:
 
 tutorials:
   - page: Overview
-    url: /docs/tutorials/tutorials-overview.html
+    url: /docs/tutorials/
   - page: Basic
     url: '#basic-tutorials'
     sub_nav_id: basic-tutorials
