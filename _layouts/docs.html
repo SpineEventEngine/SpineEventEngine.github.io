@@ -10,10 +10,10 @@ bodyclass: docs
       {% if current[1] == 'docs' and page.sidenav != null %}
           <div class="container-fluid content-holder docs-content">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-12 col-md-3">
                     {% include {{page.sidenav}} %}
                 </div>
-                <div class="col-md {{ page.type }}">
+                <div class="col-12 col-md-6 mr-auto {{ page.type }}">
                   {{ content }}
                 </div>
                 <div class="col-md toc-col">
