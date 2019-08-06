@@ -3,7 +3,8 @@ title: Spine Basics - JavaScript
 headline: Spine Basics - JavaScript
 layout: docs
 bodyclass: docs
-sidenav: doc-side-tutorial-nav.html
+sidenav_list: tutorials
+sidenav: doc-side-nav.html
 type: markdown
 ---
 

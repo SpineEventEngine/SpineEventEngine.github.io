@@ -3,7 +3,8 @@ title: Spine Basics - Swift
 headline: Spine Basics - Swift
 bodyclass: docs
 layout: docs
-sidenav: doc-side-tutorial-nav.html
+sidenav_list: tutorials
+sidenav: doc-side-nav.html
 type: markdown
 ---
 <p class="coming-soon">Coming soon...</p>
