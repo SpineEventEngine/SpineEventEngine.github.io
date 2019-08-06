@@ -153,9 +153,11 @@ $currentItemCaret: '\025B7  ';
   }
 }
 
+$nav-link-top-level-font-size: 14px;
 $nav-link-font-size: 13px;
 $nav-link-color: rgba(#000, .54);
-$nav-link-chevron-border-size: 1px solid rgba(#000, .26);
+$nav-link-color-active: $black;
+$nav-link-chevron-border-size: 1px solid rgba(#000, .4);
 $nav-link-chevron-size: 6px;
 
 $nav-first-level-left-padding: 24px;
@@ -168,7 +170,7 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
   .side-nav-link {
     position: relative;
     display: block;
-    font-size: $nav-link-font-size;
+    font-size: $nav-link-top-level-font-size;
     padding: 8px $nav-first-level-left-padding;
     color: $nav-link-color;
     font-weight: 400;
@@ -176,6 +178,8 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
 
     // Tree title with chevron
     &.tree-title {
+      color: $nav-link-color-active;
+
       &:before {
         content: '';
         position: absolute;
@@ -191,6 +195,8 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
       }
 
       &.collapsed {
+        color: $nav-link-color;
+
         &:before {
           top: 14px;
           transform: rotate(-45deg);
@@ -205,13 +211,14 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
     }
 
     &.active {
-      color: $black;
+      color: $nav-link-color-active;
       font-weight: 600;
     }
   }
 
   .sub-nav {
     .side-nav-link {
+      font-size: $nav-link-font-size;
       padding-left: $nav-second-level-left-padding;
 
       // Tree title with chevron
