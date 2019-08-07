@@ -173,10 +173,6 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
     margin: 0;
   }
 
-  @media(max-width: $phone-xlarge){
-    margin-top: 24px;
-  }
-
   .side-nav-link {
     position: relative;
     display: block;
@@ -280,7 +276,7 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
   }
 }
 
-.docs-side-navigation-openened {
+.docs-side-navigation-opened {
   @media(max-width: $tablet){
     overflow: hidden;
   }
