@@ -8,4 +8,3 @@ sidenav: doc-side-nav.html
 type: markdown
 ---
 <p class="coming-soon">Coming soon...</p>
-<hr>

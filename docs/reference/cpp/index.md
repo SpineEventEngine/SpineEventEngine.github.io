@@ -7,5 +7,4 @@ type: markdown
 ---
 
 <p class="lead">Coming soon...</p>
-<hr>
 
