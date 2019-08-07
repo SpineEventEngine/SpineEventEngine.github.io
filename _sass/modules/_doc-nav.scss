@@ -293,6 +293,17 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
     display: block;
     padding: 0 15px;
     cursor: pointer;
+    color: $mainBrandColor;
+    font-size: 15px;
+
+    i {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: $phone-xlarge) {
+    margin-top: 24px;
   }
 }
 
@@ -306,6 +317,7 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
     left: 0;
     height: 100vh;
     padding: 32px;
+    overflow: auto;
     @include transition(all .4s ease-in-out);
 
     .docs-side-nav {

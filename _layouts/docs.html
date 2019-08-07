@@ -10,7 +10,10 @@ bodyclass: docs
       {% if current[1] == 'docs' and page.sidenav != null %}
           <div class="container-fluid content-holder docs-content">
             <div class="row">
-                <div id="docs-side-nav-toggle">Contents</div>
+                <div id="docs-side-nav-toggle">
+                    <i class="fas fa-list-ul"></i>
+                    <span>Contents</span>
+                </div>
                 <div class="col-12 col-md-3 docs-side-nav-holder">
                     {% include {{page.sidenav}} %}
                 </div>
