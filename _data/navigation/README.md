@@ -22,8 +22,7 @@ concepts:
 
 Where:
 - `concepts` — navigation list name. The same name should be added for each `.md` file (that is in this list) as:
-`sidenav_list: concepts`
-
+`sidenav_list: concepts`.
 - `page` - the page name that will be displayed in the navigation.
 - `url` - the full path to the file. It depends on what folder the file is in.
 
