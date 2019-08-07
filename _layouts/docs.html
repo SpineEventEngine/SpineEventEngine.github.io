@@ -10,10 +10,14 @@ bodyclass: docs
       {% if current[1] == 'docs' and page.sidenav != null %}
           <div class="container-fluid content-holder docs-content">
             <div class="row">
-                <div class="col-md doc-side-nav-col">
-                  {% include {{page.sidenav}} %}
+                <div id="docs-side-nav-mobile-toggle">
+                    <i class="fas fa-list-ul"></i>
+                    <span>Contents</span>
                 </div>
-                <div class="col-md {{ page.type }}">
+                <div class="col-12 col-md-3 docs-side-nav-holder">
+                    {% include {{page.sidenav}} %}
+                </div>
+                <div class="col-12 col-md-6 mr-auto {{ page.type }}">
                   {{ content }}
                 </div>
                 <div class="col-md toc-col">
@@ -36,3 +40,4 @@ bodyclass: docs
       {% endif %}
 
 <a onclick="topFunction()" id="go-top-btn" title="Go to Top"><span>Top</span></a>
+<script src="{{ site.baseurl }}/js/doc-side-nav.js" type="text/javascript" charset="utf-8"></script>

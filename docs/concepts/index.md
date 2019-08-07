@@ -4,7 +4,8 @@ headline: Concepts
 bodyclass: docs
 layout: docs
 type: markdown
-sidenav: doc-side-concepts-nav.html
+sidenav_list: concepts
+sidenav: doc-side-nav.html
 ---
 <h2 class="top">Architecture Overview</h2>
 <div id="toc" class="toc hide-block"></div>

@@ -1,0 +1,109 @@
+concepts:
+  - page: Architecture Overview
+    url: /docs/concepts/
+  - page: Messaging
+    url: '#messaging'
+    sub_nav_id: messaging
+    sub_nav:
+      - page: Command
+        url: /docs/concepts/command.html
+      - page: Event
+        url: /docs/concepts/event.html
+      - page: Rejection
+        url: /docs/concepts/rejection.html
+      - page: Command Handler
+        url: /docs/concepts/command-handler.html
+      - page: Event Subscriber
+        url: /docs/concepts/event-subsriber.html
+      - page: Event Reactor
+        url: /docs/concepts/event-reactor.html
+  - page: Entities
+    url: '#entities'
+    sub_nav_id: entities
+    sub_nav:
+      - page: Identifier
+        url: /docs/concepts/identifier.html
+      - page: Aggregate
+        url: /docs/concepts/aggregate.html
+      - page: Process Manager
+        url: /docs/concepts/process-manager.html
+      - page: Projection
+        url: /docs/concepts/projection.html
+      - page: Repository
+        url: /docs/concepts/repository.html
+      - page: Snapshot
+        url: /docs/concepts/snapshot.html
+  - page: Architecture
+    url: '#architecture'
+    sub_nav_id: architecture
+    sub_nav:
+      - page: Bounded Context
+        url: /docs/concepts/bounded-context.html
+      - page: Command Bus
+        url: /docs/concepts/command-bus.html
+      - page: Command Store
+        url: /docs/concepts/command-store.html
+      - page: Command Service
+        url: /docs/concepts/command-service.html
+      - page: Event Bus
+        url: /docs/concepts/event-bus.html
+      - page: Event Store
+        url: /docs/concepts/event-store.html
+      - page: Integration Event
+        url: /docs/concepts/integration-event.html
+      - page: Aggregate Mirror
+        url: /docs/concepts/aggregate-mirror.html
+      - page: Stand
+        url: /docs/concepts/stand.html
+      - page: Query Service
+        url: /docs/concepts/query-service.html
+      - page: Subscription Service
+        url: /docs/concepts/subscription-service.html
+
+quickstart:
+  - page: Quick Start
+    url: /docs/quickstart/
+  - page: Java
+    url: /docs/quickstart/java.html
+  - page: JavaScript
+    url: /docs/quickstart/javascript.html
+  - page: C++
+    url: /docs/quickstart/cpp.html
+
+guides:
+  - page: Introduction
+    url: /docs/guides/
+  - page: Project Structure
+    url: /docs/guides/project-structure.html
+  - page: Naming Conventions
+    url: /docs/guides/naming-conventions.html
+  - page: Model Definition
+    url: /docs/guides/model-definition.html
+  - page: Validation User Guide
+    url: /docs/guides/validation-user-guide.html
+  - page: Defining Rejections
+    url: /docs/guides/creating-rejection-messages.html
+  - page: Defining Aggregate
+    url: /docs/guides/defining-aggregate.html
+  - page: Related Guides
+    url: '#related-guides'
+    sub_nav_id: related-guides
+    sub_nav:
+       - page: Protocol Buffers
+         url: https://developers.google.com/protocol-buffers/docs/overview
+       - page: gRPC
+         url: https://grpc.io/docs/guides/index.html
+
+tutorials:
+  - page: Overview
+    url: /docs/tutorials/
+  - page: Basic
+    url: '#basic-tutorials'
+    sub_nav_id: basic-tutorials
+    sub_nav:
+      - page: Java
+        url: /docs/tutorials/basic/java.html
+      - page: JavaScript
+        url: /docs/tutorials/basic/javascript.html
+      - page: C++
+        url: /docs/tutorials/basic/cpp.html

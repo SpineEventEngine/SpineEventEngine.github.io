@@ -14,6 +14,10 @@
     margin: 0;
   }
 
+  p + ul {
+    margin-top: -8px;
+  }
+
   h1, h2, h3, h2 {
     code {
       font-size: inherit;
@@ -46,7 +50,7 @@
     list-style: none;
     font-size: 15px;
     line-height: 1.5;
-    margin: 0 0 24px 20px;
+    margin: 0 0 24px 6px;
 
     li {
       position: relative;
@@ -75,6 +79,13 @@
     list-style: decimal;
     li {
       padding-left: 10px;
+      margin-bottom: 10px;
+
+      ul {
+        li {
+          padding-left: 0;
+        }
+      }
     }
   }
 
@@ -102,6 +113,6 @@
   }
 
   .highlight {
-    margin-bottom: 24px;
+    margin: 8px 0 24px;
   }
 }

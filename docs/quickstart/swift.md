@@ -3,7 +3,8 @@ title: Getting Started with Swift
 headline: Getting Started with Swift
 bodyclass: docs
 layout: docs
-sidenav: doc-side-quickstart-nav.html
+sidenav_list: quickstart
+sidenav: doc-side-nav.html
 type: markdown
 ---
 <p class="coming-soon">Coming soon...</p>

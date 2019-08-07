@@ -3,7 +3,8 @@ title: Project Structure
 headline: Project Structure
 bodyclass: docs
 layout: docs
-sidenav: doc-side-guides-nav.html
+sidenav_list: guides
+sidenav: doc-side-nav.html
 type: markdown
 ---
 

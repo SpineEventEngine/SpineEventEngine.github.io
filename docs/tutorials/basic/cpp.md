@@ -3,7 +3,8 @@ title: Spine Basics - C++
 headline: Spine Basics - C++
 bodyclass: docs
 layout: docs
-sidenav: doc-side-tutorial-nav.html
+sidenav_list: tutorials
+sidenav: doc-side-nav.html
 type: markdown
 ---
 

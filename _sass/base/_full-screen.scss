@@ -23,12 +23,7 @@
         margin: -14px -1rem -1rem auto; // `-14px` is used to align the icon with the title text
 
         .close-icon {
-          display: inline-block;
-          width: $icon-size--s;
-          height: $icon-size--s;
-          background: url('../img/x-black.svg') no-repeat center/cover;
-          opacity: .26;
-          @include transition(all .3s ease-in-out);
+          @include close-icon;
         }
 
         &:hover {

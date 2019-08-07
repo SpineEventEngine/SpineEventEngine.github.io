@@ -3,7 +3,8 @@ title: Guides
 headline: Guides
 bodyclass: docs
 layout: docs
-sidenav: doc-side-guides-nav.html
+sidenav_list: guides
+sidenav: doc-side-nav.html
 type: markdown
 ---
 

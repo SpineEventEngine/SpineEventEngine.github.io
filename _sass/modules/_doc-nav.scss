@@ -1,5 +1,14 @@
-// Common navigation constants
-$currentItemCaret: '\025B7  ';
+// Documents side navigation variables
+$nav-link-top-level-font-size: 14px;
+$nav-link-font-size: 13px;
+$nav-link-color: rgba(#000, .54);
+$nav-link-color-active: $black;
+$nav-link-chevron-border-size: 1px solid rgba(#000, .4);
+$nav-link-chevron-border-size-active: 1px solid rgba(#000, .7);
+$nav-link-chevron-size: 6px;
+$nav-first-level-left-padding: 24px;
+$nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
+$nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
 
 // Documentation Navigation Bar
 .nav-mobile-toggle {
@@ -59,96 +68,187 @@ $currentItemCaret: '\025B7  ';
   }
 }
 
-// Documentation Side Navigation
-.doc-side-nav {
-  background-color: $light-gray;
-  border-radius: 4px;
-  padding: 8px 8px 48px;
-  margin-bottom: 106px;
+.docs-side-nav {
+  margin-bottom: 40px;
+  margin-left: -$nav-first-level-left-padding;
 
-  @media (max-width: 767px) {
-    margin: 16px 0 0;
-    padding-bottom: 24px;
+  @media(max-width: $tablet){
+    margin: 0;
   }
 
-  .doc-side-nav-title {
+  .side-nav-link {
+    position: relative;
     display: block;
-    padding: 24px 20px 12px;
-    font-size: 12px;
-    color: rgba($black, .38);
-    font-weight: 500;
-    text-transform: uppercase;
+    font-size: $nav-link-top-level-font-size;
+    padding: 8px $nav-first-level-left-padding;
+    color: $nav-link-color;
+    font-weight: 400;
+    @include transition(all .3s ease-in-out);
 
-    @media (max-width: 767px) {
-      font-size: 13px;
+    // Tree title with chevron
+    &.tree-title {
+      color: $nav-link-color-active;
+
+      &:before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        border-right: $nav-link-chevron-border-size-active;
+        border-bottom: $nav-link-chevron-border-size-active;
+        width: $nav-link-chevron-size;
+        height: $nav-link-chevron-size;
+        top: 14px;
+        left: 8px;
+        transform: rotate(45deg);
+        @include transition(all .3s ease-in-out);
+      }
+
+      &.collapsed {
+        color: $nav-link-color;
+
+        &:before {
+          border-right: $nav-link-chevron-border-size;
+          border-bottom: $nav-link-chevron-border-size;
+          top: 15px;
+          transform: rotate(-45deg);
+        }
+      }
     }
-  }
 
-  .doc-side-nav-sub-title {
-    display: block;
-    padding: 24px 20px 8px;
-    font-size: 12px;
-    color: rgba($black, .38);
-    font-weight: 700;
-  }
-
-  li {
-    display: inline-block;
-    width: 100%;
-
-    a {
+    &:hover {
+      background-color: rgba(#000, .03);
       text-decoration: none;
-      display: block;
-      padding: 8px 20px;
-      font-size: 13px;
-      line-height: 18px;
-      color: $black;
-      font-weight: 400;
-      transition: all .25s ease-in-out;
+      border-radius: 2px;
+    }
 
-      @media(max-width: 767px) {
-        padding: 16px 20px;
-        font-size: 14px;
-      }
+    &.active {
+      color: $nav-link-color-active;
+      font-weight: 600;
+    }
+  }
 
-      &.current {
-        font-weight: 700;
-        color: $mainBrandColor;
-        background-color: rgba($white, .87);
-        border-radius: 4px;
-      }
+  .sub-nav {
+    .side-nav-link {
+      font-size: $nav-link-font-size;
+      padding-left: $nav-second-level-left-padding;
 
-      &:hover {
-        color: $mainBrandColor;
+      // Tree title with chevron
+      &.tree-title {
+        &:before {
+          left:  calc(#{$nav-first-level-left-padding} - 3px);
+        }
       }
     }
 
+    .sub-nav {
+      position: relative;
+
+      // Side nav vertical progress bar
+      &:before {
+        content: '';
+        position: absolute;
+        background: rgba(#000, .08);
+        display: block;
+        left: $nav-second-level-left-padding;
+        top: 13px;
+        bottom: 13px;
+        width: 2px;
+      }
+
+      .side-nav-link {
+        padding-left: $nav-third-level-left-padding;
+
+        &.active {
+          &:before {
+            content: '';
+            position: absolute;
+            background: rgba(#000, .6);
+            display: block;
+            width: 2px;
+            height: 20px;
+            top: 9px;
+            left: $nav-second-level-left-padding;
+          }
+        }
+      }
+    }
+  }
+
+  .navigation-title-on-mobile {
+    display: none;
   }
 }
 
-// Different styling for doc side nav for tutorial page with nested items
-.doc-side-nav-tutorial {
-
-  h6 {
-    color: $dark-gray;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 22px;
+.docs-side-navigation-opened {
+  @media(max-width: $tablet){
+    overflow: hidden;
   }
 
-  .submenu {
-    padding: 2px 15px;
-  }
-
-  .submenu-link {
+  .docs-side-nav-holder {
     display: block;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 22px;
-    color: $gray;
+  }
+}
 
-    &.active:before {
-      content: $currentItemCaret;
+#docs-side-nav-mobile-toggle {
+  display: none;
+
+  @media(max-width: $tablet){
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+    color: $mainBrandColor;
+    font-size: 15px;
+
+    i {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: $phone-xlarge) {
+    margin-top: 24px;
+  }
+}
+
+.docs-side-nav-holder {
+  @media(max-width: 767px) {
+    z-index: 1001;
+    display: none;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 32px;
+    overflow: auto;
+    @include transition(all .4s ease-in-out);
+
+    .docs-side-nav {
+      .navigation-title-on-mobile {
+        display: block;
+        margin-bottom: 16px;
+
+        .title {
+          display: inline-block;
+          margin-left: 8px;
+        }
+
+        .close-btn {
+          float: right;
+          margin-top: 6px;
+          cursor: pointer;
+
+          .close-icon {
+            @include close-icon;
+          }
+
+          &:hover {
+            .close-icon {
+              opacity: .87;
+            }
+          }
+        }
+      }
     }
   }
 }
