@@ -62,6 +62,6 @@ concepts:
           url: /docs/conceps/3rd-level-file.html
 ```
 
-To declare the third-level navigation used:
+To declare the third-level navigation use:
 - `sub_sub_nav_id` - `ID` of the collapsed third-level navigation list.
 - `sub_sub_nav` - third-level navigation container. It's always `sub_sub_nav` for the third-level.
