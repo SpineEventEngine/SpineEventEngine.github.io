@@ -1,5 +1,6 @@
 `doc-side-nav.yml` it is a YAML file with the navigation structure for the all docs pages.
-Note that the YAML file should be located in the `_data` folder.
+Note that the YAML file should be located in the `_data` folder. Also note that the suggested syntax for YAML files 
+is to use 2 spaces for indentation.
 
 Related files:
 - a liquid navigation template - `_includes/doc-side-nav.html`;
