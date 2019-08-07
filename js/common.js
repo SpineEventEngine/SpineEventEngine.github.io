@@ -265,10 +265,10 @@ function openNavLinkInNewTab() {
 /**
  * Adds the body class `docs-side-navigation-opened`.
  *
- * <p>By clicking on the `docs-side-nav-toggle` the CSS will open a documents side navigation
- * as a full page above the content. It will be available for mobile devices only.
+ * <p>By clicking on the `docs-side-nav-mobile-toggle` the CSS will open a documents side navigation
+ * as a full page above the content. The `docs-side-nav-mobile-toggle` will be visible on mobile devices only.
  */
-$('#docs-side-nav-toggle').click(function(){
+$('#docs-side-nav-mobile-toggle').click(function(){
     $('body').addClass('docs-side-navigation-opened');
 });
 

@@ -1,5 +1,14 @@
-// Common navigation constants
-$currentItemCaret: '\025B7  ';
+// Documents side navigation variables
+$nav-link-top-level-font-size: 14px;
+$nav-link-font-size: 13px;
+$nav-link-color: rgba(#000, .54);
+$nav-link-color-active: $black;
+$nav-link-chevron-border-size: 1px solid rgba(#000, .4);
+$nav-link-chevron-border-size-active: 1px solid rgba(#000, .7);
+$nav-link-chevron-size: 6px;
+$nav-first-level-left-padding: 24px;
+$nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
+$nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
 
 // Documentation Navigation Bar
 .nav-mobile-toggle {
@@ -58,112 +67,6 @@ $currentItemCaret: '\025B7  ';
     padding: 0;
   }
 }
-
-// Documentation Side Navigation
-.doc-side-nav {
-  background-color: $light-gray;
-  border-radius: 4px;
-  padding: 8px 8px 48px;
-  margin-bottom: 106px;
-
-  @media (max-width: 767px) {
-    margin: 16px 0 0;
-    padding-bottom: 24px;
-  }
-
-  .doc-side-nav-title {
-    display: block;
-    padding: 24px 20px 12px;
-    font-size: 12px;
-    color: rgba($black, .38);
-    font-weight: 500;
-    text-transform: uppercase;
-
-    @media (max-width: 767px) {
-      font-size: 13px;
-    }
-  }
-
-  .doc-side-nav-sub-title {
-    display: block;
-    padding: 24px 20px 8px;
-    font-size: 12px;
-    color: rgba($black, .38);
-    font-weight: 700;
-  }
-
-  li {
-    display: inline-block;
-    width: 100%;
-
-    a {
-      text-decoration: none;
-      display: block;
-      padding: 8px 20px;
-      font-size: 13px;
-      line-height: 18px;
-      color: $black;
-      font-weight: 400;
-      transition: all .25s ease-in-out;
-
-      @media(max-width: 767px) {
-        padding: 16px 20px;
-        font-size: 14px;
-      }
-
-      &.current {
-        font-weight: 700;
-        color: $mainBrandColor;
-        background-color: rgba($white, .87);
-        border-radius: 4px;
-      }
-
-      &:hover {
-        color: $mainBrandColor;
-      }
-    }
-
-  }
-}
-
-// Different styling for doc side nav for tutorial page with nested items
-.doc-side-nav-tutorial {
-
-  h6 {
-    color: $dark-gray;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 22px;
-  }
-
-  .submenu {
-    padding: 2px 15px;
-  }
-
-  .submenu-link {
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 22px;
-    color: $gray;
-
-    &.active:before {
-      content: $currentItemCaret;
-    }
-  }
-}
-
-$nav-link-top-level-font-size: 14px;
-$nav-link-font-size: 13px;
-$nav-link-color: rgba(#000, .54);
-$nav-link-color-active: $black;
-$nav-link-chevron-border-size: 1px solid rgba(#000, .4);
-$nav-link-chevron-border-size-active: 1px solid rgba(#000, .7);
-$nav-link-chevron-size: 6px;
-
-$nav-first-level-left-padding: 24px;
-$nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
-$nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
 
 .docs-side-nav {
   margin-bottom: 40px;
@@ -286,7 +189,7 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
   }
 }
 
-#docs-side-nav-toggle {
+#docs-side-nav-mobile-toggle {
   display: none;
 
   @media(max-width: $tablet){
