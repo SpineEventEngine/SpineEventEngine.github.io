@@ -36,9 +36,6 @@ $(function() {
     preventDefaultScroll();
     initTocTocify();
     showScrollTopBtn();
-    addCollapseAttr();
-    expandNavigation();
-    openNavLinkInNewTab();
 });
 
 jQuery(window).on('load', function() {
@@ -229,54 +226,3 @@ function showScrollTopBtn() {
 function topFunction() {
     $("html, body").stop().animate({scrollTop: 0}, 500, 'swing'); return false;
 }
-
-/**
- * Adds a `data-toggle: collapse` attribute to the link if a `<li>` element has a child `<ul>` sub-menu.
- * Uses only for the document side navigation.
- *
- * <p>Also, adds `tree-title` and `collapsed` classes that is needed to style opened and collapsed states.
- * Styles you can find in the `sass/modules/doc-nav.scss`file.
- */
-function addCollapseAttr() {
-    const $collapsibleTitleLink = $('ul.docs-side-nav li ul').siblings('a');
-    $collapsibleTitleLink.attr('data-toggle', 'collapse');
-    $collapsibleTitleLink.addClass('tree-title collapsed');
-}
-
-/**
- * Expands docs side-navigation to show currently active page.
- *
- * <p>When the user clicks on the link in the side navigation, the page reloads and the navigation collapses.
- * To avoid this the navigation will be expanded automatically when the page is reloaded.
- */
-function expandNavigation() {
-    const activeElementContainer = $('.sub-nav a.active').parents('.sub-nav');
-    activeElementContainer.addClass('show');
-    activeElementContainer.prev('.side-nav-link.collapsed').removeClass('collapsed');
-}
-
-/**
- * Opens a docs navigation links in a new tab if they have an external `href`.
- */
-function openNavLinkInNewTab() {
-    $('.side-nav-link.external').attr('target', '_blank');
-}
-
-/**
- * Adds the body class `docs-side-navigation-opened`.
- *
- * <p>By clicking on the `docs-side-nav-mobile-toggle` the CSS will open a documents side navigation
- * as a full page above the content. The `docs-side-nav-mobile-toggle` will be visible on mobile devices only.
- */
-$('#docs-side-nav-mobile-toggle').click(function(){
-    $('body').addClass('docs-side-navigation-opened');
-});
-
-/**
- * Removes the body class `docs-side-navigation-opened`.
- *
- * <p>By clicking on the `close-btn` the CSS will hide the document side navigation.
- */
-$('.navigation-title-on-mobile a.close-btn').click(function(){
-    $('body').removeClass('docs-side-navigation-opened');
-});
