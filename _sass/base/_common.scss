@@ -339,3 +339,12 @@ th {
     }
   }
 }
+
+@mixin close-icon {
+  display: inline-block;
+  width: $icon-size--s;
+  height: $icon-size--s;
+  background: url('../img/x-black.svg') no-repeat center/cover;
+  opacity: .26;
+  @include transition(all .3s ease-in-out);
+}

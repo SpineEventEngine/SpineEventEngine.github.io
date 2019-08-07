@@ -239,12 +239,13 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
           cursor: pointer;
 
           .close-icon {
-            display: inline-block;
-            width: $icon-size--s;
-            height: $icon-size--s;
-            background: url('../img/x-black.svg') no-repeat center/cover;
-            opacity: .26;
-            @include transition(all .3s ease-in-out);
+            @include close-icon;
+          }
+
+          &:hover {
+            .close-icon {
+              opacity: .87;
+            }
           }
         }
       }
