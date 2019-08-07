@@ -10,6 +10,10 @@ $nav-first-level-left-padding: 24px;
 $nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
 $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
 
+// Navigation on mobile
+$nav-holder-padding: 32px 24px 32px 16px;
+$nav-title-left-padding: 22px;
+
 // Documentation Navigation Bar
 .nav-mobile-toggle {
   @media (max-width: $phone-xlarge){
@@ -219,8 +223,8 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
     top: 0;
     left: 0;
     height: 100vh;
-    padding: 32px;
-    overflow: auto;
+    padding: $nav-holder-padding;
+    overflow-x: auto;
     @include transition(all .4s ease-in-out);
 
     .docs-side-nav {
@@ -229,22 +233,25 @@ $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
         margin-bottom: 16px;
 
         .title {
-          display: inline-block;
-          margin-left: 8px;
+          margin-left: $nav-title-left-padding;
         }
 
-        .close-btn {
+        .close-btn-wrapper {
           float: right;
-          margin-top: 6px;
-          cursor: pointer;
 
-          .close-icon {
-            @include close-icon;
-          }
+          .close-btn {
+            display: block;
+            margin-top: 6px;
+            cursor: pointer;
 
-          &:hover {
             .close-icon {
-              opacity: .87;
+              @include close-icon;
+            }
+
+            &:hover {
+              .close-icon {
+                opacity: .87;
+              }
             }
           }
         }

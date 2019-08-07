@@ -1,9 +1,11 @@
 <ul class="docs-side-nav">
     <div class="navigation-title-on-mobile">
+        <div class="close-btn-wrapper">
+            <a class="close-btn">
+                <i class="close-icon" aria-hidden="true"></i>
+            </a>
+        </div>
         <h2 class="title">{{ page.sidenav_list | capitalize }}</h2>
-        <a class="close-btn">
-            <i class="close-icon" aria-hidden="true"></i>
-        </a>
     </div>
     {% if site.data.navigation.doc_side_nav[page.sidenav_list][0] %}
         {% for item in site.data.navigation.doc_side_nav.[page.sidenav_list] %}
