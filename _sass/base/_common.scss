@@ -162,23 +162,25 @@
   }
 }
 
-.toc {
+.sticky-element {
   padding: 0;
   position: relative;
   overflow: auto;
   max-height: 80%;
   min-height: 100px;
-  width: 210px; // 210px = col-width - paddings; 210px = 240px - 15px - 15px
-  // Add this for the Chrome to fix jumping while scrolling
-  -webkit-transform: translateZ(0);
-
-  &.blog-toc {
-    margin: 40px 0 24px;
-  }
+  -webkit-transform: translateZ(0); // Fixes jumping while scrolling
 
   &.sticky {
     position:fixed;
     margin-top: -120px;
+  }
+}
+
+.toc {
+  width: 210px; // 210px = col-width - paddings; 210px = 240px - 15px - 15px
+
+  &.blog-toc {
+    margin: 40px 0 24px;
   }
 
   &.hide-block {

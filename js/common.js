@@ -28,8 +28,8 @@ $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
 var initialHeadHeight = $("#header").innerHeight();
 var tocNav = $('#toc');
 var headerFixPosition = $(".nav-hero-container").innerHeight();
-var tocNavFixedPosition = 120; // Sticky TOC offset
-
+const stickyElement = $('.sticky-element');
+const stickyNavPosition = 120; // Sticky element top-offset
 
 $(function() {
     expandItemOnHashChange();
@@ -51,7 +51,7 @@ window.onhashchange = function() {
 };
 
 window.onscroll = function() {
-    fixToc();
+    fixStickyElement();
     fixHead();
     tocHeight();
     showScrollTopBtn();
@@ -82,14 +82,16 @@ function initTocTocify() {
     }
 }
 
-// Fix TOC navigation on page while scrolling
-function fixToc() {
-    if (tocNav.length) {
-        if (window.pageYOffset > tocNavFixedPosition) {
-            tocNav.addClass("sticky");
+/**
+ * Fix sticky element on page while scrolling.
+ */
+function fixStickyElement() {
+    if (stickyElement.length) {
+        if (window.pageYOffset > stickyNavPosition) {
+            stickyElement.addClass('sticky');
         }
         else {
-            tocNav.removeClass("sticky");
+            stickyElement.removeClass('sticky');
         }
     }
 }
@@ -126,10 +128,10 @@ function tocHeight() {
         as a docs content. So the content and the TOC will be ended at the same line */
 
         /* Initial TOC max-height when the scroll at the top or middle of the page */
-        var initialTocHeight = windowHeight - tocNavFixedPosition - contentMarginBottom - cookieContainerHeight;
+        var initialTocHeight = windowHeight - stickyNavPosition - contentMarginBottom - cookieContainerHeight;
 
         /* Dynamic value that changes on scroll. When the scroll at the bottom of the page, TOC height decreases. */
-        var maxHeightValue = footerTopPoint - scrollPosition - tocNavFixedPosition - contentMarginBottom;
+        var maxHeightValue = footerTopPoint - scrollPosition - stickyNavPosition - contentMarginBottom;
 
 
         /*The max-height value can be bigger than browser window if the scroll at the top of page.
