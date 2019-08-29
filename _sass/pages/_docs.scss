@@ -24,6 +24,7 @@ $docs-content-border-radius: 3px;
       border-radius: $docs-content-border-radius;
       padding: $docs-content-padding;
       margin-bottom: $docs-content-margin-bottom;
+      min-width:0 // Fixes a bug when `pre` code breaks flex element
     }
   }
 
