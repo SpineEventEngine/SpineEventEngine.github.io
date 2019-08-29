@@ -77,7 +77,8 @@ function initTocTocify() {
             selectors: "h2, h3, h4",
             showAndHide: false,
             scrollTo: initialHeadHeight + topOffset,
-            extendPage: false
+            extendPage: false,
+            hashGenerator: "Pretty"
         });
     }
 }
