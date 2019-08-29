@@ -29,7 +29,7 @@ const initialHeadHeight = $('#header').innerHeight();
 const tocNav = $('#toc');
 const headerFixPosition = $('.nav-hero-container').innerHeight();
 const stickyElement = $('.sticky-element');
-const stickyElementPosition = 120; // Sticky element top-offset
+const stickyElementPosition = 140; // Sticky element top-offset
 
 $(function() {
     expandItemOnHashChange();
