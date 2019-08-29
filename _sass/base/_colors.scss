@@ -3,6 +3,7 @@ $mainBrandColor: #1a96de;
 $secondBrandColor: #116db4;
 $thirdBrandColor: #ddeaf4;
 $inverseBrandColor: #FFFFFF;
+$body-light-gray-color: #f6f8fA;
 
 // Dividers
 $dividerColor: rgba(0, 0, 0, .08);
@@ -20,7 +21,6 @@ $gray: #737373;
 $light-gray: lighten($gray, 52%);
 $light-gray-blue: #eef1f3;
 $dark-gray: darken($gray, 20%);
-
 
 $linkColor: $mainBrandColor;
 $linkHoverColor: darken($linkColor, 10%);
