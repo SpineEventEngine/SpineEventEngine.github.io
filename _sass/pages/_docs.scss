@@ -1,13 +1,25 @@
 $docs-content-border: 1px solid #e6ecf1;
+$docs-content-padding: 32px 48px 56px;
+$docs-content-margin-bottom: 32px;
+$docs-content-border-radius: 3px;
 
 // Docs layout specific
 .docs {
   background-color: $body-light-gray-color;
+
   .docs-content {
     margin-top: 24px;
 
     @media (max-width: 767px) {
       margin-top: 0;
+    }
+
+    .docs-content-text {
+      background-color: $white;
+      border: $docs-content-border;
+      border-radius: $docs-content-border-radius;
+      padding: $docs-content-padding;
+      margin-bottom: $docs-content-margin-bottom;
     }
   }
 

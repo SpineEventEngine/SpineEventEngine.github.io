@@ -14,11 +14,11 @@ bodyclass: docs
                     <i class="fas fa-list-ul"></i>
                     <span>Contents</span>
                 </div>
-                <div class="col-12 col-md-3 docs-side-nav-holder">
+                <div class="col-12 col-md side-nav-col docs-side-nav-holder">
                     {% include {{page.sidenav}} %}
                 </div>
-                <div class="col-12 col-md-6 mr-auto {{ page.type }}">
-                  {{ content }}
+                <div class="col-12 col-md docs-content-text {{ page.type }}">
+                    {{ content }}
                 </div>
                 <div class="col-md toc-col">
                     <div id="toc" class="toc"></div>
@@ -29,7 +29,7 @@ bodyclass: docs
           {% if page.type == 'markdown' %}
               <div class="container-fluid content-holder docs-content {{ page.type }}">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-7 docs-content-text">
                         {{ content }}
                     </div>
                 </div>
