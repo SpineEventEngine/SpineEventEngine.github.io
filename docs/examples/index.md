@@ -1,7 +1,7 @@
 ---
 title: Examples
 headline: 'Spine Examples'
-bodyclass: docs
+bodyclass: 'docs white-bg'
 layout: docs
 type: markdown
 ---

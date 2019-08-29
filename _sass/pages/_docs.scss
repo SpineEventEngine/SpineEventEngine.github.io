@@ -7,6 +7,10 @@ $docs-content-border-radius: 3px;
 .docs {
   background-color: $body-light-gray-color;
 
+  &.white-bg {
+    background-color: white;
+  }
+
   .docs-content {
     margin-top: 24px;
 
