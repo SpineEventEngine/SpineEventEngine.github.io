@@ -7,36 +7,36 @@ bodyclass: docs
 {% include doc-nav.html %}
 
 {% assign current = page.url | downcase | split: '/' %}
-      {% if current[1] == 'docs' and page.sidenav != null %}
-          <div class="container-fluid content-holder docs-content">
+{% if current[1] == 'docs' and page.sidenav != null %}
+    <div class="container-fluid content-holder docs-content">
+        <div class="row">
+            <div id="docs-side-nav-mobile-toggle">
+                <i class="fas fa-list-ul"></i>
+                <span>Contents</span>
+            </div>
+            <div class="col-12 col-md side-nav-col docs-side-nav-holder">
+                {% include {{page.sidenav}} %}
+            </div>
+            <div class="col-12 col-md docs-content-text {{ page.type }}">
+                {{ content }}
+            </div>
+            <div class="col-md toc-col">
+                <div id="toc" class="toc"></div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    {% if page.type == 'markdown' %}
+        <div class="container-fluid content-holder docs-content {{ page.type }}">
             <div class="row">
-                <div id="docs-side-nav-mobile-toggle">
-                    <i class="fas fa-list-ul"></i>
-                    <span>Contents</span>
-                </div>
-                <div class="col-12 col-md side-nav-col docs-side-nav-holder">
-                    {% include {{page.sidenav}} %}
-                </div>
-                <div class="col-12 col-md docs-content-text {{ page.type }}">
+                <div class="col-md-7 docs-content-text">
                     {{ content }}
                 </div>
-                <div class="col-md toc-col">
-                    <div id="toc" class="toc"></div>
-                </div>
             </div>
-          </div>
-      {% else %}
-          {% if page.type == 'markdown' %}
-              <div class="container-fluid content-holder docs-content {{ page.type }}">
-                <div class="row">
-                    <div class="col-md-7 docs-content-text">
-                        {{ content }}
-                    </div>
-                </div>
-              </div>
-          {% else %}
-              {{ content }}
-          {% endif %}
-      {% endif %}
+        </div>
+    {% else %}
+        {{ content }}
+    {% endif %}
+{% endif %}
 
 <a onclick="topFunction()" id="go-top-btn" title="Go to Top"><span>Top</span></a>
