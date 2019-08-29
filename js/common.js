@@ -25,11 +25,11 @@ $.getScript("/libs/prettify/js/lang-swift.js", function(){});
 $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
 
 
-var initialHeadHeight = $("#header").innerHeight();
-var tocNav = $('#toc');
-var headerFixPosition = $(".nav-hero-container").innerHeight();
+const initialHeadHeight = $('#header').innerHeight();
+const tocNav = $('#toc');
+const headerFixPosition = $('.nav-hero-container').innerHeight();
 const stickyElement = $('.sticky-element');
-const stickyNavPosition = 120; // Sticky element top-offset
+const stickyElementPosition = 120; // Sticky element top-offset
 
 $(function() {
     expandItemOnHashChange();
@@ -87,7 +87,7 @@ function initTocTocify() {
  */
 function fixStickyElement() {
     if (stickyElement.length) {
-        if (window.pageYOffset > stickyNavPosition) {
+        if (window.pageYOffset > stickyElementPosition) {
             stickyElement.addClass('sticky');
         }
         else {
@@ -128,10 +128,10 @@ function tocHeight() {
         as a docs content. So the content and the TOC will be ended at the same line */
 
         /* Initial TOC max-height when the scroll at the top or middle of the page */
-        var initialTocHeight = windowHeight - stickyNavPosition - contentMarginBottom - cookieContainerHeight;
+        var initialTocHeight = windowHeight - stickyElementPosition - contentMarginBottom - cookieContainerHeight;
 
         /* Dynamic value that changes on scroll. When the scroll at the bottom of the page, TOC height decreases. */
-        var maxHeightValue = footerTopPoint - scrollPosition - stickyNavPosition - contentMarginBottom;
+        var maxHeightValue = footerTopPoint - scrollPosition - stickyElementPosition - contentMarginBottom;
 
 
         /*The max-height value can be bigger than browser window if the scroll at the top of page.
