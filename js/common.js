@@ -68,17 +68,18 @@ $(window).resize(function() {
  * @see {@link http://gregfranko.com/jquery.tocify.js/ Toc Tocify}
  */
 function initTocTocify() {
-    const docsContainer = $(".docs-content");
-    const headersQuantity = docsContainer.find("h2, h3, h4");
+    const docsContainer = $('.docs-content-text');
+    const headersQuantity = docsContainer.find('h2, h3, h4');
     const topOffset = 12; // Offset from the `header` navigation
 
     if (headersQuantity.length >= 3) {
         tocNav.tocify({
-            selectors: "h2, h3, h4",
+            context: docsContainer,
+            selectors: 'h2, h3, h4',
             showAndHide: false,
             scrollTo: initialHeadHeight + topOffset,
             extendPage: false,
-            hashGenerator: "Pretty"
+            hashGenerator: 'Pretty'
         });
     }
 }
