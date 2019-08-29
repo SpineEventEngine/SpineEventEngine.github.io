@@ -32,9 +32,13 @@ h3 {
   font-size: 1.25rem;
   color: $black;
   font-weight: 500;
-  padding-top: 22px;
-  margin-bottom: 12px;
+  padding-top: 24px;
+  margin-bottom: 16px;
   line-height: 1.4;
+}
+
+h2 + div + h3 {
+  padding-top: 0;
 }
 
 // Section Subheadlines
