@@ -122,30 +122,43 @@ function fixHead() {
 
 function tocHeight() {
     if (tocNav.length) {
-        var windowHeight = $(window).height();
-        var scrollPosition = $(window).scrollTop();
-        var footerTopPoint = $(".footer").position().top;
-        var cookieContainerHeight = $("#cookieChoiceInfo").innerHeight();
-        var contentMarginBottom = 60; /* The distance from the TOC to the bottom of the window. The value the same
-        as a docs content. So the content and the TOC will be ended at the same line */
+        const elHeights = calcStickyElHeight();
 
-        /* Initial TOC max-height when the scroll at the top or middle of the page */
-        var initialTocHeight = windowHeight - stickyElementPosition - contentMarginBottom - cookieContainerHeight;
-
-        /* Dynamic value that changes on scroll. When the scroll at the bottom of the page, TOC height decreases. */
-        var maxHeightValue = footerTopPoint - scrollPosition - stickyElementPosition - contentMarginBottom;
-
-
-        /*The max-height value can be bigger than browser window if the scroll at the top of page.
-        * So here is added the check*/
-        if (maxHeightValue < initialTocHeight) {
-            $(tocNav).css('max-height', maxHeightValue);
-        }
-
-        else {
-            $(tocNav).css('max-height', initialTocHeight);
+        /**
+         * Determines that the max-height value is less than browser window when the scroll
+         * position at the top of the page.
+         */
+        if (elHeights.maxHeight < elHeights.initialHeight) {
+            $(tocNav).css('max-height', elHeights.maxHeight);
+        } else {
+            $(tocNav).css('max-height', elHeights.initialHeight);
         }
     }
+}
+
+/**
+ * Calculates a sticky element heights to make sure that it always fits on the page.
+ *
+ * @return {{initialHeight: number, maxHeight: number}}
+ */
+function calcStickyElHeight() {
+    const windowHeight = $(window).height();
+    const scrollPosition = $(window).scrollTop();
+    const footerTopPoint = $('.footer').position().top;
+    const cookieContainerHeight = $('#cookieChoiceInfo').innerHeight();
+
+    /** The distance from the element to the bottom of the window. */
+    const contentMarginBottom = 8;
+
+    /** Initial element max-height when the scroll at the top or middle of the page */
+    const initialHeight = windowHeight - stickyElementPosition - contentMarginBottom - cookieContainerHeight;
+
+    /** Dynamic value that changes on scroll. When the scroll at the bottom of the page,
+     * element height decreases.
+     */
+    const maxHeight = footerTopPoint - scrollPosition - stickyElementPosition - contentMarginBottom;
+
+    return {initialHeight, maxHeight};
 }
 
 // Resize TOC height when window height is changing
