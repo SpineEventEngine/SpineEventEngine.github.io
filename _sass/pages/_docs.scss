@@ -19,7 +19,7 @@ $docs-content-border-radius: 3px;
   .docs-content {
     margin-top: 24px;
 
-    @media (max-width: 767px) {
+    @media (max-width: $tablet-large) {
       margin-top: 0;
     }
 
