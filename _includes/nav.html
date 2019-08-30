@@ -1,4 +1,4 @@
-<header id="header" {% if page.header-type == 'fixed-dark-header' %}class='fixed-dark-header'{% endif %} >
+<header id="header" {% if page.header_type != null %}class='{{page.header_type}}'{% endif %} >
     <div class="nav-open-close">
         <div id="nav-icon-menu">
             <span></span>
