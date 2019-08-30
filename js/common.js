@@ -36,6 +36,7 @@ $(function() {
     preventDefaultScroll();
     initTocTocify();
     showScrollTopBtn();
+    fixStickyElement();
 });
 
 jQuery(window).on('load', function() {
