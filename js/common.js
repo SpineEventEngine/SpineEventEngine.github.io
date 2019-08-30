@@ -27,6 +27,7 @@ $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
 
 const initialHeadHeight = $('#header').innerHeight();
 const tocNav = $('#toc');
+const sideNav = $('.docs-side-nav');
 const headerFixPosition = $('.nav-hero-container').innerHeight();
 const stickyElement = $('.sticky-element');
 const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
@@ -43,6 +44,7 @@ jQuery(window).on('load', function() {
     scrollToAnchor();
     ifCookiesExist();
     tocHeight();
+    setSideNavHeight();
 });
 
 // Make functions works immediately on hash change
@@ -55,6 +57,7 @@ window.onscroll = function() {
     fixStickyElement();
     fixHead();
     tocHeight();
+    setSideNavHeight();
     showScrollTopBtn();
 };
 
@@ -148,6 +151,22 @@ function tocHeight() {
             $(tocNav).css('max-height', elHeights.maxHeight);
         } else {
             $(tocNav).css('max-height', elHeights.initialHeight);
+        }
+    }
+}
+
+function setSideNavHeight() {
+    if (sideNav.length) {
+        const elHeights = calcStickyElHeight();
+
+        /**
+         * Determines that the max-height value is less than browser window when the scroll
+         * position at the top of the page.
+         */
+        if (elHeights.maxHeight < elHeights.initialHeight) {
+            $(sideNav).css('max-height', elHeights.maxHeight);
+        } else {
+            $(sideNav).css('max-height', elHeights.initialHeight);
         }
     }
 }
