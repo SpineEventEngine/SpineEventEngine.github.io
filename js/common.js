@@ -98,24 +98,26 @@ function fixStickyElement() {
     }
 }
 
-// Animation header on scroll
-function fixHead() {
-    var header = $('#header');
-    if (header.length) {
-        if (window.pageYOffset > headerFixPosition) {
-            header.addClass("not-top"); // When navigation below offset
-            header.addClass("pinned"); // When navigation below hero section
-            header.removeClass("unpinned");
-        }
-        else {
-            header.removeClass("pinned");
-            header.addClass("unpinned");
-        }
 
-        // Return classes to the initial state when the navigation at the top of the page
+/**
+ * Fix header navigation on scroll.
+ */
+function fixHead() {
+    const header = $('#header');
+
+    if (header.length && !(header).hasClass('hide-sticky-header')) {
+        if (window.pageYOffset > headerFixPosition) {
+            header.addClass('not-top'); // When the navigation below offset
+            header.addClass('pinned'); // When the navigation below hero section
+            header.removeClass('unpinned');
+        } else {
+            header.removeClass('pinned');
+            header.addClass('unpinned');
+        }
+        /** Returns classes to the initial state when the navigation at the top of the page. */
         if (window.pageYOffset < initialHeadHeight) {
-            header.removeClass("not-top");
-            header.removeClass("unpinned");
+            header.removeClass('not-top');
+            header.removeClass('unpinned');
         }
     }
 }
