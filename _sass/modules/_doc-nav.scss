@@ -88,7 +88,7 @@ $top-doc-nav-margin: 20px 0 16px;
   margin-bottom: 40px;
   margin-left: -$nav-first-level-left-padding;
 
-  @media(max-width: $tablet){
+  @media(max-width: 767px){
     margin: 0;
   }
 
@@ -208,7 +208,7 @@ $top-doc-nav-margin: 20px 0 16px;
 #docs-side-nav-mobile-toggle {
   display: none;
 
-  @media(max-width: $tablet){
+  @media(max-width: 767px){
     display: block;
     padding: 0 15px;
     cursor: pointer;
