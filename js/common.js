@@ -60,6 +60,7 @@ window.onscroll = function() {
 $(window).resize(function() {
     resizeTocHeightWithWindow();
     ifCookiesExist();
+    fixHead();
 });
 
 /**
@@ -100,12 +101,19 @@ function fixStickyElement() {
 
 
 /**
- * Fix header navigation on scroll.
+ * Makes header navigation sticky on scroll.
  */
 function fixHead() {
     const header = $('#header');
+    const stickyHeaderHidden = header.hasClass('hide-sticky-header');
+    const mobileSize = 640;
+    const mobileWindow = $(window).width() <= mobileSize;
+    const desktopWindow = $(window).width() > mobileSize;
+    const headerExistAndNotHidden = header.length && !stickyHeaderHidden;
+    const headerOnMobile = header.length && mobileWindow;
+    const headerHiddedAndNotMobile = header.length && stickyHeaderHidden && desktopWindow;
 
-    if (header.length && !(header).hasClass('hide-sticky-header')) {
+    if (headerExistAndNotHidden || headerOnMobile) {
         if (window.pageYOffset > headerFixPosition) {
             header.addClass('not-top'); // When the navigation below offset
             header.addClass('pinned'); // When the navigation below hero section
@@ -119,6 +127,11 @@ function fixHead() {
             header.removeClass('not-top');
             header.removeClass('unpinned');
         }
+    }
+
+    if (headerHiddedAndNotMobile) {
+        header.removeClass('not-top');
+        header.removeClass('unpinned');
     }
 }
 
