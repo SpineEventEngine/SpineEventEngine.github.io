@@ -148,15 +148,13 @@
   width: 100%;
 }
 
+.toc-col,
 .side-nav-col {
   -ms-flex: 0 0 240px;
   flex: 0 0 240px;
 }
 
 .toc-col {
-  -ms-flex: 0 0 240px;
-  flex: 0 0 240px;
-
   @media (max-width: $desktop-small) {
     display: none;
   }
