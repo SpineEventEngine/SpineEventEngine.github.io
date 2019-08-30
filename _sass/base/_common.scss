@@ -167,7 +167,6 @@
   position: relative;
   overflow: auto;
   max-height: 80%;
-  min-height: 100px;
   -webkit-transform: translateZ(0); // Fixes jumping while scrolling
 
   &.sticky {
