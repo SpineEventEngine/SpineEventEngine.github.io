@@ -19,6 +19,10 @@ $top-doc-nav-shadow: 0 2px 7px 0 rgba(0, 0, 0, .08);
 $top-doc-nav-margin: 20px 0 16px;
 
 .top-doc-nav-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background-color: white;
   -webkit-box-shadow: $top-doc-nav-shadow;
   -moz-box-shadow: $top-doc-nav-shadow;
