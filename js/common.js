@@ -1,29 +1,4 @@
-// Mobile navigation toggle
-$('#nav-icon-menu').click(function(){
-    $(this).toggleClass('open');
-    $('body').toggleClass('navigation-opened');
-});
-
-
-// Add the 'external' class to every outbound link on the site.
-// The css will add a small right arrow after the link.
-$('a').filter(function() {
-   return this.hostname && this.hostname !== location.hostname;
-}).addClass("external");
-
-// Remove external mark on Octocat icons, that already look external enough.
-$("i.fa-github-alt").parent().removeClass("external");
-
-
-// Prettyprint
-$('pre').addClass("prettyprint");
-$.getScript("/libs/prettify/js/run_prettify.js", function(){});
-$.getScript("/libs/prettify/js/lang-css.js", function(){});
-$.getScript("/libs/prettify/js/lang-go.js", function(){});
-$.getScript("/libs/prettify/js/lang-proto.js", function(){});
-$.getScript("/libs/prettify/js/lang-swift.js", function(){});
-$.getScript("/libs/prettify/js/lang-yaml.js", function(){});
-
+'use strict';
 
 const initialHeadHeight = $('#header').innerHeight();
 const tocNav = $('#toc');
@@ -34,6 +9,9 @@ const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
 
 $(function() {
+    initPrettyprint();
+    openHeaderMenuOnMobile();
+    addExternalClass();
     expandItemOnHashChange();
     preventDefaultScroll();
     initTocTocify();
@@ -47,9 +25,6 @@ jQuery(window).on('load', function() {
     setStickyElMaxHeight();
 });
 
-/**
- * Makes functions work immediately when the hash changes.
- */
 window.onhashchange = function() {
     expandItemOnHashChange();
     scrollToAnchor();
@@ -63,10 +38,46 @@ window.onscroll = function() {
 };
 
 $(window).resize(function() {
-    resizeTocHeightWithWindow();
+    resizeStickyElHeightWithWindow();
     ifCookiesExist();
     fixHead();
 });
+
+/**
+ * Inits pretty-print scripts.
+ *
+ * @see {@link https://github.com/google/code-prettify/blob/master/docs/getting_started.md code-prettify}
+ */
+function initPrettyprint() {
+    $('pre').addClass('prettyprint');
+    $.getScript("/libs/prettify/js/run_prettify.js", function(){});
+    $.getScript("/libs/prettify/js/lang-css.js", function(){});
+    $.getScript("/libs/prettify/js/lang-go.js", function(){});
+    $.getScript("/libs/prettify/js/lang-proto.js", function(){});
+    $.getScript("/libs/prettify/js/lang-swift.js", function(){});
+    $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
+}
+
+/**
+ * Opens header menu on mobile device.
+ */
+function openHeaderMenuOnMobile() {
+    $('#nav-icon-menu').click(function(){
+        $(this).toggleClass('open');
+        $('body').toggleClass('navigation-opened');
+    });
+}
+
+/**
+ * Adds the `external` class to every outbound link on the site.
+ *
+ * <p>The css will add a small right arrow after the link.
+ */
+function addExternalClass() {
+    $('a').filter(function() {
+        return this.hostname && this.hostname !== location.hostname;
+    }).addClass('external');
+}
 
 /**
  * Inits `toc` navigation if a page has more than 2 headers.
@@ -184,9 +195,9 @@ function calcStickyElHeight() {
 }
 
 /**
- * Changes the height of the `toc` when changing the height of the window.
+ * Changes the height of the `.sticky-element` when changing the height of the window.
  */
-function resizeTocHeightWithWindow() {
+function resizeStickyElHeightWithWindow() {
     if ($(window).height() > 600) {
         setStickyElMaxHeight();
     }
