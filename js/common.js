@@ -1,6 +1,7 @@
 'use strict';
 
-const initialHeadHeight = $('#header').innerHeight();
+const header = $('#header');
+const initialHeadHeight = header.innerHeight();
 const tocNav = $('#toc');
 const headerFixPosition = $('.nav-hero-container').innerHeight();
 const stickyElement = $('.sticky-element');
@@ -119,7 +120,6 @@ function fixStickyElement() {
  * Makes header navigation sticky on scroll.
  */
 function fixHead() {
-    const header = $('#header');
     const stickyHeaderHidden = header.hasClass('hide-sticky-header');
     const mobileSize = 640;
     const mobileWindow = $(window).width() <= mobileSize;
@@ -137,17 +137,23 @@ function fixHead() {
             header.removeClass('pinned');
             header.addClass('unpinned');
         }
-        /** Returns classes to the initial state when the navigation at the top of the page. */
+        /** Determines the header at the top of the page. */
         if (window.pageYOffset < initialHeadHeight) {
-            header.removeClass('not-top');
-            header.removeClass('unpinned');
+            returnToInitialState();
         }
     }
 
     if (headerHiddedAndNotMobile) {
-        header.removeClass('not-top');
-        header.removeClass('unpinned');
+        returnToInitialState();
     }
+}
+
+/**
+ * Returns header classes to the initial state.
+ */
+function returnToInitialState() {
+    header.removeClass('not-top');
+    header.removeClass('unpinned');
 }
 
 /**
