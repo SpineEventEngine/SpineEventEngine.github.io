@@ -161,15 +161,17 @@
 }
 
 .sticky-element {
-  padding: 0;
-  position: relative;
-  overflow: auto;
-  max-height: 80%;
-  -webkit-transform: translateZ(0); // Fixes jumping while scrolling
+  @media (min-width: $tablet-large) {
+    padding: 0;
+    position: relative;
+    overflow: auto;
+    max-height: 80%;
+    -webkit-transform: translateZ(0); // Fixes jumping while scrolling
 
-  &.sticky {
-    position:fixed;
-    margin-top: -154px;
+    &.sticky {
+      position: fixed;
+      margin-top: -154px; // The height of the `nav-hero-container`
+    }
   }
 }
 
