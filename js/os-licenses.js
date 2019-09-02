@@ -3,34 +3,35 @@
  *
  * Please see `/os-licenses/index.html` for usage.
  */
+'use strict';
 
 $(
     function() {
-        var converter = new showdown.Converter();
-        const loadedAttr = "loaded";
-        const repoAttr = "repo";
-        const repoName = "repo-name";
+        const converter = new showdown.Converter();
+        const loadedAttr = 'loaded';
+        const repoAttr = 'repo';
+        const repoName = 'repo-name';
 
         /**
          * Loads `license-report` file from the repository.
          *
-         * <p>Executes by clicking on the corresponding link. The destination `div` element should have
-         * the `id` like `md-destination-REPO_NAME`.
+         * <p>Executes by clicking on the corresponding link. The destination `div` element
+         * should have the `id` like `md-destination-REPO_NAME`.
          */
-        $(".collapsible-panel-title").click(function () {
-            var clickedElement = $(this);
-            var clickedElRepoName = clickedElement.attr(repoName);
-            var mdDestinationEl = $("#md-destination-" + clickedElRepoName);
-            var loaded = clickedElement.attr(loadedAttr);
+        $('.collapsible-panel-title').click(function () {
+            const clickedElement = $(this);
+            const clickedElRepoName = clickedElement.attr(repoName);
+            const mdDestinationEl = $('#md-destination-' + clickedElRepoName);
+            const loaded = clickedElement.attr(loadedAttr);
 
-            if (loaded === "false") {
-                var repositoryUrl = clickedElement.attr(repoAttr);
+            if (loaded === 'false') {
+                const repositoryUrl = clickedElement.attr(repoAttr);
                 $.get(
-                    repositoryUrl + "/master/license-report.md",
+                    repositoryUrl + '/master/license-report.md',
                     function (data) {
-                        var html = converter.makeHtml(data);
+                        const html = converter.makeHtml(data);
                         mdDestinationEl.html(html);
-                        clickedElement.attr(loadedAttr, "true");
+                        clickedElement.attr(loadedAttr, 'true');
                         makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
                     }
                 );
@@ -40,21 +41,21 @@ $(
         /**
          * Makes a `license-report` content collapsible.
          *
-         * @param mdDestinationEl it is a `div` with a markdown content
-         * @param clickedElRepoName a repository name from the link attribute
+         * @param mdDestinationEl `div` with the markdown content
+         * @param clickedElRepoName repository name from the link attribute
          */
         function makeCollapsibleTitle(mdDestinationEl, clickedElRepoName) {
-            var h1Elements = mdDestinationEl.find("h1");
-            var h2Elements = mdDestinationEl.find("h2");
-            var linkElements = mdDestinationEl.find("a");
+            const h1Elements = mdDestinationEl.find('h1');
+            const h2Elements = mdDestinationEl.find('h2');
+            const linkElements = mdDestinationEl.find('a');
 
-            h1Elements.addClass("dependencies-title");
+            h1Elements.addClass('dependencies-title');
 
             /**
              * Removes `Dependencies of` words from the title.
              */
             h1Elements.each(function() {
-                var text = $(this).text();
+                const text = $(this).text();
                 $(this).text(text.replace('Dependencies of', ''));
             });
 
@@ -62,34 +63,34 @@ $(
              * Removes `dependencies:` from the titles inside the Spine Web repository.
              */
             h2Elements.each(function () {
-               var text = $(this).text();
+               const text = $(this).text();
                 $(this).text(text.replace('dependencies:', ''));
             });
 
             /**
              * Makes all markdown links external.
              */
-            linkElements.addClass("external");
-            linkElements.attr("target", "_blank");
+            linkElements.addClass('external');
+            linkElements.attr('target', '_blank');
 
             /**
              * Adds required classes and attributes to make titles and content collapsible.
              */
             h2Elements.each(function(index, element) {
                 // `-md` makes the destination ID different from the collapsible title ID
-                const titleID =  clickedElRepoName + "-" + this.id + "-md";
-                const collapsibleContent = $(element).next("ol");
-                const reportInfoContent = collapsibleContent.next("p");
+                const titleID =  clickedElRepoName + '-' + this.id + '-md';
+                const collapsibleContent = $(element).next('ol');
+                const reportInfoContent = collapsibleContent.next('p');
 
-                $(element).addClass("collapse-link collapsed");
-                $(element).attr("href", "#" + titleID);
-                $(element).attr("data-toggle", "collapse");
+                $(element).addClass('collapse-link collapsed');
+                $(element).attr('href', '#' + titleID);
+                $(element).attr('data-toggle', 'collapse');
 
-                collapsibleContent.addClass("dependencies-container collapse");
-                collapsibleContent.attr("id", titleID);
+                collapsibleContent.addClass('dependencies-container collapse');
+                collapsibleContent.attr('id', titleID);
 
-                reportInfoContent.addClass("report-info collapse");
-                reportInfoContent.attr("id", titleID + "-p");
+                reportInfoContent.addClass('report-info collapse');
+                reportInfoContent.attr('id', titleID + '-p');
             });
 
             makeReportInfoCollapsible(mdDestinationEl);
@@ -103,20 +104,20 @@ $(
          * @param mdDestinationEl it is a `div` with a markdown content
          */
         function makeReportInfoCollapsible(mdDestinationEl) {
-            var reportInfoContent = mdDestinationEl.find(".report-info");
+            const reportInfoContent = mdDestinationEl.find('.report-info');
 
             /**
              * Inserts a new collapsible title for the paragraph with a report information.
              */
-            var reportInfoTitleEl = "<h2 class='report-info-title collapse-link collapsed'>Report info</h2>";
+            const reportInfoTitleEl = "<h2 class='report-info-title collapse-link collapsed'>Report info</h2>";
             $(reportInfoTitleEl).insertBefore(reportInfoContent);
 
             reportInfoContent.each(function (index, element) {
                 const reportInfoID = this.id;
-                const reportInfoTitle = $(element).prev(".report-info-title");
+                const reportInfoTitle = $(element).prev('.report-info-title');
 
-                reportInfoTitle.attr("href", "#" + reportInfoID);
-                reportInfoTitle.attr("data-toggle", "collapse");
+                reportInfoTitle.attr('href', '#' + reportInfoID);
+                reportInfoTitle.attr('data-toggle', 'collapse');
             });
         }
     }
