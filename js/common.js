@@ -30,6 +30,8 @@ const tocNav = $('#toc');
 const headerFixPosition = $('.nav-hero-container').innerHeight();
 const stickyElement = $('.sticky-element');
 const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
+const goTopBtn = $('#go-top-btn');
+const copyrightEl = $('.copyright');
 
 $(function() {
     expandItemOnHashChange();
@@ -45,7 +47,9 @@ jQuery(window).on('load', function() {
     setStickyElMaxHeight();
 });
 
-// Make functions works immediately on hash change
+/**
+ * Makes functions work immediately when the hash changes.
+ */
 window.onhashchange = function() {
     expandItemOnHashChange();
     scrollToAnchor();
@@ -99,7 +103,6 @@ function fixStickyElement() {
         }
     }
 }
-
 
 /**
  * Makes header navigation sticky on scroll.
@@ -180,54 +183,59 @@ function calcStickyElHeight() {
     return {initialHeight, maxHeight};
 }
 
-// Resize TOC height when window height is changing
+/**
+ * Changes the height of the `toc` when changing the height of the window.
+ */
 function resizeTocHeightWithWindow() {
     if ($(window).height() > 600) {
         setStickyElMaxHeight();
     }
 }
 
-// Expand FAQ item on hash change
+/**
+ * Expands FAQ item on hash change.
+ */
 function expandItemOnHashChange() {
-    if ("onhashchange" in window) {
+    if ('onhashchange' in window) {
         $(location.hash).collapse('show');
     }
 }
 
-// Prevent default scroll and double click on the same hash
+/**
+ * Prevents default scroll behavior and prevents double click on the same hash.
+ */
 function preventDefaultScroll() {
     $('.anchor-link').click(function(event) {
-        var anchor = $(this).attr("href");
-        var x = window.pageXOffset;
-        var y = window.pageYOffset;
+        const anchor = $(this).attr('href');
+        const x = window.pageXOffset;
+        const y = window.pageYOffset;
         event.preventDefault();
         window.location.hash = anchor;
         window.scrollTo(x, y);
     });
 }
 
+/**
+ * Scrolls to the anchor.
+ */
 function scrollToAnchor() {
-    var anchor = location.hash;
-    var offset = -150; // Top offset for move header below fixed header
+    const anchor = location.hash;
+    const offset = -150; // Top offset to move the header below the fixed header
 
     if ($(anchor).length) {
         $(window).scrollTo($(anchor), 500, {offset: offset});
     }
 }
 
-
-var goTopBtn = $("#go-top-btn");
-var copyrightEl = $(".copyright");
-
 /**
  * Adds additional padding values if the `cookieChoiceInfo` exist on the page.
  */
 function ifCookiesExist() {
-    var cookieInfo = $("#cookieChoiceInfo");
-    var cookieAgreeBtn = $("#cookieChoiceDismiss");
-    var cookieContainerHeight = cookieInfo.innerHeight();
-    var marginBottom = 10; // A bottom margin for the `Go to Top` button
-    var copyrightPaddingBottom = 24; // A bottom padding for the `Copyright` div element
+    const cookieInfo = $('#cookieChoiceInfo');
+    const cookieAgreeBtn = $('#cookieChoiceDismiss');
+    const cookieContainerHeight = cookieInfo.innerHeight();
+    const marginBottom = 10; // A bottom margin for the `Go to Top` button
+    const copyrightPaddingBottom = 24; // A bottom padding for the `Copyright` div element
 
     if(cookieInfo.length){
         $(goTopBtn).css('bottom', cookieContainerHeight + marginBottom);
@@ -240,15 +248,15 @@ function ifCookiesExist() {
             $(goTopBtn).css('bottom', marginBottom);
             $(copyrightEl).css('padding-bottom', copyrightPaddingBottom);
         });
-    }
-
-    else {
+    } else {
         $(goTopBtn).css('bottom', marginBottom);
         $(copyrightEl).css('padding-bottom', copyrightPaddingBottom);
     }
 }
 
-// When the user scrolls down 1500px from the top of the document, show the button ”Go to Top“
+/**
+ * Shows `Go to Top` button when the scroll position is 1500px.
+ */
 function showScrollTopBtn() {
     if ($(this).scrollTop() > 1500 ) {
         $(goTopBtn).show();
@@ -258,7 +266,10 @@ function showScrollTopBtn() {
     }
 }
 
-// When the user clicks on the button, scroll to the top of the document
+/**
+ * Scrolls to the top of the page.
+ */
 function topFunction() {
-    $("html, body").stop().animate({scrollTop: 0}, 500, 'swing'); return false;
+    $('html, body').stop().animate({scrollTop: 0}, 500, 'swing');
+    return false;
 }
