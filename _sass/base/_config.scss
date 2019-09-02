@@ -64,3 +64,7 @@ $icon-size--xs              : 16px;
 $icon-size--s               : 24px;
 $icon-size--m               : 32px;
 $icon-size--l               : 40px;
+
+//Width for the element that is inside the custom column in 240px
+//Width equals `custom-column-width` minus `padding` (240px - 15px - 15px = 210px)
+$sticky-el-width: 210px;

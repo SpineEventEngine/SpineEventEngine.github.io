@@ -9,6 +9,7 @@ $nav-link-chevron-size: 6px;
 $nav-first-level-left-padding: 24px;
 $nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
 $nav-third-level-left-padding: calc(#{$nav-second-level-left-padding} + 16px);
+$sticky-docs-side-nav-width: $sticky-el-width + $nav-first-level-left-padding;
 
 // Navigation on mobile
 $nav-holder-padding: 32px 24px 32px 16px;
@@ -91,6 +92,7 @@ $top-doc-nav-margin: 20px 0 16px;
 .docs-side-nav {
   margin-bottom: 40px;
   margin-left: -$nav-first-level-left-padding;
+  width: $sticky-docs-side-nav-width;
 
   @media(max-width: $tablet-large){
     margin: 0;

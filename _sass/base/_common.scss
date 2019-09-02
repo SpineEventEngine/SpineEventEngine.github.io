@@ -174,7 +174,7 @@
 }
 
 .toc {
-  width: 210px; // 210px = col-width - paddings; 210px = 240px - 15px - 15px
+  width: $sticky-el-width;
   padding-top: 12px;
 
   &.blog-toc {
