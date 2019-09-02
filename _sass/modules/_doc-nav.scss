@@ -97,6 +97,7 @@ $top-doc-nav-margin: 20px 0 16px;
   @media(max-width: $tablet-large){
     margin: 0;
     width: 100%;
+    max-height: none !important; // Unset calculated max-height for the sticky element on mobile
   }
 
   .side-nav-link {
@@ -107,6 +108,10 @@ $top-doc-nav-margin: 20px 0 16px;
     color: $nav-link-color;
     font-weight: 400;
     @include transition(all .3s ease-in-out);
+
+    @media (max-width: $tablet-large) {
+      padding: 12px $nav-first-level-left-padding;
+    }
 
     // Tree title with chevron
     &.tree-title {
@@ -124,6 +129,10 @@ $top-doc-nav-margin: 20px 0 16px;
         left: 8px;
         transform: rotate(45deg);
         @include transition(all .3s ease-in-out);
+
+        @media (max-width: $tablet-large) {
+          top: 18px;
+        }
       }
 
       &.collapsed {
@@ -134,6 +143,10 @@ $top-doc-nav-margin: 20px 0 16px;
           border-bottom: $nav-link-chevron-border-size;
           top: 15px;
           transform: rotate(-45deg);
+
+          @media (max-width: $tablet-large) {
+            top: 19px;
+          }
         }
       }
     }
