@@ -158,24 +158,24 @@ function setStickyElMaxHeight() {
 /**
  * Calculates a sticky element heights to make sure that it always fits on the page.
  *
- * @return {{initialHeight: number, maxHeight: number}}
+ * @return {Object} an object with initial and calculated heights.
+ * {number} initialHeight initial element max-height when the scroll at the top
+ *          or at the middle of the page
+ * {number} maxHeight max height that dynamically changes on scroll at the bottom of the page
  */
 function calcStickyElHeight() {
     const windowHeight = $(window).height();
     const scrollPosition = $(window).scrollTop();
     const footerTopPoint = $('.footer').position().top;
     const cookieContainerHeight = $('#cookieChoiceInfo').innerHeight();
-
-    /** The distance from the element to the bottom of the window. */
-    const contentMarginBottom = 8;
-
-    /** Initial element max-height when the scroll at the top or middle of the page */
-    const initialHeight = windowHeight - stickyElementPosition - contentMarginBottom - cookieContainerHeight;
-
-    /** Dynamic value that changes on scroll. When the scroll at the bottom of the page,
-     * element height decreases.
+    /**
+     * The distance from the element to the footer top point.
+     * The value is the same as `docs-content-text` has.
      */
-    const maxHeight = footerTopPoint - scrollPosition - stickyElementPosition - contentMarginBottom;
+    const contentMarginBottom = 32;
+
+    const initialHeight = windowHeight - stickyElementPosition + contentMarginBottom - cookieContainerHeight;
+    const maxHeight = footerTopPoint - scrollPosition - stickyElementPosition + contentMarginBottom;
 
     return {initialHeight, maxHeight};
 }
