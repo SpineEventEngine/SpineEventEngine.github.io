@@ -1,66 +1,84 @@
-// Mobile navigation toggle
-$('#nav-icon-menu').click(function(){
-    $(this).toggleClass('open');
-    $('body').toggleClass('navigation-opened');
-});
+'use strict';
 
-
-// Add the 'external' class to every outbound link on the site.
-// The css will add a small right arrow after the link.
-$('a').filter(function() {
-   return this.hostname && this.hostname !== location.hostname;
-}).addClass("external");
-
-// Remove external mark on Octocat icons, that already look external enough.
-$("i.fa-github-alt").parent().removeClass("external");
-
-
-// Prettyprint
-$('pre').addClass("prettyprint");
-$.getScript("/libs/prettify/js/run_prettify.js", function(){});
-$.getScript("/libs/prettify/js/lang-css.js", function(){});
-$.getScript("/libs/prettify/js/lang-go.js", function(){});
-$.getScript("/libs/prettify/js/lang-proto.js", function(){});
-$.getScript("/libs/prettify/js/lang-swift.js", function(){});
-$.getScript("/libs/prettify/js/lang-yaml.js", function(){});
-
-
-var initialHeadHeight = $("#header").innerHeight();
-var tocNav = $('#toc');
-var headerFixPosition = $(".nav-hero-container").innerHeight();
-var tocNavFixedPosition = 120; // Sticky TOC offset
-
+const header = $('#header');
+const initialHeadHeight = header.innerHeight();
+const tocNav = $('#toc');
+const headerFixPosition = $('.nav-hero-container').innerHeight();
+const stickyElement = $('.sticky-element');
+const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
+const goTopBtn = $('#go-top-btn');
+const copyrightEl = $('.copyright');
 
 $(function() {
+    initPrettyprint();
+    openHeaderMenuOnMobile();
+    addExternalClass();
     expandItemOnHashChange();
     preventDefaultScroll();
     initTocTocify();
     showScrollTopBtn();
+    fixStickyElement();
 });
 
 jQuery(window).on('load', function() {
     scrollToAnchor();
     ifCookiesExist();
-    tocHeight();
+    setStickyElMaxHeight();
 });
 
-// Make functions works immediately on hash change
 window.onhashchange = function() {
     expandItemOnHashChange();
     scrollToAnchor();
 };
 
 window.onscroll = function() {
-    fixToc();
+    fixStickyElement();
     fixHead();
-    tocHeight();
+    setStickyElMaxHeight();
     showScrollTopBtn();
 };
 
 $(window).resize(function() {
-    resizeTocHeightWithWindow();
+    resizeStickyElHeightWithWindow();
     ifCookiesExist();
+    fixHead();
 });
+
+/**
+ * Inits pretty-print scripts.
+ *
+ * @see {@link https://github.com/google/code-prettify/blob/master/docs/getting_started.md code-prettify}
+ */
+function initPrettyprint() {
+    $('pre').addClass('prettyprint');
+    $.getScript("/libs/prettify/js/run_prettify.js", function(){});
+    $.getScript("/libs/prettify/js/lang-css.js", function(){});
+    $.getScript("/libs/prettify/js/lang-go.js", function(){});
+    $.getScript("/libs/prettify/js/lang-proto.js", function(){});
+    $.getScript("/libs/prettify/js/lang-swift.js", function(){});
+    $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
+}
+
+/**
+ * Opens header menu on mobile device.
+ */
+function openHeaderMenuOnMobile() {
+    $('#nav-icon-menu').click(function(){
+        $(this).toggleClass('open');
+        $('body').toggleClass('navigation-opened');
+    });
+}
+
+/**
+ * Adds the `external` class to every outbound link on the site.
+ *
+ * <p>The css will add a small right arrow after the link.
+ */
+function addExternalClass() {
+    $('a').filter(function() {
+        return this.hostname && this.hostname !== location.hostname;
+    }).addClass('external');
+}
 
 /**
  * Inits `toc` navigation if a page has more than 2 headers.
@@ -68,130 +86,176 @@ $(window).resize(function() {
  * @see {@link http://gregfranko.com/jquery.tocify.js/ Toc Tocify}
  */
 function initTocTocify() {
-    const docsContainer = $(".docs-content");
-    const headersQuantity = docsContainer.find("h2, h3, h4");
+    const docsContainer = $('.docs-content-text');
+    const headersQuantity = docsContainer.find('h2, h3, h4');
     const topOffset = 12; // Offset from the `header` navigation
 
     if (headersQuantity.length >= 3) {
         tocNav.tocify({
-            selectors: "h2, h3, h4",
+            context: docsContainer,
+            selectors: 'h2, h3, h4',
             showAndHide: false,
             scrollTo: initialHeadHeight + topOffset,
-            extendPage: false
+            extendPage: false,
+            hashGenerator: 'pretty'
         });
     }
 }
 
-// Fix TOC navigation on page while scrolling
-function fixToc() {
-    if (tocNav.length) {
-        if (window.pageYOffset > tocNavFixedPosition) {
-            tocNav.addClass("sticky");
+/**
+ * Fix sticky element on page while scrolling.
+ */
+function fixStickyElement() {
+    if (stickyElement.length) {
+        if (window.pageYOffset > stickyElementPosition) {
+            stickyElement.addClass('sticky');
         }
         else {
-            tocNav.removeClass("sticky");
+            stickyElement.removeClass('sticky');
         }
     }
 }
 
-// Animation header on scroll
+/**
+ * Makes header navigation sticky on scroll.
+ *
+ * <p>The header will not be sticky if the `header` has `hide-sticky-header` class. But it
+ * still working on mobile devices. Used for all `docs` pages.
+ */
 function fixHead() {
-    var header = $('#header');
-    if (header.length) {
+    const stickyHeaderHidden = header.hasClass('hide-sticky-header');
+    const mobileSize = 640;
+    const mobileWindow = $(window).width() <= mobileSize;
+    const desktopWindow = $(window).width() > mobileSize;
+    const headerExistAndNotHidden = header.length && !stickyHeaderHidden;
+    const headerOnMobile = header.length && mobileWindow;
+    const headerHiddedAndNotMobile = header.length && stickyHeaderHidden && desktopWindow;
+
+    if (headerExistAndNotHidden || headerOnMobile) {
         if (window.pageYOffset > headerFixPosition) {
-            header.addClass("not-top"); // When navigation below offset
-            header.addClass("pinned"); // When navigation below hero section
-            header.removeClass("unpinned");
+            header.addClass('not-top'); // When the navigation below offset
+            header.addClass('pinned'); // When the navigation below hero section
+            header.removeClass('unpinned');
+        } else {
+            header.removeClass('pinned');
+            header.addClass('unpinned');
         }
-        else {
-            header.removeClass("pinned");
-            header.addClass("unpinned");
-        }
-
-        // Return classes to the initial state when the navigation at the top of the page
+        /** Determines the header at the top of the page. */
         if (window.pageYOffset < initialHeadHeight) {
-            header.removeClass("not-top");
-            header.removeClass("unpinned");
+            returnToInitialState();
+        }
+    }
+
+    if (headerHiddedAndNotMobile) {
+        returnToInitialState();
+    }
+}
+
+/**
+ * Returns header classes to the initial state.
+ */
+function returnToInitialState() {
+    header.removeClass('not-top');
+    header.removeClass('unpinned');
+}
+
+/**
+ * Sets max-height for the sticky element depends on the scroll position.
+ */
+function setStickyElMaxHeight() {
+    if (stickyElement.length) {
+        const elHeights = calcStickyElHeight();
+
+        /**
+         * Determines that the max-height value is less than browser window when the scroll
+         * position at the top of the page.
+         */
+        if (elHeights.maxHeight < elHeights.initialHeight) {
+            $(stickyElement).css('max-height', elHeights.maxHeight);
+        } else {
+            $(stickyElement).css('max-height', elHeights.initialHeight);
         }
     }
 }
 
-function tocHeight() {
-    if (tocNav.length) {
-        var windowHeight = $(window).height();
-        var scrollPosition = $(window).scrollTop();
-        var footerTopPoint = $(".footer").position().top;
-        var cookieContainerHeight = $("#cookieChoiceInfo").innerHeight();
-        var contentMarginBottom = 60; /* The distance from the TOC to the bottom of the window. The value the same
-        as a docs content. So the content and the TOC will be ended at the same line */
+/**
+ * Calculates a sticky element heights to make sure that it always fits on the page.
+ *
+ * @return {Object} an object with initial and calculated heights.
+ * {number} initialHeight initial element max-height when the scroll at the top
+ *          or at the middle of the page
+ * {number} maxHeight max height that dynamically changes on scroll at the bottom of the page
+ */
+function calcStickyElHeight() {
+    const windowHeight = $(window).height();
+    const scrollPosition = $(window).scrollTop();
+    const footerTopPoint = $('.footer').position().top;
+    const cookieContainerHeight = $('#cookieChoiceInfo').innerHeight();
+    /**
+     * The distance from the element to the footer top point.
+     * The value is the same as `docs-content-text` has.
+     */
+    const contentMarginBottom = 32;
 
-        /* Initial TOC max-height when the scroll at the top or middle of the page */
-        var initialTocHeight = windowHeight - tocNavFixedPosition - contentMarginBottom - cookieContainerHeight;
+    const initialHeight = windowHeight - stickyElementPosition + contentMarginBottom - cookieContainerHeight;
+    const maxHeight = footerTopPoint - scrollPosition - stickyElementPosition + contentMarginBottom;
 
-        /* Dynamic value that changes on scroll. When the scroll at the bottom of the page, TOC height decreases. */
-        var maxHeightValue = footerTopPoint - scrollPosition - tocNavFixedPosition - contentMarginBottom;
-
-
-        /*The max-height value can be bigger than browser window if the scroll at the top of page.
-        * So here is added the check*/
-        if (maxHeightValue < initialTocHeight) {
-            $(tocNav).css('max-height', maxHeightValue);
-        }
-
-        else {
-            $(tocNav).css('max-height', initialTocHeight);
-        }
-    }
+    return {initialHeight, maxHeight};
 }
 
-// Resize TOC height when window height is changing
-function resizeTocHeightWithWindow() {
+/**
+ * Changes the height of the `.sticky-element` when changing the height of the window.
+ */
+function resizeStickyElHeightWithWindow() {
     if ($(window).height() > 600) {
-        tocHeight();
+        setStickyElMaxHeight();
     }
 }
 
-// Expand FAQ item on hash change
+/**
+ * Expands FAQ item on hash change.
+ */
 function expandItemOnHashChange() {
-    if ("onhashchange" in window) {
+    if ('onhashchange' in window) {
         $(location.hash).collapse('show');
     }
 }
 
-// Prevent default scroll and double click on the same hash
+/**
+ * Prevents default scroll behavior and prevents double click on the same hash.
+ */
 function preventDefaultScroll() {
     $('.anchor-link').click(function(event) {
-        var anchor = $(this).attr("href");
-        var x = window.pageXOffset;
-        var y = window.pageYOffset;
+        const anchor = $(this).attr('href');
+        const x = window.pageXOffset;
+        const y = window.pageYOffset;
         event.preventDefault();
         window.location.hash = anchor;
         window.scrollTo(x, y);
     });
 }
 
+/**
+ * Scrolls to the anchor.
+ */
 function scrollToAnchor() {
-    var anchor = location.hash;
-    var offset = -150; // Top offset for move header below fixed header
+    const anchor = location.hash;
+    const offset = -150; // Top offset to move the header below the fixed header
 
     if ($(anchor).length) {
         $(window).scrollTo($(anchor), 500, {offset: offset});
     }
 }
 
-
-var goTopBtn = $("#go-top-btn");
-var copyrightEl = $(".copyright");
-
 /**
  * Adds additional padding values if the `cookieChoiceInfo` exist on the page.
  */
 function ifCookiesExist() {
-    var cookieInfo = $("#cookieChoiceInfo");
-    var cookieAgreeBtn = $("#cookieChoiceDismiss");
-    var cookieContainerHeight = cookieInfo.innerHeight();
-    var marginBottom = 10; // A bottom margin for the `Go to Top` button
-    var copyrightPaddingBottom = 24; // A bottom padding for the `Copyright` div element
+    const cookieInfo = $('#cookieChoiceInfo');
+    const cookieAgreeBtn = $('#cookieChoiceDismiss');
+    const cookieContainerHeight = cookieInfo.innerHeight();
+    const marginBottom = 10; // A bottom margin for the `Go to Top` button
+    const copyrightPaddingBottom = 24; // A bottom padding for the `Copyright` div element
 
     if(cookieInfo.length){
         $(goTopBtn).css('bottom', cookieContainerHeight + marginBottom);
@@ -204,15 +268,15 @@ function ifCookiesExist() {
             $(goTopBtn).css('bottom', marginBottom);
             $(copyrightEl).css('padding-bottom', copyrightPaddingBottom);
         });
-    }
-
-    else {
+    } else {
         $(goTopBtn).css('bottom', marginBottom);
         $(copyrightEl).css('padding-bottom', copyrightPaddingBottom);
     }
 }
 
-// When the user scrolls down 1500px from the top of the document, show the button ”Go to Top“
+/**
+ * Shows `Go to Top` button when the scroll position is 1500px.
+ */
 function showScrollTopBtn() {
     if ($(this).scrollTop() > 1500 ) {
         $(goTopBtn).show();
@@ -222,7 +286,10 @@ function showScrollTopBtn() {
     }
 }
 
-// When the user clicks on the button, scroll to the top of the document
+/**
+ * Scrolls to the top of the page.
+ */
 function topFunction() {
-    $("html, body").stop().animate({scrollTop: 0}, 500, 'swing'); return false;
+    $('html, body').stop().animate({scrollTop: 0}, 500, 'swing');
+    return false;
 }

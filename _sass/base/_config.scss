@@ -35,6 +35,7 @@ $phone-medium               : 480px;
 $phone-large                : 512px;
 $phone-xlarge               : 640px;
 $tablet                     : 768px;
+$tablet-large               : 991px;
 $desktop-small              : 1024px;
 $desktop-medium             : 1280px;
 $desktop-large              : 1440px;
@@ -63,3 +64,7 @@ $icon-size--xs              : 16px;
 $icon-size--s               : 24px;
 $icon-size--m               : 32px;
 $icon-size--l               : 40px;
+
+// Width for the element that is inside the custom column in 240px
+// Width equals `custom-column-width` minus `padding` (240px - 15px - 15px = 210px)
+$sticky-el-width: 210px;

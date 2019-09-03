@@ -148,32 +148,39 @@
   width: 100%;
 }
 
-.toc-col {
+.toc-col,
+.side-nav-col {
   -ms-flex: 0 0 240px;
   flex: 0 0 240px;
+}
 
+.toc-col {
   @media (max-width: $desktop-small) {
     display: none;
   }
 }
 
+.sticky-element {
+  @media (min-width: $tablet-large) {
+    padding: 0;
+    position: relative;
+    overflow: auto;
+    max-height: 80%;
+    -webkit-transform: translateZ(0); // Fixes jumping while scrolling
+
+    &.sticky {
+      position: fixed;
+      margin-top: -154px; // The height of the `nav-hero-container`
+    }
+  }
+}
+
 .toc {
-  padding: 0;
-  position: relative;
-  overflow: auto;
-  max-height: 80%;
-  min-height: 100px;
-  width: 210px; // 210px = col-width - paddings; 210px = 240px - 15px - 15px
-  // Add this for the Chrome to fix jumping while scrolling
-  -webkit-transform: translateZ(0);
+  width: $sticky-el-width;
+  padding-top: 12px;
 
   &.blog-toc {
     margin: 40px 0 24px;
-  }
-
-  &.sticky {
-    position:fixed;
-    margin-top: -120px;
   }
 
   &.hide-block {

@@ -1,10 +1,39 @@
-// Docs layout specific
+$docs-content-border: 1px solid #e6ecf1;
+$docs-content-padding: 32px 48px 56px;
+$docs-content-padding-mobile: 0 15px;
+$docs-content-margin-bottom: 32px;
+$docs-content-border-radius: 3px;
+
 .docs {
+  background-color: $body-light-gray-color;
+
+  @media (max-width: $phone-xlarge) {
+    background-color: white;
+  }
+
+  &.white-bg {
+    background-color: white;
+  }
+
   .docs-content {
     margin-top: 24px;
 
-    @media (max-width: 767px) {
+    @media (max-width: $tablet-large) {
       margin-top: 0;
+    }
+
+    .docs-content-text {
+      background-color: $white;
+      border: $docs-content-border;
+      border-radius: $docs-content-border-radius;
+      padding: $docs-content-padding;
+      margin-bottom: $docs-content-margin-bottom;
+      min-width: 0; // Fixes a bug when `pre` code breaks flex element
+
+      @media (max-width: $phone-xlarge) {
+        padding: $docs-content-padding-mobile;
+        border: none;
+      }
     }
   }
 
@@ -31,7 +60,7 @@
   }
 
   .lang-card-selector {
-    padding: 0 0 88px;
+    padding: 8px 0 88px;
     width: 100%;
 
     @media(max-width: $phone-xlarge){

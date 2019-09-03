@@ -3,7 +3,7 @@ layout: post
 title: Migrating to Java 8
 published: true
 bodyclass: post
-header-type: fixed-dark-header
+header_type: fixed-dark-header
 ---
 
 Starting the upcoming `0.11.0` release the minimal version of Java for Spine-based application will become Java 8. Early adopters can already see the first sights of Java 8 migration in core framework modules.
