@@ -118,6 +118,9 @@ function fixStickyElement() {
 
 /**
  * Makes header navigation sticky on scroll.
+ *
+ * <p>The header will not be sticky if the `header` has `hide-sticky-header` class. But it
+ * still working on mobile devices. Used for all `docs` pages.
  */
 function fixHead() {
     const stickyHeaderHidden = header.hasClass('hide-sticky-header');
