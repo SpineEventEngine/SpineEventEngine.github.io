@@ -120,7 +120,7 @@ Keep experimenting with your model. To do so:
      }
       ```
     <p class="note">`vBuild()` checks the values against the validation options before a message is actually built. The `build()` is a standard alternative natively provided by Protobuf. It is safer to always use `vBuild()`, and it does not make much sense to specify validating options, if `vBuild()` is not used.
-    For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer <a href="https://spine.io/docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
+    For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer to <a href="https://spine.io/docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
 5. Apply the emitted event:
   ```java
  @Apply
