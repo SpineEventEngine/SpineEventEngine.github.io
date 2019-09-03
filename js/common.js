@@ -97,7 +97,7 @@ function initTocTocify() {
             showAndHide: false,
             scrollTo: initialHeadHeight + topOffset,
             extendPage: false,
-            hashGenerator: 'Pretty'
+            hashGenerator: 'pretty'
         });
     }
 }
