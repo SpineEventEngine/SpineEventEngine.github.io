@@ -76,7 +76,7 @@ Keep experimenting with your model. To do so:
          spine.time.LocalDate due_date = 2 [(validate) = true, (required) = true, (when).in = FUTURE];
      }
       ```
-    <p class="note">Remember to import `LocalDate` using `import "spine/time/time.proto";` and `import "spine/time/time.options.proto";`. The latter is needed for being able to do `(when).in = FUTURE`. This type is provided by the [Spine Time](https://github.com/SpineEventEngine/time) library. 
+    <p class="note">Remember to import `LocalDate` using `import "spine/time/time.proto";` and `import "spine/time/time_options.proto";`. The latter is needed for being able to do `(when).in = FUTURE`. This type is provided by the [Spine Time](https://github.com/SpineEventEngine/time) library. 
     You do not have to make any additional steps to use it in your domain.</p>
 2. Create a new event type in `events.proto`:
   ```proto
