@@ -8,27 +8,36 @@ const stickyElement = $('.sticky-element');
 const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
+const isFaqPage = $('body').is('.faq');
 
 $(function() {
     initPrettyprint();
     openHeaderMenuOnMobile();
     addExternalClass();
-    expandItemOnHashChange();
-    preventDefaultScroll();
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
+
+    if (isFaqPage) {
+        expandItemOnHashChange();
+        preventDefaultScroll();
+    }
 });
 
 jQuery(window).on('load', function() {
-    scrollToAnchor();
     ifCookiesExist();
     setStickyElMaxHeight();
+
+    if (isFaqPage) {
+        scrollToAnchor();
+    }
 });
 
 window.onhashchange = function() {
-    expandItemOnHashChange();
-    scrollToAnchor();
+    if (isFaqPage) {
+        expandItemOnHashChange();
+        scrollToAnchor();
+    }
 };
 
 window.onscroll = function() {
@@ -222,7 +231,7 @@ function expandItemOnHashChange() {
 }
 
 /**
- * Prevents default scroll behavior and prevents double click on the same hash.
+ * Prevents default scroll behavior and prevents double click on the same hash for the FAQ page.
  */
 function preventDefaultScroll() {
     $('.anchor-link').click(function(event) {
