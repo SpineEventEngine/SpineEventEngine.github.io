@@ -52,7 +52,7 @@ See the `TaskAggregate` which handles the `CreateTask` command and applies the p
  * creates a `BoundedContext` and registers repositories;
  * exposes the `BoundedContext` instance to the outer world using a set of gRPC services provided by the framework.
  
-<p class="note">Please refer to `io.spine.quickstart.server.ServerApp` for implementation example.</p>
+<p class="note">Please refer to `io.spine.tasks.server.ServerApp` for implementation example.</p>
  
 To start the server, run `ServerApp.main()` command.
  
@@ -62,7 +62,7 @@ The `client` module interacts with the gRPC services, exposed by the `server` mo
  * commands using the `CommandService` stub;
  * queries using the `QueryService` stub.
  
-<p class="note">Please refer to `io.spine.quickstart.client.ClientApp` for implementation example.</p>
+<p class="note">Please refer to `io.spine.tasks.client.ClientApp` for implementation example.</p>
  
 To start the client and see how it connects to the server, run `ClientApp.main()`.
  
@@ -72,23 +72,23 @@ Keep experimenting with your model. To do so:
 1.  Create a new command type in `commands.proto` 
       ```proto
      message AssignDueDate {
-         TaskId task_id = 1;
-         spine.time.LocalDate due_date = 2 [(valid) = true, (required) = true, (when).in = FUTURE];
+         TaskId task = 1;
+         spine.time.LocalDate due_date = 2 [(validate) = true, (required) = true, (when).in = FUTURE];
      }
       ```
-    <p class="note">Remember to import `LocalDate` using `import "spine/time/time.proto";` and `import "spine/time/time.options.proto";`. The latter is needed for being able to do `(when).in = FUTURE`. This type is provided by the [Spine Time](https://github.com/SpineEventEngine/time) library. 
+    <p class="note">Remember to import `LocalDate` using `import "spine/time/time.proto";` and `import "spine/time/time_options.proto";`. The latter is needed for being able to do `(when).in = FUTURE`. This type is provided by the [Spine Time](https://github.com/SpineEventEngine/time) library. 
     You do not have to make any additional steps to use it in your domain.</p>
 2. Create a new event type in `events.proto`:
   ```proto
  message DueDateAssigned {
-     TaskId task_id = 1;
-     spine.time.LocalDate due_date = 2 [(valid) = true, (required) = true];
+     TaskId task = 1;
+     spine.time.LocalDate due_date = 2 [(validate) = true, (required) = true];
  }
   ```
 3. Adjust the aggregate state:
   ```proto
  message Task {
-     option (entity).kind = AGGREGATE;
+     option (entity) = {kind: AGGREGATE visibility: FULL};
  
      // An ID of the task.
      TaskId id = 1;
@@ -97,7 +97,7 @@ Keep experimenting with your model. To do so:
      string title = 2 [(required) = true];
  
      // The date and time by which this task should be completed.
-     spine.time.LocalDate due_date = 3 [(valid) = true, (required) = false];
+     spine.time.LocalDate due_date = 3 [(validate) = true, (required) = false];
  }
   ```
  Make sure to run a Gradle build after the changing the Protobuf definitions: 
@@ -112,15 +112,15 @@ Keep experimenting with your model. To do so:
       ```java
      @Assign
      DueDateAssigned handle(AssignDueDate command) {
-         return DueDateAssignedVBuilder
-                 .vBuilder()
-                 .setTaskId(command.getTaskId())
+         return DueDateAssigned
+                 .newBuilder()
+                 .setTask(command.getTask())
                  .setDueDate(command.getDueDate())
-                 .build();
+                 .vBuild();
      }
       ```
-    <p class="note">`vBuilder()` creates a Validating Builder, which checks the values against the validation options when a message is going to be build. The `newBuilder()` creates a standard Builder natively provided by Protobuf. It is safer to always use `vBuilder()`, and it does not make much sense to specify validating options, if `vBuilder()` is not used.
-    For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer <a href="docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
+    <p class="note">`vBuild()` checks the values against the validation options before a message is actually built. The `build()` is a standard alternative natively provided by Protobuf. It is safer to always use `vBuild()`, and it does not make much sense to specify validating options, if `vBuild()` is not used.
+    For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer to <a href="https://spine.io/docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
 5. Apply the emitted event:
   ```java
  @Apply
@@ -130,17 +130,17 @@ Keep experimenting with your model. To do so:
   ```
 6. In `ClientApp`, extend the `main()` method by posting another command:
   ```java
- AssignDueDate dueDateCommand = AssignDueDateVBuilder
-         .vBuilder()
-         .setTaskId(taskId)
+ AssignDueDate dueDateCommand = AssignDueDate
+         .newBuilder()
+         .setTask(taskId)
          .setDueDate(LocalDates.of(2038, JANUARY, 19))
-         .build();
+         .vBuild();
  commandService.post(requestFactory.command().create(dueDateCommand));
   ```
  and log the updated state:
   ```java
  QueryResponse updatedStateResponse = queryService.read(taskQuery);
- log().info("The second response received: {}", Stringifiers.toString(updatedStateResponse));
+ info("The second response received: %s", Stringifiers.toString(updatedStateResponse));
   ```
 7. Restart the server and run the client to make sure that the due date is set to the task. 
 
