@@ -9,6 +9,8 @@ const stickyElementPosition = headerFixPosition; // Sticky element top-offset (1
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
 const isFaqPage = $('body').is('.faq');
+const topOffset = 12; // Offset from the `header` navigation
+const scrollToOffset = initialHeadHeight + topOffset;
 
 $(function() {
     initPrettyprint();
@@ -97,16 +99,16 @@ function addExternalClass() {
 function initTocTocify() {
     const docsContainer = $('.docs-content-text');
     const headersQuantity = docsContainer.find('h2, h3, h4');
-    const topOffset = 12; // Offset from the `header` navigation
 
     if (headersQuantity.length >= 3) {
         tocNav.tocify({
             context: docsContainer,
             selectors: 'h2, h3, h4',
             showAndHide: false,
-            scrollTo: initialHeadHeight + topOffset,
+            scrollTo: scrollToOffset,
             extendPage: false,
-            hashGenerator: 'pretty'
+            hashGenerator: 'pretty',
+            smoothScroll: false
         });
     }
 }
