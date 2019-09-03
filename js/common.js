@@ -29,10 +29,7 @@ $(function() {
 jQuery(window).on('load', function() {
     ifCookiesExist();
     setStickyElMaxHeight();
-
-    if (isFaqPage) {
-        scrollToAnchor();
-    }
+    scrollToAnchor();
 });
 
 window.onhashchange = function() {
@@ -251,7 +248,11 @@ function preventDefaultScroll() {
  */
 function scrollToAnchor() {
     const anchor = location.hash;
-    const offset = -150; // Top offset to move the header below the fixed header
+    let offset = -scrollToOffset;
+
+    if (isFaqPage) {
+        offset = -150; // Top offset for the FAQ page target element
+    }
 
     if ($(anchor).length) {
         $(window).scrollTo($(anchor), 500, {offset: offset});
