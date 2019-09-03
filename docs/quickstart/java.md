@@ -52,7 +52,7 @@ See the `TaskAggregate` which handles the `CreateTask` command and applies the p
  * creates a `BoundedContext` and registers repositories;
  * exposes the `BoundedContext` instance to the outer world using a set of gRPC services provided by the framework.
  
-<p class="note">Please refer to `io.spine.quickstart.server.ServerApp` for implementation example.</p>
+<p class="note">Please refer to `io.spine.tasks.server.ServerApp` for implementation example.</p>
  
 To start the server, run `ServerApp.main()` command.
  
@@ -62,7 +62,7 @@ The `client` module interacts with the gRPC services, exposed by the `server` mo
  * commands using the `CommandService` stub;
  * queries using the `QueryService` stub.
  
-<p class="note">Please refer to `io.spine.quickstart.client.ClientApp` for implementation example.</p>
+<p class="note">Please refer to `io.spine.tasks.client.ClientApp` for implementation example.</p>
  
 To start the client and see how it connects to the server, run `ClientApp.main()`.
  
