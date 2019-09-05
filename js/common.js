@@ -8,27 +8,35 @@ const stickyElement = $('.sticky-element');
 const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
+const isFaqPage = $('body').is('.faq');
+const topOffset = 12; // Offset from the `header` navigation
+const scrollToOffset = initialHeadHeight + topOffset;
 
 $(function() {
     initPrettyprint();
     openHeaderMenuOnMobile();
     addExternalClass();
-    expandItemOnHashChange();
-    preventDefaultScroll();
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
+
+    if (isFaqPage) {
+        expandItemOnHashChange();
+        preventDefaultScroll();
+    }
 });
 
 jQuery(window).on('load', function() {
-    scrollToAnchor();
     ifCookiesExist();
     setStickyElMaxHeight();
+    scrollToAnchor();
 });
 
 window.onhashchange = function() {
-    expandItemOnHashChange();
-    scrollToAnchor();
+    if (isFaqPage) {
+        expandItemOnHashChange();
+        scrollToAnchor();
+    }
 };
 
 window.onscroll = function() {
@@ -88,16 +96,16 @@ function addExternalClass() {
 function initTocTocify() {
     const docsContainer = $('.docs-content-text');
     const headersQuantity = docsContainer.find('h2, h3, h4');
-    const topOffset = 12; // Offset from the `header` navigation
 
     if (headersQuantity.length >= 3) {
         tocNav.tocify({
             context: docsContainer,
             selectors: 'h2, h3, h4',
             showAndHide: false,
-            scrollTo: initialHeadHeight + topOffset,
+            scrollTo: scrollToOffset,
             extendPage: false,
-            hashGenerator: 'pretty'
+            hashGenerator: 'pretty',
+            smoothScroll: false
         });
     }
 }
@@ -222,7 +230,7 @@ function expandItemOnHashChange() {
 }
 
 /**
- * Prevents default scroll behavior and prevents double click on the same hash.
+ * Prevents default scroll behavior and prevents double click on the same hash for the FAQ page.
  */
 function preventDefaultScroll() {
     $('.anchor-link').click(function(event) {
@@ -240,7 +248,11 @@ function preventDefaultScroll() {
  */
 function scrollToAnchor() {
     const anchor = location.hash;
-    const offset = -150; // Top offset to move the header below the fixed header
+    let offset = -scrollToOffset;
+
+    if (isFaqPage) {
+        offset = -150; // Top offset for the FAQ page target element
+    }
 
     if ($(anchor).length) {
         $(window).scrollTo($(anchor), 500, {offset: offset});

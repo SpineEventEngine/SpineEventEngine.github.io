@@ -1,74 +1,3 @@
-// Usage: @include transition(all .3s ease-in-out);
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-
-// Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
-@mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode, $iteration-count: 1) {
-  -webkit-animation-name: $animation-name;
-  -webkit-animation-duration: $duration;
-  -webkit-animation-delay: $delay;
-  -webkit-animation-timing-function: $timing-function;
-  -webkit-animation-fill-mode: $fill-mode;
-  -webkit-animation-iteration-count: $iteration-count;
-
-  -moz-animation-name: $animation-name;
-  -moz-animation-duration: $duration;
-  -moz-animation-delay: $delay;
-  -moz-animation-timing-function: $timing-function;
-  -moz-animation-fill-mode: $fill-mode;
-  -moz-animation-iteration-count: $iteration-count;
-
-  -o-animation-name: $animation-name;
-  -o-animation-duration: $duration;
-  -o-animation-delay: $delay;
-  -o-animation-timing-function: $timing-function;
-  -o-animation-fill-mode: $fill-mode;
-  -o-animation-iteration-count: $iteration-count;
-
-  animation-name: $animation-name;
-  animation-duration: $duration;
-  animation-delay: $delay;
-  animation-timing-function: $timing-function;
-  animation-fill-mode: $fill-mode;
-  animation-iteration-count: $iteration-count;
-}
-
-// Transform
-@mixin transform($transforms) {
-  -webkit-transform: $transforms;
-  -moz-transform: $transforms;
-  -o-transform: $transforms;
-  -ms-transform: $transforms;
-  transform: $transforms;
-}
-
-// TranslateY
-// Usage @include translateY(0%);
-@mixin translateY($y) {
-  @include transform(translateY($y));
-}
-
-// Keyframes
-@mixin keyframes($animationName) {
-  @-webkit-keyframes #{$animationName} {
-    @content;
-  }
-  @-moz-keyframes #{$animationName} {
-    @content;
-  }
-  @-o-keyframes #{$animationName} {
-    @content;
-  }
-  @keyframes #{$animationName} {
-    @content;
-  }
-}
-
 // Layout
 .content-holder {
   max-width: 1260px;
@@ -345,13 +274,4 @@ th {
       transform: rotate(0);
     }
   }
-}
-
-@mixin close-icon {
-  display: inline-block;
-  width: $icon-size--s;
-  height: $icon-size--s;
-  background: url('../img/x-black.svg') no-repeat center/cover;
-  opacity: .26;
-  @include transition(all .3s ease-in-out);
 }

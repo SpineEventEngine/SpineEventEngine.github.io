@@ -1,12 +1,4 @@
 .markdown {
-  padding-bottom: 60px;
-  min-height: 460px;
-
-  @media(max-width: $tablet){
-    padding-top: 32px;
-  }
-
-  //Coming soon section
   p.coming-soon {
     color: rgba($black, .26);
     font-weight: 500;

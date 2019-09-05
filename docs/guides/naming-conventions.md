@@ -122,7 +122,7 @@ of the domain model, for example:
   * `InsufficientFunds` 
   * `ProjectAlreadyCompleted`
 
-### Entity States
+### Entity states
 
 Protobuf messages for entity states are defined using nouns, for example:
 

@@ -3,6 +3,7 @@ $docs-content-padding: 32px 48px 56px;
 $docs-content-padding-mobile: 0 15px;
 $docs-content-margin-bottom: 32px;
 $docs-content-border-radius: 3px;
+$docs-content-min-height: 460px;
 
 .docs {
   background-color: $body-light-gray-color;
@@ -29,6 +30,7 @@ $docs-content-border-radius: 3px;
       padding: $docs-content-padding;
       margin-bottom: $docs-content-margin-bottom;
       min-width: 0; // Fixes a bug when `pre` code breaks flex element
+      min-height: $docs-content-min-height;
 
       @media (max-width: $phone-xlarge) {
         padding: $docs-content-padding-mobile;
