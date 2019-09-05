@@ -144,10 +144,10 @@
 
 .post {
   .post-wrapper {
-    padding-top: 112px;
+    padding: 112px 0 64px;
 
     @media(max-width: $tablet){
-      padding: 56px 16px;
+      padding: 72px 16px 40px;
     }
 
     h1 {
