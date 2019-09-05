@@ -1,0 +1,48 @@
+$color-selector-width: 32px;
+$color-selector-border-radius: 5px 0 0 5px;
+$color-selector-padding: 12px 0;
+$color-selector-bg-color: rgba($footerColor, .54);
+$circle-size: 10px;
+$circle-size-active: 18px;
+$circle-border-active: solid 2px rgba(white, .54);
+$margin-between-colors: 8px;
+
+.color-selector {
+  position: fixed;
+  right: 0;
+  top: 150px;
+  background-color: $color-selector-bg-color;
+  width: $color-selector-width;
+  border-radius: $color-selector-border-radius;
+  padding: $color-selector-padding;
+
+  .selector {
+    margin: 0 auto;
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    @include transition(all .2s ease-in-out);
+
+    &:last-child {
+      margin-top: $margin-between-colors;
+    }
+
+    &.active {
+      border: $circle-border-active;
+      width: $circle-size-active;
+      height: $circle-size-active;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.dark {
+      background-color: black;
+    }
+
+    &.light {
+      background-color: white;
+    }
+  }
+}
