@@ -172,6 +172,8 @@
       }
 
       .github-icon {
+        width: 60px; // To avoid jumping while the icon is loading
+
         &.external {
           &:after {
             display: none;
