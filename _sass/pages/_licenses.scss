@@ -8,10 +8,10 @@ $panel-active-color: rgba($mainBrandColor, .09);
 $panel-hover-color: rgba($mainBrandColor, .04);
 
 .licenses-list {
-  margin-top: 40px;
+  margin: 40px 0 64px;
 
   @media (max-width: $tablet) {
-    margin-top: 0;
+    margin: 24px 0 40px;
   }
 
   @media (max-width: $phone-medium) {
