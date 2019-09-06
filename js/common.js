@@ -1,5 +1,6 @@
 'use strict';
 
+const head = document['head'] || document.getElementsByTagName("head")[0] || root;
 const header = $('#header');
 const initialHeadHeight = header.innerHeight();
 const tocNav = $('#toc');
@@ -12,14 +13,22 @@ const isFaqPage = $('body').is('.faq');
 const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 
+/** Code color variables */
+const $selectorDark = $('.color.dark');
+const $selectorLight = $('.color.light');
+const colorDark = 'dark';
+const colorLight = 'light';
+const codeStylesUrl = '/libs/prettify/skins/';
+const darkStylesUrl = codeStylesUrl + 'dark-theme-prettify.css';
+
 $(function() {
+    changeCodeColor();
     initPrettyprint();
     openHeaderMenuOnMobile();
     addExternalClass();
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
-    changeCodeColor();
 
     if (isFaqPage) {
         expandItemOnHashChange();
@@ -52,6 +61,37 @@ $(window).resize(function() {
     ifCookiesExist();
     fixHead();
 });
+
+function changeCodeColor() {
+    colorDark === Cookies.get('colorPref')
+                  && loadPrettifyStyles(darkStylesUrl)
+                  && makeSelectorActive($selectorDark, colorDark);
+    colorLight === Cookies.get('colorPref')
+                   && loadPrettifyStyles(darkStylesUrl)
+                   && makeSelectorActive($selectorLight, colorLight);
+
+    $selectorDark.click(function() {
+        makeSelectorActive($selectorDark, colorDark);
+    });
+
+    $selectorLight.click(function() {
+        makeSelectorActive($selectorLight, colorLight);
+    })
+}
+
+function loadPrettifyStyles(stylesLink) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = stylesLink;
+    head.appendChild(link);
+}
+
+function makeSelectorActive(selector, color) {
+    $('.color-selector a').removeClass('active');
+    selector.addClass('active');
+    Cookies.set('colorPref', color);
+}
 
 /**
  * Inits pretty-print scripts.
@@ -305,28 +345,4 @@ function showScrollTopBtn() {
 function topFunction() {
     $('html, body').stop().animate({scrollTop: 0}, 500, 'swing');
     return false;
-}
-
-const $selectorDark = $('.color.dark');
-const $selectorLight = $('.color.light');
-const colorDark = 'dark';
-const colorLight = 'light';
-
-function changeCodeColor() {
-    colorDark === Cookies.get('colorPref') && makeSelectorActive($selectorDark, colorDark);
-    colorLight === Cookies.get('colorPref') && makeSelectorActive($selectorLight, colorLight);
-
-    $selectorDark.click(function() {
-        makeSelectorActive($selectorDark, colorDark);
-    });
-
-    $selectorLight.click(function() {
-        makeSelectorActive($selectorLight, colorLight);
-    })
-}
-
-function makeSelectorActive(selector, color) {
-    $('.color-selector a').removeClass('active');
-    selector.addClass('active');
-    Cookies.set('colorPref', color);
 }
