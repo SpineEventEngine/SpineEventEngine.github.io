@@ -18,8 +18,9 @@ const $selectorDark = $('.color.dark');
 const $selectorLight = $('.color.light');
 const colorDark = 'dark';
 const colorLight = 'light';
-const codeStylesUrl = '/libs/prettify/skins/';
-const darkStylesUrl = codeStylesUrl + 'dark-theme-prettify.css';
+const baseStylesUrl = '/libs/prettify/skins/';
+const darkStylesUrl = baseStylesUrl + 'dark-theme-prettify.css?refresh';
+const lightStylesUrl = baseStylesUrl + 'light-theme-prettify.css?refresh';
 
 $(function() {
     changeCodeColor();
@@ -63,28 +64,49 @@ $(window).resize(function() {
 });
 
 function changeCodeColor() {
-    colorDark === Cookies.get('colorPref')
+    const cookieValue = Cookies.get('colorPref');
+
+    setDefaultCookieValue(cookieValue);
+
+    colorDark === cookieValue
                   && loadPrettifyStyles(darkStylesUrl)
                   && makeSelectorActive($selectorDark, colorDark);
-    colorLight === Cookies.get('colorPref')
-                   && loadPrettifyStyles(darkStylesUrl)
+
+    colorLight === cookieValue
+                   && loadPrettifyStyles(lightStylesUrl)
                    && makeSelectorActive($selectorLight, colorLight);
 
     $selectorDark.click(function() {
+        loadPrettifyStyles(darkStylesUrl);
         makeSelectorActive($selectorDark, colorDark);
     });
 
     $selectorLight.click(function() {
+        loadPrettifyStyles(lightStylesUrl);
         makeSelectorActive($selectorLight, colorLight);
     })
 }
 
+function setDefaultCookieValue(cookieValue) {
+    if (cookieValue == null) {
+        Cookies.set('colorPref', colorDark);
+        makeSelectorActive($selectorDark, colorDark);
+    }
+}
+
 function loadPrettifyStyles(stylesLink) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = stylesLink;
-    head.appendChild(link);
+    const $prettifyLink = $('#prettify-styles');
+
+    if ($prettifyLink.length) {
+        $prettifyLink.attr('href', stylesLink);
+    } else {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.id = 'prettify-styles';
+        link.type = 'text/css';
+        link.href = stylesLink;
+        head.appendChild(link);
+    }
 }
 
 function makeSelectorActive(selector, color) {
