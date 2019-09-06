@@ -19,6 +19,7 @@ $(function() {
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
+    changeCodeColor();
 
     if (isFaqPage) {
         expandItemOnHashChange();
@@ -304,4 +305,28 @@ function showScrollTopBtn() {
 function topFunction() {
     $('html, body').stop().animate({scrollTop: 0}, 500, 'swing');
     return false;
+}
+
+const $selectorDark = $('.color.dark');
+const $selectorLight = $('.color.light');
+const colorDark = 'dark';
+const colorLight = 'light';
+
+function changeCodeColor() {
+    colorDark === Cookies.get('colorPref') && makeSelectorActive($selectorDark, colorDark);
+    colorLight === Cookies.get('colorPref') && makeSelectorActive($selectorLight, colorLight);
+
+    $selectorDark.click(function() {
+        makeSelectorActive($selectorDark, colorDark);
+    });
+
+    $selectorLight.click(function() {
+        makeSelectorActive($selectorLight, colorLight);
+    })
+}
+
+function makeSelectorActive(selector, color) {
+    $('.color-selector a').removeClass('active');
+    selector.addClass('active');
+    Cookies.set('colorPref', color);
 }
