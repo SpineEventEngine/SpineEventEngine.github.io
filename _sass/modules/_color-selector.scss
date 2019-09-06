@@ -1,14 +1,16 @@
 $color-selector-width: 32px;
+$color-container-size: $color-selector-width;
 $color-selector-border-radius: 5px 0 0 5px;
-$color-selector-padding: 12px 0;
+$color-selector-padding: 8px 0;
 $color-selector-bg-color: rgba($footerColor, .54);
-$circle-size: 10px;
-$circle-size-active: 18px;
-$circle-border-active: solid 2px rgba(white, .54);
-$margin-between-colors: 8px;
+$circle-size: 8px;
+$circle-size-active: 16px;
+$circle-border-active: 1px solid rgba(white, .87);
+$circle-border-hover: 2px solid rgba(white, 54);
 
 .color-selector {
   position: fixed;
+  z-index: 1000;
   right: 0;
   top: 150px;
   background-color: $color-selector-bg-color;
@@ -16,15 +18,28 @@ $margin-between-colors: 8px;
   border-radius: $color-selector-border-radius;
   padding: $color-selector-padding;
 
-  .selector {
+  .color-container {
+    width: $color-container-size;
+    height: $color-container-size;
+  }
+
+  .color {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     margin: 0 auto;
+    display: block;
     width: $circle-size;
     height: $circle-size;
     border-radius: 50%;
     @include transition(all .2s ease-in-out);
 
-    &:last-child {
-      margin-top: $margin-between-colors;
+    &.dark {
+      background-color: black;
+    }
+
+    &.light {
+      background-color: white;
     }
 
     &.active {
@@ -35,14 +50,7 @@ $margin-between-colors: 8px;
 
     &:hover {
       cursor: pointer;
-    }
-
-    &.dark {
-      background-color: black;
-    }
-
-    &.light {
-      background-color: white;
+      border: $circle-border-hover;
     }
   }
 }
