@@ -60,12 +60,12 @@ $(window).resize(function() {
  */
 function initPrettyprint() {
     $('pre').addClass('prettyprint');
-    $.getScript("/libs/prettify/js/run_prettify.js", function(){});
-    $.getScript("/libs/prettify/js/lang-css.js", function(){});
-    $.getScript("/libs/prettify/js/lang-go.js", function(){});
-    $.getScript("/libs/prettify/js/lang-proto.js", function(){});
-    $.getScript("/libs/prettify/js/lang-swift.js", function(){});
-    $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
+    $.getScript("/libs/prettify/run_prettify.js", function(){});
+    $.getScript("/libs/prettify/lang-css.js", function(){});
+    $.getScript("/libs/prettify/lang-go.js", function(){});
+    $.getScript("/libs/prettify/lang-proto.js", function(){});
+    $.getScript("/libs/prettify/lang-swift.js", function(){});
+    $.getScript("/libs/prettify/lang-yaml.js", function(){});
 }
 
 /**
