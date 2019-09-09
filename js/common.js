@@ -19,6 +19,7 @@ const $selectorDark = $('.color.dark');
 const $selectorLight = $('.color.light');
 const colorDark = 'dark';
 const colorLight = 'light';
+const cookieColorName = 'themeColor';
 const baseStylesUrl = '/libs/prettify/skins/';
 const darkStylesUrl = baseStylesUrl + 'dark-theme-prettify.css?refresh';
 const lightStylesUrl = baseStylesUrl + 'light-theme-prettify.css?refresh';
@@ -65,7 +66,7 @@ $(window).resize(function() {
 });
 
 function changeCodeColor() {
-    const cookieValue = Cookies.get('colorPref');
+    const cookieValue = Cookies.get(cookieColorName);
 
     if (cookieValue == null) {
         setDefaultCookieValue();
@@ -84,7 +85,7 @@ function changeCodeColor() {
 }
 
 function setDefaultCookieValue() {
-    Cookies.set('colorPref', colorDark);
+    Cookies.set(cookieColorName, colorDark);
     setDarkTheme();
 }
 
@@ -106,7 +107,7 @@ function loadPrettifyStyles(stylesLink) {
 function makeSelectorActive(selector, color) {
     $colorSelector.removeClass('active');
     selector.addClass('active');
-    Cookies.set('colorPref', color);
+    Cookies.set(cookieColorName, color);
 }
 
 function setDarkTheme() {
