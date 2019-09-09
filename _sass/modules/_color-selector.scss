@@ -18,39 +18,52 @@ $circle-border-hover: 2px solid rgba(white, 54);
   border-radius: $color-selector-border-radius;
   padding: $color-selector-padding;
 
-  .color-container {
-    width: $color-container-size;
-    height: $color-container-size;
-  }
-
   .color {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0 auto;
     display: block;
-    width: $circle-size;
-    height: $circle-size;
-    border-radius: 50%;
+    width: $color-selector-width;
+    height: $color-selector-width;
     @include transition(all .2s ease-in-out);
-
-    &.dark {
-      background-color: black;
-    }
-
-    &.light {
-      background-color: white;
-    }
-
-    &.active {
-      border: $circle-border-active;
-      width: $circle-size-active;
-      height: $circle-size-active;
-    }
 
     &:hover {
       cursor: pointer;
-      border: $circle-border-hover;
+      &:before {
+        border: $circle-border-hover;
+      }
+    }
+
+    &.active {
+      &:before {
+        width: $circle-size-active;
+        height: $circle-size-active;
+        border: $circle-border-active;
+      }
+    }
+
+    // Circle color icons
+    &:before {
+      content: '';
+      position: relative;
+      display: block;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0 auto;
+      width: $circle-size;
+      height: $circle-size;
+      border-radius: 50%;
+      background-color: black;
+      @include transition(all .2s ease-in-out);
+    }
+
+    &.dark {
+      &:before {
+        background-color: black;
+      }
+    }
+
+    &.light {
+      &:before {
+        background-color: white;
+      }
     }
   }
 }
