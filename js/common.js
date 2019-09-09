@@ -173,7 +173,7 @@ function initPrettyprint() {
  * under the header.
  */
 function showCodeColorSelector() {
-    const heightOffset = 40;
+    const heightOffset = 16;
     const isPreElementExist = $('.prettyprint').length;
 
     if (isPreElementExist) {

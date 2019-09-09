@@ -1,11 +1,12 @@
-$color-selector-width: 36px;
+$color-selector-width: 38px;
 $color-link-width: 32px;
+$color-link-height: $color-link-width - 6px;
 $color-selector-border-radius: 5px 0 0 5px;
 $color-selector-padding: 8px 0;
 $color-selector-bg-color: white;
 $color-selector-shadow: 0 1px 14px 0 rgba(34, 44, 78, .14);
-$circle-size: 10px;
-$circle-size-active: 14px;
+$circle-size: 8px;
+$circle-size-active: 12px;
 $transition: all .2s ease-in-out;
 $dark-circle-bg: #7F8186;
 $dark-circle-bg-hover: #5E6169;
@@ -33,7 +34,7 @@ $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
   .color-link {
     display: block;
     width: $color-link-width;
-    height: $color-link-width;
+    height: $color-link-height;
     @include transition($transition);
 
     &:hover {
