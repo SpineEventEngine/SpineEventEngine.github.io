@@ -95,10 +95,10 @@ function setDefaultCookieValue(cookieValue) {
 }
 
 function loadPrettifyStyles(stylesLink) {
-    const $prettifyLink = $('#prettify-styles');
+    const $prettifyStyleSheets = $('#prettify-styles');
 
-    if ($prettifyLink.length) {
-        $prettifyLink.attr('href', stylesLink);
+    if ($prettifyStyleSheets.length) {
+        $prettifyStyleSheets.attr('href', stylesLink);
     } else {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
