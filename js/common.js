@@ -425,10 +425,27 @@ function topFunction() {
     return false;
 }
 
+/**
+ * Inits Bootstrap tooltips.
+ *
+ * <p>Don't init tooltips if it is a touch device.
+ */
 function initBootstrapTooltips() {
     const options = {
         delay: { "show": 750, "hide": 100 },
         trigger: 'hover'
     };
-    $('[data-toggle="tooltip"]').tooltip(options);
+
+    if(isTouchDevice() === false) {
+        $('[data-toggle = "tooltip"]').tooltip(options);
+    }
+}
+
+/**
+ * Determines if it is a touch device.
+ *
+ * @return {boolean} true if it is a touch device, false otherwise
+ */
+function isTouchDevice() {
+    return true === ('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch);
 }
