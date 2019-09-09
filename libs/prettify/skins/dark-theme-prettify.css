@@ -1,7 +1,7 @@
-/* This file is included into run_prettify.js file to make dark theme for the code preview */
+/* Pretty printing styles. Used with run_prettify.js. Loaded in `common.js` */
 pre code { font-weight: 500; }
 pre.prettyprint { background-color: #2b2b2b; }
-pre .nocode { background-color: none; color: #000 }
+pre .nocode { background-color: white; color: #262626 }
 pre .str { color: #6a8759; } /* string */
 pre .kwd { color: #cc7832; } /* keywords */
 pre .com { color: #808080; font-weight: 400; } /* comment */
@@ -12,7 +12,7 @@ pre .pln { color: #a9b7c6; } /* plaintext */
 pre .tag { color: #cc7832; } /* html/xml tag */
 pre .atn { color: #6a8759; } /* attribute name */
 pre .atv { color: #6a8759; } /* attribute value */
-pre .dec { color: #6897bb; } /* decimal */
+pre .dec, .var { color: #6897bb; } /* declaration; a variable name */
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
@@ -21,7 +21,7 @@ li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
 li.L1,li.L3,li.L5,li.L7,li.L9 { }
 
 @media print {
-  pre.prettyprint { background-color: none }
+  pre.prettyprint { background-color: transparent }
   pre .str, code .str { color: #060 }
   pre .kwd, code .kwd { color: #006; font-weight: bold }
   pre .com, code .com { color: #808080; font-style: italic }
