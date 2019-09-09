@@ -46,6 +46,7 @@ $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
     }
 
     &.active {
+      cursor: default;
       &:before {
         width: $circle-size-active;
         height: $circle-size-active;
