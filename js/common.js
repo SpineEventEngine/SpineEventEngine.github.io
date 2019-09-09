@@ -67,6 +67,7 @@ $(window).resize(function() {
     resizeStickyElHeightWithWindow();
     ifCookiesExist();
     fixHead();
+    setColorSelectorTopPosition();
 });
 
 /**
@@ -176,13 +177,33 @@ function initPrettyprint() {
 function showCodeColorSelector() {
     const heightOffset = 16;
     const isPreElementExist = $('.prettyprint').length;
+    const isDocsPage = $('body').is('.docs');
+
+    setColorSelectorTopPosition();
 
     if (isPreElementExist) {
-        if (window.pageYOffset > initialHeadHeight + heightOffset) {
+        if (isDocsPage) {
+            $colorSelector.addClass('show');
+        } else if (window.pageYOffset > initialHeadHeight - heightOffset) {
             $colorSelector.addClass('show');
         } else {
             $colorSelector.removeClass('show');
         }
+    }
+}
+
+/**
+ * Sets the top position of the `color-selector` depending on the screen size.
+ */
+function setColorSelectorTopPosition() {
+    const windowHeightMobile = 520;
+    const topPositionOnMobile = 42 + '%';
+    const defaultTopPosition = 248;
+
+    if ($(window).height() < windowHeightMobile) {
+        $colorSelector.css('top', topPositionOnMobile);
+    } else {
+        $colorSelector.css('top', defaultTopPosition);
     }
 }
 
