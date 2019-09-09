@@ -99,6 +99,22 @@ function setDefaultCookieValue() {
 }
 
 /**
+ * Sets dark theme color.
+ */
+function setDarkTheme() {
+    loadPrettifyStyles(darkStylesUrl);
+    makeSelectorActive($selectorDark, colorDark);
+}
+
+/**
+ * Sets light theme color.
+ */
+function setLightTheme() {
+    loadPrettifyStyles(lightStylesUrl);
+    makeSelectorActive($selectorLight, colorLight);
+}
+
+/**
  * Loads `prettify` theme style sheets.
  *
  * <p>`<style>` tag with the `#prettify-styles` ID will be created in the `head` of the
@@ -132,22 +148,6 @@ function makeSelectorActive(selector, color) {
     $colorSelector.removeClass('active');
     selector.addClass('active');
     Cookies.set(cookieColorName, color);
-}
-
-/**
- * Sets dark theme color.
- */
-function setDarkTheme() {
-    loadPrettifyStyles(darkStylesUrl);
-    makeSelectorActive($selectorDark, colorDark);
-}
-
-/**
- * Sets light theme color.
- */
-function setLightTheme() {
-    loadPrettifyStyles(lightStylesUrl);
-    makeSelectorActive($selectorLight, colorLight);
 }
 
 /**
