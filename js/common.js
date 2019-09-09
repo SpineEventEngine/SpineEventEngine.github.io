@@ -34,6 +34,7 @@ $(function() {
     showScrollTopBtn();
     fixStickyElement();
     showCodeColorSelector();
+    initBootstrapTooltips();
 
     if (isFaqPage) {
         expandItemOnHashChange();
@@ -422,4 +423,8 @@ function showScrollTopBtn() {
 function topFunction() {
     $('html, body').stop().animate({scrollTop: 0}, 500, 'swing');
     return false;
+}
+
+function initBootstrapTooltips() {
+    $('[data-toggle="tooltip"]').tooltip();
 }
