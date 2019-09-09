@@ -2,12 +2,15 @@ $color-selector-width: 32px;
 $color-container-size: $color-selector-width;
 $color-selector-border-radius: 5px 0 0 5px;
 $color-selector-padding: 8px 0;
-$color-selector-bg-color: rgba($footerColor, .54);
-$circle-size: 8px;
-$circle-size-active: 16px;
-$circle-border-active: 1px solid rgba(white, .87);
-$circle-border-hover: 2px solid rgba(white, 54);
+$color-selector-bg-color: white;
+$color-selector-shadow: 0 1px 14px 0 rgba(34, 44, 78, .14);
+$circle-size: 10px;
+$circle-size-active: 14px;
 $transition: all .2s ease-in-out;
+$dark-circle-bg: #7F8186;
+$dark-circle-bg-hover: #5E6169;
+$light-circle-border: 1px solid rgba(0, 0, 0, .26);
+$light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
 
 .color-selector {
   position: fixed;
@@ -15,6 +18,7 @@ $transition: all .2s ease-in-out;
   right: 0;
   top: 150px;
   background-color: $color-selector-bg-color;
+  box-shadow: $color-selector-shadow;
   width: $color-selector-width;
   border-radius: $color-selector-border-radius;
   padding: $color-selector-padding;
@@ -27,8 +31,17 @@ $transition: all .2s ease-in-out;
 
     &:hover {
       cursor: pointer;
-      &:before {
-        border: $circle-border-hover;
+
+      &.dark {
+        &:before {
+          background-color: $dark-circle-bg-hover;
+        }
+      }
+
+      &.light {
+        &:before {
+          border: $light-circle-border-hover;
+        }
       }
     }
 
@@ -36,7 +49,6 @@ $transition: all .2s ease-in-out;
       &:before {
         width: $circle-size-active;
         height: $circle-size-active;
-        border: $circle-border-active;
       }
     }
 
@@ -57,13 +69,14 @@ $transition: all .2s ease-in-out;
 
     &.dark {
       &:before {
-        background-color: black;
+        background-color: $dark-circle-bg;
       }
     }
 
     &.light {
       &:before {
         background-color: white;
+        border: $light-circle-border;
       }
     }
   }
