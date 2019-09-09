@@ -7,6 +7,7 @@ $circle-size: 8px;
 $circle-size-active: 16px;
 $circle-border-active: 1px solid rgba(white, .87);
 $circle-border-hover: 2px solid rgba(white, 54);
+$transition: all .2s ease-in-out;
 
 .color-selector {
   position: fixed;
@@ -22,7 +23,7 @@ $circle-border-hover: 2px solid rgba(white, 54);
     display: block;
     width: $color-selector-width;
     height: $color-selector-width;
-    @include transition(all .2s ease-in-out);
+    @include transition($transition);
 
     &:hover {
       cursor: pointer;
@@ -51,7 +52,7 @@ $circle-border-hover: 2px solid rgba(white, 54);
       height: $circle-size;
       border-radius: 50%;
       background-color: black;
-      @include transition(all .2s ease-in-out);
+      @include transition($transition);
     }
 
     &.dark {
