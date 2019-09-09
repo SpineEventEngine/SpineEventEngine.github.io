@@ -1,5 +1,5 @@
-$color-selector-width: 32px;
-$color-container-size: $color-selector-width;
+$color-selector-width: 36px;
+$color-link-width: 32px;
 $color-selector-border-radius: 5px 0 0 5px;
 $color-selector-padding: 8px 0;
 $color-selector-bg-color: white;
@@ -32,8 +32,8 @@ $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
 
   .color-link {
     display: block;
-    width: $color-selector-width;
-    height: $color-selector-width;
+    width: $color-link-width;
+    height: $color-link-width;
     @include transition($transition);
 
     &:hover {
@@ -53,7 +53,6 @@ $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
     }
 
     &.active {
-      cursor: default;
       &:before {
         width: $circle-size-active;
         height: $circle-size-active;
