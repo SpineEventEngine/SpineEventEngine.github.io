@@ -2,6 +2,7 @@ $color-selector-top-position: 248px;
 $color-selector-width: 38px;
 $color-link-width: 32px;
 $color-link-height: $color-link-width - 6px;
+$color-link-height-mobile: $color-link-width + 4px;
 $color-selector-border-radius: 5px 0 0 5px;
 $color-selector-padding: 8px 0;
 $color-selector-bg-color: rgba(white, .8);
@@ -17,7 +18,7 @@ $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
 
 .color-selector {
   position: fixed;
-  z-index: 1000;
+  z-index: 999;
   right: 0;
   top: $color-selector-top-position;
   background-color: $color-selector-bg-color;
@@ -40,6 +41,10 @@ $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
     width: $color-link-width;
     height: $color-link-height;
     @include transition($transition);
+
+    @media(max-width: $phone-xlarge) {
+      height: $color-link-height-mobile;
+    }
 
     &:hover {
       cursor: pointer;
