@@ -8,8 +8,8 @@ $color-selector-shadow: 0 1px 14px 0 rgba(34, 44, 78, .14);
 $circle-size: 8px;
 $circle-size-active: 12px;
 $transition: all .2s ease-in-out;
-$dark-circle-bg: #7F8186;
-$dark-circle-bg-hover: #5E6169;
+$dark-circle-bg: rgba($footerColor, .65);
+$dark-circle-bg-hover: rgba($footerColor, .87);
 $light-circle-border: 1px solid rgba(0, 0, 0, .26);
 $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
 
