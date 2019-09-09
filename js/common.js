@@ -14,9 +14,9 @@ const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 
 /** Code color variables */
-const $colorSelector = $('.color-selector a');
-const $selectorDark = $('.color.dark');
-const $selectorLight = $('.color.light');
+const $colorSelectorLinks = $('.color-selector .color-link');
+const $selectorDark = $('.color-link.dark');
+const $selectorLight = $('.color-link.light');
 const colorDark = 'dark';
 const colorLight = 'light';
 const cookieColorName = 'themeColor';
@@ -145,7 +145,7 @@ function loadPrettifyStyles(stylesHref) {
  * @param {string} color color value
  */
 function makeSelectorActive(selector, color) {
-    $colorSelector.removeClass('active');
+    $colorSelectorLinks.removeClass('active');
     selector.addClass('active');
     Cookies.set(cookieColorName, color);
 }
