@@ -427,7 +427,8 @@ function topFunction() {
 
 function initBootstrapTooltips() {
     const options = {
-        delay: { "show": 750, "hide": 100 }
+        delay: { "show": 750, "hide": 100 },
+        trigger: 'hover'
     };
     $('[data-toggle="tooltip"]').tooltip(options);
 }
