@@ -67,9 +67,12 @@ $(window).resize(function() {
 function changeCodeColor() {
     const cookieValue = Cookies.get('colorPref');
 
-    setDefaultCookieValue(cookieValue);
-    colorDark === cookieValue && setDarkTheme();
-    colorLight === cookieValue && setLightTheme();
+    if (cookieValue == null) {
+        setDefaultCookieValue();
+    } else {
+        colorDark === cookieValue && setDarkTheme();
+        colorLight === cookieValue && setLightTheme();
+    }
 
     $selectorDark.click(function() {
         setDarkTheme();
@@ -80,11 +83,9 @@ function changeCodeColor() {
     })
 }
 
-function setDefaultCookieValue(cookieValue) {
-    if (cookieValue == null) {
-        Cookies.set('colorPref', colorDark);
-        setDarkTheme();
-    }
+function setDefaultCookieValue() {
+    Cookies.set('colorPref', colorDark);
+    setDarkTheme();
 }
 
 function loadPrettifyStyles(stylesLink) {
