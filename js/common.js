@@ -14,6 +14,7 @@ const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 
 /** Code color variables */
+const $colorSelector = $('.color-selector a');
 const $selectorDark = $('.color.dark');
 const $selectorLight = $('.color.light');
 const colorDark = 'dark';
@@ -102,7 +103,7 @@ function loadPrettifyStyles(stylesLink) {
 }
 
 function makeSelectorActive(selector, color) {
-    $('.color-selector a').removeClass('active');
+    $colorSelector.removeClass('active');
     selector.addClass('active');
     Cookies.set('colorPref', color);
 }
