@@ -67,30 +67,22 @@ function changeCodeColor() {
     const cookieValue = Cookies.get('colorPref');
 
     setDefaultCookieValue(cookieValue);
-
-    colorDark === cookieValue
-                  && loadPrettifyStyles(darkStylesUrl)
-                  && makeSelectorActive($selectorDark, colorDark);
-
-    colorLight === cookieValue
-                   && loadPrettifyStyles(lightStylesUrl)
-                   && makeSelectorActive($selectorLight, colorLight);
+    colorDark === cookieValue && setDarkTheme();
+    colorLight === cookieValue && setLightTheme();
 
     $selectorDark.click(function() {
-        loadPrettifyStyles(darkStylesUrl);
-        makeSelectorActive($selectorDark, colorDark);
+        setDarkTheme();
     });
 
     $selectorLight.click(function() {
-        loadPrettifyStyles(lightStylesUrl);
-        makeSelectorActive($selectorLight, colorLight);
+        setLightTheme();
     })
 }
 
 function setDefaultCookieValue(cookieValue) {
     if (cookieValue == null) {
         Cookies.set('colorPref', colorDark);
-        makeSelectorActive($selectorDark, colorDark);
+        setDarkTheme();
     }
 }
 
@@ -113,6 +105,16 @@ function makeSelectorActive(selector, color) {
     $('.color-selector a').removeClass('active');
     selector.addClass('active');
     Cookies.set('colorPref', color);
+}
+
+function setDarkTheme() {
+    loadPrettifyStyles(darkStylesUrl);
+    makeSelectorActive($selectorDark, colorDark);
+}
+
+function setLightTheme() {
+    loadPrettifyStyles(lightStylesUrl);
+    makeSelectorActive($selectorLight, colorLight);
 }
 
 /**
