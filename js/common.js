@@ -65,6 +65,12 @@ $(window).resize(function() {
     fixHead();
 });
 
+/**
+ * Changes code color theme by clicking on the `color-selector` icons.
+ *
+ * <p>On page load, the color will be set from the cookie value. If the cookie value is `null`
+ * will be set default cookie value.
+ */
 function changeCodeColor() {
     const cookieValue = Cookies.get(cookieColorName);
 
@@ -84,37 +90,61 @@ function changeCodeColor() {
     })
 }
 
+/**
+ * Sets default cookie value for the `code` color as `dark`.
+ */
 function setDefaultCookieValue() {
     Cookies.set(cookieColorName, colorDark);
     setDarkTheme();
 }
 
-function loadPrettifyStyles(stylesLink) {
+/**
+ * Loads `prettify` theme style sheets.
+ *
+ * <p>`<style>` tag with the `#prettify-styles` ID will be created in the `head` of the
+ * document. If the tag is already exist it will be updated depending on the selected theme color.
+ * Style files are located in the `/libs/prettify/skins/` folder.
+ *
+ * @param {string} stylesHref `href` to the `css` file
+ */
+function loadPrettifyStyles(stylesHref) {
     const $prettifyStyleSheets = $('#prettify-styles');
 
     if ($prettifyStyleSheets.length) {
-        $prettifyStyleSheets.attr('href', stylesLink);
+        $prettifyStyleSheets.attr('href', stylesHref);
     } else {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.id = 'prettify-styles';
         link.type = 'text/css';
-        link.href = stylesLink;
+        link.href = stylesHref;
         head.appendChild(link);
     }
 }
 
+/**
+ * Makes color selector active and sets the value to the `cookie`.
+ *
+ * @param {Object} selector color selector DOM element
+ * @param {string} color color value
+ */
 function makeSelectorActive(selector, color) {
     $colorSelector.removeClass('active');
     selector.addClass('active');
     Cookies.set(cookieColorName, color);
 }
 
+/**
+ * Sets dark theme color.
+ */
 function setDarkTheme() {
     loadPrettifyStyles(darkStylesUrl);
     makeSelectorActive($selectorDark, colorDark);
 }
 
+/**
+ * Sets light theme color.
+ */
 function setLightTheme() {
     loadPrettifyStyles(lightStylesUrl);
     makeSelectorActive($selectorLight, colorLight);
