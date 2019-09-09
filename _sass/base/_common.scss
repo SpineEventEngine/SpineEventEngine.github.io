@@ -275,3 +275,25 @@ th {
     }
   }
 }
+
+$tooltip-color: $footerColor;
+$tooltip-padding: .25rem .65rem;
+
+// Overrides Bootstrap tooltip styles
+.tooltip {
+  font-size: 12px;
+  .arrow {
+    &:before {
+      border-left-color: $tooltip-color;
+    }
+  }
+
+  &.show {
+    opacity: .87;
+  }
+
+  .tooltip-inner {
+    background-color: $tooltip-color;
+    padding: $tooltip-padding;
+  }
+}
