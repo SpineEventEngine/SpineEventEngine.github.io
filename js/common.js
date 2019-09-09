@@ -14,6 +14,7 @@ const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 
 /** Code color variables */
+const $colorSelector = $('.color-selector');
 const $colorSelectorLinks = $('.color-selector .color-link');
 const $selectorDark = $('.color-link.dark');
 const $selectorLight = $('.color-link.light');
@@ -32,6 +33,7 @@ $(function() {
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
+    showCodeColorSelector();
 
     if (isFaqPage) {
         expandItemOnHashChange();
@@ -57,6 +59,7 @@ window.onscroll = function() {
     fixHead();
     setStickyElMaxHeight();
     showScrollTopBtn();
+    showCodeColorSelector();
 };
 
 $(window).resize(function() {
@@ -163,6 +166,23 @@ function initPrettyprint() {
     $.getScript("/libs/prettify/lang-proto.js", function(){});
     $.getScript("/libs/prettify/lang-swift.js", function(){});
     $.getScript("/libs/prettify/lang-yaml.js", function(){});
+}
+
+/**
+ * Shows the code color selector if there is a `pre` tag on the page and the scroll position
+ * under the header.
+ */
+function showCodeColorSelector() {
+    const heightOffset = 40;
+    const isPreElementExist = $('.prettyprint').length;
+
+    if (isPreElementExist) {
+        if (window.pageYOffset > initialHeadHeight + heightOffset) {
+            $colorSelector.addClass('show');
+        } else {
+            $colorSelector.removeClass('show');
+        }
+    }
 }
 
 /**

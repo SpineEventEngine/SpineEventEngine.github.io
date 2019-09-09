@@ -22,6 +22,13 @@ $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
   width: $color-selector-width;
   border-radius: $color-selector-border-radius;
   padding: $color-selector-padding;
+  display: none;
+  
+  &.show {
+    display: block;
+    opacity: 0;
+    @include animation(colorSelectorFadeIn, .3s, 0, ease-in-out, forwards);
+  }
 
   .color-link {
     display: block;
@@ -81,4 +88,9 @@ $light-circle-border-hover: 1px solid rgba(0, 0, 0, .54);
       }
     }
   }
+}
+
+@include keyframes(colorSelectorFadeIn) {
+  0%   { opacity: 0; }
+  100% { opacity: 100; }
 }
