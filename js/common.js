@@ -2,6 +2,7 @@
 
 const head = document['head'] || document.getElementsByTagName("head")[0] || root;
 const header = $('#header');
+const $body = $('body');
 const initialHeadHeight = header.innerHeight();
 const tocNav = $('#toc');
 const headerFixPosition = $('.nav-hero-container').innerHeight();
@@ -9,7 +10,9 @@ const stickyElement = $('.sticky-element');
 const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
-const isFaqPage = $('body').is('.faq');
+const isFaqPage = $body.is('.faq');
+const isDocsPage = $body.is('.docs');
+const isPromoPage = $body.is('.promo-page');
 const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 
@@ -60,7 +63,10 @@ window.onscroll = function() {
     fixHead();
     setStickyElMaxHeight();
     showScrollTopBtn();
-    showCodeColorSelector();
+
+    if (isPromoPage) {
+        showCodeColorSelectorOnPromoPage();
+    }
 };
 
 $(window).resize(function() {
@@ -68,6 +74,10 @@ $(window).resize(function() {
     ifCookiesExist();
     fixHead();
     setColorSelectorTopPosition();
+
+    if (isPromoPage) {
+        showCodeColorSelectorOnPromoPage();
+    }
 });
 
 /**
@@ -175,20 +185,18 @@ function initPrettyprint() {
  * under the header.
  */
 function showCodeColorSelector() {
-    const heightOffset = 16;
     const isPreElementExist = $('.prettyprint').length;
-    const isDocsPage = $('body').is('.docs');
 
     setColorSelectorTopPosition();
 
     if (isPreElementExist) {
-        if (isDocsPage) {
-            $colorSelector.addClass('show');
-        } else if (window.pageYOffset > initialHeadHeight - heightOffset) {
-            $colorSelector.addClass('show');
+        if (isPromoPage) {
+            showCodeColorSelectorOnPromoPage();
         } else {
-            $colorSelector.removeClass('show');
+            $colorSelector.addClass('show');   
         }
+    } else {
+        $colorSelector.removeClass('show');
     }
 }
 
@@ -197,13 +205,27 @@ function showCodeColorSelector() {
  */
 function setColorSelectorTopPosition() {
     const windowHeightMobile = 520;
-    const topPositionOnMobile = 42 + '%';
-    const defaultTopPosition = 248;
+    const inMiddleOnMobile = 42 + '%';
+    const docsTopPosition = 248; // The value is equal to the CSS `$color-selector-top-position`
+    const isWindowHeightMobile = $(window).height() < windowHeightMobile;
 
-    if ($(window).height() < windowHeightMobile) {
-        $colorSelector.css('top', topPositionOnMobile);
+    if (isDocsPage && !isWindowHeightMobile) {
+        $colorSelector.css('top', docsTopPosition);
     } else {
-        $colorSelector.css('top', defaultTopPosition);
+        $colorSelector.css('top', inMiddleOnMobile);
+    }
+}
+
+function showCodeColorSelectorOnPromoPage() {
+    const phoneMediumScreenSize = 480;
+    const isPhoneMedium = $(window).width() <= phoneMediumScreenSize;
+
+    if (isPromoPage) {
+        if (isPhoneMedium && window.pageYOffset > headerFixPosition || !isPhoneMedium) {
+            $colorSelector.addClass('show');
+        } else {
+            $colorSelector.removeClass('show');
+        }
     }
 }
 
