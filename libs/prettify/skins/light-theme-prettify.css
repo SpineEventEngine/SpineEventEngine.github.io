@@ -7,17 +7,22 @@ pre.prettyprint {
     box-shadow: 0 8px 16px 0 rgba(35, 37, 38, 0.08);
 }
 pre .nocode { background-color: white; color: #262626 }
-pre .str { color: #008000; } /* string */
+pre .str { color: #008000; font-weight: 700; } /* string */
 pre .kwd { color: #000080; font-weight: 700; } /* keywords */
-pre .com { color: #808080; font-weight: 400; } /* comment */
-pre .typ { color: #262626; } /* type */
-pre .lit { color: #bbb529; } /* literal */
-pre .pun { color: #262626; } /* punctuation */
-pre .pln { color: #262626; } /* plaintext */
+pre .com { color: #808080; font-weight: 400; font-style: italic; } /* comment */
+pre .typ { color: #171717; } /* type */
+pre .lit { color: #0000FF; } /* literal */
+pre .pun { color: #171717; } /* punctuation */
+pre .pln { color: #171717; } /* plaintext */
 pre .tag { color: #000080; } /* html/xml tag */
 pre .atn { color: #008000; } /* attribute name */
 pre .atv { color: #008000; } /* attribute value */
 pre .dec, .var { color: #660E7A; } /* declaration; a variable name */
+
+/* Specifies styles for JAVA lang */
+div.language-java pre .lit,
+pre.lang-java .lit { color: #808000; }
+
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
