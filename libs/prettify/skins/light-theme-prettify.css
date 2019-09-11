@@ -1,5 +1,5 @@
 /* Pretty printing styles. Used with run_prettify.js. Loaded in `common.js` */
-pre code { font-weight: 500; }
+pre code { font-weight: 400; }
 pre.prettyprint {
     background-color: white;
     -webkit-box-shadow: 0 8px 16px 0 rgba(35, 37, 38, 0.08);
