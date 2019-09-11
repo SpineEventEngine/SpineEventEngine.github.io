@@ -217,11 +217,16 @@ function setColorSelectorTopPosition() {
 }
 
 function showCodeColorSelectorOnPromoPage() {
-    const phoneMediumScreenSize = 480;
-    const isPhoneMedium = $(window).width() <= phoneMediumScreenSize;
+    const phoneScreenWidth = 480;
+    const phoneScreenHeight = 520;
+    const isPhone = $(window).width() <= phoneScreenWidth;
+    const isPhoneHorizontal = $(window).height() <= phoneScreenHeight;
+    const scrollPositionUnderHero = window.pageYOffset > headerFixPosition;
+    const isPhoneAndUnderHero = isPhone && scrollPositionUnderHero;
+    const isPhoneHorizontalAndUnderHero = isPhoneHorizontal && scrollPositionUnderHero;
 
     if (isPromoPage) {
-        if (isPhoneMedium && window.pageYOffset > headerFixPosition || !isPhoneMedium) {
+        if (isPhoneAndUnderHero || isPhoneHorizontalAndUnderHero || !isPhone && !isPhoneHorizontal) {
             $colorSelector.addClass('show');
         } else {
             $colorSelector.removeClass('show');
