@@ -29,6 +29,11 @@ const baseStylesUrl = '/libs/prettify/skins/';
 const darkStylesUrl = baseStylesUrl + 'dark-theme-prettify.css?refresh';
 const lightStylesUrl = baseStylesUrl + 'light-theme-prettify.css?refresh';
 
+/** Grid breakpoints */
+const windowHeightMobile = 520;
+const phoneMedium = 480;
+const phoneXLarge = 640;
+
 $(function() {
     changeCodeColor();
     initPrettyprint();
@@ -205,7 +210,6 @@ function showCodeColorSelector() {
  * Sets the top position of the `color-selector` depending on the screen size.
  */
 function setColorSelectorTopPosition() {
-    const windowHeightMobile = 520;
     const inMiddleOnMobile = 42 + '%';
     const topOffset = 24;
     // The value should be equal to the CSS `$color-selector-top-position`
@@ -220,8 +224,8 @@ function setColorSelectorTopPosition() {
 }
 
 function showCodeColorSelectorOnPromoPage() {
-    const phoneScreenWidth = 480;
-    const phoneScreenHeight = 520;
+    const phoneScreenWidth = phoneMedium;
+    const phoneScreenHeight = windowHeightMobile;
     const isPhone = $(window).width() <= phoneScreenWidth;
     const isPhoneHorizontal = $(window).height() <= phoneScreenHeight;
     const scrollPositionUnderHero = window.pageYOffset > headerFixPosition;
@@ -302,7 +306,7 @@ function fixStickyElement() {
  */
 function fixHead() {
     const stickyHeaderHidden = header.hasClass('hide-sticky-header');
-    const mobileSize = 640;
+    const mobileSize = phoneXLarge;
     const mobileWindow = $(window).width() <= mobileSize;
     const desktopWindow = $(window).width() > mobileSize;
     const headerExistAndNotHidden = header.length && !stickyHeaderHidden;
