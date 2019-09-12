@@ -20,8 +20,11 @@ pre .atv { color: #008000; } /* attribute value */
 pre .dec, .var { color: #660E7A; } /* declaration; a variable name */
 
 /* Specifies styles for JAVA lang */
-div.language-java pre .lit,
+.language-java pre .lit,
 pre.lang-java .lit { color: #808000; }
+
+.language-java pre .mi .lit,
+pre.lang-java .mi .lit { color: #0000FF; }
 
 
 /* Specify class=linenums on a pre to get line numbering */

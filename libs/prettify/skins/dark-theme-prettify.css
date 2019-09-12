@@ -4,7 +4,7 @@ pre.prettyprint { background-color: #2b2b2b; }
 pre .nocode { background-color: white; color: #262626 }
 pre .str { color: #6a8759; } /* string */
 pre .kwd { color: #cc7832; font-weight: 700; } /* keywords */
-pre .com { color: #808080; font-weight: 400; font-style: italic; } /* comment */
+pre .com { color: #808080; font-weight: 400; } /* comment */
 pre .typ { color: #a9b7c6; } /* type */
 pre .lit { color: #6897BB; } /* literal */
 pre .pun { color: #a9b7c6; } /* punctuation */
@@ -15,10 +15,10 @@ pre .atv { color: #6a8759; } /* attribute value */
 pre .dec, .var { color: #6897bb; } /* declaration; a variable name */
 
 /* Specifies styles for JAVA lang */
-div.language-java pre .lit,
+.language-java pre .lit,
 pre.lang-java .lit { color: #bbb529; }
 
-div.language-java pre .mi .lit,
+.language-java pre .mi .lit,
 pre.lang-java .mi .lit { color: #6897BB; }
 
 /* Specify class=linenums on a pre to get line numbering */
