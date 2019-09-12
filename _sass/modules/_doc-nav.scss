@@ -18,6 +18,7 @@ $nav-title-left-padding: 22px;
 // Top navigation
 $top-doc-nav-shadow: 0 2px 7px 0 rgba(0, 0, 0, .08);
 $top-doc-nav-margin: 20px 0 16px;
+$top-doc-nav-height: 65px;
 
 .top-doc-nav-container {
   position: -webkit-sticky;
@@ -25,6 +26,7 @@ $top-doc-nav-margin: 20px 0 16px;
   top: 0;
   z-index: 100;
   background-color: white;
+  height: $top-doc-nav-height;
   -webkit-box-shadow: $top-doc-nav-shadow;
   -moz-box-shadow: $top-doc-nav-shadow;
   -o-box-shadow: $top-doc-nav-shadow;
