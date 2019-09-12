@@ -223,6 +223,12 @@ function setColorSelectorTopPosition() {
     }
 }
 
+/**
+ * Shows `color-selector` on promo page only if it doesn't overlap the `hero` section.
+ *
+ * <p>If it overlaps `hero` section it will be shown when scroll position below the `hero`.
+ * It also works for the screens with small height.
+ */
 function showCodeColorSelectorOnPromoPage() {
     const phoneScreenWidth = phoneMedium;
     const phoneScreenHeight = windowHeightMobile;
