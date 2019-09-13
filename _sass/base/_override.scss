@@ -101,7 +101,6 @@ code {
 }
 
 pre, pre.prettyprint {
-  background-color: $codeBkColorDark;
   -webkit-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
   -moz-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
   -o-box-shadow: 0 10px 20px 0 rgba($footerColor, .12);
@@ -113,6 +112,8 @@ pre, pre.prettyprint {
   word-wrap: normal;
   border-radius: 4px;
   line-height: 1.5;
+  opacity: 0;
+  @include transition(all .3s ease-in-out);
 
   @media(max-width: $phone-xlarge){
     padding: 12px 16px !important;

@@ -11,6 +11,7 @@ const stickyElement = $('.sticky-element');
 const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
+const $pre = $('pre');
 const isFaqPage = $body.is('.faq');
 const isDocsPage = $body.is('.docs');
 const isPromoPage = $body.is('.promo-page');
@@ -124,6 +125,7 @@ function setDefaultCookieValue() {
  */
 function setDarkTheme() {
     loadPrettifyStyles(darkStylesUrl);
+    $pre.css('opacity', '1');
     makeSelectorActive($selectorDark, colorDark);
 }
 
@@ -132,6 +134,7 @@ function setDarkTheme() {
  */
 function setLightTheme() {
     loadPrettifyStyles(lightStylesUrl);
+    $pre.css('opacity', '1');
     makeSelectorActive($selectorLight, colorLight);
 }
 
