@@ -76,7 +76,7 @@
       height: 100vh;
       padding: 48px 24px;
       overflow-x: auto;
-      @include transition(all .4s ease-in-out);
+      @include transition(right .4s ease-in-out);
 
       .block-above-scroll-nav{
         position: fixed;
@@ -220,13 +220,14 @@
 }
 
 .nav-open-close {
+  display: none;
   right: 0;
   margin-top: 16px;
   margin-right: 16px;
   position: absolute;
 
-  @media(min-width: $tablet){
-    display: none;
+  @media(max-width: 767px){
+    display: block;
   }
 
   #nav-icon-menu {
