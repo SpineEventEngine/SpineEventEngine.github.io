@@ -180,7 +180,7 @@ function makeSelectorActive(selector, color) {
  * @see {@link https://github.com/google/code-prettify/blob/master/docs/getting_started.md code-prettify}
  */
 function initPrettyprint() {
-    $('pre').addClass('prettyprint');
+    $pre.addClass('prettyprint');
     $.getScript("/libs/prettify/run_prettify.js", function(){});
     $.getScript("/libs/prettify/lang-css.js", function(){});
     $.getScript("/libs/prettify/lang-go.js", function(){});
