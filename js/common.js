@@ -26,8 +26,8 @@ const colorDark = 'dark';
 const colorLight = 'light';
 const cookieColorName = 'themeColor';
 const baseStylesUrl = '/libs/prettify/skins/';
-const darkStylesUrl = baseStylesUrl + 'dark-theme-prettify.css?refresh';
-const lightStylesUrl = baseStylesUrl + 'light-theme-prettify.css?refresh';
+const darkStylesUrl = baseStylesUrl + 'dark-theme-prettify.css';
+const lightStylesUrl = baseStylesUrl + 'light-theme-prettify.css';
 
 /** Grid breakpoints */
 const windowHeightMobile = 520;
