@@ -1,24 +1,50 @@
 'use strict';
 
+const head = document['head'] || document.getElementsByTagName("head")[0] || root;
 const header = $('#header');
+const $body = $('body');
 const initialHeadHeight = header.innerHeight();
 const tocNav = $('#toc');
 const headerFixPosition = $('.nav-hero-container').innerHeight();
+const topDocNavHeight = $('.top-doc-nav-container').innerHeight();
 const stickyElement = $('.sticky-element');
 const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
-const isFaqPage = $('body').is('.faq');
+const $pre = $('pre');
+const isFaqPage = $body.is('.faq');
+const isDocsPage = $body.is('.docs');
+const isPromoPage = $body.is('.promo-page');
 const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 
+/** Code color variables */
+const $colorSelector = $('.color-selector');
+const $colorSelectorLinks = $('.color-selector .color-link');
+const $selectorDark = $('.color-link.dark');
+const $selectorLight = $('.color-link.light');
+const colorDark = 'dark';
+const colorLight = 'light';
+const cookieColorName = 'themeColor';
+const codeWrapperSkinsUrl = '/libs/prettify/skins/';
+const darkStylesUrl = codeWrapperSkinsUrl + 'dark-theme-prettify.css';
+const lightStylesUrl = codeWrapperSkinsUrl + 'light-theme-prettify.css';
+
+/** Grid breakpoints */
+const windowHeightMobile = 520;
+const phoneMedium = 480;
+const phoneXLarge = 640;
+
 $(function() {
+    changeCodeColor();
     initPrettyprint();
     openHeaderMenuOnMobile();
     addExternalClass();
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
+    showCodeColorSelector();
+    initBootstrapTooltips();
 
     if (isFaqPage) {
         expandItemOnHashChange();
@@ -44,13 +70,109 @@ window.onscroll = function() {
     fixHead();
     setStickyElMaxHeight();
     showScrollTopBtn();
+
+    if (isPromoPage) {
+        showCodeColorSelectorOnPromoPage();
+    }
 };
 
 $(window).resize(function() {
     resizeStickyElHeightWithWindow();
     ifCookiesExist();
     fixHead();
+    setColorSelectorTopPosition();
+
+    if (isPromoPage) {
+        showCodeColorSelectorOnPromoPage();
+    }
 });
+
+/**
+ * Changes code color theme by clicking on the `color-selector` icons.
+ *
+ * <p>On page load, the color will be set from the cookie value. If the cookie value is `null`
+ * will be set default cookie value.
+ */
+function changeCodeColor() {
+    const cookieValue = Cookies.get(cookieColorName);
+
+    if (cookieValue == null) {
+        setDefaultCookieValue();
+    } else {
+        colorDark === cookieValue && setDarkTheme();
+        colorLight === cookieValue && setLightTheme();
+    }
+
+    $selectorDark.click(function() {
+        setDarkTheme();
+    });
+
+    $selectorLight.click(function() {
+        setLightTheme();
+    })
+}
+
+/**
+ * Sets default cookie value for the `code` color as `dark`.
+ */
+function setDefaultCookieValue() {
+    Cookies.set(cookieColorName, colorDark);
+    setDarkTheme();
+}
+
+/**
+ * Sets dark theme color.
+ */
+function setDarkTheme() {
+    loadPrettifyStyles(darkStylesUrl);
+    $pre.css('opacity', '1');
+    makeSelectorActive($selectorDark, colorDark);
+}
+
+/**
+ * Sets light theme color.
+ */
+function setLightTheme() {
+    loadPrettifyStyles(lightStylesUrl);
+    $pre.css('opacity', '1');
+    makeSelectorActive($selectorLight, colorLight);
+}
+
+/**
+ * Loads `prettify` theme style sheets.
+ *
+ * <p>`<style>` tag with the `#prettify-styles` ID will be created in the `head` of the
+ * document. If the tag is already exist it will be updated depending on the selected theme color.
+ * Style files are located in the `/libs/prettify/skins/` folder.
+ *
+ * @param {string} stylesHref `href` to the `css` file
+ */
+function loadPrettifyStyles(stylesHref) {
+    const $prettifyStyleSheets = $('#prettify-styles');
+
+    if ($prettifyStyleSheets.length) {
+        $prettifyStyleSheets.attr('href', stylesHref);
+    } else {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.id = 'prettify-styles';
+        link.type = 'text/css';
+        link.href = stylesHref;
+        head.appendChild(link);
+    }
+}
+
+/**
+ * Makes color selector active and sets the value to the `cookie`.
+ *
+ * @param {Object} selector color selector DOM element
+ * @param {string} color color value
+ */
+function makeSelectorActive(selector, color) {
+    $colorSelectorLinks.removeClass('active');
+    selector.addClass('active');
+    Cookies.set(cookieColorName, color);
+}
 
 /**
  * Inits pretty-print scripts.
@@ -58,13 +180,74 @@ $(window).resize(function() {
  * @see {@link https://github.com/google/code-prettify/blob/master/docs/getting_started.md code-prettify}
  */
 function initPrettyprint() {
-    $('pre').addClass('prettyprint');
-    $.getScript("/libs/prettify/js/run_prettify.js", function(){});
-    $.getScript("/libs/prettify/js/lang-css.js", function(){});
-    $.getScript("/libs/prettify/js/lang-go.js", function(){});
-    $.getScript("/libs/prettify/js/lang-proto.js", function(){});
-    $.getScript("/libs/prettify/js/lang-swift.js", function(){});
-    $.getScript("/libs/prettify/js/lang-yaml.js", function(){});
+    $pre.addClass('prettyprint');
+    $.getScript("/libs/prettify/run_prettify.js", function(){});
+    $.getScript("/libs/prettify/lang-css.js", function(){});
+    $.getScript("/libs/prettify/lang-go.js", function(){});
+    $.getScript("/libs/prettify/lang-proto.js", function(){});
+    $.getScript("/libs/prettify/lang-swift.js", function(){});
+    $.getScript("/libs/prettify/lang-yaml.js", function(){});
+}
+
+/**
+ * Shows the code color selector if there is a `pre` tag on the page and the scroll position
+ * under the header.
+ */
+function showCodeColorSelector() {
+    const isPreElementExist = $('.prettyprint').length;
+
+    setColorSelectorTopPosition();
+
+    if (isPreElementExist) {
+        if (isPromoPage) {
+            showCodeColorSelectorOnPromoPage();
+        } else {
+            $colorSelector.addClass('show');   
+        }
+    } else {
+        $colorSelector.removeClass('show');
+    }
+}
+
+/**
+ * Sets the top position of the `color-selector` depending on the screen size.
+ */
+function setColorSelectorTopPosition() {
+    const inMiddleOnMobile = 42 + '%';
+    const topOffset = 24;
+    // The value should be equal to the CSS `$color-selector-top-position`
+    const docsTopPosition = headerFixPosition + topDocNavHeight + topOffset;
+    const isWindowHeightMobile = $(window).height() < windowHeightMobile;
+
+    if (isDocsPage && !isWindowHeightMobile) {
+        $colorSelector.css('top', docsTopPosition);
+    } else {
+        $colorSelector.css('top', inMiddleOnMobile);
+    }
+}
+
+/**
+ * Shows `color-selector` on promo page only if it doesn't overlap the `hero` section.
+ *
+ * <p>If it overlaps `hero` section it will be shown when scroll position below the `hero`.
+ * It also works for the screens with small height.
+ */
+function showCodeColorSelectorOnPromoPage() {
+    const phoneScreenWidth = phoneMedium;
+    const phoneScreenHeight = windowHeightMobile;
+    const isPhone = $(window).width() <= phoneScreenWidth;
+    const isPhoneHorizontal = $(window).height() <= phoneScreenHeight;
+    const scrollPositionUnderHero = window.pageYOffset > headerFixPosition;
+    const isPhoneAndUnderHero = isPhone && scrollPositionUnderHero;
+    const isPhoneHorizontalAndUnderHero = isPhoneHorizontal && scrollPositionUnderHero;
+
+    if (isPromoPage) {
+        if (isPhoneAndUnderHero || isPhoneHorizontalAndUnderHero || !isPhone && !isPhoneHorizontal) {
+            $colorSelector.addClass('show');
+        } else {
+            $colorSelector.removeClass('show');
+        }
+    }
 }
 
 /**
@@ -132,7 +315,7 @@ function fixStickyElement() {
  */
 function fixHead() {
     const stickyHeaderHidden = header.hasClass('hide-sticky-header');
-    const mobileSize = 640;
+    const mobileSize = phoneXLarge;
     const mobileWindow = $(window).width() <= mobileSize;
     const desktopWindow = $(window).width() > mobileSize;
     const headerExistAndNotHidden = header.length && !stickyHeaderHidden;
@@ -304,4 +487,29 @@ function showScrollTopBtn() {
 function topFunction() {
     $('html, body').stop().animate({scrollTop: 0}, 500, 'swing');
     return false;
+}
+
+/**
+ * Inits Bootstrap tooltips.
+ *
+ * <p>Don't init tooltips if it is a touch device.
+ */
+function initBootstrapTooltips() {
+    const options = {
+        delay: { "show": 750, "hide": 100 },
+        trigger: 'hover'
+    };
+
+    if(isTouchDevice() === false) {
+        $('[data-toggle = "tooltip"]').tooltip(options);
+    }
+}
+
+/**
+ * Determines if it is a touch device.
+ *
+ * @return {boolean} true if it is a touch device, false otherwise
+ */
+function isTouchDevice() {
+    return true === ('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch);
 }
