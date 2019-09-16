@@ -26,9 +26,9 @@ const $selectorLight = $('.color-link.light');
 const colorDark = 'dark';
 const colorLight = 'light';
 const cookieColorName = 'themeColor';
-const baseStylesUrl = '/libs/prettify/skins/';
-const darkStylesUrl = baseStylesUrl + 'dark-theme-prettify.css';
-const lightStylesUrl = baseStylesUrl + 'light-theme-prettify.css';
+const codeWrapperSkinsUrl = '/libs/prettify/skins/';
+const darkStylesUrl = codeWrapperSkinsUrl + 'dark-theme-prettify.css';
+const lightStylesUrl = codeWrapperSkinsUrl + 'light-theme-prettify.css';
 
 /** Grid breakpoints */
 const windowHeightMobile = 520;
