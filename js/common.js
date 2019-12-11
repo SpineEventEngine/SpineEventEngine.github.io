@@ -473,7 +473,7 @@ function ifCookiesExist() {
  * Shows `Go to Top` button when the scroll position is 1500px.
  */
 function showScrollTopBtn() {
-    if ($(this).scrollTop() > 1500 ) {
+    if ($(window).scrollTop() > 1500 ) {
         $(goTopBtn).show();
 
     } else {
