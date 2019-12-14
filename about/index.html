@@ -10,15 +10,22 @@ headline: 'About Spine'
     <div class="container-fluid content-holder">
         <div class="row">
             <div class="col-lg-7">
-                <p class="lead"><strong>Spine Event Engine</strong> is a framework for
-                    building cloud applications and transforming EventStorming into a working domain model code.
+                <p class="lead"><strong>Spine Event Engine</strong> is a framework for building cloud
+                    applications. It&nbsp;helps applying Domain-Driven Design and speeds up
+                    transforming EventStorming into business logic code.
                     </p>
 
-                <p>Our goal is to free developers from writing boilerplate code as much
-                    as possible. The&nbsp;primary language of our solution backend is Java.
+                <p>Our goal is to free developers from writing boilerplate code as much as possible.
+                    The framework helps and encourages applying architectural patterns such as
+                    Message-Driven Architecture, Event&nbsp;Sourcing, CQRS, and Microservices.
+                </p>
+
+                <p>The data model is defined in Protobuf and compiled into performant code in
+                    multiple languages. The backend logic is written in Java.
                     Client libraries are available for
                     <a href="https://github.com/SpineEventEngine/core-java/tree/master/client">Java</a>,
-                    <a href="https://github.com/SpineEventEngine/web">JavaScript</a>, and
+                    <a href="https://github.com/SpineEventEngine/web">JavaScript</a>,
+                    <a href="https://github.com/SpineEventEngine/dart">Dart</a>, and
                     <a href="https://github.com/SpineEventEngine/client-cpp">C++</a>.
                 </p>
 
@@ -40,7 +47,8 @@ headline: 'About Spine'
                     <div class="card-content-text">
                         <header class="feature-card-title">Strongly Typed Domain Model</header>
                         <p>Spine promotes strong typing of all parts of&nbsp;a business model.
-                            You don't have to deal with JSON.
+                           And for all languages of your project.
+                           You don't have to resort to JSON to pass your&nbsp;data.
                         </p>
                     </div>
                 </div>
@@ -49,8 +57,9 @@ headline: 'About Spine'
                     <i class="fas fa-magic card-icon-font"></i>
                     <div class="card-content-text">
                         <header class="feature-card-title">Code Generation</header>
-                        <p>The model is defined and maintained in Protobuf. The code is automatically generated
-                            for all the languages of your project, as you update the model.</p>
+                        <p>The data model is defined and maintained in Protobuf.
+                            The code is automatically generated for all the languages of your
+                            project, as you update the&nbsp;model.</p>
                     </div>
                 </div>
 
@@ -59,8 +68,11 @@ headline: 'About Spine'
                     <div class="card-content-text">
                         <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
                         <p>The framework promotes writing
-                            storage- and platform-agnostic code. You can start with JDBC and later switch
-                            to Google Cloud Platform Datastore by changing just a few lines of&nbsp;code.</p>
+                            storage- and platform-agnostic code. You can start with
+                            <a href="https://github.com/SpineEventEngine/jdbc-storage">JDBC</a> and
+                            later switch to Google Cloud Platform
+                            <a href="https://github.com/SpineEventEngine/gcloud-java">Datastore</a>
+                            by changing just a few lines of&nbsp;code.</p>
                     </div>
                 </div>
             </div>
@@ -71,8 +83,9 @@ headline: 'About Spine'
                     <i class="fas fa-code-branch card-icon-font"></i>
                     <div class="card-content-text">
                         <header class="feature-card-title">Model Extensibility</header>
-                        <p>With  <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating" target="_blank">Protobuf support</a>,
-                            a model can be extended preserving backward compatibility with clients running older code.</p>
+                        <p>With <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating" target="_blank">Protobuf support</a>,
+                            a model can be extended preserving backward and future compatibility
+                            with client- and server nodes of your&nbsp;application.</p>
                     </div>
                 </div>
 
@@ -81,8 +94,8 @@ headline: 'About Spine'
                     <div class="card-content-text">
                         <header class="feature-card-title">Promoted Immutability</header>
                         <p>Commands, events, query results, entity states, and
-                        other data are immutable. This makes them automatically
-                        thread-safe, and thus freely shared or referenced.</p>
+                            other data are immutable. This makes them automatically
+                            thread-safe, and thus freely shared or referenced.</p>
                     </div>
                 </div>
 
@@ -103,7 +116,8 @@ headline: 'About Spine'
                     <div class="card-content-text">
                         <header class="feature-card-title">Built-in Validation</header>
                         <p>Constraints defined in a business model are
-                            automatically checked for commands, events, and entity states using our <a href="../docs/guides/validation-user-guide.html">validation approach</a>.</p>
+                            automatically checked for commands, events, and entity states using our
+                            <a href="../docs/guides/validation-user-guide.html">validation approach</a>.</p>
                     </div>
                 </div>
 
