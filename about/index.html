@@ -12,21 +12,19 @@ headline: 'About Spine'
             <div class="col-lg-7">
                 <p class="lead"><strong>Spine Event Engine</strong> is a framework for building cloud
                     applications. It&nbsp;helps applying Domain-Driven Design and speeds up
-                    transforming EventStorming into business logic code.
-                    </p>
+                    transforming EventStorming into business logic code.</p>
 
                 <p>Our goal is to free developers from writing boilerplate code as much as possible.
                     The framework helps and encourages applying architectural patterns such as
-                    Message-Driven Architecture, Event&nbsp;Sourcing, CQRS, and Microservices.
-                </p>
+                    Message-Driven Architecture, Event&nbsp;Sourcing, CQRS, and Microservices.</p>
 
                 <p>The data model is defined in Protobuf and compiled into performant code in
                     multiple languages. The backend logic is written in Java.
                     Client libraries are available for
-                    <a href="https://github.com/SpineEventEngine/core-java/tree/master/client">Java</a>,
-                    <a href="https://github.com/SpineEventEngine/web">JavaScript</a>,
-                    <a href="https://github.com/SpineEventEngine/dart">Dart</a>, and
-                    <a href="https://github.com/SpineEventEngine/client-cpp">C++</a>.
+                    <a href="https://github.com/SpineEventEngine/core-java/tree/master/client" target="_blank">Java</a>,
+                    <a href="https://github.com/SpineEventEngine/web" target="_blank">JavaScript</a>,
+                    <a href="https://github.com/SpineEventEngine/dart" target="_blank">Dart</a>, and
+                    <a href="https://github.com/SpineEventEngine/client-cpp" target="_blank">C++</a>.
                 </p>
 
                 <!--<p>Libraries for client apps in Kotlin and Swift are in the priority list.
@@ -48,8 +46,7 @@ headline: 'About Spine'
                         <header class="feature-card-title">Strongly Typed Domain Model</header>
                         <p>Spine promotes strong typing of all parts of&nbsp;a business model.
                            And for all languages of your project.
-                           You don't have to resort to JSON to pass your&nbsp;data.
-                        </p>
+                           You don't have to resort to JSON to pass your&nbsp;data.</p>
                     </div>
                 </div>
 
@@ -69,9 +66,9 @@ headline: 'About Spine'
                         <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
                         <p>The framework promotes writing
                             storage- and platform-agnostic code. You can start with
-                            <a href="https://github.com/SpineEventEngine/jdbc-storage">JDBC</a> and
+                            <a href="https://github.com/SpineEventEngine/jdbc-storage" target="_blank">JDBC</a> and
                             later switch to Google Cloud Platform
-                            <a href="https://github.com/SpineEventEngine/gcloud-java">Datastore</a>
+                            <a href="https://github.com/SpineEventEngine/gcloud-java" target="_blank">Datastore</a>
                             by changing just a few lines of&nbsp;code.</p>
                     </div>
                 </div>
@@ -117,7 +114,7 @@ headline: 'About Spine'
                         <header class="feature-card-title">Built-in Validation</header>
                         <p>Constraints defined in a business model are
                             automatically checked for commands, events, and entity states using our
-                            <a href="../docs/guides/validation-user-guide.html">validation approach</a>.</p>
+                            <a href="{{ site.baseurl }}/docs/guides/validation-user-guide.html">validation approach</a>.</p>
                     </div>
                 </div>
 
@@ -140,15 +137,13 @@ headline: 'About Spine'
         <h1 class="bold section-title">The story behind Spine</h1>
         <div class="row">
             <div class="col-sm-7">
-                <p>
-                    We started developing our framework after completing several CQRS/ES-related projects.
+                <p>We started developing our framework after completing several CQRS/ES-related projects.
                     This is when we got our hands-on knowledge in manual creation of commands, events, message handlers,
                     delivering messages and data to web and mobile clients.</p>
 
                 <p>Using existing CQRS/ES frameworks made us compromise on a number of things, including
                     type safety, immutability, writing conversion code for inter-platform communications, and others.
-                    So in June 2015 we decided to build a tool both for us and software developers who may have the same issues.
-                </p>
+                    So in June 2015 we decided to build a tool both for us and software developers who may have the same issues.</p>
             </div>
 
             <!--This is a block with link to our Design Principles blog post-->
@@ -166,42 +161,65 @@ headline: 'About Spine'
     <div class="container-fluid content-holder">
         <hr>
         <h2 class="section-title">Software products that help us</h2>
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap justify-content-center">
             <a href="https://github.com/SpineEventEngine" target="_blank" class="logo-card">
-                <img src="/img/software-logos/github.svg" title="GitHub">
+                <img src="{{ site.baseurl }}/img/software-logos/github.svg"
+                     title="GitHub"
+                     alt="GitHub">
             </a>
-
             <a href="https://travis-ci.com/SpineEventEngine" target="_blank" class="logo-card">
-                <img src="/img/software-logos/travis.svg" title="Travis CI">
+                <img src="{{ site.baseurl }}/img/software-logos/travis.svg"
+                     title="Travis CI"
+                     alt="Travis CI">
             </a>
-
             <a href="https://codecov.io/github/SpineEventEngine" target="_blank" class="logo-card">
-                <img src="/img/software-logos/codecov.svg" title="Codecov">
+                <img src="{{ site.baseurl }}/img/software-logos/codecov.svg"
+                     title="Codecov"
+                     alt="Codecov">
             </a>
         </div>
 
         <h2 class="section-title">Tools we use</h2>
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap justify-content-center">
             <a href="http://errorprone.info/" target="_blank" class="logo-card">
-                <img src="/img/software-logos/error-prone.svg" title="Error Prone">
+                <img src="{{ site.baseurl }}/img/software-logos/error-prone.svg"
+                     title="Error Prone"
+                     alt="Error Prone">
             </a>
-
             <a href="https://pmd.github.io/" target="_blank" class="logo-card">
-                <img src="/img/software-logos/pmd.png" title="PMD">
+                <img src="{{ site.baseurl }}/img/software-logos/pmd.png"
+                     title="PMD"
+                     alt="PMD">
             </a>
-
             <a href="http://checkstyle.sourceforge.net/" target="_blank" class="logo-card">
-                <img src="/img/software-logos/checkstyle.png" title="Checkstyle">
+                <img src="{{ site.baseurl }}/img/software-logos/checkstyle.png"
+                     title="Checkstyle"
+                     alt="Checkstyle">
             </a>
-
             <a href="https://www.cloudrepo.io/" target="_blank" class="logo-card">
-                <img src="/img/software-logos/cloud-repo.svg" title="Cloud Repo">
+                <img src="{{ site.baseurl }}/img/software-logos/cloud-repo.svg"
+                     title="Cloud Repo"
+                     alt="Cloud Repo">
             </a>
         </div>
 
         <h2 class="section-title">Libraries we rely on</h2>
         <p class="software-link-holder">The full list is available
-            <a class="software-link" href="{{ site.baseurl }}/os-licenses/"> here.</a>
-        </p>
+            <a class="software-link" href="{{ site.baseurl }}/os-licenses/"> here.</a></p>
+
+        <hr>
+        <h2 class="section-title">Used by</h2>
+        <div class="d-flex flex-wrap justify-content-center">
+            <a href="https://backgroundknockout.com/" target="_blank" class="logo-card">
+                <img src="{{ site.baseurl }}/img/software-logos/bko.svg"
+                     title="Background Knockout"
+                     alt="Background Knockout">
+            </a>
+            <a href="https://purephotos.app/" target="_blank" class="logo-card">
+                <img src="{{ site.baseurl }}/img/software-logos/pure-photos.svg"
+                     title="Pure Photos"
+                     alt="Pure Photos">
+            </a>
+        </div>
     </div>
 </section>
