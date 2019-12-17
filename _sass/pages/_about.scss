@@ -57,15 +57,19 @@
     padding-bottom: 108px;
     text-align: center;
 
-    @media(max-width: $tablet){
+    @media(max-width: $tablet) {
       padding-top: 24px;
       padding-bottom: 64px;
+    }
+
+    hr {
+      margin-bottom: 0;
     }
 
     .section-title {
       font-size: 2rem;
       color: $black;
-      margin: 96px 0 12px;
+      margin: 88px 0 12px;
 
       @media(max-width: $tablet) {
         margin-top: 64px;
