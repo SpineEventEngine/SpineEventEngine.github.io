@@ -54,16 +54,27 @@
 
   .software-section {
     padding-top: 32px;
-    padding-bottom: 80px;
+    padding-bottom: 108px;
+    text-align: center;
 
-    @media(max-width: $tablet){
+    @media(max-width: $tablet) {
       padding-top: 24px;
       padding-bottom: 64px;
     }
 
+    hr {
+      margin-bottom: 0;
+    }
+
     .section-title {
-      color: rgba($textColor, .54);
-      margin: 64px 0 12px;
+      font-size: 2rem;
+      color: $black;
+      margin: 88px 0 12px;
+      cursor: default;
+
+      @media(max-width: $tablet) {
+        margin-top: 64px;
+      }
     }
 
     .logo-card {
@@ -71,12 +82,12 @@
       padding: 0 24px;
       border-radius: 4px;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
       @include transition(all .25s ease-in-out);
 
       @media (max-width: $phone-xlarge) {
         width: 46%;
         margin-right: 8px;
+        box-shadow: 0 2px 6px rgba(black, .08);
       }
 
       @media(max-width: $phone-large) {
@@ -103,6 +114,8 @@
 
   .software-link-holder {
     margin-top: 16px;
+    margin-bottom: 64px;
+
     .software-link {
       text-decoration: none;
       padding-bottom: 2px;

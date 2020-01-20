@@ -287,8 +287,12 @@ function initTocTocify() {
             showAndHide: false,
             scrollTo: scrollToOffset,
             extendPage: false,
-            hashGenerator: 'pretty',
-            smoothScroll: false
+            smoothScroll: false,
+            hashGenerator: function(text, element) {
+                let hashValue = text.replace(/\s+/g, '-').toLowerCase();
+                hashValue = hashValue.replace(/[.,\/#!$%\^&\*;:{}=\_`~()]/g,"");
+                return hashValue;
+            }
         });
     }
 }
