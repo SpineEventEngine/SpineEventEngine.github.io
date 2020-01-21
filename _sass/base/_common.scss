@@ -47,6 +47,10 @@
 }
 
 // Shared
+.nobr {
+  white-space:nowrap;
+}
+
 .vpad {
   padding-top: $vpad;
 }
