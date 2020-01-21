@@ -72,7 +72,7 @@ $docs-content-min-height: 460px;
     &.display-flex {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
 
       @media(max-width: 1130px) {
         display: block;
@@ -132,10 +132,15 @@ $docs-content-min-height: 460px;
     }
 
     .lang-card-link {
-      padding-left: 4px;
+      margin: 0;
 
       li {
         margin-bottom: 8px;
+        margin-left: 0;
+
+        &:before {
+          display: none;
+        }
 
         @media (max-width: $phone-xlarge){
           margin-bottom: 14px;
