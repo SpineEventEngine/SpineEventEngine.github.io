@@ -75,8 +75,6 @@ doc_side_nav:
         url: /docs/quickstart/java.html
       - page: JavaScript
         url: /docs/quickstart/javascript.html
-      - page: C++
-        url: /docs/quickstart/cpp.html
   - page: Guides
     url: '#guides'
     sub_nav_id: guides
@@ -119,7 +117,27 @@ doc_side_nav:
             url: /docs/tutorials/basic/javascript.html
           - page: C++
             url: /docs/tutorials/basic/cpp.html
-  - page: Reference
-    url: /docs/reference/
+  - page: Client Libraries
+    url: '#client-libs'
+    sub_nav_id: client-libs
+    sub_nav:
+      - page: Java
+        url: '#lib-java'
+        sub_sub_nav_id: lib-java
+        sub_sub_nav:
+          - page: API Reference
+            url: https://spine.io/core-java/javadoc/client/index.html
+      - page: JavaScript
+        url: '#lib-js'
+        sub_sub_nav_id: lib-js
+        sub_sub_nav:
+          - page: API Reference
+            url: https://spine.io/docs/reference/javascript/index.html
+      - page: Dart
+        url: '#lib-dart'
+        sub_sub_nav_id: lib-dart
+        sub_sub_nav:
+          - page: API Reference
+            url: https://spine.io/docs/reference/dart/index.html
   - page: Examples
     url: /docs/examples/
