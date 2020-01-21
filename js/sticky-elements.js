@@ -1,5 +1,5 @@
 /**
- * This script contains helper functions that makes any element with `.sticky-element` class sticky.
+ * This script contains helper functions that make any element with `.sticky-element` class sticky.
  */
 
 'use strict';
