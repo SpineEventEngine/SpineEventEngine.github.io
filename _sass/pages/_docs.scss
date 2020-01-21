@@ -72,15 +72,16 @@ $docs-content-min-height: 460px;
     &.display-flex {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-around;
 
-      @media(max-width: $tablet) {
+      @media(max-width: 1130px) {
         display: block;
       }
     }
   }
 
   .lang-card {
-    margin: 0 15px 32px;
+    margin-bottom: 32px;
     flex: 0 0 30%;
     padding: 24px 24px 32px;
     background-image: linear-gradient(-180deg, $white 0%, #FAFAFA 100%);
@@ -131,10 +132,10 @@ $docs-content-min-height: 460px;
     }
 
     .lang-card-link {
-      padding-left: 40px;
+      padding-left: 4px;
 
       li {
-        margin-bottom: 12px;
+        margin-bottom: 8px;
 
         @media (max-width: $phone-xlarge){
           margin-bottom: 14px;
