@@ -75,12 +75,8 @@ doc_side_nav:
     url: '#quick-start'
     sub_nav_id: quick-start
     sub_nav:
-      - page: Getting Started
-        url: /docs/quickstart/
       - page: Java
         url: /docs/quickstart/java.html
-      - page: JavaScript
-        url: /docs/quickstart/javascript.html
   - page: Guides
     url: '#guides'
     sub_nav_id: guides
