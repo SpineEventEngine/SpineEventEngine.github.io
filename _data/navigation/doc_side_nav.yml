@@ -119,3 +119,7 @@ doc_side_nav:
             url: /docs/tutorials/basic/javascript.html
           - page: C++
             url: /docs/tutorials/basic/cpp.html
+  - page: Reference
+    url: /docs/reference/
+  - page: Examples
+    url: /docs/examples/

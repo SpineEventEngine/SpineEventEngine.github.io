@@ -1,9 +1,8 @@
 ---
 title: Examples
 headline: 'Spine Examples'
-bodyclass: 'docs white-bg'
+bodyclass: 'docs'
 layout: docs
-type: markdown
 ---
 <p>Example are available through the <a target="_blank" href="https://github.com/spine-examples">Spine Examples</a> GitHub organization.  
 If&nbsp;you&nbsp;want&nbsp;to see a bigger picture of a Spine-based application, have a look at the
