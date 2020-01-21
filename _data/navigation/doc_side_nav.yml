@@ -1,6 +1,12 @@
 doc_side_nav:
   - page: Introduction
-    url: /docs/
+    url: '#introduction'
+    sub_nav_id: introduction
+    sub_nav:
+      - page: Project Structure
+        url: /docs/guides/project-structure.html
+      - page: Naming Conventions
+        url: /docs/guides/naming-conventions.html
   - page: Concepts
     url: '#concepts'
     sub_nav_id: concepts
@@ -81,10 +87,6 @@ doc_side_nav:
     sub_nav:
       - page: Introduction
         url: /docs/guides/
-      - page: Project Structure
-        url: /docs/guides/project-structure.html
-      - page: Naming Conventions
-        url: /docs/guides/naming-conventions.html
       - page: Model Definition
         url: /docs/guides/model-definition.html
       - page: Validation User Guide
