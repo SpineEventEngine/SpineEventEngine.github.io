@@ -236,16 +236,12 @@ $top-doc-nav-height: 65px;
     cursor: pointer;
     color: $mainBrandColor;
     font-size: 15px;
-    margin-bottom: 24px;
+    margin: 24px 0 32px;
 
     i {
       margin-right: 8px;
       font-size: 16px;
     }
-  }
-
-  @media (max-width: $phone-xlarge) {
-    margin: 24px 0 32px;
   }
 }
 

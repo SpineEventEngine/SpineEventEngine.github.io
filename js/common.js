@@ -7,8 +7,6 @@ const initialHeadHeight = header.innerHeight();
 const tocNav = $('#toc');
 const headerFixPosition = $('.nav-hero-container').innerHeight();
 const topDocNavHeight = $('.top-doc-nav-container').innerHeight();
-const stickyElement = $('.sticky-element');
-const stickyElementPosition = headerFixPosition; // Sticky element top-offset (154px)
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
 const $pre = $('pre');
@@ -298,20 +296,6 @@ function initTocTocify() {
 }
 
 /**
- * Fix sticky element on page while scrolling.
- */
-function fixStickyElement() {
-    if (stickyElement.length) {
-        if (window.pageYOffset > stickyElementPosition) {
-            stickyElement.addClass('sticky');
-        }
-        else {
-            stickyElement.removeClass('sticky');
-        }
-    }
-}
-
-/**
  * Makes header navigation sticky on scroll.
  *
  * <p>The header will not be sticky if the `header` has `hide-sticky-header` class. But it
@@ -352,59 +336,6 @@ function fixHead() {
 function returnToInitialState() {
     header.removeClass('not-top');
     header.removeClass('unpinned');
-}
-
-/**
- * Sets max-height for the sticky element depends on the scroll position.
- */
-function setStickyElMaxHeight() {
-    if (stickyElement.length) {
-        const elHeights = calcStickyElHeight();
-
-        /**
-         * Determines that the max-height value is less than browser window when the scroll
-         * position at the top of the page.
-         */
-        if (elHeights.maxHeight < elHeights.initialHeight) {
-            $(stickyElement).css('max-height', elHeights.maxHeight);
-        } else {
-            $(stickyElement).css('max-height', elHeights.initialHeight);
-        }
-    }
-}
-
-/**
- * Calculates a sticky element heights to make sure that it always fits on the page.
- *
- * @return {Object} an object with initial and calculated heights.
- * {number} initialHeight initial element max-height when the scroll at the top
- *          or at the middle of the page
- * {number} maxHeight max height that dynamically changes on scroll at the bottom of the page
- */
-function calcStickyElHeight() {
-    const windowHeight = $(window).height();
-    const scrollPosition = $(window).scrollTop();
-    const footerTopPoint = $('.footer').position().top;
-    const cookieContainerHeight = $('#cookieChoiceInfo').innerHeight();
-    /**
-     * The distance from the element to the footer top point.
-     * The value is the same as `docs-content-text` has.
-     */
-    const contentMarginBottom = 32;
-
-    const initialHeight = windowHeight - stickyElementPosition + contentMarginBottom - cookieContainerHeight;
-    const maxHeight = footerTopPoint - scrollPosition - stickyElementPosition + contentMarginBottom;
-
-    return {initialHeight, maxHeight};
-}
-
-/**
- * Changes the height of the `.sticky-element` when changing the height of the window.
- */
-function resizeStickyElHeightWithWindow() {
-    if ($(window).height() > 600) {
-        setStickyElMaxHeight();
-    }
 }
 
 /**
