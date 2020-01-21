@@ -1,4 +1,6 @@
 doc_side_nav:
+  - page: Introduction
+    url: /docs/
   - page: Concepts
     url: '#concepts'
     sub_nav_id: concepts
