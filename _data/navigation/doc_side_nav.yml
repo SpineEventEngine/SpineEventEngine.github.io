@@ -85,8 +85,6 @@ doc_side_nav:
     url: '#guides'
     sub_nav_id: guides
     sub_nav:
-      - page: Introduction
-        url: /docs/guides/
       - page: Model Definition
         url: /docs/guides/model-definition.html
       - page: Validation User Guide
