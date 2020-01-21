@@ -6,7 +6,6 @@ header_class: hide-sticky-header
 ---
 
 {% include color-selector.html %}
-{% include doc-nav.html %}
 
 {% assign current = page.url | downcase | split: '/' %}
 {% if current[1] == 'docs' and page.sidenav != null %}
@@ -17,7 +16,7 @@ header_class: hide-sticky-header
                 <span>Contents</span>
             </div>
             <div class="col-12 col-lg side-nav-col docs-side-nav-holder">
-                {% include {{ page.sidenav }} %}
+                {% include doc-side-nav.html %}
             </div>
             <div class="col-12 col-lg docs-content-text {{ page.type }}">
                 {{ content }}
