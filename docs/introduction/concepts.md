@@ -11,7 +11,9 @@ type: markdown
 
 <p class="lead">This document provides terminology used in the framework and its documentation.
 You'll find most of the terms familiar from Domain-Driven Design, CQRS, Event Sourcing or Enterprise
-Integration patterns. We give brief descriptions for those who are new to these concepts and tell
+Integration patterns. 
+<br><br>
+We give brief descriptions for those who are new to these concepts and tell
 how they are implemented in our framework.
 Terms extending the industry-set terminology are designated as such.</p>
 
@@ -75,7 +77,7 @@ final class TaskAggregate
 }
 ```
 
-## Event Subscriber
+### Event Subscriber
 
 Event Subscriber is an object which subscribes to receive events.
 
@@ -93,7 +95,7 @@ event.
   }
   ```
 
-## Event Reactor
+### Event Reactor
 
 Event Reactor is an object which usually produces one or more events in response to an incoming
 event. Unlike [Event Subscriber](#event-subscriber), which always consumes events, a reacting object
@@ -107,8 +109,73 @@ generates events in response to changes in the domain.
 
 ## Entities
 
+Entities are main building blocks of a domain model. They have unique identity and modify their 
+state during the lifecycle.
+
+### Identifier
+ 
+The framework supports the following types of identifiers:
+
+* `Integer`,
+* `Long`,
+* `String`,
+* A generated Java class implementing the `Message`.
+
+Examples of entity IDs used by the framework: `CommandId`, `EventId`, `UserId`, `TenantId`.
+
+<p class="note">We highly recommend using message-based IDs to make your API strongly pronounced
+    and type-safe.</p>
+
 ### Aggregate
 
-### ProcessManager
+Aggregate is the main building block of a business model. 
+From the application point of view it consists of the following:
+1. Commands which arrive to it. 
+2. Events which appear in response to these commands. 
+3. How these events influence the state of an aggregate.
+
+[Aggregates](http://martinfowler.com/bliki/DDD_Aggregate.html) guarantee consistency of data
+modifications in response to commands they receive. Aggregate is the most common case of
+Command Handler. It modifies its state and produces one or more events in response to a command.
+These events are used later to restore the state of the aggregate.
+
+In Spine, aggregates are defined as Java classes, and their states are defined as Protobuf messages.
+
+### Process Manager
+
+Process Manager is an independent component that reacts to domain events in a cross-aggregate
+eventually consistent manner. It serves as a centralized processing unit that maintains the state
+sequence and defines the next processing step based on intermediate results. 
+
+Process Manager can be both [Command Handler](#command-handler) and [Event Reactor](#event-reactor).
+
+In Spine, Process Managers are defined as Java classes, and their states are defined as
+Protobuf messages.
 
 ### Projection
+
+Projection is an [Event Subscriber](#event-subscriber) which transforms multiple events data into
+a structural representation. Projections are the main building blocks of the Query side of
+the application.
+
+In Spine, Projections are defined as Java classes, and their states are defined as
+Protobuf messages.
+
+### Repository
+
+Repository  is a mechanism for encapsulating storage, retrieval, and search behavior which emulates
+a collection of objects. It isolates domain objects from the details of the database access code. 
+
+The applications you develop using Spine usually have the following types of repositories:
+* [`AggregateRepository`](https://spine.io/core-java/javadoc/server/io/spine/server/aggregate/AggregateRepository.html),
+* [`ProcessManagerRepository`](https://spine.io/core-java/javadoc/server/io/spine/server/procman/ProcessManagerRepository.html),
+* [`ProjectionRepository`](https://spine.io/core-java/javadoc/server/io/spine/server/projection/ProjectionRepository.html).
+
+### Snapshot
+
+Snapshot is a state of an Aggregate. A snapshot ”sits” in between events in the history of
+the Aggregate to make restoring faster.
+
+When an Aggregate is loaded, the `AggregateStorage` reads events backwards until encounters
+a snapshot. Then the snapshot is applied to the Aggregate, and trailing events are played to
+get the current state.

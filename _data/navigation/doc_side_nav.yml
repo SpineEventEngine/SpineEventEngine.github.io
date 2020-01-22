@@ -3,34 +3,18 @@ doc_side_nav:
     url: '#introduction'
     sub_nav_id: introduction
     sub_nav:
+      - page: Concepts
+        url: /docs/introduction/concepts.html
       - page: Project Structure
         url: /docs/introduction/project-structure.html
       - page: Naming Conventions
         url: /docs/introduction/naming-conventions.html
-      - page: Concepts
-        url: /docs/introduction/concepts.html
   - page: Concepts
     url: '#concepts'
     sub_nav_id: concepts
     sub_nav:
       - page: Architecture Overview
         url: /docs/concepts/
-      - page: Entities
-        url: '#entities'
-        sub_sub_nav_id: entities
-        sub_sub_nav:
-          - page: Identifier
-            url: /docs/concepts/identifier.html
-          - page: Aggregate
-            url: /docs/concepts/aggregate.html
-          - page: Process Manager
-            url: /docs/concepts/process-manager.html
-          - page: Projection
-            url: /docs/concepts/projection.html
-          - page: Repository
-            url: /docs/concepts/repository.html
-          - page: Snapshot
-            url: /docs/concepts/snapshot.html
       - page: Architecture
         url: '#architecture'
         sub_sub_nav_id: architecture
