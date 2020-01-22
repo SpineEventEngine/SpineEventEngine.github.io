@@ -1,15 +1,16 @@
 ---
 title: Project Structure
-headline: Project Structure
+headline: Documentation
 bodyclass: docs
 layout: docs
 sidenav_list: guides
 sidenav: doc-side-nav.html
 type: markdown
 ---
+# Project Structure
 
 <p class="lead">This document describes standard structure of a Spine-based project. 
-It assumes that you are familiar with Gradle.</p>
+It assumes that you are familiar with <a href="https://gradle.org" target="_blank">Gradle</a>.</p>
 
 <p>Spine uses Gradle for project model definition and as the build tool. 
 It follows the standard structure of the Gradle project with extensions related to 

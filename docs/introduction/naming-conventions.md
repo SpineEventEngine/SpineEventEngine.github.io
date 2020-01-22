@@ -1,37 +1,44 @@
 ---
 title: Naming Conventions
-headline: Naming Conventions
+headline: Documentation
 bodyclass: docs
 layout: docs
 sidenav_list: guides
 sidenav: doc-side-nav.html
 type: markdown
 ---
+# Naming Conventions
 
-<p>This document covers naming conventions for the code. Some of these contentions are used by 
-the framework and code generation, and as such are required. Others are our recommendations that 
-we find useful for making things clear and structuring the code.</p>
+<p class="lead">This document covers naming conventions for the code. Some of these contentions are
+used by the framework and code generation, and as such are required. Others are our recommendations
+that we find useful for making things clear and structuring the code.</p>
 
 ## Proto files
 
 Proto files are named using the `snake_case`, as defined by Protobuf. There are several special
 kinds of files.
 
-<p class="note">We recommend using `java_outer_classname` in proto files names to make their names obvious. Otherwise Protobuf Compiler tries to use the name of the file for the Java class. For example, for `identifiers.proto` it will be `Identifiers.java`. Though sometimes it can be `SomethingOuterClass` when there is a type which conflicts with CamelCase version of the file name.
-You may also want to use names like `Identifiers` for utility classes related to your domain.</p>
+<p class="note">We recommend using `java_outer_classname` in proto files names to make their names
+    obvious. Otherwise Protobuf Compiler tries to use the name of the file for the Java class.
+    For example, for `identifiers.proto` it will be `Identifiers.java`.
+    Though sometimes it can be `SomethingOuterClass` when there is a type which conflicts with
+    CamelCase version of the file name. You may also want to use names like `Identifiers` for
+    utility classes related to your domain.</p>
 
 ### Identifiers   
 
 Commands and events reference model entities using their identifiers. 
 Having typed identifiers makes a model type safe.
 Although the framework also supports `String`, `Integer`, and `Long` as valid ID types, 
-we strongly recommend defining custom ID types like `CustomerId`, `OrderId`, `ShipmentId`, and others. 
-You can find similar cases in the framework API which has `EventId`, `CommandId`, `UserId`, 
-`TenantId`, and others. 
+we strongly recommend defining custom ID types like `CustomerId`, `OrderId`, `ShipmentId`,
+and others. You can find similar cases in the framework API which has `EventId`, `CommandId`,
+`UserId`, `TenantId`, and others. 
 
 We find it convenient to define ID types in one file called `identifiers.proto`. 
-A typical project is likely to have more than one Bounded Context, thus you will have several `identifiers.proto` files. 
-Each of them resides under the directory with proto files defining the data model of the corresponding Bounded Context.   
+A typical project is likely to have more than one Bounded Context, thus you will have several
+`identifiers.proto` files. 
+Each of them resides under the directory with proto files defining the data model of the
+corresponding Bounded Context.   
 
 ### Command definitions
 
@@ -55,7 +62,8 @@ Similarly to commands, events are defined in files which names have the `events.
 ### Rejection definitions
 
 `Rejection` is a special “negative” kind of events supported by the framework. 
-A rejection is thrown if a command cannot be handled. You may think of them as of exceptions with non-technical flavor.
+A rejection is thrown if a command cannot be handled. You may think of them as of exceptions with
+non-technical flavor.
 
 Similarly to events, rejections are defined in files ending with `rejections.proto`:
 
@@ -74,8 +82,8 @@ a Process Manager which is responsible for movement of a task from one project t
 would be `task.proto` file, with all Task-related data types definitions. A project-related data
 types would be defined in a `project.proto` file. 
 
-As it was already mentioned, `TaskId` and `ProjectId` are defined in the `identifiers.proto` file, and
-`task.proto` and `project.proto` import this file.
+As it was already mentioned, `TaskId` and `ProjectId` are defined in the `identifiers.proto` file,
+and `task.proto` and `project.proto` import this file.
 
 ## Data types
 
@@ -92,10 +100,11 @@ Identifiers are usually defined after the name of the entity with the `Id` suffi
 You will find such naming pattern in the framework API. For example, `EventId`, `CommandId`,
 `UserId`, `TenantId`, and others.    
 
-<p class="note">This convention is not a requirement. We find `Id` suffix short yet meaningful for building a rich
-                type-safe API. You can also select another convention that fits your domain best. Please note that
-                future version of the framework tools will use the `Id` suffix of the types and `_id` suffix
-                of proto field names for code scaffolding and improving intelligence of code generation.</p>  
+<p class="note">This convention is not a requirement. We find `Id` suffix short yet meaningful for
+    building a rich type-safe API. You can also select another convention that fits your domain
+    best. Please note that future version of the framework tools will use the `Id` suffix of the
+    types and `_id` suffix of proto field names for code scaffolding and improving intelligence of
+    code generation.</p>  
 
 ### Commands
 
@@ -115,8 +124,8 @@ Events are named as facts formulated as past participles, for example:
 
 ### Rejections
 
-A rejection is named after a reason of why a command cannot be handled. In fact, rejection notifies on a state
-of the domain model, for example:
+A rejection is named after a reason of why a command cannot be handled. In fact, rejection notifies
+on a state of the domain model, for example:
 
   * `TaskAlreadyExists`
   * `InsufficientFunds` 
@@ -130,13 +139,15 @@ Protobuf messages for entity states are defined using nouns, for example:
   * `Task`
   * `Comment`
   
-Avoid using suffixes like `Aggregate`, `Projection`, `ProcessManager` when defining a proto type for the following reasons:
+Avoid using suffixes like `Aggregate`, `Projection`, `ProcessManager` when defining a proto type for
+the following reasons:
  1. You may want to use such word when creating an entity Java class which _uses_ 
     a generated data type for holding the state of the entity.
  2. Such data structure does not represent a whole `Aggregate` or `ProcessManager` thing anyway. 
     It is just data.
 
-<p class="note">For details on aggregates usage, refer to a [Defining Aggregate Guide](/docs/guides/defining-aggregate.html).</p>  
+<p class="note">For details on aggregates usage, refer to a
+    [Defining Aggregate Guide](/docs/guides/defining-aggregate.html).</p>  
  
 ## Packages
 
@@ -225,7 +236,8 @@ These classes are used in the `throws` clause of command handling methods.
 The arrangement with message classes nested under `Rejections` class and top-level `Throwable`s
 is required to avoid name clashes while keeping these generated classes under the same package.
 
-<p class="note">For details on rejections usage, refer to [Defining Rejections Guide](/docs/guides/creating-rejection-messages.html).</p>
+<p class="note">For details on rejections usage, refer to
+    [Defining Rejections Guide](/docs/guides/creating-rejection-messages.html).</p>
 
 #### Server-side code
 
@@ -250,8 +262,10 @@ add a suffix which tells the type of the entity:
 The suffix helps for observing together with other entities in a package. 
 
 For process managers it may be enough to have the `Process` suffix dropping `Manager` 
-which frequently worked for us too. Other options for suffixes are `Pm` or `Procman`. 
-<p class="note">It would be a good idea to decide on such suffix as a team standard before you start coding.</p>  
+which frequently worked for us too. Other options for suffixes are `Pm` or `Procman`.
+ 
+<p class="note">It would be a good idea to decide on such suffix as a team standard before you
+    start coding.</p>  
   
 #### Repositories
 
