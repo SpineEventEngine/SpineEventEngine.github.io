@@ -33,8 +33,8 @@ In Spine, commands are defined as Protocol buffer messages in the file which nam
 Event is something that happened in the past. All changes to an application state are captured as
 a sequence of events. Events are the main “database” of the application. 
 
-In Spine, events are defined as Protobuf messages in the file which name ends with `events.proto`. 
-
+In Spine, events are defined as Protobuf messages in the file which name ends with `events.proto`.
+ 
 ### Rejection
 
 Rejections is a special “negative” kind of events that we introduce to differentiate them from 
@@ -51,6 +51,12 @@ In Spine, rejections are defined as Protobuf messages in the file which names en
 
 For detailed instructions on defining rejections, please refer to
 [“Working with Rejections”](/docs/guides/rejections.html) guide.
+
+### Acknowledgement
+
+Acknowledgement is an outcome of sending a [Command](#command) to the [Command Service](#command-service).
+
+It tells whether the Command has been accepted for handling. 
 
 ### Command Handler
 
@@ -179,3 +185,87 @@ the Aggregate to make restoring faster.
 When an Aggregate is loaded, the `AggregateStorage` reads events backwards until encounters
 a snapshot. Then the snapshot is applied to the Aggregate, and trailing events are played to
 get the current state.
+
+## Services
+
+Services are used by a client application for sending requests to the backend. 
+
+### Command Service
+
+The Command Service accepts a command from a client-side application and redirects it to
+the [Bounded Context](#bounded-context) to which this command belongs. This means that there
+is a context in which there is a [handler](#command-handler) for this command. Otherwise, 
+the command is not [acknowledged](#acknowledgement).
+
+### Query Service
+
+Query Service returns data to the client applications in response to a query. 
+The query is a request for the following: 
+* state of one or more aggregates or their fragments; 
+* one or more projection states or their fragments.
+* one or more process manager states or their fragments.
+
+### Subscription Service
+
+Subscription Service allows to subscribe to something happening inside a Bounded Context.
+
+There are two options for subscription:
+* receive changes of an Entity state for Projections, Process Managers and Aggregates; 
+* be notified of domain Events.
+
+## Architectural
+
+### Bounded Context
+
+Bounded Context is an autonomous component with its own domain model and its
+own Ubiquitous Language.Systems usually have multiple Bounded Contexts. 
+
+For example, `Orders`, `UserManagement`, `Shipping` as examples of the contexts of an
+online retail system.
+
+### Command Bus
+
+Command Bus is message broker responsible for routing the command to its handler.
+Unlike a [Command Handler](#command-handler), it does not modify the application business model
+or produces events.
+
+There can be only one handler per command type registered in the Command Bus.
+
+### Command Store
+
+Command Store keeps the history of all the commands of the application and statuses of
+their execution. 
+
+### Event Bus
+
+Event Bus dispatches events to entities that are [subscribed](#event-subscriber) to these
+events or [react](#event-reactor) on them.
+
+### Event Store
+
+Event Store keeps all the events of the application in the chronological order, which also called
+Event Stream. This is the main “database” of the Bounded Context. 
+
+New projections are built by passing the event stream “through” them.
+
+### Integration Event
+
+Integration Events are [events](#event) used to communicate between different Bounded Contexts. 
+
+In Spine, every domain Event may become an Integration Event, if it is emitted by the given
+Bounded Context and consumed by another Bounded Contexts. 
+
+### Aggregate Mirror
+
+In Spine, Aggregate Mirror contains the latest state of an Aggregate.
+It “reflects” how it “looks” at the time of the last update.
+
+### Stand
+
+In Spine, Stand is a read-side API façade of a BoundedContext.
+ 
+### System Context
+
+System Context orchestrates the internal Spine framework entities that serve the goal of monitoring,
+auditing, and debugging of domain-specific entities of the enclosing Bounded Context.
+Users of the framework do not interact with this component.

@@ -15,32 +15,6 @@ doc_side_nav:
     sub_nav:
       - page: Architecture Overview
         url: /docs/concepts/
-      - page: Architecture
-        url: '#architecture'
-        sub_sub_nav_id: architecture
-        sub_sub_nav:
-          - page: Bounded Context
-            url: /docs/concepts/bounded-context.html
-          - page: Command Bus
-            url: /docs/concepts/command-bus.html
-          - page: Command Store
-            url: /docs/concepts/command-store.html
-          - page: Command Service
-            url: /docs/concepts/command-service.html
-          - page: Event Bus
-            url: /docs/concepts/event-bus.html
-          - page: Event Store
-            url: /docs/concepts/event-store.html
-          - page: Integration Event
-            url: /docs/concepts/integration-event.html
-          - page: Aggregate Mirror
-            url: /docs/concepts/aggregate-mirror.html
-          - page: Stand
-            url: /docs/concepts/stand.html
-          - page: Query Service
-            url: /docs/concepts/query-service.html
-          - page: Subscription Service
-            url: /docs/concepts/subscription-service.html
   - page: Quick Start
     url: '#quick-start'
     sub_nav_id: quick-start
