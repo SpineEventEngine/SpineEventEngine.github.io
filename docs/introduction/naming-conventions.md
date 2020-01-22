@@ -9,9 +9,9 @@ type: markdown
 ---
 # Naming Conventions
 
-<p class="lead">This document covers naming conventions for the code. Some of these contentions are
+<p class="lead">This document covers naming conventions for the code. Some of these conventions are
 used by the framework and code generation, and as such are required. Others are our recommendations
-that we find useful for making things clear and structuring the code.</p>
+that we find useful for making the code easier to understand.</p>
 
 ## Proto files
 
