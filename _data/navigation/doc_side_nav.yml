@@ -15,22 +15,6 @@ doc_side_nav:
     sub_nav:
       - page: Architecture Overview
         url: /docs/concepts/
-      - page: Messaging
-        url: '#messaging'
-        sub_sub_nav_id: messaging
-        sub_sub_nav:
-          - page: Command
-            url: /docs/concepts/command.html
-          - page: Event
-            url: /docs/concepts/event.html
-          - page: Rejection
-            url: /docs/concepts/rejection.html
-          - page: Command Handler
-            url: /docs/concepts/command-handler.html
-          - page: Event Subscriber
-            url: /docs/concepts/event-subsriber.html
-          - page: Event Reactor
-            url: /docs/concepts/event-reactor.html
       - page: Entities
         url: '#entities'
         sub_sub_nav_id: entities
@@ -87,8 +71,8 @@ doc_side_nav:
         url: /docs/guides/model-definition.html
       - page: Validation User Guide
         url: /docs/guides/validation-user-guide.html
-      - page: Defining Rejections
-        url: /docs/guides/creating-rejection-messages.html
+      - page: Working with Rejections
+        url: /docs/guides/rejections.html
       - page: Defining Aggregate
         url: /docs/guides/defining-aggregate.html
       - page: Related Guides

@@ -1,13 +1,18 @@
 ---
-title: Defining Rejections
-headline: Defining Rejections
+title: Working with Rejections
+headline: Documentation
 bodyclass: docs
 layout: docs
 sidenav_list: guides
 sidenav: doc-side-nav.html
 type: markdown
 ---
-Compared with regular Events, [Rejections](/docs/concepts/rejection.html) are defined in a different way. Here is the differences summary:
+# Working with Rejections
+
+## Defining Rejections
+
+Compared with regular Events, [Rejections](/docs/concepts/rejection.html) are defined in a different
+way. Here is the differences summary:
 
 * `java_multiple_files file` option must be set to `false`
 
