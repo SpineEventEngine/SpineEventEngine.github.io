@@ -1,6 +1,12 @@
 doc_side_nav:
   - page: Introduction
-    url: /docs/
+    url: '#introduction'
+    sub_nav_id: introduction
+    sub_nav:
+      - page: Project Structure
+        url: /docs/introduction/project-structure.html
+      - page: Naming Conventions
+        url: /docs/introduction/naming-conventions.html
   - page: Concepts
     url: '#concepts'
     sub_nav_id: concepts
@@ -69,24 +75,12 @@ doc_side_nav:
     url: '#quick-start'
     sub_nav_id: quick-start
     sub_nav:
-      - page: Getting Started
-        url: /docs/quickstart/
       - page: Java
         url: /docs/quickstart/java.html
-      - page: JavaScript
-        url: /docs/quickstart/javascript.html
-      - page: C++
-        url: /docs/quickstart/cpp.html
   - page: Guides
     url: '#guides'
     sub_nav_id: guides
     sub_nav:
-      - page: Introduction
-        url: /docs/guides/
-      - page: Project Structure
-        url: /docs/guides/project-structure.html
-      - page: Naming Conventions
-        url: /docs/guides/naming-conventions.html
       - page: Model Definition
         url: /docs/guides/model-definition.html
       - page: Validation User Guide
@@ -119,7 +113,27 @@ doc_side_nav:
             url: /docs/tutorials/basic/javascript.html
           - page: C++
             url: /docs/tutorials/basic/cpp.html
-  - page: Reference
-    url: /docs/reference/
+  - page: Client Libraries
+    url: '#client-libs'
+    sub_nav_id: client-libs
+    sub_nav:
+      - page: Java
+        url: '#lib-java'
+        sub_sub_nav_id: lib-java
+        sub_sub_nav:
+          - page: API Reference
+            url: https://spine.io/core-java/javadoc/client/index.html
+      - page: JavaScript
+        url: '#lib-js'
+        sub_sub_nav_id: lib-js
+        sub_sub_nav:
+          - page: API Reference
+            url: https://spine.io/docs/reference/javascript/index.html
+      - page: Dart
+        url: '#lib-dart'
+        sub_sub_nav_id: lib-dart
+        sub_sub_nav:
+          - page: API Reference
+            url: https://spine.io/docs/reference/dart/index.html
   - page: Examples
     url: /docs/examples/
