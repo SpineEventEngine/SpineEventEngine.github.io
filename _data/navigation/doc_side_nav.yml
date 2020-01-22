@@ -1,22 +1,22 @@
 doc_side_nav:
   - page: Introduction
     url: '#introduction'
-    sub_nav_id: introduction
-    sub_nav:
+    id: introduction
+    children:
       - page: Project Structure
         url: /docs/introduction/project-structure.html
       - page: Naming Conventions
         url: /docs/introduction/naming-conventions.html
   - page: Concepts
     url: '#concepts'
-    sub_nav_id: concepts
-    sub_nav:
+    id: concepts
+    children:
       - page: Architecture Overview
         url: /docs/concepts/
       - page: Messaging
         url: '#messaging'
-        sub_sub_nav_id: messaging
-        sub_sub_nav:
+        id: messaging
+        children:
           - page: Command
             url: /docs/concepts/command.html
           - page: Event
@@ -31,8 +31,8 @@ doc_side_nav:
             url: /docs/concepts/event-reactor.html
       - page: Entities
         url: '#entities'
-        sub_sub_nav_id: entities
-        sub_sub_nav:
+        id: entities
+        children:
           - page: Identifier
             url: /docs/concepts/identifier.html
           - page: Aggregate
@@ -47,8 +47,8 @@ doc_side_nav:
             url: /docs/concepts/snapshot.html
       - page: Architecture
         url: '#architecture'
-        sub_sub_nav_id: architecture
-        sub_sub_nav:
+        id: architecture
+        children:
           - page: Bounded Context
             url: /docs/concepts/bounded-context.html
           - page: Command Bus
@@ -73,14 +73,14 @@ doc_side_nav:
             url: /docs/concepts/subscription-service.html
   - page: Quick Start
     url: '#quick-start'
-    sub_nav_id: quick-start
-    sub_nav:
+    id: quick-start
+    children:
       - page: Java
         url: /docs/quickstart/java.html
   - page: Guides
     url: '#guides'
-    sub_nav_id: guides
-    sub_nav:
+    id: guides
+    children:
       - page: Model Definition
         url: /docs/guides/model-definition.html
       - page: Validation User Guide
@@ -91,22 +91,22 @@ doc_side_nav:
         url: /docs/guides/defining-aggregate.html
       - page: Related Guides
         url: '#related-guides'
-        sub_sub_nav_id: related-guides
-        sub_sub_nav:
+        id: related-guides
+        children:
           - page: Protocol Buffers
             url: https://developers.google.com/protocol-buffers/docs/overview
           - page: gRPC
             url: https://grpc.io/docs/guides/index.html
   - page: Tutorials
     url: '#tutorials'
-    sub_nav_id: tutorials
-    sub_nav:
+    id: tutorials
+    children:
       - page: Overview
         url: /docs/tutorials/
       - page: Basic
         url: '#basic-tutorials'
-        sub_sub_nav_id: basic-tutorials
-        sub_sub_nav:
+        id: basic-tutorials
+        children:
           - page: Java
             url: /docs/tutorials/basic/java.html
           - page: JavaScript
@@ -115,24 +115,24 @@ doc_side_nav:
             url: /docs/tutorials/basic/cpp.html
   - page: Client Libraries
     url: '#client-libs'
-    sub_nav_id: client-libs
-    sub_nav:
+    id: client-libs
+    children:
       - page: Java
         url: '#lib-java'
-        sub_sub_nav_id: lib-java
-        sub_sub_nav:
+        id: lib-java
+        children:
           - page: API Reference
             url: https://spine.io/core-java/javadoc/client/index.html
       - page: JavaScript
         url: '#lib-js'
-        sub_sub_nav_id: lib-js
-        sub_sub_nav:
+        id: lib-js
+        children:
           - page: API Reference
             url: https://spine.io/docs/reference/javascript/index.html
       - page: Dart
         url: '#lib-dart'
-        sub_sub_nav_id: lib-dart
-        sub_sub_nav:
+        id: lib-dart
+        children:
           - page: API Reference
             url: https://spine.io/docs/reference/dart/index.html
   - page: Examples
