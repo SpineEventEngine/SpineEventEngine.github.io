@@ -15,38 +15,85 @@ The purpose of this step is to find out what we're going to build and why.
 Consider using [EventStorming](https://eventstorming.com) or other DDD-based analysis 
 methodology for helping you grasp the domain knowledge from the experts.
  
-It is likely that the solution would have several [Bounded Contexts](concepts.html#bounded-context). 
+Most likely that the solution would have several [Bounded Contexts](concepts.html#bounded-context). 
 For each context developers need to define:
-  * [Identifiers](concepts.html#identifier) for entities
-  * Value Objects
   * [Events](concepts.html#event)
   * [Commands](concepts.html#command)
   * [Rejections](concepts.html#rejection)
-  * States of [Aggregates](concepts.html#aggregate),
-    [Process Managers](concepts.html#process-manager), and [Projections](concepts.html#projection).
+  * [Aggregates](concepts.html#aggregate), 
+    [Process Managers](concepts.html#process-manager), and
+    [Projections](concepts.html#projection).
 
 It is likely that some of the bits of this picture would change during the process.
-But the picture should be complete to the best knowledge of the domain experts to avoid “surprises”
-down the road. We return to this step when we discover inconsistencies in the model, or we need
-more information about how the business works from the experts.
+But the whole team, including domain experts, need to have complete understanding of how the 
+business works to avoid “surprises” down the road. 
 
-## Defining data model
+We return to learning the domain when we discover inconsistencies in the model,
+or we need more information about how the business works, or the business wants to develop further
+and we need to update the model.
 
-At this stage we select one of the Bounded Context for the implementation. Each Bounded Context is
-developed separately. In this sense it can be seen as a microservice.
+Once we got enough domain knowledge we proceed to implementation. 
 
-Implementation starts from the definition of types of identifiers, events, commands, rejections, and
-states of entities of the selected context. These types are defined as Protobuf messages.
+## Implementing a Bounded Context
 
-The [Mode Definition](/docs/guides/model-definition.html) guide describes this stage in details.
+At this stage we select one of the Bounded Contexts for the implementation.
+Each context is developed separately. In this sense it can be seen as a microservice.
+It would be natural to start implementing the context which initiates the business flow.
 
-## Adding business logic
+### Defining data types
+
+Implementation starts from defining data types of the selected context as Protobuf messages.
+
+The first step is to define entity [IDs](concepts.html#identifier). For example:
+<pre class="highlight lang-proto">
+<code>// The identifier for a task.
+message TaskId {
+    string uuid = 1;
+}
+</code></pre>
+
+Then commands, events, rejections are defined:
+<pre class="highlight lang-proto">
+<code>// A command to create a new task.
+message CreateTask {
+    TaskId id = 1;
+    string name = 2 [(required) = true];
+    string description = 3;
+}
+</code></pre>
+
+<pre class="highlight lang-proto">
+<code>// A new task has been created.
+message TaskCreated {
+    TaskId id = 1;
+    string name = 2 [(required) = true];
+    string description = 3;
+}
+</code></pre>
+ 
+Then we define states of entities.
+<pre class="highlight lang-proto">
+<code>message Task {
+    (entity).kind = AGGREGATE;
+    TaskId id = 1;
+    string name = 2 [(required) = true];
+    string description = 3;
+    DeveloperId assignee = 4;
+}</code></pre>
+ 
+[Value Objects](concepts.html#value-object) are added when they are needed to describe entities
+or messages like commands or events. For more information on this stage please see
+the [Model Definition](/docs/guides/model-definition.html) guide.
+
+### Adding business logic
   
-## Writing tests
+### Testing
 
 ## Deployment
 
-## Repeat
+## Repeating the cycle
+
+## Client application development
  
 
 
