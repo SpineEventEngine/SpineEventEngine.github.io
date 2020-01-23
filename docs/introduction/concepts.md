@@ -12,7 +12,7 @@ type: markdown
 You'll find most of the terms familiar from Domain-Driven Design, CQRS, Event Sourcing or Enterprise
 Integration patterns. 
 <br><br>
-We give brief descriptions for those who are new to these concepts and tell
+We give brief descriptions for those who are new to these concepts and to tell
 how they are implemented in our framework.
 Terms extending the industry-set terminology are designated as such.</p>
 
