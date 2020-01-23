@@ -3,22 +3,22 @@ doc_side_nav:
     url: '#introduction'
     sub_nav_id: introduction
     sub_nav:
+      - page: Development Process
+        url: /docs/introduction/development.html
+      - page: Architecture
+        url: /docs/introduction/architecture.html
       - page: Concepts
         url: /docs/introduction/concepts.html
       - page: Project Structure
         url: /docs/introduction/project-structure.html
       - page: Naming Conventions
         url: /docs/introduction/naming-conventions.html
-  - page: Concepts
-    url: '#concepts'
-    sub_nav_id: concepts
-    sub_nav:
-      - page: Architecture Overview
-        url: /docs/concepts/
   - page: Quick Start
     url: '#quick-start'
     sub_nav_id: quick-start
     sub_nav:
+      - page: Overview
+        url: /docs/quickstart/index.html
       - page: Java
         url: /docs/quickstart/java.html
   - page: Guides

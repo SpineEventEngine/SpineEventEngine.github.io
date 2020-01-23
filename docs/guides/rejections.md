@@ -11,8 +11,8 @@ type: markdown
 
 ## Defining Rejections
 
-Compared with regular Events, [Rejections](/docs/concepts/rejection.html) are defined in a different
-way. Here is the differences summary:
+Compared with regular Events, [Rejections](/docs/introduction/concepts.html#rejection) are defined
+in a different way. Here is the differences summary:
 
 * `java_multiple_files file` option must be set to `false`
 
