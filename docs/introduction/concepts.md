@@ -111,6 +111,15 @@ generates events in response to changes in the domain.
     [`Either`](https://spine.io/core-java/javadoc/server/index.html) types, with `Nothing` as
     one of the possible options: `EitherOf2<TaskReAssigned, Nothing>`.</p>
 
+## Value Objects
+
+Value Object describe things in a domain model and do not have identity. 
+Value Objects are also immutable. Some examples are:
+  * `PhoneNumber`
+  * `EmailAddress`
+  * `BarCode`
+  
+In Spine, Value Objects are defined as Protobuf messages.
 
 ## Entities
 
