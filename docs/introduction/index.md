@@ -154,6 +154,45 @@ This wires repositories into the message delivery mechanism of corresponding
 [Buses](concepts.html#message-buses).
   
 #### Testing
+Implementation of the Bounded Context is tested using the messaging paradigm.
+The following code snippet asserts that handling a command `CreateTask` produces one 
+`TaskCreated` event with expected arguments.
+ 
+<pre class="highlight lang-java"><code>// Given
+BlackBoxBoundedContext context = BlackBoxBoundedContext.from(tasksContext);
+
+// When
+context.receivesCommand(createTask());
+
+// Then
+TaskCreated expected = TaskCreated.newBuilder()
+    .setId(id)
+    .setName(name)
+    .build();
+
+EventSubject assertEvents = 
+    context.assertEvents()
+           .withType(TaskCreated.class)    
+
+assertEvents.hasSize(1);
+assertEvents.message(0)
+       .comparingExpectedFieldsOnly()
+       .isEqualTo(expected);  
+</code></pre>
+
+Modification of entities is also tested. The following code snippet asserts that the state
+of the `TaskAggregate` was also updated with expected arguments.
+
+<pre class="highlight lang-java"><code>EntitySubject assertEntity = 
+    context.assertEntityWithState(Task.class, id);
+Task expectedState = Task.newBuilder()
+    .setId(id)
+    .setName(name)
+    .build();
+assertEntity.hasStateThat()
+    .comparingExpectedFieldsOnly()
+    .isEqualTo(expectedState);
+</code></pre>
 
 ## Deployment
 
