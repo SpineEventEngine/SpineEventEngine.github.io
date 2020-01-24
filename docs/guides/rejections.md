@@ -9,7 +9,7 @@ layout: docs
 ## Defining Rejections
 
 Compared with regular Events, [Rejections](/docs/introduction/concepts.html#rejection) are defined
-in a different way. Here is the differences summary:
+differently. Here is the summary of the differences:
 
 * `java_multiple_files file` option must be set to `false`
 
