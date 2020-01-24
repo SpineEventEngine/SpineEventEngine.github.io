@@ -17,12 +17,14 @@ methodology for helping you grasp the domain knowledge from the experts.
  
 Most likely that the solution would have several [Bounded Contexts](concepts.html#bounded-context). 
 For each context developers need to define:
-  * [Events](concepts.html#event)
-  * [Commands](concepts.html#command)
-  * [Rejections](concepts.html#rejection)
-  * [Aggregates](concepts.html#aggregate), 
-    [Process Managers](concepts.html#process-manager), and
-    [Projections](concepts.html#projection).
+  * <strong>Signals</strong>
+    - [Events](concepts.html#event)
+    - [Commands](concepts.html#command)
+    - [Rejections](concepts.html#rejection)
+  * <strong>Entities</strong>  
+    - [Aggregates](concepts.html#aggregate) 
+    - [Process Managers](concepts.html#process-manager)
+    - [Projections](concepts.html#projection).
 
 It is likely that some of the bits of this picture would change during the process.
 But the whole team, including domain experts, need to have complete understanding of how the 
@@ -32,7 +34,7 @@ We return to learning the domain when we discover inconsistencies in the model,
 or we need more information about how the business works, or the business wants to develop further
 and we need to update the model.
 
-Once we got enough domain knowledge we proceed to implementation. 
+Once we got enough domain knowledge we proceed to the implementation. 
 
 ## Implementing a Bounded Context
 
