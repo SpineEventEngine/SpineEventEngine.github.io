@@ -49,7 +49,7 @@ tree by clicking on it.
 #### Example for the three-level navigation list
 
 ```
-concepts:
+doc_side_nav:
   - page: Messaging
     children:
       - page: Event
