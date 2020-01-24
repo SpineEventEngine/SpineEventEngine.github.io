@@ -210,8 +210,9 @@ The server-side application is composed with its Bounded Contexts.
 server.start();    
 </code></pre>
 
-This exposes `CommandService`, `QueryService`, and `SubscriptionService` for client-side
-connections.
+This exposes [`CommandService`](concepts.html#command-service), 
+[`QueryService`](concepts.html#query-service), and 
+[`SubscriptionService`](concepts.md#subscription-service) for client-side connections.
 
 ## Repeating the cycle
 

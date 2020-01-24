@@ -196,7 +196,9 @@ to obtain the most recent state.
 
 ## Services
 
-Services are used by a client application for sending requests to the backend. 
+Services are used by a client application for sending requests to the backend.
+
+In Spine, services are based on [gRPC](https://grpc.io). 
 
 ### Command Service
 
