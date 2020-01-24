@@ -196,6 +196,23 @@ assertEntity.hasStateThat()
 
 ## Deployment
 
+### Configuring Server Environment
+
+### Assembling Application
+
+The server-side application is composed with its Bounded Contexts.
+
+<pre class="highlight lang-java"><code>Server server = Server.atPort(portNumber)
+    .add(tasksContext)
+    .add(usersContext)
+    .add(commentsContext)
+    .build();
+server.start();    
+</code></pre>
+
+This exposes `CommandService`, `QueryService`, and `SubscriptionService` for client-side
+connections.
+
 ## Repeating the cycle
 
 ## Client application development
