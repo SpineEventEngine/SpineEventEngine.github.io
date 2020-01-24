@@ -22,7 +22,7 @@ doc_side_nav:
 ```
 
 Where:
-- `doc_side_nav` — navigation list name that is used in the navigation template.
+- `doc_side_nav` — navigation list name that is used in the navigation template `_includes/doc-side-nav.html`.
 - `page` - the page name that will be displayed in the navigation.
 - `url` - the full path to the file. It depends on what folder the file is in.
 
@@ -32,8 +32,6 @@ Where:
 ```
 doc_side_nav:
   - page: Messaging
-    url: '#messaging'
-    id: messaging
     children:
       - page: Command
         url: /docs/concepts/command.html
@@ -43,21 +41,18 @@ doc_side_nav:
 
 - `page` - the page name that will be displayed in the navigation and will show a collapsed 
 tree by clicking on it.
-- `url` - href attribute that is equal to the collapsed child navigation `ID`.
-- `id` - `ID` of the collapsed child navigation.
-- `children` - children navigation container.
+- `children` - children navigation container with nesting pages.
+
+>It’s important not to have the same name for the navigation item in the same nesting level.
+>Because now the navigation item ID is generated automatically.
 
 #### Example for the three-level navigation list
 
 ```
 concepts:
   - page: Messaging
-    url: '#messaging'
-    id: messaging
     children:
       - page: Event
-        url: '#sub-messaging'
-        id: sub-messaging
         children:
           - page: New page on the 3rd level
             url: /docs/conceps/3rd-level-file.html
