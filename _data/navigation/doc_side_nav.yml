@@ -4,7 +4,7 @@ doc_side_nav:
     sub_nav_id: introduction
     sub_nav:
       - page: Development Process
-        url: /docs/introduction/development.html
+        url: /docs/introduction/
       - page: Architecture
         url: /docs/introduction/architecture.html
       - page: Concepts
@@ -18,7 +18,7 @@ doc_side_nav:
     sub_nav_id: quick-start
     sub_nav:
       - page: Overview
-        url: /docs/quickstart/index.html
+        url: /docs/quickstart/
       - page: Java
         url: /docs/quickstart/java.html
   - page: Guides

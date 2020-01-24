@@ -12,7 +12,7 @@ Event Sourcing. This documentation assumes that you are familiar with the concep
 introduced by DDD and mentioned patterns.</p> 
 
 If you are new to our framework, we recommend that you read the 
-<a href="{{ site.baseurl }}/docs/introduction/development.html">Introduction</a> section to find
+<a href="{{ site.baseurl }}/docs/introduction/">Introduction</a> section to find
 out what it's like to build applications using Spine. This section also gives brief overview of
 <a href="{{ site.baseurl }}/docs/introduction/concepts.html">key architectural concepts</a> and
 how framework users deal with them.
