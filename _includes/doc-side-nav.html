@@ -9,21 +9,23 @@
     </div>
     {% if site.data.navigation.doc_side_nav.doc_side_nav %}
         {% for item in site.data.navigation.doc_side_nav.doc_side_nav %}
+            {% assign collapsedElId = item.page | slugify %}
             <li><a class="side-nav-link {% if item.url == page.url %}active{% endif %}"
-                   href="{{ item.url }}"
+                   href="{% if item.children %}#{{ collapsedElId }}{% else %}{{ item.url }}{% endif %}"
                    aria-expanded="false">
                 {{ item.page }}
                 </a>
-                {% if item.sub_nav[0] %}
-                <ul id="{{ item.sub_nav_id }}" class="sub-nav collapse">
-                    {% for entry in item.sub_nav %}
+                {% if item.children[0] %}
+                <ul id="{{ collapsedElId }}" class="sub-nav collapse">
+                    {% for entry in item.children %}
+                    {% assign collapsedEntryId = entry.page | slugify %}
                     <li><a class="side-nav-link {% if entry.url == page.url %}active{% endif %}"
-                           href="{{ entry.url }}">
+                           href="{% if entry.children %}#{{ collapsedEntryId }}{% else %}{{ entry.url }}{% endif %}">
                         {{ entry.page }}
                         </a>
-                        {% if entry.sub_sub_nav[0] %}
-                        <ul id="{{ entry.sub_sub_nav_id }}" class="sub-nav collapse">
-                            {% for subentry in entry.sub_sub_nav %}
+                        {% if entry.children[0] %}
+                        <ul id="{{ collapsedEntryId }}" class="sub-nav collapse">
+                            {% for subentry in entry.children %}
                             <li><a class="side-nav-link {% if subentry.url == page.url %}active{% endif %}"
                                    href="{{ subentry.url }}">
                                 {{ subentry.page }}
