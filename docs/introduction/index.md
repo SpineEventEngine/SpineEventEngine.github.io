@@ -141,7 +141,7 @@ A custom `Repository` class may be needed for:
     An event is dispatched by the ID of the entity which generated the event.
   * <strong>Domain-specific operations</strong> on entities of this kind.
   
-Repositories are added to Bounded Context when it is created:
+Repositories are added to the Bounded Context they belong when it is created:
 
 <pre class="highlight lang-java">
 <code>BoundedContext tasksContext = BoundedContext.multiTenant("Tasks")
