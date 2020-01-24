@@ -3,9 +3,6 @@ title: Naming Conventions
 headline: Documentation
 bodyclass: docs
 layout: docs
-sidenav_list: guides
-sidenav: doc-side-nav.html
-type: markdown
 ---
 # Naming Conventions
 

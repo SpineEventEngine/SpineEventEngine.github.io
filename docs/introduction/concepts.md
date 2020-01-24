@@ -3,8 +3,6 @@ title: Concepts
 headline: Documentation
 bodyclass: docs
 layout: docs
-sidenav: doc-side-nav.html
-type: markdown
 ---
 # Concepts
 

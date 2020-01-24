@@ -3,8 +3,6 @@ title: Concepts
 headline: Documentation 
 bodyclass: docs
 layout: docs
-type: markdown
-sidenav: doc-side-nav.html
 customjs: /js/architecture-diagram.js
 ---
 # Application Architecture

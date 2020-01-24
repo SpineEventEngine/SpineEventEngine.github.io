@@ -3,9 +3,6 @@ title: Quick Start
 headline: Quick Start
 bodyclass: docs
 layout: docs
-type: markdown
-sidenav_list: quickstart
-sidenav: doc-side-nav.html
 ---
 <h2 class="top">Getting Started with Spine</h2>
 
