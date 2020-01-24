@@ -1,21 +1,15 @@
 doc_side_nav:
   - page: Introduction
-    url: '#introduction'
-    id: introduction
     children:
       - page: Project Structure
         url: /docs/introduction/project-structure.html
       - page: Naming Conventions
         url: /docs/introduction/naming-conventions.html
   - page: Concepts
-    url: '#concepts'
-    id: concepts
     children:
       - page: Architecture Overview
         url: /docs/concepts/
       - page: Messaging
-        url: '#messaging'
-        id: messaging
         children:
           - page: Command
             url: /docs/concepts/command.html
@@ -30,8 +24,6 @@ doc_side_nav:
           - page: Event Reactor
             url: /docs/concepts/event-reactor.html
       - page: Entities
-        url: '#entities'
-        id: entities
         children:
           - page: Identifier
             url: /docs/concepts/identifier.html
@@ -46,8 +38,6 @@ doc_side_nav:
           - page: Snapshot
             url: /docs/concepts/snapshot.html
       - page: Architecture
-        url: '#architecture'
-        id: architecture
         children:
           - page: Bounded Context
             url: /docs/concepts/bounded-context.html
@@ -72,14 +62,10 @@ doc_side_nav:
           - page: Subscription Service
             url: /docs/concepts/subscription-service.html
   - page: Quick Start
-    url: '#quick-start'
-    id: quick-start
     children:
       - page: Java
         url: /docs/quickstart/java.html
   - page: Guides
-    url: '#guides'
-    id: guides
     children:
       - page: Model Definition
         url: /docs/guides/model-definition.html
@@ -90,22 +76,16 @@ doc_side_nav:
       - page: Defining Aggregate
         url: /docs/guides/defining-aggregate.html
       - page: Related Guides
-        url: '#related-guides'
-        id: related-guides
         children:
           - page: Protocol Buffers
             url: https://developers.google.com/protocol-buffers/docs/overview
           - page: gRPC
             url: https://grpc.io/docs/guides/index.html
   - page: Tutorials
-    url: '#tutorials'
-    id: tutorials
     children:
       - page: Overview
         url: /docs/tutorials/
       - page: Basic
-        url: '#basic-tutorials'
-        id: basic-tutorials
         children:
           - page: Java
             url: /docs/tutorials/basic/java.html
@@ -114,24 +94,16 @@ doc_side_nav:
           - page: C++
             url: /docs/tutorials/basic/cpp.html
   - page: Client Libraries
-    url: '#client-libs'
-    id: client-libs
     children:
       - page: Java
-        url: '#lib-java'
-        id: lib-java
         children:
           - page: API Reference
             url: https://spine.io/core-java/javadoc/client/index.html
       - page: JavaScript
-        url: '#lib-js'
-        id: lib-js
         children:
           - page: API Reference
             url: https://spine.io/docs/reference/javascript/index.html
       - page: Dart
-        url: '#lib-dart'
-        id: lib-dart
         children:
           - page: API Reference
             url: https://spine.io/docs/reference/dart/index.html
