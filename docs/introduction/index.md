@@ -86,8 +86,74 @@ or messages like commands or events. For more information on this stage please s
 the [Model Definition](/docs/guides/model-definition.html) guide.
 
 ### Adding business logic
+
+The business logic of a Bounded Context is based on [Entities](#entities).
+They handle messages updating the state in response. Entities like `Aggregate`s and
+`ProcessManager`s can generate events. `ProcessManager`s can also generate new commands.
+`Projection`s only consume events. 
+
+Updating the state of the domain model in response to messages and generating new messages is
+the “life” of the domain model. Messages are delivered to entities by [Repositories](#repositories).
+
+#### Entities
+
+During this step we create entity classes and add message handling methods to them. 
+Code snippets below show `Aggregate` and `Projection` classes with handler methods.
+
+<pre class="highlight lang-java">
+<code>final class TaskAggregate
+    extends Aggregate&lt;TaskId, Task, Task.Builder&gt; {
+    
+    @Assign
+    TaskCreated handle(CreateTask cmd, CommandContext ctx) {
+        return TaskCreated
+                .newBuilder()
+                .setId(cmd.getId())
+                .setName(cmd.getName())
+                .setOwner(ctx.getActor())
+                .vBuild();
+    }
+    ...
+}
+</code></pre>
+
+<pre class="highlight lang-java">
+<code>final class TaskProjection
+    extends Projection&lt;TaskId, TaskItem, TaskItem.Builder&gt; {
+
+    @Subscribe
+    void on(TaskCreated e) {
+        builder().setId(e.getId())
+                 .setName(e.getName())
+    }
+
+    @Subscribe
+    void on(TaskCompleted e, EventContext ctx) {
+        builder().setWhenDone(ctx.getTimestamp());
+    }
+}</code></pre>
+
+#### Repositories
+The framework provide default implementations for repositories.
+A custom `Repository` class may be needed for:
+  * <strong>Dispatching messages to entities in a non-standard way</strong>.
+    By default, a command is dispatched using the first field of the command message.
+    An event is dispatched by the ID of the entity which generated the event.
+  * <strong>Domain-specific operations</strong> on entities of this kind.
   
-### Testing
+Repositories are added to Bounded Context when it is created:
+
+<pre class="highlight lang-java">
+<code>BoundedContext tasksContext = BoundedContext.multiTenant("Tasks")
+    .add(TaskAggregate.class) // use default repository impl.
+    .add(new TaskProjectionRepository())
+    .build();
+</code></pre>  
+
+This wires repositories into the message delivery mechanism of corresponding
+[Buses](concepts.html#message-buses).
+  
+#### Testing
 
 ## Deployment
 

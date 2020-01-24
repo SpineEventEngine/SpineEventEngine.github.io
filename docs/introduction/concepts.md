@@ -229,27 +229,31 @@ own Ubiquitous Language.Systems usually have multiple Bounded Contexts.
 For example, `Orders`, `UserManagement`, `Shipping` as examples of the contexts of an
 online retail system.
 
-### Command Bus
+### Message Buses
 
-Command Bus is message broker responsible for routing the command to its handler.
+#### Command Bus
+
+This is a message broker responsible for routing the command to its handler.
 Unlike a [Command Handler](#command-handler), it does not modify the application business model
 or produces events.
 
-There can be only one handler per command type registered in the Command Bus.
+There can be only one handler per command type registered in a Command Bus.
 
-### Command Store
+#### Event Bus
 
-Command Store keeps the history of all the commands of the application and statuses of
-their execution. 
-
-### Event Bus
-
-Event Bus dispatches events to entities that are [subscribed](#event-subscriber) to these
+This bus dispatches events to entities that are [subscribed](#event-subscriber) to these
 events or [react](#event-reactor) on them.
 
-### Event Store
+### Message Stores
 
-Event Store keeps all the events of the application in the chronological order, which also called
+#### Command Store
+
+This store keeps the history of all the commands of the application and statuses of
+their execution. 
+
+#### Event Store
+
+This store keeps all the events of the application in the chronological order, which also called
 Event Stream. This is the main “database” of the Bounded Context. 
 
 New projections are built by passing the event stream “through” them.
