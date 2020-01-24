@@ -1,8 +1,6 @@
 doc_side_nav:
   - page: Introduction
-    url: '#introduction'
-    sub_nav_id: introduction
-    sub_nav:
+    children:
       - page: Development Process
         url: /docs/introduction/
       - page: Architecture
@@ -14,17 +12,13 @@ doc_side_nav:
       - page: Naming Conventions
         url: /docs/introduction/naming-conventions.html
   - page: Quick Start
-    url: '#quick-start'
-    sub_nav_id: quick-start
-    sub_nav:
+    children:
       - page: Overview
         url: /docs/quickstart/
       - page: Java
         url: /docs/quickstart/java.html
   - page: Guides
-    url: '#guides'
-    sub_nav_id: guides
-    sub_nav:
+    children:
       - page: Data Model Definition
         url: /docs/guides/model-definition.html
       - page: Validation User Guide
@@ -34,23 +28,17 @@ doc_side_nav:
       - page: Defining Aggregate
         url: /docs/guides/defining-aggregate.html
       - page: Related Guides
-        url: '#related-guides'
-        sub_sub_nav_id: related-guides
-        sub_sub_nav:
+        children:
           - page: Protocol Buffers
             url: https://developers.google.com/protocol-buffers/docs/overview
           - page: gRPC
             url: https://grpc.io/docs/guides/index.html
   - page: Tutorials
-    url: '#tutorials'
-    sub_nav_id: tutorials
-    sub_nav:
+    children:
       - page: Overview
         url: /docs/tutorials/
       - page: Basic
-        url: '#basic-tutorials'
-        sub_sub_nav_id: basic-tutorials
-        sub_sub_nav:
+        children:
           - page: Java
             url: /docs/tutorials/basic/java.html
           - page: JavaScript
@@ -58,25 +46,17 @@ doc_side_nav:
           - page: C++
             url: /docs/tutorials/basic/cpp.html
   - page: Client Libraries
-    url: '#client-libs'
-    sub_nav_id: client-libs
-    sub_nav:
+    children:
       - page: Java
-        url: '#lib-java'
-        sub_sub_nav_id: lib-java
-        sub_sub_nav:
+        children:
           - page: API Reference
             url: https://spine.io/core-java/javadoc/client/index.html
       - page: JavaScript
-        url: '#lib-js'
-        sub_sub_nav_id: lib-js
-        sub_sub_nav:
+        children:
           - page: API Reference
             url: https://spine.io/docs/reference/javascript/index.html
       - page: Dart
-        url: '#lib-dart'
-        sub_sub_nav_id: lib-dart
-        sub_sub_nav:
+        children:
           - page: API Reference
             url: https://spine.io/docs/reference/dart/index.html
   - page: Examples
