@@ -19,11 +19,11 @@ Terms extending the industry-set terminology are designated as such.</p>
 ### Command
 
 Commands are messages that instruct an entity within Spine framework to perform a certain action.
-Compared with events, command is not a statement of fact. They are a request, and, thus, can be
+Compared with events, a command is not a statement of fact. They are a request, and, thus, can be
 refused. A typical way to convey refusal is to throw an error or rejection. 
 
-In Spine, commands are defined as Protocol buffer messages in the file which name ends with
-`commands.proto`.
+In Spine, commands are defined as Protocol Buffer (a.k.a Protobuf) messages in the file which name
+ends with `commands.proto`.
 
 ### Event
 
@@ -121,8 +121,8 @@ In Spine, Value Objects are defined as Protobuf messages.
 
 ## Entities
 
-Entities are main building blocks of a domain model. They have unique identity and modify their 
-state during the lifecycle.
+Entities are the main building blocks of a domain model. 
+They have a unique identity and modify their state during their lifespan.
 
 ### Identifier
  
@@ -148,18 +148,20 @@ From the application point of view it consists of the following:
 
 [Aggregates](http://martinfowler.com/bliki/DDD_Aggregate.html) guarantee consistency of data
 modifications in response to commands they receive. Aggregate is the most common case of
-Command Handler. It modifies its state and produces one or more events in response to a command.
+Command Handler.  In response to a command, it produces one or more events modifying own state.
 These events are used later to restore the state of the aggregate.
 
 In Spine, aggregates are defined as Java classes, and their states are defined as Protobuf messages.
 
 ### Process Manager
 
-Process Manager is an independent component that reacts to domain events in a cross-aggregate
-eventually consistent manner. It serves as a centralized processing unit that maintains the state
-sequence and defines the next processing step based on intermediate results. 
+Process Manager is an independent component that manages the cross-aggregate business flows. 
+It serves as a mediator by remembering the state of the flow and choosing the next step 
+based on the intermediate results.
 
-Process Manager can be both [Command Handler](#command-handler) and [Event Reactor](#event-reactor).
+To do so, a Process Manager can be both [Command Handler](#command-handler) 
+and [Event Reactor](#event-reactor). Also, it can emit Commands to other Aggregates 
+and Process Managers.
 
 In Spine, Process Managers are defined as Java classes, and their states are defined as
 Protobuf messages.
@@ -189,8 +191,8 @@ Snapshot is a state of an Aggregate. A snapshot ”sits” in between events in 
 the Aggregate to make restoring faster.
 
 When an Aggregate is loaded, the `AggregateStorage` reads events backwards until encounters
-a snapshot. Then the snapshot is applied to the Aggregate, and trailing events are played to
-get the current state.
+a snapshot. Then the snapshot is applied to the Aggregate, and trailing events are played
+to obtain the most recent state.
 
 ## Services
 
@@ -224,18 +226,17 @@ There are two options for subscription:
 ### Bounded Context
 
 Bounded Context is an autonomous component with its own domain model and its
-own Ubiquitous Language.Systems usually have multiple Bounded Contexts. 
+own Ubiquitous Language. Systems usually have multiple Bounded Contexts. 
 
-For example, `Orders`, `UserManagement`, `Shipping` as examples of the contexts of an
-online retail system.
+`Orders`, `UserManagement`, `Shipping` as examples of the contexts of an online retail system.
 
 ### Message Buses
 
 #### Command Bus
 
 This is a message broker responsible for routing the command to its handler.
-Unlike a [Command Handler](#command-handler), it does not modify the application business model
-or produces events.
+Unlike a [Command Handler](#command-handler), it does not modify the application business model,
+nor produces domain events.
 
 There can be only one handler per command type registered in a Command Bus.
 
