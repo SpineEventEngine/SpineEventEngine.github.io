@@ -175,7 +175,7 @@ Protobuf messages.
 
 ### Repository
 
-Repository  is a mechanism for encapsulating storage, retrieval, and search behavior which emulates
+Repository encapsulates storage, retrieval, and search of Entities as if it were
 a collection of objects. It isolates domain objects from the details of the database access code. 
 
 The applications you develop using Spine usually have the following types of repositories:
