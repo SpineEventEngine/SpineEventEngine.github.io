@@ -80,38 +80,28 @@ p {
     padding-top: 8px;
     margin-bottom: 32px;
   }
-
-  &.note {
-    background-color: #e0f2ff;
-    border-left: 4px solid $mainBrandColor;
-    padding: 12px 24px 13px;
-    color: $black;
-    font-size: 15px;
-    line-height: 24px;
-    border-radius: 2px;
-    margin-bottom: 24px;
-
-    code {
-      background-color: transparent;
-      padding: 0;
-    }
-  }
 }
 
 strong {
   font-weight: 700;
 }
 
-blockquote {
-  border-left: 2px solid #eeeeee;
-  padding: 0 24px;
-  margin: 24px 0 32px;
+// Blockquote styles.
+// In markdown: add the `>` symbol in front of a paragraph.
+// In HTML: add the `class="note"` to a <p> tag.
+blockquote p,
+p.note {
+  background-color: #e0f2ff;
+  border-left: 4px solid $mainBrandColor;
+  padding: 12px 24px 13px;
+  color: $black;
+  font-size: 15px;
+  line-height: 24px;
+  border-radius: 2px;
+  margin-bottom: 24px;
 
-  p {
-    font-size: 22px;
-    line-height: 32px;
-    font-style: italic;
-    font-weight: 300;
-    color: rgba($textColor, .64);
+  code {
+    background-color: transparent;
+    padding: 0;
   }
 }
