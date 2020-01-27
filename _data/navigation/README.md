@@ -4,7 +4,7 @@ syntax for YAML files is to use 2 spaces for indentation.
 
 Related files:
 - a liquid navigation template - `_includes/doc-side-nav.html`;
-- navigation styles - `_scss/modules/_doc-nav.scss`;
+- navigation styles - `_sass/modules/_doc-side-nav.scss`;
 - a JavaScript file - `js/doc-side-nav.js`.
 
 ## How it works
