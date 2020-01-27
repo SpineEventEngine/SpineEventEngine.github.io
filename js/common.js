@@ -6,7 +6,6 @@ const $body = $('body');
 const initialHeadHeight = header.innerHeight();
 const tocNav = $('#toc');
 const headerFixPosition = $('.nav-hero-container').innerHeight();
-const topDocNavHeight = $('.top-doc-nav-container').innerHeight();
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
 const $pre = $('pre');
@@ -213,8 +212,7 @@ function showCodeColorSelector() {
 function setColorSelectorTopPosition() {
     const inMiddleOnMobile = 42 + '%';
     const topOffset = 24;
-    // The value should be equal to the CSS `$color-selector-top-position`
-    const docsTopPosition = headerFixPosition + topDocNavHeight + topOffset;
+    const docsTopPosition = headerFixPosition + topOffset;
     const isWindowHeightMobile = $(window).height() < windowHeightMobile;
 
     if (isDocsPage && !isWindowHeightMobile) {

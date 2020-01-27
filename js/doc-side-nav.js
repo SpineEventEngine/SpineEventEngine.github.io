@@ -21,7 +21,7 @@ $(
          * Adds a `data-toggle: collapse` attribute to the link, if a `<li>` element has a child `<ul>` sub-menu.
          *
          * <p>Also, adds `tree-title` and `collapsed` classes that is needed to style opened and collapsed states.
-         * CSS styles are located in the `sass/modules/doc-nav.scss` file.
+         * CSS styles are located in the `_sass/modules/_doc-side-nav.scss` file.
          */
         function addCollapseAttr() {
             const $collapsibleLink = $('ul.docs-side-nav li ul').siblings('a');
