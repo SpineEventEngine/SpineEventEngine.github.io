@@ -16,8 +16,8 @@ For more detailed tutorials and examples, see the [Tutorials]({{site.baseurl}}/d
  - [C++](cpp.html)
 
 ## Further Reading
-  * [Spine Basic Concepts](https://spine.io/docs/concepts/)
-  * [Domain model definition](https://spine.io/docs/guides/model-definition.html)
+  * [Spine Basic Concepts]({{ site.baseurl }}/docs/concepts/)
+  * [Domain model definition]({{ site.baseurl }}/docs/guides/model-definition.html)
   * [Java Web server implementation](https://github.com/SpineEventEngine/web)
   * [JavaScript client library](https://www.npmjs.com/package/spine-web)
   * [An example project with a bigger model](https://github.com/SpineEventEngine/todo-list)
