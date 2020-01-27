@@ -1,7 +1,7 @@
 /**
  * This is a JavaScript file which backs the Spine architecture diagram.
  *
- * Please see `/docs/concepts/index.md` for usage.
+ * Please see `/docs/introduction/architecture.md` for usage.
  */
 
 $(
@@ -315,28 +315,28 @@ $(
         // Link items to the corresponding pages.
 
         // Boxes:
-        makeClickable(".aggregate", "/docs/concepts/aggregate.html");
-        makeClickable(".bounded-context", "/docs/concepts/bounded-context.html");
-        makeClickable(".pm", "/docs/concepts/process-manager.html");
-        makeClickable(".projection", "/docs/concepts/projection.html");
-        makeClickable(".aggregate-repo", "/docs/concepts/repository.html");
-        makeClickable(".pm-repo", "/docs/concepts/repository.html");
-        makeClickable(".projection-repo", "/docs/concepts/repository.html");
-        makeClickable(".command-bus", "/docs/concepts/command-bus.html");
-        makeClickable(".event-bus", "/docs/concepts/event-bus.html");
-        makeClickable(".aggregate-mirror", "/docs/concepts/aggregate-mirror.html");
-        makeClickable(".command-store", "/docs/concepts/command-store.html");
-        makeClickable(".event-store", "/docs/concepts/event-store.html");
-        makeClickable(".command-service", "/docs/concepts/command-service.html");
-        makeClickable(".query-service", "/docs/concepts/query-service.html");
-        makeClickable(".subscription-service", "/docs/concepts/subscription-service.html");
-        makeClickable(".stand", "/docs/concepts/stand.html");
+        makeClickable(".aggregate", "/docs/introduction/concepts.html#aggregate");
+        makeClickable(".bounded-context", "/docs/introduction/concepts.html#bounded-context");
+        makeClickable(".pm", "/docs/introduction/concepts.html#process-manager");
+        makeClickable(".projection", "/docs/introduction/concepts.html#projection");
+        makeClickable(".aggregate-repo", "/docs/introduction/concepts.html#repository");
+        makeClickable(".pm-repo", "/docs/introduction/concepts.html#repository");
+        makeClickable(".projection-repo", "/docs/introduction/concepts.html#repository");
+        makeClickable(".command-bus", "/docs/introduction/concepts.html#command-bus");
+        makeClickable(".event-bus", "/docs/introduction/concepts.html#event-bus");
+        makeClickable(".aggregate-mirror", "/docs/introduction/concepts.html#aggregate-mirror");
+        makeClickable(".command-store", "/docs/introduction/concepts.html#command-store");
+        makeClickable(".event-store", "/docs/introduction/concepts.html#event-store");
+        makeClickable(".command-service", "/docs/introduction/concepts.html#command-service");
+        makeClickable(".query-service", "/docs/introduction/concepts.html#query-service");
+        makeClickable(".subscription-service", "/docs/introduction/concepts.html#subscription-service");
+        makeClickable(".stand", "/docs/introduction/concepts.html#stand");
 
         // Arrows:
 
-        makeClickable(".ui-command-service", "/docs/concepts/command.html");
-        makeClickable(".command-service-ui", "/docs/concepts/acknowledgement.html");
-        makeClickable(".event-bus-aggregate-repo", "/docs/concepts/event.html");
-        makeClickable(".integration-events", "/docs/concepts/integration-event.html");
+        makeClickable(".ui-command-service", "/docs/introduction/concepts.html#command");
+        makeClickable(".command-service-ui", "/docs/introduction/concepts.html#acknowledgement");
+        makeClickable(".event-bus-aggregate-repo", "/docs/introduction/concepts.html#event");
+        makeClickable(".integration-events", "/docs/introduction/concepts.html#integration-event");
     }
 );

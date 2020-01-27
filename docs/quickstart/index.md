@@ -3,20 +3,16 @@ title: Quick Start
 headline: Quick Start
 bodyclass: docs
 layout: docs
-type: markdown
-sidenav_list: quickstart
-sidenav: doc-side-nav.html
 ---
 <h2 class="top">Getting Started with Spine</h2>
 
 We recommend you get started with Spine by creating an application in [Java](java.html).
-<p class="note">Before creating your first application with Spine, familiarize with its [basic concepts and architecture]({{site.baseurl}}/docs/concepts/).</p>
+<p class="note">Before creating your first application with Spine, familiarize with its [basic concepts and architecture]({{site.baseurl}}/docs/introduction/concepts.html).</p>
 For more detailed tutorials and examples, see the [Tutorials]({{site.baseurl}}/docs/tutorials) section for other supported languages:
  - [JavaScript](javascript.html)
- - [C++](cpp.html)
 
 ## Further Reading
-  * [Spine Basic Concepts]({{ site.baseurl }}/docs/concepts/)
+  * [Spine Basic Concepts]({{ site.baseurl }}/docs/introduction/concepts.html)
   * [Domain model definition]({{ site.baseurl }}/docs/guides/model-definition.html)
   * [Java Web server implementation](https://github.com/SpineEventEngine/web)
   * [JavaScript client library](https://www.npmjs.com/package/spine-web)

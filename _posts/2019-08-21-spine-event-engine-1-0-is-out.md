@@ -24,7 +24,7 @@ Created with Event Sourcing as a key concept, CQRS as a pattern, and Domain-Driv
 Honing Spine to work as conceived, we have built several cloud applications on top of it. One of them, created for the U. S. client, runs commercially since 2017.
 
 **Where do you start:**
-Get a general overview of the framework [key concepts]({{site.baseurl}}/docs/concepts/) or if you would rather see it working right away, take a look at the [examples](https://github.com/spine-examples/).
+Get a general overview of the framework [key concepts]({{site.baseurl}}/docs/introduction/concepts.html) or if you would rather see it working right away, take a look at the [examples](https://github.com/spine-examples/).
 
 **Chime in!**
 We answer questions on Spine use in [our Gitter room](https://gitter.im/SpineEventEngine/community).
