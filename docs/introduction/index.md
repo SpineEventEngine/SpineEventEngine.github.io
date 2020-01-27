@@ -223,7 +223,7 @@ or as changes or extensions to the existing contexts are required.
  
 ## Client application development
 
-Development of client applications may start after the [data types are defined](#defining-data-types).
+Development of client applications may start after the [data types are defined](#defining-data-types)
 and Spine Model Compiler generates the code for all supported client platforms.
  
 Since entity classes like `Projection`s use composition with state types developers
