@@ -3,7 +3,6 @@ title: Why we created Spine
 headline: Motivation
 bodyclass: docs
 layout: docs
-type: markdown
 ---
 
 # Why we created Spine

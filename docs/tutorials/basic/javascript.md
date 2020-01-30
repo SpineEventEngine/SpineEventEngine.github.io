@@ -1,11 +1,8 @@
 ---
 title: Spine Basics - JavaScript
 headline: Spine Basics - JavaScript
-layout: docs
 bodyclass: docs
-sidenav_list: tutorials
-sidenav: doc-side-nav.html
-type: markdown
+layout: docs
 ---
 
 <p class="coming-soon">Coming soon...</p>

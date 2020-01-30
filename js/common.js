@@ -33,6 +33,7 @@ const phoneMedium = 480;
 const phoneXLarge = 640;
 
 $(function() {
+    fixHead();
     changeCodeColor();
     initPrettyprint();
     openHeaderMenuOnMobile();
