@@ -3,9 +3,6 @@ title: Tutorials
 headline: Tutorials
 bodyclass: docs
 layout: docs
-type: markdown
-sidenav_list: tutorials
-sidenav: doc-side-nav.html
 ---
 
 This section contains tutorials for each of the languages our framework supports.

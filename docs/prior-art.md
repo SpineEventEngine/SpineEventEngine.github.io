@@ -3,7 +3,6 @@ title: Prior Art
 headline: Prior Art
 bodyclass: docs
 layout: docs
-type: markdown
 ---
 
 # Prior Art
