@@ -7,9 +7,11 @@ layout: docs
 <h2 class="top">Getting Started with Spine</h2>
 
 We recommend you get started with Spine by creating an application in [Java](java.html).
-<p class="note">Before creating your first application with Spine, familiarize with its [basic concepts and architecture]({{site.baseurl}}/docs/introduction/concepts.html).</p>
-For more detailed tutorials and examples, see the [Tutorials]({{site.baseurl}}/docs/tutorials) section for other supported languages:
- - [JavaScript](javascript.html)
+<p class="note">Before creating your first application with Spine, familiarize with its 
+[basic concepts and architecture]({{site.baseurl}}/docs/introduction/concepts.html).</p>
+For more detailed tutorials and examples, see the [Tutorials]({{site.baseurl}}/docs/tutorials) 
+section for other supported languages:
+ - [JavaScript]({{ site.baseurl }}/docs/tutorials/basic/javascript.html)
 
 ## Further Reading
   * [Spine Basic Concepts]({{ site.baseurl }}/docs/introduction/concepts.html)
