@@ -300,3 +300,13 @@ $tooltip-padding: .25rem .65rem;
     padding: $tooltip-padding;
   }
 }
+
+.anchorjs-link {
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:after {
+    vertical-align: -2px;
+  }
+}
