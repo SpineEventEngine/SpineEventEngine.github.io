@@ -34,6 +34,16 @@ function onFaqAnchorClick() {
 }
 
 /**
+ * Prevents default scrolling when clicking on the anchor link icon on document pages.
+ */
+function onDocHeadingAnchorClick() {
+    $('.anchorjs-link').click(function (event) {
+        const anchor = $(this).attr('href');
+        preventDefaultScroll(event, anchor);
+    });
+}
+
+/**
  * Prevents default scrolling to the anchor.
  *
  * @param event received click event

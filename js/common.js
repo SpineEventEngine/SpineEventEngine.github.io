@@ -54,11 +54,13 @@ $(function() {
 jQuery(window).on('load', function() {
     ifCookiesExist();
     setStickyElMaxHeight();
-    scrollToAnchor();
+    onDocHeadingAnchorClick();
 
     if (isFaqPage) {
         onFaqAnchorClick();
     }
+
+    scrollToAnchor();
 });
 
 window.onhashchange = function() {
@@ -425,3 +427,12 @@ function initBootstrapTooltips() {
 function isTouchDevice() {
     return true === ('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch);
 }
+
+/**
+ * Adds anchor links to headings on `Docs` pages.
+ */
+document.addEventListener('DOMContentLoaded', function(event) {
+    if (isDocsPage) {
+        anchors.add();
+    }
+});
