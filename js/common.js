@@ -259,13 +259,15 @@ function openHeaderMenuOnMobile() {
 
 /**
  * Adds the `external` class to every outbound link on the site.
+ * Also, adds `target="_blank"` attribute that opens markdown links in the new
+ * browser tab.
  *
  * <p>The css will add a small right arrow after the link.
  */
 function addExternalClass() {
     $('a').filter(function() {
         return this.hostname && this.hostname !== location.hostname;
-    }).addClass('external');
+    }).addClass('external').attr('target', '_blank');
 }
 
 /**
