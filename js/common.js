@@ -94,6 +94,15 @@ $(window).resize(function() {
 });
 
 /**
+ * Adds anchor links to headings on `Docs` pages.
+ */
+document.addEventListener('DOMContentLoaded', function(event) {
+    if (isDocsPage) {
+        anchors.add();
+    }
+});
+
+/**
  * Changes code color theme by clicking on the `color-selector` icons.
  *
  * <p>On page load, the color will be set from the cookie value. If the cookie value is `null`
@@ -427,12 +436,3 @@ function initBootstrapTooltips() {
 function isTouchDevice() {
     return true === ('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch);
 }
-
-/**
- * Adds anchor links to headings on `Docs` pages.
- */
-document.addEventListener('DOMContentLoaded', function(event) {
-    if (isDocsPage) {
-        anchors.add();
-    }
-});
