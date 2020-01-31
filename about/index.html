@@ -38,41 +38,15 @@ headline: 'About Spine'
             <!-- First column -->
             <div class="col-md-4">
                 <div class="feature-card">
-                    <i class="fas fa-shield-alt card-icon-font"></i>
-                    <div class="card-content-text">
-                        <header class="feature-card-title">Strongly Typed Domain Model</header>
-                        <p>Spine promotes strong typing of all parts of&nbsp;a business model.
-                           And for all languages of your project.
-                           You don't have to resort to JSON to pass your&nbsp;data.</p>
-                    </div>
-                </div>
-
-                <div class="feature-card">
                     <i class="fas fa-magic card-icon-font"></i>
                     <div class="card-content-text">
                         <header class="feature-card-title">Code Generation</header>
-                        <p>The data model is defined and maintained in Protobuf.
-                            The code is automatically generated for all the languages of your
-                            project, as you update the&nbsp;model.</p>
+                        <p>The code is automatically generated for all the languages of
+                            your project, as you update the model.
+                            Forget about missed <code>hashCode()</code> or <code>equals()</code>.
+                        </p>
                     </div>
                 </div>
-
-                <div class="feature-card">
-                    <i class="far fa-hexagon card-icon-font"></i>
-                    <div class="card-content-text">
-                        <header class="feature-card-title">Choice of Storage and Deployment Platforms</header>
-                        <p>The framework promotes writing
-                            storage- and platform-agnostic code. You can start with
-                            <a href="https://github.com/SpineEventEngine/jdbc-storage">JDBC</a> and
-                            later switch to Google Cloud Platform
-                            <a href="https://github.com/SpineEventEngine/gcloud-java">Datastore</a>
-                            by changing just a few lines of&nbsp;code.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second column -->
-            <div class="col-md-4">
                 <div class="feature-card">
                     <i class="fas fa-code-branch card-icon-font"></i>
                     <div class="card-content-text">
@@ -82,39 +56,6 @@ headline: 'About Spine'
                             with client- and server nodes of your&nbsp;application.</p>
                     </div>
                 </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-gem card-icon-font"></i>
-                    <div class="card-content-text">
-                        <header class="feature-card-title">Promoted Immutability</header>
-                        <p>Commands, events, query results, entity states, and
-                            other data are immutable. This makes them automatically
-                            thread-safe, and thus freely shared or referenced.</p>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-feather-alt card-icon-font"></i>
-                    <div class="card-content-text">
-                        <header class="feature-card-title">Open Source</header>
-                        <p>Permissive Apache License allows using the framework in closed-source
-                            projects. You are also welcome to contribute to our framework development.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Third column -->
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <i class="fas fa-clipboard-check card-icon-font"></i>
-                    <div class="card-content-text">
-                        <header class="feature-card-title">Built-in Validation</header>
-                        <p>Constraints defined in a business model are
-                            automatically checked for commands, events, and entity states using our
-                            <a href="{{ site.baseurl }}/docs/guides/validation-user-guide.html">validation approach</a>.</p>
-                    </div>
-                </div>
-
                 <div class="feature-card">
                     <i class="fas fa-boxes card-icon-font"></i>
                     <div class="card-content-text">
@@ -122,6 +63,96 @@ headline: 'About Spine'
                         <p>Transforming a single-tenant application into
                             a&nbsp;multi-tenant one requires a few lines of code. You don't have to introduce
                             <code>tenantId</code> parameters for all the calls.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Open for Business Changes</header>
+                        <p>Add and remove fields while keeping binary compatibility with older code;
+                            handle new opportunities with <code>oneof</code>, natively provided by Protobuf.
+                            Build new <code>Projections</code> based on the whole event history of the system.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second column -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-lightbulb-on card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Clear API</header>
+                        <p>Concepts from the DDD books, such as
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/aggregate/Aggregate.html">Aggregate</a></code>,
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/projection/Projection.html">Projection</a></code>,
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/procman/ProcessManager.html">ProcessManager</a></code>,
+                            <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/entity/Repository.html">Repository</a></code> are right in the code.
+                            Ever guessed how to cook a <code><a href="https://spine.io/core-java/javadoc/server/io/spine/server/BoundedContext.html">BoundedContext</a></code>?
+                            Guess no more!
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clipboard-check card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Built-in Validation</header>
+                        <p>Constraints defined in a business model are
+                            automatically checked for commands, events, and entity states.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="far fa-hexagon card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Multiple Storage and Deployment Platforms</header>
+                        <p>The framework promotes development of
+                            storage- and platform-agnostic code. You can start with
+                            <a href="https://github.com/SpineEventEngine/jdbc-storage">JDBC</a>
+                            and later switch to Google Cloud Platform
+                            <a href="https://github.com/SpineEventEngine/gcloud-java">Datastore</a>
+                            simply changing a few lines of&nbsp;code.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-feather-alt card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Permissive Apache License</header>
+                        <p>Use freely in closed-source projects.
+                            You are also welcome to contribute to improving our framework.</p>
+                        <!--TODO: provide a link to Contribute page when it becomes available. -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third column -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-gem card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Promoted Immutability</header>
+                        <p>All the data types are immutable, which makes it easy to cache
+                            and share. Mutations are performed <em>only</em> in response
+                            to incoming messages using clearly defined cycles.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Type Safety</header>
+                        <p>Should you need <code>CustomerId</code> or
+                            <code>WorkEstimate</code> value, you get it within seconds,
+                            for multiple languages. You can also have binary storage format
+                            and automatic JSON support.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-fighter-jet card-icon-font"></i>
+                    <div class="card-content-text">
+                        <header class="feature-card-title">Develop faster, with better results</header>
+                        <p>With CQRS and Event-Driven Architecture you can separate development workflows.
+                            More experienced team members can concentrate on the core domain and the
+                            write-side tasks while the&nbsp;read–side and UI are created by the rest
+                            of the team.</p>
                     </div>
                 </div>
             </div>
