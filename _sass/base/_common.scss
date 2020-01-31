@@ -1,22 +1,3 @@
-// Layout
-.content-holder {
-  max-width: 1260px;
-  @media(max-width: $desktop-medium){
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-
-  @media(max-width: $tablet){
-    padding-right: 32px;
-    padding-left: 32px;
-  }
-
-  @media(max-width: $phone-medium){
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
 // Sections
 .intro-section {
   padding-top: 40px;
