@@ -239,7 +239,7 @@ th {
   &:before {
     content: '';
     position: absolute;
-    background: url('../img/icons/icon-caret-right.svg') no-repeat center/cover;
+    background: url('../../img/icons/icon-caret-right.svg') no-repeat center/cover;
     width: $icon-size--s;
     height: $icon-size--s;
     margin-left: -40px;
@@ -255,7 +255,7 @@ th {
 
     &:before {
       opacity: .2;
-      transform: rotate(0);
+      @include transform(rotate(0));
     }
   }
 }
