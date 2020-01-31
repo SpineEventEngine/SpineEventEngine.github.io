@@ -9,11 +9,13 @@ const headerFixPosition = $('.nav-hero-container').innerHeight();
 const goTopBtn = $('#go-top-btn');
 const copyrightEl = $('.copyright');
 const $pre = $('pre');
+const topOffset = 12; // Offset from the `header` navigation
+const scrollToOffset = initialHeadHeight + topOffset;
+
+/** Pages */
 const isFaqPage = $body.is('.faq');
 const isDocsPage = $body.is('.docs');
 const isPromoPage = $body.is('.promo-page');
-const topOffset = 12; // Offset from the `header` navigation
-const scrollToOffset = initialHeadHeight + topOffset;
 
 /** Code color variables */
 const $colorSelector = $('.color-selector');
@@ -46,20 +48,26 @@ $(function() {
 
     if (isFaqPage) {
         expandItemOnHashChange();
-        preventDefaultScroll();
     }
 });
 
 jQuery(window).on('load', function() {
     ifCookiesExist();
     setStickyElMaxHeight();
+    onDocHeadingAnchorClick();
+
+    if (isFaqPage) {
+        onFaqAnchorClick();
+    }
+
     scrollToAnchor();
 });
 
 window.onhashchange = function() {
+    scrollToAnchor();
+
     if (isFaqPage) {
         expandItemOnHashChange();
-        scrollToAnchor();
     }
 };
 
@@ -82,6 +90,15 @@ $(window).resize(function() {
 
     if (isPromoPage) {
         showCodeColorSelectorOnPromoPage();
+    }
+});
+
+/**
+ * Adds anchor links to headings on `Docs` pages.
+ */
+document.addEventListener('DOMContentLoaded', function(event) {
+    if (isDocsPage) {
+        anchors.add();
     }
 });
 
@@ -200,7 +217,7 @@ function showCodeColorSelector() {
         if (isPromoPage) {
             showCodeColorSelectorOnPromoPage();
         } else {
-            $colorSelector.addClass('show');   
+            $colorSelector.addClass('show');
         }
     } else {
         $colorSelector.removeClass('show');
@@ -340,41 +357,11 @@ function returnToInitialState() {
 }
 
 /**
- * Expands FAQ item on hash change.
+ * Expands collapsed item on hash change.
  */
 function expandItemOnHashChange() {
     if ('onhashchange' in window) {
         $(location.hash).collapse('show');
-    }
-}
-
-/**
- * Prevents default scroll behavior and prevents double click on the same hash for the FAQ page.
- */
-function preventDefaultScroll() {
-    $('.anchor-link').click(function(event) {
-        const anchor = $(this).attr('href');
-        const x = window.pageXOffset;
-        const y = window.pageYOffset;
-        event.preventDefault();
-        window.location.hash = anchor;
-        window.scrollTo(x, y);
-    });
-}
-
-/**
- * Scrolls to the anchor.
- */
-function scrollToAnchor() {
-    const anchor = location.hash;
-    let offset = -scrollToOffset;
-
-    if (isFaqPage) {
-        offset = -150; // Top offset for the FAQ page target element
-    }
-
-    if ($(anchor).length) {
-        $(window).scrollTo($(anchor), 500, {offset: offset});
     }
 }
 
