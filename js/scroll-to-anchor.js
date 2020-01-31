@@ -26,7 +26,7 @@ function scrollToAnchor() {
  * <p>Also it doesn't collapse item on the `anchor-link` double-click.
  */
 function onFaqAnchorClick() {
-    $('.anchor-link').click(function(event) {
+    $('.anchor-link-icon').click(function(event) {
         const anchor = $(this).attr('href');
         preventDefaultScroll(event, anchor);
         preventBootstrapItemCollapse(event);
