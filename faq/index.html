@@ -7,135 +7,137 @@ headline: 'Frequently Asked Questions'
 ---
 <div class="container-fluid content-holder">
     <div class="row">
-        <!-- Constrain readable sections to 9 unit wide columns for improved readability. -->
         <div class="col-md-9 faq-container">
-            <ul class="list-unstyled">
+            <ul class="faq-list">
                 <li class="faq-item">
                     {% assign questionID01 = 'why-spine' %}
-                    <h6 class="faq-headline">
-                        <span class="panel-title collapsed"
-                              data-toggle="collapse"
-                              data-target="#{{ questionID01 }}"
-                              aria-controls="{{ questionID01 }}"
-                              aria-expanded="false">
-                            Why is the framework called Spine?</span>
-                        <a class="anchor-link" href="#{{ questionID01 }}">
+                    <h6 class="faq-heading collapsed"
+                        data-toggle="collapse"
+                        data-target="#{{ questionID01 }}"
+                        aria-controls="{{ questionID01 }}"
+                        aria-expanded="false">
+                        <span>Why is the framework called Spine?</span>
+                        <a class="anchor-link-icon" href="#{{ questionID01 }}">
                             <i class="far fa-link"></i>
                         </a>
                     </h6>
-                    <div id="{{ questionID01 }}"
-                         class="faq-content collapse">
-                        <p>We want to give our users a framework that provides an infrastructure
-                            and connects the “service” parts of applications with their “brains”,
-                            or in other words, business logic. Find out how
-                            <a href="{{ site.baseurl }}/docs/prior-art.html">industry trends</a>
-                            <a href="{{ site.baseurl }}/docs/motivation.html">inspired us</a>
-                            to create Spine.</p>
+                    <div id="{{ questionID01 }}" class="faq-content collapse">
+                        <div class="faq-content-wrapper">
+                            <p>We want to give our users a framework that provides an infrastructure
+                                and connects the “service” parts of applications with their “brains”,
+                                or in other words, business logic. Find out how
+                                <a href="{{ site.baseurl }}/docs/prior-art.html">industry trends</a>
+                                <a href="{{ site.baseurl }}/docs/motivation.html">inspired us</a>
+                                to create Spine.</p>
+                        </div>
                     </div>
                 </li>
                 <li class="faq-item">
                     {% assign questionID02 = 'why-use-protobuf-and-not-json' %}
-                    <h6 class="faq-headline">
-                        <span class="panel-title collapsed"
-                              data-toggle="collapse"
-                              data-target="#{{ questionID02 }}"
-                              aria-controls="{{ questionID02 }}"
-                              aria-expanded="false">
-                            Why use Protobuf and not JSON?</span>
-                        <a class="anchor-link" href="#{{ questionID02 }}">
+                    <h6 class="faq-heading collapsed"
+                        data-toggle="collapse"
+                        data-target="#{{ questionID02 }}"
+                        aria-controls="{{ questionID02 }}"
+                        aria-expanded="false">
+                        <span>Why use Protobuf and not JSON?</span>
+                        <a class="anchor-link-icon" href="#{{ questionID02 }}">
                             <i class="far fa-link"></i>
                         </a>
                     </h6>
-                    <div id="{{ questionID02 }}"
-                         class="faq-content collapse">
-                        <p>As Protocol Buffers are already implemented in a variety of languages, they make
-                            interoperability between polyglot applications in your architecture much simpler.
-                            If you’re introducing a new service with one in Ruby or Go, or even communicating with a
-                            backend written in Node or Clojure, you simply have to hand the proto file to the code
-                            generator written in the target language, and you have some nice guarantees about
-                            safety and interoperability between those architectures.
-                        </p>
-                        <p>The finer points of platform-specific data types should be handled for you in the target
-                            language implementation, and you can get back to focusing on your
-                            tasks instead of matching up fields and data types in your ad hoc JSON encoding and
-                            decoding schemes.</p>
+                    <div id="{{ questionID02 }}" class="faq-content collapse">
+                        <div class="faq-content-wrapper">
+                            <p>As Protocol Buffers are already implemented in a variety of languages, they make
+                                interoperability between polyglot applications in your architecture much simpler.
+                                If you’re introducing a new service with one in Ruby or Go, or even communicating with a
+                                backend written in Node or Clojure, you simply have to hand the proto file to the code
+                                generator written in the target language, and you have some nice guarantees about
+                                safety and interoperability between those architectures.
+                            </p>
+                            <p>The finer points of platform-specific data types should be handled for you in the target
+                                language implementation, and you can get back to focusing on your
+                                tasks instead of matching up fields and data types in your ad hoc JSON encoding and
+                                decoding schemes.</p>
+                        </div>
                     </div>
                 </li>
                 <li class="faq-item">
                     {% assign questionID03 = 'why-protobuf-instead-of-proto' %}
-                    <h6 class="faq-headline">
-                        <span class="panel-title collapsed"
-                              data-toggle="collapse"
-                              data-target="#{{ questionID03 }}"
-                              aria-controls="{{ questionID03 }}"
-                              aria-expanded="false">
-                            Why Protobuf instead of Cap'n Proto, or SBE, or FlatBuffers?</span>
-                        <a class="anchor-link" href="#{{ questionID03 }}">
+                    <h6 class="faq-heading collapsed"
+                        data-toggle="collapse"
+                        data-target="#{{ questionID03 }}"
+                        aria-controls="{{ questionID03 }}"
+                        aria-expanded="false">
+                        <span>Why Protobuf instead of Cap'n Proto, or SBE, or FlatBuffers?</span>
+                        <a class="anchor-link-icon" href="#{{ questionID03 }}">
                             <i class="far fa-link"></i>
                         </a>
                     </h6>
                     <div id="{{ questionID03 }}" class="faq-content collapse">
-                        <p>Have a look at the <a href="https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html">comparison matrix</a>
-                            created by Kenton Varda, the author of Protobuf v2 and Cap'n Proto.
-                            Here are the main features that make Protobuf the best choice for our framework:</p>
-                        <ul>
-                            <li><b>Schema evolution</b> — business models should evolve as the business grows.</li>
-                            <li><b>Usable as mutable state</b> — for transforming Aggregate States and Stream Projections.</li>
-                            <li><b>Other languages</b> — for supporting client applications written in JavaScript,
-                                JavaNano, Swift, Objective-C, and other programming languages.</li>
-                        </ul>
-                        <p>Also, proven success of Protobuf technology which Google gained over the years of its
-                            successful usage is a major factor for choosing Protobuf rather than other alternatives.</p>
+                        <div class="faq-content-wrapper">
+                            <p>Have a look at the <a href="https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html">comparison matrix</a>
+                                created by Kenton Varda, the author of Protobuf v2 and Cap'n Proto.
+                                Here are the main features that make Protobuf the best choice for our framework:</p>
+                            <ul>
+                                <li><b>Schema evolution</b> — business models should evolve as the business grows.</li>
+                                <li><b>Usable as mutable state</b> — for transforming Aggregate States and Stream Projections.</li>
+                                <li><b>Other languages</b> — for supporting client applications written in JavaScript,
+                                    JavaNano, Swift, Objective-C, and other programming languages.</li>
+                            </ul>
+                            <p>Also, proven success of Protobuf technology which Google gained over the years of its
+                                successful usage is a major factor for choosing Protobuf rather than other alternatives.</p>
+                        </div>
                     </div>
                 </li>
                 <li class="faq-item">
                     {% assign questionID04 = 'which-version-of-protobuf-can-use' %}
-                    <h6 class="faq-headline">
-                        <span class="panel-title collapsed"
-                              data-toggle="collapse"
-                              data-target="#{{ questionID04 }}"
-                              aria-controls="{{ questionID04 }}"
-                              aria-expanded="false" >
-                            Which version of Protobuf can I use?</span>
-                        <a class="anchor-link" href="#{{ questionID04 }}">
+                    <h6 class="faq-heading collapsed"
+                        data-toggle="collapse"
+                        data-target="#{{ questionID04 }}"
+                        aria-controls="{{ questionID04 }}"
+                        aria-expanded="false">
+                        <span>Which version of Protobuf can I use?</span>
+                        <a class="anchor-link-icon" href="#{{ questionID04 }}">
                             <i class="far fa-link"></i>
                         </a>
                     </h6>
                     <div id="{{ questionID04 }}" class="faq-content collapse">
-                        <p>The framework is based on and supports only
-                            <a href="https://developers.google.com/protocol-buffers/docs/proto3">
-                                proto3 dialect</a>.</p>
+                        <div class="faq-content-wrapper">
+                            <p>The framework is based on and supports only
+                                <a href="https://developers.google.com/protocol-buffers/docs/proto3">
+                                    proto3 dialect</a>.</p>
+                        </div>
                     </div>
                 </li>
                 <li class="faq-item">
                     {% assign questionID05 = 'what-is-the-product-roadmap' %}
-                    <h6 class="faq-headline">
-                        <span class="panel-title collapsed"
-                              data-toggle="collapse"
-                              data-target="#{{ questionID05 }}"
-                              aria-controls="{{ questionID05 }}"
-                              aria-expanded="false">
-                            What is the product Roadmap?</span>
-                        <a class="anchor-link" href="#{{ questionID05 }}">
+                    <h6 class="faq-heading collapsed"
+                        data-toggle="collapse"
+                        data-target="#{{ questionID05 }}"
+                        aria-controls="{{ questionID05 }}"
+                        aria-expanded="false">
+                        <span>What is the product Roadmap?</span>
+                        <a class="anchor-link-icon" href="#{{ questionID05 }}">
                             <i class="far fa-link"></i>
                         </a>
                     </h6>
                     <div id="{{ questionID05 }}" class="faq-content collapse">
-                        <p>Here are our plans for the future versions of Spine:</p>
-                        <ul>
-                            <li><b>Release version 1.0;</b></li>
-                            <li><b>Implement Catch-Up for Projections in Java.</b></li>
-                        </ul>
-                        <p>We shall also concentrate on coverage of popular programming languages
-                            and technologies:</p>
-                        <div class="markdown">
+                        <div class="faq-content-wrapper">
+                            <p>Here are our plans for the future versions of Spine:</p>
                             <ul>
-                                <li><b>Node.js</b> to enable
-                                    <a href="{{ site.baseurl }}/docs/introduction/concepts.html#projection">Projections</a>
-                                    development by our users creating UI.</li>
-                                <li><b>Kotlin</b> client library.</li>
-                                <li><b>Swift</b> client library.</li>
+                                <li><b>Release version 1.0;</b></li>
+                                <li><b>Implement Catch-Up for Projections in Java.</b></li>
                             </ul>
+                            <p>We shall also concentrate on coverage of popular programming languages
+                                and technologies:</p>
+                            <div class="markdown">
+                                <ul>
+                                    <li><b>Node.js</b> to enable
+                                        <a href="{{ site.baseurl }}/docs/introduction/concepts.html#projection">Projections</a>
+                                        development by our users creating UI.</li>
+                                    <li><b>Kotlin</b> client library.</li>
+                                    <li><b>Swift</b> client library.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </li>
