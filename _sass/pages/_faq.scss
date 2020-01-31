@@ -6,7 +6,7 @@ $anchor-icon-size: 16px;
 .faq-container {
   margin: $content-top-offset 0 56px;
 
-  @media (max-width: $tablet) {
+  @media(max-width: $tablet) {
     margin-left: -$layout-padding-tablet;
     margin-right: -$layout-padding-tablet;
   }
