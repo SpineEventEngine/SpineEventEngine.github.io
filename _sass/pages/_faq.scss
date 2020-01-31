@@ -1,25 +1,26 @@
 $content-top-offset: 48px;
 $faq-title-padding: 16px 0 16px $icon-right-offset;
 $faq-content-padding: 0 $icon-right-offset;
+$faq-content-padding-mobile: 0 $icon-right-offset 24px;
 $anchor-icon-size: 16px;
+$faq-item-divider: 1px dotted #d7d7d7;
 
 .faq-container {
   margin: $content-top-offset 0 56px;
 
-  @media(max-width: $tablet) {
-    margin-left: -$layout-padding-tablet;
-    margin-right: -$layout-padding-tablet;
-  }
-
-  @media(max-width: $phone-medium) {
-    margin-left: -$layout-padding-phone;
-    margin-right: -$layout-padding-phone;
+  @media (max-width: $tablet) {
+    margin-top: 24px;
+    padding: 0 !important;
   }
 
   .faq-content {
     // The wrapper is needed to fix Bootstrap bug with item jumping.
     .faq-content-wrapper {
       padding: $faq-content-padding;
+
+      @media (max-width: $tablet) {
+        padding: $faq-content-padding-mobile;
+      }
     }
 
     ul {
@@ -31,11 +32,19 @@ $anchor-icon-size: 16px;
   }
 
   .faq-item {
+    @media (max-width: $tablet) {
+      border-bottom: $faq-item-divider;
+    }
+
     .faq-heading {
       display: inline-block;
       padding: $faq-title-padding;
       cursor: pointer;
       @extend %expandable-title;
+
+      @media (max-width: $tablet) {
+        padding-right: 20px;
+      }
     }
 
     &:hover {
