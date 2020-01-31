@@ -58,14 +58,14 @@ $space-for-icon: 32px;
       }
 
       .anchor-link-icon {
-        visibility: visible;
+        opacity: 1;
       }
     }
   }
 
   .anchor-link-icon {
     display: inline-block;
-    visibility: hidden;
+    opacity: 0;
     padding-left: 6px;
     margin-left: -$space-for-icon;
     font-size: $anchor-icon-size;
