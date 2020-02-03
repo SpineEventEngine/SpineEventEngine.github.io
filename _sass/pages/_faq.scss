@@ -72,7 +72,8 @@ $space-for-icon: 32px;
     color: rgba($black, .38);
     @include transition(all .3s ease-in-out);
 
-    @media (max-width: $phone-large){
+    @media (max-width: $tablet) {
+      opacity: 1;
       padding-left: 10px;
     }
 
