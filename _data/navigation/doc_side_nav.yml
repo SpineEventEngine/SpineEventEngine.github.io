@@ -1,8 +1,10 @@
 doc_side_nav:
   - page: Introduction
     children:
-      - page: Development Process
+      - page: Motivation
         url: /docs/introduction/
+      - page: Development Process
+        url: /docs/introduction/development.html
       - page: Architecture
         url: /docs/introduction/architecture.html
       - page: Concepts
