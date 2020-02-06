@@ -70,6 +70,7 @@ message TaskCreated {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
+    UserId who_created = 4 [(required) = true];
 }
 </code></pre>
  
@@ -80,7 +81,8 @@ Then we define states of entities.
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
-    DeveloperId assignee = 4;
+    UserId owner = 4 [(required) = true];
+    DeveloperId assignee = 5;
 }</code></pre>
  
 [Value Objects](concepts.html#value-object) are added when they are needed to describe entities
@@ -100,7 +102,7 @@ the “life” of the domain model. Messages are delivered to entities by [Repos
 #### Entities
 
 During this step we create entity classes and add message handling methods to them. 
-Code snippets below show `Aggregate` and `Projection` classes with handler methods.
+Code snippets below show `Aggregate` and `Projection` classes with their handler methods.
 
 <pre class="highlight lang-java">
 <code>final class TaskAggregate
@@ -112,7 +114,7 @@ Code snippets below show `Aggregate` and `Projection` classes with handler metho
                 .newBuilder()
                 .setId(cmd.getId())
                 .setName(cmd.getName())
-                .setOwner(ctx.getActor())
+                .setWhoCreated(ctx.getActor())
                 .vBuild();
     }
     ...
@@ -136,7 +138,7 @@ Code snippets below show `Aggregate` and `Projection` classes with handler metho
 }</code></pre>
 
 #### Repositories
-The framework provide default implementations for repositories.
+The framework provides default implementations for repositories.
 A custom `Repository` class may be needed for:
   * <strong>Dispatching messages to entities in a non-standard way</strong>.
     By default, a command is dispatched using the first field of the command message.
@@ -152,7 +154,7 @@ Repositories are added to the Bounded Context they belong when it is created:
     .build();
 </code></pre>  
 
-This wires repositories into the message delivery mechanism of corresponding
+This wires repositories into the message delivery mechanism of the corresponding
 [Buses](concepts.html#message-buses).
   
 #### Testing
@@ -218,12 +220,12 @@ server.start();
 
 This exposes [`CommandService`](concepts.html#command-service), 
 [`QueryService`](concepts.html#query-service), and 
-[`SubscriptionService`](concepts.md#subscription-service) for client-side connections.
+[`SubscriptionService`](concepts.md#subscription-service) to client-side connections.
 
 ## Repeating the cycle
 
 The stages described above are repeated as another Bounded Context is added to the implementation,
-or as changes or extensions to the existing contexts are required. 
+or as some changes or extensions to the existing contexts are required. 
  
 ## Client application development
 
