@@ -14,14 +14,11 @@ of tons of manual work for:
  - delivering events and data to web and mobile clients.
 
 We decided to create a framework that can help us and development groups like us
-building apps using Domain-Driven Design.
-
-There are principles Spine is based on:
+building apps using Domain-Driven Design. These are the principles our framework is based on:
 
  - Events and Commands should be **strongly typed**.
  - It should be **easy to pass data** between different programming languages and platforms. 
-   We want a domain language become really Ubiquitous, not only in people-to-people communications,
-   but in computer-to-computer communications too.
+   We want a domain language become really Ubiquitous.
  - Objects must be **immutable** unless there is a good reason not to do so.
  - Developers should spend more time on business logic rather than plumbing related to storage
    matters or server environment aspects.
