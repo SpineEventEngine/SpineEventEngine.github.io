@@ -150,7 +150,7 @@ Repositories are added to the Bounded Context they belong when it is created:
 <pre class="highlight lang-java">
 <code>BoundedContext tasksContext = BoundedContext.multiTenant("Tasks")
     .add(TaskAggregate.class) // use default repository impl.
-    .add(new TaskProjectionRepository())
+    .add(new TaskItemProjectionRepository())
     .build();
 </code></pre>  
 
