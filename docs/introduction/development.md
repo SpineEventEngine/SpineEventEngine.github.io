@@ -122,7 +122,7 @@ Code snippets below show `Aggregate` and `Projection` classes with their handler
 </code></pre>
 
 <pre class="highlight lang-java">
-<code>final class TaskProjection
+<code>final class TaskItemProjection
     extends Projection&lt;TaskId, TaskItem, TaskItem.Builder&gt; {
 
     @Subscribe
