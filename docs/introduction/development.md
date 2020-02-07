@@ -114,10 +114,17 @@ Code snippets below show `Aggregate` and `Projection` classes with their handler
                 .newBuilder()
                 .setId(cmd.getId())
                 .setName(cmd.getName())
+                .setDescription(cmd.getDescription())
                 .setWhoCreated(ctx.getActor())
                 .vBuild();
     }
-    ...
+    
+    @Apply
+    void event(TaskCreated e) {
+        builder().setName(e.getName())
+                 .setDescription(e.getDescription())
+                 .setOwner(e.getWhoCreated());
+    }
 }
 </code></pre>
 
