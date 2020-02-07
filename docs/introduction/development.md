@@ -114,15 +114,22 @@ Code snippets below show `Aggregate` and `Projection` classes with their handler
                 .newBuilder()
                 .setId(cmd.getId())
                 .setName(cmd.getName())
+                .setDescription(cmd.getDescription())
                 .setWhoCreated(ctx.getActor())
                 .vBuild();
     }
-    ...
+    
+    @Apply
+    void event(TaskCreated e) {
+        builder().setName(e.getName())
+                 .setDescription(e.getDescription())
+                 .setOwner(e.getWhoCreated());
+    }
 }
 </code></pre>
 
 <pre class="highlight lang-java">
-<code>final class TaskProjection
+<code>final class TaskItemProjection
     extends Projection&lt;TaskId, TaskItem, TaskItem.Builder&gt; {
 
     @Subscribe
@@ -150,7 +157,7 @@ Repositories are added to the Bounded Context they belong when it is created:
 <pre class="highlight lang-java">
 <code>BoundedContext tasksContext = BoundedContext.multiTenant("Tasks")
     .add(TaskAggregate.class) // use default repository impl.
-    .add(new TaskProjectionRepository())
+    .add(new TaskItemProjectionRepository())
     .build();
 </code></pre>  
 
