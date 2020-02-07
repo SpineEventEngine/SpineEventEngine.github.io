@@ -20,8 +20,8 @@ Links to smaller examples are listed below.
 
 ## JavaScript
 
-<p class="coming-soon">Coming soon...</p>
+<ul>
+    <li><a target="_blank" href="https://github.com/spine-examples/todo-list/tree/master/client/html-js">Simple HTML/JS ToDo List client</a> — a client app with very basic features.</li>
+    <li><a target="_blank" href="https://github.com/spine-examples/todo-list/tree/master/client/angular">ToDo List client on Angular</a> — more featured client built with Angular 7.</li>
+</ul>
 
-## C++
-
-<p class="coming-soon">Coming soon...</p>
