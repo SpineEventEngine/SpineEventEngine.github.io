@@ -436,3 +436,20 @@ function initBootstrapTooltips() {
 function isTouchDevice() {
     return true === ('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch);
 }
+
+/**
+ * Copies a text to the clipboard and shows the shackbar.
+ *
+ * @param {String} textToCopy text that will be copied to the clipboard
+ */
+function copyToClipboard(textToCopy) {
+    const dummy = document.createElement('input');
+
+    hideSnackbar();
+    document.body.appendChild(dummy);
+    dummy.value = textToCopy;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    showSnackbar('Copied to clipboard');
+}
