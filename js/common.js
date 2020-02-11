@@ -438,7 +438,7 @@ function isTouchDevice() {
 }
 
 /**
- * Copies a text to the clipboard and shows the shackbar.
+ * Copies a text to the clipboard and shows the snackbar.
  *
  * @param {String} textToCopy text that will be copied to the clipboard
  */
