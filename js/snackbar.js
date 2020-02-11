@@ -13,7 +13,7 @@ let snackbarTimeout;
  *
  * The snackbar will be hidden automatically after 3 seconds.
  *
- * @param textToShow text that will be shown in the snackbar.
+ * @param {String} textToShow text that will be shown in the snackbar.
  */
 function showSnackbar(textToShow) {
     $snackbarText.text(textToShow);
