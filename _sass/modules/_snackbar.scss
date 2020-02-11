@@ -1,0 +1,47 @@
+:root {
+  --snackbar-bottom-position: 20px;
+}
+$snackbar-animation: fadein .5s, fadeout .5s 2.5s;
+$snackbar-z-index: 1000;
+
+.snackbar {
+  visibility: hidden;
+  position: fixed;
+  z-index: $snackbar-z-index;
+  background-color: #333;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px 24px;
+  left: 32px;
+  bottom: var(--snackbar-bottom-position);
+
+  &.show {
+    visibility: visible;
+    -webkit-animation: $snackbar-animation;
+    animation: $snackbar-animation;
+  }
+}
+
+@include keyframes(fadein) {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: var(--snackbar-bottom-position);
+    opacity: 1;
+  }
+}
+
+@include keyframes(fadeout) {
+  from {
+    bottom: var(--snackbar-bottom-position);
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

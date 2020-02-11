@@ -40,6 +40,7 @@ function onDocHeadingAnchorClick() {
     $('.anchorjs-link').click(function (event) {
         const anchor = $(this).attr('href');
         preventDefaultScroll(event, anchor);
+        copyToClipboard(window.location.href);
     });
 }
 
