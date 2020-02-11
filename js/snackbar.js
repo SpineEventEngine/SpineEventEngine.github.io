@@ -43,11 +43,14 @@ function hideSnackbar() {
  */
 function verifySnackbarPosition() {
     const cookieInfo = $('#cookieChoiceInfo');
+    const cookieContainerHeight = cookieInfo.innerHeight();
+    const initialBottomPosition = 20;
+    const bottomPositionWithCookieInfo = cookieContainerHeight + initialBottomPosition;
     let root = document.documentElement;
 
     if (cookieInfo.length) {
-        root.style.setProperty('--snackbar-bottom-position', '80px');
+        root.style.setProperty('--snackbar-bottom-position', `${bottomPositionWithCookieInfo}px`);
     } else {
-        root.style.setProperty('--snackbar-bottom-position', '32px');
+        root.style.setProperty('--snackbar-bottom-position', `${initialBottomPosition}px`);
     }
 }
