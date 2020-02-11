@@ -16,6 +16,8 @@ let snackbarTimeout;
  * @param {String} textToShow text that will be shown in the snackbar.
  */
 function showSnackbar(textToShow) {
+    verifySnackbarPosition();
+
     $snackbarText.text(textToShow);
     $snackbar.addClass('show');
 
@@ -33,5 +35,19 @@ function hideSnackbar() {
 
     if ($snackbar.hasClass('show')) {
         $snackbar.removeClass('show');
+    }
+}
+
+/**
+ * Changes the snackbar bottom position if the cookie info panel exists on the page.
+ */
+function verifySnackbarPosition() {
+    const cookieInfo = $('#cookieChoiceInfo');
+    let root = document.documentElement;
+
+    if (cookieInfo.length) {
+        root.style.setProperty('--snackbar-bottom-position', '80px');
+    } else {
+        root.style.setProperty('--snackbar-bottom-position', '32px');
     }
 }

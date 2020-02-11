@@ -1,5 +1,8 @@
+:root {
+  --snackbar-bottom-position: 32px;
+}
+
 $snackbar-width: 200px;
-$snackbar-bottom-position: 32px;
 $snackbar-animation: fadein .5s, fadeout .5s 2.5s;
 $snackbar-z-index: 1000;
 
@@ -14,7 +17,7 @@ $snackbar-z-index: 1000;
   border-radius: 5px;
   padding: 16px;
   left: 32px;
-  bottom: $snackbar-bottom-position;
+  bottom: var(--snackbar-bottom-position);
 
   &.show {
     visibility: visible;
@@ -29,14 +32,14 @@ $snackbar-z-index: 1000;
     opacity: 0;
   }
   to {
-    bottom: $snackbar-bottom-position;
+    bottom: var(--snackbar-bottom-position);
     opacity: 1;
   }
 }
 
 @include keyframes(fadeout) {
   from {
-    bottom: $snackbar-bottom-position;
+    bottom: var(--snackbar-bottom-position);
     opacity: 1;
   }
   to {
