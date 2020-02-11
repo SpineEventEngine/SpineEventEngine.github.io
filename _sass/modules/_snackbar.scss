@@ -1,8 +1,6 @@
 :root {
   --snackbar-bottom-position: 32px;
 }
-
-$snackbar-width: 200px;
 $snackbar-animation: fadein .5s, fadeout .5s 2.5s;
 $snackbar-z-index: 1000;
 
@@ -10,12 +8,12 @@ $snackbar-z-index: 1000;
   visibility: hidden;
   position: fixed;
   z-index: $snackbar-z-index;
-  min-width: $snackbar-width;
   background-color: #333;
+  font-size: 15px;
   color: #fff;
   text-align: center;
   border-radius: 5px;
-  padding: 16px;
+  padding: 16px 24px;
   left: 32px;
   bottom: var(--snackbar-bottom-position);
 
