@@ -1,15 +1,17 @@
-.preview-content {
+.full-screen-preview {
   .preview-header {
     padding: 24px 24px 16px;
     border-bottom: 1px solid rgba(0, 0, 0, .12);
 
     .preview-title {
       padding: 0;
+      margin: 0;
     }
 
     .preview-subtitle {
       font-size: 15px;
       margin-top: 8px;
+      max-width: 500px;
     }
 
     .close-btn-wrapper {
