@@ -33,7 +33,7 @@ This list is not exhaustive. The ["Domain-Driven Design" book](https://dddcommun
 
 ## The Domain
 
-![Bug picture domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/domain.jpg)
+![Big picture domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/domain.jpg)
 
 For the sake of an example, let’s consider airport management software. An airport is a complex system which relies on many people and much software working together. Let’s consider the system which helps the flight dispatchers make decisions on **Takeoffs and Landings**. The system integrates with the software responsible for **Security Checks**, **Airplane Supplies**, and **Weather**. All of these systems are independent of **Takeoffs and Landings** as well as of each other. Thus, each of them can be treated as a third party.
 
