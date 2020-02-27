@@ -23,7 +23,7 @@ For the purpose of this article, let’s consider only the technical (and not th
 
 A Context Map, from a technical perspective, is the relationship between several Bounded Contexts. The book lists a few archetypes of a Context Map. Some of them are:
 
- - *Customer/Supplier models*, which establish an upstream-downstream relation. The Supplier team tailors its model specifically for the Customer model. For this strategy to work, the developers of both models have to collaborate.
+ - *Customer/Supplier Models*, which establish an upstream-downstream relation. The Supplier team tailors its model specifically for the Customer model. For this strategy to work, the developers of both models have to collaborate.
  - The *Conformist* pattern, which is very similar to the Customer/Supplier, except that the upstream is not available for change. Thus the downstream has to copy the language into its model thoughtlessly, hence conformism.
  - *Anticorruption Layer* pattern (a.k.a. *ACL*), describing a Bounded Context, which is not willing to accept the language of the upstream and instead builds an intermediate model in the "no man’s land". The *ACL* translates the language of the upstream into the native language of the downstream Context.
 
@@ -125,12 +125,12 @@ The schema of the conformist relation looks somewhat like the Customer/Supplier 
 
 ```java
 public void start() {
+    // ...
+    Request getEvents = new Request.Builder()
+            .get()
+            .url(weatherService.getSpec() + "/events")
+            .build();
     while (running) {
-        // ...
-        Request getEvents = new Request.Builder()
-                .get()
-                .url(weatherService.getSpec() + "/events")
-                .build();
         try {
             ResponseBody responseBody = client.newCall(getEvents)
                                               .execute()
@@ -196,8 +196,8 @@ The Anticorruction Layer between **Takeoffs and Landings** and **Security Checks
 
 ```java
 public void start() {
+    Request request = // ...
     while (active) {
-        Request request = // ...
         try {
             ResponseBody body = client.newCall(request).execute().body();
             List<TsaPassenger> passengers = Json.fromJson(body.string(), TsaPassengers.class)
@@ -214,7 +214,6 @@ public void start() {
             _warn().withCause(e).log();
         }
         // ...
-        }
     }
 }
 ```
