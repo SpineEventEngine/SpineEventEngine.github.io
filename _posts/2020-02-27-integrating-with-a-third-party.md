@@ -37,6 +37,10 @@ This list is not exhaustive. The ["Domain-Driven Design" book](https://dddcommun
 
 For the sake of an example, let’s consider airport management software. An airport is a complex system which relies on many people and much software working together. Let’s consider the system which helps the flight dispatchers make decisions on **Takeoffs and Landings**. The system integrates with the software responsible for **Security Checks**, **Airplane Supplies**, and **Weather**. All of these systems are independent of **Takeoffs and Landings** as well as of each other. Thus, each of them can be treated as a third party.
 
+### Disclaimer
+
+The domain of an airport was chosen for being an "easy" example, familiar to many readers. The system reflects a general impression of an airport and should not be treated as a accurate representation.
+
 ## Customer/Supplier Contexts
 
 ![Customer/Supplier Contexts domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/customer-supplier.jpg){: .small-square-image}
