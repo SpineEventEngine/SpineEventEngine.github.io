@@ -59,17 +59,14 @@
   }
 
   .post-author-company {
-    display: inline-block
+    display: inline-block;
+    margin-bottom: $spacing--xl;
   }
 
   .post-author, .post-company {
     color: $gray;
     display: block;
     font-size: 13px;
-  }
-
-  .post-author {
-    margin-top: $spacing--xl;
   }
 
   .post-company {
@@ -79,7 +76,6 @@
       display: none;
     }
   }
-
 
   .post-excerpt {
     h2 {
