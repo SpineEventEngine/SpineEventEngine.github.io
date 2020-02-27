@@ -41,13 +41,13 @@ For the sake of an example, let’s consider airport management software. An air
 
 ![Customer/Supplier Contexts domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/customer-supplier.jpg){: .small-square-image}
 
-The **Takeoffs**** and ****Landings** system must know whether an *Aircraft* is ready for the *Flight*. This decision requires data on the supplies, which are provided for the *Aircraft*. To obtain this knowledge, the system integrates with the **Airplane Supplies** Context. Note the language difference between the *Aircraft* and an *Airplane*. Apparently, the two Contexts view the same entity of the real world from different perspectives.
-**Airplane Supplies** Context is an integral part of the airport software. Thus, by communicating with the developers responsible for **Airplane Supplies**, we are able to build a Customer/Supplier relationship between the **Airplane Supplies** Context and our system. The **Airplane Supplies** Context does not implement an Event-based messaging internally. However, it still acts as a Supplier. Specially for **Takeoffs**** and ****Landings**, the Supplier Context generates Events and publishes them to a shared channel. **Takeoffs and Landings**, the Customer, subscribes to those Events. 
+The **Takeoffs and Landings** system must know whether an *Aircraft* is ready for the *Flight*. This decision requires data on the supplies, which are provided for the *Aircraft*. To obtain this knowledge, the system integrates with the **Airplane Supplies** Context. Note the language difference between the *Aircraft* and an *Airplane*. Apparently, the two Contexts view the same entity of the real world from different perspectives.
+**Airplane Supplies** Context is an integral part of the airport software. Thus, by communicating with the developers responsible for **Airplane Supplies**, we are able to build a Customer/Supplier relationship between the **Airplane Supplies** Context and our system. The **Airplane Supplies** Context does not implement an Event-based messaging internally. However, it still acts as a Supplier. Specially for **Takeoffs and Landings**, the Supplier Context generates Events and publishes them to a shared channel. **Takeoffs and Landings**, the Customer, subscribes to those Events. 
 Note that those Events are specifically tailored to be consumed by our system, and thus we do not have to set up an elaborate Anticorruption Layer. However, a simple adapter is still required to parse and validate domain Events, which we then publish to a Bounded Context, implemented in Spine.
 
 ![Customer/Supplier Contexts diagram]({{ site.baseurl }}/img/integrating-with-a-3d-party/customer-supplier-diagram.svg)
 
-The Event Consumer, as depicted above, implements the Event transformation logic. In order to establish this communication channel, the **Airplane Supplies** system declares a [gRPC](https://grpc.io/) service. In [supplies_service.proto](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto):
+The Event Consumer, as depicted above, implements the Event transformation logic. In order to establish this communication channel, the **Airplane Supplies** system declares a [gRPC](https://grpc.io/) service. In [`supplies_service.proto`](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto):
 
 ```proto
 // ...
@@ -62,7 +62,7 @@ service SuppliesEventProducer {
 }
 ```
 
-The **Airplane Supplies** system [implements](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java) the service and exposes it on an endpoint available to the **Takeoffs**** and ****Landings** system:
+The **Airplane Supplies** system [implements](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java) the service and exposes it on an endpoint available to the **Takeoffs and Landings** system:
 
 ```java
 public final class SuppliesEventProducer extends SuppliesEventProducerImplBase {
@@ -86,7 +86,7 @@ public final class SuppliesEventProducer extends SuppliesEventProducerImplBase {
 }
 ```
 
-The event producer obtains cached historical events, matches them to the received subscription, and sends them to the client. The **Takeoffs**** and ****Landings** system implements an [event consumer](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java) which constructs a subscription and maintains it as long as the system needs to receive more events. The consumer broadcasts the received Events via an instance of [ThirdPartyContext](https://spine.io/core-java/javadoc/server/io/spine/server/integration/ThirdPartyContext.html):
+The event producer obtains cached historical events, matches them to the received subscription, and sends them to the client. The **Takeoffs and Landings** system implements an [event consumer](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java) which constructs a subscription and maintains it as long as the system needs to receive more events. The consumer broadcasts the received Events via an instance of [`ThirdPartyContext`](https://spine.io/core-java/javadoc/server/io/spine/server/integration/ThirdPartyContext.html):
 
 ```java
 @Override
@@ -101,7 +101,7 @@ public void onNext(SuppliesEvent event) {
 }
 ```
 
-The [AircraftAggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/AircraftAggregate.java) reacts on those events. Note that all the events published through ThirdPartyContext are always external, so should be the subscriber and reactor methods.
+The [`AircraftAggregate`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/AircraftAggregate.java) reacts on those events. Note that all the events published through `ThirdPartyContext` are always `external`, so should be the subscriber and reactor methods.
 
 ```java
 @React(external = true)
@@ -121,7 +121,7 @@ AircraftPreparedForFlight on(PreflightCheckComplete event) {
 
 ![Conformist diagram]({{ site.baseurl }}/img/integrating-with-a-3d-party/conformist-diagram.svg)
 
-The schema of the conformist relation looks somewhat like the Customer/Supplier schema. Similar to the Customer/Supplier, **Takeoffs and Landings** Context is downstream from another Context, in this case from **Weather**. Unlike the Customer/Supplier, **Weather** does not provide a specific Event Producer, which would adapt **Weather** Events to the needs of **Takeoffs and Landings**. Also, the Event Consumer on the **Takeoffs**** and Landings** side is rather thin and devoid of logic. The Consumer consists of two parts: [WeatherUpdateClient](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java) and [WeatherUpdateEndpoint](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java). The client polls the pull-style API of the **Weather** system.
+The schema of the conformist relation looks somewhat like the Customer/Supplier schema. Similar to the Customer/Supplier, **Takeoffs and Landings** Context is downstream from another Context, in this case from **Weather**. Unlike the Customer/Supplier, **Weather** does not provide a specific Event Producer, which would adapt **Weather** Events to the needs of **Takeoffs and Landings**. Also, the Event Consumer on the **Takeoffs and Landings** side is rather thin and devoid of logic. The Consumer consists of two parts: [`WeatherUpdateClient`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java) and [`WeatherUpdateEndpoint`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java). The client polls the pull-style API of the **Weather** system.
 
 ```java
 public void start() {
@@ -166,7 +166,7 @@ public void receiveNew(WeatherMeasurement measurement) {
 }
 ```
 
-The [FlightAggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java) reacts on those events and changes its state as the result:
+The [`FlightAggregate`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java) reacts on those events and changes its state as the result:
 
 ```java
 @React(external = true)
@@ -192,7 +192,7 @@ Interaction with legacy software with known technical issues can be established 
 
 The Anticorruption Layer (ACL) acts as an interpreter from the language of **Security Checks** Context into the language of **Takeoffs and Landings** Context. The ACL takes care of polling data from the **Security Checks** API, filtering it out, transforming it into Events, which can be understood by **Takeoffs and Landings**, etc.
 The idea of an Anticorruption Layer may sound simple. In practice, this is a very powerful tool when it comes to integrating with a third-party or legacy system. It is often used when splitting up a large monolithic legacy system (a.k.a. a Big Ball of Mud) into Bounded Contexts. In those cases, an ACL prevents the new "clean" Contexts from merging back into the Mud. If you are looking for a way to add functionality to a complex legacy system without increasing the technical debt, look no further.
-The Anticorruction Layer between **Takeoffs and Landings** and **Security Checks** is composed of a [polling client](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java), which performs all the technical work of obtaining and validating data, and a [Process Manager](https://spine.io/docs/introduction/concepts.html#process-manager) for the [Boarding](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java)[ process](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java). The **Security Checks** API provides data for each passenger independently. The client polls the data and publishes many intermediate PassengerBoarded or PassengerDeniedBoarding external events via [ThirdPartyContext](https://spine.io/core-java/javadoc/server/io/spine/server/integration/ThirdPartyContext.html):
+The Anticorruction Layer between **Takeoffs and Landings** and **Security Checks** is composed of a [polling client](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java), which performs all the technical work of obtaining and validating data, and a [Process Manager](https://spine.io/docs/introduction/concepts.html#process-manager) for the [Boarding process](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java). The **Security Checks** API provides data for each passenger independently. The client polls the data and publishes many intermediate `PassengerBoarded` or `PassengerDeniedBoarding` external events via [`ThirdPartyContext`](https://spine.io/core-java/javadoc/server/io/spine/server/integration/ThirdPartyContext.html):
 
 ```java
 public void start() {
@@ -219,7 +219,7 @@ public void start() {
 }
 ```
 
-The [Process Manager](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java) accumulates the Events and, once the whole *Flight* is boarded, emits a BoardingComplete event, which is later consumed by the [*Flight*](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java)[ Aggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
+The [Process Manager](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java) accumulates the Events and, once the whole *Flight* is boarded, emits a `BoardingComplete` event, which is later consumed by the [*Flight* Aggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
 
 ```java
 @React(external = true)
