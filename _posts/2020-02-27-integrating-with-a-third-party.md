@@ -125,12 +125,12 @@ The schema of the conformist relation looks somewhat like the Customer/Supplier 
 
 ```java
 public void start() {
+    // ...
+    Request getEvents = new Request.Builder()
+            .get()
+            .url(weatherService.getSpec() + "/events")
+            .build();
     while (running) {
-        // ...
-        Request getEvents = new Request.Builder()
-                .get()
-                .url(weatherService.getSpec() + "/events")
-                .build();
         try {
             ResponseBody responseBody = client.newCall(getEvents)
                                               .execute()
@@ -196,8 +196,8 @@ The Anticorruction Layer between **Takeoffs and Landings** and **Security Checks
 
 ```java
 public void start() {
+    Request request = // ...
     while (active) {
-        Request request = // ...
         try {
             ResponseBody body = client.newCall(request).execute().body();
             List<TsaPassenger> passengers = Json.fromJson(body.string(), TsaPassengers.class)
