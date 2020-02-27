@@ -13,3 +13,6 @@
 [submodule "examples/kanban"]
 	path = examples/kanban
 	url = https://github.com/spine-examples/kanban.git
+[submodule "examples/airport"]
+	path = examples/airport
+	url = https://github.com/spine-examples/airport
