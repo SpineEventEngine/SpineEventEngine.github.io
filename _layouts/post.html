@@ -5,15 +5,14 @@ bodyclass: post
 
 {% include nav.html %}
 
-<div class="container-fluid content-holder markdown">
-    <div class="row">
-        <div class="col-md-7 mx-auto">
+<div class="container-fluid content-holder post-container">
+    <div class="row justify-content-end">
+        <div class="col-lg-7 article-container markdown">
             <article class="post-wrapper">
                 <h1>{{ page.title }}</h1>
                 <div class="postdate">
                     Posted on {{ page.date | date: "%A, %B %d %Y" }}.
                 </div>
-                <hr>
                 <div class="content">
                     {{ content }}
                 </div>
@@ -29,6 +28,9 @@ bodyclass: post
                     </a>
                 </div>
             </article>
+        </div>
+        <div class="col-lg toc-col">
+            <div id="toc" class="toc sticky-element"></div>
         </div>
     </div>
 </div>
