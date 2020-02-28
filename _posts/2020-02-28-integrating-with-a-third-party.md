@@ -27,7 +27,7 @@ A Context Map, from a technical perspective, is the relationship between several
  - The *Conformist* pattern, which is very similar to the Customer/Supplier, except that the upstream is not available for change. Thus the downstream has to copy the language into its model thoughtlessly, hence conformism.
  - *Anticorruption Layer* pattern (a.k.a. *ACL*), describing a Bounded Context, which is not willing to accept the language of the upstream and instead builds an intermediate model in the "no man’s land". The *ACL* translates the language of the upstream into the native language of the downstream Context.
 
-<p class="side-note">
+<p class="note">
 This list is not exhaustive. The ["Domain-Driven Design" book](https://dddcommunity.org/book/evans_2003/) offers a few more strategies, all worth considering. However, in this article, we are going to describe the listed three patterns, because they are the most commonly used.
 </p>
 
@@ -37,9 +37,9 @@ This list is not exhaustive. The ["Domain-Driven Design" book](https://dddcommun
 
 For the sake of an example, let’s consider airport management software. An airport is a complex system which relies on many people and much software working together. Let’s consider the system which helps the flight dispatchers make decisions on **Takeoffs and Landings**. The system integrates with the software responsible for **Security Checks**, **Airplane Supplies**, and **Weather**. All of these systems are independent of **Takeoffs and Landings** as well as of each other. Thus, each of them can be treated as a third party.
 
-### Disclaimer
-
-The domain of an airport was chosen for being an "easy" example, familiar to many readers. The system reflects a general impression of an airport and should not be treated as a accurate representation.
+<p class="note">
+**Disclaimer.** The domain of an airport was chosen for being an "easy" example, familiar to many readers. The system reflects a general impression of an airport and should not be treated as an accurate representation.
+</p>
 
 ## Customer/Supplier Contexts
 
