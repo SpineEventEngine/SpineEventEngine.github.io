@@ -110,6 +110,14 @@
         top: 2px;
         margin-left: 6px;
       }
+
+      @media (max-width: $phone-xlarge) {
+        font-size: $article-font-size;
+
+        &:after {
+          top: 4px;
+        }
+      }
     }
   }
 
