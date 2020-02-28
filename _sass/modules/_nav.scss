@@ -22,7 +22,7 @@
   &.fixed-dark-header {
     background-color: $footerColor;
     position: fixed;
-    height: 68px;
+    height: $header-height;
 
     &.not-top {
       &.pinned {
@@ -194,7 +194,7 @@
   &.not-top {
     display: block;
     position: fixed;
-    height: 68px;
+    height: $header-height;
     background-color: $footerColor;
 
     &.pinned {
