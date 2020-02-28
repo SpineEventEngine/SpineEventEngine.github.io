@@ -3,49 +3,42 @@ layout: default
 group: 'navigation'
 title: Blog
 bodyclass: blog
-headline:  'Spine Blog'
+headline: 'Spine Blog'
 ---
-<div class="container-fluid content-holder content-part">
+<div class="container-fluid content-holder blog-container">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-lg">
             {% for post in paginator.posts %}
-            <h1 id="{{ post.title | slugify }}" class="post-title">
-                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </h1>
-
-            <div class="post-date">
-                {{ post.date | date: '%B %d, %Y' }}
-            </div>
-
-            {% if post.thumbnail %}
-            <div class="post-thumbnail" style="background-image: url({{post.thumbnail}})"></div>
-            {% endif %}
-
-            <div class="post-author-company">
-                {% if post.author %}
-                <div class="post-author">
-                    {{ post.author}}
+                <div class="article-container">
+                    <h1 id="{{ post.title | slugify }}" class="post-title">
+                        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                    </h1>
+                    <div class="post-info">
+                        {% if post.author %}
+                            <span class="post-author">{{ post.author}}</span>
+                            <span>on</span>
+                        {% endif %}
+                        <span class="post-date">{{ post.date | date: '%B %d, %Y' }}</span>
+                    </div>
+                    {% if post.thumbnail %}
+                    <div class="post-thumbnail" style="background-image: url({{post.thumbnail}})"></div>
+                    {% endif %}
+                    <div class="post-author-company">
+                        {% if post.company %}
+                        <div class="post-company">
+                            <a href={{post.company-link}} target="_blank">
+                                {{ post.company}}
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="post-excerpt">
+                        {{ post.excerpt }}
+                    </div>
+                    <div class="read-more-btn">
+                        <a href="{{ site.baseurl }}{{ post.url }}">Read more</a>
+                    </div>
                 </div>
-                {% endif %}
-
-                {% if post.company %}
-                <div class="post-company">
-                    <a href={{post.company-link}} target="_blank">
-                        {{ post.company}}
-                    </a>
-                </div>
-                {% endif %}
-            </div>
-
-            <div class="post-excerpt">
-                {{ post.excerpt }}
-            </div>
-            <div class="read-more">
-                <a href="{{ site.baseurl }}{{ post.url }}">
-                    <button class="btn-bordered">Read More</button>
-                </a>
-            </div>
-            <hr>
             {% endfor %}
             <div class="pagination">
                 {% if paginator.previous_page %}
@@ -71,14 +64,12 @@ headline:  'Spine Blog'
             </div>
         </div>
 
-        <div class="col-sm-3 offset-sm-1">
-            <div id="blogtoc" class="toc blog-toc">
-                <p class="blog-toc-header">All blog posts:</p>
+        <div class="col-lg toc-col">
+            <div class="toc sticky-element">
+                <p class="blog-toc-header">Blog posts:</p>
                 <ul>
                     {% for post in site.posts %}
-                    <li>
-                        <a href="{{ post.url }}">{{ post.title }}</a>
-                    </li>
+                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
