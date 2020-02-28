@@ -186,9 +186,8 @@
 
   .postdate {
     font-size: 14px;
-    font-weight: 500;
     line-height: 1.4;
-    color: rgba($textColor, .54);
+    color: rgba(black, .54);
     margin-bottom: 32px;
 
     @media(max-width: $tablet){
