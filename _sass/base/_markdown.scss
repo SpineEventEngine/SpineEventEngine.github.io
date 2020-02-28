@@ -1,13 +1,14 @@
-$article-line-height: 1.75;
+$article-line-height: 1.74;
 
 .markdown {
   p, ol, ul {
     font-family: 'PT Serif', serif;
     font-size: $article-font-size;
     line-height: $article-line-height;
+    text-align: justify;
 
     @media (max-width: $tablet) {
-      font-size: $article-font-size-mobile;
+      font-size: $font-size--s;
     }
   }
 
@@ -82,8 +83,9 @@ $article-line-height: 1.75;
 
   // Section Headlines
   h1 {
-    font-family: 'PT Serif', serif;
-    font-size: $font-size--xxl;
+    font-size: $font-size--xxxl;
+    font-weight: 300;
+    color: rgba(black, .4);
     line-height: 1.2;
     margin-bottom: 32px;
   }
@@ -105,10 +107,6 @@ $article-line-height: 1.75;
     @media (max-width: $tablet) {
       margin: 5px 0;
     }
-  }
-
-  code {
-    font-size: 16px;
   }
 
   // Lead Text Block
