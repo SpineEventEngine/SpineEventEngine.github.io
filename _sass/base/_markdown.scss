@@ -1,4 +1,16 @@
+$article-line-height: 1.75;
+
 .markdown {
+  p, ol, ul {
+    font-family: 'PT Serif', serif;
+    font-size: $article-font-size;
+    line-height: $article-line-height;
+
+    @media (max-width: $tablet) {
+      font-size: $article-font-size-mobile;
+    }
+  }
+
   p.coming-soon {
     color: rgba($black, .26);
     font-weight: 500;
@@ -7,7 +19,7 @@
   }
 
   p + ul {
-    margin-top: -2px;
+    margin-top: -8px;
   }
 
   h1, h2, h3, h2 {
@@ -33,65 +45,53 @@
     width: 100%;
   }
 
-  // List Items
-  li {
-    line-height: 24px;
-
-    ul {
-      margin-top: 10px;
-    }
-  }
-
   ol,
   ul {
-    list-style: none;
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 0 0 24px 6px;
+    margin: 0 0 32px 6px;
 
     li {
-      position: relative;
       margin-left: 18px;
-      margin-bottom: 6px;
-      font-size: 1rem;
+      margin-top: 1.05em;
+      padding-left: 6px; // Adds additional space between bullet and text.
+
+      ol,
+      ul {
+        margin-bottom: 32px;
+
+        li {
+          margin-top: .45em;
+        }
+      }
     }
   }
 
   ul {
+    list-style: disc;
+
     li {
-      &:before {
-        content: '';
-        position: absolute;
-        display: inline-block;
-        width: 5px;
-        height: 5px;
-        left: -18px;
-        top: 10px;
-        border-radius: 50%;
-        background: #C3CBD7;
+      ul {
+        list-style: circle;
       }
     }
   }
 
   ol {
     list-style: decimal;
-    li {
-      padding-left: 10px;
-      margin-bottom: 10px;
-
-      ul {
-        li {
-          padding-left: 0;
-        }
-      }
-    }
   }
 
   // Section Headlines
+  h1 {
+    font-family: 'PT Serif', serif;
+    font-size: $font-size--xxl;
+    line-height: 1.2;
+    margin-bottom: 32px;
+  }
+
   h2 {
     padding-top: 32px;
-    font-size: 1.875rem;
-    margin-bottom: 24px;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    font-weight: 700;
 
     &.top {
       padding-top: 8px;
@@ -104,6 +104,10 @@
     @media (max-width: $tablet) {
       margin: 5px 0;
     }
+  }
+
+  code {
+    font-size: 16px;
   }
 
   // Lead Text Block
