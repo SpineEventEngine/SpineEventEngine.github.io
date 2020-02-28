@@ -293,12 +293,12 @@ function addExternalClass() {
  * @see {@link http://gregfranko.com/jquery.tocify.js/ Toc Tocify}
  */
 function initTocTocify() {
-    const docsContainer = $('.docs-content-text');
-    const headersQuantity = docsContainer.find('h2, h3, h4');
+    const articleContainer = $('.article-container');
+    const headersQuantity = articleContainer.find('h2, h3, h4');
 
     if (headersQuantity.length >= 3) {
         tocNav.tocify({
-            context: docsContainer,
+            context: articleContainer,
             selectors: 'h2, h3, h4',
             showAndHide: false,
             scrollTo: scrollToOffset,
