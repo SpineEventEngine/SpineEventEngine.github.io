@@ -40,26 +40,26 @@ headline: 'Spine Blog'
                     </div>
                 </div>
             {% endfor %}
-            <div class="pagination">
+            <div class="row pagination">
                 {% if paginator.previous_page %}
-                <div class="previous col-xs-6">
-                    <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
-                        <span class="caret-left"></span>
-                        Newer
-                    </a>
-                </div>
+                    <div class="col-6">
+                        <a class="previous" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
+                            <i class="arrow left"></i>
+                            <span>Newer</span>
+                        </a>
+                    </div>
                 {% else %}
-                <span class="col-xs-6"></span>
+                    <span class="col-6"></span>
                 {% endif %}
                 {% if paginator.next_page %}
-                <div class="next col-xs-6 text-right">
-                    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}">
-                        Older
-                        <span class="caret-right"></span>
-                    </a>
-                </div>
+                    <div class="col-6 text-right">
+                        <a class="next" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
+                            <span>Older</span>
+                            <i class="arrow right"></i>
+                        </a>
+                    </div>
                 {% else %}
-                <span class="col-xs-6"></span>
+                    <span class="col-6"></span>
                 {% endif %}
             </div>
         </div>

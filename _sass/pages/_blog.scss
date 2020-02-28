@@ -122,41 +122,41 @@
   }
 
   .pagination {
-    padding-bottom: $spacing--xxl;
-    width: 100%;
-  }
+    margin: 32px 8px 48px;
 
-  @mixin caret($deg) {
-    background: url('../../img/icons/caret.svg') no-repeat center/contain;
-    content: '';
-    display: inline-block;
-    height: 24px;
-    margin: 0;
-    transform: rotate($deg);
-    vertical-align: bottom;
-    width: 24px;
-  }
+    .next,
+    .previous {
+      display: inline-block;
+      line-height: 22px;
+      padding: 0;
 
-  .caret-left {
-    @include caret(90deg);
-  }
+      &:hover {
+        text-decoration: none;
 
-  .caret-right {
-    @include caret(-90deg);
-  }
+        span {
+          padding-bottom: 2px;
+          border-bottom: 1px solid $mainBrandColor;
+        }
+      }
+    }
 
-  .next,
-  .previous {
-    display: inline-block;
-    line-height: 22px;
-    padding: 0;
-  }
+    $arrow-width: 2px;
+    .arrow {
+      border: solid $mainBrandColor;
+      border-width: 0 $arrow-width $arrow-width 0;
+      display: inline-block;
+      padding: 3px;
+      vertical-align: middle;
+      margin-top: -2px;
 
-  .next a,
-  .previous a {
-    &:hover {
-      span {
-        background: url("../../img/icons/caret-dark.svg") no-repeat center/contain;
+      &.left {
+        margin-right: 6px;
+        @include transform(rotate(135deg));
+      }
+
+      &.right {
+        margin-left: 6px;
+        @include transform(rotate(-45deg));
       }
     }
   }
