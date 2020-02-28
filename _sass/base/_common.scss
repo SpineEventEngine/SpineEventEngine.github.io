@@ -96,6 +96,10 @@
     margin: 40px 0 24px;
   }
 
+  &.initially-fixed {
+    position: fixed;
+  }
+
   &.hide-block {
     display: none !important;
   }

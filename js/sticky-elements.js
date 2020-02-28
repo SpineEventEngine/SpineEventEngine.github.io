@@ -5,6 +5,7 @@
 'use strict';
 
 const stickyElement = $('.sticky-element');
+const stickyElementFixed = stickyElement.hasClass('initially-fixed');
 const stickyElTopOffset = 32;
 const startPointToFixElement = initialHeadHeight + stickyElTopOffset;
 const initialMarginTop = 0;
@@ -13,7 +14,7 @@ const initialMarginTop = 0;
  * Fix sticky element on page while scrolling.
  */
 function fixStickyElement() {
-    if (stickyElement.length) {
+    if (stickyElement.length && !stickyElementFixed) {
         if (window.pageYOffset > startPointToFixElement) {
             stickyElement.addClass('sticky');
             stickyElement.css('margin-top', -startPointToFixElement);
