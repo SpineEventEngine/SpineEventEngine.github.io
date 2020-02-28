@@ -141,10 +141,14 @@
   }
 }
 
-$page-top-offset: $header-height + 32px;
-
 .post {
   background-color: $body-light-gray-color;
+
+  @media (max-width: $phone-xlarge) {
+    background-color: white;
+  }
+
+  $page-top-offset: $header-height + 32px;
 
   .post-container {
     margin-top: $page-top-offset;
