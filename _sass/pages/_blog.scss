@@ -141,16 +141,16 @@
   }
 }
 
+$page-top-offset: $header-height + 32px;
+
 .post {
   background-color: $body-light-gray-color;
 
+  .post-container {
+    margin-top: $page-top-offset;
+  }
+
   .post-wrapper {
-    padding: 112px 0 64px;
-
-    @media(max-width: $tablet){
-      padding: 72px 16px 40px;
-    }
-
     h1 {
       font-size: 40px;
       font-weight: 700;
