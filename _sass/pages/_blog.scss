@@ -124,6 +124,11 @@
   .pagination {
     margin: 32px 8px 48px;
 
+    @media (max-width: $phone-xlarge) {
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
     .next,
     .previous {
       display: inline-block;
