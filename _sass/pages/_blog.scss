@@ -1,5 +1,4 @@
 .blog {
-
   .content-part {
     margin-top: 24px;
 
@@ -107,7 +106,7 @@
   }
 
   @mixin caret($deg) {
-    background: url('../img/icons/caret.svg') no-repeat center/contain;
+    background: url('../../img/icons/caret.svg') no-repeat center/contain;
     content: '';
     display: inline-block;
     height: 24px;
@@ -136,13 +135,15 @@
   .previous a {
     &:hover {
       span {
-        background: url("../img/icons/caret-dark.svg") no-repeat center/contain;
+        background: url("../../img/icons/caret-dark.svg") no-repeat center/contain;
       }
     }
   }
 }
 
 .post {
+  background-color: $body-light-gray-color;
+
   .post-wrapper {
     padding: 112px 0 64px;
 
