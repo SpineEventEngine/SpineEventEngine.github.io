@@ -18,6 +18,7 @@ pre .tag { color: #000080; } /* html/xml tag */
 pre .atn { color: #008000; } /* attribute name */
 pre .atv { color: #008000; } /* attribute value */
 pre .dec, .var { color: #660E7A; } /* declaration; a variable name */
+pre .kd .pln { color: #000080; font-weight: 700 } /* keywords */
 
 /* Specifies styles for JAVA lang */
 .language-java pre .lit,

@@ -37,6 +37,10 @@ $nav-title-left-padding: 22px;
     max-height: none !important; // Unset calculated max-height for the sticky element on mobile
   }
 
+  li {
+    line-height: 22px;
+  }
+
   .side-nav-link {
     position: relative;
     display: block;
