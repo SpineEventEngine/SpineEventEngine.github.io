@@ -230,8 +230,6 @@ private void emitIfStatusKnown(TsaPassenger passenger) {
         emitDenied(passenger);
     }
 }
-
-
 ```
 
 The [Process Manager](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java) accumulates the Events and, once the whole *Flight* is boarded, emits a `BoardingComplete` event, which is later consumed by the [*Flight* Aggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
