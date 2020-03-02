@@ -19,19 +19,14 @@ headline: 'Spine Blog'
                             <span>on</span>
                         {% endif %}
                         <span class="post-date">{{ post.date | date: '%B %d, %Y' }}</span>
-                    </div>
-                    {% if post.thumbnail %}
-                    <div class="post-thumbnail" style="background-image: url({{post.thumbnail}})"></div>
-                    {% endif %}
-                    <div class="post-author-company">
                         {% if post.company %}
-                        <div class="post-company">
-                            <a href={{post.company-link}} target="_blank">
-                                {{ post.company}}
-                            </a>
-                        </div>
+                            <span>from</span>
+                            <a href="{{ post.company-link }}">{{ post.company }}</a>
                         {% endif %}
                     </div>
+                    {% if post.thumbnail %}
+                        <div class="post-thumbnail" style="background-image: url({{post.thumbnail}})"></div>
+                    {% endif %}
                     <div class="post-excerpt">
                         {{ post.excerpt }}
                     </div>

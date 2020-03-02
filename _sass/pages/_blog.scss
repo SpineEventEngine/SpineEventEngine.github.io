@@ -53,18 +53,6 @@
     vertical-align: top;
   }
 
-  .post-author-company {
-    display: inline-block
-  }
-
-  .post-company {
-    margin-top: $spacing--xs;
-
-    a:after {
-      display: none;
-    }
-  }
-
   .post-excerpt {
     p {
       font-family: 'PT Serif', serif;
