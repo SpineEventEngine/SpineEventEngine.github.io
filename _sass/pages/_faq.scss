@@ -1,8 +1,9 @@
 $content-top-offset: 48px;
 $faq-title-padding: 16px 0 16px $icon-right-offset;
-$faq-content-padding: 0 $icon-right-offset;
-$faq-content-padding-mobile: 0 $icon-right-offset 24px;
+$faq-content-padding: 24px $icon-right-offset;
+$faq-content-padding-mobile: 8px $icon-right-offset 16px;
 $anchor-icon-size: 16px;
+$faq-title-background: #f7f8f8;
 $faq-item-divider: 1px dotted #d7d7d7;
 $space-for-icon: 32px;
 
@@ -33,18 +34,25 @@ $space-for-icon: 32px;
   }
 
   .faq-item {
-    @media (max-width: $tablet) {
-      border-bottom: $faq-item-divider;
-    }
+    border-bottom: $faq-item-divider;
 
     .faq-heading {
-      display: inline-block;
+      display: block;
       padding: $faq-title-padding;
+      background: $faq-title-background;
       cursor: pointer;
       @extend %expandable-title;
 
       @media (max-width: $tablet) {
         padding-right: 20px;
+      }
+
+      &.collapsed {
+        background: none;
+
+        &:hover {
+          background: $faq-title-background;
+        }
       }
 
       span {
