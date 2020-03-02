@@ -10,6 +10,10 @@ $article-line-height: 1.74;
     @media (max-width: $tablet) {
       font-size: $font-size--s;
     }
+
+    @media (max-width: $phone-medium) {
+      text-align: left;
+    }
   }
 
   p.coming-soon {
