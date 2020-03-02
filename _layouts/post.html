@@ -14,10 +14,11 @@ bodyclass: post
                 <div class="post-info">
                     {% if page.author %}
                         <span class="post-author">{{ page.author }}</span>
-                        <span class="post-date">on {{ page.date | date: "%A, %B %d %Y" }}.</span>
+                        <span class="post-date">on</span>
                     {% else %}
-                        <span>Posted on {{ page.date | date: "%A, %B %d %Y" }}.</span>
+                        <span>Posted on</span>
                     {% endif %}
+                    <span class="post-date">{{ page.date | date: "%A, %B %d %Y" }}.</span>
                 </div>
                 <div class="content">
                     {{ content }}
