@@ -140,9 +140,9 @@ public void start() {
             ResponseBody responseBody = client.newCall(getEvents)
                                               .execute()
                                               .body();
-            WeatherMeasurement measurement = 
+            WeatherMeasurement weather = 
                     WeatherMeasurement.fromJson(responseBody.string());
-            endpoint.receiveNew(measurement);
+            endpoint.receiveNew(weather);
         } catch (IOException e) {
             logger().atSevere().withCause(e).log();
         }
@@ -153,22 +153,22 @@ public void start() {
 The endpoint handles the polled measurements and publishes them as Events in the **Takeoffs and Landings** context:
 
 ```java
-public void receiveNew(WeatherMeasurement measurement) {
+public void receiveNew(WeatherMeasurement weather) {
     if (!previous.isUnknown()) {
         WindSpeedChanged event = WindSpeedChanged
             .newBuilder()
-            .setNewSpeed(measurement.toWindSpeed())
+            .setNewSpeed(weather.toWindSpeed())
             .setPreviousSpeed(previous.toWindSpeed())
             .vBuild();
         weatherContext.emittedEvent(event, actor);
         TemperatureChanged event = TemperatureChanged
             .newBuilder()
-            .setNewTemperature(measurement.toTemperature())
+            .setNewTemperature(weather.toTemperature())
             .setPreviousTemperature(previous.toTemperature())
             .vBuild();
         weatherContext.emittedEvent(event, actor);
     }
-    previous = measurement;
+    previous = weather;
 }
 ```
 
