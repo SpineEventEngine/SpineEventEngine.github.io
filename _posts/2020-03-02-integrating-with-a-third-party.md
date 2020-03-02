@@ -176,7 +176,7 @@ The [`FlightAggregate`](https://github.com/spine-examples/airport/blob/master/ta
 
 ```java
 @React(external = true)
-EitherOf2<FlightRescheduled, Nothing> on(TemperatureChanged event) {
+Optional<FlightRescheduled> on(TemperatureChanged event) {
     float newTemperature = event.getNewTemperature().getDegreesCelsius();
     float previousTemperature = event.getPreviousTemperature().getDegreesCelsius();
     if (abs(previousTemperature - newTemperature) > TEMPERATURE_CHANGE_THRESHOLD) {
@@ -238,14 +238,14 @@ The [Process Manager](https://github.com/spine-examples/airport/blob/master/take
 
 ```java
 @React(external = true)
-EitherOf2<BoardingComplete, Nothing> on(PassengerBoarded event) {
+Optional<BoardingComplete> on(PassengerBoarded event) {
     PassengerId passenger = event.getId();
     builder().addBoarded(passenger);
     return completeOrNothing();
 }
 
 @React(external = true)
-EitherOf2<BoardingComplete, Nothing> on(PassengerDeniedBoarding event) {
+Optional<BoardingComplete> on(PassengerDeniedBoarding event) {
     PassengerId passenger = event.getId();
     builder().addWillNotBeBoarded(passenger);
     return completeOrNothing();
