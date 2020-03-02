@@ -98,7 +98,7 @@
       }
 
       @media (max-width: $phone-xlarge) {
-        font-size: $article-font-size;
+        font-size: $font-size--xs;
 
         &:after {
           top: 4px;
