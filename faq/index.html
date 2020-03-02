@@ -7,7 +7,7 @@ headline: 'Frequently Asked Questions'
 ---
 <div class="container-fluid content-holder">
     <div class="row">
-        <div class="col-md-9 faq-container">
+        <div class="col-12 faq-container">
             <ul class="faq-list">
                 <li class="faq-item">
                     {% assign questionID01 = 'why-spine' %}
@@ -22,7 +22,7 @@ headline: 'Frequently Asked Questions'
                         </a>
                     </h6>
                     <div id="{{ questionID01 }}" class="faq-content collapse">
-                        <div class="faq-content-wrapper">
+                        <div class="faq-content-wrapper markdown">
                             <p>We want to give our users a framework that provides an infrastructure
                                 and connects the “service” parts of applications with their “brains”,
                                 or in other words, business logic. Find out how
@@ -45,7 +45,7 @@ headline: 'Frequently Asked Questions'
                         </a>
                     </h6>
                     <div id="{{ questionID02 }}" class="faq-content collapse">
-                        <div class="faq-content-wrapper">
+                        <div class="faq-content-wrapper markdown">
                             <p>As Protocol Buffers are already implemented in a variety of languages, they make
                                 interoperability between polyglot applications in your architecture much simpler.
                                 If you’re introducing a new service with one in Ruby or Go, or even communicating with a
@@ -73,7 +73,7 @@ headline: 'Frequently Asked Questions'
                         </a>
                     </h6>
                     <div id="{{ questionID03 }}" class="faq-content collapse">
-                        <div class="faq-content-wrapper">
+                        <div class="faq-content-wrapper markdown">
                             <p>Have a look at the <a href="https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html">comparison matrix</a>
                                 created by Kenton Varda, the author of Protobuf v2 and Cap'n Proto.
                                 Here are the main features that make Protobuf the best choice for our framework:</p>
@@ -101,7 +101,7 @@ headline: 'Frequently Asked Questions'
                         </a>
                     </h6>
                     <div id="{{ questionID04 }}" class="faq-content collapse">
-                        <div class="faq-content-wrapper">
+                        <div class="faq-content-wrapper markdown">
                             <p>The framework is based on and supports only
                                 <a href="https://developers.google.com/protocol-buffers/docs/proto3">
                                     proto3 dialect</a>.</p>
@@ -121,7 +121,7 @@ headline: 'Frequently Asked Questions'
                         </a>
                     </h6>
                     <div id="{{ questionID05 }}" class="faq-content collapse">
-                        <div class="faq-content-wrapper">
+                        <div class="faq-content-wrapper markdown">
                             <p>Here are our plans for the future versions of Spine:</p>
                             <ul>
                                 <li><b>Release version 1.0;</b></li>
@@ -129,15 +129,13 @@ headline: 'Frequently Asked Questions'
                             </ul>
                             <p>We shall also concentrate on coverage of popular programming languages
                                 and technologies:</p>
-                            <div class="markdown">
-                                <ul>
-                                    <li><b>Node.js</b> to enable
-                                        <a href="{{ site.baseurl }}/docs/introduction/concepts.html#projection">Projections</a>
-                                        development by our users creating UI.</li>
-                                    <li><b>Kotlin</b> client library.</li>
-                                    <li><b>Swift</b> client library.</li>
-                                </ul>
-                            </div>
+                            <ul>
+                                <li><b>Node.js</b> to enable
+                                    <a href="{{ site.baseurl }}/docs/introduction/concepts.html#projection">Projections</a>
+                                    development by our users creating UI.</li>
+                                <li><b>Kotlin</b> client library.</li>
+                                <li><b>Swift</b> client library.</li>
+                            </ul>
                         </div>
                     </div>
                 </li>
