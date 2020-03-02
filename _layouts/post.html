@@ -11,8 +11,13 @@ bodyclass: post
         <div class="col-lg-7 article-container markdown">
             <article class="post-wrapper">
                 <h1>{{ page.title }}</h1>
-                <div class="postdate">
-                    Posted on {{ page.date | date: "%A, %B %d %Y" }}.
+                <div class="post-info">
+                    {% if page.author %}
+                        <span class="post-author">{{ page.author }}</span>
+                        <span class="post-date">on {{ page.date | date: "%A, %B %d %Y" }}.</span>
+                    {% else %}
+                        <span>Posted on {{ page.date | date: "%A, %B %d %Y" }}.</span>
+                    {% endif %}
                 </div>
                 <div class="content">
                     {{ content }}

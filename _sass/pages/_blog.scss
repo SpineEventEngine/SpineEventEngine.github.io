@@ -47,20 +47,6 @@
     }
   }
 
-  .post-info {
-    font-size: 14px;
-    color: rgba(black, .38);
-    margin-bottom: 16px;
-    
-    @media (max-width: $phone-xlarge) {
-      margin: 16px 0 8px;
-    }
-
-    .post-author {
-      color: $textColor;
-    }
-  }
-
   .post-thumbnail {
     display: inline-block;
     margin: $spacing--s $spacing--xs 0 0;
@@ -167,6 +153,21 @@
   }
 }
 
+.post-info {
+  font-size: 14px;
+  color: rgba(black, .4);
+  line-height: 1.6;
+  margin-bottom: 16px;
+
+  @media (max-width: $phone-xlarge) {
+    margin: 16px 0 8px;
+  }
+
+  .post-author {
+    color: $textColor;
+  }
+}
+
 .post {
   background-color: $body-light-gray-color;
 
@@ -189,10 +190,7 @@
     margin-bottom: 12px;
   }
 
-  .postdate {
-    font-size: 14px;
-    line-height: 1.4;
-    color: rgba(black, .54);
+  .post-info {
     margin-bottom: 32px;
 
     @media(max-width: $tablet){
