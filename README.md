@@ -10,8 +10,13 @@ to read [these instructions](EXAMPLES.md).
 
 To build and launch the site on the local server:
 ```
-$ bundle exec jekyll serve
+bundle exec jekyll serve
 ```
+You may be required to install Gems first:
+```
+bundle install
+```
+If you experience issues with this step, please check out the [troubleshooting guide](TROUBLESHOOTING.md).
 
 ## Using URLs in Markdown
 

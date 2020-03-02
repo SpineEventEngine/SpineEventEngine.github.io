@@ -43,7 +43,7 @@ message TaskCreated {
             <div class="col-md-4">
 <pre class="highlight lang-proto">
 <code>message Task {
-    (entity).kind = AGGREGATE;
+    option (entity).kind = AGGREGATE;
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
