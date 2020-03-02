@@ -92,6 +92,10 @@ $article-line-height: 1.74;
     color: rgba(black, .4);
     line-height: 1.2;
     margin-bottom: 32px;
+
+    @media (max-width: $phone-xlarge) {
+      margin-bottom: 16px;
+    }
   }
 
   h2 {
