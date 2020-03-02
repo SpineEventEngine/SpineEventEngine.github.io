@@ -180,9 +180,9 @@ Optional<FlightRescheduled> on(TemperatureChanged event) {
     float newTemperature = event.getNewTemperature().getDegreesCelsius();
     float previousTemperature = event.getPreviousTemperature().getDegreesCelsius();
     if (abs(previousTemperature - newTemperature) > TEMPERATURE_CHANGE_THRESHOLD) {
-        return withA(postpone(QUARTER_OF_AN_HOUR));
+        return Optional.of(postpone(QUARTER_OF_AN_HOUR));
     } else {
-        return withB(nothing());
+        return empty();
     }
 }
 ```
@@ -241,14 +241,14 @@ The [Process Manager](https://github.com/spine-examples/airport/blob/master/take
 Optional<BoardingComplete> on(PassengerBoarded event) {
     PassengerId passenger = event.getId();
     builder().addBoarded(passenger);
-    return completeOrNothing();
+    return completeOrEmpty();
 }
 
 @React(external = true)
 Optional<BoardingComplete> on(PassengerDeniedBoarding event) {
     PassengerId passenger = event.getId();
     builder().addWillNotBeBoarded(passenger);
-    return completeOrNothing();
+    return completeOrEmpty();
 }
 ```
 
