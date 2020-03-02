@@ -49,7 +49,7 @@
 
   .post-info {
     font-size: 14px;
-    color: rgba(black, .54);
+    color: rgba(black, .38);
     margin-bottom: 16px;
     
     @media (max-width: $phone-xlarge) {
@@ -57,7 +57,7 @@
     }
 
     .post-author {
-      color: $black;
+      color: $textColor;
     }
   }
 
