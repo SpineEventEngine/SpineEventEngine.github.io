@@ -3,10 +3,12 @@ $font-size--primary         : 16px;
 $font-size--xxs             : .8rem;
 $font-size--xs              : 1rem;
 $font-size--s               : 1.15rem;
+$article-font-size          : 1.1rem;
 $font-size--m               : 1.65rem;
 $font-size--l               : 1.85rem;
 $font-size--xl              : 2rem;
 $font-size--xxl             : 2.5rem;
+$font-size--xxxl            : 2.625rem;
 
 // General dimensions and spacing
 $spacing--xxxxs             : 4px;
@@ -20,7 +22,7 @@ $spacing--xl                : 30px;
 $spacing--xxl               : 40px;
 $spacing--xxxl              : 50px;
 $max-width                  : 975px;
-$nav-menu-height            : 90px;
+$header-height              : 68px;
 
 // Transitions
 $transition--primary        : all .3s ease;
@@ -71,3 +73,6 @@ $sticky-el-width: 210px;
 
 // Collapsible item
 $icon-right-offset: 48px;
+
+// Container top offset for pages with a fixed header. For example a page with a single post.
+$page-top-offset: $header-height + 32px;

@@ -4,16 +4,22 @@ bodyclass: post
 ---
 
 {% include nav.html %}
+{% include color-selector.html %}
 
-<div class="container-fluid content-holder markdown">
-    <div class="row">
-        <div class="col-md-7 mx-auto">
+<div class="container-fluid content-holder post-container">
+    <div class="row justify-content-end">
+        <div class="col-lg-7 article-container markdown">
             <article class="post-wrapper">
                 <h1>{{ page.title }}</h1>
-                <div class="postdate">
-                    Posted on {{ page.date | date: "%A, %B %d %Y" }}.
+                <div class="post-info">
+                    {% if page.author %}
+                        <span class="post-author">{{ page.author }}</span>
+                        <span>on</span>
+                    {% else %}
+                        <span>Posted on</span>
+                    {% endif %}
+                    <span class="post-date">{{ page.date | date: "%A, %B %d %Y" }}.</span>
                 </div>
-                <hr>
                 <div class="content">
                     {{ content }}
                 </div>
@@ -30,5 +36,10 @@ bodyclass: post
                 </div>
             </article>
         </div>
+        <div class="col-lg toc-col">
+            <div id="toc" class="toc sticky-element initially-fixed"></div>
+        </div>
     </div>
 </div>
+
+<a onclick="topFunction()" id="go-top-btn" title="Go to Top"><span>Top</span></a>

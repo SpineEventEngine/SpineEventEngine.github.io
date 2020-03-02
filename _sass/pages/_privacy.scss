@@ -1,39 +1,11 @@
 .privacy-statements {
+  background-color: $body-light-gray-color;
 
-  .privacy-section {
-    padding-top: 116px;
-    padding-bottom: 48px;
+  @media (max-width: $phone-xlarge) {
+    background-color: white;
+  }
 
-    @media(max-width: $phone-xlarge) {
-      padding-top: 96px;
-    }
-
-    h1 {
-      font-size: 40px;
-      margin-bottom: 40px;
-
-      @media(max-width: $phone-xlarge) {
-        font-size: 32px;
-        margin-bottom: 24px;
-      }
-    }
-
-    h2 {
-      padding-top: 40px;
-
-      @media(max-width: $tablet) {
-        padding-top: 16px;
-      }
-
-      &.top {
-        padding-top: 8px;
-      }
-    }
-
-    .markdown {
-      min-height: 20px;
-      padding-bottom: 0;
-      padding-top: 0;
-    }
+  .privacy-container {
+    margin-top: $page-top-offset;
   }
 }

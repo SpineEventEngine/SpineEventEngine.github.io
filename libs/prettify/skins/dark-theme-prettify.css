@@ -13,6 +13,7 @@ pre .tag { color: #cc7832; } /* html/xml tag */
 pre .atn { color: #6a8759; } /* attribute name */
 pre .atv { color: #6a8759; } /* attribute value */
 pre .dec, .var { color: #6897bb; } /* declaration; a variable name */
+pre .kd .pln { color: #cc7832; font-weight: 700 } /* keywords */
 
 /* Specifies styles for JAVA lang */
 .language-java pre .lit,

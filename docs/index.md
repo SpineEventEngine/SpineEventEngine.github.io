@@ -5,7 +5,7 @@ bodyclass: docs
 layout: docs
 ---
 
-<h2 class="top">Welcome to the Spine developer documentation!</h2>
+# Welcome to the Spine developer documentation!
 
 <p class="lead">Spine Event Engine is based on Domain-Driven Design, CQRS, Event-Driven Architecture,
 and Event Sourcing. This documentation assumes that you are familiar with the concepts
