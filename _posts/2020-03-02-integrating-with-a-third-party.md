@@ -209,7 +209,7 @@ public void start() {
         } catch (IOException e) {
             _warn().withCause(e).log();
         }
-        // ...
+        // Wait a configured time span.
     }
 }
 
