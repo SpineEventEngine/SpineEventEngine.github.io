@@ -69,21 +69,22 @@ service SuppliesEventProducer {
 The **Airplane Supplies** system [implements](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java) the service and exposes it on an endpoint available to the **Takeoffs and Landings** system:
 
 ```java
-public final class SuppliesEventProducer extends SuppliesEventProducerImplBase {
+public final class SuppliesEventProducer 
+        extends SuppliesEventProducerImplBase {
 
     @Override
     public void subscribe(Subscription request, StreamObserver<SuppliesEvent> responseObserver) {
         Timestamp timestamp = request.getStartingFrom();
-        Instant startingFrom = ofEpochSecond(timestamp.getSeconds(), timestamp.getNanos());
+        Instant startingFrom = timestamp.toInstant();
         historicalEvents
-                .stream()
-                .filter(event -> compare(event.getWhenOccurred(), timestamp) >= 0)
-                .filter(event -> matches(event, request.getEventType()))
-                .map(event -> event.toBuilder()
-                                   .setSubscription(request)
-                                   .build())
-                .onClose(responseObserver::onCompleted)
-                .forEach(responseObserver::onNext);
+            .stream()
+            .filter(event -> event.getWhenOccurred().isLaterThan(timestamp))
+            .filter(event -> matches(event, request.getEventType()))
+            .map(event -> event.toBuilder()
+                               .setSubscription(request)
+                               .build())
+            .onClose(responseObserver::onCompleted)
+            .forEach(responseObserver::onNext);
     }
 
     // ...
@@ -139,7 +140,8 @@ public void start() {
             ResponseBody responseBody = client.newCall(getEvents)
                                               .execute()
                                               .body();
-            WeatherMeasurement measurement = WeatherMeasurement.fromJson(responseBody.string());
+            WeatherMeasurement measurement = 
+                    WeatherMeasurement.fromJson(responseBody.string());
             endpoint.receiveNew(measurement);
         } catch (IOException e) {
             logger().atSevere().withCause(e).log();
@@ -200,26 +202,36 @@ The Anticorruction Layer between **Takeoffs and Landings** and **Security Checks
 
 ```java
 public void start() {
-    Request request = // ...
     while (active) {
         try {
-            ResponseBody body = client.newCall(request).execute().body();
-            List<TsaPassenger> passengers = Json.fromJson(body.string(), TsaPassengers.class)
-                                                .getPassengerList();
-            passengers.forEach(passenger -> {
-                BoardingStatus status = tsaPassenger.boardingStatus();
-                if (status == BOARDED) {
-                    emitBoarded(tsaPassenger);
-                } else if (status == WILL_NOT_BE_BOARDED) {
-                    emitDenied(tsaPassenger);
-                }
-            });
+            List<TsaPassenger> passengers = requestPassengers();
+            passengers.forEach(this::emitIfStatusKnown);
         } catch (IOException e) {
             _warn().withCause(e).log();
         }
         // ...
     }
 }
+
+private List<TsaPassenger> requestPassengers() {
+    Request request = // ...
+    ResponseBody body = client.newCall(request)
+                              .execute()
+                              .body();
+    return Json.fromJson(body.string(), TsaPassengers.class)
+               .getPassengerList();
+}
+
+private void emitIfStatusKnown(TsaPassenger passenger) {
+    BoardingStatus status = passenger.boardingStatus();
+    if (status == BOARDED) {
+        emitBoarded(passenger);
+    } else if (status == WILL_NOT_BE_BOARDED) {
+        emitDenied(passenger);
+    }
+}
+
+
 ```
 
 The [Process Manager](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java) accumulates the Events and, once the whole *Flight* is boarded, emits a `BoardingComplete` event, which is later consumed by the [*Flight* Aggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
