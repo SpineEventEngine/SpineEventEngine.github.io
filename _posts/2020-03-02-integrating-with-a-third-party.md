@@ -122,7 +122,7 @@ AircraftPreparedForFlight on(PreflightCheckComplete event) {
 
 ![Conformist domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/conformist.jpg)
 
-**Weather** is an essential aspect of flying a plane, especially at low altitudes. The **Weather** Bounded Context wraps the data received from a meteorological station. This is a true third party to our system, as our organization, the airport, does not own it. Nearly all the details of a weather update are important to **Takeoffs and Landings**. The **Weather** Context forces **Takeoffs and Landings** to conform to its domain model.
+**Weather** is an essential aspect of flying a plane, especially at low altitudes. The **Weather** Context wraps the data received from a meteorological station. This is a true third party to our system, as our organization, the airport, does not own it. Nearly all the details of a weather update are important to **Takeoffs and Landings**. The **Weather** Context forces **Takeoffs and Landings** to conform to its domain model.
 
 ![Conformist diagram]({{ site.baseurl }}/img/integrating-with-a-3d-party/conformist-diagram.svg)
 
@@ -191,7 +191,7 @@ EitherOf2<FlightRescheduled, Nothing> on(TemperatureChanged event) {
 
 ![ACL domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/acl.jpg){: .small-square-image}
 
-**Security Checks** Bounded Context has a rich model of its own. The system happens not to use domain Events at all. The **Security Checks** software,  used in our airport, must go through a complex audit and certification process upon each change. Thus, the cost of  changing it is too high. However, the **Security Checks** also happens to expose an API for fetching the current internal state of the system. The fetched state has a consistency lag, which never exceeds a known value (e.g. 2 minutes). In other words, the client of the **Security Checks** API can be sure that the received data was accurate at most 2 minutes before the query.
+**Security Checks** Context has a rich model of its own. The system happens not to use domain Events at all. The **Security Checks** software,  used in our airport, must go through a complex audit and certification process upon each change. Thus, the cost of  changing it is too high. However, the **Security Checks** also happens to expose an API for fetching the current internal state of the system. The fetched state has a consistency lag, which never exceeds a known value (e.g. 2 minutes). In other words, the client of the **Security Checks** API can be sure that the received data was accurate at most 2 minutes before the query.
 Interaction with legacy software with known technical issues can be established with the help of an Anticorruption Layer. This pattern suggests that we cope with the problems, imposed by the legacy system, outside our domain model.
 
 ![ACL diagram]({{ site.baseurl }}/img/integrating-with-a-3d-party/acl-diagram.svg)
