@@ -58,6 +58,10 @@ $article-line-height: 1.74;
   ul {
     margin: 0 0 32px 6px;
 
+    @media (max-width: $tablet) {
+      margin-bottom: 24px;
+    }
+
     li {
       margin-left: 18px;
       margin-top: .6em;
