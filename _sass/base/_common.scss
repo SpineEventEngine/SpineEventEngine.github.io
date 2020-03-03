@@ -234,7 +234,7 @@ th {
 
 // Expandable title with caret icon before
 %expandable-title {
-  font-size: $font-size--s;
+  font-size: $font-size--primary;
   line-height: 1.5;
   color: $black;
   font-weight: 500;
@@ -254,7 +254,7 @@ th {
 
   // Initial state of the title
   &.collapsed {
-    color: rgba($black, .54);
+    color: $textColor;
     font-weight: 400;
 
     &:before {
