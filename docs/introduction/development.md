@@ -47,43 +47,45 @@ It would be natural to start implementing the context which initiates the busine
 Implementation starts from defining data types of the selected context as Protobuf messages.
 
 The first step is to define entity [IDs](concepts.html#identifier). For example:
-<pre class="highlight lang-proto">
-<code>// The identifier for a task.
+```proto
+// The identifier for a task.
 message TaskId {
     string uuid = 1;
 }
-</code></pre>
+```
 
 Then commands, events, rejections are defined:
-<pre class="highlight lang-proto">
-<code>// A command to create a new task.
+```proto
+// A command to create a new task.
 message CreateTask {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
 }
-</code></pre>
+```
 
-<pre class="highlight lang-proto">
-<code>// A new task has been created.
+```proto
+// A new task has been created.
 message TaskCreated {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
     UserId who_created = 4 [(required) = true];
 }
-</code></pre>
+```
  
 Then we define states of entities.
-<pre class="highlight lang-proto">
-<code>message Task {
+
+```proto
+message Task {
     (entity).kind = AGGREGATE;
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
     UserId owner = 4 [(required) = true];
     DeveloperId assignee = 5;
-}</code></pre>
+}
+```
  
 [Value Objects](concepts.html#value-object) are added when they are needed to describe entities
 or messages like commands or events. For more information on this stage please see
@@ -104,9 +106,9 @@ the “life” of the domain model. Messages are delivered to entities by [Repos
 During this step we create entity classes and add message handling methods to them. 
 Code snippets below show `Aggregate` and `Projection` classes with their handler methods.
 
-<pre class="highlight lang-java">
-<code>final class TaskAggregate
-    extends Aggregate&lt;TaskId, Task, Task.Builder&gt; {
+```java
+final class TaskAggregate
+    extends Aggregate<TaskId, Task, Task.Builder> {
     
     @Assign
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
@@ -126,11 +128,11 @@ Code snippets below show `Aggregate` and `Projection` classes with their handler
                  .setOwner(e.getWhoCreated());
     }
 }
-</code></pre>
+```
 
-<pre class="highlight lang-java">
-<code>final class TaskItemProjection
-    extends Projection&lt;TaskId, TaskItem, TaskItem.Builder&gt; {
+```java
+final class TaskItemProjection
+    extends Projection<TaskId, TaskItem, TaskItem.Builder> {
 
     @Subscribe
     void on(TaskCreated e) {
@@ -142,7 +144,8 @@ Code snippets below show `Aggregate` and `Projection` classes with their handler
     void on(TaskCompleted e, EventContext ctx) {
         builder().setWhenDone(ctx.getTimestamp());
     }
-}</code></pre>
+}
+```
 
 #### Repositories
 The framework provides default implementations for repositories.
@@ -154,12 +157,12 @@ A custom `Repository` class may be needed for:
   
 Repositories are added to the Bounded Context they belong when it is created:
 
-<pre class="highlight lang-java">
-<code>BoundedContext tasksContext = BoundedContext.multiTenant("Tasks")
+```java
+BoundedContext tasksContext = BoundedContext.multiTenant("Tasks")
     .add(TaskAggregate.class) // use default repository impl.
     .add(new TaskItemProjectionRepository())
     .build();
-</code></pre>  
+```
 
 This wires repositories into the message delivery mechanism of the corresponding
 [Buses](concepts.html#message-buses).
@@ -168,8 +171,9 @@ This wires repositories into the message delivery mechanism of the corresponding
 Implementation of the Bounded Context is tested using the messaging paradigm.
 The following code snippet asserts that handling a command `CreateTask` produces one 
 `TaskCreated` event with expected arguments.
- 
-<pre class="highlight lang-java"><code>// Given
+
+```java
+// Given
 BlackBoxBoundedContext context = BlackBoxBoundedContext.from(tasksContext);
 
 // When
@@ -189,12 +193,13 @@ assertEvents.hasSize(1);
 assertEvents.message(0)
        .comparingExpectedFieldsOnly()
        .isEqualTo(expected);  
-</code></pre>
+```
 
 Modification of entities is also tested. The following code snippet asserts that the state
 of the `TaskAggregate` was also updated with expected arguments.
 
-<pre class="highlight lang-java"><code>EntitySubject assertEntity = 
+```java
+EntitySubject assertEntity = 
     context.assertEntityWithState(Task.class, id);
 Task expectedState = Task.newBuilder()
     .setId(id)
@@ -203,7 +208,7 @@ Task expectedState = Task.newBuilder()
 assertEntity.hasStateThat()
     .comparingExpectedFieldsOnly()
     .isEqualTo(expectedState);
-</code></pre>
+```
 
 ## Deployment
 
@@ -217,13 +222,14 @@ class.
 
 The server-side application is composed with its Bounded Contexts.
 
-<pre class="highlight lang-java"><code>Server server = Server.atPort(portNumber)
+```java
+Server server = Server.atPort(portNumber)
     .add(tasksContext)
     .add(usersContext)
     .add(commentsContext)
     .build();
 server.start();    
-</code></pre>
+```
 
 This exposes [`CommandService`](concepts.html#command-service), 
 [`QueryService`](concepts.html#query-service), and 
