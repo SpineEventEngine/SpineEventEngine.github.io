@@ -101,6 +101,7 @@
       position:relative;
       display: block;
       -webkit-transform: translateZ(0);
+      line-height: 22px;
 
       @media(min-width: $tablet){
         display: inline-block;
