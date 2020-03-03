@@ -3,7 +3,7 @@
  */
 .highlight { background: #fff; }
 .highlighter-rouge .highlight { background: #fff; }
-.highlight code { color: #171717; font-weight: 400 }
+.highlight code { color: #171717; font-weight: 400; }
 .highlight .c { color: #998; font-style: italic; }
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
 .highlight .k { color: #000080; font-weight: bold; }
@@ -26,6 +26,7 @@
 .highlight .gt { color: #a00; }
 .highlight .kc { color: #000080; font-weight: bold; } /* boolean */
 .highlight .kd { color: #000080; font-weight: bold; } /* keywords */
+.highlight .kn { color: #000080; font-weight: bold; } /* keywords */
 .highlight .kp { font-weight: bold; }
 .highlight .kr { font-weight: bold; }
 .highlight .kt { color: #000080; font-weight: bold; }
@@ -39,7 +40,6 @@
 .highlight .ni { color: #800080; }
 .highlight .ne { color: #900; font-weight: bold; }
 .highlight .nf { color: #171717; }
-.highlight .nn { color: #555; }
 .highlight .nt { color: #000080; }
 .highlight .nv { color: #008080; }
 .highlight .ow { font-weight: bold; }
