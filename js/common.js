@@ -25,9 +25,9 @@ const $selectorLight = $('.color-link.light');
 const colorDark = 'dark';
 const colorLight = 'light';
 const cookieColorName = 'themeColor';
-const codeWrapperSkinsUrl = '/libs/prettify/skins/';
-const darkStylesUrl = codeWrapperSkinsUrl + 'dark-theme-prettify.css';
-const lightStylesUrl = codeWrapperSkinsUrl + 'light-theme-prettify.css';
+const codeWrapperSkinsUrl = '/libs/rouge/skins/';
+const darkStylesUrl = codeWrapperSkinsUrl + 'dark-theme.css';
+const lightStylesUrl = codeWrapperSkinsUrl + 'light-theme.css';
 
 /** Grid breakpoints */
 const windowHeightMobile = 520;
@@ -193,7 +193,7 @@ function makeSelectorActive(selector, color) {
  * under the header.
  */
 function showCodeColorSelector() {
-    const isPreElementExist = $('.prettyprint').length;
+    const isPreElementExist = $('.highlighter-rouge').length;
 
     setColorSelectorTopPosition();
 
