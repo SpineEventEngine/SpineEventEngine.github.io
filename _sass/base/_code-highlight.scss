@@ -1,0 +1,43 @@
+$code-font-size: 14px;
+$code-block-shadow: 0 10px 20px 0 rgba($footerColor, .12);
+$code-block-padding: 24px 20px;
+$code-block-padding-mobile: 12px 16px;
+
+code {
+  font-family: 'Roboto Mono', monospace;
+  background-color: transparent;
+  color: $textColor;
+  font-size: $code-font-size;
+  font-weight: 400;
+  padding: 0;
+
+  @media(max-width: $phone-small) {
+    word-break: break-all;
+  }
+}
+
+pre {
+  @include box-shadow($code-block-shadow);
+  padding: $code-block-padding;
+  font-size: $code-font-size;
+  line-height: 1.5;
+  word-wrap: normal;
+  border-radius: 4px;
+  opacity: 0;
+  @include transition(all .3s ease-in-out);
+
+  @media(max-width: $phone-xlarge) {
+    padding: $code-block-padding-mobile;
+  }
+
+  code {
+    white-space: pre;
+    overflow: auto;
+    color: #a9b7c6; // Color for the dark theme while site is loading
+    overflow-wrap: normal; // For the Safari browser
+
+    @media print {
+      white-space: pre-wrap;
+    }
+  }
+}
