@@ -10,9 +10,9 @@ working example.</p>
 ## Prerequisites
 1.  Make sure you have JDK 8 or higher installed.
 2.  Clone the following source code into your Git repository: 
-  ```bash
-  git clone git@github.com:SpineEventEngine/server-quickstart.git
-  ```
+    ```bash
+    git clone git@github.com:SpineEventEngine/server-quickstart.git
+    ```
 3. Run `./gradlew clean build` (or `gradlew.bat clean build` on Windows) in the project root folder.
  
 ## Project Structure
