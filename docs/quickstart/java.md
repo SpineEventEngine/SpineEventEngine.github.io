@@ -100,7 +100,7 @@ Keep experimenting with your model. To do so:
  Make sure to run a Gradle build after the changing the Protobuf definitions: 
  ```bash
  ./gradlew clean build
-  ```` 
+  ```
  or for Windows:
   ```
  gradlew.bat clean build
