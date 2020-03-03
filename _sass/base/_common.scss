@@ -247,6 +247,7 @@ th {
     width: $icon-size--s;
     height: $icon-size--s;
     margin-left: -40px;
+    margin-top: -2px;
     opacity: .54;
     transform: rotate(90deg);
     @include transition(all .3s ease-in-out);
