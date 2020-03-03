@@ -138,7 +138,7 @@ function setDefaultCookieValue() {
  * Sets dark theme color.
  */
 function setDarkTheme() {
-    loadPrettifyStyles(darkStylesUrl);
+    loadCodeStyles(darkStylesUrl);
     $pre.css('opacity', '1');
     makeSelectorActive($selectorDark, colorDark);
 }
@@ -147,7 +147,7 @@ function setDarkTheme() {
  * Sets light theme color.
  */
 function setLightTheme() {
-    loadPrettifyStyles(lightStylesUrl);
+    loadCodeStyles(lightStylesUrl);
     $pre.css('opacity', '1');
     makeSelectorActive($selectorLight, colorLight);
 }
@@ -155,21 +155,21 @@ function setLightTheme() {
 /**
  * Loads `prettify` theme style sheets.
  *
- * <p>`<style>` tag with the `#prettify-styles` ID will be created in the `head` of the
+ * <p>`<style>` tag with the `#code-highlight-styles` ID will be created in the `head` of the
  * document. If the tag is already exist it will be updated depending on the selected theme color.
- * Style files are located in the `/libs/prettify/skins/` folder.
+ * Style files are located in the `/libs/rouge/skins/` folder.
  *
  * @param {string} stylesHref `href` to the `css` file
  */
-function loadPrettifyStyles(stylesHref) {
-    const $prettifyStyleSheets = $('#prettify-styles');
+function loadCodeStyles(stylesHref) {
+    const $codeStyles = $('#code-highlight-styles');
 
-    if ($prettifyStyleSheets.length) {
-        $prettifyStyleSheets.attr('href', stylesHref);
+    if ($codeStyles.length) {
+        $codeStyles.attr('href', stylesHref);
     } else {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.id = 'prettify-styles';
+        link.id = 'code-highlight-styles';
         link.type = 'text/css';
         link.href = stylesHref;
         head.appendChild(link);
