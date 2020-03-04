@@ -153,7 +153,7 @@ function setLightTheme() {
 }
 
 /**
- * Loads `prettify` theme style sheets.
+ * Loads theme style sheets to highlight the code.
  *
  * <p>`<style>` tag with the `#code-highlight-styles` ID will be created in the `head` of the
  * document. If the tag is already exist it will be updated depending on the selected theme color.
