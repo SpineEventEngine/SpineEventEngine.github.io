@@ -6,53 +6,53 @@ bodyclass: promo-page
 
 {% include color-selector.html %}
 <section id="landing-content" class="landing-content-container">
-  <div class="container-fluid content-holder">
-          <div class="row landing-row">
+    <div class="container-fluid content-holder">
+        <div class="row landing-row">
             <div class="col-md-12">
-               <p class="step-title">Step 1.</p>
-               <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
-               <p>Describe commands, events, and state of entities using
-                   <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.
-               </p>
+                <p class="step-title">Step 1.</p>
+                <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
+                <p>Describe commands, events, and state of entities using
+                    <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.
+                </p>
             </div>
 
             <div class="col-md-4">
-<pre class="highlight lang-proto">
-<code>// A command to create a new task.
+{% highlight proto %}
+// A command to create a new task.
 message CreateTask {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
 }
 ...
-</code></pre>
+{% endhighlight %}
             </div>
 
             <div class="col-md-4">
-<pre class="highlight lang-proto">
-<code>// A new task has been created.
+{% highlight proto %}
+// A new task has been created.
 message TaskCreated {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
 }
 ...
-</code></pre>
+{% endhighlight %}
             </div>
 
             <div class="col-md-4">
-<pre class="highlight lang-proto">
-<code>message Task {
+{% highlight proto %}
+message Task {
     option (entity).kind = AGGREGATE;
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
     DeveloperId assignee = 4;
-}</code></pre>
-            </div>
-          </div>
+}
+{% endhighlight %}
+        </div>
 
-          <div class="row landing-row">
+        <div class="row landing-row">
             <div class="col-md-12">
                 <p class="step-title">Step 2.</p>
                 <h2>Generate the code for all tiers and multiple languages</h2>
@@ -62,27 +62,28 @@ message TaskCreated {
                 <picture>
                     <source srcset="{{ site.baseurl }}/img/landing/generate-code.svg" media="(min-width: 768px)">
                     <source srcset="{{ site.baseurl }}/img/landing/generate-code-mobile.svg">
-                    <img class="landing-image no-shadow" alt="Generate code" src="{{ site.baseurl }}/img/landing/generate-code.svg">
+                    <img class="landing-image no-shadow" alt="Generate code"
+                         src="{{ site.baseurl }}/img/landing/generate-code.svg">
                 </picture>
             </div>
-          </div>
+        </div>
 
-          <div class="row landing-row">
+        <div class="row landing-row">
             <div class="col-md-12">
                 <p class="step-title">Step 3.</p>
                 <h2>Code business logic in straight and testable way</h2>
-              <p>Focus on business logic rather than “plumbing”.
-                A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
-                <code>Projection</code>s will get all <code>Event</code>s they need.
-                <code>ProcessManager</code>s will cover more complex scenarios.
-                Storage, message delivery, and other environment matters are isolated from the main code.</p>
+                <p>Focus on business logic rather than “plumbing”.
+                    A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
+                    <code>Projection</code>s will get all <code>Event</code>s they need.
+                    <code>ProcessManager</code>s will cover more complex scenarios.
+                    Storage, message delivery, and other environment matters are isolated from the main code.</p>
             </div>
 
             <!--Aggregate code -->
             <div class="col-md-6">
-<pre class="highlight lang-java">
-<code>final class TaskAggregate
-    extends Aggregate&lt;TaskId, Task, Task.Builder&gt; {
+{% highlight java %}
+final class TaskAggregate
+    extends Aggregate<TaskId, Task, Task.Builder> {
     ...
     @Assign
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
@@ -95,14 +96,14 @@ message TaskCreated {
     }
     ...
 }
-</code></pre>
+{% endhighlight %}
             </div>
 
             <!--Projection code -->
             <div class="col-md-6">
-<pre class="highlight lang-java">
-<code>final class TaskProjection
-    extends Projection&lt;TaskId, TaskItem, TaskItem.Builder&gt; {
+{% highlight java %}
+final class TaskProjection
+    extends Projection<TaskId, TaskItem, TaskItem.Builder> {
     ...
     @Subscribe
     void on(TaskCreated e) {
@@ -114,28 +115,30 @@ message TaskCreated {
     void on(TaskCompleted e, EventContext ctx) {
         builder().setWhenDone(ctx.getTimestamp());
     }
-}</code></pre>
+}
+{% endhighlight %}
             </div>
-          </div>
+        </div>
 
-          <div class="row landing-row">
+        <div class="row landing-row">
             <div class="col-md-6">
                 <p class="step-title">Step 4.</p>
                 <h2>Easily deploy to Google Cloud or a custom environment</h2>
-              <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
-                quickly. Adopt your application to selected deployment environment(s) with a few lines of code.</p>
+                <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
+                    quickly. Adopt your application to selected deployment environment(s) with a few lines of code.</p>
             </div>
             <div class="col-md-6">
-              <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg" alt="Evolve your domain model">
+                <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg"
+                     alt="Evolve your domain model">
             </div>
-          </div>
-  </div>
+        </div>
+    </div>
 </section>
 
 <section id="landing-content-features" class="features-section">
-  <div class="container-fluid content-holder">
-      <h1 class="light section-title">Why Spine?</h1>
-      <div class="row">
+    <div class="container-fluid content-holder">
+        <h1 class="light section-title">Why Spine?</h1>
+        <div class="row">
             <!-- First column -->
             <div class="col-md-4">
                 <div class="feature-card">
@@ -143,8 +146,8 @@ message TaskCreated {
                     <div class="card-content-text">
                         <header class="feature-card-title">Code Generation</header>
                         <p>The code is automatically generated for all the languages of
-                        your project, as you update the model.
-                        Forget about missed <code>hashCode()</code> or <code>equals()</code>.
+                            your project, as you update the model.
+                            Forget about missed <code>hashCode()</code> or <code>equals()</code>.
                         </p>
                     </div>
                 </div>
@@ -152,9 +155,9 @@ message TaskCreated {
                     <i class="fas fa-code-branch card-icon-font"></i>
                     <div class="card-content-text">
                         <header class="feature-card-title">Model Extensibility</header>
-                        <p>With <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating">Protobuf support</a>,
-                            a model can be extended preserving backward and future compatibility
-                            with client- and server nodes of your&nbsp;application.</p>
+                        <p>With <a href="https://developers.google.com/protocol-buffers/docs/proto3#updating">
+                            Protobuf support</a>, a model can be extended preserving backward and
+                            future compatibility with client- and server nodes of your&nbsp;application.</p>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -257,6 +260,6 @@ message TaskCreated {
                     </div>
                 </div>
             </div>
-      </div>
-  </div>
+        </div>
+    </div>
 </section>
