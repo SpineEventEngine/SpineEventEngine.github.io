@@ -7,7 +7,7 @@ bodyclass: promo-page
 {% include color-selector.html %}
 <section id="landing-content" class="landing-content-container">
     <div class="container-fluid content-holder">
-        <div class="row landing-row">
+        <div class="row">
             <div class="col-md-12">
                 <p class="step-title">Step 1.</p>
                 <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
@@ -15,7 +15,8 @@ bodyclass: promo-page
                     <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.
                 </p>
             </div>
-
+        </div>
+        <div class="row">
             <div class="col-md-4">
 {% highlight proto %}
 // A command to create a new task.
@@ -50,35 +51,38 @@ message Task {
     DeveloperId assignee = 4;
 }
 {% endhighlight %}
+            </div>
         </div>
-
-        <div class="row landing-row">
+        <div class="row step-row">
             <div class="col-md-12">
                 <p class="step-title">Step 2.</p>
                 <h2>Generate the code for all tiers and multiple languages</h2>
                 <p>Java, JavaScript, and Dart are currently supported.</p>
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <picture>
-                    <source srcset="{{ site.baseurl }}/img/landing/generate-code.svg" media="(min-width: 768px)">
+                    <source srcset="{{ site.baseurl }}/img/landing/generate-code.svg"
+                            media="(min-width: 768px)">
                     <source srcset="{{ site.baseurl }}/img/landing/generate-code-mobile.svg">
                     <img class="landing-image no-shadow" alt="Generate code"
                          src="{{ site.baseurl }}/img/landing/generate-code.svg">
                 </picture>
             </div>
         </div>
-
-        <div class="row landing-row">
+        <div class="row step-row">
             <div class="col-md-12">
                 <p class="step-title">Step 3.</p>
                 <h2>Code business logic in straight and testable way</h2>
                 <p>Focus on business logic rather than “plumbing”.
                     A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
                     <code>Projection</code>s will get all <code>Event</code>s they need.
-                    <code>ProcessManager</code>s will cover more complex scenarios.
-                    Storage, message delivery, and other environment matters are isolated from the main code.</p>
+                    <code>ProcessManager</code>s will cover more complex scenarios. Storage,
+                    message delivery, and other environment matters are isolated from the main code.</p>
             </div>
-
+        </div>
+        <div class="row">
             <!--Aggregate code -->
             <div class="col-md-6">
 {% highlight java %}
@@ -119,13 +123,13 @@ final class TaskProjection
 {% endhighlight %}
             </div>
         </div>
-
-        <div class="row landing-row">
+        <div class="row step-row">
             <div class="col-md-6">
                 <p class="step-title">Step 4.</p>
                 <h2>Easily deploy to Google Cloud or a custom environment</h2>
-                <p>In-memory and JDBC-based storage implementations allow to implement and test the core logic
-                    quickly. Adopt your application to selected deployment environment(s) with a few lines of code.</p>
+                <p>In-memory and JDBC-based storage implementations allow to implement and test
+                    the core logic quickly. Adopt your application to selected deployment
+                    environment(s) with a few lines of code.</p>
             </div>
             <div class="col-md-6">
                 <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg"
