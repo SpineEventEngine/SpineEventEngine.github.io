@@ -25,9 +25,9 @@ const $selectorLight = $('.color-link.light');
 const colorDark = 'dark';
 const colorLight = 'light';
 const cookieColorName = 'themeColor';
-const codeWrapperSkinsUrl = '/libs/rouge/skins/';
-const darkStylesUrl = codeWrapperSkinsUrl + 'dark-theme.css';
-const lightStylesUrl = codeWrapperSkinsUrl + 'light-theme.css';
+const codeStylePath = '/libs/rouge/skins/';
+const darkStylesUrl = codeStylePath + 'dark-theme.css';
+const lightStylesUrl = codeStylePath + 'light-theme.css';
 
 /** Grid breakpoints */
 const windowHeightMobile = 520;
