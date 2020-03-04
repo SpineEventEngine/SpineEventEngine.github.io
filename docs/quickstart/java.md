@@ -10,9 +10,9 @@ working example.</p>
 ## Prerequisites
 1.  Make sure you have JDK 8 or higher installed.
 2.  Clone the following source code into your Git repository: 
-  ```bash
-  git clone git@github.com:SpineEventEngine/server-quickstart.git
-  ```
+    ```bash
+    git clone git@github.com:SpineEventEngine/server-quickstart.git
+    ```
 3. Run `./gradlew clean build` (or `gradlew.bat clean build` on Windows) in the project root folder.
  
 ## Project Structure
@@ -100,7 +100,7 @@ Keep experimenting with your model. To do so:
  Make sure to run a Gradle build after the changing the Protobuf definitions: 
  ```bash
  ./gradlew clean build
-  ```` 
+  ```
  or for Windows:
   ```
  gradlew.bat clean build

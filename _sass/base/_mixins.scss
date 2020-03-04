@@ -69,11 +69,19 @@
   }
 }
 
+// Usage: @include box-shadow(0 10px 20px 0 rgba(black, .12));
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -o-box-shadow: $args;
+  box-shadow: $args;
+}
+
 @mixin close-icon {
   display: inline-block;
   width: $icon-size--s;
   height: $icon-size--s;
-  background: url('../img/x-black.svg') no-repeat center/cover;
+  background: url('../../img/x-black.svg') no-repeat center/cover;
   opacity: .26;
   @include transition(all .3s ease-in-out);
 }

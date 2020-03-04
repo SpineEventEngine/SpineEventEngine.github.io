@@ -25,9 +25,9 @@ const $selectorLight = $('.color-link.light');
 const colorDark = 'dark';
 const colorLight = 'light';
 const cookieColorName = 'themeColor';
-const codeWrapperSkinsUrl = '/libs/prettify/skins/';
-const darkStylesUrl = codeWrapperSkinsUrl + 'dark-theme-prettify.css';
-const lightStylesUrl = codeWrapperSkinsUrl + 'light-theme-prettify.css';
+const codeStylePath = '/libs/rouge/skins/';
+const darkStylesUrl = codeStylePath + 'dark-theme.css';
+const lightStylesUrl = codeStylePath + 'light-theme.css';
 
 /** Grid breakpoints */
 const windowHeightMobile = 520;
@@ -37,7 +37,6 @@ const phoneXLarge = 640;
 $(function() {
     fixHead();
     changeCodeColor();
-    initPrettyprint();
     openHeaderMenuOnMobile();
     addExternalClass();
     initTocTocify();
@@ -139,7 +138,7 @@ function setDefaultCookieValue() {
  * Sets dark theme color.
  */
 function setDarkTheme() {
-    loadPrettifyStyles(darkStylesUrl);
+    loadCodeStyles(darkStylesUrl);
     $pre.css('opacity', '1');
     makeSelectorActive($selectorDark, colorDark);
 }
@@ -148,29 +147,29 @@ function setDarkTheme() {
  * Sets light theme color.
  */
 function setLightTheme() {
-    loadPrettifyStyles(lightStylesUrl);
+    loadCodeStyles(lightStylesUrl);
     $pre.css('opacity', '1');
     makeSelectorActive($selectorLight, colorLight);
 }
 
 /**
- * Loads `prettify` theme style sheets.
+ * Loads theme style sheets to highlight the code.
  *
- * <p>`<style>` tag with the `#prettify-styles` ID will be created in the `head` of the
+ * <p>`<style>` tag with the `#code-highlight-styles` ID will be created in the `head` of the
  * document. If the tag is already exist it will be updated depending on the selected theme color.
- * Style files are located in the `/libs/prettify/skins/` folder.
+ * Style files are located in the `/libs/rouge/skins/` folder.
  *
  * @param {string} stylesHref `href` to the `css` file
  */
-function loadPrettifyStyles(stylesHref) {
-    const $prettifyStyleSheets = $('#prettify-styles');
+function loadCodeStyles(stylesHref) {
+    const $codeStyles = $('#code-highlight-styles');
 
-    if ($prettifyStyleSheets.length) {
-        $prettifyStyleSheets.attr('href', stylesHref);
+    if ($codeStyles.length) {
+        $codeStyles.attr('href', stylesHref);
     } else {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.id = 'prettify-styles';
+        link.id = 'code-highlight-styles';
         link.type = 'text/css';
         link.href = stylesHref;
         head.appendChild(link);
@@ -190,26 +189,11 @@ function makeSelectorActive(selector, color) {
 }
 
 /**
- * Inits pretty-print scripts.
- *
- * @see {@link https://github.com/google/code-prettify/blob/master/docs/getting_started.md code-prettify}
- */
-function initPrettyprint() {
-    $pre.addClass('prettyprint');
-    $.getScript("/libs/prettify/run_prettify.js", function(){});
-    $.getScript("/libs/prettify/lang-css.js", function(){});
-    $.getScript("/libs/prettify/lang-go.js", function(){});
-    $.getScript("/libs/prettify/lang-proto.js", function(){});
-    $.getScript("/libs/prettify/lang-swift.js", function(){});
-    $.getScript("/libs/prettify/lang-yaml.js", function(){});
-}
-
-/**
  * Shows the code color selector if there is a `pre` tag on the page and the scroll position
  * under the header.
  */
 function showCodeColorSelector() {
-    const isPreElementExist = $('.prettyprint').length;
+    const isPreElementExist = $pre.length;
 
     setColorSelectorTopPosition();
 

@@ -63,7 +63,7 @@ generates events if the modification was successful.
 [`Aggregate`](#aggregate) and [`ProcessManager`](#process-manager) are examples one of such classes. 
 The code snippet below given an example of handling a command by an aggregate:
 
-```
+```java
 final class TaskAggregate
     extends Aggregate<TaskId, Task, Task.Builder> {
     ...
@@ -87,16 +87,16 @@ Event Subscriber is an object which subscribes to receive events.
 The example below shows how a [Projection](#projection) class subscribed to the `TaskCompleted`
 event.
 
-  ```
-  final class TaskProjection
-      extends Projection<TaskId, TaskItem, TaskItem.Builder> {
-      ...
-      @Subscribe
-      void on(TaskCompleted e, EventContext ctx) {
-          builder().setWhenDone(ctx.getTimestamp());
-      }
+```java
+final class TaskProjection
+  extends Projection<TaskId, TaskItem, TaskItem.Builder> {
+  ...
+  @Subscribe
+  void on(TaskCompleted e, EventContext ctx) {
+      builder().setWhenDone(ctx.getTimestamp());
   }
-  ```
+}
+```
 
 ### Event Reactor
 

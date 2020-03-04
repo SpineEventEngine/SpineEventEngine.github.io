@@ -167,6 +167,14 @@
     margin-top: $page-top-offset;
   }
 
+  .justify-post-container {
+    justify-content: flex-end !important;
+
+    @media (max-width: $desktop-small) {
+      justify-content: center !important;
+    }
+  }
+
   .content-attribution {
     color: $dark-gray;
     font-size: 15px;
