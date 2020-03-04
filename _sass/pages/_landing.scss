@@ -3,6 +3,10 @@
   padding: 32px 0 92px;
   position: relative;
 
+  @media (max-width: $tablet) {
+    padding-bottom: 72px;
+  }
+
   .step-row {
     margin-top: 92px;
 
