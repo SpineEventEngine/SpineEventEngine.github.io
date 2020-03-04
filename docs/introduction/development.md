@@ -78,7 +78,7 @@ Then we define states of entities.
 
 ```proto
 message Task {
-    (entity).kind = AGGREGATE;
+    option (entity).kind = AGGREGATE;
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
