@@ -193,7 +193,7 @@ function makeSelectorActive(selector, color) {
  * under the header.
  */
 function showCodeColorSelector() {
-    const isPreElementExist = $('.highlighter-rouge').length;
+    const isPreElementExist = $pre.length;
 
     setColorSelectorTopPosition();
 
