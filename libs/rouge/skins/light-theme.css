@@ -3,7 +3,7 @@
  */
 .highlight pre { background: #fff; }
 .highlighter-rouge .highlight { background: #fff; }
-.highlight code { color: #171717; font-weight: 400; }
+.highlight code { color: #171717; font-weight: 400; } /* common font color */
 .highlight .c { color: #998; font-style: italic; }
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
 .highlight .k { color: #000080; font-weight: bold; }
@@ -27,8 +27,8 @@
 .highlight .kc { color: #000080; font-weight: bold; } /* boolean */
 .highlight .kd { color: #000080; font-weight: bold; } /* keywords */
 .highlight .kn { color: #000080; font-weight: bold; } /* keywords */
-.highlight .kp { font-weight: bold; }
-.highlight .kr { font-weight: bold; }
+.highlight .kp { color: #000080; font-weight: bold; }
+.highlight .kr { color: #000080; font-weight: bold; }
 .highlight .kt { color: #000080; font-weight: bold; }
 .highlight .m { color: #099; }
 .highlight .s { color: #008E28; font-weight: bold; } /* string */
@@ -64,3 +64,6 @@
 .highlight .vg { color: #008080; }
 .highlight .vi { color: #008080; }
 .highlight .il { color: #099; }
+
+/* Removes keyword style for the word after `return`. */
+.highlight .k + .nf { color: #171717; font-weight: 400; }
