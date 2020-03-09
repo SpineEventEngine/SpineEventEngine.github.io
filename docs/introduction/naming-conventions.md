@@ -15,13 +15,6 @@ that we find useful for making the code easier to understand.</p>
 Proto files are named using the `snake_case`, as defined by Protobuf. There are several special
 kinds of files.
 
-<p class="note">We recommend using `java_outer_classname` in proto files names to make their names
-    obvious. Otherwise Protobuf Compiler tries to use the name of the file for the Java class.
-    For example, for `identifiers.proto` it will be `Identifiers.java`.
-    Though sometimes it can be `SomethingOuterClass` when there is a type which conflicts with
-    CamelCase version of the file name. You may also want to use names like `Identifiers` for
-    utility classes related to your domain.</p>
-
 ### Identifiers   
 
 Commands and events reference model entities using their identifiers. 
@@ -41,7 +34,7 @@ corresponding Bounded Context.
 
 Commands are defined in a file ending with `commands.proto`. 
 It can be simply `commands.proto` but usually commands are handled by different entities. 
-Thus it is convenient to name such file after the type of a target entity, 
+Thus, it is convenient to name such a file after the type of the target entity, 
 for example, an aggregate: 
 
  * `blog_commands.proto` 

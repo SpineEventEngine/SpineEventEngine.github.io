@@ -3,6 +3,8 @@ doc_side_nav:
     children:
       - page: Motivation
         url: /docs/introduction/
+      - page: Rules
+        url: /docs/introduction/rules.html
       - page: Development Process
         url: /docs/introduction/development.html
       - page: Architecture
