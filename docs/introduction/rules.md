@@ -8,11 +8,11 @@ type: markdown
 
 # Rules
 
-Here are the basic rules the framework is built upon:
+Here are the ground rules the framework is built upon:
 
 1. An update to a business model <em>is</em> an event. 
 
-2. All other data are built in response to events.
+2. Entities are changed in response to events.
    
 3. A command has one and <em>only one</em> handler.
 
