@@ -135,7 +135,7 @@ The event producer obtains cached historical events, matches them to the receive
 and sends them to the client. The **Takeoffs and Landings** system implements 
 an&nbsp;[event consumer](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java)
 which constructs a subscription and maintains it as long as the system needs to receive more events.
-The consumer broadcasts the received Events via an instance of [`ThirdPartyContext`](https://spine.io/core-java/javadoc/server/io/spine/server/integration/ThirdPartyContext.html):
+The consumer broadcasts the received Events via an instance of [`ThirdPartyContext`](https://spine.io/core-java/reference/server/io/spine/server/integration/ThirdPartyContext.html):
 
 ```java
 @Override
@@ -278,7 +278,7 @@ which performs all the technical work of obtaining and validating data, and a [P
 for the [Boarding process](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java).
 The **Security Checks** API provides data for each passenger independently. The client polls
 the data and publishes many intermediate `PassengerBoarded` or `PassengerDeniedBoarding` external
-events via [`ThirdPartyContext`](https://spine.io/core-java/javadoc/server/io/spine/server/integration/ThirdPartyContext.html):
+events via [`ThirdPartyContext`](https://spine.io/core-java/reference/server/io/spine/server/integration/ThirdPartyContext.html):
 
 ```java
 public void start() {

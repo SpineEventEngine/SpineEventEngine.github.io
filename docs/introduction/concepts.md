@@ -106,7 +106,7 @@ generates events in response to changes in the domain.
 
 <p class="note">In some cases, Event Reactor may ignore the event, returning `Nothing`.
     It usually happens when a method returns one of the
-    [`Either`](https://spine.io/core-java/javadoc/server/index.html) types, with `Nothing` as
+    [`Either`](https://spine.io/core-java/reference/server/index.html) types, with `Nothing` as
     one of the possible options: `EitherOf2<TaskReAssigned, Nothing>`.</p>
 
 ## Value Objects
@@ -181,9 +181,9 @@ Repository encapsulates storage, retrieval, and search of Entities as if it were
 a collection of objects. It isolates domain objects from the details of the database access code. 
 
 The applications you develop using Spine usually have the following types of repositories:
-* [`AggregateRepository`](https://spine.io/core-java/javadoc/server/io/spine/server/aggregate/AggregateRepository.html),
-* [`ProcessManagerRepository`](https://spine.io/core-java/javadoc/server/io/spine/server/procman/ProcessManagerRepository.html),
-* [`ProjectionRepository`](https://spine.io/core-java/javadoc/server/io/spine/server/projection/ProjectionRepository.html).
+* [`AggregateRepository`](https://spine.io/core-java/reference/server/io/spine/server/aggregate/AggregateRepository.html),
+* [`ProcessManagerRepository`](https://spine.io/core-java/reference/server/io/spine/server/procman/ProcessManagerRepository.html),
+* [`ProjectionRepository`](https://spine.io/core-java/reference/server/io/spine/server/projection/ProjectionRepository.html).
 
 ### Snapshot
 
