@@ -49,19 +49,22 @@ doc_side_nav:
             url: /docs/tutorials/basic/javascript.html
           - page: C++
             url: /docs/tutorials/basic/cpp.html
-  - page: Client Libraries
+  - page: API Reference
     children:
-      - page: Java
+      - page: Java Server
+        url: https://spine.io/core-java/reference/server/index.html
+      - page: Java Client
+        url: https://spine.io/core-java/reference/client/index.html
+      - page: Java Web Server
         children:
-          - page: API Reference
-            url: https://spine.io/core-java/javadoc/client/index.html
-      - page: JavaScript
-        children:
-          - page: API Reference
-            url: https://spine.io/docs/reference/javascript/index.html
-      - page: Dart
-        children:
-          - page: API Reference
-            url: https://spine.io/docs/reference/dart/index.html
+          - page: API
+            url: https://spine.io/web/reference/web/index.html
+          - page: Implementation on Firebase
+            url: https://spine.io/web/reference/firebase-web/index.html
+      - page: JavaScript Client
+        url: https://spine.io/web/reference/client-js/index.html
+      - page: Dart Client
+        url: https://spine.io/dart/reference/client/index.html
+
   - page: Examples
     url: /docs/examples/

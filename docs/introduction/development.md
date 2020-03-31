@@ -215,7 +215,7 @@ assertEntity.hasStateThat()
 ### Configuring Server Environment
 
 For information on configuring server environment of a Spine-based application, please 
-see the reference documentation of the [`ServerEnvironment`](https://spine.io/core-java/javadoc/server/io/spine/server/ServerEnvironment.html)
+see the reference documentation of the [`ServerEnvironment`](https://spine.io/core-java/reference/server/io/spine/server/ServerEnvironment.html)
 class.
 
 ### Assembling Application
