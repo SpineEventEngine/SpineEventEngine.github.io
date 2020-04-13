@@ -11,6 +11,7 @@ Spine enhances Protobuf with a validation library.
 
 This guide will walk you though the API of Spine validation library.
 
+# Validation options
 ## Required fields
 
 In Protobuf 2 the concept of required fields used to be built into the language. This proved to be
@@ -74,6 +75,22 @@ message UserIdentity {
 In this case one of the fields `UserIdentity.email`, `UserIdentity.google`,
 and `UserIdentity.twitter` must be set.
 
+Other cases call for conditional required fields. In particular, some fields of a message must be
+set alongside other fields. Consider an example of an online store item:
+
+```proto
+message Item {
+
+    // ...
+
+    Timestamp when_opened_for_sale = 42;
+    UserId who_opened_for_sale = 42 [(goes).with = "when_opened_for_sale"];
+}
+```
+
+The `Item.who_opened_for_sale` field only makes sense for the domain if 
+the `Item.when_opened_for_sale` field is set. `(goes)` option 
+
 Finally, there are some cases, in which a pair of fields may be set at the same time, but at least
 one of them must be set. This and more complex cases are handled by the type-level
 `(required_field)` option:
@@ -95,6 +112,8 @@ message PersonName {
 In case of `PersonName`, either `given_name` or both `honorific_prefix` and `family_name` must be
 set. All three can be set at the same time.
 
+
+
 ### Missing fields
 
 In case if a required field is missing, the validation error message will explicitly say so.
@@ -112,6 +131,10 @@ message PhoneNumber {
 
 Note that this option only applies to fields marked with `(required)` and not to the fields
 referenced via any other options.
+
+If `(goes)` option is used, the error message can be customized with the `(goes).msg_format`
+parameter. Note that the message should contain two "`%s`" insertion points: first for the name of
+the field declaring the option and second for the name of the field targeted by the option.
 
 ### When `(required)` is implicit
 
@@ -267,3 +290,47 @@ message HyperReference {
 It is recommended to use simple patterns due to performance considerations. For example, fully
 fledged URL and email patterns are famously too long to be used in most cases. Treat `(pattern)`
 checks as if they were yet another code with regex matching in it.
+
+## Distinct collections
+
+Often, a `repeated` field logically represents a set rather than a list. Protobuf does not have
+a native support for sets. Moreover, it is often an invalid operation to add a duplicate element to
+a set. For such cases, Spine provides the `(distinct)` option, which constrains a `repeated` or
+a `map` field to only contain non-duplicating elements (values in case of `map`s).
+
+Example:
+
+```proto
+message User {
+
+    repeated EmailAddress recovery_emails = 42 [(distict) = true];
+}
+```
+
+## Non-mutable state fields
+
+For entity states, Spine defines a special validation constraint. It is not typically checked in any
+other situation, but only when updating a state of an existing Spine entity.
+
+Many fields of an entity are immutable. They may be set one in the life of the entity and then
+should never be changed. In order to enforce this, we provide the `(set_once)` option. The option
+allows changing a value of a field only if the current value is the default value. Changing a field
+from a non-default value to anything else will cause a violation.
+
+Example:
+
+```proto
+message Order {
+    option (entity).kind = AGGREGATE;
+
+    // ...
+    
+    Timestamp when_deleted = 314 [(set_once) = true];
+}
+```
+
+Once the `Order.when_deleted` field is filled, it can never change.
+
+# External constraints
+
+# Custom constraints
