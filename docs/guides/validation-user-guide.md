@@ -9,7 +9,9 @@ Protobuf is a great tool for structuring domain models. Protobuf definitions hel
 creating [Value Objects](https://martinfowler.com/bliki/ValueObject.html).
 Spine enhances Protobuf with a validation library.
 
-This guide will walk you though the API of Spine validation library.
+This guide will walk you though the API of Spine validation library. All of the validation features
+described here are currently supported in the Java environment many are supported in Dart as well.
+For more info, see the description of individual constraints. 
 
 ## Validation options
 ### Required fields
@@ -91,7 +93,8 @@ message Item {
 ```
 
 The `Item.who_opened_for_sale` field only makes sense for the domain if 
-the `Item.when_opened_for_sale` field is set. `(goes)` option 
+the `Item.when_opened_for_sale` field is set. If `who_opened_for_sale` is set and
+`when_opened_for_sale` is not, a constraint violation is produced.
 
 Finally, there are some cases, in which a pair of fields may be set at the same time, but at least
 one of them must be set. This and more complex cases are handled by the type-level
