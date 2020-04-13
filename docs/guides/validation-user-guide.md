@@ -293,6 +293,36 @@ checks as if they were yet another code with regex matching in it.
 
 ## Temporal constraint
 
+Spine provides an option for validating time-bearing types. Those are:
+ - `google.protobuf.Timestamp`;
+ - `spine.time.YearMonth`;
+ - `spine.time.LocalDate`;
+ - `spine.time.LocalDateTime`;
+ - `spine.time.OffsetDateTime`;
+ - `spine.time.ZonedDateTime`;
+ - any user-defined type which implements the Temporal interface (`io.spine.time.Temporal` for
+   Java).
+   
+Using the option `(when)`, you may declare that the timestamp should lie in past or in future.
+
+```proto
+import "spine/time_options.proto";
+import "spine/time/time.proto";
+
+message PlaceOrder {
+    
+    // ...
+
+    spine.time.ZonedDateTime when_placed = 12 [(when).in = PAST];
+    spine.time.ZonedDateTime when_expires = 13 [(when).in = FUTURE];
+}
+```
+
+Note that the value is checked in relation to the current server time. In most cases, this should
+not be an issue. However, be aware that using `FUTURE` in Events and entity states may cause
+validation errors upon playing historical Events in future. However, that is not the case with
+Commands.  
+
 ## Distinct collections
 
 Often, a `repeated` field logically represents a set rather than a list. Protobuf does not have
@@ -381,3 +411,5 @@ of Protobuf definitions, merely a small amount of local patches.
 </p>
 
 # Custom constraints
+
+
