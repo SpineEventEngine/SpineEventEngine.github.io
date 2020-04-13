@@ -10,7 +10,7 @@ creating [Value Objects](https://martinfowler.com/bliki/ValueObject.html).
 Spine enhances Protobuf with a validation library.
 
 This guide will walk you though the API of Spine validation library. All of the validation features
-described here are currently supported in the Java environment many are supported in Dart as well.
+described here are currently supported in the Java environment. Many are supported in Dart as well.
 For more info, see the description of individual constraints. 
 
 ## Validation options
@@ -90,7 +90,7 @@ message Item {
     // ...
 
     Timestamp when_opened_for_sale = 42;
-    UserId who_opened_for_sale = 42 [(goes).with = "when_opened_for_sale"];
+    UserId who_opened_for_sale = 43 [(goes).with = "when_opened_for_sale"];
 }
 ```
 
@@ -249,8 +249,8 @@ message Distance {
 
 The `(range)` option is a shortcut for a combination of `(min)` and `(max)`. A range specifies both
 boundaries for a number field. `(range)` is a `string` option. The `(range)` notation allow
-declaring inclusive and exclusive boundaries. A round bracket (`(` or `)`) denotes an exclusive
-boundary and a square bracket (`[` or `]`) — an inclusive boundary.
+declaring inclusive and exclusive boundaries. A round bracket ("`(`" or "`)`") denotes an exclusive
+boundary and a square bracket ("`[`" or "`]`") — an inclusive boundary.
 
 Example:
 
@@ -270,7 +270,7 @@ field can span between 0 and 59, and the `LocalTime.seconds` field can span betw
 but can never reach 60. Exclusive boundaries are especially powerful for fractional numbers, since,
 mathematically, there is no hard upper limit which a field value can reach.
 
-Usage of the double dot separator (`..`) between the bounds is necessary. 
+Usage of the double dot separator ("`..`") between the bounds is necessary. 
 
 <p class="note">
 In some languages, Protobuf unsigned integers are represented by signed language primitives.
