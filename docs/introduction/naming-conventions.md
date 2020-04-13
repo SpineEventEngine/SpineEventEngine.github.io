@@ -15,7 +15,7 @@ that we find useful for making the code easier to understand.</p>
 Proto files are named using the `snake_case`, as defined by Protobuf. There are several special
 kinds of files.
 
-### Identifiers   
+### `identifiers.proto`   
 
 Commands and events reference model entities using their identifiers. 
 Having typed identifiers makes a model type safe.
@@ -52,7 +52,7 @@ corresponding Bounded Context. For example:
               identifiers.proto
         ...
 ```
-### Command definitions
+### `commands.proto`
 
 Commands are defined in a file ending with `commands.proto`.
 It can be simply `commands.proto` but usually commands are handled by different entities. 
@@ -63,7 +63,7 @@ for example, an aggregate:
  * `order_commands.proto` 
  * `customer_commands.proto`
 
-### Event definitions
+### `events.proto`
 
 Similarly to commands, events are defined in files which names have the `events.proto` suffix:
 
@@ -71,7 +71,7 @@ Similarly to commands, events are defined in files which names have the `events.
  * `order_events.proto`
  * `customer_events.proto`.
 
-### Rejection definitions
+### `rejections.proto`
 
 `Rejection` is a special “negative” kind of events supported by the framework. 
 A rejection is thrown if a command cannot be handled. You may think of them as of exceptions with
