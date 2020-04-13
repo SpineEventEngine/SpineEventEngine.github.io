@@ -409,7 +409,3 @@ of such constrains in the whole project is not large, significantly smaller than
 normal constraints. This mechanism is not designed to override validation rules of an entire library
 of Protobuf definitions, merely a small amount of local patches.
 </p>
-
-# Custom constraints
-
-
