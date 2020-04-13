@@ -11,8 +11,8 @@ Spine enhances Protobuf with a validation library.
 
 This guide will walk you though the API of Spine validation library.
 
-# Validation options
-## Required fields
+## Validation options
+### Required fields
 
 In Protobuf 2 the concept of required fields used to be built into the language. This proved to be
 a [design mistake](https://stackoverflow.com/a/31814967/3183076) and in Protobuf 3 all the fields
@@ -21,7 +21,7 @@ between the Protobuf 2 `required` and our `(required)` is that our validation al
 fields and transmitting them over the wire. The choice whether or not to use validation lies solely
 on the developer.
 
-### How required fields work
+#### How required fields work
 
 Fields in protobuf may have either a primitive type or a user-defined type. A user-defined type is
 a `message` or an `enum` and primitive types are numbers, `string`, and `bytes`. Due to limitations
@@ -39,7 +39,7 @@ For collection fields (i.e. `repeated` and `map`), a field is considered set if:
 Note that collections of number fields can be required. In those cases, only the rule 1. applies and
 the rule 2. is ignored.
 
-### Declaring required fields
+#### Declaring required fields
 
 In the basic scenario, a single required field is marked with the `(required)` option:
 
@@ -114,9 +114,7 @@ message PersonName {
 In case of `PersonName`, either `given_name` or both `honorific_prefix` and `family_name` must be
 set. All three can be set at the same time.
 
-
-
-### Missing fields
+#### Missing fields
 
 In case if a required field is missing, the validation error message will explicitly say so.
 However, if you need a specific error message for this field, you can provide it via
@@ -138,7 +136,7 @@ If `(goes)` option is used, the error message can be customized with the `(goes)
 parameter. Note that the message should contain two "`%s`" insertion points: first for the name of
 the field declaring the option and second for the name of the field targeted by the option.
 
-### When `(required)` is implicit
+#### When `(required)` is implicit
 
 In Spine, by convention, if the first declared field of a [Command](../introduction/naming-conventions.html#command-definitions),
 an [Event](../introduction/naming-conventions.html#event-definitions), or an entity state is
@@ -178,7 +176,7 @@ In this case, the `ProfilePictureChanged.id` field is not required, since it's n
 in the field. The field `ProfilePictureChanged.new_picture` is not required because the convention
 is overridden with an explicit option.
 
-## Recursive message validation
+### Recursive message validation
 
 When a message is validated, only the "shallow" constraints are checked by default. This means that
 the message fields can be invalid and the container message is still considered valid.
@@ -200,7 +198,7 @@ If any violations are found, they will be packed into a single violation of the 
 
 When applied to a `repeated` or a `map` field, each item (value of a `map`) is validated.
 
-### Invalid fields
+#### Invalid fields
 
 If a specific error message is required for an invalid field, the `(if_invalid)` option should be
 used:
@@ -216,11 +214,11 @@ message User {
 }
 ```
 
-## Number bounds
+### Number bounds
 
 For number fields, Spine defines a few options to limit the range of expected values.
 
-### `(min)`/`(max)`
+#### `(min)`/`(max)`
 
 `(min)` and `(max)` are twin options which define the lower and higher bounds for a number fields.
 The value is specified as a string. Note that the string must be parsable into the field's number
@@ -240,7 +238,7 @@ message Distance {
 }
 ```
 
-### Ranges
+#### Ranges
 
 The `(range)` option is a shortcut for a combination of `(min)` and `(max)`. A range specifies both
 boundaries for a number field. `(range)` is a `string` option. The `(range)` notation allow
@@ -274,7 +272,7 @@ overflow into `long` negatives, it will be considered a negative by the validati
 that in mind when defining lower bounds.
 </p>
 
-## Regular expressions
+### Regular expressions
 
 For `string` fields, the library provides the `(pattern)` option. Users can define a regular
 expression to match the field values. Also, some common pattern modifiers are available:
@@ -307,7 +305,7 @@ It is recommended to use simple patterns due to performance considerations. For 
 fledged URL and email patterns are famously too long to be used in most cases. Treat `(pattern)`
 checks as if they were yet another code with regex matching in it.
 
-## Temporal constraint
+### Temporal constraint
 
 Spine provides an option for validating time-bearing types. Those are:
  - `google.protobuf.Timestamp`;
@@ -339,7 +337,7 @@ not be an issue. However, be aware that using `FUTURE` in Events and entity stat
 validation errors upon playing historical Events in future. However, that is not the case with
 Commands.  
 
-## Distinct collections
+### Distinct collections
 
 Often, a `repeated` field logically represents a set rather than a list. Protobuf does not have
 a native support for sets. Moreover, it is often an invalid operation to add a duplicate element to
@@ -357,7 +355,7 @@ message User {
 }
 ```
 
-## Non-mutable state fields
+### Non-mutable state fields
 
 For entity states, Spine defines a special validation constraint. It is not typically checked in any
 other situation, but only when updating a state of an existing Spine entity.
@@ -383,7 +381,7 @@ message Order {
 
 Once the `Order.when_deleted` field is filled, it can never change.
 
-# External constraints
+## External constraints
 
 Sometimes, you need to impose extra validation rules on types you do not control. Consider
 the example of an image URL which should always have the `ftp` protocol:
