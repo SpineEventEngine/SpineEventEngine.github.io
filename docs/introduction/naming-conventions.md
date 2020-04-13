@@ -25,14 +25,36 @@ and others. You can find similar cases in the framework API which has `EventId`,
 `UserId`, `TenantId`, and others. 
 
 We find it convenient to define ID types in one file called `identifiers.proto`. 
-A typical project is likely to have more than one Bounded Context, thus you will have several
+A typical project is likely to have more than one Bounded Context. Thus, you will have several
 `identifiers.proto` files. 
 Each of them resides under the directory with proto files defining the data model of the
-corresponding Bounded Context.   
+corresponding Bounded Context. For example:
 
+```
+    myproject/
+      users/
+        src/
+          main/
+            java/
+            proto/
+              user.proto
+              group.proto
+              ...
+              identifiers.proto
+      tasks/
+        src/
+          main/
+            java/    
+            proto/
+              task.proto
+              project.proto
+              ...
+              identifiers.proto
+        ...
+```
 ### Command definitions
 
-Commands are defined in a file ending with `commands.proto`. 
+Commands are defined in a file ending with `commands.proto`.
 It can be simply `commands.proto` but usually commands are handled by different entities. 
 Thus, it is convenient to name such a file after the type of the target entity, 
 for example, an aggregate: 
