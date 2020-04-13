@@ -291,6 +291,8 @@ It is recommended to use simple patterns due to performance considerations. For 
 fledged URL and email patterns are famously too long to be used in most cases. Treat `(pattern)`
 checks as if they were yet another code with regex matching in it.
 
+## Temporal constraint
+
 ## Distinct collections
 
 Often, a `repeated` field logically represents a set rather than a list. Protobuf does not have
@@ -332,5 +334,50 @@ message Order {
 Once the `Order.when_deleted` field is filled, it can never change.
 
 # External constraints
+
+Sometimes, you need to impose extra validation rules on types you do not control. Consider
+the example of an image URL which should always have the `ftp` protocol:
+
+```proto
+message User {
+
+    // ...
+
+    Url profile_picture = 42;
+}
+```
+
+How do we add validation to the fields inside `Url` so that only the `User.profile_picture` is
+affected? Just for this purpose, Spine provides the mechanism of external constraints — validation
+constraints defined outside the message.
+
+To declare an external constraint, use the `(constraint_for)` option:
+
+```proto
+message UserPictureConstraint {
+    option (constraint_for) = "org.example.user.User.profile_picture";
+
+    string spec = 1 [
+            (required) = true,
+            (pattern).regex = "ftp://.+",
+            (pattern).msg_format = "Profile picture should be available via FTP (regex: %s)."
+    ];
+}
+```
+
+The definition of `User` itself need not change.
+
+Note that the fields of an external constraint declaration should replicate the fields of the target
+type. In our example, the `Url` type. If the `Url` type had many fields, only those which need any
+validation should be declared. However, note that if the `Url` type declares any validation on its
+own, all of it is discarded and only the "substitute" rules from the `UserPictureConstraint` are
+used.
+
+<p class="note">
+Mind performance considerations when declaring external constraints. It is expected that the number
+of such constrains in the whole project is not large, significantly smaller than the number of
+normal constraints. This mechanism is not designed to override validation rules of an entire library
+of Protobuf definitions, merely a small amount of local patches.
+</p>
 
 # Custom constraints
