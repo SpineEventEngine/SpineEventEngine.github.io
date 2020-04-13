@@ -201,7 +201,7 @@ Example:
 message Distance {
 
     uint64 meters = 1;
-    uint32 millimeters = 2 [(max) = { value = "1000" exclusive = true }];
+    uint32 millimeters = 2 [(max) = { value: "1000" exclusive: true }];
 }
 ```
 
@@ -236,3 +236,34 @@ For example, in Java, a `uint64` is represented with a `long`. If a value of a f
 overflow into `long` negatives, it will be considered a negative by the validation library. Keep
 that in mind when defining lower bounds.
 </p>
+
+## Regular expressions
+
+For `string` fields, the library provides the `(pattern)` option. Users can define a regular
+expression to match the field values. Also, some common pattern modifiers are available:
+ - `dot_all` (a.k.a. "single line") — enables the dot (`.`) symbol to match all the characters,
+   including line breaks;
+ - `case_insensitive` — allows to ignore the case of the matched symbols;
+ - `multiline` — enables the `^` (caret) and `$` (dollar) signs to match a start and an end of
+   a line instead of a start and an end of the whole expression;
+ - `unicode` — enables matching the whole UTF-8 sequences;
+ - `partial_match` — allows the matched strings to contain a full match to the pattern and some 
+   other characters as well. By default, a string only matches a pattern if it is a full match,
+   i.e. there are no unaccounted for leading and/or trailing characters.
+   
+Example:
+
+```proto
+message HyperReference {
+    string url = 1 [(pattern) = { 
+            regex: "https?://.+\\..+" 
+            modifier: {
+                case_insensitive: true
+            }
+    }];
+}
+```
+
+It is recommended to use simple patterns due to performance considerations. For example, fully
+fledged URL and email patterns are famously too long to be used in most cases. Treat `(pattern)`
+checks as if they were yet another code with regex matching in it.
