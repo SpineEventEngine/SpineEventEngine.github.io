@@ -79,6 +79,8 @@ Other cases call for conditional required fields. In particular, some fields of 
 set alongside other fields. Consider an example of an online store item:
 
 ```proto
+import "spine/options.proto";
+
 message Item {
 
     // ...
@@ -146,6 +148,8 @@ convention, use `(required) = false`.
 Example:
 
 ```proto
+import "spine/options.proto";
+
 message User {
     option (entity).kind = AGGREGATE;
 
@@ -161,6 +165,8 @@ has nothing to do with this convention, only the field __order__. Thus, `User.na
 For the next example, consider `user_events.proto`:
 
 ```proto
+import "spine/options.proto";
+
 message ProfilePictureChanged {
 
     Url new_picture = 1 [(required) = false];
@@ -180,6 +186,8 @@ the message fields can be invalid and the container message is still considered 
 In order to enable message field checks, use `(validate)` option:
 
 ```proto
+import "spine/options.proto";
+
 message User {
     
     PersonName name = 2 [(validate) = true];
@@ -198,6 +206,8 @@ If a specific error message is required for an invalid field, the `(if_invalid)`
 used:
 
 ```proto
+import "spine/options.proto";
+
 message User {
     
     PersonName name = 2 [(validate) = true,
@@ -221,6 +231,8 @@ By default, the bounds are __inclusive__. Use the `exclusive` property to make a
 Example:
 
 ```proto
+import "spine/options.proto";
+
 message Distance {
 
     uint64 meters = 1;
@@ -238,6 +250,8 @@ boundary and a square bracket (`[` or `]`) — an inclusive boundary.
 Example:
 
 ```proto
+import "spine/options.proto";
+
 message LocalTime {
     
     int32 hours = 1 [(range) = "[0..23]"];
@@ -277,6 +291,8 @@ expression to match the field values. Also, some common pattern modifiers are av
 Example:
 
 ```proto
+import "spine/options.proto";
+
 message HyperReference {
     string url = 1 [(pattern) = { 
             regex: "https?://.+\\..+" 
@@ -333,6 +349,8 @@ a `map` field to only contain non-duplicating elements (values in case of `map`s
 Example:
 
 ```proto
+import "spine/options.proto";
+
 message User {
 
     repeated EmailAddress recovery_emails = 42 [(distict) = true];
@@ -352,6 +370,8 @@ from a non-default value to anything else will cause a violation.
 Example:
 
 ```proto
+import "spine/options.proto";
+
 message Order {
     option (entity).kind = AGGREGATE;
 
@@ -384,6 +404,8 @@ constraints defined outside the message.
 To declare an external constraint, use the `(constraint_for)` option:
 
 ```proto
+import "spine/options.proto";
+
 message UserPictureConstraint {
     option (constraint_for) = "org.example.user.User.profile_picture";
 
