@@ -164,7 +164,7 @@ message User {
 }
 ```
 
-Now, when an instance of `User` is validated, constraints of `User.name` will also be checked.
+When an instance of `User` is validated, constraints of `User.name` will also be checked.
 If any violations are found, they will be packed into a single violation of the `User` message.
 
 When applied to a `repeated` or a `map` field, each item (value of a `map`) is validated.
@@ -182,3 +182,57 @@ message User {
     // ...
 }
 ```
+
+## Number bounds
+
+For number fields, Spine defines a few options to limit the range of expected values.
+
+### `(min)`/`(max)`
+
+`(min)` and `(max)` are twin options which define the lower and higher bounds for a number fields.
+The value is specified as a string. Note that the string must be parsable into the field's number
+format (e.g. a `int32` field cannot have a `"2.5"` bound).
+
+By default, the bounds are __inclusive__. Use the `exclusive` property to make a bound exclusive. 
+
+Example:
+
+```proto
+message Distance {
+
+    uint64 meters = 1;
+    uint32 millimeters = 2 [(max) = { value = "1000" exclusive = true }];
+}
+```
+
+### Ranges
+
+The `(range)` option is a shortcut for a combination of `(min)` and `(max)`. A range specifies both
+boundaries for a number field. `(range)` is a `string` option. The `(range)` notation allow
+declaring inclusive and exclusive boundaries. A round bracket (`(` or `)`) denotes an exclusive
+boundary and a square bracket (`[` or `]`) — an inclusive boundary.
+
+Example:
+
+```proto
+message LocalTime {
+    
+    int32 hours = 1 [(range) = "[0..23]"];
+    int32 minutes = 2 [(range) = "[0 .. 60)"];
+    float seconds 3 [(range) = "[0 .. 60.0)"];
+}
+```
+
+In the example above, the `LocalTime.hours` field can span between 0 and 23, the `LocalTime.minutes`
+field can span between 0 and 59, and the `LocalTime.seconds` field can span between 0.0 and 60.0,
+but can never reach 60. Exclusive boundaries are especially powerful for fractional numbers, since,
+mathematically, there is no hard upper limit which a field value can reach.
+
+Usage of the double dot separator (`..`) between the bounds is necessary. 
+
+<p class="note">
+In some languages, Protobuf unsigned integers are represented by signed language primitives.
+For example, in Java, a `uint64` is represented with a `long`. If a value of a field in Java will
+overflow into `long` negatives, it will be considered a negative by the validation library. Keep
+that in mind when defining lower bounds.
+</p>
