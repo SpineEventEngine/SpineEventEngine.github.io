@@ -65,9 +65,7 @@ message UserIdentity {
         option (is_required) = true;
         
         EmailAddress email = 1;
-
         GoogleId google = 2; 
-        
         TwitterId twitter = 3; 
     }
 }
@@ -107,7 +105,8 @@ the `(if_missing)` option:
 import "spine/options.proto";
 
 message PhoneNumber {
-    string digits = 1 [(required) = true, (msg_format = "Phone number must contain digits.")];
+    string digits = 1 [(required) = true,
+                       (msg_format = "Phone number must contain digits.")];
 }
 ```
 
@@ -128,10 +127,7 @@ message User {
     option (entity).kind = AGGREGATE;
 
     UserId id = 2;
-
-
     PersonName name = 1;
- 
     // ...
 }
 ```
@@ -145,7 +141,6 @@ For the next example, consider `user_events.proto`:
 message ProfilePictureChanged {
 
     Url new_picture = 1 [(required) = false];
-
     UserId id = 2;
 }
 ```
@@ -164,9 +159,8 @@ In order to enable message field checks, use `(validate)` option:
 ```proto
 message User {
     
-    // ...
-
     PersonName name = 2 [(validate) = true];
+    // ...
 }
 ```
 
@@ -175,14 +169,16 @@ If any violations are found, they will be packed into a single violation of the 
 
 When applied to a `repeated` or a `map` field, each item (value of a `map`) is validated.
 
+### Invalid fields
+
 If a specific error message is required for an invalid field, the `(if_invalid)` option should be
 used:
 
 ```proto
 message User {
     
+    PersonName name = 2 [(validate) = true,
+                         (if_invalid).msg_format = "User name is invalid."];
     // ...
-
-    PersonName name = 2 [(validate) = true, (if_invalid).msg_format = "User name is invalid."];
 }
 ```
