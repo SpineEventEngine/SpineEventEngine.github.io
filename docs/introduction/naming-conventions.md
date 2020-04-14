@@ -30,7 +30,9 @@ A typical project is likely to have more than one Bounded Context. Thus, you wil
 Each of them resides under the directory with proto files defining the data model of the
 corresponding Bounded Context. For example:
 
-```
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>
     myproject/
       users/
         src/
@@ -40,7 +42,7 @@ corresponding Bounded Context. For example:
               user.proto
               group.proto
               ...
-              identifiers.proto
+              <span class="kd">identifiers.proto</span>
       tasks/
         src/
           main/
@@ -49,9 +51,12 @@ corresponding Bounded Context. For example:
               task.proto
               project.proto
               ...
-              identifiers.proto
+              <span class="kd">identifiers.proto</span>
         ...
-```
+</code>
+</pre>
+</div>
+
 ### `commands.proto`
 
 Commands are defined in a file ending with `commands.proto`.
