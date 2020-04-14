@@ -77,7 +77,9 @@ message UserIdentity {
 In this case one of the fields `UserIdentity.email`, `UserIdentity.google`,
 and `UserIdentity.twitter` must be set.
 
+<p class="warning">
 `(is_required)` option is not yet supported in Dart.
+</p>
 
 Other cases call for conditional required fields. In particular, some fields of a message must be
 set alongside other fields. Consider an example of an online store item:
@@ -201,7 +203,9 @@ If any violations are found, they will be packed into a single violation of the 
 
 When applied to a `repeated` or a `map` field, each item (value of a `map`) is validated.
 
+<p class="warning">
 `(validate)` option is not yet supported in Dart.
+</p>
 
 #### Invalid fields
 
@@ -428,7 +432,9 @@ validation should be declared. However, note that if the `Url` type declares any
 own, all of it is discarded and only the "substitute" rules from the `UserPictureConstraint` are
 used.
 
+<p class="warning">
 External constraints are yet supported in Dart.
+</p>
 
 <p class="note">
 Mind performance considerations when declaring external constraints. It is expected that the number
