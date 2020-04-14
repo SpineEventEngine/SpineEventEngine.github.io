@@ -25,7 +25,7 @@ doc_side_nav:
         url: /docs/guides/naming-conventions.html
       - page: Data Model Definition
         url: /docs/guides/model-definition.html
-      - page: Validation User Guide
+      - page: Validation
         url: /docs/guides/validation-user-guide.html
       - page: Defining Aggregate
         url: /docs/guides/defining-aggregate.html
