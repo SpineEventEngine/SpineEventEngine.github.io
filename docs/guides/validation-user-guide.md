@@ -69,15 +69,17 @@ only one field in the group can be set at a time. Instead, Spine provides `(is_r
 
 ```proto
 import "spine/options.proto";
+import "spine/net/email_address.proto";
+import "acme/auth.proto";
 
 // The means to identify a user.
 message UserIdentity {
     oneof auth_type {
         option (is_required) = true;
         
-        EmailAddress email = 1;
-        GoogleId google = 2; 
-        TwitterId twitter = 3; 
+        spine.net.EmailAddress email = 1;
+        auth.GoogleId google = 2; 
+        auth.TwitterId twitter = 3; 
     }
 }
 ```
@@ -94,14 +96,15 @@ Consider an example of an online store item:
 
 ```proto
 import "spine/options.proto";
+import "spine/core/user_id.proto";
+import "google/protobuf/timestamp.proto";
 
 // A product which can be purchased at the online store.
 message Item {
-
     // ...
 
-    Timestamp when_opened_for_sale = 42;
-    UserId who_opened_for_sale = 43 [(goes).with = "when_opened_for_sale"];
+    google.protobuf.Timestamp when_opened_for_sale = 42;
+    spine.core.UserId who_opened_for_sale = 43 [(goes).with = "when_opened_for_sale"];
 }
 ```
 
@@ -163,13 +166,15 @@ convention, Spine treats the first fields of such objects as their IDs:
 
 ```proto
 import "spine/options.proto";
+import "spine/core/user_id.proto";
+import "spine/people/person_name,.proto";
 
 // The state of the User Aggregate.
 message User {
     option (entity).kind = AGGREGATE;
 
-    UserId id = 2;
-    PersonName name = 1;
+    spine.core.UserId id = 2;
+    spine.people.PersonName name = 1;
     // ...
 }
 ```
@@ -181,12 +186,15 @@ For the next example, consider `user_events.proto`:
 
 ```proto
 import "spine/options.proto";
+import "spine/net/url.proto";
+import "spine/core/user_id.proto";
+
 
 // An event emitted when a user's profile picture is changed.
 message ProfilePictureChanged {
 
-    Url new_picture = 1 [(required) = false];
-    UserId id = 2;
+    spine.net.Url new_picture = 1 [(required) = false];
+    spine.core.UserId id = 2;
 }
 ```
 
@@ -203,12 +211,13 @@ In order to enable message field checks, use `(validate)` option:
 
 ```proto
 import "spine/options.proto";
+import "spine/people/person_name,.proto";
 
 // The state of the User Aggregate.
 message User {
-    
-    PersonName name = 2 [(validate) = true];
     // ...
+    
+    spine.people.PersonName name = 2 [(validate) = true];
 }
 ```
 
@@ -228,13 +237,14 @@ used:
 
 ```proto
 import "spine/options.proto";
+import "spine/people/person_name,.proto";
 
 // The state of the User Aggregate.
 message User {
-    
-    PersonName name = 2 [(validate) = true,
-                         (if_invalid).msg_format = "User name is invalid."];
     // ...
+    
+    spine.people.PersonName name = 2 [(validate) = true,
+                                      (if_invalid).msg_format = "User name is invalid."];
 }
 ```
 
@@ -379,11 +389,12 @@ Example:
 
 ```proto
 import "spine/options.proto";
+import "spine/net/email_address.proto";
 
 // The state of the User Aggregate.
 message User {
 
-    repeated EmailAddress recovery_emails = 42 [(distict) = true];
+    repeated spine.net.EmailAddress recovery_emails = 42 [(distict) = true];
 }
 ```
 
@@ -401,6 +412,7 @@ Example:
 
 ```proto
 import "spine/options.proto";
+import "google/protobuf/timestamp.proto";
 
 // The state of the Order Aggregate.
 message Order {
@@ -408,7 +420,7 @@ message Order {
 
     // ...
     
-    Timestamp when_deleted = 314 [(set_once) = true];
+    google.protobuf.Timestamp when_deleted = 314 [(set_once) = true];
 }
 ```
 
@@ -421,11 +433,12 @@ the example of an image URL which should always have the `ftp` protocol:
 
 ```proto
 // The state of the User Aggregate.
-message User {
+import "spine/net/url.proto";
 
+message User {
     // ...
 
-    Url profile_picture = 42;
+    spine.net.Url profile_picture = 42;
 }
 ```
 
