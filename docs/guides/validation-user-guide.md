@@ -5,9 +5,9 @@ bodyclass: docs
 layout: docs
 ---
 
-Protobuf is a great tool for structuring domain models. Protobuf definitions help us to standardize
-creating [Value Objects](https://martinfowler.com/bliki/ValueObject.html).
-Spine enhances Protobuf with a validation library.
+Spine uses Protobuf for defining domain models. It also helps us to standardize creating
+[Value Objects](https://martinfowler.com/bliki/ValueObject.html).
+Spine builds on top of Protobuf with a validation library.
 
 This guide will walk you though the API of Spine validation library. All of the validation features
 described here are currently supported in the Java environment. Many are supported in Dart as well.
