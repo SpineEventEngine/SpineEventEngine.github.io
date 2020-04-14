@@ -189,7 +189,6 @@ import "spine/options.proto";
 import "spine/net/url.proto";
 import "spine/core/user_id.proto";
 
-
 // An event emitted when a user's profile picture is changed.
 message ProfilePictureChanged {
 
@@ -432,9 +431,9 @@ Sometimes, you need to impose extra validation rules on types you do not control
 the example of an image URL which should always have the `ftp` protocol:
 
 ```proto
-// The state of the User Aggregate.
 import "spine/net/url.proto";
 
+// The state of the User Aggregate.
 message User {
     // ...
 
