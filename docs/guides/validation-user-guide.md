@@ -7,9 +7,9 @@ layout: docs
 
 Spine uses Protobuf for defining domain models. It also helps us to standardize creating
 [Value Objects](https://martinfowler.com/bliki/ValueObject.html).
-Spine builds on top of Protobuf with a validation library.
+Spine builds on top of Protobuf with a Validation library.
 
-This guide will walk you though the API of Spine validation library. All of the validation features
+This guide will walk you though the API of Spine Validation library. All of the validation features
 described here are currently supported in the Java environment. Many are supported in Dart as well.
 For more info, see the description of individual constraints. 
 
@@ -18,7 +18,7 @@ For more info, see the description of individual constraints.
 
 In Protobuf 2 the concept of required fields used to be built into the language. This proved to be
 a [design mistake](https://stackoverflow.com/a/31814967/3183076) and in Protobuf 3 all the fields
-are optional. However, we've revived the concept in Spine validation library. Unlike the Protobuf 2
+are optional. However, we've revived the concept in Spine Validation library. Unlike the Protobuf 2
 `required` fields, our `(required)` fields do not effect message serialization and thus can be
 ignored. Rather than guarding a technical invariant, `(required)` guards a domain model invariant.
 The choice whether or not to use validation lies solely on the developer.
