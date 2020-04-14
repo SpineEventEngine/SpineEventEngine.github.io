@@ -25,10 +25,10 @@ on the developer.
 
 #### How required fields work
 
-Fields in protobuf may have either a primitive type or a user-defined type. A user-defined type is
+Fields in Protobuf may have either a primitive type or a user-defined type. A user-defined type is
 a `message` or an `enum` and primitive types are numbers, `string`, and `bytes`. Due to limitations
-of the binary format, there is no way to tell if a number field is set to `0` or not just not set.
-This means that a number field cannot be required, as there is no way to check if it is set. All 
+of the binary format, there is no way to tell if a numeric field is set to `0` or not just not set.
+This means that a numeric field cannot be required, as there is no way to check if it is set. All 
 the other fields can be required. For `message` fields this means that the message must not be
 empty. For `enum` fields, this means that the enum value must have a number other than `0` (since 
 the enum value with number `0` is the default value of the field). For `string` and `bytes` fields
@@ -38,8 +38,8 @@ For collection fields (i.e. `repeated` and `map`), a field is considered set if:
   1. The collection is not empty.
   2. At least one of the entries (values for `map`s) matches the rules described above.
 
-Note that collections of number fields can be required. In those cases, only the rule 1. applies and
-the rule 2. is ignored.
+Note that collections of numeric fields can be required. In those cases, only the rule 1. applies
+and the rule 2. is ignored.
 
 #### Declaring required fields
 
@@ -223,11 +223,11 @@ message User {
 
 ### Number bounds
 
-For number fields, Spine defines a few options to limit the range of expected values.
+For numeric fields, Spine defines a few options to limit the range of expected values.
 
 #### `(min)`/`(max)`
 
-`(min)` and `(max)` are twin options which define the lower and higher bounds for a number fields.
+`(min)` and `(max)` are twin options which define the lower and higher bounds for a numeric fields.
 The value is specified as a string. Note that the string must be parsable into the field's number
 format (e.g. a `int32` field cannot have a `"2.5"` bound).
 
@@ -248,7 +248,7 @@ message Distance {
 #### Ranges
 
 The `(range)` option is a shortcut for a combination of `(min)` and `(max)`. A range specifies both
-boundaries for a number field. `(range)` is a `string` option. The `(range)` notation allow
+boundaries for a numeric field. `(range)` is a `string` option. The `(range)` notation allow
 declaring inclusive and exclusive boundaries. A round bracket ("`(`" or "`)`") denotes an exclusive
 boundary and a square bracket ("`[`" or "`]`") — an inclusive boundary.
 
