@@ -130,7 +130,7 @@ import "spine/options.proto";
 
 message PhoneNumber {
     string digits = 1 [(required) = true,
-                       (msg_format = "Phone number must contain digits.")];
+                       (if_missing).msg_format = "Phone number must contain digits."];
 }
 ```
 
@@ -143,12 +143,10 @@ the field declaring the option and second for the name of the field targeted by 
 
 #### When `(required)` is implicit
 
-In Spine, by convention, if the first declared field of a [Command](../introduction/naming-conventions.html#command-definitions),
-an [Event](../introduction/naming-conventions.html#event-definitions), or an entity state is
-not a collection field, it is considered an entity ID and made required by default. To override this
-convention, use `(required) = false`. 
-
-Example:
+When defining the domain [Commands](../introduction/naming-conventions.html#command-definitions),
+[Events](../introduction/naming-conventions.html#event-definitions) or entity states, we have found
+to be convenient that the first field of the respective Message is the identifier. Therefore, by
+convention, Spine treats the first fields of such objects as their IDs:
 
 ```proto
 import "spine/options.proto";
