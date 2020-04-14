@@ -55,7 +55,13 @@ message PhoneNumber {
 ```  
 
 Here, the field `PhoneNumber.digits` is required. If the API user tries to validate an instance of
-`PhoneNumber` without this field, a `ConstraintViolation` is produced.
+`PhoneNumber` without this field, a `ConstraintViolation` is produced:
+
+```java
+PhoneNumber.newBuilder()
+           .setDigits("")
+           .vBuild(); // ← Throws ValidationException.
+```
 
 There are more complex cases for required fields than just a single field. Consider a `oneof` field
 group, which always has to be set. Applying `(required)` to the fields does not make sense, since
