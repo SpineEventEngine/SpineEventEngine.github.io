@@ -392,6 +392,7 @@ import "spine/net/email_address.proto";
 
 // The state of the User Aggregate.
 message User {
+    // ...
 
     repeated spine.net.EmailAddress recovery_emails = 42 [(distict) = true];
 }
@@ -471,7 +472,7 @@ own, all of it is discarded and only the "substitute" rules from the `UserPictur
 used.
 
 <p class="warning">
-External constraints are yet supported in Dart.
+External constraints are not yet supported in Dart.
 </p>
 
 <p class="note">
