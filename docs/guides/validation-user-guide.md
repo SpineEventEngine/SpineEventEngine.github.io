@@ -81,8 +81,8 @@ and `UserIdentity.twitter` must be set.
 `(is_required)` option is not yet supported in Dart.
 </p>
 
-Other cases call for conditional required fields. In particular, some fields of a message must be
-set alongside other fields. Consider an example of an online store item:
+In some other cases, a field may be either required or not, depending on the value of another field.
+Consider an example of an online store item:
 
 ```proto
 import "spine/options.proto";
