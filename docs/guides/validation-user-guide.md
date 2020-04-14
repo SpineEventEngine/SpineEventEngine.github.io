@@ -18,10 +18,10 @@ For more info, see the description of individual constraints.
 
 In Protobuf 2 the concept of required fields used to be built into the language. This proved to be
 a [design mistake](https://stackoverflow.com/a/31814967/3183076) and in Protobuf 3 all the fields
-are optional. However, we've revived the concept in Spine validation library. The main difference
-between the Protobuf 2 `required` and our `(required)` is that our validation allows ignoring invalid
-fields and transmitting them over the wire. The choice whether or not to use validation lies solely
-on the developer.
+are optional. However, we've revived the concept in Spine validation library. Unlike the Protobuf 2
+`required` fields, our `(required)` fields do not effect message serialization and thus can be
+ignored. Rather than guarding a technical invariant, `(required)` guards a domain model invariant.
+The choice whether or not to use validation lies solely on the developer.
 
 #### How required fields work
 
