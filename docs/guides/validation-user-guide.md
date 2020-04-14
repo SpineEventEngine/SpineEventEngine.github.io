@@ -48,6 +48,7 @@ In the basic scenario, a single required field is marked with the `(required)` o
 ```proto
 import "spine/options.proto";
 
+// A phone number represented by a string of digits.
 message PhoneNumber {
     string digits = 1 [(required) = true];
 }
@@ -63,6 +64,7 @@ only one field in the group can be set at a time. Instead, Spine provides `(is_r
 ```proto
 import "spine/options.proto";
 
+// The means to identify a user.
 message UserIdentity {
     oneof auth_type {
         option (is_required) = true;
@@ -87,6 +89,7 @@ Consider an example of an online store item:
 ```proto
 import "spine/options.proto";
 
+// A product which can be purchased at the online store.
 message Item {
 
     // ...
@@ -107,6 +110,7 @@ one of them must be set. This and more complex cases are handled by the type-lev
 ```proto
 import "spine/options.proto";
 
+// A name of a person.
 message PersonName {
     option (required_field) = "given_name|honorific_prefix & family_name";
 
@@ -130,6 +134,7 @@ the `(if_missing)` option:
 ```proto
 import "spine/options.proto";
 
+// A phone number represented by a string of digits.
 message PhoneNumber {
     string digits = 1 [(required) = true,
                        (if_missing).msg_format = "Phone number must contain digits."];
@@ -153,6 +158,7 @@ convention, Spine treats the first fields of such objects as their IDs:
 ```proto
 import "spine/options.proto";
 
+// The state of the User Aggregate.
 message User {
     option (entity).kind = AGGREGATE;
 
@@ -170,6 +176,7 @@ For the next example, consider `user_events.proto`:
 ```proto
 import "spine/options.proto";
 
+// An event emitted when a user's profile picture is changed.
 message ProfilePictureChanged {
 
     Url new_picture = 1 [(required) = false];
@@ -191,6 +198,7 @@ In order to enable message field checks, use `(validate)` option:
 ```proto
 import "spine/options.proto";
 
+// The state of the User Aggregate.
 message User {
     
     PersonName name = 2 [(validate) = true];
@@ -215,6 +223,7 @@ used:
 ```proto
 import "spine/options.proto";
 
+// The state of the User Aggregate.
 message User {
     
     PersonName name = 2 [(validate) = true,
@@ -240,6 +249,7 @@ Example:
 ```proto
 import "spine/options.proto";
 
+// A distance between two points of a map with a millimeter precision.
 message Distance {
 
     uint64 meters = 1;
@@ -259,6 +269,10 @@ Example:
 ```proto
 import "spine/options.proto";
 
+// A time without a time-zone.
+//
+// It is a description of a time, not an instant on a time-line.
+//
 message LocalTime {
     
     int32 hours = 1 [(range) = "[0..23]"];
@@ -300,6 +314,7 @@ Example:
 ```proto
 import "spine/options.proto";
 
+// A link to an HTTP(S) resource.
 message HyperReference {
     string url = 1 [(pattern) = { 
             regex: "https?://.+\\..+" 
@@ -332,6 +347,7 @@ Using the option `(when)`, you may declare that the timestamp should lie in past
 import "spine/time_options.proto";
 import "spine/time/time.proto";
 
+// A command to place an order.
 message PlaceOrder {
     
     // ...
@@ -358,6 +374,7 @@ Example:
 ```proto
 import "spine/options.proto";
 
+// The state of the User Aggregate.
 message User {
 
     repeated EmailAddress recovery_emails = 42 [(distict) = true];
@@ -379,6 +396,7 @@ Example:
 ```proto
 import "spine/options.proto";
 
+// The state of the Order Aggregate.
 message Order {
     option (entity).kind = AGGREGATE;
 
@@ -396,6 +414,7 @@ Sometimes, you need to impose extra validation rules on types you do not control
 the example of an image URL which should always have the `ftp` protocol:
 
 ```proto
+// The state of the User Aggregate.
 message User {
 
     // ...
@@ -413,6 +432,7 @@ To declare an external constraint, use the `(constraint_for)` option:
 ```proto
 import "spine/options.proto";
 
+// The external constraint definition for `User.profile_picture`.
 message UserPictureConstraint {
     option (constraint_for) = "org.example.user.User.profile_picture";
 
