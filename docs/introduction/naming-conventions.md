@@ -32,10 +32,9 @@ corresponding Bounded Context.
 
 ### Command definitions
 
-Commands are defined in a file ending with `commands.proto`. 
-It can be simply `commands.proto` but usually commands are handled by different entities. 
-Thus, it is convenient to name such a file after the type of the target entity, 
-for example, an aggregate: 
+Commands are defined in a file with a name ending with `commands.proto`. It can be simply
+`commands.proto` but usually commands are handled by different entities. Thus, it is convenient
+to name such a file after the type of the target entity, for example, an aggregate: 
 
  * `blog_commands.proto` 
  * `order_commands.proto` 
@@ -51,9 +50,9 @@ Similarly to commands, events are defined in files which names have the `events.
 
 ### Rejection definitions
 
-`Rejection` is a special “negative” kind of events supported by the framework. 
-A rejection is thrown if a command cannot be handled. You may think of them as of exceptions with
-non-technical flavor.
+`Rejection` is a special “negative” kind of events supported by the framework.  A rejection is 
+thrown if a command cannot be handled. You may think of them as of exceptions with non-technical
+flavor.
 
 Similarly to events, rejections are defined in files ending with `rejections.proto`:
 
@@ -214,8 +213,6 @@ Similarly to events, rejections are placed under the package called `rejection`:
  * `io.acme.todolist.task.rejection`
  * `io.acme.todolist.project.rejection`
  * `io.acme.todolist.comment.rejection` 
-
-<!-- TODO:2018-11-21:alexander.yevsyukov: Make the text below a Note block with a link to guide on defining rejectiosn.proto file -->
 
 Unlike commands and events, rejection messages are generated under a file named `Rejections`. 
 The class is placed into a `rejection` package of the corresponding type.
