@@ -361,7 +361,7 @@ Spine provides an option for validating time-bearing types. Those are:
  - `spine.time.ZonedDateTime`;
  - any user-defined type which implements the Temporal interface (`io.spine.time.Temporal` for
    Java).
-   
+
 Using the option `(when)`, you may declare that the timestamp should lie in past or in future.
 
 ```proto
