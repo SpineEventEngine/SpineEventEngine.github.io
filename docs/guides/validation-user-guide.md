@@ -173,7 +173,7 @@ convention, Spine treats the first fields of such objects as their IDs:
 ```proto
 import "spine/options.proto";
 import "spine/core/user_id.proto";
-import "spine/people/person_name,.proto";
+import "spine/people/person_name.proto";
 
 // The state of the User Aggregate.
 message User {
@@ -216,7 +216,7 @@ In order to enable message field checks, use `(validate)` option:
 
 ```proto
 import "spine/options.proto";
-import "spine/people/person_name,.proto";
+import "spine/people/person_name.proto";
 
 // The state of the User Aggregate.
 message User {
@@ -254,7 +254,7 @@ used:
 
 ```proto
 import "spine/options.proto";
-import "spine/people/person_name,.proto";
+import "spine/people/person_name.proto";
 
 // The state of the User Aggregate.
 message User {
