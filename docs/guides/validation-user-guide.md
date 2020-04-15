@@ -12,8 +12,7 @@ specifics is data validation. Spine builds on top of Protobuf with a Validation 
 
 The purpose of the Validation library is:
  - giving framework users an easy way to maintain simple domain invariants;
- - giving framework users an easy way to construct simple Anticorruption layers;
- - maintaining data invariants within the framework.
+ - giving framework users an easy way to construct simple Anticorruption layers.
 
 This guide will walk you though the API of Spine Validation library. All of the validation features
 described here are currently supported in the Java environment. Many are supported in Dart as well.
