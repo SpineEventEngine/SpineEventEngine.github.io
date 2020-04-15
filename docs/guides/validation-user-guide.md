@@ -6,12 +6,13 @@ layout: docs
 ---
 
 Spine uses Protobuf for defining domain models. It also helps us to standardize creating
-[Value Objects](https://martinfowler.com/bliki/ValueObject.html).
-Spine builds on top of Protobuf with a Validation library.
+[Value Objects](https://martinfowler.com/bliki/ValueObject.html). Both those usages require
+something more than just a data structure. One of the commodities required for describing domain
+specifics is data validation. Spine builds on top of Protobuf with a Validation library.
 
 This guide will walk you though the API of Spine Validation library. All of the validation features
 described here are currently supported in the Java environment. Many are supported in Dart as well.
-For more info, see the description of individual constraints. 
+For more info, see the description of individual constraints.
 
 ## Validation options
 ### Required fields
