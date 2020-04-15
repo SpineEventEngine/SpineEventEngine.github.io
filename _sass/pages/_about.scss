@@ -15,7 +15,9 @@
   }
 
   .story-section {
+    background-color: $light-gray-blue;
     padding-top: 56px;
+    padding-bottom: 40px;
     position: relative;
 
     @media(max-width: $tablet){
@@ -24,6 +26,13 @@
 
     .section-title {
       font-size: $font-size--xl;
+    }
+
+    ul {
+      li {
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
     }
 
     .read-more {
@@ -53,6 +62,46 @@
     .link {
       display: inline-block;
       margin-top: 16px;
+    }
+
+    .principles {
+      ol,
+      ul {
+        margin: 0 0 32px 6px;
+
+        @media (max-width: $tablet) {
+          margin-bottom: 24px;
+        }
+
+        li {
+          margin-left: 18px;
+          margin-top: .6em;
+          padding-left: 6px; // Adds additional space between bullet and text.
+
+          ol,
+          ul {
+            margin-bottom: 32px;
+
+            li {
+              margin-top: .45em;
+            }
+          }
+        }
+      }
+
+      ul {
+        list-style: disc;
+
+        li {
+          ul {
+            list-style: circle;
+          }
+        }
+      }
+
+      ol {
+        list-style: decimal;
+      }
     }
   }
 
