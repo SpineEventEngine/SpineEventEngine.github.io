@@ -229,6 +229,18 @@ message User {
 When an instance of `User` is validated, constraints of `User.name` will also be checked.
 If any violations are found, they will be packed into a single violation of the `User` message.
 
+```java
+// Honorific prefix not set and `name` is not valid.
+PersonName name = PersonName
+        .newBuilder()
+        .setFamilyName("Smith")
+        .build(); // Build without validation.
+User user = User
+        .newBuilder()
+        .setPersonName(name)
+        .vBuild(); // ← Throws ValidationException.
+```
+
 When applied to a `repeated` or a `map` field, each item (value of a `map`) is validated.
 
 <p class="warning">
