@@ -11,10 +11,6 @@ doc_side_nav:
         url: /docs/introduction/architecture.html
       - page: Concepts
         url: /docs/introduction/concepts.html
-      - page: Project Structure
-        url: /docs/introduction/project-structure.html
-      - page: Naming Conventions
-        url: /docs/introduction/naming-conventions.html
   - page: Quick Start
     children:
       - page: Overview
@@ -23,14 +19,18 @@ doc_side_nav:
         url: /docs/quickstart/java.html
   - page: Guides
     children:
+      - page: Project Structure
+        url: /docs/guides/project-structure.html
+      - page: Naming Conventions
+        url: /docs/guides/naming-conventions.html
       - page: Data Model Definition
         url: /docs/guides/model-definition.html
-      - page: Validation User Guide
+      - page: Validation
         url: /docs/guides/validation-user-guide.html
-      - page: Working with Rejections
-        url: /docs/guides/rejections.html
       - page: Defining Aggregate
         url: /docs/guides/defining-aggregate.html
+      - page: Working with Rejections
+        url: /docs/guides/rejections.html
       - page: Related Guides
         children:
           - page: Protocol Buffers

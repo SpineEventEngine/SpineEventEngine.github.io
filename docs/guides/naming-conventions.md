@@ -15,7 +15,7 @@ that we find useful for making the code easier to understand.</p>
 Proto files are named using the `snake_case`, as defined by Protobuf. There are several special
 kinds of files.
 
-### Identifiers   
+### `identifiers.proto`   
 
 Commands and events reference model entities using their identifiers. 
 Having typed identifiers makes a model type safe.
@@ -25,22 +25,50 @@ and others. You can find similar cases in the framework API which has `EventId`,
 `UserId`, `TenantId`, and others. 
 
 We find it convenient to define ID types in one file called `identifiers.proto`. 
-A typical project is likely to have more than one Bounded Context, thus you will have several
+A typical project is likely to have more than one Bounded Context. Thus, you will have several
 `identifiers.proto` files. 
 Each of them resides under the directory with proto files defining the data model of the
-corresponding Bounded Context.   
+corresponding Bounded Context. For example:
 
-### Command definitions
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>
+    myproject/
+      users/
+        src/
+          main/
+            java/
+            proto/
+              user.proto
+              group.proto
+              ...
+              <span class="kd">identifiers.proto</span>
+      tasks/
+        src/
+          main/
+            java/    
+            proto/
+              task.proto
+              project.proto
+              ...
+              <span class="kd">identifiers.proto</span>
+        ...
+</code>
+</pre>
+</div>
 
-Commands are defined in a file with a name ending with `commands.proto`. It can be simply
-`commands.proto` but usually commands are handled by different entities. Thus, it is convenient
-to name such a file after the type of the target entity, for example, an aggregate: 
+### `commands.proto`
+
+Commands are defined in a file ending with `commands.proto`.
+It can be simply `commands.proto` but usually commands are handled by different entities. 
+Thus, it is convenient to name such a file after the type of the target entity, 
+for example, an aggregate: 
 
  * `blog_commands.proto` 
  * `order_commands.proto` 
  * `customer_commands.proto`
 
-### Event definitions
+### `events.proto`
 
 Similarly to commands, events are defined in files which names have the `events.proto` suffix:
 
@@ -48,11 +76,11 @@ Similarly to commands, events are defined in files which names have the `events.
  * `order_events.proto`
  * `customer_events.proto`.
 
-### Rejection definitions
+### `rejections.proto`
 
-`Rejection` is a special “negative” kind of events supported by the framework.  A rejection is 
-thrown if a command cannot be handled. You may think of them as of exceptions with non-technical
-flavor.
+`Rejection` is a special “negative” kind of events supported by the framework.
+A rejection is thrown if a command cannot be handled. You may think of them as of exceptions with
+non-technical flavor.
 
 Similarly to events, rejections are defined in files ending with `rejections.proto`:
 
