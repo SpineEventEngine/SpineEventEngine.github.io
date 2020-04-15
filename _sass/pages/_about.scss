@@ -1,21 +1,8 @@
 .about {
-  .features-section {
-    padding: 40px 0 40px;
-
-    @media (max-width: $tablet) {
-      padding-top: 32px;
-    }
-
-    .section-title {
-      text-align: left;
-      @media(max-width: $tablet){
-        text-align: center;
-      }
-    }
-  }
-
-  .story-section {
+  .principles-section {
+    background-color: $light-gray-blue;
     padding-top: 56px;
+    padding-bottom: 40px;
     position: relative;
 
     @media(max-width: $tablet){
@@ -26,39 +13,89 @@
       font-size: $font-size--xl;
     }
 
-    .read-more {
-      padding: 48px 40px;
-      background-color: #EDF8FF;
-      border-radius: 6px;
-
-      @media(max-width: $tablet){
-        padding: 32px 24px;
-      }
-
-      p {
-        color: #9ab3d6;
-      }
-
-      a {
-        text-decoration: none;
-        font-weight: 500;
-        &:hover {
-          color: $mainBrandColor;
-          padding-bottom: 2px;
-          border-bottom: 1px solid rgba($mainBrandColor, .87);
-        }
-      }
-    }
-
     .link {
       display: inline-block;
       margin-top: 16px;
     }
+
+    ol,
+    ul {
+      margin: 0 0 32px 6px;
+
+      @media (max-width: $tablet) {
+        margin-bottom: 24px;
+      }
+
+      li {
+        line-height: 1.6;
+        margin-left: 18px;
+        margin-top: .6em;
+        padding-left: 6px; // Adds additional space between bullet and text.
+        margin-bottom: 12px;
+
+        ol,
+        ul {
+          margin-bottom: 32px;
+
+          li {
+            margin-top: .45em;
+          }
+        }
+      }
+    }
+
+    ul {
+      list-style: disc;
+
+      li {
+        ul {
+          list-style: circle;
+        }
+      }
+    }
+
+    ol {
+      list-style: decimal;
+    }
   }
 
-  .software-section {
-    padding-top: 32px;
-    padding-bottom: 108px;
+  .logo-card {
+    margin: 16px 24px 0 0;
+    padding: 0 24px;
+    border-radius: 4px;
+    text-align: center;
+    @include transition(all .25s ease-in-out);
+
+    @media (max-width: $phone-xlarge) {
+      width: 46%;
+      margin-right: 8px;
+      box-shadow: 0 2px 6px rgba(black, .08);
+    }
+
+    @media(max-width: $phone-large) {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .12);
+    }
+
+    &.external {
+      &:after {
+        display: none;
+      }
+    }
+
+    img {
+      height: 64px;
+    }
+  }
+  
+  .tools-section {
+    padding-top: 56px;
+    padding-bottom: 64px;
     text-align: center;
 
     @media(max-width: $tablet) {
@@ -66,59 +103,27 @@
       padding-bottom: 64px;
     }
 
-    hr {
-      margin-bottom: 0;
-    }
-
     .section-title {
       font-size: 2rem;
       color: $black;
-      margin: 88px 0 12px;
+      //margin: 88px 0 12px;
       cursor: default;
 
       @media(max-width: $tablet) {
         margin-top: 64px;
       }
     }
-
-    .logo-card {
-      margin: 16px 24px 0 0;
-      padding: 0 24px;
-      border-radius: 4px;
-      text-align: center;
-      @include transition(all .25s ease-in-out);
-
-      @media (max-width: $phone-xlarge) {
-        width: 46%;
-        margin-right: 8px;
-        box-shadow: 0 2px 6px rgba(black, .08);
-      }
-
-      @media(max-width: $phone-large) {
-        width: 100%;
-        margin-right: 0;
-      }
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, .12);
-      }
-
-      &.external {
-        &:after {
-          display: none;
-        }
-      }
-
-      img {
-        height: 64px;
-      }
-    }
   }
 
-  .software-link-holder {
-    margin-top: 16px;
-    margin-bottom: 64px;
+  .libraries-section {
+    padding-top: 56px;
+    padding-bottom: 64px;
+    text-align: center;
+    background-color: #EDF8FF;
+    
+    p {
+      margin: 16px 24px 0 16px;
+    }
 
     .software-link {
       text-decoration: none;
@@ -129,5 +134,11 @@
         border-bottom: 1px solid $mainBrandColor;
       }
     }
+  }
+
+  .clients-section {
+    padding-top: 56px;
+    padding-bottom: 64px;
+    text-align: center;
   }
 }

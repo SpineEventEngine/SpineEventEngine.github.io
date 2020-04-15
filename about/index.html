@@ -31,42 +31,37 @@ headline: 'About Spine'
     </div>
 </section>
 
-<section class="features-section">
+<section class="principles-section">
     <div class="container-fluid content-holder">
-        <h1 class="light section-title">Features</h1>
-        {% include feature-section.html %}
-    </div>
-</section>
-
-<section class="story-section">
-    <div class="container-fluid content-holder">
-        <h1 class="bold section-title">The story behind Spine</h1>
+        <h2 class="bold section-title">Principles</h2>
         <div class="row">
-            <div class="col-sm-7">
-                <p>We started developing our framework after completing several CQRS/ES-related projects.
-                    This is when we got our hands-on knowledge in manual creation of commands, events, message handlers,
-                    delivering messages and data to web and mobile clients.</p>
-
-                <p>Using existing CQRS/ES frameworks made us compromise on a number of things, including
-                    type safety, immutability, writing conversion code for inter-platform communications, and others.
-                    So in June 2015 we decided to build a tool both for us and software developers who may have the same issues.</p>
+            <div class="col-lg-7">
+                <p>These are the principles our framework is based on:</p>
+                <div>
+                    <ul>
+                        <li>Events, Commands, and identifiers should be <strong>strongly typed</strong>.</li>
+                        <li>It should be <strong>easy to pass data</strong> between different
+                            programming languages and platforms. We&nbsp;want a domain language to
+                            become truly&nbsp;Ubiquitous.
+                        </li>
+                        <li>Objects must be <strong>immutable</strong> unless there is a good reason not
+                            to do&nbsp;so.
+                        </li>
+                        <li>Developers should spend <strong>more time on business logic</strong>
+                            rather than plumbing related to storage matters or server
+                            environment&nbsp;aspects.
+                        </li>
+                        <li>The code should be <strong>easier to&nbsp;test.</strong></li>
+                    </ul>
+                </div>
             </div>
-
-            <!--This is a block with link to our Design Principles blog post-->
-            <!--<div class="col-sm-4 offset-sm-1">
-                <section class="read-more">
-                    <p>For more background on why we created the framework, please read
-                        <a href="{{ site.baseurl }}/blog/motivation">Motivation and Design Principles blog post</a>.</p>
-                </section>
-            </div>-->
         </div>
     </div>
 </section>
 
-<section class="software-section">
+<section class="tools-section">
     <div class="container-fluid content-holder">
-        <hr>
-        <h2 class="section-title">Software products that help us</h2>
+        <h2 class="section-title">Tools that help us</h2>
         <div class="d-flex flex-wrap justify-content-center">
             <a href="https://github.com/SpineEventEngine" class="logo-card">
                 <img src="{{ site.baseurl }}/img/software-logos/github.svg"
@@ -83,10 +78,13 @@ headline: 'About Spine'
                      title="Codecov"
                      alt="Codecov">
             </a>
-        </div>
 
-        <h2 class="section-title">Tools we use</h2>
-        <div class="d-flex flex-wrap justify-content-center">
+            <a href="https://www.cloudrepo.io/" class="logo-card">
+                <img src="{{ site.baseurl }}/img/software-logos/cloud-repo.svg"
+                     title="Cloud Repo"
+                     alt="Cloud Repo">
+            </a>
+
             <a href="http://errorprone.info/" class="logo-card">
                 <img src="{{ site.baseurl }}/img/software-logos/error-prone.svg"
                      title="Error Prone"
@@ -102,30 +100,32 @@ headline: 'About Spine'
                      title="Checkstyle"
                      alt="Checkstyle">
             </a>
-            <a href="https://www.cloudrepo.io/" class="logo-card">
-                <img src="{{ site.baseurl }}/img/software-logos/cloud-repo.svg"
-                     title="Cloud Repo"
-                     alt="Cloud Repo">
-            </a>
-        </div>
-
-        <h2 class="section-title">Libraries we rely on</h2>
-        <p class="software-link-holder">The full list is available
-            <a class="software-link" href="{{ site.baseurl }}/os-licenses/"> here.</a></p>
-
-        <hr>
-        <h2 class="section-title">Used by</h2>
-        <div class="d-flex flex-wrap justify-content-center">
-            <a href="https://backgroundknockout.com/" class="logo-card">
-                <img src="{{ site.baseurl }}/img/software-logos/bko.svg"
-                     title="Background Knockout"
-                     alt="Background Knockout">
-            </a>
-            <a href="https://purephotos.app/" class="logo-card">
-                <img src="{{ site.baseurl }}/img/software-logos/pure-photos.svg"
-                     title="Pure Photos"
-                     alt="Pure Photos">
-            </a>
         </div>
     </div>
 </section>
+
+<section class="libraries-section">
+    <h2 class="section-title">Libraries we rely on</h2>
+    <p>The full list of open-source libraries that we use is available from
+        the automatically generated
+        <a class="software-link" href="{{ site.baseurl }}/os-licenses/"> dependency&nbsp;report&nbsp;page.</a>
+    </p>
+</section>
+
+<section class="clients-section">
+    <h2 class="section-title">Our Clients</h2>
+    <div class="d-flex flex-wrap justify-content-center">
+        <a href="https://backgroundknockout.com/" class="logo-card">
+            <img src="{{ site.baseurl }}/img/software-logos/bko.svg"
+                 title="Background Knockout"
+                 alt="Background Knockout">
+        </a>
+        <a href="https://purephotos.app/" class="logo-card">
+            <img src="{{ site.baseurl }}/img/software-logos/pure-photos.svg"
+                 title="Pure Photos"
+                 alt="Pure Photos">
+        </a>
+    </div>
+</section>
+
+{% include doc-call.html %}
