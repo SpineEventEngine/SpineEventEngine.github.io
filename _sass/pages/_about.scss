@@ -13,13 +13,6 @@
       font-size: $font-size--xl;
     }
 
-    ul {
-      li {
-        line-height: 1.6;
-        margin-bottom: 12px;
-      }
-    }
-
     .link {
       display: inline-block;
       margin-top: 16px;
@@ -34,9 +27,11 @@
       }
 
       li {
+        line-height: 1.6;
         margin-left: 18px;
         margin-top: .6em;
         padding-left: 6px; // Adds additional space between bullet and text.
+        margin-bottom: 12px;
 
         ol,
         ul {
@@ -99,7 +94,7 @@
   }
   
   .tools-section {
-    padding-top: 32px;
+    padding-top: 56px;
     padding-bottom: 64px;
     text-align: center;
 
@@ -108,14 +103,10 @@
       padding-bottom: 64px;
     }
 
-    hr {
-      margin-bottom: 0;
-    }
-
     .section-title {
       font-size: 2rem;
       color: $black;
-      margin: 88px 0 12px;
+      //margin: 88px 0 12px;
       cursor: default;
 
       @media(max-width: $tablet) {
@@ -125,8 +116,8 @@
   }
 
   .libraries-section {
-    padding-top: 32px;
-    padding-bottom: 40px;
+    padding-top: 56px;
+    padding-bottom: 64px;
     text-align: center;
     background-color: #EDF8FF;
     
@@ -146,7 +137,7 @@
   }
 
   .clients-section {
-    padding-top: 32px;
+    padding-top: 56px;
     padding-bottom: 64px;
     text-align: center;
   }
