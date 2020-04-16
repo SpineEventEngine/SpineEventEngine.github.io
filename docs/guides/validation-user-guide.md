@@ -319,7 +319,7 @@ field can span between 0 and 59, and the `LocalTime.seconds` field can span betw
 but can never reach 60. Exclusive boundaries are especially powerful for fractional numbers, since,
 mathematically, there is no hard upper limit which a field value can reach.
 
-Usage of the double dot separator ("`..`") between the bounds is necessary. 
+Usage of the double dot separator ("`..`") between the bounds is mandatory.
 
 <p class="note">
 In some languages, Protobuf unsigned integers are represented by signed language primitives.
@@ -412,7 +412,7 @@ import "spine/net/email_address.proto";
 message User {
     // ...
 
-    repeated spine.net.EmailAddress recovery_emails = 42 [(distict) = true];
+    repeated spine.net.EmailAddress recovery_emails = 42 [(distinct) = true];
 }
 ```
 
