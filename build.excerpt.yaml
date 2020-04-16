@@ -1,0 +1,11 @@
+targets:
+  $default:
+    sources:
+      include: [_examples/**]
+      exclude:
+        - '**/.*/**'
+        - '**/build/**'
+        - '**/*.gradle'
+    builders:
+      code_excerpter|code_excerpter:
+        enabled: true
