@@ -22,12 +22,19 @@ For more info, see the description of individual constraints.
 ## Validation options
 ### Required fields
 
-In Protobuf 2 the concept of required fields used to be built into the language. This proved to be
-a [design mistake](https://stackoverflow.com/a/31814967/3183076) and in Protobuf 3 all the fields
-are optional. However, we've revived the concept in Spine Validation library. Unlike the Protobuf 2
-`required` fields, our `(required)` fields do not affect message serialization and thus can be
-ignored. Rather than guarding a technical invariant, `(required)` guards a domain model invariant.
-The choice whether or not to use validation lies solely on the developer.
+When modelling a domain, we often come up to certain data points which cannot be skipped. Those are
+represented by required fields of an entity state, a Command, an Event, etc. Protobuf 2 used to have
+a native support for required fields. However, from serialization perspective, that proved to be 
+a [design mistake](https://stackoverflow.com/a/31814967/3183076). If a required field was missing,
+the message could not be serialized and sent over the wire. Also, it is often too easy to add a new
+required field, thereby breaking backwards-compatibility of the message type. In Protobuf 3 all
+the fields are optional.
+
+In the Validation library, we've revived the concept of required fields. The difference to
+the Protobuf 2 variant is that out required fields do not affect the serialization of the message.
+If a required field is missing, it still can be serialized and passed over the wire. By separating
+validation from serialization, we allow users to choose to ignore validation errors and still
+transfer messages over the wire when needed.
 
 #### How required fields work
 
