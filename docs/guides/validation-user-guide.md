@@ -478,8 +478,10 @@ message PlaceOrder {
 
 Note that the value is checked in relation to the current server time. In most cases, this should
 not be an issue. However, be aware that using `FUTURE` in Events and entity states may cause
-validation errors upon playing historical Events in future. However, that is not the case with
-Commands.  
+validation errors when the future comes. Since entity states are validated upon each state change,
+and historical events can be replayed, avoid declaring parts of those domain objects to be in
+future. Commands, on the other hand, are not replayed or stored automatically. Thus, It is safe
+to use `FUTURE` in Commands.
 
 ### Distinct collections
 
