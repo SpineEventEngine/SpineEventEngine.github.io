@@ -39,13 +39,50 @@ transfer messages over the wire when needed.
 #### How required fields work
 
 Fields in Protobuf may have either a primitive type or a user-defined type. A user-defined type is
-a `message` or an `enum` and primitive types are numbers, `string`, and `bytes`. Due to limitations
-of the binary format, there is no way to tell if a numeric field is set to `0` or not just not set.
+a `message` or an `enum` and primitive types are numbers, `string`, and `bytes`. If a `message` or
+an `enum` field is not set, the default value is assigned automatically:
+  
+```java
+ZonedDateTime time = getZonedTime();
+ZoneId timeZone = time.getZoneId();
+assert timeZone.equals(ZoneId.getDefaultInstance());
+```
+
+However, due to limitations of the binary format, there is no way to tell if a numeric field is set
+to `0` or not just not set:
+
+```java
+LocalTime time = getTime();
+int hours = time.getHours();
+assert hours == 0;
+```
+
 This means that a numeric field cannot be required, as there is no way to check if it is set. All 
 the other fields can be required. For `message` fields this means that the message must not be
-empty. For `enum` fields, this means that the enum value must have a number other than `0` (since 
-the enum value with number `0` is the default value of the field). For `string` and `bytes` fields
-this means that the sequence must not be empty.
+empty:
+
+```java
+ZonedDateTime time = getZonedTime();
+LocalDateTime dateTime = time.getDateTime();
+assert !dateTime.equals(LocalDateTime.getDefaultInstance());
+```
+ 
+For `enum` fields, this means that the enum value must have a number other than `0` (since 
+the enum value with number `0` is the default value of the field):
+
+```java
+LocalDate date = getDate();
+Month month = date.getMonth();
+assert !month.equals(Month.MONTH_UNDEFINED);
+```
+ 
+For `string` and `bytes` fields this means that the sequence must not be empty:
+
+```java
+PersonName name = getName();
+String givenName = name.getGivenName();
+assert !givenName.isEmpty();
+```
 
 For collection fields (i.e. `repeated` and `map`), a field is considered set if:
   1. The collection is not empty.
