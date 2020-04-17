@@ -19,6 +19,48 @@ This guide will walk you though the API of Spine Validation library. All of the 
 described here are currently supported in the Java environment. Many are supported in Dart as well.
 For more info, see the description of individual constraints.
 
+## Java validation API
+
+For Java, we generate additional code to the Protobuf message classes. In particular, the message
+builders get one extra method: `vBuild()` — short for "validate and build". It acts just like
+`build()` but also throws a `ValidationException` if the message is not valid:
+
+```java
+MyMessage.newBuilder()
+         .setFoo(invalidValue())
+         .vBuild(); // ← Throws ValidationException. 
+``` 
+
+If validation is not required, you may call `build()` or `buildPartial()` to symbolize that 
+the message is likely to be invalid.
+
+The message class also gets an extra method — `validate()`. This method does not throw exceptions.
+Instead, it returns a list of `ConstraintViolation`s:
+
+```java
+MyMessage msg = MyMessage.newBuilder()
+                         .setFoo(invalidValue())
+                         .buildPartial();
+List<ConstraintViolation> violations = msg.validate(); 
+```
+
+If the message is valid, the list is empty. If one or more constraints are violated, all
+the violations will be present in the list.
+
+## Dart validation API
+
+In Dart, we generate functions for validating messages separately from the message classes. Those
+functions can be accessed via the known types:
+
+```dart
+var msg = getMessage();
+var validate = theKnownTypes.validatorFor(msg);
+ValidationError error = validate(msg);
+```  
+
+Similarly to `validate()` method in Java, the validation function does not throw exceptions. A list
+of `ConstraintViolation`s can be obtained from the `ValidationError`.
+
 ## Validation options
 ### Required fields
 
