@@ -532,6 +532,17 @@ message Order {
 
 Once the `Order.when_deleted` field is filled, it can never change.
 
+In Java, you can validate messages against a `set_once` constraint manually. For that, pass the old
+version and the new version of a message to the `Validate.checkValidChange()` method. For example:
+
+```java
+MyMessage old = getMessage();
+MyMessage changed = doSomeStuff(old);
+Validate.checkValidChange(old, changed);
+```
+
+In Dart, there is no support for this feature.
+
 ## External constraints
 
 Sometimes, you need to impose extra validation rules on types you do not control. Consider
