@@ -339,7 +339,7 @@ message Distance {
 The `(range)` option is a shortcut for a combination of `(min)` and `(max)`. A range specifies both
 boundaries for a numeric field. `(range)` is a `string` option. The `(range)` notation allow
 declaring inclusive and exclusive boundaries. A round bracket ("`(`" or "`)`") denotes an exclusive
-boundary and a square bracket ("`[`" or "`]`") — an inclusive boundary.
+boundary and a square bracket ("`[`" or "`]`") denotes an inclusive one.
 
 Example:
 
