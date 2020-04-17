@@ -535,7 +535,26 @@ Once the `Order.when_deleted` field is filled, it can never change.
 ## External constraints
 
 Sometimes, you need to impose extra validation rules on types you do not control. Consider
-the example of an image URL which should always have the `ftp` protocol:
+the example of an image URL which should always have the `ftp` protocol. In Spine, a `Url` is a tiny
+type for representing URL strings:
+
+```proto
+package spine.net;
+
+// ...
+
+// A Universal Resource Locator.
+//
+message Url {
+
+    // The value of the URL.
+    string spec = 3 [(required) = true];
+
+    reserved 1, 2;
+}
+```
+
+Now, we will use this type in our domain definition:
 
 ```proto
 import "spine/net/url.proto";
@@ -548,7 +567,7 @@ message User {
 }
 ```
 
-How do we add validation to the fields inside `Url` so that only the `User.profile_picture` is
+How do we add validation to the `Url` so that only the `User.profile_picture` is
 affected? Just for this purpose, Spine provides the mechanism of external constraints — validation
 constraints defined outside the message.
 
@@ -561,7 +580,7 @@ import "spine/options.proto";
 message UserPictureConstraint {
     option (constraint_for) = "org.example.user.User.profile_picture";
 
-    string spec = 1 [
+    string spec = 3 [
             (required) = true,
             (pattern).regex = "ftp://.+",
             (pattern).msg_format = "Profile picture should be available via FTP (regex: %s)."
