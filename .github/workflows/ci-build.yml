@@ -4,7 +4,14 @@ on: push
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
+    container:
+      image:  google/dart:latest
+
     steps:
+      - uses: actions/checkout@v1
+
       - name: Check code excerpts and hyperlinks
         run: ./_script/check
