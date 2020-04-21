@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd _examples || exit
+pub get
+pub run code_excerpt_updater ../ --fail-on-refresh
+bundle exec jekyll serve
+pub run linkcheck :4000

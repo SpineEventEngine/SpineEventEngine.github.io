@@ -1,4 +1,13 @@
 name: examples
 
-dependencies:
-  build_runner: any
+dev_dependencies:
+  build_runner:
+  code_excerpt_updater:
+  code_excerpter:
+  linkcheck:
+
+dependency_overrides:
+  code_excerpt_updater:
+    git: https://github.com/chalin/code_excerpt_updater.git
+  code_excerpter:
+    git: https://github.com/chalin/code_excerpter.git
