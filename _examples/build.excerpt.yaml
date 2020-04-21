@@ -1,11 +1,14 @@
 targets:
   $default:
     sources:
-      include: [_examples/**]
+      include: [./**]
       exclude:
-        - '**/.*/**'
         - '**/build/**'
-        - '**/*.gradle'
+        - '.*/**'
+        - '*.gradle'
+        - '*.yaml'
+        - '*.lock'
+        - '.*'
     builders:
       code_excerpter|code_excerpter:
         enabled: true
