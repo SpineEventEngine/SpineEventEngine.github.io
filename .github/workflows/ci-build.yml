@@ -1,0 +1,12 @@
+name: Site checks
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    steps:
+      - name: Check code excerpts and hyperlinks
+        run: ./_script/check
