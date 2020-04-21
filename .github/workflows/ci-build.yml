@@ -2,10 +2,10 @@ name: Site checks
 
 on: push
 
-runs-on: ubuntu-latest
 
 jobs:
   build:
-    steps:
+  runs-on: ubuntu-latest
+  steps:
       - name: Check code excerpts and hyperlinks
         run: ./_script/check
