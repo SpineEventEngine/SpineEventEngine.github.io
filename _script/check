@@ -3,5 +3,7 @@
 cd _examples || exit
 pub get
 pub run code_excerpt_updater ../ --fail-on-refresh
-bundle exec jekyll serve
+
+# Start server in background and run hyperlink check.
+bundle exec jekyll serve &
 pub run linkcheck :4000
