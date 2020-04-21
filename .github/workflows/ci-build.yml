@@ -12,6 +12,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-
-      - name: Check code excerpts and hyperlinks
-        run: ./_script/check
+      - run: ./_script/check
