@@ -2,6 +2,8 @@ name: Site checks
 
 on: push
 
+runs-on: ubuntu-latest
+
 jobs:
   build:
     steps:
