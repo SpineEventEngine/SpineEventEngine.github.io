@@ -1,0 +1,6 @@
+**/*.jar
+.dart_tool/
+.excerpt/
+build/
+.packages
+pubspec.lock
