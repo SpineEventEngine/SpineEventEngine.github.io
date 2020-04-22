@@ -1,14 +1,15 @@
 targets:
   $default:
     sources:
-      include: [./**]
+      include:
+        - '**/*.java'
+        - '**/*.proto'
+        - '**/*.js'
+        - '**/*.dart'
       exclude:
         - '**/build/**'
         - '.*/**'
-        - '*.gradle'
-        - '*.yaml'
-        - '*.lock'
         - '.*'
     builders:
-      code_excerpter|code_excerpter:
+      code_excerpter:
         enabled: true
