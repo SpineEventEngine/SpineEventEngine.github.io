@@ -540,7 +540,9 @@ MyMessage changed = doSomeStuff(old);
 Validate.checkValidChange(old, changed);
 ```
 
+<p class="warning">
 In Dart, there is no support for this feature.
+</p>
 
 ## External constraints
 
