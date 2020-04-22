@@ -2,4 +2,4 @@
 
 cd _examples || exit
 pub get
-pub run code_excerpt_updater ../ --fail-on-refresh
+pub run code_excerpt_updater ../ --fail-on-refresh  --yaml  --fragment-dir-path .excerpt/examples/
