@@ -4,4 +4,4 @@
 build/
 .packages
 pubspec.lock
-!./gradle/wrapper/
+!./examples/gradle/wrapper/
