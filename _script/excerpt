@@ -19,5 +19,4 @@ pub run build_runner build --output=.excerpt --config=excerpt
 pub run code_excerpt_updater \
   $allMarkdown \
   --write-in-place --yaml \
-  --fragment-dir-path ./.excerpt/examples/ \
-  --exclude="README","_site"
+  --fragment-dir-path ./.excerpt/examples/

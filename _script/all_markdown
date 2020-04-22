@@ -4,4 +4,8 @@
 #
 # Outputs the absolute paths to the files.
 #
-find $(pwd) -iname '*.md'
+# Filters out `README.md` files and files under `_site/` directory.
+#
+find $(pwd) -iname '*.md' |
+ grep --invert-match ".*/README\.md" |
+ grep --invert-match ".*/_site/\.*"

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Find all `.md` files.
+#
+# The resiulting array stores absolute paths to all Markdown files in current directory.
+#
+allMarkdown=$(eval "$(pwd)/_script/all_markdown")
+
 cd _examples || exit
 pub get
 
@@ -7,4 +13,8 @@ pub get
 #
 # Exits with a non-0 code if any updates are not done.
 #
-pub run code_excerpt_updater ../ --fail-on-refresh  --yaml  --fragment-dir-path ./.excerpt/examples/
+pub run code_excerpt_updater \
+  $allMarkdown \
+  --fail-on-refresh \
+  --write-in-place --yaml \
+  --fragment-dir-path ./.excerpt/examples/
