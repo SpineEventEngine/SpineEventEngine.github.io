@@ -22,8 +22,8 @@ files.
 
 To add a new code snippet, add the following construct to the doc file:
 
+`<?code-excerpt "path/to/file (doc-region)"?>`
 <pre>
-\<?code-excerpt "path/to/file (doc-region)"?>
 ```
 ```
 </pre>
