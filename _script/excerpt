@@ -3,4 +3,4 @@
 cd _examples || exit
 pub get
 pub run build_runner build --output=.excerpt --config=excerpt
-pub run code_excerpt_updater ../ --write-in-place --yaml --fragment-dir-path .excerpt/examples/
+pub run code_excerpt_updater ../ --write-in-place --yaml --fragment-dir-path ./.excerpt/examples/
