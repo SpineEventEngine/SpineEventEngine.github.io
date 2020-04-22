@@ -503,15 +503,32 @@ message User {
 }
 ```
 
-### Non-mutable state fields
+### Non-mutable fields
 
-For entity states, Spine defines a special validation constraint. It is not typically checked in any
-other situation, but only when updating a state of an existing Spine entity.
+Some messages persist in your system though a stretch of time. The value represented by such
+a message may change. However, some fields must not change ever. For checking that, Spine allows
+marking fields as `(set_once)`. The option allows changing a value of a field only if the current
+value is the default value. Changing a field from a non-default value to anything else will cause
+a violation.
+
+In Java, you can validate messages against a `set_once` constraint via
+the `Validate.checkValidChange()` method. For example:
+
+```java
+MyMessage old = getMessage();
+MyMessage changed = doSomeStuff(old);
+Validate.checkValidChange(old, changed);
+```
+
+`Validate.checkValidChange()` throws a `ValidationException` if the constraint is violated.
+
+<p class="warning">
+In Dart, there is no support for this feature.
+</p>
 
 Many fields of an entity are immutable. They may be set one in the life of the entity and then
-should never be changed. In order to enforce this, we provide the `(set_once)` option. The option
-allows changing a value of a field only if the current value is the default value. Changing a field
-from a non-default value to anything else will cause a violation.
+should never be changed. The `(set_once)` constraint is checked automatically for entity states upon
+each change.
 
 Example:
 
@@ -530,19 +547,6 @@ message Order {
 ```
 
 Once the `Order.when_deleted` field is filled, it can never change.
-
-In Java, you can validate messages against a `set_once` constraint manually. For that, pass the old
-version and the new version of a message to the `Validate.checkValidChange()` method. For example:
-
-```java
-MyMessage old = getMessage();
-MyMessage changed = doSomeStuff(old);
-Validate.checkValidChange(old, changed);
-```
-
-<p class="warning">
-In Dart, there is no support for this feature.
-</p>
 
 ## External constraints
 
