@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Find and print all the Markdown files in current directory.
+#
+# Outputs the absolute paths to the files.
+#
+find $(pwd) -iname '*.md'
