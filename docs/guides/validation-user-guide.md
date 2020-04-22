@@ -30,8 +30,8 @@ MyMessage.newBuilder()
          .vBuild(); // ← Throws ValidationException. 
 ``` 
 
-If validation is not required, you may call `build()` or `buildPartial()` to symbolize that 
-the message is likely to be invalid.
+If the validation is not required, you may call `build()` or `buildPartial()` provided by Protobuf
+Java API.
 
 The message class also gets an extra method — `validate()`. This method does not throw exceptions.
 Instead, it returns a list of `ConstraintViolation`s:
@@ -292,7 +292,7 @@ In this case, the `ProfilePictureChanged.id` field is not required, since it's n
 in the field. The field `ProfilePictureChanged.new_picture` is not required because the convention
 is overridden with an explicit option.
 
-### Recursive message validation
+### Nested message validation
 
 When a message is validated, only the "shallow" constraints are checked by default. This means that
 the message fields can be invalid and the container message is still considered valid.
