@@ -10,7 +10,8 @@ Since the tools are designed for Dart projects, the contents of `_examples` dire
 a Dart project. All the actual code examples should be put under `_examples/examples` dir. That dir
 is a Gradle project. When examples are updated, the Spine version in
 `_examples/examples/build.gradle` should be changed. Run `./gradlew clean build` to make sure that
-the examples are adequate.
+the examples are adequate. The project also defines tests which are run upon build. The tests verify
+the example code makes sense.
 
 When the example source files are updated, run `./_script/excerpt` to update code snippets in
 the docs.
@@ -31,7 +32,7 @@ To add a new code snippet, add the following construct to the doc file:
 That is, a `<?code-excerpt?>` tag followed by a code fence (with the right language). The code fence
 may be empty, since it will be automatically overwritten.
 
-The path to the file must be relative to the `_examples/examples` dir. For instance,
+The path to the file must be relative to the `_examples/examples/src/main/` dir. For instance,
 `"proto/spine/example/events.proto"`. The doc region should match one of the `docregion` segments in
 the target file and be enclosed into parentheses. If the whole file should be shown, the doc region
 should just be omitted.
