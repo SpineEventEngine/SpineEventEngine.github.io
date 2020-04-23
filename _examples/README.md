@@ -33,7 +33,11 @@ That is, a `<?code-excerpt?>` tag followed by a code fence (with the right langu
 may be empty, since it will be automatically overwritten.
 
 The path to the file must be relative to the `_examples/examples/src/main/` dir. For instance,
-`"proto/spine/example/events.proto"`. The doc region should match one of the `docregion` segments in
+`"proto/spine/example/events.proto"`. If a document page contains only references to files in 
+a certain subdirectory, a `<?code-excerpt?>` tag [can be used](https://github.com/chalin/code_excerpt_updater#c-set-instruction)
+to set the base path. 
+
+The doc region should match one of the `docregion` segments in
 the target file and be enclosed into parentheses. If the whole file should be shown, the doc region
 should just be omitted.
 
