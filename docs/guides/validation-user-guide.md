@@ -505,7 +505,7 @@ message User {
 
 ### Non-mutable fields
 
-Some messages persist in your system though a stretch of time. The value represented by such
+Some messages persist in your system through a stretch of time. The value represented by such
 a message may change. However, some fields must not change ever. For checking that, Spine allows
 marking fields as `(set_once)`. The option allows changing a value of a field only if the current
 value is the default value. Changing a field from a non-default value to anything else will cause
