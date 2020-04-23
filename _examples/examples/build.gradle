@@ -22,4 +22,16 @@ plugins {
     id "io.spine.tools.gradle.bootstrap" version "1.5.0"
 }
 
+apply from: "$rootDir/config/gradle/dependencies.gradle"
+
 spine.enableJava().server()
+
+dependencies {
+    testRuntimeOnly deps.test.junit5Runner
+}
+
+test {
+    useJUnitPlatform {
+        includeEngines 'junit-jupiter'
+    }
+}
