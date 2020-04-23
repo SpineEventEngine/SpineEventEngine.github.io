@@ -17,4 +17,4 @@ pub run code_excerpt_updater \
   $allMarkdown \
   --fail-on-refresh \
   --write-in-place --yaml \
-  --fragment-dir-path ./.excerpt/examples/
+  --fragment-dir-path ./.excerpt/examples/src/main/
