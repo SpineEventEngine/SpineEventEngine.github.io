@@ -2,6 +2,7 @@
 .dart_tool/
 .excerpt/
 build/
+generated/
 .packages
 pubspec.lock
 !./examples/gradle/wrapper/
