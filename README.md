@@ -74,4 +74,4 @@ To add a collapsible category use the following code:
 ### Adding code examples
 
 We use the [code-excerpter](https://github.com/chalin/code_excerpter) tool for adding the source
-code to Markdown pages. See [this doc](_examples/README.md) for the instructions.
+code to Markdown pages. See [this doc](_samples/README.md) for the instructions.

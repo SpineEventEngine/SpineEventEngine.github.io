@@ -6,7 +6,7 @@
 #
 allMarkdown=$(eval "$(pwd)/_script/all_markdown")
 
-cd _examples || exit
+cd _samples || exit
 pub get
 
 # Ensure that all the code snippets are up to date.

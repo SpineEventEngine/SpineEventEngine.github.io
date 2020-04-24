@@ -6,10 +6,10 @@ concepts. Those code snippets should be kept up to date with the framework.
 For this purpose, we integrate with the [`code_excerpter`](https://github.com/chalin/code_excerpter)
 and [`code_excerpt_updater`](https://github.com/chalin/code_excerpt_updater) tools.
 
-Since the tools are designed for Dart projects, the contents of `_examples` directory are shaped as
-a Dart project. All the actual code examples should be put under `_examples/examples` dir. That dir
+Since the tools are designed for Dart projects, the contents of `_samples` directory are shaped as
+a Dart project. All the actual code examples should be put under `_samples/examples` dir. That dir
 is a Gradle project. When examples are updated, the Spine version in
-`_examples/examples/build.gradle` should be changed. Run `./gradlew clean build` to make sure that
+`_samples/examples/build.gradle` should be changed. Run `./gradlew clean build` to make sure that
 the examples are adequate. The project also defines tests which are run upon build. The tests verify
 the example code makes sense.
 
@@ -32,7 +32,7 @@ To add a new code snippet, add the following construct to the doc file:
 That is, a `<?code-excerpt?>` tag followed by a code fence (with the right language). The code fence
 may be empty, since it will be automatically overwritten.
 
-The path to the file must be relative to the `_examples/examples/src/main/` dir. For instance,
+The path to the file must be relative to the `_samples/examples/src/main/` dir. For instance,
 `"proto/spine/example/events.proto"`. If a document page contains only references to files in 
 a certain subdirectory, a `<?code-excerpt?>` tag [can be used](https://github.com/chalin/code_excerpt_updater#c-set-instruction)
 to set the base path. 
