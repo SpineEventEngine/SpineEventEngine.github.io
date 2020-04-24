@@ -87,6 +87,22 @@ p {
       padding: 0;
     }
   }
+
+  &.warning {
+    background-color: #fffde6;
+    border-left: 4px solid $warningColor;
+    padding: 12px 24px 13px;
+    color: $black;
+    font-size: 15px;
+    line-height: 24px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+
+    code {
+      background-color: transparent;
+      padding: 0;
+    }
+  }
 }
 
 strong {
