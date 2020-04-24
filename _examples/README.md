@@ -62,7 +62,7 @@ Only the lines between `#docregion` and `#enddocregion` are included into the sn
 
 ### Joining pieces
 
-Doc regions can be joined from different pieces along the file. For that, just declare several dec
+Doc regions can be joined from different pieces along the file. For that, just declare several doc
 regions with the same name in a single file:
 
 ```java
