@@ -16,6 +16,6 @@
 [submodule "examples/airport"]
 	path = examples/airport
 	url = https://github.com/spine-examples/airport
-[submodule "_examples/examples/config"]
-	path = _examples/examples/config
+[submodule "_samples/examples/config"]
+	path = _samples/examples/config
 	url = https://github.com/SpineEventEngine/config
