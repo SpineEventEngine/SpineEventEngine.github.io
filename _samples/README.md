@@ -6,6 +6,9 @@ concepts. Those code snippets should be kept up to date with the framework.
 For this purpose, we integrate with the [`code_excerpter`](https://github.com/chalin/code_excerpter)
 and [`code_excerpt_updater`](https://github.com/chalin/code_excerpt_updater) tools.
 
+Note that this directory should only contain small examples. For substantial examples involvoing
+multiple concepts interacting with each other, see `_examples`.  
+
 Since the tools are designed for Dart projects, the contents of `_samples` directory are shaped as
 a Dart project. All the actual code examples should be put under `_samples/examples` dir. That dir
 is a Gradle project. When examples are updated, the Spine version in
