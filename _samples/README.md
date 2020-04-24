@@ -9,12 +9,13 @@ and [`code_excerpt_updater`](https://github.com/chalin/code_excerpt_updater) too
 Note that this directory should only contain small examples. For substantial examples involvoing
 multiple concepts interacting with each other, see `_examples`.  
 
-Since the tools are designed for Dart projects, the contents of `_samples` directory are shaped as
-a Dart project. All the actual code examples should be put under `_samples/examples` dir. That dir
-is a Gradle project. When examples are updated, the Spine version in
-`_samples/examples/build.gradle` should be changed. Run `./gradlew clean build` to make sure that
-the examples are adequate. The project also defines tests which are run upon build. The tests verify
-the example code makes sense.
+Since the tools are designed for Dart projects, the `_samples` directory is shaped as a Dart project
+where the example code must be placed under the `examples` dir. The `examples` dir, in turn,
+contains example source code in Java, and as such is shaped as a Gradle project.
+
+When examples are updated, the Spine version in `_samples/examples/build.gradle` should be changed.
+Run `./gradlew clean build` to make sure that the examples are adequate. The project also defines
+tests which are run upon build. The tests verify the example code makes sense.
 
 When the example source files are updated, run `./_script/excerpt` to update code snippets in
 the docs.
