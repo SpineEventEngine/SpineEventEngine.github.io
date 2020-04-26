@@ -1,0 +1,15 @@
+targets:
+  $default:
+    sources:
+      include:
+        - '**/*.java'
+        - '**/*.proto'
+        - '**/*.js'
+        - '**/*.dart'
+      exclude:
+        - '**/build/**'
+        - '.*/**'
+        - '.*'
+    builders:
+      code_excerpter:
+        enabled: true

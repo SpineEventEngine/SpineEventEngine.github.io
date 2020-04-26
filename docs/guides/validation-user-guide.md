@@ -90,7 +90,7 @@ assert timeZone.equals(ZoneId.getDefaultInstance());
 ```
 
 However, due to limitations of the binary format, there is no way to tell if a numeric field is set
-to `0` or not just not set:
+to `0` or just not set:
 
 ```java
 LocalTime time = getTime();

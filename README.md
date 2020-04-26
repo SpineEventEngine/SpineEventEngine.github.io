@@ -70,3 +70,8 @@ To add a collapsible category use the following code:
     <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/concepts/some-link-5.html" {% if current[3] == 'some-link-5.html' %}class='current'{% endif %}>Some link name 5</a></li>
 </ul>
 ```
+
+### Adding code examples
+
+We use the [code-excerpter](https://github.com/chalin/code_excerpter) tool for adding the source
+code to Markdown pages. See [this doc](_samples/README.md) for the instructions.
