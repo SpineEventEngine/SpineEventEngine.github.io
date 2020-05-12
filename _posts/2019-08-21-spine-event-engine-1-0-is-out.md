@@ -3,7 +3,7 @@ layout: post
 title: Spine Event Engine 1.0 is Out!
 published: true
 bodyclass: post
-header_type: fixed-dark-header
+header_type: fixed-header
 ---
 
 We are glad to announce the release of the first production-ready version of Spine Event Engine!

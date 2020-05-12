@@ -3,7 +3,7 @@ layout: post
 title: Integrating with a third party
 published: true
 bodyclass: post
-header_type: fixed-dark-header
+header_type: fixed-header
 author: Dmytro Dashenkov
 ---
 
