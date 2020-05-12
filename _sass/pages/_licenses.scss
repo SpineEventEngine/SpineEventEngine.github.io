@@ -18,6 +18,8 @@ $panel-hover-color: rgba($mainBrandColor, .04);
     padding-left: 0;
     padding-right: 0;
   }
+
+  @include list();
 }
 
 .licenses {
@@ -109,8 +111,8 @@ $panel-hover-color: rgba($mainBrandColor, .04);
 
   .dependencies-container,
   .report-info {
-    padding: 0 $inner-content-offset;
-    margin: 16px 0 8px; // Top and bottom margins prevents content jumping
+    padding: 16px $inner-content-offset 8px; // Top and bottom paddings prevent content jumping
+    margin: 0 0 8px;
 
     @media (max-width: $tablet) {
       padding: 0 20px;

@@ -18,45 +18,7 @@
       margin-top: 16px;
     }
 
-    ol,
-    ul {
-      margin: 0 0 32px 6px;
-
-      @media (max-width: $tablet) {
-        margin-bottom: 24px;
-      }
-
-      li {
-        line-height: 1.6;
-        margin-left: 18px;
-        margin-top: .6em;
-        padding-left: 6px; // Adds additional space between bullet and text.
-        margin-bottom: 12px;
-
-        ol,
-        ul {
-          margin-bottom: 32px;
-
-          li {
-            margin-top: .45em;
-          }
-        }
-      }
-    }
-
-    ul {
-      list-style: disc;
-
-      li {
-        ul {
-          list-style: circle;
-        }
-      }
-    }
-
-    ol {
-      list-style: decimal;
-    }
+    @include list();
   }
 
   .logo-card {
@@ -79,7 +41,7 @@
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, .12);
+      box-shadow: 0 6px 12px rgba(black, .12);
     }
 
     &.external {
@@ -98,7 +60,7 @@
     padding-bottom: 64px;
     text-align: center;
 
-    @media(max-width: $tablet) {
+    @media (max-width: $tablet) {
       padding-top: 24px;
       padding-bottom: 64px;
     }
@@ -106,10 +68,9 @@
     .section-title {
       font-size: 2rem;
       color: $black;
-      //margin: 88px 0 12px;
       cursor: default;
 
-      @media(max-width: $tablet) {
+      @media (max-width: $tablet) {
         margin-top: 64px;
       }
     }
