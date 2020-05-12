@@ -167,11 +167,9 @@
     margin-top: $page-top-offset;
   }
 
-  .justify-post-container {
-    justify-content: flex-end !important;
-
+  .empty-block {
     @media (max-width: $desktop-small) {
-      justify-content: center !important;
+      display: none;
     }
   }
 
