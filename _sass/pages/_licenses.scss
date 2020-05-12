@@ -18,6 +18,8 @@ $panel-hover-color: rgba($mainBrandColor, .04);
     padding-left: 0;
     padding-right: 0;
   }
+
+  @include list();
 }
 
 .licenses {
