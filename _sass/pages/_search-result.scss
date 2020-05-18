@@ -160,6 +160,11 @@ $search-content-font-size: 15px;
           color: $mainBrandColor;
         }
       }
+
+      .gsc-cursor-container-next,
+      .gsc-cursor-container-previous {
+        padding: 10px 0 12px;
+      }
     }
 
     // Hides `Search on Google` and Google logotype.
