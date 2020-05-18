@@ -3,7 +3,7 @@ layout: post
 title: Integrating with a third party
 published: true
 bodyclass: post
-header_type: fixed-dark-header
+header_type: fixed-header
 author: Dmytro Dashenkov
 ---
 
@@ -67,6 +67,7 @@ an accurate representation.
 
 ## Customer/Supplier Contexts
 
+{: .img-small}
 ![Customer/Supplier Contexts domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/customer-supplier.jpg)
 
 The **Takeoffs and Landings** system must know whether an *Aircraft* is ready for the *Flight*.

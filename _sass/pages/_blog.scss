@@ -167,11 +167,9 @@
     margin-top: $page-top-offset;
   }
 
-  .justify-post-container {
-    justify-content: flex-end !important;
-
+  .empty-block {
     @media (max-width: $desktop-small) {
-      justify-content: center !important;
+      display: none;
     }
   }
 
@@ -196,5 +194,11 @@
 
   .btn-back {
     margin-top: 32px;
+  }
+
+  .img-small {
+    img {
+      width: 70%;
+    }
   }
 }

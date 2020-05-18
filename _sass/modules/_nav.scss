@@ -17,10 +17,10 @@
   z-index: 1000;
   position: absolute;
 
-  // Fixed dark header for small pages like Privacy Statement and Posts
-  // To use add `header-type: fixed-dark-header` on the page
-  &.fixed-dark-header {
-    background-color: $footerColor;
+  // Fixed header for small pages such us `Privacy Statement` and `Post`.
+  // Usage: add the `header_type: fixed-header` attribute to the front matter block.
+  &.fixed-header {
+    background-image: $nav-blue-gradient;
     position: fixed;
     height: $header-height;
 
@@ -196,7 +196,7 @@
     display: block;
     position: fixed;
     height: $header-height;
-    background-color: $footerColor;
+    background-image: $nav-blue-gradient;
 
     &.pinned {
       @include translateY(-100%);

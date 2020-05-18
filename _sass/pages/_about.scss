@@ -1,4 +1,8 @@
 .about {
+  .section-title {
+    font-size: $font-size--xl;
+  }
+
   .principles-section {
     background-color: $light-gray-blue;
     padding-top: 56px;
@@ -7,10 +11,6 @@
 
     @media(max-width: $tablet){
       padding-top: 32px;
-    }
-
-    .section-title {
-      font-size: $font-size--xl;
     }
 
     .link {
