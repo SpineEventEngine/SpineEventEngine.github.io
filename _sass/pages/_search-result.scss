@@ -102,6 +102,7 @@ $search-content-font-size: 15px;
   .gsc-results {
     .gsc-result {
       padding: 12px 0;
+      border-bottom: none;
 
       .gs-spelling {
         font-size: $search-content-font-size;
