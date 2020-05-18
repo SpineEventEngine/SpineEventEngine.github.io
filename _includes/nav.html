@@ -45,6 +45,19 @@
                         <li class="nav-item"><a href="{{ site.baseurl }}/blog/" {% if current[1]== 'blog' %}class='current'{% endif %}><span>Blog</span></a></li>
                         <li class="nav-item"><a href="{{ site.baseurl }}/faq/" {% if current[1]== 'faq' %}class='current'{% endif %}><span>FAQ</span></a></li>
                         <li class="nav-item"><a class="github-icon" href="https://github.com/SpineEventEngine" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
+                        <li class="nav-item">
+                            <form action="/search" class="nav-search form-inline" id="cse-search-box">
+                                <input type="hidden" name="cx" value="013970741446898800128:8sponodrnbo">
+                                <input type="hidden" name="ie" value="UTF-8">
+                                <input type="hidden" name="hl" value="en">
+                                <input class="search-field"
+                                       type="search"
+                                       name="q" id="q"
+                                       autocomplete="off"
+                                       placeholder="Search"
+                                       aria-label="Search">
+                            </form>
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -353,3 +353,56 @@
     }
   }
 }
+
+$search-icon-size: 18px;
+$search-icon-left-position: 12px;
+$search-field-left-padding: $search-icon-size + $search-icon-left-position + 10px;
+$search-placeholder-color: rgba(white, .38);
+.nav-search {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '\f002';
+    font-family: "Font Awesome 5 Pro";
+    font-size: $search-icon-size;
+    font-weight: 400;
+    color: rgba(white, .54);
+    top: 7px;
+    left: $search-icon-left-position;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .search-field {
+    background-color: transparent;
+    border: none;
+    width: 26px;
+    font-size: 15px;
+    height: calc(2.25rem + 2px);
+    padding: 6px 12px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+
+    &::placeholder {
+      color: $search-placeholder-color;
+      opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $search-placeholder-color;
+    }
+
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $search-placeholder-color;
+    }
+
+    &:focus {
+      padding-left: $search-field-left-padding;
+      background-color: rgba(11, 52, 99, .26);
+      width: 240px;
+    }
+  }
+}
