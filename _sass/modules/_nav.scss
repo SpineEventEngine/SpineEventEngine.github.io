@@ -403,6 +403,10 @@ $search-placeholder-color: rgba(white, .38);
       padding-left: $search-field-left-padding;
       background-color: rgba(11, 52, 99, .26);
       width: 240px;
+
+      @media (max-width: $tablet-large) {
+        width: 180px;
+      }
     }
   }
 }
