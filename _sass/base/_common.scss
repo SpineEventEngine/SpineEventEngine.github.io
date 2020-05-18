@@ -62,6 +62,14 @@
   width: 100%;
 }
 
+.content-with-fixed-header {
+  margin-top: $page-top-offset;
+
+  @media(max-width: $desktop-small) {
+    margin-top: $page-top-offset-mobile;
+  }
+}
+
 .toc-col,
 .side-nav-col {
   -ms-flex: 0 0 240px;
