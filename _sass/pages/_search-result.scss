@@ -163,7 +163,9 @@ $search-content-font-size: 15px;
     }
 
     // Hides `Search on Google` and Google logotype.
-    .gcsc-more-maybe-branding-root {
+    .gcsc-more-maybe-branding-root,
+    .gcsc-find-more-on-google-root,
+    .gcsc-branding {
       display: none;
     }
 
