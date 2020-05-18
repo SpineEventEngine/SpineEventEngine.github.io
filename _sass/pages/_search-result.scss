@@ -31,12 +31,13 @@ $search-content-font-size: 15px;
           border: 1px solid rgba(black, .12);
           border-radius: $input-border-radius 0 0 $input-border-radius;
           border-right: none;
+          padding: 0;
 
           // The `!important` is needed here to override Google styles
           // and align a text in the middle of the input.
           input {
             background: none !important; // Removes Google logotype in the empty input.
-            padding: 10px 12px !important;
+            padding: 9px 12px 10px !important;
             margin: 0 !important;
             height: auto !important;
           }
