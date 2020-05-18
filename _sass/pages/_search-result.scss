@@ -1,0 +1,181 @@
+$search-input-height: 40px;
+$search-content-font-size: 15px;
+
+.search-result-content {
+  // Hides the advertisement block.
+  .gsc-adBlock {
+    display: none;
+  }
+
+  .gsc-control-cse {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    padding: 0;
+  }
+
+  table {
+    border: none;
+
+    td {
+      border: none;
+      padding: 0;
+    }
+  }
+
+  .gsc-search-box-tools {
+    .gsc-search-box {
+      .gsc-input {
+        padding-right: 0;
+
+        .gsc-input-box {
+          height: $search-input-height;
+          border: 1px solid rgba(black, .12);
+          border-radius: $input-border-radius 0 0 $input-border-radius;
+          border-right: none;
+
+          // The `!important` is needed here to override Google styles
+          // and align a text in the middle of the input.
+          input {
+            background: none !important; // Removes Google logotype in the empty input.
+            padding: 10px 12px !important;
+            margin: 0 !important;
+            height: auto !important;
+          }
+
+          // The clear icon.
+          .gsst_b {
+            padding: 0 8px 0 4px;
+
+            .gsst_a {
+              .gscb_a {
+                color: rgba(black, .26);
+                margin-top: 1px;
+              }
+
+              &:hover, &:focus {
+                .gscb_a {
+                  color: rgba(black, .54);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .gsc-search-button-v2 {
+        padding: 12px 20px;
+        margin-left: 0;
+        border: none;
+        background-color: $mainBrandColor;
+        height: $search-input-height;
+        cursor: pointer;
+
+        &:hover, &:focus {
+          background-color: $secondBrandColor;
+        }
+
+        &:focus {
+          box-shadow: none;
+          outline: 1px dotted white;
+          outline-offset: -5px;
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
+  .gsc-above-wrapper-area {
+    border-bottom: none;
+
+    .gsc-above-wrapper-area-container {
+      // Hides `Sort by relevance or date` filter.
+      .gsc-orderby-container {
+        display: none;
+      }
+    }
+  }
+
+  .gsc-results {
+    .gsc-result {
+      padding: 12px 0;
+
+      .gs-spelling {
+        font-size: $search-content-font-size;
+        line-height: 1.4;
+        color: #676767;
+        padding: 2px 4px;
+
+        &.gs-spelling-original {
+          font-size: 13px;
+        }
+
+        a {
+          color: $mainBrandColor;
+        }
+      }
+
+      .gs-title {
+        text-decoration: none;
+        font-size: $article-font-size;
+        padding-bottom: 2px;
+        line-height: 1.4;
+        color: $mainBrandColor !important;
+        font-weight: 500;
+
+        &:hover, &:focus {
+          text-decoration: underline;
+          color: $secondBrandColor !important;
+        }
+      }
+
+      .gsc-url-top {
+        font-size: $search-content-font-size;
+        line-height: 1.4;
+      }
+
+      .gsc-table-result {
+        font-size: $search-content-font-size;
+        line-height: 1.5;
+        padding-top: 2px;
+
+        // Hides OG image near every result item.
+        .gsc-table-cell-thumbnail {
+          display: none;
+        }
+      }
+    }
+
+    // Pagination container.
+    .gsc-cursor-box {
+      margin-top: 24px;
+      font-size: $search-content-font-size;
+
+      .gsc-cursor-page {
+        margin-right: 20px;
+
+        &.gsc-cursor-current-page {
+          color: $mainBrandColor;
+        }
+      }
+    }
+
+    // Hides `Search on Google` and Google logotype.
+    .gcsc-more-maybe-branding-root {
+      display: none;
+    }
+
+    .gs-no-results-result {
+      .gs-snippet {
+        border: none;
+        background-color: transparent;
+        text-align: center;
+        font-size: 16px;
+        color: rgba(black, .38);
+        margin-top: 24px;
+      }
+    }
+  }
+}
