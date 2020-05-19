@@ -436,6 +436,13 @@ $search-placeholder-color: rgba(white, .38);
       width: 100%;
       background-color: rgba(white, .08);
       padding-left: $search-field-left-padding;
+      border: 1px solid transparent;
+    }
+
+    .search-field {
+      &:focus {
+        border-color: rgba(white, .4);
+      }
     }
   }
 }
