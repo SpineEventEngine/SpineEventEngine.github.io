@@ -424,6 +424,7 @@ $search-placeholder-color: rgba(white, .38);
     }
   }
 
+  // Search inside the navigation panel on mobile.
   @media (max-width: 767px) {
     margin: 16px 22px;
 
