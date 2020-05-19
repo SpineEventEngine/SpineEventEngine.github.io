@@ -423,4 +423,19 @@ $search-placeholder-color: rgba(white, .38);
       }
     }
   }
+
+  @media (max-width: 767px) {
+    margin: 16px 22px;
+
+    &:before {
+      font-size: 16px;
+    }
+
+    .search-field,
+    .search-field:focus {
+      width: 100%;
+      background-color: rgba(white, .08);
+      padding-left: $search-field-left-padding;
+    }
+  }
 }
