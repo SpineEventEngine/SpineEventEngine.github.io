@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Development Process
 headline: Documentation
 bodyclass: docs
 layout: docs

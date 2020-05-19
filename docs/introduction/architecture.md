@@ -1,5 +1,5 @@
 ---
-title: Concepts 
+title: Architecture 
 headline: Documentation 
 bodyclass: docs
 layout: docs
