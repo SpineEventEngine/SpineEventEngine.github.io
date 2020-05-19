@@ -371,18 +371,22 @@
 $search-icon-size: 18px;
 $search-icon-left-position: 12px;
 $search-field-left-padding: $search-icon-size + $search-icon-left-position + 10px;
+$search-icon-color: rgba(white, .54);
 $search-placeholder-color: rgba(white, .38);
 .nav-search {
   position: relative;
 
-  &:before {
+  &:hover {
+    .search-icon {
+      color: white;
+    }
+  }
+
+  .search-icon {
     position: absolute;
-    content: '\f002';
-    font-family: "Font Awesome 5 Pro";
     font-size: $search-icon-size;
-    font-weight: 400;
-    color: rgba(white, .54);
-    top: 7px;
+    color: $search-icon-color;
+    top: 9px;
     left: $search-icon-left-position;
     pointer-events: none;
     z-index: 1;
@@ -421,14 +425,23 @@ $search-placeholder-color: rgba(white, .38);
       @media (max-width: $tablet-large) {
         width: 180px;
       }
+
+      + .search-icon {
+        color: $search-icon-color;
+      }
     }
+  }
+
+  .search-field:focus + .search-icon {
+    color: rgba(white, .54);
   }
 
   // Search inside the navigation panel on mobile.
   @media (max-width: 767px) {
     margin: 16px 22px;
 
-    &:before {
+    .search-icon {
+      top: 10px;
       font-size: 16px;
     }
 
