@@ -1,4 +1,4 @@
-//Navigation
+// Navigation
 .navigation-opened {
   @media(max-width: $tablet){
     overflow: hidden;
@@ -62,7 +62,7 @@
   }
 
   .navigation-holder {
-    margin-left: auto; // Make float:right; for the Bootstrap v4
+    margin-left: auto; // Makes float:right; for the Bootstrap v4
 
     @media (max-width: 767px) {
       background-color: $footerColor;
@@ -130,7 +130,7 @@
         @include transition(all .2s ease-in-out);
         -webkit-transform: translateZ(0);
 
-        @media(min-width: $tablet){
+        @media (min-width: $tablet) {
           padding: 16px 20px;
           font-size: 15px;
           letter-spacing: 0.5px;
@@ -165,7 +165,7 @@
       }
 
       &.home-item {
-        @media(min-width: $tablet){
+        @media (min-width: $tablet) {
           display: none;
         }
       }
@@ -200,7 +200,7 @@
     .doc-list-inside {
       margin-bottom: 8px;
 
-      @media(min-width:$tablet){
+      @media (min-width:$tablet) {
         display: none;
       }
     }
@@ -241,7 +241,7 @@
   margin-right: 16px;
   position: absolute;
 
-  @media(max-width: 767px){
+  @media (max-width: 767px) {
     display: block;
   }
 
