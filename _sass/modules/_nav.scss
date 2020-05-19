@@ -97,14 +97,28 @@
       margin: 5px 0;
     }
 
+    .nav-list-wrapper {
+      @media (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
     .nav-item {
       position:relative;
       display: block;
       -webkit-transform: translateZ(0);
       line-height: 22px;
+      order: 1;
 
       @media (min-width: $tablet) {
         display: inline-block;
+      }
+
+      &.nav-item-search {
+        @media (max-width: 767px) {
+          order: 0; // Moves the search item to the top of the list on mobile.
+        }
       }
 
       a {
