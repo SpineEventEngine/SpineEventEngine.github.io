@@ -131,6 +131,10 @@ $search-content-font-size: 15px;
       .gsc-url-top {
         font-size: $search-content-font-size;
         line-height: 1.4;
+
+        .gs-visibleUrl {
+          color: #009933 !important;
+        }
       }
 
       .gsc-table-result {
@@ -142,6 +146,10 @@ $search-content-font-size: 15px;
         // Hides OG image near every result item.
         .gsc-table-cell-thumbnail {
           display: none;
+        }
+
+        .gs-snippet {
+          color: #333;
         }
       }
     }
