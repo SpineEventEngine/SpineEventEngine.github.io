@@ -2,11 +2,6 @@ $search-input-height: 40px;
 $search-content-font-size: 15px;
 
 .search-result-content {
-  // Hides the advertisement block.
-  .gsc-adBlock {
-    display: none;
-  }
-
   .gsc-control-cse {
     font-family: $main-font;
     padding: 0;
