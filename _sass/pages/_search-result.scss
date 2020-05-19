@@ -68,6 +68,7 @@ $search-content-font-size: 15px;
         border: none;
         background-color: $mainBrandColor;
         height: $search-input-height;
+        border-radius: 0 $input-border-radius $input-border-radius 0;
         cursor: pointer;
 
         &:hover, &:focus {
