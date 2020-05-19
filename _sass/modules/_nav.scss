@@ -64,7 +64,7 @@
   .navigation-holder {
     margin-left: auto; // Make float:right; for the Bootstrap v4
 
-    @media(max-width: 767px) {
+    @media (max-width: 767px) {
       background-color: $footerColor;
       box-shadow: -1px 0px 8px 0px rgba(0,0,0, .25);
       z-index: 1001;
@@ -78,7 +78,7 @@
       overflow-x: auto;
       @include transition(right .4s ease-in-out);
 
-      .block-above-scroll-nav{
+      .block-above-scroll-nav {
         position: fixed;
         width: 100%;
         height: 56px;
@@ -92,7 +92,7 @@
   .navigation {
     margin: 0 -24px 48px;
 
-    @media(min-width: $tablet){
+    @media (min-width: $tablet) {
       float: right;
       margin: 5px 0;
     }
@@ -103,7 +103,7 @@
       -webkit-transform: translateZ(0);
       line-height: 22px;
 
-      @media(min-width: $tablet){
+      @media (min-width: $tablet) {
         display: inline-block;
       }
 
