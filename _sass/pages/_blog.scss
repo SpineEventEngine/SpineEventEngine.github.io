@@ -163,10 +163,6 @@
     background-color: white;
   }
 
-  .post-container {
-    margin-top: $page-top-offset;
-  }
-
   .empty-block {
     @media (max-width: $desktop-small) {
       display: none;

@@ -1,4 +1,4 @@
-//Navigation
+// Navigation
 .navigation-opened {
   @media(max-width: $tablet){
     overflow: hidden;
@@ -62,11 +62,11 @@
   }
 
   .navigation-holder {
-    margin-left: auto; // Make float:right; for the Bootstrap v4
+    margin-left: auto; // Makes float:right; for the Bootstrap v4
 
-    @media(max-width: 767px) {
+    @media (max-width: 767px) {
       background-color: $footerColor;
-      box-shadow: -1px 0px 8px 0px rgba(0,0,0, .25);
+      @include box-shadow(-1px 0px 8px 0px rgba(black, .25));
       z-index: 1001;
       display: block;
       position: fixed;
@@ -78,7 +78,7 @@
       overflow-x: auto;
       @include transition(right .4s ease-in-out);
 
-      .block-above-scroll-nav{
+      .block-above-scroll-nav {
         position: fixed;
         width: 100%;
         height: 56px;
@@ -92,9 +92,16 @@
   .navigation {
     margin: 0 -24px 48px;
 
-    @media(min-width: $tablet){
+    @media (min-width: $tablet) {
       float: right;
       margin: 5px 0;
+    }
+
+    .nav-list-wrapper {
+      @media (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     .nav-item {
@@ -102,9 +109,16 @@
       display: block;
       -webkit-transform: translateZ(0);
       line-height: 22px;
+      order: 1;
 
-      @media(min-width: $tablet){
+      @media (min-width: $tablet) {
         display: inline-block;
+      }
+
+      &.nav-item-search {
+        @media (max-width: 767px) {
+          order: 0; // Moves the search item to the top of the list on mobile.
+        }
       }
 
       a {
@@ -116,7 +130,7 @@
         @include transition(all .2s ease-in-out);
         -webkit-transform: translateZ(0);
 
-        @media(min-width: $tablet){
+        @media (min-width: $tablet) {
           padding: 16px 20px;
           font-size: 15px;
           letter-spacing: 0.5px;
@@ -151,7 +165,7 @@
       }
 
       &.home-item {
-        @media(min-width: $tablet){
+        @media (min-width: $tablet) {
           display: none;
         }
       }
@@ -186,7 +200,7 @@
     .doc-list-inside {
       margin-bottom: 8px;
 
-      @media(min-width:$tablet){
+      @media (min-width:$tablet) {
         display: none;
       }
     }
@@ -227,7 +241,7 @@
   margin-right: 16px;
   position: absolute;
 
-  @media(max-width: 767px){
+  @media (max-width: 767px) {
     display: block;
   }
 
@@ -349,6 +363,99 @@
             opacity: 1;
           }
         }
+      }
+    }
+  }
+}
+
+$search-icon-size: 18px;
+$search-icon-left-position: 12px;
+$search-field-left-padding: $search-icon-size + $search-icon-left-position + 10px;
+$search-icon-color: rgba(white, .54);
+$search-placeholder-color: rgba(white, .38);
+.nav-search {
+  position: relative;
+
+  &:hover {
+    .search-icon {
+      color: white;
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    font-size: $search-icon-size;
+    color: $search-icon-color;
+    top: 9px;
+    left: $search-icon-left-position;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .search-field {
+    background-color: transparent;
+    border: none;
+    width: 26px;
+    font-size: 15px;
+    height: calc(2.25rem + 2px);
+    padding: 6px 12px 6px 28px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    @include transition(all .25s ease-in-out);
+
+    &::placeholder {
+      color: $search-placeholder-color;
+      opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $search-placeholder-color;
+    }
+
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $search-placeholder-color;
+    }
+
+    &:focus {
+      padding-left: $search-field-left-padding;
+      background-color: rgba(11, 52, 99, .26);
+      width: 240px;
+
+      @media (max-width: $tablet-large) {
+        width: 180px;
+      }
+
+      + .search-icon {
+        color: $search-icon-color;
+      }
+    }
+  }
+
+  .search-field:focus + .search-icon {
+    color: rgba(white, .54);
+  }
+
+  // Search inside the navigation panel on mobile.
+  @media (max-width: 767px) {
+    margin: 16px 22px;
+
+    .search-icon {
+      top: 10px;
+      font-size: 16px;
+    }
+
+    .search-field,
+    .search-field:focus {
+      width: 100%;
+      background-color: rgba(white, .08);
+      padding-left: $search-field-left-padding;
+      border: 1px solid transparent;
+    }
+
+    .search-field {
+      &:focus {
+        border-color: rgba(white, .4);
       }
     }
   }

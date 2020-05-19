@@ -1,4 +1,7 @@
 // Font
+$main-font: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Font sizes
 $font-size--primary         : 16px;
 $font-size--xxs             : .8rem;
 $font-size--xs              : 1rem;
@@ -76,3 +79,7 @@ $icon-right-offset: 48px;
 
 // Container top offset for pages with a fixed header. For example a page with a single post.
 $page-top-offset: $header-height + 32px;
+$page-top-offset-mobile: $header-height + 16px;
+
+// Inputs
+$input-border-radius: 3px;
