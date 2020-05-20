@@ -1,4 +1,4 @@
-<form action="/search" class="nav-search" id="cse-search-box">
+<!--<form action="/search" class="nav-search" id="cse-search-box">
     <input type="hidden" name="cx" value="013970741446898800128:8sponodrnbo">
     <input type="hidden" name="ie" value="UTF-8">
     <input type="hidden" name="hl" value="en">
@@ -9,14 +9,20 @@
            placeholder="Search"
            aria-label="Search">
     <i class="far fa-search search-icon"></i>
-</form>
+</form>-->
 
 <!-- Search to use with Algolia -->
-<!--<form class="nav-search">
-    <input id="search-field"
-           class="search-field"
-           type="search"
-           placeholder="Search"
-           aria-label="Search">
-    <i class="far fa-search search-icon"></i>
-</form>-->
+<div class="nav-search-container">
+    <form class="nav-search">
+        <input id="search-field"
+               class="search-field"
+               type="search"
+               placeholder="Search"
+               aria-label="Search">
+        <div class="mobile-search-panel"></div>
+        <i class="far fa-search search-icon"></i>
+        <a id="close-mobile-search-panel" class="close-btn">
+            <i class="fal fa-times close-icon"></i>
+        </a>
+    </form>
+</div>

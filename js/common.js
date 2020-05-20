@@ -38,6 +38,8 @@ $(function() {
     fixHead();
     changeCodeColor();
     openHeaderMenuOnMobile();
+    openSearchPanelOnMobile();
+    closeSearchPanelOnMobile();
     addExternalClass();
     initTocTocify();
     showScrollTopBtn();
@@ -86,6 +88,7 @@ $(window).resize(function() {
     ifCookiesExist();
     fixHead();
     setColorSelectorTopPosition();
+    removeMobileSearchPanelOnResize();
 
     if (isPromoPage) {
         showCodeColorSelectorOnPromoPage();
@@ -256,6 +259,27 @@ function openHeaderMenuOnMobile() {
         $(this).toggleClass('open');
         $('body').toggleClass('navigation-opened');
     });
+}
+
+function openSearchPanelOnMobile() {
+    $('.mobile-search-panel').click(function() {
+        $body.addClass('mobile-search-opened');
+        $('#search-field').focus();
+    });
+}
+
+function closeSearchPanelOnMobile() {
+    $('#close-mobile-search-panel').click(function() {
+        $body.removeClass('mobile-search-opened');
+    });
+}
+
+function removeMobileSearchPanelOnResize() {
+    const mobileWindow = $(window).width() <= 767;
+
+    if (!mobileWindow) {
+        $body.removeClass('mobile-search-opened');
+    }
 }
 
 /**

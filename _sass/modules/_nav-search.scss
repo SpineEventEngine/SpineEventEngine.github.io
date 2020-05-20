@@ -3,6 +3,20 @@ $search-icon-left-position: 12px;
 $search-field-left-padding: $search-icon-size + $search-icon-left-position + 10px;
 $search-icon-color: rgba(white, .54);
 $search-placeholder-color: rgba(white, .38);
+
+.nav-search-container {
+  padding-top: 13px;
+
+  @media (max-width: 767px) {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+
+  @media (max-width: $phone-xlarge) {
+    margin-right: 48px;
+  }
+}
+
 .nav-search {
   position: relative;
   margin-left: 4px;
@@ -71,6 +85,72 @@ $search-placeholder-color: rgba(white, .38);
   @media (max-width: 767px) {
     .search-icon {
       color: white;
+    }
+  }
+
+  .close-btn {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    .close-icon {
+      color: white;
+      font-size: 20px;
+    }
+  }
+}
+
+.mobile-search-panel {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.mobile-search-opened {
+  @media (max-width: 767px) {
+    .algolia-autocomplete {
+      width: calc(100% - 48px);
+    }
+
+    .nav-search-container {
+      display: block;
+      z-index: 10000;
+      position: fixed;
+      background-image: $nav-blue-gradient;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      height: $header-height;
+      padding: 13px;
+    }
+
+    .close-btn {
+      display: inline-block;
+    }
+
+    .search-icon {
+      top: 10px;
+      font-size: 16px;
+    }
+
+    .search-field,
+    .search-field:focus {
+      width: 100%;
+      background-color: rgba(white, .08);
+      padding-left: $search-field-left-padding;
+      border: 1px solid transparent;
+    }
+
+    .search-field {
+      &:focus {
+        border-color: rgba(white, .4);
+      }
     }
   }
 }
