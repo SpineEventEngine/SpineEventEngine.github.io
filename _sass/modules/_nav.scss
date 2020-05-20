@@ -380,6 +380,7 @@ $search-icon-color: rgba(white, .54);
 $search-placeholder-color: rgba(white, .38);
 .nav-search {
   position: relative;
+  margin-left: 3px;
 
   &:hover {
     .search-icon {
