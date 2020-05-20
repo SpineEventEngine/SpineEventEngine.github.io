@@ -11,14 +11,14 @@
         </div>
     </div>
     <div class="container-fluid content-holder">
-        <div class="row">
-            <div class="col-md-2 logo">
+        <div class="nav-main-container">
+            <div class="logo">
                 <a href="{{ site.baseurl }}/">
                     <img class="nav-logo" src="{{ site.baseurl }}/img/spine-logo-white.svg"
                          alt="Spine Event Engine">
                 </a>
             </div>
-            <div class="col-md-10 navigation-holder">
+            <div class="navigation-holder">
                 <div class="block-above-scroll-nav"></div>
                 {% assign current = page.url | downcase | split: '/' %}
                 <nav class="navigation">
@@ -40,11 +40,11 @@
                         <li class="nav-item"><a href="{{ site.baseurl }}/blog/" {% if current[1] == 'blog' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Blog</span></a></li>
                         <li class="nav-item"><a href="{{ site.baseurl }}/faq/" {% if current[1] == 'faq' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>FAQ</span></a></li>
                         <li class="nav-item"><a class="nav-item-link github-icon" href="https://github.com/SpineEventEngine" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
-                        <li class="nav-item nav-item-search">
-                            {% include nav-search.html %}
-                        </li>
                     </ul>
                 </nav>
+            </div>
+            <div class="nav-search-item">
+                {% include nav-search.html %}
             </div>
         </div>
     </div>

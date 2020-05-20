@@ -43,6 +43,10 @@
     }
   }
 
+  .nav-main-container {
+    display: flex;
+  }
+
   .logo {
     a {
       img {
@@ -97,30 +101,14 @@
       margin: 5px 0;
     }
 
-    .nav-list-wrapper {
-      @media (max-width: 767px) {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-
     .nav-item {
       position:relative;
       display: block;
       -webkit-transform: translateZ(0);
       line-height: 22px;
-      order: 1;
 
       @media (min-width: $tablet) {
         display: inline-block;
-      }
-
-      &.nav-item-search {
-        vertical-align: middle;
-
-        @media (max-width: 767px) {
-          order: 0; // Moves the search item to the top of the list on mobile.
-        }
       }
 
       .nav-item-link {
@@ -238,6 +226,15 @@
   @include keyframes(slideUpNav) {
     0%   { transform: translateY(0%); }
     100% { transform: translateY(-100%); }
+  }
+}
+
+.nav-search-item {
+  padding-top: 13px;
+
+  @media (max-width: 767px) {
+    margin-left: auto;
+    margin-right: 40px;
   }
 }
 

@@ -5,7 +5,7 @@ $search-icon-color: rgba(white, .54);
 $search-placeholder-color: rgba(white, .38);
 .nav-search {
   position: relative;
-  margin-left: 3px;
+  margin-left: 4px;
 
   &:hover {
     .search-icon {
@@ -67,27 +67,10 @@ $search-placeholder-color: rgba(white, .38);
     color: rgba(white, .54);
   }
 
-  // Search inside the navigation panel on mobile.
+  // Search on mobile.
   @media (max-width: 767px) {
-    margin: 16px 22px;
-
     .search-icon {
-      top: 10px;
-      font-size: 16px;
-    }
-
-    .search-field,
-    .search-field:focus {
-      width: 100%;
-      background-color: rgba(white, .08);
-      padding-left: $search-field-left-padding;
-      border: 1px solid transparent;
-    }
-
-    .search-field {
-      &:focus {
-        border-color: rgba(white, .4);
-      }
+      color: white;
     }
   }
 }
