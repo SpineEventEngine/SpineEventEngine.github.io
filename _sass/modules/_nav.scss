@@ -194,6 +194,11 @@
             display: none;
           }
         }
+
+        i {
+          vertical-align: middle;
+          margin-top: -2px;
+        }
       }
     }
 
@@ -386,7 +391,7 @@ $search-placeholder-color: rgba(white, .38);
     position: absolute;
     font-size: $search-icon-size;
     color: $search-icon-color;
-    top: 9px;
+    top: 10px;
     left: $search-icon-left-position;
     pointer-events: none;
     z-index: 1;
