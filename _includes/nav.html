@@ -24,27 +24,23 @@
                 {% assign current = page.url | downcase | split: '/' %}
                 <nav class="navigation">
                     <ul class="nav-list-wrapper">
-                        <li class="nav-item home-item"><a href="{{ site.baseurl }}/"><span>Home</span></a></li>
-                        <li class="nav-item"><a href="{{ site.baseurl }}/about/" {% if current[1]== 'about' %}class='current'{% endif %}><span>About</span></a></li>
-                        <li class="nav-item"><a href="{{ site.baseurl }}/docs/" {% if current[1]== 'docs' %}class='current'{% endif %}><span>Docs</span></a>
+                        <li class="nav-item home-item"><a class="nav-item-link" href="{{ site.baseurl }}/"><span>Home</span></a></li>
+                        <li class="nav-item"><a class="nav-item-link" href="{{ site.baseurl }}/about/" {% if current[1]== 'about' %}class='current'{% endif %}><span>About</span></a></li>
+                        <li class="nav-item"><a class="nav-item-link" href="{{ site.baseurl }}/docs/" {% if current[1]== 'docs' %}class='current'{% endif %}><span>Docs</span></a>
                             <div {% if current[1] =='docs' %}class='mobile-caret-icon' aria-expanded='true'{% else %}class='mobile-caret-icon collapsed' aria-expanded='false'{% endif %} data-toggle="collapse" data-target="#docListInside" aria-controls="docListInside"></div>
                             <ul {% if current[1] == 'docs' %}class='doc-list-inside collapse show'{% else %}class='doc-list-inside collapse'{% endif %} id="docListInside">
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path== 'docs/index.html' %}class='current'{% endif %}><span>Home</span></a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/introduction" {% if current[2] == 'introduction' %}class='current'{% endif %}>Introduction</a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quickstart" {% if current[2]== 'quickstart' %}class='current'{% endif
-                                    %}><span>Quick Start</span></a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}><span>Guides</span></a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/tutorials" {% if current[2]== 'tutorials' %}class='current'{% endif
-                                    %}><span>Tutorials</span></a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/reference" {% if current[2]== 'reference' %}class='current'{% endif
-                                    %}><span>Reference</span></a></li>
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/examples" {% if current[2]== 'examples' %}class='current'{% endif
-                                    %}><span>Examples</span></a></li>
+                                <li class="nav-item doc"><a class="nav-item-link" href="{{ site.baseurl }}/docs" {% if page.path== 'docs/index.html' %}class='current'{% endif %}><span>Home</span></a></li>
+                                <li class="nav-item doc"><a class="nav-item-link" href="{{ site.baseurl }}/docs/introduction" {% if current[2] == 'introduction' %}class='current'{% endif %}>Introduction</a></li>
+                                <li class="nav-item doc"><a class="nav-item-link" href="{{ site.baseurl }}/docs/quickstart" {% if current[2]== 'quickstart' %}class='current'{% endif %}><span>Quick Start</span></a></li>
+                                <li class="nav-item doc"><a class="nav-item-link" href="{{ site.baseurl }}/docs/guides" {% if current[2] == 'guides' %}class='current'{% endif %}><span>Guides</span></a></li>
+                                <li class="nav-item doc"><a class="nav-item-link" href="{{ site.baseurl }}/docs/tutorials" {% if current[2]== 'tutorials' %}class='current'{% endif %}><span>Tutorials</span></a></li>
+                                <li class="nav-item doc"><a class="nav-item-link" href="{{ site.baseurl }}/docs/reference" {% if current[2]== 'reference' %}class='current'{% endif %}><span>Reference</span></a></li>
+                                <li class="nav-item doc"><a class="nav-item-link" href="{{ site.baseurl }}/docs/examples" {% if current[2]== 'examples' %}class='current'{% endif %}><span>Examples</span></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="{{ site.baseurl }}/blog/" {% if current[1]== 'blog' %}class='current'{% endif %}><span>Blog</span></a></li>
-                        <li class="nav-item"><a href="{{ site.baseurl }}/faq/" {% if current[1]== 'faq' %}class='current'{% endif %}><span>FAQ</span></a></li>
-                        <li class="nav-item"><a class="github-icon" href="https://github.com/SpineEventEngine" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
+                        <li class="nav-item"><a class="nav-item-link" href="{{ site.baseurl }}/blog/" {% if current[1]== 'blog' %}class='current'{% endif %}><span>Blog</span></a></li>
+                        <li class="nav-item"><a class="nav-item-link" href="{{ site.baseurl }}/faq/" {% if current[1]== 'faq' %}class='current'{% endif %}><span>FAQ</span></a></li>
+                        <li class="nav-item"><a class="nav-item-link github-icon" href="https://github.com/SpineEventEngine" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
                         <li class="nav-item nav-item-search">
                             <form action="/search" class="nav-search" id="cse-search-box">
                                 <input type="hidden" name="cx" value="013970741446898800128:8sponodrnbo">

@@ -121,7 +121,7 @@
         }
       }
 
-      a {
+      .nav-item-link {
         text-decoration: none;
         display: inline-block;
         padding: 16px 24px;
@@ -157,7 +157,7 @@
       }
 
       &.doc {
-        a {
+        .nav-item-link {
           font-size: 13px;
           letter-spacing: 1px;
           padding: 10px 0 10px 40px;
