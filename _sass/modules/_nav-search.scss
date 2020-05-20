@@ -27,6 +27,11 @@ $search-placeholder-color: rgba(white, .38);
     }
   }
 
+  // Algolia styles
+  .ds-dropdown-menu {
+    line-height: 1.4;
+  }
+
   .search-icon {
     position: absolute;
     font-size: $search-icon-size;
