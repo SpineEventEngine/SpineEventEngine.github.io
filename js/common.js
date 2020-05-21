@@ -292,7 +292,7 @@ function closeSearchPanelOnMobile() {
  * Removes the `mobileSearchOpened` body class on window resize.
  *
  * <p>It is needed for the correct search work if for some reason the body
- * class remains visible.
+ * class remains visible on desktop screen sizes.
  */
 function removeMobileSearchPanelOnResize() {
     const mobileWindow = $(window).width() <= tablet;
