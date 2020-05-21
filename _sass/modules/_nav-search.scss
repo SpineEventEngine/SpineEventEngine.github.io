@@ -88,6 +88,10 @@ $search-placeholder-color: rgba(white, .38);
 
   // Search on mobile.
   @media (max-width: 767px) {
+    .search-field {
+      @include transition(none);
+    }
+
     .search-icon {
       color: white;
     }
@@ -160,6 +164,7 @@ $search-placeholder-color: rgba(white, .38);
       background-color: rgba(white, .08);
       padding-left: $search-field-left-padding;
       border: 1px solid transparent;
+      @include transition(width .25s ease-in-out);
     }
 
     .search-field {
