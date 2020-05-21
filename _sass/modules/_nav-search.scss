@@ -107,12 +107,14 @@ $search-placeholder-color: rgba(white, .38);
   }
 }
 
-// The block for the `click` trigger to open mobile search.
+// The block to open the mobile search with the `click` trigger.
 .mobile-search-panel {
   position: absolute;
   top: 0;
   width: 40px;
   height: 40px;
+  cursor: pointer;
+
   @media (min-width: $tablet) {
     display: none;
   }
