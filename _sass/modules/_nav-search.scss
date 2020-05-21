@@ -122,6 +122,12 @@ $search-placeholder-color: rgba(white, .38);
   @media (max-width: 767px) {
     .algolia-autocomplete {
       width: calc(100% - 48px);
+
+      .ds-dropdown-menu {
+        width: 100%;
+        min-width: 0 !important;
+        max-width: none;
+      }
     }
 
     .nav-search-container {
