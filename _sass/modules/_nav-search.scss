@@ -47,10 +47,12 @@ $search-placeholder-color: rgba(white, .38);
     border: none;
     width: 26px;
     font-size: 15px;
+    line-height: 18px;
     height: calc(2.25rem + 2px);
     padding: 6px 12px 6px 28px;
     border-radius: 4px;
     color: white;
+    caret-color: white;
     cursor: pointer;
     @include transition(all .25s ease-in-out);
 
