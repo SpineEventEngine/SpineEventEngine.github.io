@@ -11,6 +11,7 @@ const copyrightEl = $('.copyright');
 const $pre = $('pre');
 const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
+const mobileSearchOpenedClass = 'mobile-search-opened';
 
 /** Pages */
 const isFaqPage = $body.is('.faq');
@@ -33,6 +34,7 @@ const lightStylesUrl = codeStylePath + 'light-theme.css';
 const windowHeightMobile = 520;
 const phoneMedium = 480;
 const phoneXLarge = 640;
+const tablet = 767;
 
 $(function() {
     fixHead();
@@ -261,24 +263,42 @@ function openHeaderMenuOnMobile() {
     });
 }
 
+/**
+ * Adds the `mobileSearchOpened` body class by clicking on the `Search` icon
+ * on mobile devices.
+ *
+ * <p>The CSS will open a search bar in the full width of the menu.
+ * Also, the search field becomes in focus.
+ */
 function openSearchPanelOnMobile() {
     $('.mobile-search-panel').click(function() {
-        $body.addClass('mobile-search-opened');
+        $body.addClass(mobileSearchOpenedClass);
         $('#search-field').focus();
     });
 }
 
+/**
+ * Removes the `mobileSearchOpened` body class by clicking on the close icon.
+ *
+ * <p>The CSS hides the open full-width search bar on mobile devices.
+ */
 function closeSearchPanelOnMobile() {
     $('#close-mobile-search-panel').click(function() {
-        $body.removeClass('mobile-search-opened');
+        $body.removeClass(mobileSearchOpenedClass);
     });
 }
 
+/**
+ * Removes the `mobileSearchOpened` body class on window resize.
+ *
+ * <p>It is needed for the correct search work if for some reason the body
+ * class remains visible.
+ */
 function removeMobileSearchPanelOnResize() {
-    const mobileWindow = $(window).width() <= 767;
+    const mobileWindow = $(window).width() <= tablet;
 
     if (!mobileWindow) {
-        $body.removeClass('mobile-search-opened');
+        $body.removeClass(mobileSearchOpenedClass);
     }
 }
 
