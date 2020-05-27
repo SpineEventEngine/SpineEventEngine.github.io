@@ -30,6 +30,26 @@ $search-placeholder-color: rgba(white, .38);
   // Algolia styles
   .ds-dropdown-menu {
     line-height: 1.4;
+
+    .algolia-docsearch-suggestion {
+      @media (max-width: 767px) {
+        .algolia-docsearch-suggestion--subcategory-column,
+        .algolia-docsearch-suggestion--content {
+          display: block;
+          width: 100%;
+        }
+
+        .algolia-docsearch-suggestion--subcategory-column {
+          font-weight: 400;
+        }
+
+        .algolia-docsearch-suggestion--category-header {
+          font-weight: 600;
+          color: $mainBrandColor;
+          margin-top: 20px;
+        }
+      }
+    }
   }
 
   .search-icon {
