@@ -1,0 +1,198 @@
+$search-icon-size: 18px;
+$search-icon-left-position: 12px;
+$search-field-left-padding: $search-icon-size + $search-icon-left-position + 10px;
+$search-icon-color: rgba(white, .54);
+$search-placeholder-color: rgba(white, .38);
+
+.nav-search-container {
+  padding-top: 13px;
+
+  @media (max-width: 767px) {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+
+  @media (max-width: $phone-xlarge) {
+    margin-right: 48px;
+  }
+}
+
+.nav-search {
+  position: relative;
+  margin-left: 4px;
+
+  &:hover {
+    .search-icon {
+      color: white;
+    }
+  }
+
+  // Algolia styles
+  .ds-dropdown-menu {
+    line-height: 1.4;
+
+    .algolia-docsearch-suggestion {
+      @media (max-width: 767px) {
+        .algolia-docsearch-suggestion--subcategory-column,
+        .algolia-docsearch-suggestion--content {
+          display: block;
+          width: 100%;
+        }
+
+        .algolia-docsearch-suggestion--subcategory-column {
+          font-weight: 400;
+        }
+
+        .algolia-docsearch-suggestion--category-header {
+          font-weight: 600;
+          color: $mainBrandColor;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    font-size: $search-icon-size;
+    color: $search-icon-color;
+    top: 10px;
+    left: $search-icon-left-position;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .search-field {
+    background-color: transparent;
+    border: none;
+    width: 26px;
+    font-size: 16px;
+    line-height: 19px;
+    height: calc(2.25rem + 2px);
+    padding: 6px 12px 6px 28px;
+    border-radius: 4px;
+    color: white;
+    caret-color: white;
+    cursor: pointer;
+    @include transition(all .25s ease-in-out);
+
+    &::placeholder {
+      color: $search-placeholder-color;
+      opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $search-placeholder-color;
+    }
+
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $search-placeholder-color;
+    }
+
+    &:focus {
+      padding-left: $search-field-left-padding;
+      background-color: rgba(11, 52, 99, .26);
+      width: 240px;
+
+      @media (max-width: $tablet-large) {
+        width: 180px;
+      }
+
+      + .search-icon {
+        color: $search-icon-color;
+      }
+    }
+  }
+
+  .search-field:focus + .search-icon {
+    color: rgba(white, .54);
+  }
+
+  // Search on mobile.
+  @media (max-width: 767px) {
+    .search-field {
+      @include transition(none);
+    }
+
+    .search-icon {
+      color: white;
+    }
+  }
+
+  .close-btn {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+
+    .close-icon {
+      color: white;
+      font-size: 20px;
+    }
+  }
+}
+
+// The block to open the mobile search with the `click` trigger.
+.mobile-search-panel {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.mobile-search-opened {
+  @media (max-width: 767px) {
+    .algolia-autocomplete {
+      width: calc(100% - 48px);
+
+      .ds-dropdown-menu {
+        width: 100%;
+        min-width: 0 !important;
+        max-width: none;
+      }
+    }
+
+    .nav-search-container {
+      display: block;
+      z-index: 10000;
+      position: fixed;
+      background-image: $nav-blue-gradient;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      height: $header-height;
+      padding: 13px;
+    }
+
+    .close-btn {
+      display: inline-block;
+    }
+
+    .search-icon {
+      top: 10px;
+      font-size: 16px;
+    }
+
+    .search-field,
+    .search-field:focus {
+      width: 100%;
+      background-color: rgba(white, .08);
+      padding-left: $search-field-left-padding;
+      border: 1px solid transparent;
+      @include transition(width .25s ease-in-out);
+    }
+
+    .search-field {
+      &:focus {
+        border-color: rgba(white, .4);
+      }
+    }
+  }
+}
