@@ -31,6 +31,14 @@ doc_side_nav:
             url: https://developers.google.com/protocol-buffers/docs/overview
           - page: gRPC
             url: https://grpc.io/docs/guides/index.html
+  - page: Client Libraries
+    children:
+      - page: Java
+        url: /docs/client-libs/
+      - page: JavaScript
+        url: /docs/client-libs/js.html
+      - page: Dart
+        url: /docs/client-libs/dart.html
   - page: API Reference
     children:
       - page: Java Server

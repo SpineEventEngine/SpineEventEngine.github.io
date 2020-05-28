@@ -1,8 +1,7 @@
 ---
-title: Java Client Library
+title: Dart Client Library
 headline: Documentation
 bodyclass: docs
 layout: docs
 ---
-# Java Client Library
-
+# Dart Client Library
