@@ -5,20 +5,20 @@ doc_side_nav:
     url: /docs/quickstart-java.html
   - page: Introduction
     children:
+      - page: Development Process
+        url: /docs/introduction/
       - page: Rules
         url: /docs/introduction/rules.html
-      - page: Development Process
-        url: /docs/introduction/development.html
       - page: Architecture
         url: /docs/introduction/architecture.html
+      - page: Project Structure
+        url: /docs/introduction/project-structure.html
       - page: Concepts
         url: /docs/introduction/concepts.html
       - page: Naming Conventions
         url: /docs/introduction/naming-conventions.html
   - page: Guides
     children:
-      - page: Project Structure
-        url: /docs/guides/project-structure.html
       - page: Validation
         url: /docs/guides/validation-user-guide.html
       - page: Defining Aggregate
