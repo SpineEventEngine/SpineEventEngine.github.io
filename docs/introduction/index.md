@@ -6,8 +6,8 @@ layout: docs
 ---
 # Development Process
 
-Building a solution based on Spine Event Engine framework is an iterative process which consists
-of the stages described in this document.
+<p class="lead">Building a solution based on Spine Event Engine framework is an iterative process
+which consists of the stages described in this document.</p>
  
 ## Getting domain knowledge
 

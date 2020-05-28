@@ -1,5 +1,5 @@
 doc_side_nav:
-  - page: Welcome
+  - page: Overview
     url: /docs/index.html
   - page: Quick Start
     url: /docs/quickstart-java.html

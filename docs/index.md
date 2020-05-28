@@ -4,15 +4,16 @@ headline: Documentation
 bodyclass: docs
 layout: docs
 ---
-
-# Welcome to the Spine developer documentation
+# Welcome
+<p class="lead">Welcome to the Spine developer documentation. This page gives the overview of
+the documentation sections.</p>
 
 ## [Quick Start]({{ site.baseurl }}/docs/quickstart-java.html)
-Learn what it's like to develop with Spine by going through the code of
+In this section you can learn what it's like to develop with Spine by going through the code of
 the [Hello World](https://github.com/spine-examples/hello) example.
 
 ## [Introduction]({{ site.baseurl }}/docs/index.html#introduction)
-This section also gives an overview of the development process, the architecture of the Spine-based
+This section gives an overview of the development process, the architecture of the Spine-based
 application, information on DDD concepts implemented by the framework and how framework
 users deal with them.
 
