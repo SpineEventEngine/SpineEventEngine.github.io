@@ -21,8 +21,6 @@ doc_side_nav:
     children:
       - page: Validation
         url: /docs/guides/validation-user-guide.html
-      - page: Defining Aggregate
-        url: /docs/guides/defining-aggregate.html
       - page: Working with Rejections
         url: /docs/guides/rejections.html
       - page: Related Guides
