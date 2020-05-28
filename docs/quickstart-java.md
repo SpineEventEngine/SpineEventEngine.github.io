@@ -1,13 +1,15 @@
 ---
-title: Getting Started with Spine in Java
-headline: Getting Started with Spine in Java
+title: Getting Started in Java
+headline: Documentation
 bodyclass: docs
 layout: docs
 ---
-<p>This guide helps you get started with minimal server-side application in Java with a simple
-working example.</p>
+# Getting started with Spine in Java
+
+<p class="lead">This guide helps you get started with minimal server-side application in Java with
+a simple working example.</p>
 <hr>
-## Prerequisites
+## Prerequisite
 1.  Make sure you have JDK 8 or higher installed.
 2.  Clone the following source code into your Git repository: 
     ```bash

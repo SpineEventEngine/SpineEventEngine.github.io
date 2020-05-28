@@ -1,8 +1,10 @@
 doc_side_nav:
+  - page: Welcome
+    url: /docs/index.html
+  - page: Quick Start
+    url: /docs/quickstart-java.html
   - page: Introduction
     children:
-      - page: Motivation
-        url: /docs/introduction/
       - page: Rules
         url: /docs/introduction/rules.html
       - page: Development Process
@@ -11,20 +13,12 @@ doc_side_nav:
         url: /docs/introduction/architecture.html
       - page: Concepts
         url: /docs/introduction/concepts.html
-  - page: Quick Start
-    children:
-      - page: Overview
-        url: /docs/quickstart/
-      - page: Java
-        url: /docs/quickstart/java.html
+      - page: Naming Conventions
+        url: /docs/introduction/naming-conventions.html
   - page: Guides
     children:
       - page: Project Structure
         url: /docs/guides/project-structure.html
-      - page: Naming Conventions
-        url: /docs/guides/naming-conventions.html
-      - page: Data Model Definition
-        url: /docs/guides/model-definition.html
       - page: Validation
         url: /docs/guides/validation-user-guide.html
       - page: Defining Aggregate
@@ -37,18 +31,6 @@ doc_side_nav:
             url: https://developers.google.com/protocol-buffers/docs/overview
           - page: gRPC
             url: https://grpc.io/docs/guides/index.html
-  - page: Tutorials
-    children:
-      - page: Overview
-        url: /docs/tutorials/
-      - page: Basic
-        children:
-          - page: Java
-            url: /docs/tutorials/basic/java.html
-          - page: JavaScript
-            url: /docs/tutorials/basic/javascript.html
-          - page: C++
-            url: /docs/tutorials/basic/cpp.html
   - page: API Reference
     children:
       - page: Java Server
