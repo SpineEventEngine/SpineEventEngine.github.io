@@ -6,14 +6,14 @@ layout: docs
 ---
 # Getting started with Spine in Java
 
-<p class="lead">This guide helps you get started with minimal server-side application in Java with
-a simple working example.</p>
+<p class="lead">This guide helps you get started with a minimal client-server application in Java/
+with a simple working example which handles one command.</p>
 <hr>
 ## Prerequisite
 1.  Make sure you have JDK 8 or higher installed.
 2.  Clone the following source code into your Git repository: 
     ```bash
-    git clone git@github.com:spine-examples/server-quickstart.git
+    git clone git@github.com:spine-examples/hello.git
     ```
 3. Run `./gradlew clean build` (or `gradlew.bat clean build` on Windows) in the project root folder.
  
