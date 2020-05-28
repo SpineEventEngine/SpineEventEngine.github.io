@@ -1,22 +1,34 @@
 ---
 title: Validation User Guide
-headline: Validation User Guide
+headline: Documentation
 bodyclass: docs
 layout: docs
 ---
+# Validation User Guide
 
-Spine uses Protobuf for defining domain models. It also helps us to standardize creating
-[Value Objects](https://martinfowler.com/bliki/ValueObject.html). Both those usages require
-something more than just a data structure. One of the commodities required for describing domain
-specifics is data validation. Spine extensively uses the Validation library when working with any
-Protobuf messages.
+<p class="lead">Building a good domain model requires more than just defining data structures. 
+One of the commodities required for describing domain specifics is making sure that the data
+is correct. This guide will walk you though the API the Validation Library which helps achieving
+this goal.</p>
 
-One way or another, the framework users will have to validate entity states. We provide 
-the Validation library so that you don't have to write it by hand.
+All of the validation features described here are currently supported in the Java environment.
+Many are supported in Dart as well. For more info, see the description of individual features
+given in the sections below.
 
-This guide will walk you though the API of Spine Validation library. All of the validation features
-described here are currently supported in the Java environment. Many are supported in Dart as well.
-For more info, see the description of individual constraints.
+## Overview
+Spine uses Protobuf for defining data structures of the domain models. The constraints 
+that define correctness of data are also defined at this level using custom Protobuf options
+[offered](#validation-options) by the Validation Library. 
+
+<p class="note">In order to use validation features, you don't need to understand how custom
+options work. Those who are interested in the details of this <em>advanced feature</em> of Protobuf,
+please see the [Protobuf Guide](https://developers.google.com/protocol-buffers/docs/proto3#custom_options)
+for details.</p>
+
+Here are simple steps in adding validation to the data model:
+ 1. The programmer adds validation constraints to the Protobuf types of the model.
+ 2. Spine Model Compiler generates the code which provides validation features.
+ 3. The programmer calls the validation API of these data types as their instances are created. 
 
 ## Java validation API
 
@@ -60,24 +72,35 @@ ValidationError error = validate(msg);
 Similarly to `validate()` method in Java, the validation function does not throw exceptions. A list
 of `ConstraintViolation`s can be obtained from the `ValidationError`.
 
-## Validation options
-### Required fields
+## Validation options overview
+<a name="validation-options"></a>
+
+In most cases validation constraints are defined for Protobuf message fields such as if a field
+must be populated or its must be withing a range, or have match a regular expression. Not so often
+it may be necessary to require a combination of fields. In this case, validation options are defined
+at the level of a corresponding message type. 
+
+## Required fields
 
 When modelling a domain, we often come up to certain data points which cannot be skipped. Those are
-represented by required fields of an entity state, a Command, an Event, etc. Protobuf 2 used to have
-a native support for required fields. However, from serialization perspective, that proved to be 
+represented by required fields of an entity state, a Command, an Event, etc. 
+
+<p class="note">
+Protobuf 2 used to have a native support for required fields. 
+However, from the serialization perspective, that proved to be
 a [design mistake](https://stackoverflow.com/a/31814967/3183076). If a required field was missing,
 the message could not be serialized and sent over the wire. Also, it is often too easy to add a new
 required field, thereby breaking backwards-compatibility of the message type. In Protobuf 3 all
-the fields are optional.
+the fields are optional.</p>
 
-In the Validation library, we've revived the concept of required fields. The difference to
-the Protobuf 2 variant is that out required fields do not affect the serialization of the message.
+In the Validation Library, we've revived the concept of required fields, but on a different level.
+The difference to the Protobuf 2 way is that out required fields do not affect the serialization
+of the message.
 If a required field is missing, it still can be serialized and passed over the wire. By separating
 validation from serialization, we allow users to choose to ignore validation errors and still
 transfer messages over the wire when needed.
 
-#### How required fields work
+### How required fields work
 
 Fields in Protobuf may have either a primitive type or a user-defined type. A user-defined type is
 a `message` or an `enum` and primitive types are numbers, `string`, and `bytes`. If a `message` or
@@ -132,7 +155,7 @@ For collection fields (i.e. `repeated` and `map`), a field is considered set if:
 Note that collections of numeric fields can be required. In those cases, only the rule 1. applies
 and the rule 2. is ignored.
 
-#### Declaring required fields
+### Declaring required fields
 
 In the basic scenario, a single required field is marked with the `(required)` option:
 
@@ -225,7 +248,7 @@ message PersonName {
 In case of `PersonName`, either `given_name` or both `honorific_prefix` and `family_name` must be
 set. All three can be set at the same time.
 
-#### Missing fields
+### Missing fields
 
 In case if a required field is missing, the validation error message will explicitly say so.
 However, if you need a specific error message for this field, you can provide it via
@@ -248,7 +271,7 @@ If `(goes)` option is used, the error message can be customized with the `(goes)
 parameter. Note that the message should contain two "`%s`" insertion points: first for the name of
 the field declaring the option and second for the name of the field targeted by the option.
 
-#### When `(required)` is implicit
+### When `(required)` is implicit
 
 When defining the domain [Commands](../introduction/naming-conventions.html#command-definitions),
 [Events](../introduction/naming-conventions.html#event-definitions), or entity states, we have found
@@ -292,7 +315,7 @@ In this case, the `ProfilePictureChanged.id` field is not required, since it's n
 in the field. The field `ProfilePictureChanged.new_picture` is not required because the convention
 is overridden with an explicit option.
 
-### Nested message validation
+## Nested message validation
 
 When a message is validated, only the "shallow" constraints are checked by default. This means that
 the message fields can be invalid and the container message is still considered valid.
@@ -350,11 +373,11 @@ message User {
 }
 ```
 
-### Number bounds
+## Number bounds
 
 For numeric fields, Spine defines a few options to limit the range of expected values.
 
-#### `(min)`/`(max)`
+### `(min)`/`(max)`
 
 `(min)` and `(max)` are twin options which define the lower and higher bounds for a numeric fields.
 The value is specified as a string. Note that the string must be parsable into the field's number
@@ -375,7 +398,7 @@ message Distance {
 }
 ```
 
-#### Ranges
+### Ranges
 
 The `(range)` option is a shortcut for a combination of `(min)` and `(max)`. A range specifies both
 boundaries for a numeric field. `(range)` is a `string` option. The `(range)` notation allow
@@ -413,7 +436,7 @@ overflow into `long` negatives, it will be considered a negative by the validati
 that in mind when defining lower bounds.
 </p>
 
-### Regular expressions
+## Regular expressions
 
 For `string` fields, the library provides the `(pattern)` option. Users can define a regular
 expression to match the field values. Also, some common pattern modifiers are available:
@@ -447,7 +470,7 @@ It is recommended to use simple patterns due to performance considerations. For 
 fledged URL and email patterns are famously too long to be used in most cases. Treat `(pattern)`
 checks as if they were yet another code with regex matching in it.
 
-### Temporal constraint
+## Temporal constraints
 
 Spine provides an option for validating time-bearing types. Those are:
  - `google.protobuf.Timestamp`;
@@ -482,7 +505,7 @@ and historical events can be replayed, avoid declaring parts of those domain obj
 future. Commands, on the other hand, are not replayed or stored automatically. Thus, It is safe
 to use `FUTURE` in Commands.
 
-### Distinct collections
+## Distinct collections
 
 Often, a `repeated` field logically represents a set rather than a list. Protobuf does not have
 a native support for sets. Moreover, it is often an invalid operation to add a duplicate element to
@@ -503,7 +526,7 @@ message User {
 }
 ```
 
-### Non-mutable fields
+## Non-mutable fields
 
 Some messages persist in your system through a stretch of time. The value represented by such
 a message may change. However, some fields must not change ever. For checking that, Spine allows
