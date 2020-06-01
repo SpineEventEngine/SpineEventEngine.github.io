@@ -5,7 +5,7 @@ concepts. Those code snippets should be kept up to date with the framework.
 
 ## Directories
 Please note that this directory (`_samples`) is for smaller pieces of code like those
-shown at the [home page](https://spine.io). 
+shown at the [home page](../index.html). 
 
 For substantial pieces of code involving multiple concepts interacting with each other, please use 
 the [`_examples`](../_examples/README.md) directory.  
