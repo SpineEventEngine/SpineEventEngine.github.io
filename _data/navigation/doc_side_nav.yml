@@ -39,16 +39,14 @@ doc_side_nav:
         url: /docs/client-libs/dart.html
   - page: API Reference
     children:
-      - page: Java Server
-        url: https://spine.io/core-java/reference/server/index.html
-      - page: Java Client
-        url: https://spine.io/core-java/reference/client/index.html
-      - page: Java Web Server
+      - page: Java
         children:
-          - page: API
-            url: https://spine.io/web/reference/web/index.html
-          - page: Implementation on Firebase
-            url: https://spine.io/web/reference/firebase-web/index.html
+        - page: Server
+          url: https://spine.io/core-java/reference/server/index.html
+        - page: Client
+          url: https://spine.io/core-java/reference/client/index.html
+        - page: Web Server
+          url: /docs/reference/java-web-server.html
       - page: JavaScript Client
         url: https://spine.io/web/reference/client-js/index.html
       - page: Dart Client
