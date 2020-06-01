@@ -1,23 +1,28 @@
-# Code examples
+# Embedding code snippets
 
 When writing an entry to the site, its often handy to use code snippets to demo the described
 concepts. Those code snippets should be kept up to date with the framework.
 
-For this purpose, we integrate with the [`code_excerpter`](https://github.com/chalin/code_excerpter)
-and [`code_excerpt_updater`](https://github.com/chalin/code_excerpt_updater) tools.
+## Directories
+Please note that this directory (`_samples`) is for smaller pieces of code like those
+shown at the [home page](https://spine.io). 
 
-Note that this directory should only contain small examples. For substantial examples involvoing
-multiple concepts interacting with each other, see `_examples`.  
+For substantial pieces of code involving multiple concepts interacting with each other, please use 
+the [`_examples`](../_examples/README.md) directory.  
+
+## Tools
+For embedding the code into Markdown of pages of this site, 
+we integrate with the [`code_excerpter`](https://github.com/chalin/code_excerpter)
+and [`code_excerpt_updater`](https://github.com/chalin/code_excerpt_updater) tools.
 
 Since the tools are designed for Dart projects, the `_samples` directory is shaped as a Dart project
 where the example code must be placed under the `examples` dir. The `examples` dir, in turn,
 contains example source code in Java, and as such is shaped as a Gradle project.
 
 When examples are updated, the Spine version in `_samples/examples/build.gradle` should be changed.
-Run `./gradlew clean build` to make sure that the examples are adequate. The project also defines
-tests which are run upon build. The tests verify the example code makes sense.
+Run `./gradlew clean build` to make sure the code builds and tests pass.
 
-When the example source files are updated, run `./_script/excerpt` to update code snippets in
+When the source files are updated, run `./_script/excerpt` to update code snippets in
 the docs.
 
 Run `./_script/check` to make sure that the code snippets are up to date with the example source
