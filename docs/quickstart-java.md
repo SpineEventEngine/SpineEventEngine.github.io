@@ -70,7 +70,7 @@ event from the server.
 
 Then, the server shuts down concluding the example.   
 
-Now let's dive into the code.
+Now, let's dive into the code.
  
 ## Project Structure
 For the sake of simplicity, this example is organised as a single-module Gradle project.
