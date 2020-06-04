@@ -104,9 +104,10 @@ The source code directory follows standard Gradle conventions and has two sub-di
 
 The production code consists of two parts allocated by sub-directories:
   * `proto` — contains the definition of data structures in Google Protobuf.
-    Definition of a domain model starts from the code in this directory. 
-    Then the Protobuf code is compiled to the languages of the project, placing the output
-    into the `generated` directory. This example uses only Java.
+    A domain model definition starts from adding the code to this directory. 
+    Then, the Protobuf code is compiled to the languages of the project. 
+    The output of this process is placed into the `generated` directory, with a sub-directory
+    for each language. This example uses only Java.
     
   * `java` — this directory contains the model behavior and other server- and client-side code.
     A real project would have these parts in separate modules or projects. We put it all
@@ -124,7 +125,7 @@ plugins {
     id 'io.spine.tools.gradle.bootstrap' version '1.5.8'
 }
 ```
-Once the plugin is added, we can use it features:
+Once the plugin is added, we can use its features:
 
 <?code-ecerpt "build.gradle (add-server-dependency)"?>
 ```groovy
