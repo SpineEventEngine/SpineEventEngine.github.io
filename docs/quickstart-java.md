@@ -99,12 +99,18 @@ Let's review the source code structure.
 
 ### The `src` directory
 The source code directory follows standard Gradle conventions and has two sub-directories:
-`main` — for the production code, and `tests`.
+  * `main` — the production code;
+  * `tests`.
 
 The production code consists of two parts allocated by sub-directories:
-  * `proto` — contains the definition of data structures in Google Protobuf. 
-    The code from this directory is compiled into the `generated` directory described above.
-  * `java` — contains the model behavior and other server and client code written in Java.
+  * `proto` — contains the definition of data structures in Google Protobuf.
+    Definition of a domain model starts from the code in this directory. 
+    Then the Protobuf code is compiled to the languages of the project, placing the output
+    into the `generated` directory. This example uses only Java.
+    
+  * `java` — this directory contains the model behavior and other server- and client-side code.
+    A real project would have these parts in separate modules or projects. We put it all
+    together for the sake of simplicity. 
 
 Now let's review the code in details, starting with how to add Spine to a Gradle project.
 
@@ -146,6 +152,6 @@ The rest of the `build.gradle` file does the following:
 
 We are not reviewing these parts of the project configuration deeper because they are not
 related to the use of the Spine framework. If you're interested in more details, please look into
-the code of these scripts and comments.
+the code of these scripts.
    
 <p class="lead">To be continued...</p>     
