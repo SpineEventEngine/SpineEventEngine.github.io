@@ -51,8 +51,8 @@ INFO: Shutting down the server...
 Jun 04, 2020 5:04:57 PM io.spine.server.Server shutdown
 INFO: Server shut down.
 ```  
-The first line tells which Gradle task we run. The following couple of lines is server-side
-inform that the server was started. 
+The first line tells which Gradle task we run. The following couple of lines is the server-side
+logging that informs us that the server was started. 
 
 The line with “Hello World!” text is the “meat” of this example suite. 
 It is what our `ProcessManager` (called `Console`) does in response to the `Print` command received
