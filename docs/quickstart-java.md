@@ -12,13 +12,15 @@ layout: docs
 
 # Getting started with Spine in Java
 
-## What we'll do
-This guide will walk you through a minimal client-server application in Java
-which handles one command to greet the current computer user.
+<p class="lead">This guide will walk you through a minimal client-server application in Java
+which handles one command to greet the current computer user. The document goes through already
+written code which is quite simple. So, it won't take long.
+</p>
 
-The example shows a Bounded Context called “Hello”. 
+## What we'll do
+We'll go through the example which shows a Bounded Context called “Hello”. 
 The context has one `ProcessManager`, which handles the `Print` command
-sent from the client application to the server application, which hosts the context.
+sent from the client-side code to the server-side code, which hosts the context.
 
 ## What you'll need
 1.  JDK version 8 or higher.
