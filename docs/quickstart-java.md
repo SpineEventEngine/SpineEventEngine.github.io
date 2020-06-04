@@ -140,13 +140,20 @@ modules should call: `spine.enableJava().client()`.</p>
 
 The rest of the `build.gradle` file does the following:
  1. Sets the version of Java to 8.
+
  2. Adds `generated` code directories to IntelliJ IDEA module by applying the `idea.gradle`
-    script plugin. We use this IDE for development, that's why it is added in the example.
+    script plugin. 
+    
+    <p class="note">We use this IDE for development, that's why it is added in the example.
     The framework does not depend on IDEA. If you use this IDE, you may want look into this code
     to configure your projects similarly.
+    </p>
+    
  3. Adds JUnit dependencies by applying the `tests.gradle` script plugin. 
-    We chose to extract this and previous scripts into separate files to simplify the code
-    of `build.gradle`.
+    
+    <p class="note">We chose to extract this and previous scripts into separate files to simplify the code
+    of `build.gradle`.</p>
+    
  4. Defines the `sayHello` task which runs the `Example` application, which orchestrates
     the demo.  
 
