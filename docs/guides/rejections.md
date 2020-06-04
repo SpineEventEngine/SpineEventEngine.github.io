@@ -11,7 +11,8 @@ differently. Here is the summary of the differences:
 
 1. `java_multiple_files` file option must be set to `false`
 
-    By doing this we instruct Protobuf Compiler to put all the rejection classes in one outer class.
+    By doing this we instruct Protobuf Compiler to put all the rejection classes in a single
+    outer class. 
     Spine Model Compiler for Java generates `ThrowableMessage` classes for all these messages. 
     These classes will be named after the classes of rejection messages.
     Putting rejection message classes under an outer class avoids name clash inside the package.
