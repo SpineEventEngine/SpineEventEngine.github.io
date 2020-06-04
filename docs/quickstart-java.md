@@ -69,7 +69,7 @@ Now let's dive into the code.
  
 ## Project Structure
 For the sake of simplicity, this example is organised as a single-module Gradle project.
-Most likely a project for a real world application would be multi-module.
+Most likely, a project for a real world application would be multi-module.
 
 ### The root directory
 The root of the project contains the following files:
