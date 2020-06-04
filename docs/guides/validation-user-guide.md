@@ -76,7 +76,7 @@ of `ConstraintViolation`s can be obtained from the `ValidationError`.
 <a name="validation-options"></a>
 
 In most cases validation constraints are defined for Protobuf message fields such as if a field
-must be populated or its must be withing a range, or have match a regular expression. Not so often
+must be populated or it must be withing a range, or match a regular expression. Not so often
 it may be necessary to require a combination of fields. In this case, validation options are defined
 at the level of a corresponding message type. 
 
