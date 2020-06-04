@@ -124,7 +124,7 @@ Now let's review the code in details, starting with how to add Spine to a Gradle
 Let's open `build.gradle` from the root of the project. The simplest and recommended way for
 adding Spine dependencies to a project is the Bootstrap plugin:
 
-<?code-ecerpt "build.gradle (add-plugin)"?>
+<?code-excerpt "build.gradle (add-plugin)"?>
 ```groovy
 plugins {
     id 'io.spine.tools.gradle.bootstrap' version '1.5.8'
@@ -132,7 +132,7 @@ plugins {
 ```
 Once the plugin is added, we can use its features:
 
-<?code-ecerpt "build.gradle (add-server-dependency)"?>
+<?code-excerpt "build.gradle (add-server-dependency)"?>
 ```groovy
 spine.enableJava().server()
 ```
