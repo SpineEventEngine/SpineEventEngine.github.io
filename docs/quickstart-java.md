@@ -65,7 +65,7 @@ the argument of the `Print` command.
 <p class="note">We opted to show a `ProcessManager` — instead of an `Aggregate` — because
 the console output is similar to an “External System”. Dealing with things like
 that is the job of Process Managers. We also want to highlight the importance of using
-this architecture pattern.</p>
+this architectural pattern.</p>
 
 The output that follows is the logging produced by the `Client` class as it receives the `Printed`
 event from the server.
