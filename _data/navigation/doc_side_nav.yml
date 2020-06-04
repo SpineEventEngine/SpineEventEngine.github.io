@@ -20,7 +20,7 @@ doc_side_nav:
   - page: Guides
     children:
       - page: Validation
-        url: /docs/guides/validation-user-guide.html
+        url: /docs/guides/validation.html
       - page: Working with Rejections
         url: /docs/guides/rejections.html
       - page: Related Guides

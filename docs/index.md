@@ -12,7 +12,7 @@ the documentation sections.</p>
 In this section you can learn what it's like to develop with Spine by going through the code of
 the [Hello World](https://github.com/spine-examples/hello) example.
 
-## [Introduction]({{ site.baseurl }}/docs/index.html#introduction)
+## [Introduction]({{ site.baseurl }}/docs/introduction/)
 This section gives an overview of the development process, the architecture of the Spine-based
 application, information on DDD concepts implemented by the framework and how framework
 users deal with them.
