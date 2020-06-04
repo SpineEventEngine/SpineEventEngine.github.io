@@ -56,14 +56,19 @@ logging that informs us that the server was started.
 
 The line with “Hello World!” text is the “meat” of this example suite. 
 It is what our `ProcessManager` (called `Console`) does in response to the `Print` command received
-from the `Client`.
+from the `Client`. 
 The text in between brackets is the name of the current computer user. The name was passed as
 the argument of the `Print` command.
+
+<p class="note">We opted to show a `ProcessManager` — instead of an `Aggregate` — because
+the console output is similar to an “External System”. Dealing with things like
+that is the job of Process Managers. We also want to highlight the importance of using
+this architecture pattern.</p>
 
 The output that follows is the logging produced by the `Client` class as it receives the `Printed`
 event from the server.
 
-Then the server shuts down concluding the example.   
+Then, the server shuts down concluding the example.   
 
 Now let's dive into the code.
  
