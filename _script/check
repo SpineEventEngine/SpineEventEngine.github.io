@@ -2,7 +2,7 @@
 
 # Find all `.md` files.
 #
-# The resiulting array stores absolute paths to all Markdown files in current directory.
+# The resulting array stores absolute paths to all Markdown files in the current directory.
 #
 allMarkdown=$(eval "$(pwd)/_script/all_markdown")
 
