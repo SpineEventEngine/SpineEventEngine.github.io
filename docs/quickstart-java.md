@@ -4,144 +4,118 @@ headline: Documentation
 bodyclass: docs
 layout: docs
 ---
+
+[//]: <> (The base path for code samples is `_samples/examples/src/main/`.)
+[//]: <> (Change it to `_examples/hello/`.)
+
+<?code-excerpt path-base="../../../../_examples/hello/"?>
+
 # Getting started with Spine in Java
 
-<p class="lead">This guide helps you get started with a minimal client-server application in Java/
-with a simple working example which handles one command.</p>
-<hr>
-## Prerequisite
-1.  Make sure you have JDK 8 or higher installed.
-2.  Clone the following source code into your Git repository: 
+## What we'll do
+This guide will walk you through a minimal client-server application in Java
+which handles one command to greet the current computer user.
+
+The example shows a Bounded Context called “Hello”. 
+The context has one `ProcessManager`, which handles the `Print` command
+sent from the client application to the server application, which hosts the context.
+
+## What you'll need
+1.  JDK version 8 or higher.
+2.  Git.
+3.  The source code of the [Hello World](https://github.com/spine-examples/hello) example.
     ```bash
     git clone git@github.com:spine-examples/hello.git
     ```
-3. Run `./gradlew clean build` (or `gradlew.bat clean build` on Windows) in the project root folder.
+
+## Run the code
+To check that you've got everything installed, please run the following command:
+```bash
+./gradlew :sayHello
+```
+If you're under Windows, it would be:
+```
+gradlew.bat :sayHello
+```
+This would build and execute the example. 
+The process should finish with the output which looks like this:
+
+```
+> Task :sayHello
+Jun 04, 2020 5:04:55 PM io.spine.server.Server lambda$start$1
+INFO: In-process server started with the name `318ea6c4-283e-4c43-b367-93310b703d31`.
+[sanders] Hello World!
+The client received the event: io.spine.helloworld.hello.event.Printed{"username":"sanders","text":"Hello World!"}
+Jun 04, 2020 5:04:57 PM io.spine.server.Server shutdown
+INFO: Shutting down the server...
+Jun 04, 2020 5:04:57 PM io.spine.server.Server shutdown
+INFO: Server shut down.
+```  
+Now let's dive into the code.
  
 ## Project Structure
- 
-The project consists of the following three modules: 
- * the `model` module
- * the `server` module
- * the `client` module
- 
-Their definitions and the process of their creation is described below. 
- 
-### The `model` Module
- 
-The `model` module defines  [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html) 
- of the application in Protobuf.
- 
-The `model/src/main/proto` directory contains the Protobuf definitions of the domain model:
-* `Task` is an aggregate state type; as any entity type, it is marked with the `(entity)` option;
-* `CreateTask` in `commands.proto` is a command handled by the `TaskAggregate`;
-* `TaskCreated` in `events.proto` is an event of the `TaskAggregate`.
+This example is a single-module Gradle project. This is done so for the sake of simplicity.
+Real world applications would be multi-module.
 
-The model can also contain other message types, for example, identifiers (see `identifiers.proto`), value
-  types, and so on.
- 
-### The `server` Module
+### The root directory
+The root of the project contains the following files:
+  * `LICENSE` — the text of the Apache v2 license under which the framework and
+     this example are licensed.
+  * `README.md` — a brief intro for the example.
+  * `gradlew` and `gradlew.bat` — scripts for running Gradle Wrapper.
+  * `build.gradle` — the project configuration. We'll review this file later in details.
 
-The `server` module provides the following possibilities: 
+<p class="note">The root directory also contains “invisible” files, names of which start with
+the dot (e.g. `.gitattributes` and `.travis.yml`).
+These files configure Git and CI systems we use. They are not directly related to the subject
+of the example and this guide. If you're interested in this level of details,
+please look into the code and comments in these files.
+</p>    
 
-1. Describes the business rules for Spine entities such as Aggregates in Java.
-See the `TaskAggregate` which handles the `CreateTask` command and applies the produced
- `TaskCreated` event.
-2. Plugs the `model` into the infrastructure: 
- * configures the storage;
- * creates a `BoundedContext` and registers repositories;
- * exposes the `BoundedContext` instance to the outer world using a set of gRPC services provided by the framework.
- 
-<p class="note">Please refer to `io.spine.tasks.server.ServerApp` for implementation example.</p>
- 
-To start the server, run `ServerApp.main()` command.
- 
-### The `client` Module
- 
-The `client` module interacts with the gRPC services, exposed by the `server` module by sending: 
- * commands using the `CommandService` stub;
- * queries using the `QueryService` stub.
- 
-<p class="note">Please refer to `io.spine.tasks.client.ClientApp` for implementation example.</p>
- 
-To start the client and see how it connects to the server, run `ClientApp.main()`.
- 
-## What's Next
- 
-Keep experimenting with your model. To do so: 
-1.  Create a new command type in `commands.proto` 
-      ```proto
-     message AssignDueDate {
-         TaskId task = 1;
-         spine.time.LocalDate due_date = 2 [(validate) = true, (required) = true, (when).in = FUTURE];
-     }
-      ```
-    <p class="note">Remember to import `LocalDate` using `import "spine/time/time.proto";` and `import "spine/time/time_options.proto";`. The latter is needed for being able to do `(when).in = FUTURE`. This type is provided by the [Spine Time](https://github.com/SpineEventEngine/time) library. 
-    You do not have to make any additional steps to use it in your domain.</p>
-2. Create a new event type in `events.proto`:
-  ```proto
- message DueDateAssigned {
-     TaskId task = 1;
-     spine.time.LocalDate due_date = 2 [(validate) = true, (required) = true];
- }
-  ```
-3. Adjust the aggregate state:
-  ```proto
- message Task {
-     option (entity) = {kind: AGGREGATE visibility: FULL};
- 
-     // An ID of the task.
-     TaskId id = 1;
- 
-     // A title of the task.
-     string title = 2 [(required) = true];
- 
-     // The date and time by which this task should be completed.
-     spine.time.LocalDate due_date = 3 [(validate) = true, (required) = false];
- }
-  ```
- Make sure to run a Gradle build after the changing the Protobuf definitions: 
- ```bash
- ./gradlew clean build
-  ```
- or for Windows:
-  ```
- gradlew.bat clean build
-  ```
-4. Handle the `AssignDueDate` command in the `TaskAggregate`:
-      ```java
-     @Assign
-     DueDateAssigned handle(AssignDueDate command) {
-         return DueDateAssigned
-                 .newBuilder()
-                 .setTask(command.getTask())
-                 .setDueDate(command.getDueDate())
-                 .vBuild();
-     }
-      ```
-    <p class="note">`vBuild()` checks the values against the validation options before a message is actually built. The `build()` is a standard alternative natively provided by Protobuf. It is safer to always use `vBuild()`, and it does not make much sense to specify validating options, if `vBuild()` is not used.
-    For example, commands are always validated upon arrival to the server side. We recommend creating a valid command on the client side as it can be too late if the validation is performed upon arrival on the server side. For more details, please refer to <a href="https://spine.io/docs/guides/validation-user-guide.html">Validation User Guide</a>.</p> 
-5. Apply the emitted event:
-  ```java
- @Apply
- private void on(DueDateAssigned event) {
-     builder().setDueDate(event.getDueDate());
- }
-  ```
-6. In `ClientApp`, extend the `main()` method by posting another command:
-  ```java
- AssignDueDate dueDateCommand = AssignDueDate
-         .newBuilder()
-         .setTask(taskId)
-         .setDueDate(LocalDates.of(2038, JANUARY, 19))
-         .vBuild();
- commandService.post(requestFactory.command().create(dueDateCommand));
-  ```
- and log the updated state:
-  ```java
- QueryResponse updatedStateResponse = queryService.read(taskQuery);
- info("The second response received: %s", Stringifiers.toString(updatedStateResponse));
-  ```
-7. Restart the server and run the client to make sure that the due date is set to the task. 
+Here are the directories of interest in the project root:
+ * `generated` — this directory contains the code generated by Protobuf Compiler and 
+    Spine Model Compiler. This directory and code it contains is created automatically
+    when a domain model changes. It is excluded from version control.
+ * `gradle` — this directory contains the code of Gradle Wrapper and two Gradle scripts.
+    The `idea.gradle` script adds directories with the generated code to the module
+    in IntelliJ IDEA. If you use this IDE, you may want look into this code.
+    The `test.gradle` adds JUnit dependencies to the project. We chose to extract this code
+    into separate files to simplify the code of `build.gradle`.
+ * `src` — contains the handcrafted source code.
 
-## What's Next
-- Detailed tutorial on <a href="https://spine.io/docs/tutorials/basic/java.html">creating Spine client application in Java</a>
+Let's review the source code structure.
+
+### The `src` directory
+The source code directory follows standard Gradle conventions and has two sub-directories:
+`main` — for the production code, and `tests`.
+
+The production code consists of two parts allocated by sub-directories:
+  * `proto` — contains the definition of data structures in Google Protobuf. 
+    The code from this directory is compiled into the `generated` directory described above.
+  * `java` — contains the model behavior and other server and client code written in Java.
+
+Now let's review the code in details, starting with how to add Spine to a Gradle project.
+
+## Adding Spine to a Gradle project
+Let's open `build.gradle` from the root of the project. The simplest and recommended way for
+adding Spine dependencies to a project is the Bootstrap plugin:
+
+<?code-ecerpt "build.gradle (add-plugin)"?>
+```groovy
+plugins {
+    id 'io.spine.tools.gradle.bootstrap' version '1.5.8'
+}
+```
+Once the plugin is added, we can use it features:
+
+<?code-ecerpt "build.gradle (add-server-dependency)"?>
+```groovy
+spine.enableJava().server()
+```
+This enables Java in the module and adds necessary dependencies.
+
+<p class="note">Calling `server()` adds both server- and client-side dependencies. This way a module
+of a Bounded Context “A” may be a client for a Bounded Context “B”. Client-side applications or
+modules should call: `spine.enableJava().client()`.</p>
+
+<p class="lead">To be continued...</p>     
