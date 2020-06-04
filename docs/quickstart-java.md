@@ -139,12 +139,13 @@ The rest of the `build.gradle` file does the following:
     The framework does not depend on IDEA. If you use this IDE, you may want look into this code
     to configure your projects similarly.
  3. Adds JUnit dependencies by applying the `tests.gradle` script plugin. 
-    We chose to extract this code into separate files to simplify the code of `build.gradle`.
+    We chose to extract this and previous scripts into separate files to simplify the code
+    of `build.gradle`.
  4. Defines the `sayHello` task which runs the `Example` application, which orchestrates
     the demo.  
 
 We are not reviewing these parts of the project configuration deeper because they are not
 related to the use of the Spine framework. If you're interested in more details, please look into
-the code and comments.
+the code of these scripts and comments.
    
 <p class="lead">To be continued...</p>     
