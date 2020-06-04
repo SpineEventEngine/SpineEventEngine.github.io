@@ -151,8 +151,8 @@ The rest of the `build.gradle` file does the following:
     
  3. Adds JUnit dependencies by applying the `tests.gradle` script plugin. 
     
-    <p class="note">We chose to extract this and previous scripts into separate files to simplify the code
-    of `build.gradle`.</p>
+    <p class="note">We chose to extract this and previous scripts into separate files to simplify
+     the code of `build.gradle`.</p>
     
  4. Defines the `sayHello` task which runs the `Example` application, which orchestrates
     the demo.  
