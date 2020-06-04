@@ -150,10 +150,10 @@ The rest of the `build.gradle` file does the following:
  2. Adds `generated` code directories to IntelliJ IDEA module by applying the `idea.gradle`
     script plugin. 
     
-    <p class="note">We use this IDE for development, that's why it is added in the example.
-    The framework does not depend on IDEA. If you use this IDE, you may want look into this code
-    to configure your projects similarly.
-    </p>
+    <p class="note">The framework does not depend on IDEA or its Gradle plugin.
+    We added this code because we use this IDE for development.
+    If you use it too, you may want look into `idea.gradle` to configure your Spine-based 
+    projects similarly.</p>
     
  3. Adds JUnit dependencies by applying the `tests.gradle` script plugin. 
     
