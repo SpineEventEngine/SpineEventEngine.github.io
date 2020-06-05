@@ -4,24 +4,28 @@ headline: Documentation
 bodyclass: docs
 layout: docs
 ---
+# Welcome
+<p class="lead">Welcome to the Spine developer documentation. This page gives the overview of
+the documentation sections.</p>
 
-# Welcome to the Spine developer documentation!
+## [Quick Start]({{ site.baseurl }}/docs/quickstart-java.html)
+In this section you can learn what it's like to develop with Spine by going through the code of
+the [Hello World](https://github.com/spine-examples/hello) example.
 
-<p class="lead">Spine Event Engine is based on Domain-Driven Design, CQRS, Event-Driven Architecture,
-and Event Sourcing. This documentation assumes that you are familiar with the concepts
-introduced by DDD and mentioned patterns.</p> 
+## [Introduction]({{ site.baseurl }}/docs/introduction/)
+This section gives an overview of the development process, the architecture of the Spine-based
+application, information on DDD concepts implemented by the framework and how framework
+users deal with them.
 
-If you are new to our framework, we recommend that you read the 
-<a href="{{ site.baseurl }}/docs/introduction/">Introduction</a> section to find
-out what it's like to build applications using Spine. This section also gives a brief overview of
-<a href="{{ site.baseurl }}/docs/introduction/concepts.html">key architectural concepts</a> and
-how framework users deal with them.
- 
-The <a href="{{ site.baseurl }}/docs/guides">Guides</a> section provides detailed instructions
-on the framework use.
+## [Guides]({{ site.baseurl }}/docs/guides/)
+This section provides detailed instructions on the framework use.
 
-If you're building a client application for a Spine-based backend, please visit the 
-[Client Libraries](/docs/client-libs) section.
- 
-If you want to see Spine in action first, visit the 
-<a href="{{ site.baseurl }}/docs/quickstart/">Quick Start</a> section.
+## [Client Libraries]({{ site.baseurl }}/docs/client-libs/) 
+This section provides language-specific guides for building client-side applications.
+
+## [API Reference]({{ site.baseurl }}/docs/index.html#api-reference)
+This sections provides links to the generated documentation.
+
+## [Examples]({{ site.baseurl }}/docs/examples/)
+This page is the entry point for learning from the code of
+the [example applications](https://github.com/spine-examples/). 

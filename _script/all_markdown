@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Find and print all the Markdown files in current directory.
+# Find and print all the Markdown files in the current directory.
 #
 # Outputs the absolute paths to the files.
 #

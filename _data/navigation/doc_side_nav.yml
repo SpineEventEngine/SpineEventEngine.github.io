@@ -1,34 +1,26 @@
 doc_side_nav:
+  - page: Overview
+    url: /docs/index.html
+  - page: Quick Start
+    url: /docs/quickstart-java.html
   - page: Introduction
     children:
-      - page: Motivation
+      - page: Development Process
         url: /docs/introduction/
       - page: Rules
         url: /docs/introduction/rules.html
-      - page: Development Process
-        url: /docs/introduction/development.html
       - page: Architecture
         url: /docs/introduction/architecture.html
+      - page: Project Structure
+        url: /docs/introduction/project-structure.html
       - page: Concepts
         url: /docs/introduction/concepts.html
-  - page: Quick Start
-    children:
-      - page: Overview
-        url: /docs/quickstart/
-      - page: Java
-        url: /docs/quickstart/java.html
+      - page: Naming Conventions
+        url: /docs/introduction/naming-conventions.html
   - page: Guides
     children:
-      - page: Project Structure
-        url: /docs/guides/project-structure.html
-      - page: Naming Conventions
-        url: /docs/guides/naming-conventions.html
-      - page: Data Model Definition
-        url: /docs/guides/model-definition.html
       - page: Validation
-        url: /docs/guides/validation-user-guide.html
-      - page: Defining Aggregate
-        url: /docs/guides/defining-aggregate.html
+        url: /docs/guides/validation.html
       - page: Working with Rejections
         url: /docs/guides/rejections.html
       - page: Related Guides
@@ -37,30 +29,24 @@ doc_side_nav:
             url: https://developers.google.com/protocol-buffers/docs/overview
           - page: gRPC
             url: https://grpc.io/docs/guides/index.html
-  - page: Tutorials
+  - page: Client Libraries
     children:
-      - page: Overview
-        url: /docs/tutorials/
-      - page: Basic
-        children:
-          - page: Java
-            url: /docs/tutorials/basic/java.html
-          - page: JavaScript
-            url: /docs/tutorials/basic/javascript.html
-          - page: C++
-            url: /docs/tutorials/basic/cpp.html
+      - page: Java
+        url: /docs/client-libs/
+      - page: JavaScript
+        url: /docs/client-libs/js.html
+      - page: Dart
+        url: /docs/client-libs/dart.html
   - page: API Reference
     children:
-      - page: Java Server
-        url: https://spine.io/core-java/reference/server/index.html
-      - page: Java Client
-        url: https://spine.io/core-java/reference/client/index.html
-      - page: Java Web Server
+      - page: Java
         children:
-          - page: API
-            url: https://spine.io/web/reference/web/index.html
-          - page: Implementation on Firebase
-            url: https://spine.io/web/reference/firebase-web/index.html
+        - page: Server
+          url: https://spine.io/core-java/reference/server/index.html
+        - page: Client
+          url: https://spine.io/core-java/reference/client/index.html
+        - page: Web Server
+          url: /docs/reference/java-web-server.html
       - page: JavaScript Client
         url: https://spine.io/web/reference/client-js/index.html
       - page: Dart Client

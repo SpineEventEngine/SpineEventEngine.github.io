@@ -2,14 +2,14 @@
 
 # Find all `.md` files.
 #
-# The resiulting array stores absolute paths to all Markdown files in current directory.
+# The resulting array stores absolute paths to all Markdown files in the current directory.
 #
 allMarkdown=$(eval "$(pwd)/_script/all_markdown")
 
 cd _samples || exit
 pub get
 
-# Update excerpt intex.
+# Update excerpt index.
 pub run build_runner build --output=.excerpt --config=excerpt
 
 # Update code snippets in documentation files.
