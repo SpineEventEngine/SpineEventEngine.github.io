@@ -106,17 +106,17 @@ Let's review the source code structure.
 
 ### The `src` directory
 The source code directory follows standard Gradle conventions and has two sub-directories:
-  * `main` — the production code;
-  * `tests`.
+  * **`main`** — the production code;
+  * **`tests`**.
 
 The production code consists of two parts allocated by sub-directories:
-  * `proto` — contains the definition of data structures in Google Protobuf.
+  * **`proto`** — contains the definition of data structures in Google Protobuf.
     A domain model definition starts from adding the code to this directory. 
     Then, the Protobuf code is compiled to the languages of the project. 
     The output of this process is placed into the `generated` directory, with a sub-directory
     for each language. This example uses only Java.
     
-  * `java` — this directory contains the model behavior and other server- and client-side code.
+  * **`java`** — this directory contains the model behavior and other server- and client-side code.
     A real project would have these parts in separate modules or projects. We put it all
     together for the sake of simplicity. 
 
@@ -140,9 +140,10 @@ spine.enableJava().server()
 ```
 This enables Java in the module and adds necessary dependencies.
 
-<p class="note">Calling `server()` adds both server- and client-side dependencies. This way a module
-of a Bounded Context “A” may be a client for a Bounded Context “B”. Client-side applications or
-modules should call: `spine.enableJava().client()`.</p>
+<p class="note">Calling `spine.enableJava().server()` adds both server- and client-side dependencies.
+This way a module of a Bounded Context “A” may be a client for a Bounded Context “B”. 
+Client-side applications or modules should call: `spine.enableJava().client()`.
+</p>
 
 ### Other project configuration
 
