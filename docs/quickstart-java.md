@@ -167,5 +167,34 @@ The rest of the `build.gradle` file does the following:
 We are not reviewing these parts of the project configuration deeper because they are not
 related to the use of the Spine framework. If you're interested in more details, please look into
 the code of these scripts.
+
+## Development process
+
+TODO
+
+## Building the domain model
+
+Working on a domain model consists of these steps:
+
+  1. **Defining data structures** such messages (i.e. commands or events), value objects,
+     states of entities. They are defined using Google Protobuf.
+  2. **Generating or re-generating the data structures code.** This is done by Protobuf Compiler
+     and Spine Model Compiler.    
+  3. **Adding behavior to entities** such as `Aggreate`s, `ProcessManager`s, or `Projection`s
+     in Java.  
+
+### Data structures
+Let's review the data structures in the `main/src/proto` directory. It's where work on
+a domain model of a Spine-based projects starts.
+
+TODO
+
+### Generating the code
+
+TODO
+
+### Adding behavior
+
+TODO
    
 <p class="lead">To be continued...</p>     
