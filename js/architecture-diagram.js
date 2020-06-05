@@ -309,8 +309,19 @@ $(
             disableLink(allComponentLink);
         }
 
+        /**
+         * Changes the diagram visibility to make it visible on UI.
+         *
+         * <p>This is useful to avoid the diagram from flickering during loading.
+         * The styles that hide the diagram are in the file `_saas/pages/_docs.scss`.
+         */
+        function changeDiagramVisibility() {
+            $("#spine-architecture-diagram").css("visibility", "visible");
+        }
+
         setupLookAndFeel();
-        displayAll();
+        displayUserFacing();
+        changeDiagramVisibility();
 
         // Link items to the corresponding pages.
 
