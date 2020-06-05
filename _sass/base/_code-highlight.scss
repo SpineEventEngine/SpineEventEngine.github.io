@@ -8,7 +8,7 @@ code {
   font-family: 'Roboto Mono', monospace;
   background-color: transparent;
   color: $textColor;
-  font-size: $code-font-size;
+  font-size: 95%; // The percentages are used here because the monotype font is larger than sans.
   font-weight: 400;
   padding: 0;
 
