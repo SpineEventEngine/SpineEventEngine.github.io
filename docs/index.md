@@ -23,7 +23,7 @@ This section provides detailed instructions on the framework use.
 ## [Client Libraries]({{ site.baseurl }}/docs/client-libs/) 
 This section provides language-specific guides for building client-side applications.
 
-## [API Reference]({{ site.baseurl }}/docs/index.html#api-reference)
+## [API Reference]({{ site.baseurl }}/docs/reference/)
 This sections provides links to the generated documentation.
 
 ## [Examples]({{ site.baseurl }}/docs/examples/)
