@@ -9,7 +9,6 @@ code {
   background-color: transparent;
   color: $textColor;
   font-size: 95%; // The percentages are used here because the monotype font is larger than sans.
-  font-weight: 400;
   padding: 0;
 
   @media(max-width: $phone-small) {
