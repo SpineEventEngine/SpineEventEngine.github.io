@@ -136,7 +136,7 @@ Once the plugin is added, we can use its features:
 ```groovy
 spine.enableJava().server()
 ```
-This enables Java in the module and adds necessary dependencies.
+This enables Java in the module and adds necessary dependencies and configurations.
 
 <p class="note">Calling `spine.enableJava().server()` adds both server- and client-side dependencies.
 This way a module of a Bounded Context “A” may be a client for a Bounded Context “B”. 
