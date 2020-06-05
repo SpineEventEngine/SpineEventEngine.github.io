@@ -18,7 +18,7 @@ code {
 
 // Makes it possible to make the inline code in bold.
 // Usage in markdown for several words: `sample `**`bold-word`**` sample`
-// Usage in markdown to make one word in bold: ` `**`bold-word`**` `
+// Usage in markdown to make one word in bold: **`bold-word`**
 strong {
   code {
     font-weight: inherit;
