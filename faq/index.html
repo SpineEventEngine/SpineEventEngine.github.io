@@ -140,6 +140,27 @@ headline: 'Frequently Asked Questions'
                         </div>
                     </div>
                 </li>
+                <li class="faq-item">
+                    {% assign questionID06 = 'do-you-support-maven' %}
+                    <h6 class="faq-heading collapsed"
+                        data-toggle="collapse"
+                        data-target="#{{ questionID06 }}"
+                        aria-controls="{{ questionID06 }}"
+                        aria-expanded="false">
+                        <span>Do you support Maven?</span>
+                        <a class="anchor-link-icon" href="#{{ questionID06 }}">
+                            <i class="far fa-link"></i>
+                        </a>
+                    </h6>
+                    <div id="{{ questionID06 }}" class="faq-content collapse">
+                        <div class="faq-content-wrapper markdown">
+                            <p>No, and we don't have plans to support it.</p>
+                            <p>If you are going to add Spine to an existing Maven-based projects,
+                                most likely it would be implemented as a <a href="https://domainlanguage.com/wp-content/uploads/2016/04/GettingStartedWithDDDWhenSurroundedByLegacySystemsV1.pdf">Bubble Context</a>.</p>
+                            <p>If so, you can have a Gradle-based sub-project with which the outer Maven-based project integrates.</p>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
