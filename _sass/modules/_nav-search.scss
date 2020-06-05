@@ -39,6 +39,10 @@ $search-placeholder-color: rgba(white, .38);
           width: 100%;
         }
 
+        .algolia-docsearch-suggestion--wrapper {
+          padding-bottom: 8px;
+        }
+
         .algolia-docsearch-suggestion--subcategory-column {
           font-weight: 400;
         }
@@ -49,6 +53,24 @@ $search-placeholder-color: rgba(white, .38);
           margin-top: 20px;
         }
       }
+    }
+
+    // Overrides the default Algolia padding to avoid a jump in letters when highlighting a result.
+    .algolia-docsearch-suggestion--highlight {
+      padding: 0;
+    }
+
+    .ds-suggestion {
+      &.ds-cursor {
+        // Changes the highlight color to the main brand color for the item in focus.
+        .algolia-docsearch-suggestion--content {
+          background-color: rgba($mainBrandColor, .08) !important;
+        }
+      }
+    }
+
+    .algolia-docsearch-suggestion--title {
+      margin-bottom: 0 !important;
     }
   }
 
