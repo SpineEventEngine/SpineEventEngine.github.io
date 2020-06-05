@@ -8,12 +8,20 @@ code {
   font-family: 'Roboto Mono', monospace;
   background-color: transparent;
   color: $textColor;
-  font-size: $code-font-size;
-  font-weight: 400;
+  font-size: 95%; // The percentages are used here because the monotype font is larger than sans.
   padding: 0;
 
   @media(max-width: $phone-small) {
     word-break: break-all;
+  }
+}
+
+// Makes it possible to make the inline code in bold.
+// Usage in markdown for several words: `sample `**`bold-word`**` sample`
+// Usage in markdown to make one word in bold: **`bold-word`**
+strong {
+  code {
+    font-weight: inherit;
   }
 }
 
