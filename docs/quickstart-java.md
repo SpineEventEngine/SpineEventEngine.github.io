@@ -102,7 +102,7 @@ Here are the directories of interest in the project root:
     when a domain model changes. This directory is <em>excluded</em> from version control.
  * **`src`** — contains the handcrafted source code.
 
-Let's review the source code structure.
+Let's see how the source code is structured.
 
 ### The `src` directory
 The source code directory follows standard Gradle conventions and has two sub-directories:
@@ -120,7 +120,7 @@ The production code consists of two parts allocated by sub-directories:
     A real project would have these parts in separate modules or projects. We put it all
     together for the sake of simplicity. 
 
-Now let's review the code in details, starting with how to add Spine to a Gradle project.
+Now, let's review the code in details, starting with how to add Spine to a Gradle project.
 
 ## Adding Spine to a Gradle project
 Let's open `build.gradle` from the root of the project. The simplest and recommended way for
@@ -168,7 +168,7 @@ We are not reviewing these parts of the project configuration deeper because the
 related to the use of the Spine framework. If you're interested in more details, please look into
 the code of these scripts.
 
-Now, let's look into the definition of the data structures of the Hello context. 
+Now, let's look into the data structures of the Hello context. 
  
 ## Hello context data
 
