@@ -199,18 +199,18 @@ Let's review the context data definition in details.
 ### The `commands.proto` file
 
 After the copyright header the file starts with the syntax declaration. The framework supports only
-this version of the Protobuf dialect.
+this version of the Protobuf dialect:
 ```proto     
 syntax = "proto3";
 ```
 
-Then follows the import statement for custom options used when defining data types. This import
+Then follows the import statement for custom options used when defining data types. This import is
 required for all proto files of a Spine-based project.  
 ```proto
 import "spine/options.proto";
 ```
 
-Then follows the file-wide option which defines the prefix for type names used in this file. 
+The following file-wide option defines the prefix for type names used in this file. 
 ```proto
 option (type_url_prefix) = "type.spine.io";
 ```
@@ -243,6 +243,14 @@ When the `java_outer_classname` option is omitted, Protobuf Compiler would calcu
 class name taking the name of the corresponding `.proto` file. 
 We recommend setting the name directly to make it straight. This also avoids possible name clashes
 with the handcrafted code.</p> 
+
+The next standard option instructs the Protobuf Compiler to put each generated Java type into
+a separate file. This way it would be easier to analyze dependencies of the code which uses these
+generated types.
+
+```proto
+option java_multiple_files = true;
+```
      
 The command for printing a text in a console is defined this way:
 ```proto
@@ -256,6 +264,7 @@ message Print {
     string text = 2 [(required) = true];
 }
 ```
+
 By convention, the first field of a command is the ID of the target entity.
 This field is required to have a non-empty value so that the command can be dispatched to
 the entity. In our case, we identify a console by the login name of the computer user.  
@@ -264,10 +273,57 @@ The second field is marked as `(required)` using the custom option imported in
 the `spine/options.proto` file above. This command does not make much sense if there is no text
 to print.
 
+<p class="note">In Protobuf a data type is either a **`message`** (we can send it) or an **`enum`**.
+If you're new to this language, you may want to look at the [Proto3 Language Guide](proto3-guide).  
+</p>
+
 Now, let's see how to define events. 
 
 ### The `events.proto` file
 
-<p class="lead">To be continued...</p>
+Events are declared similarly to commands. The header of the file has:
 
+ * The `proto3` syntax declaration.
+ * The `hello` package declaration.
+ * The import statement for custom Protobuf options used by the framework:
+    
+    ```proto
+    import "spine/options.proto";
+    ```
+
+ * The same `(type_url_prefix)` we use in this project.
+ * A separate package for events of the context:
+    
+    ```proto
+    option java_package="io.spine.helloworld.hello.event";
+    ```
+ * The outer class for all types in this file:
+ 
+    ```proto
+    option java_outer_classname = "EventsProto";
+    ```     
+    
+ * The instruction to put Java types into separate files.
+
+    ```proto
+    option java_multiple_files = true;
+    ```
+
+The sole event in this project is declared this way:
+
+```proto 
+// A text was printed.
+message Printed {
+
+    // The login name of the user.
+    string username = 1;
+
+    // The printed text.
+    string text = 2 [(required) = true];
+}
+```
+
+<p class="lead">To be continued...</p>
      
+
+[proto3-guide]: https://developers.google.com/protocol-buffers/docs/proto3
