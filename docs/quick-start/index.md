@@ -13,8 +13,8 @@ layout: docs
 # Getting started with Spine in Java
 
 <p class="lead">This guide will walk you through a minimal client-server application in Java
-which handles one command to greet the current computer user. The document goes through already
-written code which is quite simple. So, it won't take long.
+which handles one command to print some text on behalf of the current computer user. The document
+goes through already written code which is quite simple. So, it won't take long.
 </p>
 
 ## What we'll do
