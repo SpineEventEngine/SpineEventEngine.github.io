@@ -329,9 +329,11 @@ because the event does not make much sense if one of them is empty.
 <p class="note">
 Unlike for commands, the framework does not assume that the first event field is <em>always</em>
 populated. This is so because default routing rules for commands and events are different. 
-Routing for events start with using an ID of the entity which emitted the event. 
-If the type of this ID does not match target entity, then event fields are analyzed.
-It is also possible to set custom routing rules.</p>   
+When an event is produced by some entity, it remembers the ID of this producer entity. 
+By default, the framework uses the producer ID to route events to their target entities — 
+if they have identifiers of the same type.  If the type of producer ID does not match one of the
+target entity, then event fields are analyzed. It is also possible to set custom routing rules.
+</p>   
 
 Now, let's see the server-side data of the Hello context.
 
@@ -356,9 +358,9 @@ message Output {
 ```
 
 The option `(entity)` tells us that this type is going to be used by a `ProcessManager`.
-The first field of the type is not marked as `(required)` because the framework assumes it holds
-an ID of the entity. Then goes the declaration of the remote screen output. This field is not
-required either because the screen is empty until something is printed on it.
+The first field of the type holds and ID of this entity. The framework assumes such fields as
+implicitly `(required)`. Then goes the declaration of the remote screen output.  The value of this
+field is empty until something is printed on the screen. Therefore, it is not marked `(required)`.
 
 Now, let's see how this data is used at the server-side.
 
@@ -370,7 +372,7 @@ The class is declared this way:
 final class Console extends ProcessManager<String, Output, Output.Builder>
 ```
 The generic arguments passed to `ProcessManager` are:
- 1. `String` — is the type of the ID of the entity. Remember the type
+ 1. `String` — the type of the ID of the entity. Remember the type
 of the first field of the `Print` command?
 
  2. `Output` — the type of the entity state, which we reviewed in the previous section.
