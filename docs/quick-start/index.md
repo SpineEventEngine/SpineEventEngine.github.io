@@ -168,11 +168,11 @@ We are not reviewing these parts of the project configuration deeper because the
 related to the use of the Spine framework. If you're interested in more details, please look into
 the code of these scripts.
 
-Now, let's look into the data structures of the Hello context. 
+Now, let's look into the data structure of the Hello context. 
  
 ## Hello context data
 
-The data of the Hello context are defined under the `src/main/proto/hello` directory with
+The data types of the Hello context are defined under the `src/main/proto/hello` directory with
 the following files:
 
   * **`commands.proto`** — this file defines the `Print` command.
