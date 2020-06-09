@@ -8,7 +8,7 @@ layout: docs
 <p class="lead">Welcome to the Spine developer documentation. This page gives the overview of
 the documentation sections.</p>
 
-## [Quick Start]({{ site.baseurl }}/docs/quickstart-java.html)
+## [Quick Start]({{ site.baseurl }}/docs/quick-start/)
 In this section you can learn what it's like to develop with Spine by going through the code of
 the [Hello World](https://github.com/spine-examples/hello) example.
 
