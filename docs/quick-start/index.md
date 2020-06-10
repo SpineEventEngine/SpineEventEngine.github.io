@@ -13,8 +13,8 @@ layout: docs
 # Getting started with Spine in Java
 
 <p class="lead">This guide will walk you through a minimal client-server application in Java
-which handles one command to greet the current computer user. The document goes through already
-written code which is quite simple. So, it won't take long.
+which handles one command to print some text on behalf of the current computer user. The document
+goes through already written code which is quite simple. So, it won't take long.
 </p>
 
 ## What we'll do
@@ -187,7 +187,7 @@ the following files:
     suffix in their names.</p>
 
 These two files define signals used by the Hello context. There's also data of the `Console`
-Process Manager, which is defined in the package `server` in the file `console.proto`.
+Process Manager, which is defined in the package **`server`** in the file **`console.proto`**.
 
 <p class="note">
 We arrange the sub-package `server` to highlight the fact that this is server-only data. It is not
@@ -316,12 +316,69 @@ The sole event in this project is declared this way:
 message Printed {
 
     // The login name of the user.
-    string username = 1;
+    string username = 1 [(required) = true];
 
     // The printed text.
     string text = 2 [(required) = true];
 }
 ```
+
+The event tells which text was printed for a user. Both of the fields are marked as `(required)`
+because the event does not make much sense if one of them is empty. 
+
+<p class="note">
+Unlike for commands, the framework does not assume that the first event field is <em>always</em>
+populated. This is so because default routing rules for commands and events are different. 
+When an event is produced by some entity, it remembers the ID of this producer entity. 
+By default, the framework uses the producer ID to route events to their target entities — 
+if they have identifiers of the same type.  If the type of producer ID does not match one of the
+target entity, then event fields are analyzed. It is also possible to set custom routing rules.
+</p>   
+
+Now, let's see the server-side data of the Hello context.
+
+### The `console.proto` file
+The header of the file is similar to those we saw in `commands.proto` and `events.proto`. 
+The difference is that we use `server` for the proto and Java package names to make sure the 
+server-only is not used by the client code.
+ 
+This file defines a single data type. It is the state of the entity handling the `Print` command:
+
+```proto
+// The screen state of the user's console.
+message Output {
+    option (entity) = { kind: PROCESS_MANAGER };
+
+    // The login name of the computer user.
+    string username = 1;
+
+    // Text lines of the screen.
+    repeated string lines = 2;
+}
+```
+
+The option `(entity)` tells us that this type is going to be used by a `ProcessManager`.
+The first field of the type holds and ID of this entity. The framework assumes such fields as
+implicitly `(required)`. Then goes the declaration of the remote screen output.  The value of this
+field is empty until something is printed on the screen. Therefore, it is not marked `(required)`.
+
+Now, let's see how this data is used at the server-side.
+
+## The `Console` class
+
+The class is declared this way:
+
+```java
+final class Console extends ProcessManager<String, Output, Output.Builder>
+```
+The generic arguments passed to `ProcessManager` are:
+ 1. `String` — the type of the ID of the entity. Remember the type
+of the first field of the `Print` command?
+
+ 2. `Output` — the type of the entity state, which we reviewed in the previous section.
+
+ 3. `Output.Builder` — the type used to modify the state of the entity.
+    In Protobuf for Java, each message type has a specific builder type. 
 
 <p class="lead">To be continued...</p>
      
