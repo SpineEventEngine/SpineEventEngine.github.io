@@ -74,7 +74,7 @@ Then, the server shuts down concluding the example.
 
 Now, let's dive into the code.
  
-## Project Structure
+## Project structure
 For the sake of simplicity, this example is organised as a single-module Gradle project.
 Most likely, a project for a real world application would be multi-module.
 
@@ -102,7 +102,7 @@ Here are the directories of interest in the project root:
     when a domain model changes. This directory is <em>excluded</em> from version control.
  * **`src`** — contains the handcrafted source code.
 
-Let's review the source code structure.
+Let's see how the source code is structured.
 
 ### The `src` directory
 The source code directory follows standard Gradle conventions and has two sub-directories:
@@ -120,7 +120,7 @@ The production code consists of two parts allocated by sub-directories:
     A real project would have these parts in separate modules or projects. We put it all
     together for the sake of simplicity. 
 
-Now let's review the code in details, starting with how to add Spine to a Gradle project.
+Now, let's review the code in details, starting with how to add Spine to a Gradle project.
 
 ## Adding Spine to a Gradle project
 Let's open `build.gradle` from the root of the project. The simplest and recommended way for
@@ -136,7 +136,7 @@ Once the plugin is added, we can use its features:
 ```groovy
 spine.enableJava().server()
 ```
-This enables Java in the module and adds necessary dependencies.
+This enables Java in the module and adds necessary dependencies and configurations.
 
 <p class="note">Calling `spine.enableJava().server()` adds both server- and client-side dependencies.
 This way a module of a Bounded Context “A” may be a client for a Bounded Context “B”. 
@@ -167,5 +167,163 @@ The rest of the `build.gradle` file does the following:
 We are not reviewing these parts of the project configuration deeper because they are not
 related to the use of the Spine framework. If you're interested in more details, please look into
 the code of these scripts.
-   
-<p class="lead">To be continued...</p>     
+
+Now, let's look into the data structure of the Hello context. 
+ 
+## Hello context data
+
+The data types of the Hello context are defined under the `src/main/proto/hello` directory with
+the following files:
+
+  * **`commands.proto`** — this file defines the `Print` command.
+  
+    <p class="note">By convention, commands are defined in a file with the `commands` suffix
+     in its name. It can be, for example, `order_commands.proto` or just `commands.proto`
+     like in our example.</p>
+     
+  * **`events.proto`** — this file defines the `Printed` event.
+  
+    <p class="note">Similarly to commands, events are defined in proto files having the `events`
+    suffix in their names.</p>
+
+These two files define signals used by the Hello context. There's also data of the `Console`
+Process Manager, which is defined in the package `server` in the file `console.proto`.
+
+<p class="note">
+We arrange the sub-package `server` to highlight the fact that this is server-only data. It is not
+a convention used by the framework. We find the clarity of this infix useful when creating
+cloud applications. So, we share it as a recommendation in this example.</p>
+
+Let's review the context data definition in details.
+
+### The `commands.proto` file
+
+After the copyright header the file starts with the syntax declaration. The framework supports only
+this version of the Protobuf dialect:
+```proto     
+syntax = "proto3";
+```
+
+Then follows the import statement for custom options used when defining data types. This import is
+required for all proto files of a Spine-based project.  
+```proto
+import "spine/options.proto";
+```
+
+The following file-wide option defines the prefix for type names used in this file. 
+```proto
+option (type_url_prefix) = "type.spine.io";
+```
+This prefix is needed for recognizing binary data when it's unpacked. Most likely, all types
+in a system would use the same prefix.
+
+Then we see the standard Protobuf option for defining a Java package for the generated code:
+```proto
+option java_package="io.spine.helloworld.hello.command";
+``` 
+There are three parts of interest in this package name:
+  * **`io.spine.helloworld`** — this part represents the location of our Hello World “solution”
+    as if it were hosted on the web at [`https://helloworld.spine.io`](https://helloworld.spine.io).
+     
+  * **`hello`** — this is the package of the Hello context. In this example we have only one, but
+     a real world app would have more. Each Bounded Context goes into a dedicated package.
+     
+  * **`command`** — this part gathers commands of the context under one package.
+     We have only one command in this example, but in real world scenarios, with dozens of commands,
+     it is convenient to gather them under a package.  
+
+The following standard proto file option defines the name for the outer class generated by
+Protobuf Compiler for this `.proto` file: 
+```proto
+option java_outer_classname = "CommandsProto";
+```
+
+<p class="note">Outer classes are used by Protobuf implementation internally.
+When the `java_outer_classname` option is omitted, Protobuf Compiler would calculate the Java
+class name taking the name of the corresponding `.proto` file. 
+We recommend setting the name directly to make it straight. This also avoids possible name clashes
+with the handcrafted code.</p> 
+
+The next standard option instructs the Protobuf Compiler to put each generated Java type into
+a separate file. This way it would be easier to analyze dependencies of the code which uses these
+generated types.
+
+```proto
+option java_multiple_files = true;
+```
+     
+The command for printing a text in a console is defined this way:
+```proto
+// A command to print a text.
+message Print {
+
+    // The login name of the computer user.
+    string username = 1;
+
+    // The text to print.
+    string text = 2 [(required) = true];
+}
+```
+
+By convention, the first field of a command is the ID of the target entity.
+This field is required to have a non-empty value so that the command can be dispatched to
+the entity. In our case, we identify a console by the login name of the computer user.  
+
+The second field is marked as `(required)` using the custom option imported in
+the `spine/options.proto` file above. This command does not make much sense if there is no text
+to print.
+
+<p class="note">In Protobuf a data type is either a **`message`** (we can send it) or an **`enum`**.
+If you're new to this language, you may want to look at the [Proto3 Language Guide](proto3-guide).  
+</p>
+
+Now, let's see how to define events. 
+
+### The `events.proto` file
+
+Events are declared similarly to commands. The header of the file has:
+
+ * The `proto3` syntax declaration.
+ * The `hello` package declaration.
+ * The import statement for custom Protobuf options used by the framework:
+    
+    ```proto
+    import "spine/options.proto";
+    ```
+
+ * The same `(type_url_prefix)` we use in this project.
+ * A separate package for events of the context:
+    
+    ```proto
+    option java_package="io.spine.helloworld.hello.event";
+    ```
+ * The outer class for all types in this file:
+ 
+    ```proto
+    option java_outer_classname = "EventsProto";
+    ```     
+    
+ * The instruction to put Java types into separate files.
+
+    ```proto
+    option java_multiple_files = true;
+    ```
+
+The sole event in this project is declared this way:
+
+```proto 
+// A text was printed.
+message Printed {
+
+    // The login name of the user.
+    string username = 1;
+
+    // The printed text.
+    string text = 2 [(required) = true];
+}
+```
+
+<p class="lead">To be continued...</p>
+     
+
+[proto3-guide]: https://developers.google.com/protocol-buffers/docs/proto3

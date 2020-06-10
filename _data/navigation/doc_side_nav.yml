@@ -1,8 +1,8 @@
 doc_side_nav:
   - page: Overview
-    url: /docs/index.html
+    url: /docs/
   - page: Quick Start
-    url: /docs/quickstart-java.html
+    url: /docs/quick-start/
   - page: Introduction
     children:
       - page: Development Process
@@ -38,19 +38,7 @@ doc_side_nav:
       - page: Dart
         url: /docs/client-libs/dart.html
   - page: API Reference
-    children:
-      - page: Java
-        children:
-        - page: Server
-          url: https://spine.io/core-java/reference/server/index.html
-        - page: Client
-          url: https://spine.io/core-java/reference/client/index.html
-        - page: Web Server
-          url: /docs/reference/java-web-server.html
-      - page: JavaScript Client
-        url: https://spine.io/web/reference/client-js/index.html
-      - page: Dart Client
-        url: https://spine.io/dart/reference/client/index.html
+    url: /docs/reference/
 
   - page: Examples
     url: /docs/examples/
