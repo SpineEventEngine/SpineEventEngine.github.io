@@ -280,11 +280,14 @@ footer {
     }
 
     .description {
-      font-size: 13px;
       letter-spacing: .6px;
       
       @media (max-width: $phone-large) {
         display: block;
+      }
+
+      .company-site-link {
+        margin-left: 4px;
       }
     }
   }
