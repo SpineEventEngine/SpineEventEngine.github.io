@@ -286,6 +286,10 @@ footer {
       @media (max-width: $phone-large) {
         display: block;
       }
+
+      .company-site-link {
+        margin-left: 4px;
+      }
     }
   }
 }
