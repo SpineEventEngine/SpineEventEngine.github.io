@@ -342,7 +342,7 @@ The header of the file is similar to those we saw in `commands.proto` and `event
 The difference is that we use `server` for the proto and Java package names to make sure the 
 server-only is not used by the client code.
  
-The sole data type this file defines is the state of the entity which handles the `Print` command:
+This file defines a single data type. It is the state of the entity handling the `Print` command:
 
 ```proto
 // The screen state of the user's console.
