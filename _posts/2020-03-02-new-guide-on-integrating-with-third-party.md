@@ -12,5 +12,3 @@ We have created a [detailed guide]({{ site.baseurl }}/docs/guides/integration), 
 strategies for this task. 
 
 Have a look!
-
-<!--more-->
