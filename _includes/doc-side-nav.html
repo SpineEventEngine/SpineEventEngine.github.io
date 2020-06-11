@@ -9,7 +9,7 @@
     </div>
     {% if site.data.navigation.doc_side_nav.doc_side_nav %}
         {% for item in site.data.navigation.doc_side_nav.doc_side_nav %}
-            {% assign collapsedElId = item.page | slugify %}
+            {% assign collapsedElId = item.page | slugify | append: "-side-nav" %}
             <li><a class="side-nav-link {% if item.url == page.url %}active{% endif %}"
                    href="{% if item.children %}#{{ collapsedElId }}{% else %}{{ item.url }}{% endif %}"
                    aria-expanded="false">
@@ -18,7 +18,7 @@
                 {% if item.children[0] %}
                 <ul id="{{ collapsedElId }}" class="sub-nav collapse">
                     {% for entry in item.children %}
-                    {% assign collapsedEntryId = entry.page | slugify %}
+                    {% assign collapsedEntryId = entry.page | slugify | append: "-side-nav" %}
                     <li><a class="side-nav-link {% if entry.url == page.url %}active{% endif %}"
                            href="{% if entry.children %}#{{ collapsedEntryId }}{% else %}{{ entry.url }}{% endif %}">
                         {{ entry.page }}
