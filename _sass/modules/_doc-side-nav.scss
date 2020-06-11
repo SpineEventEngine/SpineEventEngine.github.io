@@ -207,10 +207,9 @@ $nav-title-left-padding: 22px;
         }
 
         .close-btn-wrapper {
-          float: right;
-
           .close-btn {
             display: block;
+            text-align: right;
             margin-top: 6px;
             cursor: pointer;
 
