@@ -23,6 +23,8 @@ doc_side_nav:
         url: /docs/guides/validation.html
       - page: Working with Rejections
         url: /docs/guides/rejections.html
+      - page: Third-Party Integration
+        url: /docs/guides/integration.html
       - page: Related Guides
         children:
           - page: Protocol Buffers
