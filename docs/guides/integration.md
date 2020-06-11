@@ -7,11 +7,11 @@ layout: docs
 
 # Integration with a third party
 
-When developing an [Event-based](https://spine.io/docs/introduction/concepts.html#event) system, it
+When developing an [Event-based]({{ site.baseurl }}/docs/introduction/concepts.html#event) system, it
 is often tricky to integrate it with other software, be it a third party or a legacy system.
 
 In this article, we will explore the strategies of integrating third-party systems with your
-Spine-based [Bounded Context](https://spine.io/docs/introduction/concepts.html#bounded-context). 
+Spine-based [Bounded Context]({{ site.baseurl }}/docs/introduction/concepts.html#bounded-context). 
 
 Note that we think of a third-party system like of yet another Bounded Context with its own
 language. The terms “Bounded Context” and “System” are used interchangeably throughout the article.
