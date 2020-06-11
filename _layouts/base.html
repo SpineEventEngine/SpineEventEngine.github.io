@@ -121,6 +121,7 @@
 
   <script src="{{ site.baseurl }}/js/cookiechoices.js"></script>
   <script src="{{ site.baseurl }}/js/cookies-init.js"></script>
+  <script src="{{ site.baseurl }}/js/copyright.js"></script>
 
   <!-- Algolia dropdown search https://docsearch.algolia.com/ -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
@@ -131,16 +132,6 @@
       inputSelector: '#search-field',
       debug: false
     });
-  </script>
-
-  <!-- Automatic Copyright -->
-  <script>
-      function copyrightYear() {
-          var d = new Date();
-          var y = d.getFullYear();
-          document.getElementById("copyright").innerHTML = '&copy; 2018 – ' + y;
-      }
-      copyrightYear();
   </script>
 
   {% if page.customjs %}
