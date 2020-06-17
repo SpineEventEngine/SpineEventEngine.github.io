@@ -162,9 +162,6 @@ the following reasons:
     a generated data type for holding the state of the entity.
  2. Such data structure does not represent a whole `Aggregate` or `ProcessManager` thing anyway. 
     It is just data.
-
-<p class="note">For details on aggregates usage, refer to a
-    [Defining Aggregate Guide](/docs/guides/defining-aggregate.html).</p>  
  
 ## Packages
 
