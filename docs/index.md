@@ -17,7 +17,7 @@ This section gives an overview of the development process, the architecture of t
 application, information on DDD concepts implemented by the framework and how framework
 users deal with them.
 
-## [Guides]({{ site.baseurl }}/docs/guides/validation/)
+## [Guides]({{ site.baseurl }}/docs/guides/validation)
 This section provides detailed instructions on the framework use.
 
 ## [Client Libraries]({{ site.baseurl }}/docs/client-libs/) 
