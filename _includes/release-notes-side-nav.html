@@ -1,0 +1,35 @@
+<ul class="docs-side-nav sticky-element">
+    <div class="navigation-title-on-mobile">
+        <div class="close-btn-wrapper">
+            <a class="close-btn">
+                <i class="close-icon" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <!-- The variable `currentYear` is used to make the section with the current year not collapsed
+    by default. -->
+    {% assign currentYear =  'now' | date: "%Y" %}
+
+    {% if site.data.navigation.release_notes_nav %}
+        {% for item in site.data.navigation.release_notes_nav %}
+        {% assign collapsedElId = "year-" | append: item.page | slugify %}
+        <li><a class="side-nav-link {% if item.url == page.url %} active {% endif %}"
+               href="{% if item.children %}#{{ collapsedElId }}{% else %}{{ item.url }}{% endif %}"
+               aria-expanded="false">
+                {{ item.page }}
+            </a>
+            {% if item.children[0] %}
+            <ul id="{{ collapsedElId }}" class="sub-nav collapse {% if item.page == currentYear %} show {% endif %}">
+                {% for entry in item.children %}
+                <li><a class="side-nav-link {% if entry.url == page.url %}active{% endif %}"
+                       href="{{ entry.url }}">
+                        {{ entry.page }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    {% endif %}
+</ul>
