@@ -1,4 +1,5 @@
 $nav-first-level-left-padding: 24px;
+$nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
 .docs-side-nav {
   &.release-notes-side-nav {
     .tree-title {
@@ -13,6 +14,10 @@ $nav-first-level-left-padding: 24px;
     .sub-nav {
       .side-nav-link {
         padding: 6px $nav-first-level-left-padding;
+
+        @media (max-width: $tablet-large) {
+          padding: 12px $nav-second-level-left-padding;
+        }
       }
     }
 
