@@ -1,0 +1,25 @@
+$nav-first-level-left-padding: 24px;
+.docs-side-nav {
+  &.release-notes-side-nav {
+    .tree-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .side-nav-link {
+      transition: none;
+    }
+
+    .sub-nav {
+      .side-nav-link {
+        padding: 6px $nav-first-level-left-padding;
+      }
+    }
+
+    hr {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      border-color: rgba(black, .08);
+    }
+  }
+}
