@@ -107,4 +107,10 @@ $article-line-height: 1.74;
   .highlight {
     margin: 8px 0 24px;
   }
+
+  .date {
+    font-family: $main-font;
+    font-size: 14px;
+    color: rgba(black, .54);
+  }
 }
