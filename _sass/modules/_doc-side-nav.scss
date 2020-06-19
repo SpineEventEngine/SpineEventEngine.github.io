@@ -48,7 +48,6 @@ $nav-title-left-padding: 22px;
     padding: 8px $nav-first-level-left-padding;
     color: $nav-link-color;
     font-weight: 400;
-    @include transition(all .3s ease-in-out);
 
     @media (max-width: $tablet-large) {
       padding: 12px $nav-first-level-left-padding;
