@@ -21,7 +21,7 @@
             {% if item.children[0] %}
             <ul id="{{ collapsedElId }}" class="sub-nav collapse {% if item.page == currentYear %} show {% endif %}">
                 {% for entry in item.children %}
-                <li><a class="side-nav-link {% if entry.url == page.url %}active{% endif %}"
+                <li><a class="side-nav-link {% if entry.url == page.url %} active {% endif %}"
                        href="{{ entry.url }}">
                         {{ entry.page }}
                     </a>
