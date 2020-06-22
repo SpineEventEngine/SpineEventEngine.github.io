@@ -1,0 +1,16 @@
+.getting-help {
+  background-color: $body-light-gray-color;
+
+  @media (max-width: $phone-xlarge) {
+    background-color: white;
+  }
+
+  .getting-help-content {
+    margin-top: 24px;
+  }
+
+  .article-container {
+    max-width: 780px;
+    margin: 0 auto 32px;
+  }
+}
