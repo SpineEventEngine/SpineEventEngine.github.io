@@ -1,6 +1,11 @@
 // Font
 $main-font: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+// Layout
+$layout-max-width: 1260px;
+$custom-side-col-width: 240px;
+$center-col-width: $layout-max-width - $custom-side-col-width - $custom-side-col-width; // 780px;
+
 // Font sizes
 $font-size--primary         : 16px;
 $font-size--xxs             : .8rem;

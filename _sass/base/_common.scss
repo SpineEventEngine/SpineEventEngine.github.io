@@ -72,8 +72,8 @@
 
 .toc-col,
 .side-nav-col {
-  -ms-flex: 0 0 240px;
-  flex: 0 0 240px;
+  -ms-flex: 0 0 $custom-side-col-width;
+  flex: 0 0 $custom-side-col-width;
 }
 
 .toc-col {

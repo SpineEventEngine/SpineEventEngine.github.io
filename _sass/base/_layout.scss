@@ -5,7 +5,7 @@ $layout-padding-tablet: 32px;
 $layout-padding-phone: 20px;
 
 .content-holder {
-  max-width: 1260px;
+  max-width: $layout-max-width;
   @media(max-width: $desktop-medium) {
     padding-right: $layout-padding-medium;
     padding-left: $layout-padding-medium;
