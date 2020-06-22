@@ -4,9 +4,15 @@ $search-field-left-padding: $search-icon-size + $search-icon-left-position + 10p
 $search-icon-color: rgba(white, .54);
 $search-placeholder-color: rgba(white, .38);
 
+// Screen size on which the mobile search will be shown.
+// The same value should be used in the `common.js` file for the `mobileSearchScreenSize` variable.
+$mobile-search-max-size: 767px;
+$mobile-search-min-size: $mobile-search-max-size + 1;
+
 .nav-search-container {
   padding-top: 13px;
 
+  // `767px` when the main navigation collapses into a hamburger menu.
   @media (max-width: 767px) {
     margin-left: auto;
     margin-right: 40px;
@@ -32,7 +38,7 @@ $search-placeholder-color: rgba(white, .38);
     line-height: 1.4;
 
     .algolia-docsearch-suggestion {
-      @media (max-width: 767px) {
+      @media (max-width: $tablet) {
         .algolia-docsearch-suggestion--subcategory-column,
         .algolia-docsearch-suggestion--content {
           display: block;
@@ -131,7 +137,7 @@ $search-placeholder-color: rgba(white, .38);
   }
 
   // Search on mobile.
-  @media (max-width: 767px) {
+  @media (max-width: $mobile-search-max-size) {
     .search-field {
       @include transition(none);
     }
@@ -163,13 +169,13 @@ $search-placeholder-color: rgba(white, .38);
   height: 40px;
   cursor: pointer;
 
-  @media (min-width: $tablet) {
+  @media (min-width: $mobile-search-min-size) {
     display: none;
   }
 }
 
 .mobile-search-opened {
-  @media (max-width: 767px) {
+  @media (max-width: $mobile-search-max-size) {
     .algolia-autocomplete {
       width: calc(100% - 48px);
 

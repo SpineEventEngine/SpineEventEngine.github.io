@@ -36,6 +36,13 @@ const phoneMedium = 480;
 const phoneXLarge = 640;
 const tablet = 767;
 
+/**
+ * Screen size on which the mobile search will be shown.
+ * The same value should be used in the `_nav-search.scss` file for the
+ * `$mobile-search-max-size` variable.
+ */
+const mobileSearchScreenSize = tablet;
+
 $(function() {
     fixHead();
     changeCodeColor();
@@ -295,7 +302,7 @@ function closeSearchPanelOnMobile() {
  * class remains visible on desktop screen sizes.
  */
 function removeMobileSearchPanelOnResize() {
-    const mobileWindow = $(window).width() <= tablet;
+    const mobileWindow = $(window).width() <= mobileSearchScreenSize;
 
     if (!mobileWindow) {
         $body.removeClass(mobileSearchOpenedClass);
