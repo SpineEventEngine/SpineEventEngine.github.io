@@ -31,3 +31,7 @@ kramdown:
   hard_wrap: false
   parse_block_html: true
 
+collections:
+  release_notes:
+    output: false
+    permalink: /release-notes/:path
