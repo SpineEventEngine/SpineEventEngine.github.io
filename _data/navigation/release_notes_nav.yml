@@ -1,10 +1,10 @@
 - page: "2020"
   children:
     - page: "v2"
-      url: /release-notes/2020/v2.html
+      url: /release-notes/2020/v2
     - page: "v1.5"
-      url: /release-notes/2020/v1-5.html
+      url: /release-notes/2020/v1-5
 - page: "2019"
   children:
     - page: "v1.2"
-      url: /release-notes/2019/test.html
+      url: /release-notes/2019/test
