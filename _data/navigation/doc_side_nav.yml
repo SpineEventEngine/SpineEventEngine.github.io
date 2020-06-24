@@ -44,3 +44,5 @@ doc_side_nav:
 
   - page: Examples
     url: /docs/examples/
+  - page: Resources
+    url: /docs/resources/
