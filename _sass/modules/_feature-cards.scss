@@ -15,60 +15,57 @@
       margin-bottom: 24px;
     }
   }
+}
 
-  // Cards style
-  .feature-card {
-    position: relative;
-    background-color: white;
-    margin: 0 0 30px;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 3px 0 rgba($footerColor, .08);
-    -moz-box-shadow: 0 1px 3px 0 rgba($footerColor, .08);
-    -o-box-shadow: 0 1px 3px 0 rgba($footerColor, .08);
-    box-shadow: 0 1px 3px 0 rgba($footerColor, .08);
+// Cards style
+.feature-card {
+  position: relative;
+  background-color: white;
+  margin: 0 0 30px;
+  border-radius: 4px;
+  @include box-shadow(0 1px 3px 0 rgba($footerColor, .08));
 
-    @media(max-width: $phone-medium) {
-      margin-bottom: 16px;
+  @media(max-width: $phone-medium) {
+    margin-bottom: 16px;
+  }
+
+  [class*="card-icon"] {
+    position: absolute;
+    display: inline-block;
+    width: $icon-size--m;
+    height: $icon-size--m;
+    margin: 20px 24px;
+
+    @media (max-width: $desktop-small) {
+      margin: 16px;
+    }
+  }
+
+  .card-icon-font {
+    line-height: $icon-size--m;
+    font-size: 22px;
+    color: $mainBrandColor;
+    text-align: center;
+  }
+
+  .card-content-text {
+    padding: 24px 24px 24px 72px;
+
+    @media (max-width: $desktop-small) {
+      padding: 20px 20px 20px 64px;
     }
 
-    [class*="card-icon"] {
-      position: absolute;
-      display: inline-block;
-      width: $icon-size--m;
-      height: $icon-size--m;
-      margin: 20px 24px;
-
-      @media (max-width: $desktop-small) {
-        margin: 16px;
-      }
+    .feature-card-title {
+      color: $dark-gray;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
     }
 
-    .card-icon-font {
-      line-height: $icon-size--m;
-      font-size: 22px;
-      color: $mainBrandColor;
-      text-align: center;
-    }
-
-    .card-content-text {
-      padding: 24px 24px 24px 72px;
-
-      @media (max-width: $desktop-small) {
-        padding: 20px 20px 20px 64px;
-      }
-
-      .feature-card-title {
-        color: $dark-gray;
-        margin-bottom: 8px;
-        font-size: 1rem;
-        line-height: 1.5;
-        font-weight: 500;
-      }
-
-      p {
-        font-size: 14px;
-        line-height: 24px;
-      }
+    p {
+      font-size: 14px;
+      line-height: 24px;
     }
   }
 }
