@@ -52,3 +52,5 @@ doc_side_nav:
         url: /docs/resources/people.html
       - page: Books
         url: /docs/resources/books.html
+      - page: Blogs
+        url: /docs/resources/blogs.html
