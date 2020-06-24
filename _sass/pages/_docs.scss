@@ -33,9 +33,14 @@
     }
   }
 
+
+  $card-bottom-space: 24px;
+  $card-height: calc(100% - #{$card-bottom-space});
+
   .feature-card {
     display: block;
-    margin-bottom: 24px;
+    margin-bottom: $card-bottom-space;
+    height: $card-height;
     @include box-shadow(0 -1px 1px 0 rgba(black, .07), 0 2px 4px 0 rgba(35, 37, 38, .12));
 
     &:hover {
