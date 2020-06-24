@@ -98,7 +98,12 @@
 
 .book-card {
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 32px;
+
+  @media (min-width: $phone-large) {
+    min-height: 240px;
+    padding-bottom: 48px;
+  }
 
   $book-size: 142px;
   $book-size-mobile: 60px;
@@ -160,11 +165,16 @@
     .author {
       font-size: 15px;
       color: rgba(black, .54);
+      margin-bottom: 8px;
     }
 
     h3 {
       padding-top: 4px;
       margin-bottom: 6px;
+
+      @media (max-width: $phone-large) {
+        padding-top: 0;
+      }
     }
   }
 }
