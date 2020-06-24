@@ -6,36 +6,6 @@
   h1 + p {
     margin-bottom: 48px;
   }
-
-  .feature-card {
-    display: block;
-    margin-bottom: 24px;
-    @include box-shadow(0 -1px 1px 0 rgba(black, .07), 0 2px 4px 0 rgba(35, 37, 38, .12));
-
-    &:hover {
-      text-decoration: none !important;
-      @include box-shadow(0 6px 12px rgba(black, .12));
-
-      header {
-        color: $mainBrandColor;
-      }
-    }
-
-    .card-content-text {
-      header {
-        margin-bottom: 4px;
-        font-weight: 700;
-        @include transition(color .23s ease-in-out);
-      }
-
-      p {
-        margin: 0;
-        text-align: left;
-        line-height: 1.5;
-        font-family: $main-font;
-      }
-    }
-  }
 }
 
 .person-card {
