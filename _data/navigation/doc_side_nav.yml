@@ -54,3 +54,5 @@ doc_side_nav:
         url: /docs/resources/books.html
       - page: Blogs
         url: /docs/resources/blogs.html
+      - page: Sites
+        url: /docs/resources/sites.html
