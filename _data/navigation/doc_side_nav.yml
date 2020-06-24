@@ -45,4 +45,8 @@ doc_side_nav:
   - page: Examples
     url: /docs/examples/
   - page: Resources
-    url: /docs/resources/
+    children:
+      - page: Overview
+        url: /docs/resources/
+      - page: People
+        url: /docs/resources/people.html
