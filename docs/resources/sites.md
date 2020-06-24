@@ -1,5 +1,5 @@
 ---
-title: Resources
+title: Sites
 headline: Resources
 bodyclass: docs resources
 layout: docs

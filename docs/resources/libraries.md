@@ -1,5 +1,5 @@
 ---
-title: Resources
+title: Libraries and Frameworks
 headline: Resources
 bodyclass: docs resources
 layout: docs

@@ -1,5 +1,5 @@
 ---
-title: Resources
+title: Blogs
 headline: Resources
 bodyclass: docs resources
 layout: docs
