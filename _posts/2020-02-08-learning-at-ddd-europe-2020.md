@@ -6,7 +6,8 @@ bodyclass: post
 header_type: fixed-header
 ---
 
-What a great inspiration mixing in with the global DDD-crowd is! 
+What a great inspiration mixing in with the global DDD-crowd is!
+ 
 We have just come back from DDD Europe, having shared some experience of ours and full 
 of new ideas for Spine.
 <!--more-->
