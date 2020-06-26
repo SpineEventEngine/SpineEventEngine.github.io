@@ -123,7 +123,7 @@ You will find such naming pattern in the framework API. For example, `EventId`, 
     types for code scaffolding and improving intelligence of code generation.</p>
 
 While the identifier type is usually defined with the `Id` suffix, we do not recommend following
-the same strategy for the protos field names. Naming fields as `id` or adding the `_id` suffix 
+the same strategy for the proto field names. Naming fields as `id` or adding the `_id` suffix 
 is usually excessive because the identifier type already has the `Id` suffix.
 
 Instead, we name the fields by their respective type reference, so `user_id` becomes
