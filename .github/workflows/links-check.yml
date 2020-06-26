@@ -8,9 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-          uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
       - run: bundle install
       - run: bundle exec jekyll serve
       - run: htmlproofer --assume-extension ./_site
