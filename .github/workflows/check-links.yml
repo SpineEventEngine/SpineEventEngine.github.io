@@ -1,4 +1,4 @@
-name: Checks Links
+name: Links check
 
 on: push
 
@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: gem install html-proofer
+      - uses: chabad360/htmlproofer@master
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: htmlproofer --assume-extension ./_site
+          directory: "./_site"
