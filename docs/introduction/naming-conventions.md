@@ -157,6 +157,16 @@ message TaskCreated {
 }
 ```
 
+And projection is:
+
+```proto
+message TaskProjection {
+    TaskId task = 1;
+    ProjectId project = 2
+    string name = 3;
+}
+```
+
 ### Commands
 
 A command is defined as an imperative:
