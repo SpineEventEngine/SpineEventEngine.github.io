@@ -125,10 +125,12 @@ You will find such naming pattern in the framework API. For example, `EventId`, 
 While the identifier type is usually defined with the `Id` suffix, we do not recommend following
 the same strategy for the protos field names. Naming fields as `id` or adding the `_id` suffix 
 is usually excessive because the identifier type already has the `Id` suffix.
-Instead, we name the fields by their respective type reference, so `UserId user_id` becomes
-`UserId user` and `ProjectId project_id` becomes `ProjectId project`. The only exception from
-the suggestion is when the ID is a part of the root aggregate state or a command that creates
-the aggregate directly.
+
+Instead, we name the fields by their respective type reference, so `user_id` becomes
+`user` and `project_id` becomes `project`.
+
+The only exception from the suggestion is when the ID is a part of the root aggregate state, 
+or a command that creates the aggregate directly.
 
 ### Commands
 
