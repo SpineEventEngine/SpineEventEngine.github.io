@@ -17,5 +17,7 @@ jobs:
 
       - name: Run Jekyll build
         uses: jerryjvl/jekyll-build-action@v1
+
+      - name: Run HTML Proofer
         run: |
           htmlproofer --assume-extension ./_site
