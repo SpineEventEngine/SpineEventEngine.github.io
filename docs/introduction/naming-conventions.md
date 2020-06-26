@@ -74,7 +74,7 @@ Similarly to commands, events are defined in files which names have the `events.
 
  * `blog_events.proto` 
  * `order_events.proto`
- * `customer_events.proto`.
+ * `customer_events.proto`
 
 ### `rejections.proto`
 
@@ -86,7 +86,7 @@ Similarly to events, rejections are defined in files ending with `rejections.pro
 
   * `blog_rejections.proto` 
   * `order_rejections.proto`
-  * `customer_rejections.proto`.
+  * `customer_rejections.proto`
 
 For each aggregate you are likely to have all three kinds of files because a command leads to
 an event, and it is likely there are conditions under which a command cannot be handled.
