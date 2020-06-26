@@ -174,7 +174,7 @@ Examples in this guide assume that a fictitious company called
 [Acme Corporation](https://en.wikipedia.org/wiki/Acme_Corporation) creates a SaaS solution.
 The company has a web presence site with the domain name `acme.io`.
 The solution is a task management application called "Todo List" 
-which will be hosted at`todolist.acme.io`.    
+which will be hosted at `todolist.acme.io`.    
 
 ### Proto packages
 
