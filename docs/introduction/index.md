@@ -67,7 +67,7 @@ message CreateTask {
 ```proto
 // A new task has been created.
 message TaskCreated {
-    TaskId id = 1;
+    TaskId task = 1;
     string name = 2 [(required) = true];
     string description = 3;
     UserId who_created = 4 [(required) = true];
