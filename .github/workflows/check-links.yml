@@ -8,5 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: bundle install
+      - run: gem install html-proofer
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: htmlproofer --assume-extension ./_site
