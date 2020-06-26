@@ -3,12 +3,19 @@ name: Links check
 on: push
 
 jobs:
-  links-check:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - run: bundle install
-      - run: bundle exec jekyll serve
-      - run: htmlproofer --assume-extension ./_site
+      - uses: actions/checkout@v1
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.x'
+
+      - name: Run Jekyll build
+        uses: jerryjvl/jekyll-build-action@v1
+        run: |
+          htmlproofer --assume-extension ./_site
