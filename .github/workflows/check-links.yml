@@ -8,4 +8,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: gem install html-proofer
       - run: htmlproofer --assume-extension ./_site
