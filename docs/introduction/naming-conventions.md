@@ -130,7 +130,32 @@ Instead, we name the fields by their respective type reference, so `user_id` bec
 `user` and `project_id` becomes `project`.
 
 The only exception from the suggestion is when the ID is a part of the root aggregate state, 
-or a command that creates the aggregate directly.
+or a command that creates the aggregate directly. Consider the following examples of an aggregate:
+
+```proto
+message Task {
+    TaskId id = 1;
+    ProjectId project = 2;
+}
+```
+
+And a command:
+
+```proto
+message CreateTask {
+    TaskId id = 1;
+    ProjectId project = 2;
+}
+```
+
+But the respective event is:
+
+```proto
+message TaskCreated {
+    TaskId task = 1;
+    ProjectId project = 2;
+}
+```
 
 ### Commands
 
