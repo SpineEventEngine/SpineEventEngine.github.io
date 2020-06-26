@@ -1,0 +1,11 @@
+name: Checks Links
+
+on: push
+
+jobs:
+  check-links:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: htmlproofer --assume-extension ./_site
