@@ -67,7 +67,7 @@ message CreateTask {
 ```proto
 // A new task has been created.
 message TaskCreated {
-    TaskId id = 1;
+    TaskId task = 1;
     string name = 2 [(required) = true];
     string description = 3;
     UserId who_created = 4 [(required) = true];
@@ -114,7 +114,7 @@ final class TaskAggregate
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
         return TaskCreated
                 .newBuilder()
-                .setId(cmd.getId())
+                .setTask(cmd.getId())
                 .setName(cmd.getName())
                 .setDescription(cmd.getDescription())
                 .setWhoCreated(ctx.getActor())
@@ -136,7 +136,7 @@ final class TaskItemProjection
 
     @Subscribe
     void on(TaskCreated e) {
-        builder().setId(e.getId())
+        builder().setTask(e.getTask())
                  .setName(e.getName())
     }
 
@@ -182,7 +182,7 @@ context.receivesCommand(createTask());
 
 // Then
 TaskCreated expected = TaskCreated.newBuilder()
-    .setId(id)
+    .setTask(id)
     .setName(name)
     .build();
 

@@ -71,7 +71,7 @@ final class TaskAggregate
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
         return TaskCreated
                 .newBuilder()
-                .setId(cmd.getId())
+                .setTask(cmd.getId())
                 .setName(cmd.getName())
                 .setOwner(ctx.getActor())
                 .vBuild();
