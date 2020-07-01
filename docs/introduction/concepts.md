@@ -47,7 +47,7 @@ In Spine, rejections are defined as Protobuf messages in the file which names en
 `rejections.proto`. 
 
 For detailed instructions on defining rejections, please refer to
-[“Working with Rejections”](/docs/guides/rejections.html) guide.
+[“Working with Rejections”]({{site.baseurl}}/docs/guides/rejections.html) guide.
 
 ### Acknowledgement
 
