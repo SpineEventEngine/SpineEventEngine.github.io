@@ -3,9 +3,6 @@ This repository contains the code of [Spine Event Engine framework site](https:/
 The website uses [Jekyll](https://jekyllrb.com/) templates and is 
 hosted on [GitHub Pages](https://pages.github.com/). 
 
-If you plan to work with the code of examples please make sure
-to read [these instructions](EXAMPLES.md).
-
 ## Running the Site on the Local Server
 
 To build and launch the site on the local server:
@@ -75,3 +72,11 @@ To add a collapsible category use the following code:
 
 We use the [code-excerpter](https://github.com/chalin/code_excerpter) tool for adding the source
 code to Markdown pages. See [this doc](_samples/README.md) for the instructions.
+
+### Testing broken links
+
+We use the [html-proofer](https://github.com/gjtorikian/html-proofer) tool to test broken links.
+To start test locally you may be required to install tool Gem first:
+`bundle install` and build site `jekyll build`. After that use `htmlproofer --assume-extension ./_site` command.
+
+Also, we have the `Links check` GitHub Action for this test. It will start on push to the repository.
