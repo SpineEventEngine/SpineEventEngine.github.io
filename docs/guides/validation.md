@@ -307,7 +307,7 @@ import "spine/core/user_id.proto";
 message ProfilePictureChanged {
 
     spine.net.Url new_picture = 1 [(required) = false];
-    spine.core.UserId id = 2;
+    spine.core.UserId user = 2;
 }
 ```
 
