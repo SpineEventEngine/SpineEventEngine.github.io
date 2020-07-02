@@ -273,8 +273,8 @@ the field declaring the option and second for the name of the field targeted by 
 
 ### When `(required)` is implicit
 
-When defining the domain [Commands](../introduction/naming-conventions.html#command-definitions),
-[Events](../introduction/naming-conventions.html#event-definitions), or entity states, we have found
+When defining the domain [Commands]({{site.baseurl}}/docs/introduction/naming-conventions.html#commandsproto),
+[Events]({{site.baseurl}}/docs/introduction/naming-conventions.html#eventsproto), or entity states, we have found
 to be convenient that the first field of the respective Message is the identifier. Therefore, by
 convention, Spine treats the first fields of such objects as their IDs:
 
