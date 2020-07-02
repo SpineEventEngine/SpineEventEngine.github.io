@@ -130,6 +130,13 @@
           color: $linkColor;
         }
       }
+
+      .book-subtitle {
+        font-family: $main-font;
+        font-size: 15px;
+        margin-top: -4px;
+        margin-bottom: 8px;
+      }
     }
 
     .author {
