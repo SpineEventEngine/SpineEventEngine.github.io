@@ -7,7 +7,7 @@ layout: docs
 
 # Communities
 
-The discussion platforms for the DDD practitioners
+<p class="lead">Places to discuss DDD with other practitioners</p>
 
 - [Virtual DDD](https://virtualddd.com/) <span class="lang">(EN)</span> <br>
 A community-driven online meetup for people who want to get more in-depth knowledge of DDD 

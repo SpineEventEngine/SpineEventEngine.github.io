@@ -7,7 +7,7 @@ layout: docs
 
 # Libraries and Frameworks
 
-Other tools that help with DDD in code
+<p class="lead">Other tools that help with DDD in code</p>
 
 - [Axon](https://axoniq.io/).
 Open source framework for event-driven microservices and domain-driven design.

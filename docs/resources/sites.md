@@ -7,7 +7,7 @@ layout: docs
 
 # Sites
 
-Learning hubs
+<p class="lead">Learning hubs</p>
 
 - [DDD Community](https://dddcommunity.org/).
 A collection of resources by Eric Evans and his colleagues.

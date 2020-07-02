@@ -7,7 +7,7 @@ layout: docs
 
 # Blogs
 
-The ideas unfolding in real time
+<p class="lead">The ideas unfolding in real time</p>
 
 - [Domain Driven Design Weekly](http://dddweekly.com/).
 The periodical digest of articles and materials on DDD by Nick Chamberlain.
