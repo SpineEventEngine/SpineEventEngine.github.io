@@ -9,9 +9,11 @@ layout: docs
 
 Learning hubs.
 
-- [Virtual DDD](https://virtualddd.com/).
-A community driven online meetup for people who want to get more in-depth knowledge of DDD 
-from anywhere at anytime.
+- [DDD Community](https://dddcommunity.org/).
+A collection of resources by Eric Evans and his colleagues.
 
 - [Domain Driven Design On InfoQ](https://www.infoq.com/domain-driven-design/).
 DDD section on one of the leading media on software development.
+
+- [Awesome Domain-Driven Design](https://github.com/heynickc/awesome-ddd).
+An extensive curated list of DDD, CQRS, Event Sourcing, and Event Storming resources.

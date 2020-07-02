@@ -7,7 +7,7 @@ layout: docs
 
 # Libraries and Frameworks
 
-Alternatives to Spine.
+Other tools that help with DDD in code.
 
 - [Axon](https://axoniq.io/).
 Open source framework for event-driven microservices and domain-driven design.
