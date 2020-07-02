@@ -88,8 +88,7 @@ message Task {
 ```
  
 [Value Objects]({{site.baseurl}}/docs/introduction/concepts.html#value-objects) are added when they are needed to describe entities
-or messages like commands or events. For more information on this stage please see
-the [Model Definition](/docs/guides/model-definition.html) guide.
+or messages like commands or events.
 
 ### Adding business logic
 
