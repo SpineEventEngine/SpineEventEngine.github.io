@@ -22,5 +22,5 @@ Our own community for developers and engineers who look for the new ways of solv
 [DDDi Messroom](https://messroom.dddi.dev/).
 
 - [DDDevotion](https://t.me/dddevotion) <span class="lang">(RU)</span> <br>
-A community, dedicated to DDD, engineering practices and technical excellence.
+A community, dedicated to DDD, engineering practices, and technical excellence.
 
