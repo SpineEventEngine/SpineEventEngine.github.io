@@ -33,7 +33,7 @@ message CreateTask {
 {% highlight proto %}
 // A new task has been created.
 message TaskCreated {
-    TaskId id = 1;
+    TaskId task = 1;
     string name = 2 [(required) = true];
     string description = 3;
 }
@@ -93,7 +93,7 @@ final class TaskAggregate
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
         return TaskCreated
                 .newBuilder()
-                .setId(cmd.getId())
+                .setTask(cmd.getId())
                 .setName(cmd.getName())
                 .setOwner(ctx.getActor())
                 .vBuild();
@@ -111,7 +111,7 @@ final class TaskProjection
     ...
     @Subscribe
     void on(TaskCreated e) {
-        builder().setId(e.getId())
+        builder().setTask(e.getTask())
                  .setName(e.getName())
     }
 
