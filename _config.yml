@@ -33,5 +33,5 @@ kramdown:
 
 collections:
   release_notes:
-    output: false
+    output: true
     permalink: /release-notes/:path

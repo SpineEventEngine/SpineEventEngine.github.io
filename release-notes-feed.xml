@@ -12,8 +12,7 @@ layout: null
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
     {% assign releaseNotes = site.release_notes | sort: 'date' | reverse %}
-    {% assign availableReleaseNotes = releaseNotes | where_exp: "note", "note.type == intro" %}
-    {% for note in availableReleaseNotes limit:10 %}
+    {% for note in releaseNotes limit:10 %}
       <item>
         <title>{{ note.title | xml_escape }}</title>
         <description>{{ note.content | xml_escape }}</description>
