@@ -8,3 +8,5 @@
   children:
     - page: "v1.3.0"
       url: /release-notes/2019/v1.3.0
+    - page: "v1.2.0"
+      url: /release-notes/2019/v1.2.0
