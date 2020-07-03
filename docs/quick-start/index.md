@@ -223,7 +223,7 @@ option java_package="io.spine.helloworld.hello.command";
 ``` 
 There are three parts of interest in this package name:
   * **`io.spine.helloworld`** — this part represents the location of our Hello World “solution”
-    as if it were hosted on the web at [`https://helloworld.spine.io`](https://helloworld.spine.io).
+    as if it were hosted on the web at `https://helloworld.spine.io`.
      
   * **`hello`** — this is the package of the Hello context. In this example we have only one, but
      a real world app would have more. Each Bounded Context goes into a dedicated package.
@@ -274,7 +274,7 @@ the `spine/options.proto` file above. This command does not make much sense if t
 to print.
 
 <p class="note">In Protobuf a data type is either a **`message`** (we can send it) or an **`enum`**.
-If you're new to this language, you may want to look at the [Proto3 Language Guide](proto3-guide).  
+If you're new to this language, you may want to look at the [Proto3 Language Guide][proto3-guide].  
 </p>
 
 Now, let's see how to define events. 

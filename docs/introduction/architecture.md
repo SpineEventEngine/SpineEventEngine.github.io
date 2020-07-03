@@ -17,7 +17,7 @@ with only <em><span id="display-user-facing-components">some of them</span></em>
 are not shaded on the diagram. The rest is handled by the framework.
 
 <p>Click on a component to navigate to its definition from
-the [Concepts](/docs/introduction/concepts.html) page.</p>
+the [Concepts]({{site.baseurl}}/docs/introduction/concepts.html) page.</p>
 
 <div class="diagram-box">
 {% include_relative diagrams/spine-architecture-diagram.svg %}

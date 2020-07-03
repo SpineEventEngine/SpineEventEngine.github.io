@@ -158,7 +158,7 @@ reacts on those events. Note that all the events published through `ThirdPartyCo
 AircraftPreparedForFlight on(PreflightCheckComplete event) {
     return AircraftPreparedForFlight
             .newBuilder()
-            .setId(id())
+            .setAircraft(id())
             .vBuild();
 }
 ```
@@ -318,14 +318,14 @@ which is later consumed by the&nbsp;[*Flight* Aggregate](https://github.com/spin
 ```java
 @React(external = true)
 Optional<BoardingComplete> on(PassengerBoarded event) {
-    PassengerId passenger = event.getId();
+    PassengerId passenger = event.getPassenger();
     builder().addBoarded(passenger);
     return completeOrEmpty();
 }
 
 @React(external = true)
 Optional<BoardingComplete> on(PassengerDeniedBoarding event) {
-    PassengerId passenger = event.getId();
+    PassengerId passenger = event.getPassenger();
     builder().addWillNotBeBoarded(passenger);
     return completeOrEmpty();
 }

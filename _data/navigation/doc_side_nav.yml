@@ -44,3 +44,19 @@ doc_side_nav:
 
   - page: Examples
     url: /docs/examples/
+  - page: Resources
+    children:
+      - page: Overview
+        url: /docs/resources/
+      - page: Books
+        url: /docs/resources/books.html
+      - page: People
+        url: /docs/resources/people.html
+      - page: Blogs
+        url: /docs/resources/blogs.html
+      - page: Sites
+        url: /docs/resources/sites.html
+      - page: Communities
+        url: /docs/resources/communities.html
+      - page: Libraries and Frameworks
+        url: /docs/resources/libraries.html
