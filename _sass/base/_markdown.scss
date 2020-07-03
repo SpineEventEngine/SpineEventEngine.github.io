@@ -27,7 +27,8 @@ $article-line-height: 1.74;
     margin-top: -4px;
   }
 
-  .lead + h2 {
+  .lead + h2,
+  .lead + div + h2 {
     padding-top: 0;
   }
 
