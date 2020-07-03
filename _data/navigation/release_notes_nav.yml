@@ -2,3 +2,5 @@
   children:
     - page: "v1.5.0"
       url: /release-notes/2020/v1.5.0
+    - page: "v.1.4.0"
+      url: /release-notes/2020/v1.4.0
