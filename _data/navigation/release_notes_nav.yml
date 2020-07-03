@@ -24,3 +24,7 @@
       url: /release-notes/2019/v1.0.0-pre4
     - page: "v1.0.0-pre3"
       url: /release-notes/2019/v1.0.0-pre3
+- page: "2018"
+  children:
+    - page: "v1.0.0-pre2"
+      url: /release-notes/2018/v1.0.0-pre2
