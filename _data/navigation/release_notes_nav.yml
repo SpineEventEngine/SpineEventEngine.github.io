@@ -30,3 +30,7 @@
       url: /release-notes/2018/v1.0.0-pre2
     - page: "v1.0.0-pre1"
       url: /release-notes/2018/v1.0.0-pre1
+- page: "2017"
+  children:
+    - page: "v0.10.0"
+      url: /release-notes/2017/v0.10.0
