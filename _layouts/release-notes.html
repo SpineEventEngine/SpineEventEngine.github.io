@@ -18,7 +18,7 @@ bodyclass: docs
             </div>
             <div class="col-12 col-lg article-container markdown">
                 {% if page.date != null %}
-                    <p class="date">Posted on {{ page.date }}</p>
+                    <p class="date">Posted on {{ page.date | date: '%B %d, %Y' }}</p>
                 {% endif %}
                 {{ content }}
             </div>
