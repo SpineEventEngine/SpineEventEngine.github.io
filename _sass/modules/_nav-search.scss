@@ -6,7 +6,7 @@ $search-placeholder-color: rgba(white, .38);
 
 // Screen size on which the mobile search will be shown.
 // The same value should be used in the `common.js` file for the `mobileSearchScreenSize` variable.
-$mobile-search-max-size: 767px;
+$mobile-search-max-size: 880px;
 $mobile-search-min-size: $mobile-search-max-size + 1;
 
 .nav-search-container {
