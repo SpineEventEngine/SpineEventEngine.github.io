@@ -29,3 +29,6 @@ This sections provides links to the generated documentation.
 ## [Examples]({{ site.baseurl }}/docs/examples/)
 This page is the entry point for learning from the code of
 the [example applications](https://github.com/spine-examples/). 
+
+## [Resources]({{ site.baseurl }}/docs/resources/)
+A brief selection of learning materials we recommend to the colleagues in DDD.
