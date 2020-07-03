@@ -1,0 +1,157 @@
+.resources {
+  h1 {
+    margin-bottom: 6px;
+  }
+
+  h1 + p {
+    margin-bottom: 48px;
+  }
+}
+
+.person-card {
+  position: relative;
+  padding-bottom: 40px;
+
+  $avatar-size: 100px;
+  $avatar-size-mobile: 60px;
+
+  .avatar {
+    position: absolute;
+    padding: 0;
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: 50%;
+
+    @media (max-width: $phone-large) {
+      width: $avatar-size-mobile;
+      height: $avatar-size-mobile;
+    }
+  }
+
+  .person-info {
+    padding-left: $avatar-size + 20px;
+
+    @media (max-width: $phone-large) {
+      padding-left: $avatar-size-mobile + 20px;
+    }
+
+    .social-networks {
+      padding-bottom: 14px;
+
+      a {
+        padding-right: 16px;
+
+        &:after {
+          display: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+
+          i {
+            color: rgba(black, .54);
+          }
+        }
+      }
+
+      i {
+        font-size: 18px;
+        color: rgba(black, .26);
+      }
+    }
+
+    h3 {
+      padding-top: 4px;
+    }
+  }
+}
+
+.book-card {
+  position: relative;
+  padding-bottom: 32px;
+
+  @media (min-width: $phone-large) {
+    min-height: 240px;
+    padding-bottom: 48px;
+  }
+
+  $book-size: 142px;
+  $book-size-mobile: 60px;
+  $book-shadow: 0 1px 0 0 #D0D0D0,
+                0 10px 0 -4px #DEDEDE,
+                0 11px 0 -4px #D0D0D0,
+                0 11px 20px -4px rgba(black, .16);
+
+  .book {
+    position: absolute;
+    width: $book-size;
+    @include box-shadow($book-shadow);
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 1px;
+      height: 6px;
+      background: #D0D0D0;
+      bottom: -7px;
+      left: 2px;
+      float: left;
+      transform: skewX(40deg);
+    }
+
+    @media (max-width: $phone-large) {
+      width: $book-size-mobile;
+    }
+
+    img {
+      padding: 0;
+    }
+  }
+
+  .book-info {
+    padding-left: $book-size + 32px;
+
+    @media (max-width: $phone-large) {
+      padding-left: $book-size-mobile + 20px;
+    }
+
+    .book-title {
+      white-space: normal;
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        text-decoration: none;
+
+        h3 {
+          color: $linkColor;
+        }
+      }
+
+      .book-subtitle {
+        font-family: $main-font;
+        font-size: 15px;
+        margin-top: -4px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .author {
+      font-size: 15px;
+      color: rgba(black, .54);
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      padding-top: 4px;
+      margin-bottom: 6px;
+
+      @media (max-width: $phone-large) {
+        padding-top: 0;
+      }
+    }
+  }
+}
