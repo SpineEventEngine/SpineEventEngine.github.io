@@ -8,6 +8,7 @@ core_java_repo: https://github.com/SpineEventEngine/core-java
 base_repo: https://github.com/SpineEventEngine/base
 web_repo: https://github.com/SpineEventEngine/web
 gcloud_java_repo: https://github.com/SpineEventEngine/gcloud-java
+money_repo: https://github.com/SpineEventEngine/money
 
 twitter_username: SpineEngine
 github_username: SpineEventEngine
