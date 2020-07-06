@@ -34,3 +34,27 @@
   children:
     - page: "v0.10.0"
       url: /release-notes/2017/v0.10.0
+    - page: "v0.9.0"
+      url: /release-notes/2017/v0.9.0
+    - page: "v0.8.0"
+      url: /release-notes/2017/v0.8.0
+- page: "2016"
+  children:
+    - page: "v0.7.0"
+      url: /release-notes/2016/v0.7.0
+    - page: "v0.6.0"
+      url: /release-notes/2016/v0.6.0
+    - page: "v0.5"
+      url: /release-notes/2016/v0.5
+    - page: "v0.4.4"
+      url: /release-notes/2016/v0.4.4
+    - page: "v0.4.2"
+      url: /release-notes/2016/v0.4.2
+    - page: "v0.4.1"
+      url: /release-notes/2016/v0.4.1
+    - page: "v0.3"
+      url: /release-notes/2016/v0.3
+- page: "2015"
+  children:
+    - page: "v0.2"
+      url: /release-notes/2015/v0.2
