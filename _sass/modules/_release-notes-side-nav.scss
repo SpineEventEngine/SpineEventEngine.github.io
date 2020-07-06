@@ -1,14 +1,27 @@
 $nav-first-level-left-padding: 24px;
 $nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
+
 .docs-side-nav {
   &.release-notes-side-nav {
-    .tree-title {
-      font-size: 15px;
-      font-weight: 500;
-    }
-
     .side-nav-link {
-      transition: none;
+      @include transition(none);
+
+      $chevron-hover-color: rgba(black, .7);
+      &.tree-title {
+        font-size: 15px;
+        font-weight: 500;
+        @include transition(color .23s ease-in-out);
+
+        &:hover {
+          background-color: transparent;
+          color: $black;
+
+          &:before {
+            border-right-color: $chevron-hover-color;
+            border-bottom-color: $chevron-hover-color;
+          }
+        }
+      }
     }
 
     .sub-nav {
