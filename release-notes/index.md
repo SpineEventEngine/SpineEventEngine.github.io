@@ -6,7 +6,10 @@ layout: release-notes
 sidenav: release-notes-side-nav.html
 ---
 
-<p class="lead">This section contains a complete release history for Spine in chronological order.</p>
+<p class="lead">This section contains a complete release history for Spine in reverse 
+chronological&nbsp;order.</p>
 
-Our release notes provide high-level descriptions of new features, enhancements, and fixes in 
-each Spine version including minor and major versions.
+It is a high-level summary of the new features, enhancements, and fixes in each major 
+and minor version of Spine. 
+
+The framework versioning policy is described here.
