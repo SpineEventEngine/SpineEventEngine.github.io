@@ -1,6 +1,6 @@
 ---
 title: Libraries and Frameworks
-headline: Resources
+headline: DDD Resources
 bodyclass: docs resources
 layout: docs
 ---
