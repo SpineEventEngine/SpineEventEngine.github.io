@@ -1,10 +1,11 @@
 ---
 title: Versioning Policy
 headline: Versioning Policy
-bodyclass: docs release-notes
-layout: release-notes
-sidenav: release-notes-side-nav.html
+bodyclass: privacy-statements
+layout: privacy
+header_type: fixed-header
 ---
+
 # Spine Versioning
 
 Spine version format is `[MAJOR].[MINOR].[PATCH]`, where:
