@@ -6,7 +6,7 @@ layout: privacy
 header_type: fixed-header
 ---
 
-# Spine Versioning
+# Versioning Policy
 
 Spine version format is `[MAJOR].[MINOR].[PATCH]`, where:
 
