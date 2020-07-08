@@ -7,8 +7,11 @@
         </div>
     </div>
     <!-- The variable `currentYear` is used to make the section with the current year
-    not collapsed by default. -->
-    {% assign currentYear =  'now' | date: "%Y" %}
+    not collapsed by default. When the user selects the previous year, the section with the current
+    year will be collapsed. -->
+    {% if page.path == 'release-notes/index.md' %}
+        {% assign currentYear =  'now' | date: "%Y" %}
+    {% endif %}
 
     {% if site.data.navigation.release_notes_nav %}
         {% for item in site.data.navigation.release_notes_nav %}
