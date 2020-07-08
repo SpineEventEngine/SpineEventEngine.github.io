@@ -20,7 +20,7 @@ In order to improve the site and our services to you, we use cookies.
 the site to avoid the necessity for you to re-enter information.
 
 **Statistical:** spine.io collects general information on user’s behaviour on the site. We see 
-this information in a form of anonymised aggregated statistics.
+this information in a form of anonymized aggregated statistics.
 
 ### How to control cookies
 Most browsers automatically accept cookies. You can configure your browser to accept all cookies 
