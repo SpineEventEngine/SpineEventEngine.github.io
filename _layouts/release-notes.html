@@ -5,29 +5,28 @@ bodyclass: docs
 
 {% include color-selector.html %}
 
-{% assign current = page.url | downcase | split: '/' %}
-{% if current[1] == 'release-notes' and page.sidenav != null %}
-    <div class="container-fluid content-holder docs-content">
-        <div class="row">
-            <div id="docs-side-nav-mobile-toggle">
-                <i class="fas fa-list-ul"></i>
-                <span>Contents</span>
-            </div>
-            <div class="col-12 col-lg side-nav-col docs-side-nav-holder">
+<div class="container-fluid content-holder docs-content">
+    <div class="row">
+        <div id="docs-side-nav-mobile-toggle">
+            <i class="fas fa-list-ul"></i>
+            <span>Contents</span>
+        </div>
+        <div class="col-12 col-lg side-nav-col docs-side-nav-holder">
+            {% if page.sidenav != null %}
                 {% include {{ page.sidenav }} %}
-            </div>
-            <div class="col-12 col-lg article-container markdown">
-                {% if page.date != null %}
-                    <p class="date">Posted on {{ page.date | date: '%B %d, %Y' }}</p>
-                {% endif %}
-                {{ content }}
-            </div>
-            <div class="col-lg toc-col">
-                <nav id="toc" class="toc sticky-element"></nav>
-            </div>
+            {% endif %}
+        </div>
+        <div class="col-12 col-lg article-container markdown">
+            {% if page.date != null %}
+                <p class="date">Posted on {{ page.date | date: '%B %d, %Y' }}</p>
+            {% endif %}
+            {{ content }}
+        </div>
+        <div class="col-lg toc-col">
+            <nav id="toc" class="toc sticky-element"></nav>
         </div>
     </div>
-{% endif %}
+</div>
 
 <a onclick="topFunction()" id="go-top-btn" title="Go to Top"><span>Top</span></a>
 
