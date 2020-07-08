@@ -1,8 +1,15 @@
 ---
 layout: base
-bodyclass: privacy-statements
 ---
 
 {% include nav.html %}
 
-{{ content }}
+<section>
+    <div class="container-fluid content-holder content-with-fixed-header">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 article-container markdown">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</section>
