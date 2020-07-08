@@ -12,4 +12,4 @@ chronological&nbsp;order.</p>
 It is a high-level summary of the new features, enhancements, and fixes in each major 
 and minor version of Spine. 
 
-The framework versioning policy is described here.
+The framework versioning policy is described [here]({{site.baseurl}}/release-notes/versioning-policy.html).
