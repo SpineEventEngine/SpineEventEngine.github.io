@@ -58,5 +58,3 @@
   children:
     - page: "v0.2"
       url: /release-notes/2015/v0.2
-- page: "Versioning Policy"
-  url: "/release-notes/versioning-policy.html"
