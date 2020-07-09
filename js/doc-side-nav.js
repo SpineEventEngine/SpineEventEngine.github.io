@@ -13,6 +13,9 @@ $(
         const $mobileSideNavCloseLink = $('.navigation-title-on-mobile a.close-btn');
         const $sideNavLinkExternal = $('.side-nav-link.external');
 
+        /** Pages */
+        const isReleaseNotes = $body.is('.release-notes');
+
         addCollapseAttr();
         expandNavigation();
         openNavLinkInNewTab();
@@ -27,6 +30,22 @@ $(
             const $collapsibleLink = $('ul.docs-side-nav li ul').siblings('a');
             $collapsibleLink.attr('data-toggle', 'collapse');
             $collapsibleLink.addClass('tree-title collapsed');
+
+            if (isReleaseNotes) {
+                makeCurrentYearListOpen();
+            }
+        }
+
+        /**
+         * Makes the current year version list open by default.
+         *
+         * <p>The logic with the `.show` and `.currentYear`classes was added to the
+         * `_includes/release-notes-side-nav.html` file. This is useful because it avoids
+         * layout jumps when the JS file is loading.
+         */
+        function makeCurrentYearListOpen() {
+            const $collapsibleLink = $('ul.docs-side-nav li ul').siblings('a.currentYear');
+            $collapsibleLink.removeClass('collapsed');
         }
 
         /**
