@@ -17,7 +17,7 @@ $article-line-height: 1.74;
   }
 
   p.coming-soon {
-    color: rgba($black, .26);
+    color: $gray-200;
     font-weight: 500;
     padding-bottom: 24px;
     margin: 0;
@@ -116,11 +116,11 @@ $article-line-height: 1.74;
   .date {
     font-family: $main-font;
     font-size: 14px;
-    color: rgba(black, .54);
+    color: $gray-500;
   }
 
   .lang {
     font-size: 14px;
-    color: rgba(black, .38);
+    color: $gray-300;
   }
 }
