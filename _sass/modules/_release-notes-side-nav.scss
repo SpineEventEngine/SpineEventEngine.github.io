@@ -6,7 +6,7 @@ $nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
     .side-nav-link {
       @include transition(none);
 
-      $chevron-hover-color: rgba(black, .7);
+      $chevron-hover-color: $gray-700;
       &.tree-title {
         font-size: 15px;
         font-weight: 500;

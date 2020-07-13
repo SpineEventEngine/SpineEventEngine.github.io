@@ -109,7 +109,7 @@
     margin-bottom: 16px;
     padding-left: 12px;
     font-size: 12px;
-    color: rgba($black, .38);
+    color: $gray-300;
     font-weight: 500;
     text-transform: uppercase;
   }
@@ -139,7 +139,7 @@
 
     a,
     a:not([href]):not([tabindex]) { // Override Bootstrap v4 default value
-      color: rgba($black, .54);
+      color: $gray-500;
       font-weight: 500;
       padding: 0;
       letter-spacing: 0.2px;

@@ -77,7 +77,7 @@ $space-for-icon: 32px;
     padding-left: 6px;
     margin-left: -$space-for-icon;
     font-size: $anchor-icon-size;
-    color: rgba($black, .38);
+    color: $gray-300;
     @include transition(all .3s ease-in-out);
 
     @media (max-width: $tablet) {
