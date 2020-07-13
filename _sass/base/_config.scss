@@ -47,14 +47,6 @@ $desktop-large              : 1440px;
 $mobile                     : $desktop-small;
 
 // Z-index
-$z-below-bottom             : -1;
-$z-bottom                   : 0;
-$z-middle-bottom            : 5;
-$z-middle                   : 10;
-$z-middle-top               : 15;
-$z-top                      : 900;
-$z-above-top                : 1000;
-
 $z-index: (
         'go-top-button'           : 999,
         'color-selector'          : 999,
