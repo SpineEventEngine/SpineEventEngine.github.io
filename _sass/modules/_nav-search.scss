@@ -188,7 +188,7 @@ $mobile-search-min-size: $mobile-search-max-size + 1;
 
     .nav-search-container {
       display: block;
-      z-index: 10000;
+      z-index: map_get($z-index, 'search-mobile');
       position: fixed;
       background-image: $nav-blue-gradient;
       top: 0;

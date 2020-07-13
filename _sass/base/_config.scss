@@ -55,6 +55,17 @@ $z-middle-top               : 15;
 $z-top                      : 900;
 $z-above-top                : 1000;
 
+$z-index: (
+        'go-top-button'           : 999,
+        'color-selector'          : 999,
+        'header'                  : 1000,
+        'snackbar'                : 1000,
+        'nav-mobile'              : 1001,
+        'side-nav-mobile'         : 1001,
+        'hamburger-menu'          : 9999,
+        'search-mobile'           : 10000
+);
+
 //Icon sizes
 $icon-size--xs              : 16px;
 $icon-size--s               : 24px;

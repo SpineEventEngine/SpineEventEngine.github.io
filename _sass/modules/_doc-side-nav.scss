@@ -185,7 +185,7 @@ $nav-title-left-padding: 22px;
 
 .docs-side-nav-holder {
   @media(max-width: $tablet-large) {
-    z-index: 1001;
+    z-index: map_get($z-index, 'side-nav-mobile');
     display: none;
     position: fixed;
     background-color: white;
