@@ -57,31 +57,8 @@ a.disabled {
     color: #CCCCCC;
 }
 
-.inverse {
-  background-color: $mainBrandColor;
-  color: white;
-
-  &.inverse-light {
-      background-color: $thirdBrandColor;
-  }
-
-  a {
-    color: $inverseBrandColor;
-  }
-
-  a:hover,
-  a:focus {
-    color: $linkHoverColor;
-  }
-}
-
 .nofloat {
   float: none;
-}
-
-// Fix Bootstrap mobile menu colors on inverse navbar.
-.navbar-toggle .icon-bar {
-  background-color: $inverseBrandColor;
 }
 
 .icon-copy-code {

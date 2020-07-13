@@ -36,17 +36,6 @@
   padding-top: $vpad;
 }
 
-.page-title-bar {
-  background-color: $thirdBrandColor;
-  border-top: 3px solid $lightPopBrandColor;
-  padding-top: 20px;
-  padding-bottom: 30px;
-
-  .fa {
-    color: $popBrandColor;
-  }
-}
-
 .page-spacer {
   height: 100px;
 }
@@ -163,16 +152,6 @@
   }
 }
 
-.toc.mobile-toc {
-  display: none !important;
-
-  @media (max-width: 768px) {
-    margin-top: 30px;
-    display: block !important;
-    border-left: 4px solid $light-gray;
-  }
-}
-
 // Tables are table-y
 table,
 th,
@@ -183,61 +162,6 @@ td {
 
 table {
   border-collapse: collapse;
-}
-
-th {
-  background-color: $thirdBrandColor;
-}
-
-.info-section {
-  margin: 32px 0 48px;
-  padding: 24px 32px;
-  background-color: $light-gray;
-  border-radius: 4px;
-
-  @media(max-width: $tablet){
-    margin: 24px 0 32px;
-  }
-
-  p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: rgba($textColor, .7);
-
-    &.lead {
-      color: $dark-gray;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-  }
-}
-
-//Use when a lot of information with title
-.info-section-with-shadow {
-  margin: 32px 0 40px;
-  padding: 24px 32px;
-  background-image: linear-gradient(-180deg, $white 0%, #FAFAFA 100%);
-  -webkit-box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
-  -moz-box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
-  -o-box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
-  box-shadow: 0 4px 8px 0 rgba($footerColor, .12), 0 -1px 2px 0 rgba($footerColor, .05);
-  border-radius: 4px;
-
-  @media(max-width: $tablet){
-    margin: 24px 0 32px;
-  }
-
-  p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: rgba($textColor, .7);
-
-    &.lead {
-      color: $textColor;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-  }
 }
 
 // Expandable title with caret icon before
