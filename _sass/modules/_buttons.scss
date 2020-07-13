@@ -265,3 +265,32 @@
     }
   }
 }
+
+// Links with the right or left arrow icons.
+.link-back, .link-next {
+  &:hover {
+    text-decoration: none;
+
+    span {
+      padding-bottom: 2px;
+      border-bottom: 1px solid $mainBrandColor;
+      color: $mainBrandColor;
+    }
+  }
+}
+
+.link-back {
+  &:before {
+    content: '';
+    @include arrow-icon();
+    margin-right: 6px;
+  }
+}
+
+.link-next {
+  &:after {
+    content: '';
+    @include arrow-icon($rotate-angle: -45deg);
+    margin-left: 6px;
+  }
+}

@@ -100,48 +100,7 @@
   }
 
   .pagination {
-    margin: 32px 8px 48px;
-
-    @media (max-width: $phone-xlarge) {
-      margin-left: -8px;
-      margin-right: -8px;
-    }
-
-    .next,
-    .previous {
-      display: inline-block;
-      line-height: 22px;
-      padding: 0;
-
-      &:hover {
-        text-decoration: none;
-
-        span {
-          padding-bottom: 2px;
-          border-bottom: 1px solid $mainBrandColor;
-        }
-      }
-    }
-
-    $arrow-width: 2px;
-    .arrow {
-      border: solid $mainBrandColor;
-      border-width: 0 $arrow-width $arrow-width 0;
-      display: inline-block;
-      padding: 3px;
-      vertical-align: middle;
-      margin-top: -2px;
-
-      &.left {
-        margin-right: 6px;
-        @include transform(rotate(135deg));
-      }
-
-      &.right {
-        margin-left: 6px;
-        @include transform(rotate(-45deg));
-      }
-    }
+    margin: 32px -8px 48px;
   }
 }
 

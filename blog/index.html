@@ -38,8 +38,8 @@ headline: 'Spine Blog'
             <div class="row pagination">
                 {% if paginator.previous_page %}
                     <div class="col-6">
-                        <a class="previous" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
-                            <i class="arrow left"></i>
+                        <a class="link-back"
+                           href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
                             <span>Newer</span>
                         </a>
                     </div>
@@ -48,9 +48,9 @@ headline: 'Spine Blog'
                 {% endif %}
                 {% if paginator.next_page %}
                     <div class="col-6 text-right">
-                        <a class="next" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
+                        <a class="link-next"
+                           href="{{ site.baseurl }}{{ paginator.next_page_path }}">
                             <span>Older</span>
-                            <i class="arrow right"></i>
                         </a>
                     </div>
                 {% else %}
