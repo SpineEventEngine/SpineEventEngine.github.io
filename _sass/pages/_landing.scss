@@ -68,20 +68,14 @@
     object-fit: contain;
     object-position: top;
     border-radius: 6px;
-    -webkit-box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
-    -moz-box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
-    -o-box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
-    box-shadow: 0 12px 20px 0 rgba($footerColor, .12);
+    @include box-shadow(0 12px 20px 0 rgba($footerColor, .12));
 
     @media(max-width: $desktop-small){
       display: block;
     }
 
     &.no-shadow {
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      -o-box-shadow: none;
-      box-shadow: none;
+      @include box-shadow(none);
     }
   }
 
@@ -128,8 +122,4 @@
     padding-bottom: 10px;
     width: 75%;
   }
-}
-
-.landing-first-step-dark {
-  background-color: $codeBkColorDark;
 }

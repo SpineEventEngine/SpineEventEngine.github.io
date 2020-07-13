@@ -1,3 +1,6 @@
+$roboto-font-path: "../fonts/roboto/" !default;
+$roboto-mono-font-path: "../fonts/robotomono/" !default;
+
 @font-face {
     font-family: "Roboto";
     src: local(Roboto Thin), url('#{$roboto-font-path}Roboto-Thin.eot');
@@ -8,6 +11,7 @@
 
     font-weight: 200;
 }
+
 @font-face {
     font-family: "Roboto";
     src: local(Roboto Light), url('#{$roboto-font-path}Roboto-Light.eot');
@@ -99,4 +103,3 @@
     url('#{$roboto-mono-font-path}roboto-mono-v5-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
     url('#{$roboto-mono-font-path}roboto-mono-v5-latin-700.svg#RobotoMono') format('svg'); /* Legacy iOS */
 }
-
