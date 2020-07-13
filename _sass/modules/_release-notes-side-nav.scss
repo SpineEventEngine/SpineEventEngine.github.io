@@ -37,7 +37,7 @@ $nav-second-level-left-padding: calc(#{$nav-first-level-left-padding} + 16px);
     hr {
       margin-top: 12px;
       margin-bottom: 12px;
-      border-color: rgba(black, .08);
+      border-color: $dividerColor;
     }
   }
 }
