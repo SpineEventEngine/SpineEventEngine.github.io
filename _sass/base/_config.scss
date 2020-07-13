@@ -46,12 +46,6 @@ $desktop-medium             : 1280px;
 $desktop-large              : 1440px;
 $mobile                     : $desktop-small;
 
-@media(min-width: $desktop-large){
-  .container {
-    width: 1410px;
-  }
-}
-
 // Z-index
 $z-below-bottom             : -1;
 $z-bottom                   : 0;
@@ -60,9 +54,6 @@ $z-middle                   : 10;
 $z-middle-top               : 15;
 $z-top                      : 900;
 $z-above-top                : 1000;
-
-// Helper vars
-$vpad: 20px;
 
 //Icon sizes
 $icon-size--xs              : 16px;
