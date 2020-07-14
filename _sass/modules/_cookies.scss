@@ -64,7 +64,7 @@
   padding: 10px 24px;
   font-size: 14px;
   color: $white;
-  border-radius: 2px;
+  border-radius: $border-radius-s;
   background-color: $mainBrandColor;
   @include transition(all .34s ease-in-out);
   margin-left: 24px;

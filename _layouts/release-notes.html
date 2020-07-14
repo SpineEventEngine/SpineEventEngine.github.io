@@ -16,11 +16,20 @@ bodyclass: docs
                 {% include {{ page.sidenav }} %}
             {% endif %}
         </div>
-        <div class="col-12 col-lg article-container markdown">
-            {% if page.date != null %}
-                <p class="date">Posted on {{ page.date | date: '%B %d, %Y' }}</p>
-            {% endif %}
-            {{ content }}
+        <div class="col-12 col-lg">
+            <div class="article-container markdown">
+                {% if page.date != null %}
+                    <p class="date">Posted on {{ page.date | date: '%B %d, %Y' }}</p>
+                {% endif %}
+                {{ content }}
+            </div>
+            <div class="subscribe-container">
+                <i class="fab fa-twitter follow-icon"></i>
+                <p class="follow-text">
+                    Subscribe to
+                    <a href="https://twitter.com/{{site.twitter_username}}">@SpineEngine</a>
+                    on&nbsp;Twitter to&nbsp;get notified of the framework updates.</p>
+            </div>
         </div>
         <div class="col-lg toc-col">
             <nav id="toc" class="toc sticky-element"></nav>

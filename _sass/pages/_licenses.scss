@@ -3,7 +3,7 @@ $open-panel-padding: 8px 56px 24px;
 $open-panel-padding-mobile: 0 0 24px;
 $inner-content-offset: 56px;
 $inner-content-offset-mobile: 40px;
-$panel-border-radius: 4px;
+$panel-border-radius: $border-radius-m;
 $panel-active-color: rgba($mainBrandColor, .09);
 $panel-hover-color: rgba($mainBrandColor, .04);
 

@@ -27,9 +27,9 @@
   }
 
   .logo {
-    margin-top: $spacing--l;
+    margin-top: 25px;
     margin-bottom: 0;
-    padding: $spacing--s $spacing--m;
+    padding: 15px 20px;
     width: 195px;
   }
 
@@ -40,7 +40,7 @@
     }
 
     p {
-      font-family: "Roboto Mono";
+      font-family: "Roboto Mono", monospace;
       color: $white;
       display: block;
       font-size: 21px;

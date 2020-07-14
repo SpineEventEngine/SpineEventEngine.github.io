@@ -11,6 +11,7 @@ const copyrightEl = $('.copyright');
 const $pre = $('pre');
 const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
+const $searchField = $('#search-field');
 const mobileSearchOpenedClass = 'mobile-search-opened';
 
 /** Pages */
@@ -97,7 +98,7 @@ $(window).resize(function() {
     ifCookiesExist();
     fixHead();
     setColorSelectorTopPosition();
-    removeMobileSearchPanelOnResize();
+    updateSearchPanelOnResize();
 
     if (isPromoPage) {
         showCodeColorSelectorOnPromoPage();
@@ -280,7 +281,7 @@ function openHeaderMenuOnMobile() {
 function openSearchPanelOnMobile() {
     $('.mobile-search-panel').click(function() {
         $body.addClass(mobileSearchOpenedClass);
-        $('#search-field').focus();
+        $searchField.focus();
     });
 }
 
@@ -296,12 +297,23 @@ function closeSearchPanelOnMobile() {
 }
 
 /**
- * Removes the `mobileSearchOpened` body class on window resize.
+ * Returns the search input to the original state on window resize.
+ *
+ * <p>Removing the input focus state is needed to fix a bug when the user
+ * resizes a window with the open search bar.
+ */
+function updateSearchPanelOnResize() {
+    $searchField.blur();
+    removeMobileSearchPanelOnDesktop();
+}
+
+/**
+ * Removes the `mobileSearchOpened` body class for the desktop screen sizes.
  *
  * <p>It is needed for the correct search work if for some reason the body
  * class remains visible on desktop screen sizes.
  */
-function removeMobileSearchPanelOnResize() {
+function removeMobileSearchPanelOnDesktop() {
     const mobileWindow = $(window).width() <= mobileSearchScreenSize;
 
     if (!mobileWindow) {

@@ -3,7 +3,7 @@ $color-selector-width: 38px;
 $color-link-width: 32px;
 $color-link-height: $color-link-width - 6px;
 $color-link-height-mobile: $color-link-width + 4px;
-$color-selector-border-radius: 5px 0 0 5px;
+$color-selector-border-radius: $border-radius-l 0 0 $border-radius-l;
 $color-selector-padding: 8px 0;
 $color-selector-bg-color: rgba(white, .8);
 $color-selector-shadow: 0 4px 12px 1px rgba(34, 44, 78, .1);
