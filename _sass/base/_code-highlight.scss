@@ -5,7 +5,7 @@ $code-block-padding-mobile: 12px 16px;
 $code-block-border-radius: $border-radius-m;
 
 code {
-  font-family: 'Roboto Mono', monospace;
+  font-family: $main-mono-font;
   background-color: transparent;
   color: $textColor;
   font-size: 95%; // The percentages are used here because the monotype font is larger than sans.

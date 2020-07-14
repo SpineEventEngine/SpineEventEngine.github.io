@@ -40,7 +40,7 @@
     }
 
     p {
-      font-family: "Roboto Mono", monospace;
+      font-family: $main-mono-font;
       color: $white;
       display: block;
       font-size: 21px;
@@ -58,7 +58,7 @@
   }
 
   .hero-title {
-    font-family: 'Roboto Mono', monospace;
+    font-family: $main-mono-font;
     font-weight: 700;
     color: white;
     font-size: 56px;

@@ -103,7 +103,7 @@ $article-line-height: 1.74;
 
   // Lead Text Block
   .lead {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-family: $main-font;
     font-size: 18px;
     font-weight: 300;
     letter-spacing: .2px;

@@ -71,7 +71,7 @@ $panel-hover-color: rgba($mainBrandColor, .04);
   }
 
   .dependencies-title {
-    font-family: 'Roboto Mono', monospace;
+    font-family: $main-mono-font;
     font-size: 16px;
     margin-bottom: 10px;
     padding-top: 24px;
