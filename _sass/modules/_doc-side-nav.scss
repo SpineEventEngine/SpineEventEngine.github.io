@@ -94,7 +94,7 @@ $nav-title-left-padding: 22px;
     &:hover {
       background-color: rgba(#000, .03);
       text-decoration: none;
-      border-radius: 2px;
+      border-radius: $border-radius-s;
     }
 
     &.active {

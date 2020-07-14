@@ -34,7 +34,7 @@
   color: $white;
   border: 1px solid $white;
   background-color: transparent;
-  border-radius: 2px;
+  border-radius: $border-radius-s;
   padding: 15px 56px;
   text-transform: uppercase;
   cursor: pointer;
@@ -58,7 +58,7 @@
   border: 1px solid $gray-100;
   background-color: transparent;
   padding: 9px 16px;
-  border-radius: 2px;
+  border-radius: $border-radius-s;
   text-transform: uppercase;
   letter-spacing: 1px;
   @include transition(all .34s ease-in-out);
@@ -113,7 +113,7 @@
   font-weight: 500;
   color: $white;
   background-color: $mainBrandColor;
-  border-radius: 2px;
+  border-radius: $border-radius-s;
   text-transform: uppercase;
   letter-spacing: 1px;
   @include transition(all .34s ease-in-out);
@@ -150,7 +150,7 @@
     margin-top: -20px;
     content: "";
     background: rgba($secondBrandColor, .26) url('../img/icons/caret.svg') no-repeat;
-    border-radius: 5px;
+    border-radius: $border-radius-l;
     width: $icon-size--l;
     height: $icon-size--l;
     @include transform(rotate(-180deg));

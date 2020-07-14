@@ -48,17 +48,23 @@ $mobile                     : $desktop-small;
 
 // Z-index
 $z-index: (
-        'go-top-button'           : 999,
-        'color-selector'          : 999,
-        'header'                  : 1000,
-        'snackbar'                : 1000,
-        'nav-mobile'              : 1001,
-        'side-nav-mobile'         : 1001,
-        'hamburger-menu'          : 9999,
-        'search-mobile'           : 10000
+        'go-top-button'     : 999,
+        'color-selector'    : 999,
+        'header'            : 1000,
+        'snackbar'          : 1000,
+        'nav-mobile'        : 1001,
+        'side-nav-mobile'   : 1001,
+        'hamburger-menu'    : 9999,
+        'search-mobile'     : 10000
 );
 
-//Icon sizes
+// Border-radius
+$border-radius-s            : 2px;
+$border-radius              : 3px;
+$border-radius-m            : 4px;
+$border-radius-l            : 5px;
+
+// Icon sizes
 $icon-size--xs              : 16px;
 $icon-size--s               : 24px;
 $icon-size--m               : 32px;
@@ -76,4 +82,4 @@ $page-top-offset: $header-height + 32px;
 $page-top-offset-mobile: $header-height + 16px;
 
 // Inputs
-$input-border-radius: 3px;
+$input-border-radius: $border-radius;
