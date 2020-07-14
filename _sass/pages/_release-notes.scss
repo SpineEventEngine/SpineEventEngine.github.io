@@ -1,4 +1,9 @@
 .release-notes {
+  .article-container {
+    margin-bottom: 16px;
+    min-height: 350px;
+  }
+
   .markdown {
     p, ol, ul {
       text-align: left;
@@ -6,6 +11,48 @@
 
     hr {
       margin: 40px 0;
+    }
+  }
+
+  $container-padding: 24px;
+  $icon-left-offset: 52px;
+  $icon-left-offset-mobile: 24px;
+  $text-left-offset: $icon-left-offset - $container-padding + 32px;
+  $text-left-offset-mobile: $icon-left-offset-mobile - $container-padding + 32px;
+
+  .subscribe-container {
+    position: relative;
+    background-color: $light-blue-bg-color;
+    border: 1px solid $article-border-color;
+    border-radius: $border-radius;
+    padding: $container-padding;
+    margin-bottom: 32px;
+
+    @media (max-width: $phone-xlarge) {
+      margin-top: 32px;
+      border: none;
+    }
+
+    .follow-icon {
+      position: absolute;
+      color: #1da2f1; // Twitter color
+      font-size: 20px;
+      top: 26px;
+      left: $icon-left-offset;
+
+      @media (max-width: $phone-xlarge) {
+        left: $icon-left-offset-mobile;
+      }
+    }
+
+    .follow-text {
+      display: inline-block;
+      padding-left: $text-left-offset;
+      margin-bottom: 0;
+
+      @media (max-width: $phone-xlarge) {
+        padding-left: $text-left-offset-mobile;
+      }
     }
   }
 }
