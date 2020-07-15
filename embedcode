@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Ensure `_code` files are fetched.
+git submodule update --init --recursive
+
+# Update code samples.
+bundle exec jekyll embedCodeSamples
