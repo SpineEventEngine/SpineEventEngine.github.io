@@ -40,3 +40,16 @@ collections:
   release_notes:
     output: true
     permalink: /release-notes/:path
+
+exclude:
+  - .idea/
+  - embedcode
+  - README.md
+  - TROUBLESHOOTING.md
+  - Gemfile
+  - Gemfile.lock
+
+embed_code:
+  code_root: ./_code
+  documentation_root: ./docs
+  code_includes: ["**/*.proto", "**/*.java", "**/*.gradle", "**/*.html", "**/*.js"]
