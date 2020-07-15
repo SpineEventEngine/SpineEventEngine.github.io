@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/SpineEventEngine/embed-code
+  revision: 5e919b38bb3333b7377e40b6ada456cdfcdc7396
+  specs:
+    embed-code (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -258,6 +264,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  embed-code!
   github-pages
   html-proofer
   jekyll
