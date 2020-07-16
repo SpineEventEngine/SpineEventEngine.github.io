@@ -1,44 +1,37 @@
 // Brand Colors
 $mainBrandColor: #1a96de;
 $secondBrandColor: #116db4;
-$thirdBrandColor: #ddeaf4;
-$inverseBrandColor: #FFFFFF;
+$inverseBrandColor: #ffffff;
 $body-light-gray-color: #f6f8fA;
 $warningColor: #deba32;
 $nav-blue-gradient: linear-gradient(152deg, #1378DA 0%, #0B64CC 100%);
+$light-blue-bg-color: #edf8ff;
 
 // Dividers
 $dividerColor: rgba(0, 0, 0, .08);
 $divider: 1px solid $dividerColor;
-
-// Use as an accent color in small quantities to balance out the main theme.
-$popBrandColor: hsl(22, 91%, 74%);
-$lightPopBrandColor: lighten($popBrandColor, 15%);
-
+$article-border-color: #e6ecf1;
 
 // General Colors
-$black: #2E2E2E;
-$white: #FFFFFF;
-$gray: #737373;
-$light-gray: lighten($gray, 52%);
+$black: #2e2e2e;
+$white: #ffffff;
 $light-gray-blue: #eef1f3;
-$dark-gray: darken($gray, 20%);
+$textColor: #3a3a3a;
+$errorColor: #c40003;
 
+// Links
 $linkColor: $mainBrandColor;
 $linkHoverColor: darken($linkColor, 10%);
-$linkColorSecondary: $white;
-$linkColorTertiary: $gray;
-$codeColor: darken($linkColor, 20%);
-$codeBkColor: $light-gray;
-$codeBkColorDark: #2c3545;
-$wellColor: #F9F9F9;
-$textColor: #3a3a3a;
-$titleColor: #555555;
-$headingsColor: rgb(21, 91, 103);
+$lightBlueColor: #5dc4ff;
+
+// Footer
 $footerColor: #232526;
 $footerText: #eaeaea;
-$errorColor: #C40003;
-$lightBlueColor: #5DC4FF;
-$tabsGrayColor: #E2E2E4;
 
-$row-highlight: lighten($gray, 52%) !important;
+// Grays
+$gray-100: rgba(black, .12);
+$gray-200: rgba(black, .26);
+$gray-300: rgba(black, .38);
+$gray-500: rgba(black, .54);
+$gray-600: rgba(black, .6);
+$gray-700: rgba(black, .7);

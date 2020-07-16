@@ -5,6 +5,8 @@
 
 @import url("https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css");
 
+@import "fonts/_roboto";
+
 @import "base/_mixins";
 @import "base/_config";
 @import "base/_layout";
@@ -20,28 +22,26 @@
 
 @import "modules/_buttons";
 @import "modules/_doc-side-nav";
+@import "modules/_release-notes-side-nav";
 @import "modules/_footer";
 @import "modules/_hero";
 @import "modules/_nav";
 @import "modules/_nav-search";
-@import "modules/_contribute-links";
-@import "modules/_subscribe-form";
 @import "modules/_cookies";
 @import "modules/_feature-cards";
 @import "modules/_loader";
 @import "modules/color-selector";
 @import "modules/snackbar";
 
-@import "materialize/materialize.scss";
-
 @import "pages/_blog";
 @import "pages/_docs";
 @import "pages/_faq";
 @import "pages/_landing";
 @import "pages/_about";
-@import "pages/_community";
 @import "pages/_contribute";
 @import "pages/_privacy";
 @import "pages/_licenses";
 @import "pages/_search-result";
+@import "pages/_resources";
+@import "pages/_release-notes";
 @import "pages/_getting-help";

@@ -126,3 +126,16 @@
     list-style: decimal;
   }
 }
+
+// Arrow icon
+// By default this is a left icon: @include arrow-icon();
+// To use the icon to the right, add the angle property: @include arrow-icon($rotate-angle: -45deg);
+@mixin arrow-icon($line-width: 2px, $icon-size: 3px, $rotate-angle: 135deg, $color: $mainBrandColor) {
+  border: solid $color;
+  border-width: 0 $line-width $line-width 0;
+  display: inline-block;
+  padding: $icon-size;
+  vertical-align: middle;
+  margin-top: -2px;
+  @include transform(rotate($rotate-angle));
+}

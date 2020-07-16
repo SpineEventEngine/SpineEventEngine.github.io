@@ -24,7 +24,7 @@
   .logo-card {
     margin: 16px 24px 0 0;
     padding: 0 24px;
-    border-radius: 4px;
+    border-radius: $border-radius-m;
     text-align: center;
     @include transition(all .25s ease-in-out);
 
@@ -41,7 +41,7 @@
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(black, .12);
+      box-shadow: 0 6px 12px $gray-100;
     }
 
     &.external {
@@ -80,7 +80,7 @@
     padding-top: 56px;
     padding-bottom: 64px;
     text-align: center;
-    background-color: #EDF8FF;
+    background-color: $light-blue-bg-color;
     
     p {
       margin: 16px 24px 0 16px;

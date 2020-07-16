@@ -79,7 +79,7 @@ p {
     color: $black;
     font-size: 15px;
     line-height: 24px;
-    border-radius: 2px;
+    border-radius: $border-radius-s;
     margin-bottom: 24px;
 
     code {
@@ -95,7 +95,7 @@ p {
     color: $black;
     font-size: 15px;
     line-height: 24px;
-    border-radius: 2px;
+    border-radius: $border-radius-s;
     margin-bottom: 24px;
 
     code {

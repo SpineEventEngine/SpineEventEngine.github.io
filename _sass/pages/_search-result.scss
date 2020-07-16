@@ -23,7 +23,7 @@ $search-content-font-size: 15px;
 
         .gsc-input-box {
           height: $search-input-height;
-          border: 1px solid rgba(black, .12);
+          border: 1px solid $gray-100;
           border-radius: $input-border-radius 0 0 $input-border-radius;
           border-right: none;
           padding: 0;
@@ -43,13 +43,13 @@ $search-content-font-size: 15px;
 
             .gsst_a {
               .gscb_a {
-                color: rgba(black, .26);
+                color: $gray-200;
                 margin-top: 1px;
               }
 
               &:hover, &:focus {
                 .gscb_a {
-                  color: rgba(black, .54);
+                  color: $gray-500;
                 }
               }
             }
@@ -186,7 +186,7 @@ $search-content-font-size: 15px;
         background-color: transparent;
         text-align: center;
         font-size: 16px;
-        color: rgba(black, .38);
+        color: $gray-300;
         margin-top: 24px;
       }
     }

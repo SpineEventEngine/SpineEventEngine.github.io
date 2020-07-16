@@ -37,7 +37,6 @@ $nav-title-left-padding: 22px;
     padding: 8px $nav-first-level-left-padding;
     color: $nav-link-color;
     font-weight: 400;
-    @include transition(all .3s ease-in-out);
 
     @media (max-width: $tablet-large) {
       padding: 12px $nav-first-level-left-padding;
@@ -84,7 +83,7 @@ $nav-title-left-padding: 22px;
     &:hover {
       background-color: rgba(#000, .03);
       text-decoration: none;
-      border-radius: 2px;
+      border-radius: $border-radius-s;
     }
 
     &.active {
@@ -113,7 +112,7 @@ $nav-title-left-padding: 22px;
       &:before {
         content: '';
         position: absolute;
-        background: rgba(#000, .08);
+        background: $dividerColor;
         display: block;
         left: $nav-second-level-left-padding;
         top: 13px;
@@ -175,7 +174,7 @@ $nav-title-left-padding: 22px;
 
 .docs-side-nav-holder {
   @media(max-width: $tablet-large) {
-    z-index: 1001;
+    z-index: map_get($z-index, 'side-nav-mobile');
     display: none;
     position: fixed;
     background-color: white;

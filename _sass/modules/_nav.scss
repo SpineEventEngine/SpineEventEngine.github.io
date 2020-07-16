@@ -14,7 +14,7 @@
 #header {
   width: 100%;
   min-height: 64px;
-  z-index: 1000;
+  z-index: map_get($z-index, 'header');
   position: absolute;
 
   // Fixed header for small pages such us `Privacy Statement` and `Post`.
@@ -70,7 +70,7 @@
     @media (max-width: 767px) {
       background-color: $footerColor;
       @include box-shadow(-1px 0px 8px 0px rgba(black, .25));
-      z-index: 1001;
+      z-index: map_get($z-index, 'nav-mobile');
       display: block;
       position: fixed;
       top: 0;
@@ -86,7 +86,7 @@
         width: 100%;
         height: 56px;
         background-color: rgba($footerColor, .95);
-        z-index: 1000;
+        z-index: map_get($z-index, 'header');
         margin: -48px -24px;
       }
     }
@@ -120,7 +120,7 @@
         -webkit-transform: translateZ(0);
 
         @media (min-width: $tablet) {
-          padding: 16px 20px;
+          padding: 16px;
           font-size: 15px;
           letter-spacing: 0.5px;
         }
@@ -248,7 +248,7 @@
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
     @include transition(.5s ease-in-out);
-    z-index: 9999;
+    z-index: map_get($z-index, 'hamburger-menu');
     cursor: pointer;
   }
 
@@ -258,7 +258,7 @@
     height: 2px;
     width: 24px;
     background: $white;
-    border-radius: 2px;
+    border-radius: $border-radius-s;
     opacity: 1;
     left: 4px;
     -webkit-transform: rotate(0deg);
@@ -313,7 +313,7 @@
 }
 
 .page-headline {
-  font-family: 'Roboto Mono', monospace;
+  font-family: $main-mono-font;
   color: $white;
   font-size: 32px;
   font-weight: 400;
