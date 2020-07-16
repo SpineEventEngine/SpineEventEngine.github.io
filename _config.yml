@@ -43,6 +43,13 @@ collections:
 
 exclude:
   - .idea/
+  - .github/
+  - .saas-cache/
+  - gradle/
+  - gradlew
+  - gradlew.bat
+  - build.gradle
+  - settings.gradle
   - embedcode
   - README.md
   - TROUBLESHOOTING.md
