@@ -1,4 +1,4 @@
-name: Links check
+name: Links Check
 
 on:
   push:
@@ -24,4 +24,4 @@ jobs:
           gem install bundler
           bundle install
           jekyll build
-          htmlproofer --assume-extension ./_site --url-ignore /github\.com/
+          ./proof-links
