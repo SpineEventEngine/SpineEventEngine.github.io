@@ -14,7 +14,15 @@ the [`embed-code`](https://github.com/SpineEventEngine/embed-code) Jekyll subcom
 The code resides under the `_code` directory. For instructions on embedding the code into the pages, 
 please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file. 
 
-## Running the site locally
+# Prerequisites
+
+ 1. Install Ruby.
+ 2. Install the `bundle` tool.
+ 3. Install the project dependencies by running `bundle install`.
+ 
+Now you should be able to run the site locally.
+
+# Running the site locally
 
 To build and launch the site on the local server:
 ```
@@ -27,7 +35,7 @@ bundle install
 If you experience issues with this step, please check out
 the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
-## Authoring
+# Authoring
 
 For instructions on adding the content to the site, please see
 the [`AUTHORING.md`](AUTHORING.md) file.
