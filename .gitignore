@@ -3,9 +3,55 @@ _site/
 .jekyll-metadata
 .idea
 .DS_Store
-.gradle/
 */build/
+
 **/*.jar
-build/
+!gradle/wrapper/*
+
+# IntelliJ IDEA modules and interim config files.
+*.iml
+.idea/libraries
+.idea/shelf
+.idea/*.xml
+.idea/.name
+
+# Do not ignore code style settings.
+!/.idea/codeStyleSettings.xml
+
+# Gradle interim configs
+.gradle/
+
+# Generated source code
 generated/
+
+# Gradle build files
+build/
+
+# IDEA build files
+out/
+
+# Spine temporary artifact storage
+.spine/
+
+# Credentials to Maven repositories and Google Cloud Storage used for Travis build reports
+credentials.tar
+credentials.properties
+cloudrepo.properties
+deploy_key_rsa
+gcs-auth-key.json
+
+#
+# The gradle.properties file should contain settings specific to a developer's workstation.
+#
+# See sample file for a Mac OS X workstation below.
+# -------
+# # Set Java home to point to JDK8. This is need to generate classes working with Java8 API.
+# # Otherwise the following warning appears during the build:
+# #     warning: [options] bootstrap class path not set in conjunction with -source 1.8
+# #
+# # suppress inspection "UnusedProperty"
+# org.gradle.java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/
+# -------
+gradle.properties
+
 
