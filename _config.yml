@@ -46,6 +46,8 @@ exclude:
   - .gradle/
   - .idea/
   - .saas-cache/
+  - config/
+  - buildSrc/
   - gradle/
   - gradlew
   - gradlew.bat
