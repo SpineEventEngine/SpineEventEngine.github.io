@@ -35,8 +35,3 @@ kramdown:
   input: GFM
   hard_wrap: false
   parse_block_html: true
-
-collections:
-  release_notes:
-    output: true
-    permalink: /release-notes/:path
