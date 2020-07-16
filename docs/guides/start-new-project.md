@@ -20,7 +20,7 @@ While omitting the steps of creating the project repository, the first step to g
 done is to conduct an [EventStorming](https://eventstorming.com) session with the domain experts 
 in the chosen field.
 
-The result of the EventStorming session is captured as artifacts and described as part of the 
+The results of the EventStorming session are captured as artifacts and described as part of the 
 project documentation.
 
 <p class="note">We store the EventStorming artifacts as images under the project root in the 
@@ -29,5 +29,5 @@ the photos of the EventStorming board are stored in the repository. In case of a
 session, the screenshots of the board are stored.</p>
 
 After the session, a dedicated person creates a Pull Request with the session artifacts and the 
-team reviews the EventStorming sessions once again. Going forward, the EventStorming artifacts
+team reviews the EventStorming session once again. Going forward, the EventStorming artifacts
 are updated while the new sessions are conducted.
