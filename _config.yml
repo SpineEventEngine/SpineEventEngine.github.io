@@ -52,6 +52,7 @@ exclude:
   - settings.gradle
   - embedcode
   - README.md
+  - AUTHORING.md
   - TROUBLESHOOTING.md
   - Gemfile
   - Gemfile.lock
@@ -59,4 +60,4 @@ exclude:
 embed_code:
   code_root: ./_code
   documentation_root: ./docs
-  code_includes: ["**/*.proto", "**/*.java", "**/*.gradle", "**/*.html", "**/*.js"]
+  code_includes: ["**/*.proto", "**/*.java", "**/*.kt", "**/*.dart", "**/*.js", "**/*.html", "**/*.gradle", "**/*.gradle.kts"]
