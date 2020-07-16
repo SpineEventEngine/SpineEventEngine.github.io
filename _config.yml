@@ -42,15 +42,17 @@ collections:
     permalink: /release-notes/:path
 
 exclude:
-  - .idea/
   - .github/
+  - .gradle/
+  - .idea/
   - .saas-cache/
   - gradle/
   - gradlew
   - gradlew.bat
   - build.gradle
+  - build.gradle.kts
   - settings.gradle
-  - embedcode
+  - settings.gradle.kts
   - README.md
   - AUTHORING.md
   - TROUBLESHOOTING.md
