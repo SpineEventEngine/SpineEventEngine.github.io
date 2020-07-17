@@ -26,11 +26,11 @@ Now you should be able to run the site locally.
 
 To build and launch the site on the local server:
 ```
-bundle exec jekyll serve
+./gradlew :runSite
 ```
-You may be required to install Gems first:
+To build the site without running the server:
 ```
-bundle install
+./gradlew :buildSite
 ```
 If you experience issues with this step, please check out
 the [Troubleshooting Guide](TROUBLESHOOTING.md).
