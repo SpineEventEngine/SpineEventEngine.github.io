@@ -45,6 +45,7 @@ exclude:
   - .github/
   - .gradle/
   - .idea/
+  - .spine/
   - .saas-cache/
   - config/
   - buildSrc/
