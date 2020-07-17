@@ -20,18 +20,9 @@
 
 rootProject.name = "spine.io"
 
-/**
- * Includes a module and sets custom project directory to it.
- */
-fun module(name: String, path: String) {
-    include(name)
-    project(":$name").projectDir = File(path)
-}
-
-include("samples")
-
-module("examples-airport", "./examples/airport")
-module("examples-blog", "./examples/blog")
-module("examples-hello", "./examples/hello")
-module("examples-kanban", "./examples/kanban")
-module("examples-todo-list", "./examples/todo-list")
+includeBuild("./_code/samples")
+includeBuild("./_code/examples/airport")
+includeBuild("./_code/examples/blog")
+includeBuild("./_code/examples/hello")
+includeBuild("./_code/examples/kanban")
+includeBuild("./_code/examples/todo-list")
