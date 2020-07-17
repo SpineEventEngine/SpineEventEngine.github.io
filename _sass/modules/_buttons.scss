@@ -170,7 +170,7 @@
 
 // Links with the right or left arrow icons.
 .link-back, .link-next {
-  &:hover {
+  &:hover, &:focus {
     text-decoration: none;
 
     span {
