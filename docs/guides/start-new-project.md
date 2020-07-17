@@ -28,6 +28,9 @@ project documentation.
 the photos of the EventStorming board are stored in the repository. In case of an online 
 session, the screenshots of the board are stored.</p>
 
+<!-- TODO:2020-07-17:yuri-sergiichuk: Add photos/screenshots of conducted EventStorming sessions.
+maybe blend them together as a collage. -->
+
 After the session, a dedicated person creates a Pull Request with the session artifacts and the 
 team reviews the EventStorming session once again. This first EventStorming is usually addressed as 
 a "Big Picture". Going forward, the new EventStorming "Process Modeling" 
