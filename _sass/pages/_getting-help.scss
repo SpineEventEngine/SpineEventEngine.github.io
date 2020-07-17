@@ -50,7 +50,7 @@
 
   p, ul {
     font-size: $font-size--xs;
-    line-height: $article-line-height;
+    line-height: 1.6;
   }
 
   .pricing-list, .terms {
@@ -99,8 +99,20 @@
     }
   }
 
+  .support-hours {
+    background-color: $body-light-gray-color;
+    padding: 4px 16px;
+    margin-top: 16px;
+    border-radius: $border-radius;
+
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+
   .pricing-block {
-    margin-top: 32px;
+    margin-top: 40px;
 
     .price {
       font-size: $font-size--m;
