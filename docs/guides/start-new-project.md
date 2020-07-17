@@ -33,9 +33,9 @@ session, the screenshots of the board are stored.</p>
 maybe blend them together as a collage. -->
 
 After the session, a dedicated person creates a Pull Request with the session artifacts and the 
-team reviews the EventStorming session once again. This first EventStorming is usually addressed as 
-a "Big Picture". Going forward, the new EventStorming "Process Modeling" 
-and "Software Design" sessions produce updates to the existing artifacts.
+team reviews them once again. This first EventStorming is usually addressed as a "Big Picture". 
+Going forward, the new EventStorming "Process Modeling" and "Software Design" sessions 
+produce updates to the existing artifacts.
 
 Depending on the size and the scope of the project, you may need to conduct multiple EventStorming 
 session with different experts.
@@ -43,7 +43,8 @@ session with different experts.
 ## Limiting the scope
 
 While the temptation to dive into the development right away may be humongous, we recommend limiting
-the scope for teams and/or developers down to a dedicated Bounded Context and its parts.
+the scope for teams and/or developers down to a dedicated 
+[Bounded Context](/docs/introduction/concepts.html#bounded-context) and its parts.
 
 <p class="note">Remember, <i>"eat an elephant one bite at a time"</i>.</p>
 
@@ -55,15 +56,27 @@ of the elephant. We tend to continue by rounding up a particular Bounded Context
 With a dedicated Bounded Context in mind, now it's time to create the first "code" artifacts of the 
 project. 
 
-For the Bounded Context, we define the Protobuf messages that mold the 
+For the Bounded Context we define Protobuf messages that mold the 
 [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html 
 "Learn more about the Ubiquitous Language") of the context. 
 
-The result of these efforts are the `.proto` files grouped under a specific package 
-of a Bounded Context.
+The result of these efforts are the `.proto` files grouped under a specific package.
 
-<p class="note">The naming conversions are covered in the 
+<!-- TODO:2020-07-17:ysergiichuk: add an example of such a package structure -->
+
+<p class="note">The naming conventions are covered in the 
 [Naming Conventions](/docs/introduction/naming-conventions.html "Check the Naming Conventions") 
 section.</p>
 
 <!-- TODO:2020-07-17:yuri-sergiichuk: Add examples of the .proto files and folders structure. -->  
+
+While writing the protos, make sure to document **all** messages. It's time to unleash 
+your technical writing skills and contribute to the project ground-standing foundation. 
+Here you may want to introduce some domain-level validation logic. Check out the 
+[Validation guide](/docs/guides/validation.html "Learn more about Validation") for details. 
+
+When the proto definitions are ready, a new Pull Request is created and reviewed by the team.
+
+## Implementing a scenario
+
+TBD 
