@@ -1,3 +1,5 @@
+$btn-font-size: 14px;
+
 .btn {
   &:focus {
     outline: 0 !important;
@@ -29,9 +31,10 @@
 }
 
 .btn-doc-call-white {
-  font-size: 14px;
+  font-size: $btn-font-size;
   font-weight: 500;
   color: $white;
+  text-align: center;
   border: 1px solid $white;
   background-color: transparent;
   border-radius: $border-radius-s;
@@ -44,87 +47,35 @@
     outline: none;
     background-color: rgba($lightBlueColor, .2);
     border: 1px solid $lightBlueColor;
-    -moz-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
-    -webkit-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
-    -o-box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
-    box-shadow: 0 5px 20px 0 rgba($footerColor, 0.28);
+    @include box-shadow(0 5px 20px 0 rgba($footerColor, 0.28));
   }
 }
 
-.btn-bordered {
-  font-size: 11px;
-  font-weight: 500;
-  color: $textColor;
-  border: 1px solid $gray-100;
-  background-color: transparent;
-  padding: 9px 16px;
-  border-radius: $border-radius-s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  @include transition(all .34s ease-in-out);
+.btn-bordered-blue {
   display: inline-block;
-  cursor: pointer;
+  font-size: $btn-font-size;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: $mainBrandColor;
+  padding: 14px 32px;
+  border: 2px solid $mainBrandColor;
+  border-radius: $border-radius-m;
+  text-transform: uppercase;
+  @include transition(all .34s ease-in-out);
 
-  &:hover, &:focus {
+  &:hover {
     outline: none;
+    text-decoration: none;
+    background-color: rgba($mainBrandColor, .12);
     color: $mainBrandColor;
-    background-color: rgba($mainBrandColor, .08);
-    border: 1px solid rgba($mainBrandColor, .3);
-    text-decoration: none;
   }
 
-  &.with-icon {
-    padding: 14px 20px;
-
-    &:before {
-      content: '';
-      display: inline-block;
-      border: solid $gray-300;
-      border-width: 0 1px 1px 0;
-      padding: 4px;
-      transform: rotate(135deg);
-      -webkit-transform: rotate(135deg);
-      vertical-align: middle;
-      margin: -2px 8px 0 0;
-      @include transition(all .34s ease-in-out);
-    }
-
-    &:hover, &:focus {
-      &:before {
-        border-color: $mainBrandColor;
-      }
-    }
-  }
-
-  &.big-light {
-    font-size: 14px;
-    padding: 12px 24px;
-    color: rgba($textColor, .54);
-
-    &:hover, &:focus {
-      color: $mainBrandColor;
-    }
-  }
-}
-
-.btn-filled {
-  font-size: 14px;
-  padding: 12px 24px;
-  font-weight: 500;
-  color: $white;
-  background-color: $mainBrandColor;
-  border-radius: $border-radius-s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  @include transition(all .34s ease-in-out);
-  display: inline-block;
-  cursor: pointer;
-
-  &:hover, &:focus {
-    outline: none;
-    color: $white;
-    background-color: $lightBlueColor;
-    text-decoration: none;
+  &:focus {
+    @include box-shadow(none);
+    outline: 1px dotted;
+    outline-offset: -5px;
+    color: $mainBrandColor;
   }
 }
 
