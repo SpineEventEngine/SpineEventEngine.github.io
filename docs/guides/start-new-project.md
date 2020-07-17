@@ -29,5 +29,13 @@ the photos of the EventStorming board are stored in the repository. In case of a
 session, the screenshots of the board are stored.</p>
 
 After the session, a dedicated person creates a Pull Request with the session artifacts and the 
-team reviews the EventStorming session once again. Going forward, the EventStorming artifacts
-are updated while the new sessions are conducted.
+team reviews the EventStorming session once again. This first EventStorming is usually addressed as 
+a "Big Picture". Going forward, the new EventStorming "Process Modeling" 
+and "Software Design" sessions produce updates to the existing artifacts.
+
+Depending on the size and the scope of the project, you may need to conduct multiple EventStorming 
+session with different experts.
+
+## Limiting the scope
+
+TBD
