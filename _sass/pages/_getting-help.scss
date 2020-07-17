@@ -1,16 +1,132 @@
 .getting-help {
   background-color: $body-light-gray-color;
 
-  @media (max-width: $phone-xlarge) {
+  @media (max-width: $phone-large) {
     background-color: white;
   }
 
   .getting-help-content {
-    margin-top: 24px;
+    max-width: $center-col-width;
+    margin: 32px auto;
   }
 
-  .article-container {
-    max-width: $center-col-width;
-    margin: 0 auto 32px;
+  .help-card {
+    background-color: white;
+    border: 1px solid $article-border-color;
+    margin-bottom: 24px;
+    padding: 56px 64px 48px;
+
+    @media (max-width: $phone-xlarge) {
+      padding: 40px;
+    }
+
+    @media (max-width: $phone-medium) {
+      padding: 32px;
+    }
+
+    @media (max-width: $phone-small) {
+      border: 0;
+      padding: 16px 0 24px;
+    }
+  }
+
+  .intro-text {
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+
+    @media (max-width: $phone-xlarge)  {
+      margin-bottom: 6px;
+    }
+  }
+
+  h3 {
+    font-size: $font-size--s;
+  }
+
+  p, ul {
+    font-size: $font-size--xs;
+    line-height: $article-line-height;
+  }
+
+  .pricing-list, .terms {
+    li {
+      padding: 10px 0;
+      margin: 0;
+      border-bottom: 1px dotted #d5dfe3;
+    }
+  }
+
+  .terms {
+    li {
+      position: relative;
+
+      i {
+        position: absolute;
+        font-size: 22px;
+        color: #72858C;
+        margin-right: 16px;
+        top: 12px;
+      }
+
+      p {
+        margin: 0;
+        padding-left: 40px;
+      }
+    }
+  }
+
+  .pricing-btn {
+    float: right;
+    margin-top: 32px;
+
+    @media (max-width: $phone-medium) {
+      width: 100%;
+    }
+  }
+
+  .developing-container {
+    h3 {
+      padding-top: 40px;
+
+      @media (max-width: $phone-xlarge)  {
+        padding-top: 24px;
+      }
+    }
+  }
+
+  .pricing-block {
+    margin-top: 32px;
+
+    .price {
+      font-size: $font-size--m;
+      font-weight: 700;
+    }
+
+    .description, .slash {
+      color: $gray-500;
+      line-height: 1.6;
+    }
+
+    @media (max-width: $phone-medium) {
+      .description {
+        display: block;
+        margin-top: 3px;
+      }
+
+      .slash {
+        display: none;
+      }
+    }
+  }
+
+  .team-support-container {
+    .pricing-btn {
+      margin-top: 0;
+    }
   }
 }
