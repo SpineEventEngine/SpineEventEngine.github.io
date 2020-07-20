@@ -85,19 +85,42 @@ The scenario is a defined finite part of the context. It's either a use case des
 in the context, or a process, or maybe a complete functional flow if it fits into the expected time
 to implement your team is used to.
 
+### Implementing the backend
+
 We're tending to start with the backend, so this point usually contains the backend implementation
 of the scenario.
 
 The minimum desired implementation of a scenario has the Java implementation of the domain
-entities, and the Black Box Context (BBC) integration tests. We assume here that the Java code 
-conforms to the teams defined standards for the code quality and documentation. 
-The BBC tests here is the way we recommend testing scenarios in Spine. They are specifically 
+entities, and the Black Box Context (BBC) integration tests. 
+
+We assume here that the Java code conforms to the teams defined standards for the code quality 
+and documentation. 
+
+The BBC tests are the recommended way to test scenarios in Spine. They are specifically 
 built to allow you checking your business logic the same way it works in the real application.
 
 <!-- //TODO:2020-07-20:yuri-sergiichuk: add links to the BBC examples/guides -->
 
 As with the other steps, when a backend for the scenario is done a new PR is created and reviewed.
 
-## Fulfilling the scenario vertical
+### Fulfilling the vertical
 
-TBD
+We're usually doing the vertical development, meaning an engineer starts with 
+the domain definitions, continues with its implementation and finishes with the UI, 
+dedicated public API or a client whichever is needed for the task to be done. 
+Depending on your team workflow and preferences this step can take place in parallel 
+with the previous one. 
+
+As noted, the scope of this part is to prepare the UI for the scenario if one is needed or 
+the exposed public API or a dedicated idiomatic client.
+
+As soon as the implementation is ready, another PR and review comes along.
+
+## Start over again
+
+When a scenario is finished, pick up a new one and start it over again through the PR and review
+process.
+
+And when a particular Bounded Context is fulfilled the team can continue with the next one as well.
+Although, in some cases you may find it easier to iterate over the linked scenarios from 
+different contexts which is perfectly fine.
