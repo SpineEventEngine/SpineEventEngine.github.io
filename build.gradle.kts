@@ -18,25 +18,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-plugins {
-    `java-library`
-    idea
-}
-
-val junitVersion = "5.5.2"
-
-dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-}
-
-tasks.test.configure {
-    useJUnitPlatform {
-        includeEngines("junit-jupiter")
-    }
-    include("**/*Test.class")
-}
-
 /**
  * Builds and runs the site locally.
  */
@@ -53,7 +34,7 @@ task<Exec>("buildSite") {
 
 /**
  * Builds all included projects via depending on the top-level "buildAll" tasks
- * declared in these proejcts.
+ * declared in these projects.
  *
  * @see https://discuss.gradle.org/t/defining-a-composite-build-only-to-build-all-subprojects/25070/6
  * @see https://github.com/AlexMAS/gradle-composite-build-example
