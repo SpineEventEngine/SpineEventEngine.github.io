@@ -1,7 +1,9 @@
 name: Site checks
 
 on:
-  push
+  push:
+    branches:
+      - all
   pull_request:
     branches:
       - master
