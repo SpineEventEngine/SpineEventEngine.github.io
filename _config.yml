@@ -46,7 +46,14 @@ exclude:
   - .idea/
   - .spine/
   - .saas-cache/
+  - .gradle
   - config/
+  - gradle
+  - buildSrc
+  - gradlew
+  - gradlew.bat
+  - build.gradle.kts
+  - settings.gradle.kts
   - README.md
   - AUTHORING.md
   - TROUBLESHOOTING.md

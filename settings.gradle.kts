@@ -20,12 +20,12 @@
 
 rootProject.name = "spine.io"
 
-include("./samples")
+include("samples")
 
-includeBuild("./examples/kanban")
+includeBuild("./_code/examples/kanban")
 
 // Comment out the below builds when they are added to the content of the site.
-//includeBuild("./examples/airport")
-//includeBuild("./examples/blog")
-//includeBuild("./examples/hello")
-//includeBuild("./examples/todo-list")
+//includeBuild("./_code/examples/airport")
+//includeBuild("./_code/examples/blog")
+//includeBuild("./_code/examples/hello")
+//includeBuild("./_code/examples/todo-list")

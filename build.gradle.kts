@@ -18,6 +18,24 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+plugins {
+    `java-library`
+    idea
+}
+
+val junitVersion = "5.5.2"
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+}
+
+tasks.test.configure {
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+    }
+    include("**/*Test.class")
+}
 
 /**
  * Builds and runs the site locally.
