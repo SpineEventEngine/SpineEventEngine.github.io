@@ -21,20 +21,20 @@ In short, please follow the next steps to have a consistent joyful development f
 
 1. Conduct EventStorming to gather domain knowledge, store the session board images in the repo.
 
-2. Pick up a domain you'd like to start with.
+1. Pick up a domain you'd like to start with.
 
-    2.1 Define signals and entities as Protobuf messages for the chosen domain.
+    1. Define signals and entities as Protobuf messages for the chosen domain.
 
-    2.2 Pick up a scenario (a use case, a process, or a flow) within the bounded context.
+    1. Pick up a scenario (a use case, a process, or a flow) within the bounded context.
     
-    2.3 Implement the scenario server-side functionality in Java code. Cover the business logic
+    1. Implement the scenario server-side functionality in Java code. Cover the business logic
         with Black Box Context (BBC) integration tests.
         
-    2.4 Fulfill the scenario vertical: create UI, public API, or a client whichever is required.
+    1. Fulfill the scenario vertical: create UI, public API, or a client whichever is required.
     
-    2.x Repeat steps 2.2—2.4 till all the scenarios are covered.
+    1. Repeat steps 2.2—2.4 till all the scenarios are covered.
 
-3. Repeat step 2 for the other domains.
+1. Repeat step 2 for the other domains.
 
 Make sure you have a dedicated Pull Request for each and every step and sub-step.
 
@@ -69,7 +69,7 @@ While the temptation to dive into the development right away may be humongous, w
 the scope for teams and/or developers down to a dedicated 
 [Bounded Context](/docs/introduction/concepts.html#bounded-context) and its parts.
 
-<p class="note">Remember, <i>"eat an elephant one bite at a time"</i>.</p>
+<p class="note">Remember, <i>"eat an :elephant: one bite at a time"</i>.</p>
 
 Now it's a perfect time to conduct another EventStorming session and start eating some smaller part
 of the elephant. We tend to continue by rounding up a particular Bounded Context.
