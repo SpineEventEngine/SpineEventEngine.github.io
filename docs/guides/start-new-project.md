@@ -155,7 +155,9 @@ and documentation.
 The BBC tests are the recommended way to test scenarios in Spine. They are specifically 
 built to allow you to check your business logic the same way it works in the real application.
 
-<!-- //TODO:2020-07-20:yuri-sergiichuk: add links to the BBC examples/guides -->
+<!-- //TODO:2020-07-20:yuri-sergiichuk: add links to the BBC examples/guides.
+ See https://github.com/SpineEventEngine/SpineEventEngine.github.io/issues/339.
+ -->
 
 As with the other steps, when a backend for the scenario is done a new PR is created and reviewed.
 
