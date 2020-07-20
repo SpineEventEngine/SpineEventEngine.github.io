@@ -94,18 +94,40 @@ For the Bounded Context we define Protobuf messages that mold the
 
 The results of these efforts are the `.proto` files grouped under a specific package.
 
-<!-- TODO:2020-07-17:ysergiichuk: add an example of such a package structure -->
+```
+ChatBot/
+  ...
+  docs/
+    event-storming/
+      ...
+  google-chat-bot/
+    ...
+    src/
+       main/
+         java/
+         proto/
+           spine/
+             github/
+               identifiers.proto
+               organization.proto
+               organization_commands.proto
+               organization_events.proto
+               ...
+       test/
+         java/
+         proto/
+    ...     
+    build.gradle
+```
 
 <p class="note">The naming conventions are covered in the 
 [Naming Conventions](/docs/introduction/naming-conventions.html "Check the Naming Conventions") 
 section.</p>
 
-<!-- TODO:2020-07-17:yuri-sergiichuk: Add examples of the .proto files and folders structure. -->  
-
 While writing the protos, make sure to document **all** messages. It's time to unleash 
 your technical writing skills and contribute to the project's ground-standing foundation. 
 Here you may want to introduce some domain-level validation logic. Check out the 
-[Validation guide](/docs/guides/validation.html "Learn more about Validation") for details. 
+[Validation guide](/docs/guides/validation.html "Learn more about Validation") for details.
 
 When the proto definitions are ready, a new Pull Request is created and reviewed by the team.
 
