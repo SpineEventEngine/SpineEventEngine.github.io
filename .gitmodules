@@ -14,5 +14,5 @@
 	path = _code/examples/todo-list
 	url = https://github.com/spine-examples/todo-list
 [submodule "_code/config"]
-	path = _code/config
+	path = config
 	url = https://github.com/SpineEventEngine/config
