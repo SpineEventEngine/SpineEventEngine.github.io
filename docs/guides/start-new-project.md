@@ -77,6 +77,27 @@ Here you may want to introduce some domain-level validation logic. Check out the
 
 When the proto definitions are ready, a new Pull Request is created and reviewed by the team.
 
-## Implementing a scenario
+## Picking up a scenario
 
-TBD 
+With the defined proto messages it's time to pick up a scenario to be implemented.
+
+The scenario is a defined finite part of the context. It's either a use case described 
+in the context, or a process, or maybe a complete functional flow if it fits into the expected time
+to implement your team is used to.
+
+We're tending to start with the backend, so this point usually contains the backend implementation
+of the scenario.
+
+The minimum desired implementation of a scenario has the Java implementation of the domain
+entities, and the Black Box Context (BBC) integration tests. We assume here that the Java code 
+conforms to the teams defined standards for the code quality and documentation. 
+The BBC tests here is the way we recommend testing scenarios in Spine. They are specifically 
+built to allow you checking your business logic the same way it works in the real application.
+
+<!-- //TODO:2020-07-20:yuri-sergiichuk: add links to the BBC examples/guides -->
+
+As with the other steps, when a backend for the scenario is done a new PR is created and reviewed.
+
+## Fulfilling the scenario vertical
+
+TBD
