@@ -38,7 +38,12 @@ In short, please follow the next steps to have a consistent joyful development f
 
 Make sure you have a dedicated Pull Request for each and every step and sub-step.
 
-## EventStorming or getting started with the domain
+## Development flow
+
+The sections below describe in more details how the development process should be structured
+and which steps we think should be involved in it.
+
+### EventStorming or getting started with the domain
 
 While omitting the steps of creating the project repository, the first thing to get the project
 done is to conduct an [EventStorming](https://eventstorming.com "Learn more about EventStorming") 
@@ -63,7 +68,7 @@ produce updates to the existing artifacts.
 Depending on the size and the scope of the project, you may need to conduct multiple EventStorming 
 session with different experts.
 
-## Limiting the scope
+### Limiting the scope
 
 While the temptation to dive into the development right away may be humongous, we recommend limiting
 the scope for teams and/or developers down to a dedicated 
@@ -74,7 +79,7 @@ the scope for teams and/or developers down to a dedicated
 Now it's a perfect time to conduct another EventStorming session and start eating some smaller part
 of the elephant. We tend to continue by rounding up a particular Bounded Context.
 
-## Shaping the language
+### Shaping the language
 
 With a dedicated Bounded Context in mind, we can continue with creation of the first "code" artifacts of the 
 project. 
@@ -100,7 +105,7 @@ Here you may want to introduce some domain-level validation logic. Check out the
 
 When the proto definitions are ready, a new Pull Request is created and reviewed by the team.
 
-## Picking up a scenario
+### Picking up a scenario
 
 A scenario is a defined finite part of the context. It can be either a use case, a business process, 
 or a complete functional flow. Considering a scenario you should estimate the time required to 
@@ -108,7 +113,7 @@ implement one.
 
 If you see it getting too big, maybe worth splitting it into two or more smaller parts.
 
-### Implementing the backend
+#### Implementing the backend
 
 We're tending to start with the backend, so this point usually contains the backend implementation
 of the scenario.
@@ -126,7 +131,7 @@ built to allow you checking your business logic the same way it works in the rea
 
 As with the other steps, when a backend for the scenario is done a new PR is created and reviewed.
 
-### Fulfilling the vertical
+#### Fulfilling the vertical
 
 We're usually doing the vertical development, meaning an engineer starts with 
 the domain definitions, continues with its implementation and finishes with the front-facing tasks.
@@ -139,7 +144,7 @@ either a UI if one is needed, or the public API, or a dedicated idiomatic client
 
 As soon as the implementation is ready, another PR and review comes along.
 
-## Start over again
+### Start over again
 
 When a scenario is finished, pick up a new one and start it over again following the PR and review
 process.
@@ -147,3 +152,9 @@ process.
 As soon as a particular Bounded Context is fulfilled the team can continue with the next one.
 Although, in some cases you may find it easier to iterate over the linked scenarios from 
 different contexts which is perfectly fine.
+
+## Admonition
+
+While these steps might look "too easy", it may be sometimes very tempting to step out of the 
+defined track. This guide is our way to memoize the steps and designate it out for ourselves how
+to stick to a "good" development process.
