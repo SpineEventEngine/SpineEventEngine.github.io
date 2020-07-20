@@ -43,19 +43,10 @@ collections:
 
 exclude:
   - .github/
-  - .gradle/
   - .idea/
   - .spine/
   - .saas-cache/
   - config/
-  - buildSrc/
-  - gradle/
-  - gradlew
-  - gradlew.bat
-  - build.gradle
-  - build.gradle.kts
-  - settings.gradle
-  - settings.gradle.kts
   - README.md
   - AUTHORING.md
   - TROUBLESHOOTING.md
