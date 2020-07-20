@@ -15,6 +15,29 @@ While the development process is described in the [introduction](/docs/introduct
 "Check the Introduction") 
 section, in the guide we want to cover the exact steps that we follow while working on a project.
 
+## TL;DR 
+
+In short, please follow the next steps to have a consistent joyful development flow:
+
+1. Conduct EventStorming to gather domain knowledge, store the session board images in the repo.
+
+2. Pick up a domain you'd like to start with.
+
+    2.1 Define signals and entities as Protobuf messages for the chosen domain.
+
+    2.2 Pick up a scenario (a use case, a process, or a flow) within the bounded context.
+    
+    2.3 Implement the scenario server-side functionality in Java code. Cover the business logic
+        with Black Box Context (BBC) integration tests.
+        
+    2.4 Fulfill the scenario vertical: create UI, public API, or a client whichever is required.
+    
+    2.x Repeat steps 2.2—2.4 till all the scenarios are covered.
+
+3. Repeat step 2 for the other domains.
+
+Make sure you have a dedicated Pull Request for each and every step and sub-step.
+
 ## EventStorming or getting started with the domain
 
 While omitting the steps of creating the project repository, the first step to get the project
