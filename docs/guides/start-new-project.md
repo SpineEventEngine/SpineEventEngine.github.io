@@ -12,8 +12,8 @@ Making the flow efficient and straight-forward is even harder. This guide will w
 the way we tend to start and develop new projects.</p>
 
 While the development process is described in the [introduction](/docs/introduction 
-"Check the Introduction") 
-section, in the guide we want to cover the exact steps that we follow while working on a project.
+"Check the Introduction") section, in the guide we want to cover the exact steps that we follow 
+while working on a project.
 
 ## TL;DR 
 
@@ -21,20 +21,20 @@ In short, please follow the next steps to have a consistent joyful development f
 
 1. Conduct EventStorming to gather domain knowledge, store the session board images in the repo.
 
-1. Pick up a domain you'd like to start with.
+2. Pick up a domain you'd like to start with.
 
-    1. Define signals and entities as Protobuf messages for the chosen domain.
+    2.1. Define signals and entities as Protobuf messages for the chosen domain.
 
-    1. Pick up a scenario (a use case, a process, or a flow) within the bounded context.
+    2.2. Pick up a scenario (a use case, a process, or a flow) within the bounded context.
     
-    1. Implement the scenario server-side functionality in Java code. Cover the business logic
+    2.3. Implement the scenario server-side functionality in Java code. Cover the business logic
         with Black Box Context (BBC) integration tests.
         
-    1. Fulfill the scenario vertical: create UI, public API, or a client whichever is required.
+    2.4. Fulfill the scenario vertical: create UI, public API, or a client whichever is required.
     
-    1. Repeat steps 2.2—2.4 till all the scenarios are covered.
+    2.5. Repeat steps 2.2—2.4 till all the scenarios are covered.
 
-1. Repeat step 2 for the other domains.
+3. Repeat step 2 for the other domains.
 
 Make sure you have a dedicated Pull Request for each and every step and sub-step.
 
