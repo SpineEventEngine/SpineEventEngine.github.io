@@ -35,6 +35,12 @@ out/
 # Spine temporary artifact storage
 .spine/
 
+# Temporarily add the Spine Protoc plugin until this Base issue is fixed:
+#     https://github.com/SpineEventEngine/base/issues/552
+# Update the file when you bump Spine dependency in `samples` or `examples`.
+# The `.spine` directory must have all the versions of the plugin until the issue is fixed.
+!/.spine/spine-protoc-plugin-1.5.21.jar
+
 # Credentials to Maven repositories and Google Cloud Storage used for Travis build reports
 credentials.tar
 credentials.properties
