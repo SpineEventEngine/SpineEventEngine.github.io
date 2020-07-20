@@ -69,7 +69,7 @@ While the temptation to dive into the development right away may be humongous, w
 the scope for teams and/or developers down to a dedicated 
 [Bounded Context](/docs/introduction/concepts.html#bounded-context) and its parts.
 
-<p class="note">Remember, <i>"eat an :elephant: one bite at a time"</i>.</p>
+<p class="note">Remember, <i>"eat an elephant one bite at a time"</i>.</p>
 
 Now it's a perfect time to conduct another EventStorming session and start eating some smaller part
 of the elephant. We tend to continue by rounding up a particular Bounded Context.
