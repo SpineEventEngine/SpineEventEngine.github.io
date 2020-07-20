@@ -33,9 +33,7 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7.x'
-        run: |
+      - run: |
           gem install bundler
           bundle install
-
-      - run: ./_script/check-samples
-
+          ./_script/check-samples
