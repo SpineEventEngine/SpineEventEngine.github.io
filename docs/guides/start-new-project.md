@@ -40,7 +40,7 @@ Make sure you have a dedicated Pull Request for each and every step and sub-step
 
 ## EventStorming or getting started with the domain
 
-While omitting the steps of creating the project repository, the first step to get the project
+While omitting the steps of creating the project repository, the first thing to get the project
 done is to conduct an [EventStorming](https://eventstorming.com "Learn more about EventStorming") 
 session with the domain experts in the chosen field.
 
@@ -57,7 +57,7 @@ maybe blend them together as a collage. -->
 
 After the session, a dedicated person creates a Pull Request with the session artifacts and the 
 team reviews them once again. This first EventStorming is usually addressed as a "Big Picture". 
-Going forward, the new EventStorming "Process Modeling" and "Software Design" sessions 
+Going forward, the next EventStorming "Process Modeling" and "Software Design" sessions 
 produce updates to the existing artifacts.
 
 Depending on the size and the scope of the project, you may need to conduct multiple EventStorming 
@@ -76,14 +76,14 @@ of the elephant. We tend to continue by rounding up a particular Bounded Context
 
 ## Shaping the language
 
-With a dedicated Bounded Context in mind, now it's time to create the first "code" artifacts of the 
+With a dedicated Bounded Context in mind, we can continue with creation of the first "code" artifacts of the 
 project. 
 
 For the Bounded Context we define Protobuf messages that mold the 
 [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html 
 "Learn more about the Ubiquitous Language") of the context. 
 
-The result of these efforts are the `.proto` files grouped under a specific package.
+The results of these efforts are the `.proto` files grouped under a specific package.
 
 <!-- TODO:2020-07-17:ysergiichuk: add an example of such a package structure -->
 
@@ -102,18 +102,18 @@ When the proto definitions are ready, a new Pull Request is created and reviewed
 
 ## Picking up a scenario
 
-With the defined proto messages it's time to pick up a scenario to be implemented.
+A scenario is a defined finite part of the context. It can be either a use case, a business process, 
+or a complete functional flow. Considering a scenario you should estimate the time required to 
+implement one.
 
-The scenario is a defined finite part of the context. It's either a use case described 
-in the context, or a process, or maybe a complete functional flow if it fits into the expected time
-to implement your team is used to.
+If you see it getting too big, maybe worth splitting it into two or more smaller parts.
 
 ### Implementing the backend
 
 We're tending to start with the backend, so this point usually contains the backend implementation
 of the scenario.
 
-The minimum desired implementation of a scenario has the Java implementation of the domain
+The minimum desired implementation of the scenario has the Java implementation of the domain
 entities, and the Black Box Context (BBC) integration tests. 
 
 We assume here that the Java code conforms to the teams defined standards for the code quality 
@@ -129,21 +129,21 @@ As with the other steps, when a backend for the scenario is done a new PR is cre
 ### Fulfilling the vertical
 
 We're usually doing the vertical development, meaning an engineer starts with 
-the domain definitions, continues with its implementation and finishes with the UI, 
-dedicated public API or a client whichever is needed for the task to be done. 
-Depending on your team workflow and preferences this step can take place in parallel 
-with the previous one. 
+the domain definitions, continues with its implementation and finishes with the front-facing tasks.
 
-As noted, the scope of this part is to prepare the UI for the scenario if one is needed or 
-the exposed public API or a dedicated idiomatic client.
+Depending on your team workflow and preferences this step can take place in parallel 
+with the previous one.
+
+As noted, the scope of this part is to prepare the front-facing part for the scenario: 
+either a UI if one is needed, or the public API, or a dedicated idiomatic client.
 
 As soon as the implementation is ready, another PR and review comes along.
 
 ## Start over again
 
-When a scenario is finished, pick up a new one and start it over again through the PR and review
+When a scenario is finished, pick up a new one and start it over again following the PR and review
 process.
 
-And when a particular Bounded Context is fulfilled the team can continue with the next one as well.
+As soon as a particular Bounded Context is fulfilled the team can continue with the next one.
 Although, in some cases you may find it easier to iterate over the linked scenarios from 
 different contexts which is perfectly fine.
