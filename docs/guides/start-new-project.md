@@ -40,7 +40,7 @@ Make sure you have a dedicated Pull Request for each and every step and sub-step
 
 ## Development flow
 
-The sections below describe in more details how the development process should be structured
+The sections below describe in more detail how the development process should be structured
 and which steps we think should be involved in it.
 
 ### EventStorming or getting started with the domain
@@ -54,7 +54,7 @@ project documentation.
 
 <p class="note">We store the EventStorming artifacts as images under the project root in the 
 `/docs/event-storming/` folder. If the session is performed offline (as ideally it should be), 
-the photos of the EventStorming board are stored in the repository. In case of an online 
+the photos of the EventStorming board are stored in the repository. In the case of an online 
 session, the screenshots of the board are stored.</p>
 
 {: .img-small}
@@ -85,7 +85,7 @@ We tend to continue by rounding up a particular Bounded Context.
 
 ### Shaping the language
 
-With a dedicated Bounded Context in mind, we can continue with creation of the first "code" 
+With a dedicated Bounded Context in mind, we can continue with the creation of the first "code" 
 artifacts of the project. 
 
 For the Bounded Context we define Protobuf messages that mold the 
@@ -103,7 +103,7 @@ section.</p>
 <!-- TODO:2020-07-17:yuri-sergiichuk: Add examples of the .proto files and folders structure. -->  
 
 While writing the protos, make sure to document **all** messages. It's time to unleash 
-your technical writing skills and contribute to the project ground-standing foundation. 
+your technical writing skills and contribute to the project's ground-standing foundation. 
 Here you may want to introduce some domain-level validation logic. Check out the 
 [Validation guide](/docs/guides/validation.html "Learn more about Validation") for details. 
 
@@ -123,13 +123,13 @@ We're tending to start with the backend, so this point usually contains the back
 of the scenario.
 
 The minimum desired implementation of the scenario has the Java implementation of the domain
-entities, and the Black Box Context (BBC) integration tests. 
+entities and the Black Box Context (BBC) integration tests. 
 
 We assume here that the Java code conforms to the teams defined standards for the code quality 
 and documentation. 
 
 The BBC tests are the recommended way to test scenarios in Spine. They are specifically 
-built to allow you checking your business logic the same way it works in the real application.
+built to allow you to check your business logic the same way it works in the real application.
 
 <!-- //TODO:2020-07-20:yuri-sergiichuk: add links to the BBC examples/guides -->
 
@@ -138,7 +138,7 @@ As with the other steps, when a backend for the scenario is done a new PR is cre
 #### Fulfilling the vertical
 
 We're usually doing the vertical development, meaning an engineer starts with 
-the domain definitions, continues with its implementation and finishes with the front-facing tasks.
+the domain definition, continues with its implementation, and finishes with the front-facing tasks.
 
 Depending on your team workflow and preferences this step can take place in parallel 
 with the previous one.
@@ -146,7 +146,7 @@ with the previous one.
 As noted, the scope of this part is to prepare the front-facing part for the scenario: 
 either a UI if one is needed, or the public API, or a dedicated idiomatic client.
 
-As soon as the implementation is ready, another PR and review comes along.
+As soon as the implementation is ready, another PR and review come along.
 
 ### Start over again
 
@@ -154,11 +154,11 @@ When a scenario is finished, pick up a new one and start it over again following
 process.
 
 As soon as a particular Bounded Context is fulfilled the team can continue with the next one.
-Although, in some cases you may find it easier to iterate over the linked scenarios from 
+Although, in some cases, you may find it easier to iterate over the linked scenarios from 
 different contexts which is perfectly fine.
 
 ## Admonition
 
 While these steps might look "too easy", it may be sometimes very tempting to step out of the 
-defined track. This guide is our way to memoize the steps and designate it out for ourselves how
+defined track. This guide is our way to memoize the steps and designate it out for ourselves on how
 to stick to a "good" development process.
