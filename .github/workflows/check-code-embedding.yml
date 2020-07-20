@@ -32,4 +32,6 @@ jobs:
       - run: |
           gem install bundler
           bundle install
-          ./_script/check-samples
+
+      - name: Check Embedding
+        run ./_script/check-samples
