@@ -24,4 +24,6 @@ jobs:
           gem install bundler
           bundle install
           jekyll build
-          ./_script/proof-links
+
+      - name: Proof Links
+        run ./_script/proof-links

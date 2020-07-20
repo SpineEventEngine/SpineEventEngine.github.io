@@ -11,9 +11,7 @@ on:
 jobs:
 
   build-embedded-code:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v1
       - run: git submodule update --init --recursive
@@ -23,9 +21,7 @@ jobs:
       - run: ./gradlew :buildAll
 
   check-embedded-samples:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v1
 
