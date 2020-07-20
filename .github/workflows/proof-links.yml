@@ -1,4 +1,4 @@
-name: Links Check
+name: Proof Links
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: Site checks
+name: Check Code Embedding
 
 on:
   push:
@@ -9,7 +9,20 @@ on:
       - master
 
 jobs:
-  check-site:
+
+  build-embedded-code:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: git submodule update --init --recursive
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - run: ./gradlew :buildAll
+
+  check-embedded-samples:
 
     runs-on: ubuntu-latest
 
@@ -24,16 +37,5 @@ jobs:
           gem install bundler
           bundle install
 
-      - run: ./_script/check
+      - run: ./_script/check-samples
 
-  check-examples:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-      - run: git submodule update --init --recursive
-      - uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - run: ./gradlew :buildAll
