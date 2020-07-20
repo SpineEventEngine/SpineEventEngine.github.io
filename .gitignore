@@ -6,7 +6,7 @@ _site/
 */build/
 
 **/*.jar
-!gradle/wrapper/*
+!/_code/gradle/wrapper/*
 
 # IntelliJ IDEA modules and interim config files.
 *.iml
