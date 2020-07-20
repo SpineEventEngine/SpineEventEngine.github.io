@@ -6,7 +6,9 @@ _site/
 */build/
 
 **/*.jar
-!/gradle/wrapper/*
+# Do not ignore the Gradle Wrapper at the top level and in the sub-projects that are
+# added as included builds. See `settings.gradle.kts` for details.
+!**/gradle/wrapper/*
 
 # IntelliJ IDEA modules and interim config files.
 *.iml
