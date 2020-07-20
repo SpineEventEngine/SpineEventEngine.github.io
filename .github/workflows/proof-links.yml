@@ -26,4 +26,4 @@ jobs:
           jekyll build
 
       - name: Proof Links
-        run ./_script/proof-links
+        run: ./_script/proof-links

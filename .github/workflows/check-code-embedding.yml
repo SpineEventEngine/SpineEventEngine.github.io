@@ -34,4 +34,4 @@ jobs:
           bundle install
 
       - name: Check Embedding
-        run ./_script/check-samples
+        run: ./_script/check-samples
