@@ -57,8 +57,9 @@ project documentation.
 the photos of the EventStorming board are stored in the repository. In case of an online 
 session, the screenshots of the board are stored.</p>
 
-<!-- TODO:2020-07-17:yuri-sergiichuk: Add photos/screenshots of conducted EventStorming sessions.
-maybe blend them together as a collage. -->
+{: .img-small}
+![An example of the EventStorming board]({{ site.baseurl }}/img/starting-a-new-project/event-storming-board.jpg)
+<p class = "text-center font-weight-light">An example of the EventStorming board.</p>
 
 After the session, a dedicated person creates a Pull Request with the session artifacts and the 
 team reviews them once again. This first EventStorming is usually addressed as a "Big Picture". 
@@ -78,6 +79,9 @@ the scope for teams and/or developers down to a dedicated
 
 Now it's a perfect time to conduct another EventStorming session and go into more details. 
 We tend to continue by rounding up a particular Bounded Context.
+
+![An example of a Bounded Context]({{ site.baseurl }}/img/starting-a-new-project/bounded-context.jpg)
+<p class = "text-center font-weight-light">An example of a Bounded Context.</p>
 
 ### Shaping the language
 
