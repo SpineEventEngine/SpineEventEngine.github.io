@@ -92,7 +92,9 @@ For the Bounded Context we define Protobuf messages that mold the
 [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html 
 "Learn more about the Ubiquitous Language") of the context. 
 
-The results of these efforts are the `.proto` files grouped under a specific package.
+The results of these efforts are the `.proto` files that are 
+[grouped](/docs/introduction/project-structure.html#example "Example Project structure") under a 
+specific package in the `proto` folder.
 
 ```
 ChatBot/
