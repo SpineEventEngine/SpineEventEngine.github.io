@@ -24,4 +24,4 @@ jobs:
           gem install bundler
           bundle install
           jekyll build
-          htmlproofer --assume-extension ./_site --url-ignore /github\.com/
+          htmlproofer --assume-extension ./_site --url-ignore /github\.com/ --only_4xx
