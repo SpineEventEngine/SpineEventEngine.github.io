@@ -1,11 +1,18 @@
+# The result of Jekyll build
 _site/
+
+# Intermediate directory used by `embed-code` Jekyll subcommand
+.fragments
+
 .sass-cache
 .jekyll-metadata
 .idea
 .DS_Store
+
 */build/
 
 **/*.jar
+
 # Do not ignore the Gradle Wrapper at the top level and in the sub-projects that are
 # added as included builds. See `settings.gradle.kts` for details.
 !**/gradle/wrapper/*
@@ -17,7 +24,7 @@ _site/
 .idea/*.xml
 .idea/.name
 
-# Do not ignore code style settings.
+# Do not ignore IDEA code style settings.
 !/.idea/codeStyleSettings.xml
 
 # Gradle interim configs
@@ -61,5 +68,3 @@ gcs-auth-key.json
 # org.gradle.java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/
 # -------
 gradle.properties
-
-
