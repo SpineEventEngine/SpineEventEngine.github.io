@@ -2,4 +2,4 @@
 
 # Check the links used by the site.
 # Log only 4xx errors and ignore 429 http errors.
-htmlproofer htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
+htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
