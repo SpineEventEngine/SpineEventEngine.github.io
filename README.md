@@ -77,7 +77,8 @@ code to Markdown pages. See [this doc](_samples/README.md) for the instructions.
 
 We use the [html-proofer](https://github.com/gjtorikian/html-proofer) tool to test broken links.
 To start test locally you may be required to install tool Gem first:
-`bundle install` and build site `jekyll build`. After that use `htmlproofer --assume-extension ./_site --url-ignore /github\.com/` command.
-GitHub links are ignored because of wrong error logging described in [this](https://github.com/gjtorikian/html-proofer/issues/226) issue.
+`bundle install` and build site `jekyll build`. After that use `htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"` command.
+* 429 http statuses ignored because of wrong error logging described in [this](https://github.com/gjtorikian/html-proofer/issues/226) issue.
+* `--only_4xx` parameter used to prevent incorrect links checks. As described in the [tool documentation](https://github.com/gjtorikian/html-proofer#configuration) it have to reports errors only for links that fall within the 4xx status code range.
 
 Also, we have the `Links check` GitHub Action for this test. It will start on push to the repository.
