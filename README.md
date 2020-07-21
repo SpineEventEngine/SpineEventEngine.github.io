@@ -73,11 +73,30 @@ To add a collapsible category use the following code:
 We use the [code-excerpter](https://github.com/chalin/code_excerpter) tool for adding the source
 code to Markdown pages. See [this doc](_samples/README.md) for the instructions.
 
-### Testing broken links
+# Testing broken links
 
 We use the [html-proofer](https://github.com/gjtorikian/html-proofer) tool to test broken links.
-To start test locally you may be required to install tool Gem first:
-`bundle install` and build site `jekyll build`. After that use `htmlproofer --assume-extension ./_site --url-ignore /github\.com/` command.
-GitHub links are ignored because of wrong error logging described in [this](https://github.com/gjtorikian/html-proofer/issues/226) issue.
+To start test locally you may be required to install the Gem of the tool first:
 
-Also, we have the `Links check` GitHub Action for this test. It will start on push to the repository.
+```bash
+bundle install
+```
+... and then build the site:
+ 
+```bash
+jekyll build
+``` 
+
+After that, please use the following command:
+
+```bash
+htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
+```
+
+> Please note that links to GitHub are ignored by `--http-status-ignore "429"` command, because GitHub rejects the check 
+> coming from `htmlproofer`. Details of this are described in
+> [this issue](https://github.com/gjtorikian/html-proofer/issues/226).
+> Also, we log only 4xx errors to avoid incorrect links checks.  
+
+Also, we have a GitHub Action which tests the links when the pull request is created to the `master`. 
+Please see the [`.github/workflows/proof-links.yml`](.github/workflows/proof-links.yml) file for details.
