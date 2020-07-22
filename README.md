@@ -96,7 +96,7 @@ htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
 > Please note that links to GitHub are ignored by `--http-status-ignore "429"` command, because GitHub rejects the check 
 > coming from `htmlproofer`. Details of this are described in
 > [this issue](https://github.com/gjtorikian/html-proofer/issues/226).
-> We only log errors for links that fall within the 4xx status code range. Redirects and server errors are not reported.  
+> We use the html-proofer tool to test broken links, falling within the 4xx status code range.  
 
 Also, we have a GitHub Action which tests the links when the pull request is created to the `master`. 
 Please see the [`.github/workflows/proof-links.yml`](.github/workflows/proof-links.yml) file for details.
