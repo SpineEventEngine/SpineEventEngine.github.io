@@ -1,3 +1,6 @@
 #!/bin/bash
 
+# Load environment variables for the case of execution from the Gradle build.
+source ~/.bash_profile
+
 bundle exec jekyll checkCodeSamples
