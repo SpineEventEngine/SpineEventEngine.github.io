@@ -2,4 +2,5 @@
 
 # Check the links used by the site.
 #  Ignore links to GitHub because it rejects the checks coming from `htmlproofer`.
-htmlproofer --assume-extension ./_site --url-ignore /github\.com/
+htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
+

@@ -91,10 +91,10 @@ After that, please use the following command:
 ./_script/proof-links
 ```
 
-> Please note that links to GitHub are ignored because GitHub rejects the check coming 
-> from `htmlproofer`. Details of this are described in
-> [this issue](https://github.com/gjtorikian/html-proofer/issues/226).
+> We only log errors falling within the 4xx status code range. 
+> Please note that links to GitHub are ignored by --http-status-ignore "429" command, because GitHub rejects the check
+> coming from htmlproofer. Details of this are described in [this issue](https://github.com/gjtorikian/html-proofer/issues/226). 
 
-Also, we have a GitHub Action which tests the links when the code is pushed to GitHub. 
-Please see the [`.github/links-check.yml`](.github/links-check.yml) file for details.
+Also, we have a GitHub Action which tests the links when the pull request is created to the `master`. 
+Please see the [`.github/workflows/proof-links.yml`](.github/workflows/proof-links.yml) file for details.
 
