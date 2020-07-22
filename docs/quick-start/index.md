@@ -312,12 +312,12 @@ Events are declared similarly to commands. The header of the file has:
     ```
 
  * The same `(type_url_prefix)` we use in this project.
- * A separate package for events of the context:
+ * A separate Java package for events of the context:
     
     ```proto
     option java_package="io.spine.helloworld.hello.event";
     ```
- * The outer class for all types in this file:
+ * The outer Java class for all types in this file:
  
     ```proto
     option java_outer_classname = "EventsProto";
@@ -331,8 +331,11 @@ Events are declared similarly to commands. The header of the file has:
 
 The sole event in this project is declared this way:
 
+The command for printing a text in a console is defined this way:
+<?embed-code file="examples/hello/src/main/proto/hello/events.proto" 
+             start="*message Printed*" 
+             end="*}"?>
 ```proto 
-// A text was printed.
 message Printed {
 
     // The login name of the user.
@@ -364,8 +367,10 @@ server-only is not used by the client code.
  
 This file defines a single data type. It is the state of the entity handling the `Print` command:
 
+<?embed-code file="examples/hello/src/main/proto/hello/server/console.proto" 
+             start="*message Output*" 
+             end="*}"?>
 ```proto
-// The screen state of the user's console.
 message Output {
     option (entity) = { kind: PROCESS_MANAGER };
 
@@ -388,8 +393,11 @@ Now, let's see how this data is used at the server-side.
 
 The class is declared this way:
 
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
+             start="*class Console*" 
+             end="*class Console*"?>
 ```java
-final class Console extends ProcessManager<String, Output, Output.Builder>
+final class Console extends ProcessManager<String, Output, Output.Builder> {
 ```
 The generic arguments passed to `ProcessManager` are:
  1. `String` — the type of the ID of the entity. Remember the type
