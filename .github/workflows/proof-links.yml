@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  build:
+  proof-links:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -24,4 +24,4 @@ jobs:
           gem install bundler
           bundle install
           jekyll build
-          htmlproofer --assume-extension ./_site --url-ignore /github\.com/
+          htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
