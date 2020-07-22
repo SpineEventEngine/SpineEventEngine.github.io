@@ -27,3 +27,5 @@ jobs:
 
       - name: Proof Links
         run: ./_script/proof-links
+
+        htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
