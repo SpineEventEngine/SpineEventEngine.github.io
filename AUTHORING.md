@@ -55,17 +55,7 @@ Visit [Configuring Jekyll for Project GitHub Pages and for User GitHub Pages](ht
 
 For collapsible categories we use the Bootstrap [Collapse](https://getbootstrap.com/docs/4.0/components/collapse/) component.
 
-To add a collapsible category use the following code:
-```
-<h6 class="doc-side-nav-title no-anchor collapsed" data-toggle="collapse" data-target="#collapseCategoryName" aria-expanded="false" aria-controls="collapseCategoryName">CategoryName</h6>
-<ul class="collapse" id="collapseConcepts">
-    <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/concepts/some-link-1.html" {% if current[3] == 'some-link-1.html' %}class='current'{% endif %}>Some link name 1</a></li>
-    <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/concepts/some-link-2.html" {% if current[3] == 'some-link-2.html' %}class='current'{% endif %}>Some link name 2</a></li>
-    <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/concepts/some-link-3.html" {% if current[3] == 'some-link-3.html' %}class='current'{% endif %}>Some link name 3</a></li>
-    <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/concepts/some-link-4.html" {% if current[3] == 'some-link-4.html' %}class='current'{% endif %}>Some link name 4</a></li>
-    <li class="doc-side-nav-list-item"><a href="{{ site.baseurl }}/docs/guides/concepts/some-link-5.html" {% if current[3] == 'some-link-5.html' %}class='current'{% endif %}>Some link name 5</a></li>
-</ul>
-```
+For instructions on adding or changing sidebar navigation, please see the [Navigation Author Guide](_data/navigation/NAVIGATION.md).
 
 # Adding code samples to the site
 
