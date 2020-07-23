@@ -5,64 +5,27 @@ bodyclass: getting-help
 layout: default
 ---
 
-<div class="container-fluid content-holder">
-    <div class="getting-help-content">
-        <p class="intro-text">We consult and assist in building new applications and transforming
-            the legacy code according to&nbsp;Domain-Driven Design. Our engineers perform sessions
-            on the following topics:</p>
-
-        <div class="help-card building-container">
-            <h2>Building your systems DDD&nbsp;way</h2>
-            <ul class="pricing-list">
-                <li>Where to start: domain discovery with #EventStorming.</li>
-                <li>How to apply DDD, CQRS, and Event Sourcing.</li>
-                <li>Designing event-driven architecture for scale.</li>
-                <li>Integrating third-party systems and legacy monoliths into an event-driven
-                    architecture.</li>
-            </ul>
-            <a class="btn-bordered-blue pricing-btn" href="#">Get a Quote</a>
-            <div class="clearfix"></div>
-        </div>
-
-        <div class="help-card developing-container">
-            <h2>Developing in Spine</h2>
-            <ul class="pricing-list">
-                <li>Start your apps with Spine Event Engine: roadmap and planning.</li>
-                <li>Q&A sessions, best practices to fit your needs.</li>
-                <li>Custom development, including Spine feature requests.</li>
-            </ul>
-            <h3>Terms:</h3>
-            <ul class="terms">
-                <li>
-                    <i class="fal fa-headset"></i>
-                    <p>Support by the core engineers of the Spine Event Engine.</p>
-                </li>
-                <li>
-                    <i class="fal fa-envelope"></i>
-                    <p>Email responses within 1&nbsp;business day.</p>
-                </li>
-                <li>
-                    <i class="fal fa-video"></i>
-                    <p>Video calls on request.</p>
-                </li>
-            </ul>
-            <div class="support-hours">
-                <p><b>Support hours:</b> Monday – Friday, from 11:00 to 19:00 (UTC+02:00).</p>
+<section class="support-section">
+    <div class="container-fluid content-holder">
+        <h1>Support</h1>
+        <div class="row">
+            <div class="col-lg-4">
+                <h4>Resources</h4>
+                <p><a>Docs</a></p>
+                <p><a>Examples</a></p>
+                <p><a>API Reference</a></p>
             </div>
-            <div class="pricing-block">
-                <span class="price">€ 5000</span>
-                <span class="slash">/</span>
-                <span class="description">1 support pack (100&nbsp;hours)</span>
+            <div class="col-lg-4">
+                <h4>Contact Developers</h4>
+                <p>Got a question, not covered by the Docs?
+                    Ask us at developers@spine.io.</p>
             </div>
-            <a class="btn-bordered-blue pricing-btn" href="#">Order Now</a>
-            <div class="clearfix"></div>
-        </div>
-
-        <div class="help-card team-support-container">
-            <p>Our team is also available for participation in your projects<br>
-                as full-time engineers.</p>
-            <a class="btn-bordered-blue pricing-btn" href="#">Get a Quote</a>
-            <div class="clearfix"></div>
+            <div class="col-lg-4">
+                <h4>Community</h4>
+                <p>See the solutions already discussed at the #SpineEngine tag at Stack Overflow.</p>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+{% include_relative service-section.html %}
