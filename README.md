@@ -4,7 +4,7 @@ This repository contains the code of the [spine.io](https://spine.io) site.
 It is based on [Jekyll](https://jekyllrb.com/) and is hosted on
 [GitHub Pages](https://pages.github.com/).
 
-This project is a two-headed:
+This project is two-headed:
   * It is a Ruby project because of Jekyll.
   * It is a Gradle project to for checking the source code embedded to the site.   
 
@@ -40,4 +40,3 @@ the [Troubleshooting Guide](TROUBLESHOOTING.md).
 For instructions on adding the content to the site, please see
 the [`AUTHORING.md`](AUTHORING.md) file.
  
-
