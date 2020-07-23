@@ -39,4 +39,3 @@ the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
 For instructions on adding the content to the site, please see
 the [`AUTHORING.md`](AUTHORING.md) file.
- 
