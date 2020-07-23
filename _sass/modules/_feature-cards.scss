@@ -23,7 +23,7 @@
   background-color: white;
   margin: 0 0 30px;
   border-radius: $border-radius-m;
-  @include box-shadow(0 1px 3px 0 rgba($footerColor, .08));
+  @include box-shadow($feature-card-shadow);
 
   @media(max-width: $phone-medium) {
     margin-bottom: 16px;
