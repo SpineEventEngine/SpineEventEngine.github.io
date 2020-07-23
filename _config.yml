@@ -35,3 +35,27 @@ kramdown:
   input: GFM
   hard_wrap: false
   parse_block_html: true
+
+exclude:
+  - .github/
+  - .idea/
+  - .spine/
+  - .saas-cache/
+  - .gradle
+  - config/
+  - gradle
+  - buildSrc
+  - gradlew
+  - gradlew.bat
+  - build.gradle.kts
+  - settings.gradle.kts
+  - README.md
+  - AUTHORING.md
+  - TROUBLESHOOTING.md
+  - Gemfile
+  - Gemfile.lock
+
+embed_code:
+  code_root: ./_code
+  documentation_root: ./docs
+  code_includes: ["**/*.proto", "**/*.java", "**/*.kt", "**/*.dart", "**/*.js", "**/*.html", "**/*.gradle", "**/*.gradle.kts"]

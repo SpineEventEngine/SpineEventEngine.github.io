@@ -1,4 +1,4 @@
-name: Links check
+name: Proof Links
 
 on:
   push:
@@ -17,11 +17,13 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.6.x'
+          ruby-version: '2.7.x'
 
       - name: Run Jekyll build
         run: |
           gem install bundler
           bundle install
           jekyll build
-          htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
+
+      - name: Proof Links
+        run: ./_script/proof-links
