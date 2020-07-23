@@ -23,12 +23,3 @@ rootProject.name = "spine.io"
 includeBuild("./_code/samples")
 
 includeBuild("./_code/examples/hello")
-
-/*
- * Un-comment out the builds included below when they are added to the content of the site.
- * Please see the task `buildAll` from `build.gradle.kts` for the instructions.
- */
-//includeBuild("./_code/examples/airport")
-//includeBuild("./_code/examples/blog")
-//includeBuild("./_code/examples/kanban")
-//includeBuild("./_code/examples/todo-list")
