@@ -164,6 +164,10 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
       }
 
       .mobile-caret-icon {
+        @media (min-width: $mobile-nav-min-width) {
+          display: none;
+        }
+
         // Initial icon-caret state
         &.collapsed {
           opacity: .54;

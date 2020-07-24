@@ -115,6 +115,10 @@ footer {
     .footer-list-header {
       .mobile-caret-icon {
         top: 14px;
+
+        @media (min-width: $tablet) {
+          display: none;
+        }
       }
 
       // Initial caret-icon state

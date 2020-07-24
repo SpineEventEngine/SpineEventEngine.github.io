@@ -18,13 +18,9 @@
   right: 12px; // Make icon align with hamburger menu
   width: 40px;
   height: 40px;
-  transform: rotate(180deg);
+  @include transform(rotate(180deg));
   border-radius: 50%;
   @include transition(all .3s ease-in-out);
-
-  @media(min-width: $tablet){
-    display: none;
-  }
 }
 
 // Shared
