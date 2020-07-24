@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Load environment variables for the case of execution from the Gradle build.
+source ~/.bash_profile
+
+# Check the links used by the site.
+bundle exec htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
