@@ -11,9 +11,8 @@ layout: docs
 Making the flow efficient and straight-forward is even harder. This guide will walk you through 
 the way we tend to start and develop new projects.</p>
 
-While the development process is described in the [Introduction](/docs/introduction 
-"Check the Introduction") section, in this guide we want to cover the steps that we follow 
-while working on a project in more detail.
+While the development process is described in the [Introduction][introduction] section, 
+in this guide we want to cover the steps that we follow while working on a project in more detail.
 
 ## TL;DR 
 
@@ -101,18 +100,16 @@ With the selected Bounded Context in mind, we continue with the creation of the 
 artifacts of the project. During this step we define Protobuf messages that mold the 
 [Ubiquitous Language][UbiquitousLanguage] of the context.
 
-The results of these efforts are the `.proto` files 
-[grouped](/docs/introduction/project-structure.html#example "Check out the Example Project structure") 
-under a specific package in the `proto` folder.
+The results of these efforts are the `.proto` files [grouped][project-structure] under a specific 
+package in the `proto` folder.
 
-<p class="note">If you are new to Protobuf, please see the 
-[Naming Conventions](/docs/introduction/naming-conventions.html "Check out the Naming Conventions") 
+<p class="note">If you are new to Protobuf, please see the [Naming Conventions][naming-conventions] 
 section for how to name things in the proto code.</p>
 
 While writing the protos, make sure to document **all** messages. It's time to unleash 
 your technical writing skills and contribute to the project's ground-standing foundation. 
 Here you may want to introduce some domain-level validation logic. Check out the 
-[Validation guide](/docs/guides/validation.html "Learn more about the Validation") for details.
+[Validation guide][validation-guide] for details.
 
 ### Identifiers
 
@@ -226,6 +223,10 @@ a context and split it further on scenarios. Make sure each of the development s
 in a separate Pull Request with dedicated artifacts in the source code repository. 
 Tend to have smaller, fine-graded Pull Requests over cluttered and complicated ones.
 
+[introduction]: /docs/introduction "Check the Introduction"
+[project-structure]: /docs/introduction/project-structure.html#example "Check out the Example Project structure"
+[naming-conventions]: /docs/introduction/naming-conventions.html "Check out the Naming Conventions"
+[validation-guide]: /docs/guides/validation.html "Learn more about the Validation"
 [EventStorming]: https://eventstorming.com "Learn more about EventStorming"
 [BoundedContext-concept]: /docs/introduction/concepts.html#bounded-context "Check out the Bounded Context definition"
 [identifier-concept]: /docs/introduction/concepts.html#identifier "Learn more about Identifiers"
