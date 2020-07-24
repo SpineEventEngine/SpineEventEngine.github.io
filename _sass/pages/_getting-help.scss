@@ -7,16 +7,13 @@
   .section-title {
     font-size: 36px;
     margin-bottom: 40px;
-
-    @media (max-width: $tablet-large) {
-      padding-top: 0;
-    }
+    padding-top: 0;
   }
 
   .support-section,
   .service-section {
     padding-top: 40px;
-    padding-bottom: 48px;
+    padding-bottom: 40px;
 
     @media (max-width: $tablet-large) {
       padding-bottom: 24px;
@@ -26,6 +23,7 @@
   .support-section {
     h4 {
       margin: 0 0 16px;
+      font-size: 20px;
     }
 
     .support-container {
