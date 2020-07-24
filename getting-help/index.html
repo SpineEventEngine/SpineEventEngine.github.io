@@ -7,22 +7,27 @@ layout: default
 
 <section class="support-section">
     <div class="container-fluid content-holder">
-        <h1>Support</h1>
+        <h1 class="section-title light">Support</h1>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 support-resources">
                 <h4>Resources</h4>
-                <p><a>Docs</a></p>
-                <p><a>Examples</a></p>
-                <p><a>API Reference</a></p>
+                <p><a href="{{ site.baseurl }}/docs/">Docs</a></p>
+                <p><a href="{{ site.baseurl }}/docs/examples/">Examples</a></p>
+                <p><a href="{{ site.baseurl }}/docs/reference/">API Reference</a></p>
+                <p><a href="{{ site.baseurl }}/faq/">FAQ</a></p>
             </div>
-            <div class="col-lg-4">
-                <h4>Contact Developers</h4>
-                <p>Got a question, not covered by the Docs?
-                    Ask us at developers@spine.io.</p>
-            </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 support-community">
                 <h4>Community</h4>
-                <p>See the solutions already discussed at the #SpineEngine tag at Stack Overflow.</p>
+                <p>See the questions and solutions posted under
+                    <a href="https://stackoverflow.com/tags/{{ site.stackoverflow_username }}">#{{ site.stackoverflow_username }}</a>
+                    tag at Stack Overflow.</p>
+                <p>Discuss your ideas in <a href="https://gitter.im/{{ site.gitter_username }}/community">Gitter</a> chat.</p>
+                <p>Post your suggestions on <a href="https://github.com/{{ site.github_username }}/">GitHub</a>.</p>
+            </div>
+            <div class="col-lg-4 support-contacts">
+                <h4>Contact Us</h4>
+                <p>Reach out at <a href="mailto:{{ site.data.support.emailDev }}">{{ site.data.support.emailDev }}</a>
+                    for the insiders’ view on the framework.</p>
             </div>
         </div>
     </div>

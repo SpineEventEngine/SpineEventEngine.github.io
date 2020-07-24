@@ -1,63 +1,107 @@
 .getting-help {
-  background-color: $body-light-gray-color;
-
-  @media (max-width: $phone-large) {
-    background-color: white;
+  .section-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
   }
 
-  .getting-help-content {
-    max-width: $center-col-width;
-    margin: 32px auto;
+  .support-section,
+  .service-section {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .support-section {
+    h4 {
+      margin: 0 0 16px;
+    }
+
+    .support-resources {
+      padding-left: 80px;
+
+      p {
+        margin-bottom: 8px;
+      }
+    }
+
+    .support-community {
+      padding-left: 56px;
+
+      p {
+        margin-bottom: 12px;
+      }
+    }
+
+    .support-contacts {
+      padding-left: 150px;
+    }
+  }
+
+  .service-section {
+    background-color: $light-gray-blue;
+
+    .section-title {
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    p, ul {
+      font-size: $font-size--xs;
+      line-height: 1.6;
+    }
   }
 
   .help-card {
     background-color: white;
-    border: 1px solid $article-border-color;
-    margin-bottom: 24px;
-    padding: 56px 64px 48px;
+    border-radius: $border-radius-m;
+    @include box-shadow($feature-card-shadow);
+    height: 100%;
 
-    @media (max-width: $phone-xlarge) {
-      padding: 40px;
+    .card-title {
+      text-align: center;
+      padding: 16px 0;
+      margin: 0;
+      background: rgba($mainBrandColor, .8);
+      border-radius: $border-radius-m $border-radius-m 0 0;
+
+      h4 {
+        color: white;
+        padding: 0;
+        margin: 0;
+        font-weight: 500;
+      }
     }
 
-    @media (max-width: $phone-medium) {
-      padding: 32px;
-    }
+    .card-container {
+      padding: 32px 64px 56px;
+      @media (max-width: $tablet-large) {
+        padding: 40px;
+      }
 
-    @media (max-width: $phone-small) {
-      border: 0;
-      padding: 16px 0 24px;
-    }
-  }
+      @media (max-width: $phone-medium) {
+        padding: 32px;
+      }
 
-  .intro-text {
-    margin-bottom: 32px;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 24px;
-
-    @media (max-width: $phone-xlarge)  {
-      margin-bottom: 6px;
+      @media (max-width: $phone-small) {
+        border: 0;
+        padding: 16px 0 24px;
+      }
     }
   }
 
-  h3 {
-    font-size: $font-size--s;
-  }
-
-  p, ul {
-    font-size: $font-size--xs;
-    line-height: 1.6;
-  }
+  $divider-color: #d5dfe3;
+  $icon-color: #72858c;
 
   .pricing-list, .terms {
     li {
       padding: 10px 0;
       margin: 0;
-      border-bottom: 1px dotted #d5dfe3;
+      border-bottom: 1px dotted $divider-color;
     }
   }
 
@@ -68,7 +112,7 @@
       i {
         position: absolute;
         font-size: 22px;
-        color: #72858C;
+        color: $icon-color;
         margin-right: 16px;
         top: 12px;
       }
@@ -81,7 +125,6 @@
   }
 
   .pricing-btn {
-    float: right;
     margin-top: 32px;
 
     @media (max-width: $phone-medium) {
@@ -89,13 +132,15 @@
     }
   }
 
-  .developing-container {
-    h3 {
-      padding-top: 40px;
+  .building-container {
+    @media (max-width: $tablet) {
+      margin-bottom: 24px;
+    }
+  }
 
-      @media (max-width: $phone-xlarge)  {
-        padding-top: 24px;
-      }
+  .developing-container {
+    .card-title {
+      background: $nav-blue-gradient;
     }
   }
 
@@ -115,7 +160,7 @@
     margin-top: 40px;
 
     .price {
-      font-size: $font-size--m;
+      font-size: $font-size--s;
       font-weight: 700;
     }
 
@@ -137,8 +182,6 @@
   }
 
   .team-support-container {
-    .pricing-btn {
-      margin-top: 0;
-    }
+    margin: 32px 0;
   }
 }
