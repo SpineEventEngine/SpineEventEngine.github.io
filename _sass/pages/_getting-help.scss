@@ -7,6 +7,10 @@
   .section-title {
     font-size: 36px;
     margin-bottom: 40px;
+
+    @media (max-width: $tablet-large) {
+      padding-top: 0;
+    }
   }
 
   .support-section,
@@ -14,7 +18,7 @@
     padding-top: 40px;
     padding-bottom: 48px;
 
-    @media (max-width: $tablet) {
+    @media (max-width: $tablet-large) {
       padding-bottom: 24px;
     }
   }
@@ -33,7 +37,7 @@
     }
 
     .support-resources, .support-community {
-      @media (max-width: $tablet) {
+      @media (max-width: $tablet-large) {
         margin-bottom: 24px;
       }
     }
