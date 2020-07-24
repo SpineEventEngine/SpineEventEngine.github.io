@@ -1,0 +1,29 @@
+name: Proof Links
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  proof-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7.x'
+
+      - name: Run Jekyll build
+        run: |
+          gem install bundler
+          bundle install
+          jekyll build
+
+      - name: Proof Links
+        run: ./_script/proof-links
