@@ -223,7 +223,7 @@ As soon as the Bounded Context is fulfilled the team can continue with the next 
 
 While developing a project, make sure to split the development by Bounded Contexts. Pick up 
 a context and split it further on scenarios. Make sure each of the development steps results 
-in a separate Pull Request that results in dedicated artifacts in the source code repository. 
+in a separate Pull Request with dedicated artifacts in the source code repository. 
 Tend to have smaller, fine-graded Pull Requests over cluttered and complicated ones.
 
 [EventStorming]: https://eventstorming.com "Learn more about EventStorming"
