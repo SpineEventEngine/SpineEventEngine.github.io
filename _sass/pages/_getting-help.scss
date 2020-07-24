@@ -1,4 +1,6 @@
 .getting-help {
+  background-color: $body-light-gray-color;
+
   .section-title {
     font-size: 36px;
     margin-bottom: 40px;
@@ -34,39 +36,15 @@
     }
 
     .support-resources {
-     /* padding-left: 64px;
-
-      @media (max-width: 1200px) {
-        padding-left: 15px;
-      }*/
-
       p {
         margin-bottom: 8px;
       }
     }
 
     .support-community {
-      /*padding-left: 56px;
-
-      @media (max-width: $desktop-small) {
-        padding-left: 15px;
-      }*/
-
       p {
         margin-bottom: 12px;
       }
-    }
-
-    .support-contacts {
-      /*padding-left: 150px;
-
-      @media (max-width: $desktop-small) {
-        padding-left: 40px;
-      }
-
-      @media (max-width: $tablet) {
-        padding-left: 15px;
-      }*/
     }
   }
 
@@ -76,7 +54,10 @@
     }
 
     .subtitle {
-      max-width: 700px;
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: .2px;
+      max-width: 780px;
       margin-bottom: 40px;
     }
 
