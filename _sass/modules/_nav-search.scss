@@ -12,8 +12,9 @@ $mobile-search-min-size: $mobile-search-max-size + 1;
 .nav-search-container {
   padding-top: 13px;
 
-  // `767px` when the main navigation collapses into a hamburger menu.
-  @media (max-width: 767px) {
+  // `$mobile-nav-max-width` when the main navigation collapses into a hamburger menu.
+  // The variable is in the `_nav.scss` file.
+  @media (max-width: $mobile-nav-max-width) {
     margin-left: auto;
     margin-right: 40px;
   }

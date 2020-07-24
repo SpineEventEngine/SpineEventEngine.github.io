@@ -1,5 +1,6 @@
-/* `$mobile-nav-max-width` is a screen size on which the mobile navigation will be shown. */
-$mobile-nav-max-width: 767px;
+// `$mobile-nav-max-width` is a screen size on which the mobile navigation will be shown.
+// The variable is used in the `_nav-search.scss` file.
+$mobile-nav-max-width: 800px;
 $mobile-nav-min-width: $mobile-nav-max-width + 1;
 
 // Navigation
