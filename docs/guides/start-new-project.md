@@ -36,7 +36,8 @@ Digitize the Artifact and store it in the code repository.
 
     4.3 Define [rejections][rejection-concept].
 
-5. Pick up a scenario (a use case, a process, or a flow) within the Bounded Context:
+5. Pick up a [scenario](#picking-up-a-scenario) (a use case, a process, or a flow) 
+within the Bounded Context:
 
     5.1. Define [entity][entity-concept] states for the scenario.
 
