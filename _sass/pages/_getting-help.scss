@@ -1,4 +1,7 @@
 .getting-help {
+  $divider-color: #d5dfe3;
+  $icon-color: #72858c;
+
   background-color: $body-light-gray-color;
 
   .section-title {
@@ -42,6 +45,25 @@
     }
 
     .support-community {
+      ul {
+        li {
+          position: relative;
+
+          $icon-size: 20px;
+
+          i {
+            position: absolute;
+            font-size: $icon-size;
+            top: 2px;
+            color: $icon-color;
+          }
+
+          p {
+            padding-left: $icon-size + 16px;
+          }
+        }
+      }
+
       p {
         margin-bottom: 12px;
       }
@@ -104,9 +126,6 @@
       }
     }
   }
-
-  $divider-color: #d5dfe3;
-  $icon-color: #72858c;
 
   .pricing-list, .terms {
     li {
