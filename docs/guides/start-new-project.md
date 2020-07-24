@@ -117,9 +117,9 @@ Here you may want to introduce some domain-level validation logic. Check out the
 We put this step aside because in [Reactive DDD][ReactiveDDD] entities reference each other using 
 the typed [identifiers][identifier-concept].
 
-<p class="note">Consider following the [Vaughn Vernon](/docs/resources/people.html#vaughn-vernon)’s 
-rule on Aggregates from the “Effective Aggregate Design Part II” that is applicable to **any** 
-entities: <i>“Reference other Aggregates by Identity”</i></p>
+<p class="note">Consider following the [Vaughn Vernon][VaughnVernon]’s rule on Aggregates from 
+the “Effective Aggregate Design Part II” that is applicable to **any** entity: 
+<i>“Reference other Aggregates by Identity”</i></p>
 
 We recommend using message-based identifiers over simple types to make the API strongly pronounced 
 and type-safe. To make things obvious, consider putting the IDs of the context into the file named 
@@ -224,34 +224,35 @@ a context and split it further on scenarios. Make sure each of the development s
 in a separate Pull Request with dedicated artifacts in the source code repository. 
 Tend to have smaller, fine-graded Pull Requests over cluttered and complicated ones.
 
-[introduction]: /docs/introduction "Check the Introduction"
-[project-structure]: /docs/introduction/project-structure.html#example "Check out the Example Project structure"
-[naming-conventions]: /docs/introduction/naming-conventions.html "Check out the Naming Conventions"
-[validation-guide]: /docs/guides/validation.html "Learn more about the Validation"
-[BoundedContext-concept]: /docs/introduction/concepts.html#bounded-context "Check out the Bounded Context definition"
-[aggregate-concept]: /docs/introduction/concepts.html#aggregate "Check out the Aggregate definition"
-[process-manager-concept]: /docs/introduction/concepts.html#process-manager "Check out the Process Manager definition"
-[signals]: /docs/introduction/#getting-domain-knowledge "Learn more about Signals"
-[testing]: /docs/introduction/#testing "Learn more about Testing"
+[introduction]: {{ site.baseurl }}/docs/introduction "Check the Introduction"
+[project-structure]: {{ site.baseurl }}/docs/introduction/project-structure.html#example "Check out the Example Project structure"
+[naming-conventions]: {{ site.baseurl }}/docs/introduction/naming-conventions.html "Check out the Naming Conventions"
+[validation-guide]: {{ site.baseurl }}/docs/guides/validation.html "Learn more about the Validation"
+[BoundedContext-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#bounded-context "Check out the Bounded Context definition"
+[aggregate-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#aggregate "Check out the Aggregate definition"
+[process-manager-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#process-manager "Check out the Process Manager definition"
+[signals]: {{ site.baseurl }}/docs/introduction/#getting-domain-knowledge "Learn more about Signals"
+[testing]: {{ site.baseurl }}/docs/introduction/#testing "Learn more about Testing"
+[VaughnVernon]: {{ site.baseurl }}/docs/people.html#vaughn-vernon
 
-[identifier-concept]: /docs/introduction/concepts.html#identifier "Learn more about Identifiers"
-[identifiers-proto]: /docs/introduction/naming-conventions.html#identifiersproto "Learn more about Identifiers proto structure"
-[identifiers-naming]: /docs/introduction/naming-conventions.html#identifiers "Learn more about Identifiers naming conventions"
+[identifier-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#identifier "Learn more about Identifiers"
+[identifiers-proto]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#identifiersproto "Learn more about Identifiers proto structure"
+[identifiers-naming]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#identifiers "Learn more about Identifiers naming conventions"
 
-[event-concept]: /docs/introduction/concepts.html#event "Learn more about Events"
-[events-proto]: /docs/introduction/naming-conventions.html#eventsproto "Learn more about Events proto structure"
+[event-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#event "Learn more about Events"
+[events-proto]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#eventsproto "Learn more about Events proto structure"
 
-[command-concept]: /docs/introduction/concepts.html#command "Learn more about Commands"
-[commands-proto]: /docs/introduction/naming-conventions.html#commandsproto "Learn more about Commands proto structure"
+[command-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#command "Learn more about Commands"
+[commands-proto]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#commandsproto "Learn more about Commands proto structure"
 
-[rejection-concept]: /docs/introduction/concepts.html#rejection "Learn more about Rejections"
-[rejections-proto]: /docs/introduction/naming-conventions.html#rejectionsproto "Learn more about Rejections proto structure"
-[rejections-guide]: /docs/guides/rejections.html "Learn more about Rejections"
+[rejection-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#rejection "Learn more about Rejections"
+[rejections-proto]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#rejectionsproto "Learn more about Rejections proto structure"
+[rejections-guide]: {{ site.baseurl }}/docs/guides/rejections.html "Learn more about Rejections"
 
-[entities]: /docs/introduction/#entities "See more examples on entities"
-[entity-concept]: /docs/introduction/concepts.html#entities "Learn more about Entities"
-[entity-state-naming]: /docs/introduction/naming-conventions.html#entity-states11 "Learn more about Entity states"
-[entity-state-proto]: /docs/introduction/naming-conventions.html#entity-states "Learn more about Entity states proto structure"
+[entities]: {{ site.baseurl }}/docs/introduction/#entities "See more examples on entities"
+[entity-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#entities "Learn more about Entities"
+[entity-state-naming]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#entity-states11 "Learn more about Entity states"
+[entity-state-proto]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#entity-states "Learn more about Entity states proto structure"
 
 [EventStorming]: https://eventstorming.com "Learn more about EventStorming"
 [UbiquitousLanguage]: https://martinfowler.com/bliki/UbiquitousLanguage.html "Learn more about the Ubiquitous Language"
