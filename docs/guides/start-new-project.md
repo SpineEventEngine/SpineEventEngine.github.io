@@ -215,7 +215,7 @@ As soon as the implementation is ready, another PR and review come along.
 When you have finished with the scenario, pick up a new one and start it over again following the PR 
 and review process.
 
-As soon as the Bounded Context is fulfilled the team can continue with the next one.
+As soon as you are done with the Bounded Context, move on to the next one.
 
 ## Summary
 
