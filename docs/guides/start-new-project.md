@@ -7,9 +7,13 @@ layout: docs
 
 # Starting a new project
 
-<p class="lead">Starting off a new project goes smoother when you have an efficient and straightforward development flow to rely on. In this guide, we describe how we usually start and develop new projects</p>
+<p class="lead">Starting off a new project goes smoother when you have an efficient 
+and straightforward development flow to rely on. In this guide, we describe how we usually start 
+and develop new projects</p>
 
-While the key stages of the development process are described in the [Introduction][introduction] section, this guide provides more hands-on details on the steps that we follow while working on a project.
+While the key stages of the development process are described in the [Introduction][introduction] 
+section, this guide provides more hands-on details on the steps that we follow while working 
+on a project.
 
 ## TL;DR 
 
@@ -62,8 +66,9 @@ The results of the EventStorming (all the stickies) are captured as the Artifact
 as a part of the project documentation.
 
 <p class="note">We store the EventStorming Artifact electronically as images under the project root 
-in the `/docs/event-storming/` folder. If the session is performed offline, the photos of the EventStorming board are stored in the repository. 
-In case of an online session, the screenshots of the board are stored.</p>
+in the `/docs/event-storming/` folder. If the session is performed offline, the photos 
+of the EventStorming board are stored in the repository. In case of an online session, 
+the screenshots of the board are stored.</p>
 
 {: .img-small}
 ![An example of the EventStorming board]({{ site.baseurl }}/img/starting-a-new-project/event-storming-board.jpg)
@@ -131,16 +136,16 @@ and polish the code of this important development step.
 ### Events
 
 When the IDs are defined it’s time to define [event][event-concept] messages. The events are named 
-as facts formulated as past participles. They are defined in files with the 
-[`_events.proto`][events-proto] suffix (e.g. `order_events.proto`, `customer_events.proto`). 
-If your context is small it can be just `events.proto`.
+as facts formulated as past participles, e.g. `RepositoryRegistered` or `TaskCreated`. 
+They are defined in files with the [`_events.proto`][events-proto] suffix (e.g. `order_events.proto`, 
+`customer_events.proto`). If your context is small it can be just `events.proto`.
 
 Create a Pull Request with the event definitions when they are ready.
 
 ### Commands
 
-Similar to events, [command][command-concept] messages are defined in files having the names ending with 
-the [`_commands.proto`][commands-proto] suffix (or just `commands.proto` for a small context). 
+Similar to events, [command][command-concept] messages are defined in files having the names ending 
+with the [`_commands.proto`][commands-proto] suffix (or just `commands.proto` for a small context). 
 Commands are defined as imperative in a form of “do something”, e.g. `RegisterRepository` 
 or `CreateTask`.
 
