@@ -252,7 +252,7 @@ Opt for smaller, fine-graded Pull Requests instead of cluttered and complicated 
 
 [entities]: {{ site.baseurl }}/docs/introduction/#entities "See more examples on entities"
 [entity-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#entities "Learn more about Entities"
-[entity-state-naming]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#entity-states11 "Learn more about Entity states"
+[entity-state-naming]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#entity-states-1 "Learn more about Entity states"
 [entity-state-proto]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#entity-states "Learn more about Entity states proto structure"
 
 [EventStorming]: https://eventstorming.com "Learn more about EventStorming"
