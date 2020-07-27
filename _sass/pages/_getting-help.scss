@@ -10,6 +10,14 @@
     padding-top: 0;
   }
 
+  .subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: .2px;
+    max-width: 780px;
+    margin-bottom: 40px;
+  }
+
   .support-section,
   .service-section {
     padding-top: 40px;
@@ -75,14 +83,6 @@
   .service-section {
     .section-title {
       margin-bottom: 12px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      font-weight: 300;
-      letter-spacing: .2px;
-      max-width: 780px;
-      margin-bottom: 40px;
     }
 
     p, ul {
