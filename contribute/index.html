@@ -6,4 +6,4 @@ title: Contribute
 <!-- Example of a full width page section -->
 <h2 class="page-header">How to Contribute</h2>
 <p class="lead">To contribute to Spine Event Engine, please fork the GitHub Spine Event Repository repository.
-<p class="lead"> Email: <a href="mailto:{{ site.data.support.email }}" itemprop="email">{{ site.data.support.email }}</a></p>
+<p class="lead"> Email: <a href="mailto:{{ site.data.support.email | encode_email }}" itemprop="email">{{ site.data.support.email | html_encode_email}}</a></p>
