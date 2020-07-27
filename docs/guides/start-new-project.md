@@ -9,7 +9,7 @@ layout: docs
 
 <p class="lead">Starting off a new project goes smoother when you have an efficient 
 and straightforward development flow to rely on. In this guide, we describe how we usually start 
-and develop new projects</p>
+and develop new projects.</p>
 
 While the key stages of the development process are described in the [Introduction][introduction] 
 section, this guide provides more hands-on details on the steps that we follow while working 
