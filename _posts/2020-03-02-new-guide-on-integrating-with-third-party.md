@@ -5,6 +5,7 @@ published: true
 bodyclass: post
 header_type: fixed-header
 author: Dmytro Dashenkov
+categories: blog
 ---
 
 Integrating an Event-based system with third-party software or a legacy system can be tricky. 

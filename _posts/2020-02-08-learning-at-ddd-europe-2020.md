@@ -4,6 +4,7 @@ title: Learning at DDD Europe 2020
 published: true
 bodyclass: post
 header_type: fixed-header
+categories: blog
 ---
 
 What a great inspiration mixing in with the global DDD-crowd is!
