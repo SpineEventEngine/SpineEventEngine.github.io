@@ -468,7 +468,7 @@ private void println(String userName, String text) {
 }
 ```
 
-Then, the command-handling method concludes producing the event message:
+Then, the command-handling method concludes by producing the event message:
 
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
              start="*return Printed*" 
