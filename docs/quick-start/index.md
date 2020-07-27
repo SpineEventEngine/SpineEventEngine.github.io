@@ -435,7 +435,7 @@ The `@Assign` annotation tells that we assign this method to handle the command 
 method accepts as the parameter. The method returns the event message `Printed`.
 
 The following code obtains the name of the user and the text to print from the received command,
-and then applies them to the state of the Process Manager. Instances of the `Console` class keep
+and then applies them to the state of the Process Manager. Instances of the `Console` class store
 the text printed for each user.
 
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
