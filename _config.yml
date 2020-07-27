@@ -17,7 +17,9 @@ gitter_username: SpineEventEngine
 google_analytics_tag: UA-71822190-1
 
 # Gems
-plugins: [jekyll-paginate]
+plugins:
+  - jekyll-paginate
+  - jekyll-email-protect
 
 # Conversion
 markdown:    kramdown
