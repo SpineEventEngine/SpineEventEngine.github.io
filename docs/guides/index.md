@@ -1,5 +1,5 @@
 ---
-title: Client Libraries
+title: Guides
 headline: Documentation
 bodyclass: docs
 layout: docs
