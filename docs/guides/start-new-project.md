@@ -7,19 +7,16 @@ layout: docs
 
 # Starting a new project
 
-<p class="lead">Identifying a particular development flow may be challenging at times. 
-Making the flow efficient and straight-forward is even harder. This guide will walk you through 
-the way we tend to start and develop new projects.</p>
+<p class="lead">Starting off a new project goes smoother when you have an efficient and straightforward development flow to rely on. In this guide, we describe how we usually start and develop new projects</p>
 
-While the development process is described in the [Introduction][introduction] section, 
-in this guide we want to cover the steps that we follow while working on a project in more detail.
+While the key stages of the development process are described in the [Introduction][introduction] section, this guide provides more hands-on details on the steps that we follow while working on a project.
 
 ## TL;DR 
 
-In short, please follow the next steps to have a consistent joyful development flow.
+In short, please follow the next steps to have a consistent and joyful development flow.
 
 <p class="note">Each step and sub-step below results in a separate Pull Request 
-as well as its artifacts in the repository.</p>
+adding its artifacts to the repository.</p>
 
 1. Conduct [EventStorming][EventStorming] to gather domain knowledge. 
 Digitize the Artifact and store it in the code repository.
@@ -65,9 +62,8 @@ The results of the EventStorming (all the stickies) are captured as the Artifact
 as a part of the project documentation.
 
 <p class="note">We store the EventStorming Artifact electronically as images under the project root 
-in the `/docs/event-storming/` folder. If the session is performed offline (as ideally 
-it should be), the photos of the EventStorming board are stored in the repository. 
-In the case of an online session, the screenshots of the board are stored.</p>
+in the `/docs/event-storming/` folder. If the session is performed offline, the photos of the EventStorming board are stored in the repository. 
+In case of an online session, the screenshots of the board are stored.</p>
 
 {: .img-small}
 ![An example of the EventStorming board]({{ site.baseurl }}/img/starting-a-new-project/event-storming-board.jpg)
@@ -108,7 +104,7 @@ package in the `proto` folder.
 section for how to name things in the proto code.</p>
 
 While writing the protos, make sure to document **all** messages. It's time to unleash 
-your technical writing skills and contribute to the project's ground-standing foundation. 
+your technical writing skills and lay the project's ground-standing foundation. 
 Here you may want to introduce some domain-level validation logic. Check out the 
 [Validation guide][validation-guide] for details.
 
@@ -139,11 +135,11 @@ as facts formulated as past participles. They are defined in files with the
 [`_events.proto`][events-proto] suffix (e.g. `order_events.proto`, `customer_events.proto`). 
 If your context is small it can be just `events.proto`.
 
-Create a Pull Request with the event definitions when they are done.
+Create a Pull Request with the event definitions when they are ready.
 
 ### Commands
 
-Similar to events, [command][command-concept] messages are defined in files which name ends with 
+Similar to events, [command][command-concept] messages are defined in files having the names ending with 
 the [`_commands.proto`][commands-proto] suffix (or just `commands.proto` for a small context). 
 Commands are defined as imperative in a form of “do something”, e.g. `RegisterRepository` 
 or `CreateTask`.
@@ -183,7 +179,7 @@ As with the other steps, create a Pull Request to review the entity states with 
 
 ### Adding behavior
 
-The desired implementation of the scenario has the Java implementation of the domain 
+We recommend implementing the scenario with the Java implementation of the domain 
 [entities][entities] and the [`BlackBox`][testing] integration tests. The `BlackBox` tests are 
 the recommended way to test scenarios in Spine. They are specifically built to allow you to check 
 the business logic the same way it works in the application.
@@ -192,8 +188,8 @@ the business logic the same way it works in the application.
  See https://github.com/SpineEventEngine/SpineEventEngine.github.io/issues/339.
  -->
 
-All the code must conform to the defined standards of the code and documentation quality 
-as well as be tested thoroughly.
+All the code must conform to your standards of the code and documentation quality 
+and be tested thoroughly.
 
 When a backend for the scenario is done a new PR is created and reviewed.
 
@@ -212,7 +208,7 @@ As soon as the implementation is ready, another PR and review come along.
 
 ## Start over again
 
-When the scenario is finished, pick up a new one and start it over again following the PR 
+When you have finished with the scenario, pick up a new one and start it over again following the PR 
 and review process.
 
 As soon as the Bounded Context is fulfilled the team can continue with the next one.
@@ -220,9 +216,9 @@ As soon as the Bounded Context is fulfilled the team can continue with the next 
 ## Summary
 
 While developing a project, make sure to split the development by Bounded Contexts. Pick up 
-a context and split it further on scenarios. Make sure each of the development steps results 
+a context and split it into scenarios. Make sure each of the development steps results 
 in a separate Pull Request with dedicated artifacts in the source code repository. 
-Tend to have smaller, fine-graded Pull Requests over cluttered and complicated ones.
+Opt for smaller, fine-graded Pull Requests instead of cluttered and complicated ones.
 
 [introduction]: {{ site.baseurl }}/docs/introduction "Check the Introduction"
 [project-structure]: {{ site.baseurl }}/docs/introduction/project-structure.html#example "Check out the Example Project structure"
