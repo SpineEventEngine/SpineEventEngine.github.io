@@ -66,12 +66,12 @@ The results of the EventStorming (all the stickies) are captured as the Artifact
 as a part of the project documentation.
 
 <p class="note">We store the EventStorming Artifact electronically as images under the project root 
-in the `/docs/event-storming/` folder. If the session is performed offline, the photos 
+in the `/docs/eventstorming/` folder. If the session is performed offline, the photos 
 of the EventStorming board are stored in the repository. In case of an online session, 
 the screenshots of the board are stored.</p>
 
 {: .img-small}
-![An example of the EventStorming board]({{ site.baseurl }}/img/starting-a-new-project/event-storming-board.jpg)
+![An example of the EventStorming board]({{ site.baseurl }}/img/starting-a-new-project/eventstorming-board.jpg)
 <p class="text-center font-weight-light">An example of the EventStorming board</p>
 
 After the session, a dedicated person creates a Pull Request with the Artifact, and the team reviews 
