@@ -8,8 +8,6 @@ layout: docs
 [//]: <> (The base path for code samples is `_samples/examples/src/main/`.)
 [//]: <> (Change it to `_examples/hello/`.)
 
-<?code-excerpt path-base="../../../../_examples/hello/"?>
-
 # Getting started with Spine in Java
 
 <p class="lead">This guide will walk you through a minimal client-server application in Java
@@ -437,7 +435,7 @@ The `@Assign` annotation tells that we assign this method to handle the command 
 method accepts as the parameter. The method returns the event message `Printed`.
 
 The following code obtains the name of the user and the text to print from the received command,
-and then applies them to the state of the `ProcessManager`. Instances of the `Console` class keep
+and then applies them to the state of the Process Manager. Instances of the `Console` class keep
 the text printed for each user.
 
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
@@ -482,8 +480,12 @@ return Printed
         .setText(command.getText())
         .vBuild();
 ```
-The event is posted to the `EventBus` and delivered to the subscribers by the framework
-automatically. You don't need to write any code for this.  
+<p class="note">The event is posted to the `EventBus` and delivered to the subscribers by
+the framework automatically. You don't need to write any code for this.</p>  
+
+Now, let's see how the `Console` Process Manager is exposed to the outer world.
+
+## Assembling the Hello Context
 
 <p class="lead">To be continued...</p>
      
