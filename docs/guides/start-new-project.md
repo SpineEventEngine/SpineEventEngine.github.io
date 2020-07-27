@@ -70,7 +70,6 @@ in the `/docs/eventstorming/` folder. If the session is performed offline, the p
 of the EventStorming board are stored in the repository. In case of an online session, 
 the screenshots of the board are stored.</p>
 
-{: .img-small}
 ![An example of the EventStorming board]({{ site.baseurl }}/img/starting-a-new-project/eventstorming-board.jpg)
 <p class="text-center font-weight-light">An example of the EventStorming board</p>
 
