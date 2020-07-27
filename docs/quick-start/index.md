@@ -408,6 +408,83 @@ of the first field of the `Print` command?
  3. `Output.Builder` — the type used to modify the state of the entity.
     In Protobuf for Java, each message type has a specific builder type. 
 
+### Handling the `Print` command
+
+The command is handled by this method:
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
+             start="*@Assign*" 
+             end="    }*"?>
+```java
+@Assign
+Printed handle(Print command) {
+    String username = command.getUsername();
+    String text = command.getText();
+    builder().setUsername(username)
+             .addLines(text);
+    println(username, text);
+    return Printed
+            .newBuilder()
+            .setUsername(username)
+            .setText(command.getText())
+            .vBuild();
+}
+```
+
+Let's review the method in details.
+
+The `@Assign` annotation tells that we assign this method to handle the command which the
+method accepts as the parameter. The method returns the event message `Printed`.
+
+The following code obtains the name of the user and the text to print from the received command,
+and then applies them to the state of the `ProcessManager`. Instances of the `Console` class keep
+the text printed for each user.
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
+             start="*String username*" 
+             end="*addLines(text);*"?>
+```java
+String username = command.getUsername();
+String text = command.getText();
+builder().setUsername(username)
+         .addLines(text);
+```
+  
+Then we print the text to `System.out` so that it becomes visible on the screen:    
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
+             start="*println(username*" 
+             end="*println(username*"?>
+```java
+println(username, text);
+```
+
+This is done by the method the `Console` class declares:
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
+             start="*private void println(*" 
+             end="    }*"?>
+```java
+private void println(String userName, String text) {
+    String output = format("[%s] %s", userName, text);
+    System.out.println(output);
+}
+```
+
+Then, the command-handling method concludes producing the event message:
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
+             start="*return Printed*" 
+             end="*vBuild();*"?>
+```java
+return Printed
+        .newBuilder()
+        .setUsername(username)
+        .setText(command.getText())
+        .vBuild();
+```
+The event is posted to the `EventBus` and delivered to the subscribers by the framework
+automatically. You don't need to write any code for this.  
+
 <p class="lead">To be continued...</p>
      
 
