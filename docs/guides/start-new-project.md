@@ -86,7 +86,8 @@ sessions with different experts.
 ## Limiting the scope: pick up a Bounded Context
 
 While the temptation to dive into the development of everything right away may be humongous, 
-we recommend limiting the development scope down to only one [Bounded Context][BoundedContext].
+we recommend limiting the development scope down to only one 
+[Bounded Context][BoundedContext-concept].
 
 <p class="note">We follow the rule: <i>"Eat an elephant one bite at a time"</i>.</p>
 
