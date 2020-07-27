@@ -213,12 +213,12 @@
     }
   }
 
+  $team-support-bg-color: $article-border-color;
   .team-support-container {
     position: relative;
     margin: 32px 0;
     padding: 20px;
-    background-color: #e6ecf0;
-    border: 1px solid $article-border-color;
+    background-color: $team-support-bg-color;
     border-radius: $border-radius-m;
 
     i {
