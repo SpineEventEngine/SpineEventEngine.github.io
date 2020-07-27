@@ -234,7 +234,6 @@ Opt for smaller, fine-graded Pull Requests instead of cluttered and complicated 
 [process-manager-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#process-manager "Check out the Process Manager definition"
 [signals]: {{ site.baseurl }}/docs/introduction/#getting-domain-knowledge "Learn more about Signals"
 [testing]: {{ site.baseurl }}/docs/introduction/#testing "Learn more about Testing"
-[VaughnVernon]: {{ site.baseurl }}/docs/resources/people.html#vaughn-vernon
 
 [identifier-concept]: {{ site.baseurl }}/docs/introduction/concepts.html#identifier "Learn more about Identifiers"
 [identifiers-proto]: {{ site.baseurl }}/docs/introduction/naming-conventions.html#identifiersproto "Learn more about Identifiers proto structure"
@@ -258,3 +257,4 @@ Opt for smaller, fine-graded Pull Requests instead of cluttered and complicated 
 [EventStorming]: https://eventstorming.com "Learn more about EventStorming"
 [UbiquitousLanguage]: https://martinfowler.com/bliki/UbiquitousLanguage.html "Learn more about the Ubiquitous Language"
 [ReactiveDDD]: https://www.infoq.com/presentations/reactive-ddd/ "Check out the Reactive DDD presentation"
+[VaughnVernon]: https://vaughnvernon.co/
