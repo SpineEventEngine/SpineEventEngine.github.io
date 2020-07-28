@@ -14,4 +14,4 @@ The plan is to do this on a regular basis, so stay tuned.
 
 Your feedback and questions are welcome at 
 [@{{site.twitter_username}}](https://twitter.com/{{site.twitter_username}}) or 
-[{{site.data.support.email | html_encode_email}}](mailto:{{ site.data.support.email | encode_email }}).
+[{{ site.data.support.email }}](mailto:{{ site.data.support.email | encode_email }}).
