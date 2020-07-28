@@ -115,7 +115,7 @@ In markdown files we cannot obfuscate the link text, so it would be safer to use
 [{{ Contact us }}](mailto:{{ site.data.support.email | encode_email }})
 ```
 
-The above code will yield 
+The above code will yield: 
 ```
 <a href="%65%78%61%6D%70%6C%65@%65%78%61%6D%70%6C%65.%63%6F%6D">Contact us</a>
 ```
