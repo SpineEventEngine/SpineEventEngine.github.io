@@ -11,6 +11,7 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 - [Adding collapsible list for sidebar navigation](#adding-collapsible-list-for-sidebar-navigation)
 - [Adding code samples to the site](#adding-code-samples-to-the-site)
 - [Testing broken links](#testing-broken-links)
+- [Adding email links](#adding-email-links)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -88,3 +89,33 @@ After that, please use the following command:
 Also, we have a GitHub Action which tests the links when the pull request is created to the `master`. 
 Please see the [`.github/workflows/proof-links.yml`](.github/workflows/proof-links.yml) file for details.
 
+# Adding email links
+
+We use the [Jekyll Email Protect](https://github.com/vwochnik/jekyll-email-protect) to protect our 
+email addresses from spam bots. We store all email variables in the `_data/support.yml` file.
+
+### In HTML
+```
+<a href="mailto:{{ 'example@example.com' | encode_email }}">{{ 'example@example.com' | html_encode_email }}</a>
+```
+
+Or through a variable:
+```
+<a href="mailto:{{ site.data.support.email | encode_email }}">{{ site.data.support.email | html_encode_email }}</a>
+```
+
+The above code will yield:
+```
+<a href="%65%78%61%6D%70%6C%65@%65%78%61%6D%70%6C%65.%63%6F%6D">%65%78%61%6D%70%6C%65@%65%78%61%6D%70%6C%65.%63%6F%6D</a>
+```
+
+### In Markdown
+In markdown files we cannot obfuscate the link text, so it would be safer to use something like `Contact us`.
+```
+[{{ Contact us }}](mailto:{{ site.data.support.email | encode_email }})
+```
+
+The above code will yield: 
+```
+<a href="%65%78%61%6D%70%6C%65@%65%78%61%6D%70%6C%65.%63%6F%6D">Contact us</a>
+```

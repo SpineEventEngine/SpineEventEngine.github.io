@@ -19,6 +19,8 @@ doc_side_nav:
         url: /docs/introduction/naming-conventions.html
   - page: Guides
     children:
+      - page: Starting a new project
+        url: /docs/guides/start-new-project.html
       - page: Validation
         url: /docs/guides/validation.html
       - page: Working with Rejections
