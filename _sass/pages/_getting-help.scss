@@ -167,6 +167,10 @@
       border-color: $light-blue-btn;
       color: white;
 
+      &:after {
+        opacity: 1;
+      }
+
       &:hover {
         background: $light-blue-btn-hover;
         border-color: $light-blue-btn-hover;
