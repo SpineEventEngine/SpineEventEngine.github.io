@@ -18,7 +18,9 @@ goes through already written code which is quite simple. So, it won't take long.
 ## What we'll do
 We'll go through the example which shows a Bounded Context called “Hello”. 
 The context has one `ProcessManager`, which handles the `Print` command
-sent from the client-side code to the server-side code, which hosts the context.
+sent from the client-side code to the server-side code, which hosts the context. 
+We'll go through the production code of the example suite, and through the code which
+tests the Hello Context.
 
 ## What you'll need
 1.  JDK version 8 or higher.
@@ -488,10 +490,119 @@ Compiler. For instructions on adding validation attributes to your model please 
 <p class="note">After the event is generated, it is posted to the `EventBus` and delivered to
 subscribers automatically. You don't need to write any code for this.</p>  
 
-Now, let's see how the `Console` Process Manager is exposed to the outer world.
+Now, let's see how the `Console` Process Manager is exposed to the outer world so that it can
+receive commands.
 
 ## Assembling the Hello Context
 
+Let's open the `HelloContext` class. The first thing of interest in this class is the declaration of
+the name of the Bounded Context:
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/HelloContext.java" 
+             start="NAME" 
+             end="NAME"?>
+```java
+static final String NAME = "Hello";
+```
+This constant is used for creating the Context (we will review it in a minute) and when annotating
+the server-side code which belongs to the Hello Context. This is done in `package-info.java` using
+the `@BoundedContext` annotation:
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/package-info.java" 
+             start="@BoundedContext" 
+             end="package"?>
+```java
+@BoundedContext(HelloContext.NAME)
+package io.spine.helloworld.server.hello;
+```
+<p class="note">The framework assumes that all entity classes belonging to this and nested packages
+belong to the Bounded Context with the name specified in the argument of the annotation.
+This arrangement is needed for routing events.</p>
+
+The second thing the `HelloContext` does is creating a Builder for the Bounded Context:
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/HelloContext.java" 
+             start="newBuilder()" 
+             end="    }"?>
+```java
+public static BoundedContextBuilder newBuilder() {
+    return BoundedContext
+            .singleTenant(NAME)
+            .add(Console.class);
+}
+```
+The context we create is single-tenant. It contains one entity type which we pass to the builder.
+ 
+<p class="note">If an entity uses default routing rules, its type is added to
+`BoundedContextBuilder` directly. If custom routing rules are needed, they are specified
+by a custom `Repository` class. In this case, an instance of such `Repository` is passed to
+`BoundedContextBuilder` instead of the entity type managed by this `Repository`.</p>
+
+Once we assembled the Bounded Context, let's test it.
+ 
+## Testing the Hello Context
+
+<p class="lead">To be continued...</p>
+
+Now as we are checked that our Context works correctly, let's expose it in
+the server-side application.
+
+## The server-side application 
+
+Let's open the `Server` class of our example application suite. The static initialization of 
+the class configures the serve environment:
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
+             start="satic {" 
+             end="    }"?>
+```java
+static {
+    configureEnvironment();
+}
+```
+The `configureEnvironment()` method initializes the `Production` environment of this example with
+the settings that are normally used for testing:
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
+             start="void configureEnvironment()" 
+             end="    }"?>
+```java
+private static void configureEnvironment() {
+    Class<Production> prod = Production.class;
+    ServerEnvironment.instance()
+            .use(InMemoryStorageFactory.newInstance(), prod)
+            .use(Delivery.localAsync(), prod)
+            .use(InMemoryTransportFactory.newInstance(), prod);
+}
+``` 
+A real-world application would use `StorageFactory` and `TransportFactory` instances that correspond
+to a database and a messaging system used by the application. 
+
+The implementation of the `Server` class wraps around the `io.spine.server.Server` class provided
+by the framework. This API is for exposing `BoundedContext`s of a server-side application.
+This is what our `Server` class does in the constructor:
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
+             start="public Server(" 
+             end="    }"?>
+```java
+public Server(String serverName) {
+    configureEnvironment();
+    this.server = inProcess(serverName)
+            .add(HelloContext.newBuilder())
+            .build();
+}
+```
+The constructor accepts the name which is used to connect to it by the clients. This name
+is passed to the `inProcess()` method of the `io.spine.server.Server` class. 
+
+<p class="note">The `Server.inProcess(String)` method creates a `Builder` initialized for in-process
+gRPC communications, which is normally used for testing.
+The example used in-process communications in the production code for simplicity.
+A real-world application would use a `Server` instance exposed via a TCP/IP port.</p>
+
+Once we have the `Server.Builder` instance, we add the Hello Context via its builder
+to the constructed `Server` instance.
+
+The remaining code of our `Server` class declares `start()` and `shutdown()` methods that
+simply delegate calls to the wrapped `io.spine.server.Server` instance.  
+  
 <p class="lead">To be continued...</p>
      
 
