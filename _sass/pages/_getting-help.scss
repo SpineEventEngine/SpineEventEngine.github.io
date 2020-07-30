@@ -1,3 +1,11 @@
+:root {
+  --pricing-card-side-padding: 32px;
+
+  @media (max-width: $tablet-large) {
+    --pricing-card-side-padding: 24px;
+  }
+}
+
 .getting-help {
   $divider-color: #c3d1d6;
   $icon-color: #72858c;
@@ -68,7 +76,6 @@
     }
   }
 
-  $card-side-padding: 32px;
   $card-border-radius: $border-radius-m;
   .compare-support {
     margin: 20px 0;
@@ -84,7 +91,7 @@
       top: 60px;
 
       .header {
-        padding: 24px $card-side-padding;
+        padding: 24px var(--pricing-card-side-padding);
 
         &:nth-child(1) {
           background: #5fabdd;
@@ -128,13 +135,13 @@
       margin-top: 16px;
 
       p {
-        margin: 0 $card-side-padding;
+        margin: 0 var(--pricing-card-side-padding);
         padding: 12px 0;
       }
     }
 
     .section-title-row {
-      margin: 24px $card-side-padding 0;
+      margin: 24px var(--pricing-card-side-padding) 0;
       background-color: $body-light-gray-color;
       border-radius: $border-radius;
 
@@ -152,7 +159,7 @@
       align-items: end;
 
       .action-block {
-        margin: 0 $card-side-padding 40px;
+        margin: 0 var(--pricing-card-side-padding) 40px;
       }
     }
 
@@ -217,7 +224,7 @@
 
       .privacy {
         display: block;
-        margin: 12px $card-side-padding 40px;
+        margin: 12px var(--pricing-card-side-padding) 40px;
         font-size: 13px;
         font-style: italic;
         color: $gray-500;
@@ -246,7 +253,7 @@
 
       .item-with-icon {
         position: relative;
-        margin: 0 $card-side-padding;
+        margin: 0 var(--pricing-card-side-padding);
         border-bottom: 1px dotted $divider-color;
 
         i {
