@@ -6,7 +6,7 @@
 
   .section-title {
     font-size: 36px;
-    margin-bottom: 40px;
+    margin-bottom: 4px;
     padding-top: 0;
   }
 
@@ -15,7 +15,7 @@
     font-weight: 300;
     letter-spacing: .2px;
     max-width: 780px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .support-section,
@@ -81,10 +81,6 @@
   }
 
   .service-section {
-    .section-title {
-      margin-bottom: 12px;
-    }
-
     p, ul {
       font-size: $font-size--xs;
       line-height: 1.6;
@@ -157,10 +153,28 @@
   }
 
   .pricing-btn {
-    margin-top: 32px;
+    margin-top: 24px;
+    width: 240px;
 
     @media (max-width: $phone-medium) {
       width: 100%;
+    }
+
+    $light-blue-btn: #69b7e8;
+    $light-blue-btn-hover: #5fabdd;
+    &.order-btn {
+      background: $light-blue-btn;
+      border-color: $light-blue-btn;
+      color: white;
+
+      &:hover {
+        background: $light-blue-btn-hover;
+        border-color: $light-blue-btn-hover;
+
+        &:after {
+          color: white;
+        }
+      }
     }
   }
 
@@ -189,7 +203,7 @@
   }
 
   .pricing-block {
-    margin-top: 40px;
+    margin-top: 48px;
 
     .price {
       font-size: $font-size--s;
@@ -231,6 +245,153 @@
     p {
       padding-left: 44px;
       margin: 0;
+    }
+  }
+
+  $card-side-padding: 32px;
+  $card-border-radius: $border-radius-m;
+  .compare-support {
+    margin: 20px 0;
+    background: white;
+    @include box-shadow($feature-card-shadow);
+
+    .header-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: min-content;
+      position: sticky;
+      z-index: 1;
+      top: 60px;
+
+      .header {
+        padding: 24px $card-side-padding;
+
+        &:nth-child(1) {
+          background: #5fabdd;
+          border-radius: $card-border-radius 0 0 0;
+        }
+
+        &:nth-child(2) {
+          background: #3498db;
+        }
+
+        &:nth-child(3) {
+          background: $nav-blue-gradient;
+          border-radius: 0 $card-border-radius 0 0;
+        }
+
+        h4 {
+          color: white;
+          padding: 0;
+          margin: 0 0 4px;
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        .support-subtitle {
+          color: rgba(white, .7);
+          padding: 0;
+          margin: 0;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .proposal-row,
+    .terms-row {
+      grid-column: 1/4;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr;
+      margin-top: 16px;
+
+      p {
+        margin: 0 $card-side-padding;
+        padding: 12px 0;
+      }
+    }
+
+    .section-title-row {
+      margin: 24px $card-side-padding 0;
+      background-color: $body-light-gray-color;
+      border-radius: $border-radius;
+
+      p {
+        padding: 8px 0 8px 20px;
+        font-weight: bold;
+        color: $gray-300;
+      }
+    }
+
+    .plan-action-row {
+      grid-column: 1/4;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: end;
+
+      .action-block {
+        margin: 0 $card-side-padding 40px;
+      }
+    }
+
+    /*.privacy-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      .privacy {
+        display: block;
+        margin: 12px $card-side-padding 40px;
+        font-size: 13px;
+        font-style: italic;
+        color: $gray-500;
+      }
+    }*/
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: min-content;
+
+      p {
+        border-bottom: 1px dotted $divider-color;
+      }
+
+      .empty {
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          color: $gray-200;
+        }
+      }
+
+      .item-with-icon {
+        position: relative;
+        margin: 0 $card-side-padding;
+        border-bottom: 1px dotted $divider-color;
+
+        i {
+          position: absolute;
+          font-size: 22px;
+          color: $icon-color;
+          margin-left: 10px;
+          top: 13px;
+
+          &.fa-watch {
+            margin-left: 12px;
+          }
+        }
+
+        p {
+          margin: 0;
+          padding-left: 48px;
+          border-bottom: none;
+        }
+      }
     }
   }
 }
