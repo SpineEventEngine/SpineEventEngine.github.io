@@ -142,7 +142,7 @@
       }
     }
 
-    .section-title-row {
+    .section-divider-row {
       margin: 24px var(--pricing-card-side-padding) 0;
       background-color: $body-light-gray-color;
       border-radius: $border-radius;
@@ -233,7 +233,7 @@
       }
     }*/
 
-    .compare-row {
+    .compared-items {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: min-content;
