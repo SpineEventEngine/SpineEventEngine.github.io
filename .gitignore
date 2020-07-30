@@ -18,13 +18,14 @@ _site/
 
 # IntelliJ IDEA modules and interim config files
 *.iml
+.idea/*.xml
+.idea/.name
 .idea/artifacts
 .idea/libraries
 .idea/modules
 .idea/shelf
-.idea/*.xml
-.idea/.name
 
+!.idea/misc.xml
 !.idea/codeStyles/
 !.idea/copyright/
 
