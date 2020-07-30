@@ -1,3 +1,24 @@
+{% capture proof_of_concept_header %}
+<h4>Proof of Concept</h4>
+<p class="support-subtitle">Let us help you start your project with our&nbsp;framework</p>
+{% endcapture %}
+
+{% capture proof_of_concept_proposals %}
+<p>Guidance on applying DDD, CQRS, and Event Sourcing with Spine Event Engine</p>
+<p>Domain discovery with #EventStorming session</p>
+<p>Development roadmap and a plan for your solution</p>
+<p>Suggestions on further implementation</p>
+{% endcapture %}
+
+{% capture proof_of_concept_terms %}
+<p>A 3-5 days on-site or online session with your&nbsp;team</p>
+<p>Further remote support on request</p>
+{% endcapture %}
+
+{% capture proof_of_concept_action %}
+<a class="btn-bordered-blue pricing-btn" href="mailto:{{ site.data.support.emailSales | encode_email }}">Contact Us</a>
+{% endcapture %}
+
 <section class="service-section">
     <div class="container-fluid content-holder">
         <h1 class="section-title light">Services</h1>
@@ -14,8 +35,7 @@
                     <p class="support-subtitle">Extend the framework up to your needs</p>
                 </div>
                 <div class="header">
-                    <h4>Proof of Concept</h4>
-                    <p class="support-subtitle">Let us help you start your project with our&nbsp;framework</p>
+                    {{ proof_of_concept_header }}
                 </div>
             </div>
             <div class="proposal-row">
@@ -31,10 +51,7 @@
                     <p>Priority enhancements of the framework and&nbsp;libraries</p>
                 </div>
                 <div class="not-compared-items">
-                    <p>Guidance on applying DDD, CQRS, and Event Sourcing with Spine Event Engine</p>
-                    <p>Domain discovery with #EventStorming session</p>
-                    <p>Development roadmap and a plan for your solution</p>
-                    <p>Suggestions on further implementation</p>
+                    {{ proof_of_concept_proposals }}
                 </div>
             </div>
             <div class="section-divider-row">
@@ -80,8 +97,7 @@
                     </div>
                 </div>
                 <div class="not-compared-items">
-                    <p>A 3-5 days on-site or online session with your&nbsp;team</p>
-                    <p>Further remote support on request</p>
+                    {{ proof_of_concept_terms }}
                 </div>
             </div>
             <div class="plan-action-row">
@@ -98,7 +114,7 @@
                     <a class="btn-bordered-blue pricing-btn" href="mailto:{{ site.data.support.emailSales | encode_email }}">Contact Us</a>
                 </div>
                 <div class="action-block">
-                    <a class="btn-bordered-blue pricing-btn" href="mailto:{{ site.data.support.emailSales | encode_email }}">Contact Us</a>
+                    {{ proof_of_concept_action }}
                 </div>
             </div>
             <!--<div class="privacy-row">
