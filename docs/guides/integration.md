@@ -102,7 +102,6 @@ message Subscription {
     google.protobuf.Timestamp starting_from = 3;
 }
 ```
-
 <?embed-code file="examples/airport/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto" 
              start="enum EventType*" 
              end="}*"?>
@@ -115,11 +114,10 @@ enum EventType {
     PREFLIGHT_CHECK_COMPLETE = 3;
 }
 ```             
-
 The **Airplane Supplies** system [implements](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java)
 the service and exposes it on an endpoint available to the **Takeoffs and Landings** system:
 
-//TODO: Fix format
+//TODO: Fix example format. In the generated code are missed `...` parts. 
 <?embed-code file="examples/airport/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java" 
              fragment="SuppliesEventProducer" ?>
 ```java
@@ -146,30 +144,6 @@ public void subscribe(Subscription request, StreamObserver<SuppliesEvent> respon
 }
 }
 ```
-//TODO: Check `...` separators.
-```java
-public final class SuppliesEventProducer 
-        extends SuppliesEventProducerImplBase {
-
-    @Override
-    public void subscribe(Subscription request, StreamObserver<SuppliesEvent> responseObserver) {
-        Timestamp timestamp = request.getStartingFrom();
-        Instant startingFrom = timestamp.toInstant();
-        historicalEvents
-            .stream()
-            .filter(event -> event.getWhenOccurred().isLaterThan(timestamp))
-            .filter(event -> matches(event, request.getEventType()))
-            .map(event -> event.toBuilder()
-                               .setSubscription(request)
-                               .build())
-            .onClose(responseObserver::onCompleted)
-            .forEach(responseObserver::onNext);
-    }
-
-    // ...
-}
-```
-
 The event producer obtains cached historical events, matches them to the received subscription,
 and sends them to the client. The **Takeoffs and Landings** system implements 
 an&nbsp;[event consumer](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java)
@@ -195,20 +169,6 @@ public void onNext(SuppliesEvent event) {
     context.emittedEvent(eventMessage, actorContext);
 }
 ```
-//TODO: Check this code part.             
-```java
-@Override
-public void onNext(SuppliesEvent event) {
-    ActorContext actorContext = ActorContext
-            .newBuilder()
-            .setActor(ACTOR)
-            .setTimestamp(event.getWhenOccurred())
-            .vBuild();
-    EventMessage eventMessage = (EventMessage) unpack(event.getPayload());
-    airplaneSuppliesContext.emittedEvent(eventMessage, actorContext);
-}
-```
-
 The [`AircraftAggregate`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/AircraftAggregate.java)
 reacts on those events. Note that all the events published through `ThirdPartyContext` are always
 `external`, so should be the subscriber and reactor methods.
@@ -223,18 +183,8 @@ AircraftPreparedForFlight on(@External PreflightCheckComplete event) {
             .setId(id())
             .vBuild();
 }
-```             
-             
+```                        
 //TODO: Check this code part.                     
-```java
-@React(external = true)
-AircraftPreparedForFlight on(PreflightCheckComplete event) {
-    return AircraftPreparedForFlight
-            .newBuilder()
-            .setAircraft(id())
-            .vBuild();
-}
-```
 
 ## Conformist
 
@@ -318,20 +268,6 @@ EitherOf2<FlightRescheduled, Nothing> on(@External TemperatureChanged event) {
         return withA(postpone(QUARTER_OF_AN_HOUR));
     } else {
         return withB(nothing());
-    }
-}
-```
-
-//TODO: Check this code part.              
-```java
-@React(external = true)
-Optional<FlightRescheduled> on(TemperatureChanged event) {
-    float newTemperature = event.getNewTemperature().getDegreesCelsius();
-    float previousTemperature = event.getPreviousTemperature().getDegreesCelsius();
-    if (abs(previousTemperature - newTemperature) > TEMPERATURE_CHANGE_THRESHOLD) {
-        return Optional.of(postpone(QUARTER_OF_AN_HOUR));
-    } else {
-        return empty();
     }
 }
 ```
@@ -421,23 +357,6 @@ EitherOf2<BoardingComplete, Nothing> on(@External PassengerDeniedBoarding event)
     PassengerId passenger = event.getId();
     builder().addWillNotBeBoarded(passenger);
     return completeOrNothing();
-}
-```
-
-//TODO: Check this code part.
-```java
-@React(external = true)
-Optional<BoardingComplete> on(PassengerBoarded event) {
-    PassengerId passenger = event.getPassenger();
-    builder().addBoarded(passenger);
-    return completeOrEmpty();
-}
-
-@React(external = true)
-Optional<BoardingComplete> on(PassengerDeniedBoarding event) {
-    PassengerId passenger = event.getPassenger();
-    builder().addWillNotBeBoarded(passenger);
-    return completeOrEmpty();
 }
 ```
 
