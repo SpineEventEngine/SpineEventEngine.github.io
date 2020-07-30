@@ -55,25 +55,6 @@
     }
 
     .support-community {
-      ul {
-        li {
-          position: relative;
-
-          $icon-size: 20px;
-
-          i {
-            position: absolute;
-            font-size: $icon-size;
-            top: 2px;
-            color: $icon-color;
-          }
-
-          p {
-            padding-left: $icon-size + 16px;
-          }
-        }
-      }
-
       p {
         margin-bottom: 12px;
       }
@@ -84,171 +65,6 @@
     p, ul {
       font-size: $font-size--xs;
       line-height: 1.6;
-    }
-  }
-
-  .help-card {
-    background-color: white;
-    border-radius: $border-radius-m;
-    @include box-shadow($feature-card-shadow);
-    height: 100%;
-
-    .card-title {
-      text-align: center;
-      padding: 16px;
-      margin: 0;
-      background: rgba($mainBrandColor, .8);
-      border-radius: $border-radius-m $border-radius-m 0 0;
-
-      h4 {
-        color: white;
-        padding: 0;
-        margin: 0;
-        font-weight: 500;
-      }
-    }
-
-    .card-container {
-      padding: 32px 64px 56px;
-      @media (max-width: $tablet-large) {
-        padding: 40px;
-      }
-
-      @media (max-width: $phone-medium) {
-        padding: 32px;
-      }
-
-      @media (max-width: $phone-small) {
-        border: 0;
-        padding: 16px 24px 24px;
-      }
-    }
-  }
-
-  .pricing-list, .terms {
-    li {
-      padding: 10px 0;
-      margin: 0;
-      border-bottom: 1px dotted $divider-color;
-    }
-  }
-
-  .terms {
-    li {
-      position: relative;
-
-      i {
-        position: absolute;
-        font-size: 22px;
-        color: $icon-color;
-        margin-right: 16px;
-        top: 12px;
-      }
-
-      p {
-        margin: 0;
-        padding-left: 40px;
-      }
-    }
-  }
-
-  .pricing-btn {
-    margin-top: 24px;
-    width: 240px;
-
-    @media (max-width: $phone-medium) {
-      width: 100%;
-    }
-
-    $light-blue-btn: #69b7e8;
-    $light-blue-btn-hover: #5fabdd;
-    &.order-btn {
-      background: $light-blue-btn;
-      border-color: $light-blue-btn;
-      color: white;
-
-      &:after {
-        opacity: 1;
-      }
-
-      &:hover {
-        background: $light-blue-btn-hover;
-        border-color: $light-blue-btn-hover;
-
-        &:after {
-          color: white;
-        }
-      }
-    }
-  }
-
-  .building-container {
-    @media (max-width: $tablet) {
-      margin-bottom: 24px;
-    }
-  }
-
-  .developing-container {
-    .card-title {
-      background: $nav-blue-gradient;
-    }
-  }
-
-  .support-hours {
-    background-color: $body-light-gray-color;
-    padding: 4px 16px;
-    margin-top: 16px;
-    border-radius: $border-radius;
-
-    p {
-      margin: 0;
-      font-size: 14px;
-    }
-  }
-
-  .pricing-block {
-    margin-top: 48px;
-
-    .price {
-      font-size: $font-size--s;
-      font-weight: 700;
-    }
-
-    .description, .slash {
-      color: $gray-500;
-      line-height: 1.6;
-    }
-
-    @media (max-width: $phone-medium) {
-      .description {
-        display: block;
-        margin-top: 3px;
-      }
-
-      .slash {
-        display: none;
-      }
-    }
-  }
-
-  $team-support-bg-color: $article-border-color;
-  .team-support-container {
-    position: relative;
-    margin: 32px 0;
-    padding: 20px;
-    background-color: $team-support-bg-color;
-    border-radius: $border-radius-m;
-
-    i {
-      position: absolute;
-      font-size: 22px;
-      color: $icon-color;
-      top: 22px;
-    }
-
-    p {
-      padding-left: 44px;
-      margin: 0;
     }
   }
 
@@ -337,6 +153,61 @@
 
       .action-block {
         margin: 0 $card-side-padding 40px;
+      }
+    }
+
+    .pricing-block {
+      margin-top: 48px;
+
+      .price {
+        font-size: $font-size--s;
+        font-weight: 700;
+      }
+
+      .description, .slash {
+        color: $gray-500;
+        line-height: 1.6;
+      }
+
+      @media (max-width: $phone-medium) {
+        .description {
+          display: block;
+          margin-top: 3px;
+        }
+
+        .slash {
+          display: none;
+        }
+      }
+    }
+
+    .pricing-btn {
+      margin-top: 24px;
+      width: 240px;
+
+      @media (max-width: $phone-medium) {
+        width: 100%;
+      }
+
+      $light-blue-btn: #69b7e8;
+      $light-blue-btn-hover: #5fabdd;
+      &.order-btn {
+        background: $light-blue-btn;
+        border-color: $light-blue-btn;
+        color: white;
+
+        &:after {
+          opacity: 1;
+        }
+
+        &:hover {
+          background: $light-blue-btn-hover;
+          border-color: $light-blue-btn-hover;
+
+          &:after {
+            color: white;
+          }
+        }
       }
     }
 
