@@ -62,7 +62,7 @@
   }
 
   .service-section {
-    p, ul {
+    p {
       font-size: $font-size--xs;
       line-height: 1.6;
     }
@@ -185,7 +185,7 @@
       margin-top: 24px;
       width: 240px;
 
-      @media (max-width: $phone-medium) {
+      @media (max-width: $tablet-large) {
         width: 100%;
       }
 
