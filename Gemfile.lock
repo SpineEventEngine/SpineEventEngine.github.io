@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/SpineEventEngine/embed-code
-  revision: 00d9e3083ff82c597f2d33f03fd95aa06d6b2c61
+  revision: 2f66ed9344342575949ed275070ea41e6a25a1f9
   specs:
     embed-code (0.0.2)
 
