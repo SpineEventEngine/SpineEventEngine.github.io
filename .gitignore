@@ -6,7 +6,6 @@ _site/
 
 .sass-cache
 .jekyll-metadata
-.idea
 .DS_Store
 
 */build/
@@ -17,15 +16,17 @@ _site/
 # added as included builds. See `settings.gradle.kts` for details.
 !**/gradle/wrapper/*
 
-# IntelliJ IDEA modules and interim config files.
+# IntelliJ IDEA modules and interim config files
 *.iml
+.idea/artifacts
 .idea/libraries
+.idea/modules
 .idea/shelf
 .idea/*.xml
 .idea/.name
 
-# Do not ignore IDEA code style settings.
-!/.idea/codeStyleSettings.xml
+!.idea/codeStyles/
+!.idea/copyright/
 
 # Gradle interim configs
 .gradle/
