@@ -542,6 +542,7 @@ The class of the test suite extends the abstract base called `ContextAwareTest`:
              start="@DisplayName(*Hello*)" 
              end="class HelloContextTest"?>
 ```java
+@DisplayName("Hello Context should")
 class HelloContextTest extends ContextAwareTest {
 ```
 The base class is responsible for creation of a test fixture for a Bounded Context under
@@ -581,8 +582,7 @@ The command is created and sent to the test fixture before each test method:
 ```java
 @BeforeEach
 void sendCommand() {
-    command = Print
-            .newBuilder()
+    command = Print.newBuilder()
             .setUsername(randomString())
             .setText(randomString())
             .vBuild();
@@ -604,15 +604,14 @@ with the test fixture:
              start="@Test @DisplayName(*event*)" 
              end="*}"?>
 ```java   
- @Test @DisplayName("emitting the `Printed` event")
- void event() {
-     Printed expected = Printed
-             .newBuilder()
-             .setUsername(command.getUsername())
-             .setText(command.getText())
-             .build();
-     context().assertEvent(expected);
- }
+@Test @DisplayName("emitting the `Printed` event")
+void event() {
+    Printed expected = Printed.newBuilder()
+            .setUsername(command.getUsername())
+            .setText(command.getText())
+            .build();
+    context().assertEvent(expected);
+}
 ```
 
 ### Testing entity state update
@@ -625,8 +624,7 @@ state and pass it to the `assertState()` method of the test fixture:
 ```java
 @Test @DisplayName("updating the `Console` entity")
 void entity() {
-    Output expected = Output
-            .newBuilder()
+    Output expected = Output.newBuilder()
             .setUsername(command.getUsername())
             .addLines(command.getText())
             .vBuild();
