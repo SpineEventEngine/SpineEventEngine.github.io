@@ -522,10 +522,10 @@ public static BoundedContextBuilder newBuilder() {
 ```
 The context we create is single-tenant. It contains one entity type which we pass to the builder.
  
-<p class="note">If an entity uses default routing rules, its type is added to
-`BoundedContextBuilder` directly. If custom routing rules are needed, they are specified
-by a custom `Repository` class. In this case, an instance of such `Repository` is passed to
-`BoundedContextBuilder` instead of the entity type managed by this `Repository`.</p>
+<p class="note">If an entity uses default routing rules for the incoming events and commands,
+its type can be added to `BoundedContextBuilder` directly. If custom routing rules are needed,
+they are specified by a custom `Repository` class. In this case, an instance of such `Repository`
+is passed to `BoundedContextBuilder` instead of the entity type managed by this `Repository`.</p>
 
 Once we assembled the Bounded Context, let's test it.
  
