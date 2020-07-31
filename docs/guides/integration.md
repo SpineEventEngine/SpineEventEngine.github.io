@@ -169,7 +169,8 @@ reacts on those events. Note that all the events published through `ThirdPartyCo
 `external`, so should be the subscriber and reactor methods.
 
 <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/AircraftAggregate.java" 
-             fragment="AircraftPreparedForFlight" ?>
+             start="@React" 
+            end="}"?>
 ```java
 @React
 AircraftPreparedForFlight on(@External PreflightCheckComplete event) {
@@ -178,7 +179,7 @@ AircraftPreparedForFlight on(@External PreflightCheckComplete event) {
             .setId(id())
             .vBuild();
 }
-```                                            
+```                                          
 ## Conformist
 
 ![Conformist domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/conformist.jpg)
@@ -201,7 +202,8 @@ and [`WeatherUpdateEndpoint`](https://github.com/spine-examples/airport/blob/mas
 The client polls the pull-style API of the **Weather** system.
 
 <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java" 
-             fragment="fetchWeatherUpdates"?>
+             start="private void fetchWeatherUpdates"
+             end="^    }"?>
 ```java
 private void fetchWeatherUpdates() {
     Instant lastEvent = lastEventTime;
@@ -224,13 +226,14 @@ private void fetchWeatherUpdates() {
                 .log();
     }
 }
-```
+```             
 The endpoint handles the polled measurements and publishes them as Events in
 the **Takeoffs and Landings** context:
 
 <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java" 
-             fragment="receiveNew"?>
-```java
+             start="public void receiveNew"
+             end="^    }"?>
+```java             
 public void receiveNew(WeatherMeasurement measurement) {
     checkNotNull(measurement);
     if (!previous.isUnknown()) {
@@ -252,7 +255,6 @@ public void receiveNew(WeatherMeasurement measurement) {
 ```
 The [`FlightAggregate`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java)
 reacts on those events and changes its state as the result:
-
 <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java" 
              fragment="TemperatureChanged" ?>
 ```java
