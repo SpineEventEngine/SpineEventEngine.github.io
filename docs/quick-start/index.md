@@ -531,15 +531,68 @@ Once we assembled the Bounded Context, let's test it.
  
 ## Testing the Hello Context
 
+Let's open `HelloContextTest` suite. It is based on JUnit 5 and `spine-testutil-server` library.
+As you remember, we've already added JUnit dependency when we defined the Gradle project.
+The `testImplementation` dependency for `spine-testutil-server` is added automatically when
+you enable Spine for your project:
+<?embed-code file="examples/hello/build.gradle" 
+             start="spine.enableJava()" end="spine.enableJava()"?>
+```groovy
+spine.enableJava().server()
+```
+We're good to go for writing tests. The test suite starts with the test fixture
+for the Hello Context.
+
+<?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
+             start="@DisplayName("Hello")" 
+             end="    }"?>
+```java
+``` 
+The class of the test suite extends the abstract base called `ContextAwareTest`. The abstract base
+responsible for creation of a test fixture for a Bounded Context under the test before each test,
+and for disposing the fixture after.
+
+We pass Hello Context for testing using its builder by implementing the abstract method
+`contextBuilder()` inherited from the base class: 
+<?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
+             start="contextBuilder()" 
+             end="    }"?>
+```java
+```
+
+The test suite tests the outcome of the `Print` command. The tests are gathered under the nested
+`PrintCommand` class which holds the reference to the command as its field:
+
+<?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
+             start="@Nested" 
+             end="private Print command;"?>
+```java
+``` 
+
+### Sending the command
+The command is created and sent to the test fixture before each test method:
+
+<?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
+             start="@BeforeEach" 
+             end="*}"?>
+```java
+```    
+         
+For test values we use statically imported `randomString()` method of the `TestValues` utility class
+provided by the `spine-testutil-server` library.
+
+### Testing the entity state was updated
+
+
 <p class="lead">To be continued...</p>
 
-Now as we are checked that our Context works correctly, let's expose it in
+Now as we are checked that our Bounded Context works correctly, let's expose it in
 the server-side application.
 
 ## The server-side application 
 
 Let's open the `Server` class of our example application suite. The static initialization of 
-the class configures the serve environment:
+the class configures the server environment:
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
              start="static {" 
              end="    }"?>
@@ -566,7 +619,7 @@ A real-world application would use `StorageFactory` and `TransportFactory` insta
 to a database and a messaging system used by the application. 
 
 The implementation of the `Server` class wraps around the `io.spine.server.Server` class provided
-by the framework. This API is for exposing `BoundedContext`s of a server-side application.
+by the framework. This API is for exposing `BoundedContext`s in a server-side application.
 This is what our `Server` class does in the constructor:
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
              start="public Server(" 
@@ -578,16 +631,15 @@ public Server(String serverName) {
             .build();
 }
 ```
-The constructor accepts the name which is used to connect to it by the clients. This name
+The constructor accepts the name which is used for connecting clients. This name
 is passed to the `inProcess()` method of the `io.spine.server.Server` class. 
 
-<p class="note">The `Server.inProcess(String)` method creates a `Builder` initialized for in-process
-gRPC communications, which is normally used for testing.
-The example used in-process communications in the production code for simplicity.
+<p class="note">The examples uses in-process gRPC communications (which are normally used
+in testing) in the production code for the  sake of simplicity.
 A real-world application would use a `Server` instance exposed via a TCP/IP port.</p>
 
-Once we have the `Server.Builder` instance, we add the Hello Context via its builder
-to the constructed `Server` instance.
+Once we have the `Server.Builder` instance (returned by the `inProcess()` method),
+we add the Hello Context via its builder to the constructed `Server` instance.
 
 The remaining code of our `Server` class declares `start()` and `shutdown()` methods that
 simply delegate calls to the wrapped `io.spine.server.Server` instance.  
