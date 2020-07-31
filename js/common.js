@@ -13,11 +13,14 @@ const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 const $searchField = $('#search-field');
 const mobileSearchOpenedClass = 'mobile-search-opened';
+const pricingHeader = $('#sticky-pricing-header');
+let pricingHeaderTopPosition = getPricingHeaderTopPosition();
 
 /** Pages */
 const isFaqPage = $body.is('.faq');
 const isDocsPage = $body.is('.docs');
 const isPromoPage = $body.is('.promo-page');
+const isGettingHelpPage = $body.is('.getting-help');
 
 /** Code color variables */
 const $colorSelector = $('.color-selector');
@@ -54,12 +57,15 @@ $(function() {
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
-    fixGettingHelpHeader();
     showCodeColorSelector();
     initBootstrapTooltips();
 
     if (isFaqPage) {
         expandItemOnHashChange();
+    }
+
+    if (isGettingHelpPage) {
+        fixGettingHelpHeader();
     }
 });
 
@@ -86,12 +92,15 @@ window.onhashchange = function() {
 window.onscroll = function() {
     fixStickyElement();
     fixHead();
-    fixGettingHelpHeader();
     setStickyElMaxHeight();
     showScrollTopBtn();
 
     if (isPromoPage) {
         showCodeColorSelectorOnPromoPage();
+    }
+
+    if (isGettingHelpPage) {
+        fixGettingHelpHeader();
     }
 };
 
@@ -99,9 +108,9 @@ $(window).resize(function() {
     resizeStickyElHeightWithWindow();
     ifCookiesExist();
     fixHead();
-    fixGettingHelpHeader();
     setColorSelectorTopPosition();
     updateSearchPanelOnResize();
+    pricingHeaderTopPosition = getPricingHeaderTopPosition();
 
     if (isPromoPage) {
         showCodeColorSelectorOnPromoPage();
@@ -502,4 +511,25 @@ function copyToClipboard(textToCopy) {
     document.execCommand('copy');
     document.body.removeChild(dummy);
     showSnackbar('Copied to clipboard');
+}
+
+/**
+ * Gets the pricing header top position.
+ * @return {number}
+ */
+function getPricingHeaderTopPosition() {
+    if (pricingHeader.length) {
+        return pricingHeader.offset().top - 68; // `68px` sticky header height
+    }
+}
+
+/**
+ * Makes pricing header sticky on Getting Help page.
+ */
+function fixGettingHelpHeader() {
+    if (window.pageYOffset >= pricingHeaderTopPosition) {
+        pricingHeader.addClass('sticky');
+    } else {
+        pricingHeader.removeClass('sticky');
+    }
 }

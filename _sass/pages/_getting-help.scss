@@ -93,6 +93,11 @@
 
     @media (max-width: $phone-medium) {
       margin: 0 -#{$layout-padding-phone};
+
+      .header {
+        border-radius: 0 !important; // The `!important` is needed to declare the property
+        // only once for all siblings
+      }
     }
 
     &.compared-on-mobile {
