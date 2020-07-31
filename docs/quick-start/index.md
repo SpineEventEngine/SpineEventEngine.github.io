@@ -18,7 +18,7 @@ goes through already written code which is quite simple. So, it won't take long.
 ## What we'll do
 We'll go through the example which shows a Bounded Context called “Hello”. 
 The context has one `ProcessManager`, which handles the `Print` command
-sent from the client-side code to the server-side code, which hosts the context. 
+sent from the client-side code to the server-side code hosting the context. 
 We'll go through the production code of the example suite, and through the code which
 tests the Hello Context.
 
