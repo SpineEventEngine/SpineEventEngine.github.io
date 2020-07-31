@@ -271,7 +271,7 @@ it comes to integrating with a third-party or legacy system. It is often used wh
 a large monolithic legacy system (a.k.a. a Big Ball of Mud) into Bounded Contexts. In those cases,
 an ACL prevents the new "clean" Contexts from merging back into the Mud. If you are looking for
 a way to add functionality to a complex legacy system without increasing the technical debt, look
-no further. The Anticorruction Layer between **Takeoffs and Landings** and **Security Checks** 
+no further. The Anticorruption Layer between **Takeoffs and Landings** and **Security Checks** 
 is composed of a [polling client](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java),
 which performs all the technical work of obtaining and validating data, and a [Process Manager](https://spine.io/docs/introduction/concepts.html#process-manager)
 for the [Boarding process](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java).
