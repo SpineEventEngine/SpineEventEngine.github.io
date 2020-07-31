@@ -595,7 +595,7 @@ provided by the `spine-testutil-server` library. We use the `context()` method p
 `ContextAwareTest` for obtaining the reference of the test fixture of the Bounded Context
 under the test.
 
-Now we need to test that handling the command produces the event and corresponding entity updates
+Now we need to test that handling the command produces the event, and the handling entity updates
 its state. 
 
 ### Testing creation of the event
