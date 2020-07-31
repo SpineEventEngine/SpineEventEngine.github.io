@@ -539,8 +539,8 @@ you enable Spine in your project using `spine.enableJava().server()`.</p>
 
 The class of the test suite extends the abstract base called `ContextAwareTest`:
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
-             start="@DisplayName("Hello")" 
-             end="    }"?>
+             start="@DisplayName(*Hello*)" 
+             end="class HelloContextTest"?>
 ```java
 class HelloContextTest extends ContextAwareTest {
 ```
@@ -592,11 +592,50 @@ void sendCommand() {
 For test values we use statically imported `randomString()` method of the `TestValues` utility class
 provided by the `spine-testutil-server` library. We use the `context()` method provided by
 `ContextAwareTest` for obtaining the reference of the test fixture of the Bounded Context
-under the test. 
+under the test.
 
-### Testing the entity state was updated
+Now we need to test that handling the command produces the event and corresponding entity updates
+its state. 
 
-<p class="lead">To be continued...</p>
+### Testing creation of the event
+Testing an event was generated is quite simple. We create the expected event and assert it
+with the test fixture:
+<?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
+             start="@Test @DisplayName(*event*)" 
+             end="*}"?>
+```java   
+ @Test @DisplayName("emitting the `Printed` event")
+ void event() {
+     Printed expected = Printed
+             .newBuilder()
+             .setUsername(command.getUsername())
+             .setText(command.getText())
+             .build();
+     context().assertEvent(expected);
+ }
+```
+
+### Testing entity state update
+For testing the state of the `Console` Process Manager was updated, we construct the expected
+state and pass it to the `assertState()` method of the test fixture:
+
+<?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
+             start="@Test @DisplayName(*entity*)" 
+             end="*}"?>
+```java
+@Test @DisplayName("updating the `Console` entity")
+void entity() {
+    Output expected = Output
+            .newBuilder()
+            .setUsername(command.getUsername())
+            .addLines(command.getText())
+            .vBuild();
+    context().assertState(command.getUsername(), expected);
+}
+```
+The first argument passed to the `assertState()` method is the ID of the entity the state of which
+we test. The second argument is the expected state.
+
 
 Now as we are checked that our Bounded Context works correctly, let's expose it in
 the server-side application.
