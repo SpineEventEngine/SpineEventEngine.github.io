@@ -668,7 +668,7 @@ private static void configureEnvironment() {
 A real-world application would use `StorageFactory` and `TransportFactory` instances that correspond
 to a database and a messaging system used by the application. 
 
-The implementation of the `Server` class wraps around the `io.spine.server.Server` class provided
+The implementation of the `Server` class wraps around the class `io.spine.server.Server` provided
 by the framework. This API is for exposing `BoundedContext`s in a server-side application.
 This is what our `Server` class does in the constructor:
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
