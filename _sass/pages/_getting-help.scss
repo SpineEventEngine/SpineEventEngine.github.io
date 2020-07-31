@@ -4,11 +4,18 @@
   @media (max-width: $tablet-large) {
     --pricing-card-side-padding: 24px;
   }
+
+  @media (max-width: $phone-large) {
+    --pricing-card-side-padding: 16px;
+  }
 }
 
 .getting-help {
   $divider-color: #c3d1d6;
   $icon-color: #72858c;
+
+  $mobile-card-max-screen-size: $tablet;
+  $mobile-card-min-screen-size: $mobile-card-max-screen-size + 1;
 
   background-color: $body-light-gray-color;
 
@@ -84,6 +91,70 @@
     background: white;
     @include box-shadow($feature-card-shadow);
 
+    @media (max-width: $phone-medium) {
+      margin: 0 -#{$layout-padding-phone};
+    }
+
+    &.compared-on-mobile {
+      @media (max-width: $mobile-card-max-screen-size) {
+        .header-row,
+        .plan-action-row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .proposal-row,
+        .terms-row {
+          display: block;
+        }
+
+        .header {
+          &:nth-child(2) {
+            border-radius: 0 $card-border-radius 0 0;
+          }
+
+          &:nth-child(3) {
+            display: none;
+          }
+        }
+
+        .not-compared-items {
+          display: none;
+        }
+
+        .action-block {
+          &:nth-child(3) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.mobile {
+      @media (min-width: $mobile-card-min-screen-size) {
+        display: none;
+      }
+
+      @media (max-width: $mobile-card-max-screen-size) {
+        .header-row,
+        .proposal-row,
+        .terms-row,
+        .plan-action-row {
+          display: block;
+        }
+
+        .header {
+          &.proof-of-concept-header {
+            background: $nav-blue-gradient;
+            border-radius: $card-border-radius $card-border-radius 0 0;
+          }
+        }
+
+        .action-block {
+          padding-bottom: 40px;
+        }
+      }
+    }
+
     .header-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -95,7 +166,6 @@
 
     .proposal-row,
     .terms-row {
-      grid-column: 1/4;
       display: grid;
       grid-template-columns: 2fr 1fr;
       grid-template-rows: 1fr;
@@ -108,7 +178,6 @@
     }
 
     .plan-action-row {
-      grid-column: 1/4;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       align-items: end;
@@ -191,6 +260,21 @@
           padding-left: 48px;
           border-bottom: none;
         }
+
+        @media (max-width: $phone-medium) {
+          i {
+            font-size: 16px;
+            margin-left: 4px;
+
+            &.fa-watch {
+              margin-left: 5px;
+            }
+          }
+
+          p {
+            padding-left: 32px;
+          }
+        }
       }
     }
 
@@ -222,7 +306,7 @@
           line-height: 1.6;
         }
 
-        @media (max-width: $phone-medium) {
+        @media (max-width: $phone-xlarge) {
           .description {
             display: block;
             margin-top: 3px;
@@ -240,6 +324,8 @@
 
         @media (max-width: $tablet-large) {
           width: 100%;
+          padding-left: 0;
+          padding-right: 0;
         }
 
         $light-blue-btn: #69b7e8;
