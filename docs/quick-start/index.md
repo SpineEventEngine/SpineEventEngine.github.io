@@ -694,6 +694,10 @@ we add the Hello Context via its builder to the constructed `Server` instance.
 
 The remaining code of our `Server` class declares `start()` and `shutdown()` methods that
 simply delegate calls to the wrapped `io.spine.server.Server` instance.  
+
+Now we have the server, but how does the client side look like?
+
+## The client code
   
 <p class="lead">To be continued...</p>
      
