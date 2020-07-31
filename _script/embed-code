@@ -4,7 +4,7 @@
 source ~/.bash_profile
 
 # Ensure `_code` files are fetched.
-git submodule update --init --recursive
+git submodule update --remote --merge --recursive
 
 # Update code samples.
 bundle exec jekyll embedCodeSamples
