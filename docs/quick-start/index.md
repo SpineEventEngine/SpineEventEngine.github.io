@@ -636,7 +636,7 @@ The first argument passed to the `assertState()` method is the ID of the entity 
 we test. The second argument is the expected state.
 
 
-Now as we are checked that our Bounded Context works correctly, let's expose it in
+Now as we've checked that our Bounded Context works correctly, let's expose it in
 the server-side application.
 
 ## The server-side application 
