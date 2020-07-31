@@ -179,7 +179,7 @@
           max-height: 40px;
 
           // Fixes sticky header on mobile devices when the header text in two lines.
-          @media (max-width: $phone-large) {
+          @media (max-width: 552px) {
             max-height: 60px;
           }
 
