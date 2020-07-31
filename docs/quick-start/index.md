@@ -682,13 +682,14 @@ public Server(String serverName) {
 }
 ```
 The constructor accepts the name which is used for connecting clients. This name
-is passed to the `inProcess()` method of the `io.spine.server.Server` class. 
+is passed to the `inProcess()` factory method of the `io.spine.server.Server` class. 
 
-<p class="note">The examples uses in-process gRPC communications (which are normally used
-in testing) in the production code for the  sake of simplicity.
-A real-world application would use a `Server` instance exposed via a TCP/IP port.</p>
+<p class="note">In-process gRPC communications are normally used for testing.
+This example uses in-process client/server arrangement in the production code for
+the sake of simplicity. A real-world application would use a `Server` instance exposed
+via a TCP/IP port.</p>
 
-Once we have the `Server.Builder` instance (returned by the `inProcess()` method),
+Once we have the `Server.Builder` instance returned by the `inProcess()` method,
 we add the Hello Context via its builder to the constructed `Server` instance.
 
 The remaining code of our `Server` class declares `start()` and `shutdown()` methods that
