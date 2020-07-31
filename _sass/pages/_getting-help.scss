@@ -170,6 +170,7 @@
 
       &.sticky {
         position: sticky;
+        position: -webkit-sticky; /* Safari */
         top: $header-height;
 
         .header {
@@ -178,7 +179,7 @@
           max-height: 40px;
 
           // Fixes sticky header on mobile devices when the header text in two lines.
-          @media (max-width: 454px) {
+          @media (max-width: $phone-large) {
             max-height: 60px;
           }
 
