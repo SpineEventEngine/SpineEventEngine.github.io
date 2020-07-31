@@ -531,41 +531,45 @@ Once we assembled the Bounded Context, let's test it.
  
 ## Testing the Hello Context
 
-Let's open `HelloContextTest` suite. It is based on JUnit 5 and `spine-testutil-server` library.
-As you remember, we've already added JUnit dependency when we defined the Gradle project.
-The `testImplementation` dependency for `spine-testutil-server` is added automatically when
-you enable Spine for your project:
-<?embed-code file="examples/hello/build.gradle" 
-             start="spine.enableJava()" end="spine.enableJava()"?>
-```groovy
-spine.enableJava().server()
-```
-We're good to go for writing tests. The test suite starts with the test fixture
-for the Hello Context.
+Let's open the `HelloContextTest` suite. It is based on JUnit 5 and `spine-testutil-server` library.
 
+<p class="note">We added JUnit dependency when defined the Gradle project.
+The `testImplementation` dependency for `spine-testutil-server` is added automatically when
+you enable Spine in your project using `spine.enableJava().server()`.</p>
+
+The class of the test suite extends the abstract base called `ContextAwareTest`:
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
              start="@DisplayName("Hello")" 
              end="    }"?>
 ```java
-```               
-The class of the test suite extends the abstract base called `ContextAwareTest`. The abstract base
-responsible for creation of a test fixture for a Bounded Context under the test before each test,
-and for disposing the fixture after.
+class HelloContextTest extends ContextAwareTest {
+```
+The base class is responsible for creation of a test fixture for a Bounded Context under
+the test before each test, and for disposing the fixture after.
 
-We pass Hello Context for testing using its builder by implementing the abstract method
-`contextBuilder()` inherited from the base class: 
+We pass the Hello Context for testing using its builder by implementing the abstract method
+`contextBuilder()`: 
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
-             start="contextBuilder()" 
+             start="@Override" 
              end="    }"?>
 ```java
+@Override
+protected BoundedContextBuilder contextBuilder() {
+    return HelloContext.newBuilder();
+}
 ```
 
-The test suite tests the outcome of the `Print` command. The tests are gathered under the nested
+The suite tests the outcome of the `Print` command. These tests are gathered under the nested
 `PrintCommand` class which holds the reference to the command as its field:
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
              start="@Nested" 
              end="private Print command;"?>
 ```java
+@Nested
+@DisplayName("handle the `Print` command")
+class PrintCommand {
+
+    private Print command;
 ```
 
 ### Sending the command
@@ -575,9 +579,20 @@ The command is created and sent to the test fixture before each test method:
              start="@BeforeEach" 
              end="*}"?>
 ```java
+@BeforeEach
+void sendCommand() {
+    command = Print
+            .newBuilder()
+            .setUsername(randomString())
+            .setText(randomString())
+            .vBuild();
+    context().receivesCommand(command);
+}
 ```
 For test values we use statically imported `randomString()` method of the `TestValues` utility class
-provided by the `spine-testutil-server` library.
+provided by the `spine-testutil-server` library. We use the `context()` method provided by
+`ContextAwareTest` for obtaining the reference of the test fixture of the Bounded Context
+under the test. 
 
 ### Testing the entity state was updated
 
