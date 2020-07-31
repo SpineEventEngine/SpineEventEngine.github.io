@@ -9,6 +9,8 @@ const stickyElementFixed = stickyElement.hasClass('initially-fixed');
 const stickyElTopOffset = 32;
 const startPointToFixElement = initialHeadHeight + stickyElTopOffset;
 const initialMarginTop = 0;
+const pricingHeader = $('#sticky-pricing-header');
+const pricingHeaderTop = pricingHeader.offset().top - 68; // `68px` sticky header height
 
 /**
  * Fix sticky element on page while scrolling.
@@ -72,5 +74,16 @@ function calcStickyElHeight() {
 function resizeStickyElHeightWithWindow() {
     if ($(window).height() > 600) {
         setStickyElMaxHeight();
+    }
+}
+
+/**
+ * Makes pricing header sticky on Getting Help page.
+ */
+function fixGettingHelpHeader() {
+    if (window.pageYOffset >= pricingHeaderTop) {
+        pricingHeader.addClass('sticky');
+    } else {
+        pricingHeader.removeClass('sticky');
     }
 }

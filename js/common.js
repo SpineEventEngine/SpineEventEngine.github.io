@@ -54,6 +54,7 @@ $(function() {
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
+    fixGettingHelpHeader();
     showCodeColorSelector();
     initBootstrapTooltips();
 
@@ -85,6 +86,7 @@ window.onhashchange = function() {
 window.onscroll = function() {
     fixStickyElement();
     fixHead();
+    fixGettingHelpHeader();
     setStickyElMaxHeight();
     showScrollTopBtn();
 
@@ -97,6 +99,7 @@ $(window).resize(function() {
     resizeStickyElHeightWithWindow();
     ifCookiesExist();
     fixHead();
+    fixGettingHelpHeader();
     setColorSelectorTopPosition();
     updateSearchPanelOnResize();
 
