@@ -20,7 +20,7 @@ We'll go through the example which shows a Bounded Context called “Hello”.
 The context has one `ProcessManager`, which handles the `Print` command
 sent from the client-side code to the server-side code hosting the context. 
 We'll go through the production code of the example suite, and through the code which
-tests the Hello Context.
+tests the Hello context.
 
 ## What you'll need
 1.  JDK version 8 or higher.
@@ -484,7 +484,7 @@ subscribers automatically. You don't need to write any code for this.</p>
 Now, let's see how the `Console` Process Manager is exposed to the outer world so that it can
 receive commands.
 
-## Assembling the Hello Context
+## Assembling the Hello context
 
 Let's open the `HelloContext` class. The first thing of interest in this class is the declaration of
 the name of the Bounded Context:
@@ -494,8 +494,8 @@ the name of the Bounded Context:
 ```java
 static final String NAME = "Hello";
 ```
-This constant is used for creating the Context (we will review it in a minute) and when annotating
-the server-side code which belongs to the Hello Context. This is done in `package-info.java` using
+This constant is used for creating the context (we will review it in a minute) and when annotating
+the server-side code which belongs to the Hello context. This is done in `package-info.java` using
 the `@BoundedContext` annotation:
 
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/package-info.java" 
@@ -529,7 +529,7 @@ is passed to `BoundedContextBuilder` instead of the entity type managed by this 
 
 Once we assembled the Bounded Context, let's test it.
  
-## Testing the Hello Context
+## Testing the Hello context
 
 Let's open the `HelloContextTest` suite. It is based on JUnit 5 and `spine-testutil-server` library.
 
