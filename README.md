@@ -17,7 +17,7 @@ please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
 # Prerequisites
 
  1. Install Ruby.
- 2. Install the `bundle` tool.
+ 2. Install the `bundler` tool.
  3. Install the project dependencies by running `bundle install`.
  
 Now you should be able to run the site locally.
