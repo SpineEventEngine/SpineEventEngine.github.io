@@ -178,12 +178,12 @@
           max-height: 40px;
 
           // Fixes sticky header on mobile devices when the header text in two lines.
-          @media (max-width: 400px) {
+          @media (max-width: 454px) {
             max-height: 60px;
           }
 
           h4 {
-            font-size: 16px;
+            transform: scale(.8);
           }
 
           .support-subtitle {
@@ -238,6 +238,8 @@
         margin: 0 0 4px;
         font-size: 20px;
         font-weight: 700;
+        transform-origin: top left;
+        transform: scale(1);
         @include transition($header-animation);
       }
 
