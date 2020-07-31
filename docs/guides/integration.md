@@ -117,31 +117,26 @@ enum EventType {
 The **Airplane Supplies** system [implements](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java)
 the service and exposes it on an endpoint available to the **Takeoffs and Landings** system:
 
-//TODO: Fix example format. In the generated code are missed `...` parts. 
 <?embed-code file="examples/airport/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java" 
              fragment="SuppliesEventProducer" ?>
 ```java
 public final class SuppliesEventProducer extends SuppliesEventProducerImplBase {
-@Override
-public void subscribe(Subscription request, StreamObserver<SuppliesEvent> responseObserver) {
-    produceRandom();
-    Timestamp timestamp = request.getStartingFrom();
-    Instant startingFrom = ofEpochSecond(timestamp.getSeconds(), timestamp.getNanos());
-    log.atFine().log("New subscription for events of type `%s` since `%s`.",
-                     request.getEventType(),
-                     startingFrom);
-    historicalEvents
-            .stream()
-            .parallel()
-            .unordered()
-            .filter(event -> compare(event.getWhenOccurred(), timestamp) >= 0)
-            .filter(event -> matches(event, request.getEventType()))
-            .map(event -> event.toBuilder()
-                               .setSubscription(request)
-                               .build())
-            .onClose(responseObserver::onCompleted)
-            .forEach(responseObserver::onNext);
-}
+...
+    @Override
+    public void subscribe(Subscription request, StreamObserver<SuppliesEvent> responseObserver) {
+...
+        Timestamp timestamp = request.getStartingFrom();
+        historicalEvents
+                .stream()
+                .filter(event -> compare(event.getWhenOccurred(), timestamp) >= 0)
+                .filter(event -> matches(event, request.getEventType()))
+                .map(event -> event.toBuilder()
+                                   .setSubscription(request)
+                                   .build())
+                .onClose(responseObserver::onCompleted)
+                .forEach(responseObserver::onNext);
+    }
+...
 }
 ```
 The event producer obtains cached historical events, matches them to the received subscription,
@@ -183,9 +178,7 @@ AircraftPreparedForFlight on(@External PreflightCheckComplete event) {
             .setId(id())
             .vBuild();
 }
-```                        
-//TODO: Check this code part.                     
-
+```                                            
 ## Conformist
 
 ![Conformist domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/conformist.jpg)
@@ -207,53 +200,56 @@ The Consumer consists of two parts: [`WeatherUpdateClient`](https://github.com/s
 and [`WeatherUpdateEndpoint`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java).
 The client polls the pull-style API of the **Weather** system.
 
-//TODO: This part is different in the example.
+<?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java" 
+             fragment="fetchWeatherUpdates"?>
 ```java
-public void start() {
-    // ...
+private void fetchWeatherUpdates() {
+    Instant lastEvent = lastEventTime;
+    lastEventTime = Instant.now();
     Request getEvents = new Request.Builder()
             .get()
-            .url(weatherService.getSpec() + "/events")
+            .url(weatherService.getSpec() + "/events?since=" + lastEvent.getEpochSecond())
             .build();
-    while (running) {
-        try {
-            ResponseBody responseBody = client.newCall(getEvents)
-                                              .execute()
-                                              .body();
-            WeatherMeasurement weather = 
-                    WeatherMeasurement.fromJson(responseBody.string());
-            endpoint.receiveNew(weather);
-        } catch (IOException e) {
-            logger().atSevere().withCause(e).log();
-        }
+    try {
+        ResponseBody responseBody = client.newCall(getEvents)
+                                          .execute()
+                                          .body();
+        checkNotNull(responseBody);
+        String responseJson = responseBody.string();
+        WeatherMeasurement measurement = WeatherMeasurement.fromJson(responseJson);
+        endpoint.receiveNew(measurement);
+    } catch (IOException e) {
+        logger().atSevere()
+                .withCause(e)
+                .log();
     }
 }
 ```
-
 The endpoint handles the polled measurements and publishes them as Events in
 the **Takeoffs and Landings** context:
 
-//TODO: This part is different in the example. 
+<?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java" 
+             fragment="receiveNew"?>
 ```java
-public void receiveNew(WeatherMeasurement weather) {
+public void receiveNew(WeatherMeasurement measurement) {
+    checkNotNull(measurement);
     if (!previous.isUnknown()) {
-        WindSpeedChanged event = WindSpeedChanged
-            .newBuilder()
-            .setNewSpeed(weather.toWindSpeed())
-            .setPreviousSpeed(previous.toWindSpeed())
-            .vBuild();
-        weatherContext.emittedEvent(event, actor);
         TemperatureChanged event = TemperatureChanged
-            .newBuilder()
-            .setNewTemperature(weather.toTemperature())
-            .setPreviousTemperature(previous.toTemperature())
-            .vBuild();
+                .newBuilder()
+                .setNewTemperature(measurement.toTemperature())
+                .setPreviousTemperature(measurement.toTemperature())
+                .vBuild();
         weatherContext.emittedEvent(event, actor);
+        WindSpeedChanged event1 = WindSpeedChanged
+                .newBuilder()
+                .setNewSpeed(measurement.toWindSpeed())
+                .setPreviousSpeed(previous.toWindSpeed())
+                .vBuild();
+        weatherContext.emittedEvent(event1, actor);
     }
-    previous = weather;
+    previous = measurement;
 }
 ```
-
 The [`FlightAggregate`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java)
 reacts on those events and changes its state as the result:
 
@@ -271,7 +267,6 @@ EitherOf2<FlightRescheduled, Nothing> on(@External TemperatureChanged event) {
     }
 }
 ```
-
 ## Anticorruption Layer
 
 ![ACL domain]({{ site.baseurl }}/img/integrating-with-a-3d-party/acl.jpg)
@@ -305,39 +300,32 @@ for the [Boarding process](https://github.com/spine-examples/airport/blob/master
 The **Security Checks** API provides data for each passenger independently. The client polls
 the data and publishes many intermediate `PassengerBoarded` or `PassengerDeniedBoarding` external
 events via [`ThirdPartyContext`](https://spine.io/core-java/reference/server/io/spine/server/integration/ThirdPartyContext.html):
-//TODO: The example code is different. What should we insert?
+<?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java" 
+             fragment="Fetch passengers" ?>
 ```java
 public void start() {
     while (active) {
+        Request request = requestPassengers();
         try {
-            List<TsaPassenger> passengers = requestPassengers();
+            List<TsaPassenger> passengers = fetchPassengers(request);
             passengers.forEach(this::emitIfStatusKnown);
         } catch (IOException e) {
-            _warn().withCause(e).log();
+            _warn().withCause(e)
+                   .log();
         }
-        // Wait a configured time span.
+        sleepUninterruptibly(HALF_A_MINUTE);
     }
 }
 
-private List<TsaPassenger> requestPassengers() {
-    Request request = // ...
-    ResponseBody body = client.newCall(request)
-                              .execute()
-                              .body();
-    return Json.fromJson(body.string(), TsaPassengers.class)
-               .getPassengerList();
-}
-
-private void emitIfStatusKnown(TsaPassenger passenger) {
-    BoardingStatus status = passenger.boardingStatus();
+private void emitIfStatusKnown(TsaPassenger tsaPassenger) {
+    BoardingStatus status = tsaPassenger.boardingStatus();
     if (status == BOARDED) {
-        emitBoarded(passenger);
+        emitBoarded(tsaPassenger);
     } else if (status == WILL_NOT_BE_BOARDED) {
-        emitDenied(passenger);
+        emitDenied(tsaPassenger);
     }
 }
 ```
-
 The [Process Manager](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java)
 accumulates the Events and, once the whole *Flight* is boarded, emits a `BoardingComplete` event,
 which is later consumed by the&nbsp;[*Flight* Aggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
@@ -359,7 +347,6 @@ EitherOf2<BoardingComplete, Nothing> on(@External PassengerDeniedBoarding event)
     return completeOrNothing();
 }
 ```
-
 ## In Conclusion
 
 An integration job may seem complicated or even overwhelming. However, with a strong understanding
