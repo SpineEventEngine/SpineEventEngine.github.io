@@ -533,9 +533,9 @@ Once we assembled the Bounded Context, let's test it.
 
 Let's open the `HelloContextTest` suite. It is based on JUnit 5 and `spine-testutil-server` library.
 
-<p class="note">We added JUnit dependency when defined the Gradle project.
-The `testImplementation` dependency for `spine-testutil-server` is added automatically when
-you enable Spine in your project using `spine.enableJava().server()`.</p>
+<p class="note">We already added JUnit dependency when defining the Gradle project.
+The `testImplementation` dependency for `spine-testutil-server` is automatically added when
+you enable Spine in your project using `spine.enableJava().server()`. So, we're good to go testing.</p>
 
 The class of the test suite extends the abstract base called `ContextAwareTest`:
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
@@ -546,10 +546,11 @@ The class of the test suite extends the abstract base called `ContextAwareTest`:
 class HelloContextTest extends ContextAwareTest {
 ```
 The base class is responsible for creation of a test fixture for a Bounded Context under
-the test before each test, and for disposing the fixture after.
+the test before each test, and for disposing the fixture after. The fixture is accessed using
+the `context()` method.
 
 We pass the Hello Context for testing using its builder by implementing the abstract method
-`contextBuilder()`: 
+`contextBuilder()` inherited from `ContextAwareTest`: 
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
              start="@Override" 
              end="    }"?>
@@ -559,9 +560,9 @@ protected BoundedContextBuilder contextBuilder() {
     return HelloContext.newBuilder();
 }
 ```
-
-The suite tests the outcome of the `Print` command. These tests are gathered under the nested
-`PrintCommand` class which holds the reference to the command as its field:
+Now we can get down to the tests. The suite verifiers the outcome of the `Print` command.
+The test methods are gathered under the nested class called
+`PrintCommand`. The class holds the reference to the command as its field:
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
              start="@Nested" 
              end="private Print command;"?>
