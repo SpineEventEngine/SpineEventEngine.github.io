@@ -547,7 +547,7 @@ for the Hello Context.
              start="@DisplayName("Hello")" 
              end="    }"?>
 ```java
-``` 
+```               
 The class of the test suite extends the abstract base called `ContextAwareTest`. The abstract base
 responsible for creation of a test fixture for a Bounded Context under the test before each test,
 and for disposing the fixture after.
@@ -562,12 +562,11 @@ We pass Hello Context for testing using its builder by implementing the abstract
 
 The test suite tests the outcome of the `Print` command. The tests are gathered under the nested
 `PrintCommand` class which holds the reference to the command as its field:
-
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
              start="@Nested" 
              end="private Print command;"?>
 ```java
-``` 
+```
 
 ### Sending the command
 The command is created and sent to the test fixture before each test method:
@@ -576,13 +575,11 @@ The command is created and sent to the test fixture before each test method:
              start="@BeforeEach" 
              end="*}"?>
 ```java
-```    
-         
+```
 For test values we use statically imported `randomString()` method of the `TestValues` utility class
 provided by the `spine-testutil-server` library.
 
 ### Testing the entity state was updated
-
 
 <p class="lead">To be continued...</p>
 
