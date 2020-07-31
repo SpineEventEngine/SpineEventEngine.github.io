@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/SpineEventEngine/embed-code
-  revision: 00d9e3083ff82c597f2d33f03fd95aa06d6b2c61
+  revision: 792c7d192512cc30baca70fab3f269a1d2ff6260
   specs:
-    embed-code (0.0.2)
+    embed-code (0.0.4)
 
 GEM
   remote: https://rubygems.org/
