@@ -1,8 +1,31 @@
 $btn-font-size: 14px;
 
 .btn {
+  display: inline-block;
+  font-size: $btn-font-size;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 32px;
+  border-radius: $border-radius-m;
+  text-transform: uppercase;
+  cursor: pointer;
+  @include transition(all .34s ease-in-out);
+
+  &:hover {
+    outline: none;
+    text-decoration: none;
+  }
+
   &:focus {
-    outline: 0 !important;
+    @include box-shadow(none);
+    outline: 1px dotted;
+    outline-offset: -5px;
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: .4;
+    pointer-events: none;
   }
 }
 
@@ -31,20 +54,13 @@ $btn-font-size: 14px;
 }
 
 .btn-doc-call-white {
-  font-size: $btn-font-size;
-  font-weight: 500;
   color: $white;
-  text-align: center;
   border: 1px solid $white;
   background-color: transparent;
   border-radius: $border-radius-s;
-  padding: 15px 56px;
-  text-transform: uppercase;
-  cursor: pointer;
-  @include transition(all .34s ease-in-out);
+  padding: 12px 56px;
 
   &:hover, &:focus {
-    outline: none;
     background-color: rgba($lightBlueColor, .2);
     border: 1px solid $lightBlueColor;
     @include box-shadow(0 5px 20px 0 rgba($footerColor, 0.28));
@@ -52,29 +68,16 @@ $btn-font-size: 14px;
 }
 
 .btn-bordered-blue {
-  display: inline-block;
-  font-size: $btn-font-size;
-  text-align: center;
-  font-weight: bold;
   letter-spacing: 1px;
   color: $mainBrandColor;
-  padding: 14px 32px;
   border: 2px solid $mainBrandColor;
-  border-radius: $border-radius-m;
-  text-transform: uppercase;
-  @include transition(all .34s ease-in-out);
 
   &:hover {
-    outline: none;
-    text-decoration: none;
     background-color: rgba($mainBrandColor, .12);
     color: $mainBrandColor;
   }
 
   &:focus {
-    @include box-shadow(none);
-    outline: 1px dotted;
-    outline-offset: -5px;
     color: $mainBrandColor;
   }
 }
