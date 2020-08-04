@@ -57,7 +57,9 @@
       height: 100%;
     }
 
-    .support-resources, .support-community {
+    .support-get-started,
+    .support-resources,
+    .support-community {
       @media (max-width: $tablet-large) {
         margin-bottom: 24px;
       }
