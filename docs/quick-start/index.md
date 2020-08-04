@@ -542,7 +542,7 @@ The class of the test suite extends the abstract base called `ContextAwareTest`:
              start="@DisplayName(*Hello*)" 
              end="class HelloContextTest"?>
 ```java
-@DisplayName("Hello Context should")
+@DisplayName("Hello context should")
 class HelloContextTest extends ContextAwareTest {
 ```
 The base class is responsible for creation of a test fixture for a Bounded Context under
@@ -651,6 +651,8 @@ static {
     configureEnvironment();
 }
 ```
+
+### Configuring the environment
 The `configureEnvironment()` method initializes the `Production` environment of this example with
 the settings that are normally used for testing:
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
@@ -668,6 +670,7 @@ private static void configureEnvironment() {
 A real-world application would use `StorageFactory` and `TransportFactory` instances that correspond
 to a database and a messaging system used by the application. 
 
+### The constructor
 The implementation of the `Server` class wraps around the class `io.spine.server.Server` provided
 by the framework. This API is for exposing `BoundedContext`s in a server-side application.
 This is what our `Server` class does in the constructor:
@@ -692,13 +695,167 @@ via a TCP/IP port.</p>
 Once we have the `Server.Builder` instance returned by the `inProcess()` method,
 we add the Hello Context via its builder to the constructed `Server` instance.
 
+### Start and shutdown
 The remaining code of our `Server` class declares `start()` and `shutdown()` methods that
 simply delegate calls to the wrapped `io.spine.server.Server` instance.  
 
 Now we have the server, but how does the client side look like?
 
 ## The client code
-  
+
+Similarly to `Server`, the `Client` class of our example application wraps around
+the `io.spine.client.Client` API provided by the `spine-client` library: 
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
+             start="class Client" 
+             end="client;"?>
+```java
+public final class Client {
+
+    private final io.spine.client.Client client;
+```
+
+<p class="note">The `io.spine:spine-client` library is available
+to the example application project as a transitive dependency of
+the `io.spine:spine-server` library, which is added to the project when you do
+`spine.enableJava().server()` in your Gradle project.</p>
+
+Then, the `Client` class declares a field for keeping subscriptions to the results of a command
+execution. We'll see how this field is used in a minute. 
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
+             start="private @Nullable ImmutableSet" end="private @Nullable ImmutableSet"?>
+```java
+private @Nullable ImmutableSet<Subscription> subscriptions;
+```
+
+First of all, let's see how the `Client` instances are created.
+
+### The constructor
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
+             start="public Client(" 
+             end="    }"?>
+```java
+public Client(String serverName) {
+    this.client = inProcess(serverName)
+            .shutdownTimout(2, TimeUnit.SECONDS)
+            .build();
+}
+```
+
+Again, similarly to a `Server`, a `Client` is created using in-process connection to a named server.
+The `shutdownTimeout` parameter configures the amount of time allowed for completing current
+client-server communications before closing the client. 
+
+Now, let's review the main thing the `Client` class does, sending the `Print` command.
+
+### Sending the command
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
+             start="sendCommand() {" 
+             end="    }"?>
+```java
+public void sendCommand() {
+    String userName = System.getProperty("user.name");
+    Print commandMessage = Print.newBuilder()
+            .setUsername(userName)
+            .setText("Hello World!")
+            .vBuild();
+    this.subscriptions =
+            client.asGuest()
+                  .command(commandMessage)
+                  .observe(Printed.class, this::onPrinted)
+                  .post();
+}
+```
+
+The method does two things:
+   1. Creates a command message using the login name of the current computer user.
+   2. Posts the command, subscribing to the `Printed` event which will be generated as the result
+      of the handling the posted command.
+      
+Let's review the second thing in details.
+   
+The `client.asGuest()` call starts composing a client request. For the sake of the simplicity,
+we on do this on behalf of a user who is not logged in. A real-world application would send
+start sending most of the commands using the `client.onBehalfOf(UserId)` call.
+
+The `command(commandMessage)` call tells we want to send a command with the passed message.
+
+Then, we subscribe to the `Printed` event which would be generated as the result of handling
+the command. The events obtained from the server would be passed to the `onPrinted()` method
+of the `Client` class.
+
+The `post()` method sends the command to the server, returning the set with one `Subscription`
+to the `Printed` event. We store the returned set in the field, so that it can be used later 
+for cancelling the subscription upon receiving the event.  
+
+### Handling the event
+
+When the client code receives the `Printed` event, it prints its data and then 
+cancels the subscription:
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
+             start="void onPrinted(" 
+             end="    }"?>
+```java
+private void onPrinted(Printed event) {
+    printEvent(event);
+    cancelSubscriptions();
+}
+```
+
+There's not much exciting about the printing part.
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
+             start="void onPrinted(" 
+             end="    }"?>
+```java
+private void printEvent(EventMessage e) {
+    String out = format(
+            "The client received the event: %s%s",
+            e.getClass().getName(),
+            toCompactJson(e)
+    );
+    System.out.println(out);
+}
+```
+The only interesting thing here is the statically imported `Json.toCompactJson()` call which 
+converts the event message to a `String`. The method is available from the `Json` utility class
+provided by the framework. The utility does heavy lifting of the conversion which involves knowing
+all Protobuf types available in the project.
+ 
+Cancelling the subscription, if any, iterates through the set passing each of them to
+the `Client.subscriptions()` API for the cancellation:
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
+             start="void cancelSubscriptions()" 
+             end="    }"?>
+```java
+    private void cancelSubscriptions() {
+        if (subscriptions != null) {
+            subscriptions.forEach(s -> client.subscriptions().cancel(s));
+            this.subscriptions = null;
+        }
+    }
+```  
+Once we finish with the cancellation, we clear the `subscriptions` field.
+
+### Closing the client
+
+The `close()` method simply delegates to the `io.spine.client.Client`. We also need to tell
+the calling code if the client is finished its job. This is what the `isDone()` method for:
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
+             start="boolean isDone()" 
+             end="    }"?>
+```java
+public boolean isDone() {
+    return client.subscriptions()
+                 .isEmpty();
+}
+```
+The method checks active subscriptions. If there are none, we got the event and cleared its
+subscription.
+
 <p class="lead">To be continued...</p>
      
 
