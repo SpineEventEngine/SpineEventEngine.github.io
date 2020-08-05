@@ -841,8 +841,9 @@ Once we finish with the cancellation, we clear the `subscriptions` field.
 
 ### Closing the client
 
-The `close()` method simply delegates to the `io.spine.client.Client`. We also need to tell
-the calling code if the client is finished its job. This is what the `isDone()` method for:
+The `close()` method simply delegates to the method of the `io.spine.client.Client` class.
+We also need to tell the calling code if the client has finished its job. 
+This is what the `isDone()` method for:
 
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
              start="boolean isDone()" 
@@ -855,6 +856,54 @@ public boolean isDone() {
 ```
 The method checks active subscriptions. If there are none, we got the event and cleared its
 subscription.
+
+Now, let's put it all together.
+
+## Orchestrating the example
+
+Let's review the `Example` class and its `main()` method. It simulates client-server communication
+scenario.
+
+<?embed-code file="examples/hello/src/main/java/io/spine/helloworld/Example.java" 
+             start="void main(" 
+             end="    }"?>
+```java
+public static void main(String[] args) {
+    String serverName = UUID.randomUUID().toString();
+    Server server = new Server(serverName);
+    Client client = null;
+    try {
+        server.start();
+        client = new Client(serverName);
+        client.sendCommand();
+        while (!client.isDone()) {
+            sleepUninterruptibly(Duration.ofMillis(100));
+        }
+    } catch (IOException e) {
+        onError(e);
+    }
+    finally {
+        if (client != null) {
+            client.close();
+        }
+        server.shutdown();
+    }
+}
+```
+The first thing the method does is creating a `Server` using a random name.
+
+Then, the server is started. It is done in the `try/catch/finally` block because the `start()` 
+method may throw `IOException` in case of communication problems reported by gRPC. 
+The `catch` block calls the `onError()` method of the `Example` class which simply prints
+the exception. A real-world application would use more sophisticated exception handling.
+ 
+After the `Server` is started, we create a `Client` using the name of the server generated before.
+Then, the client sends the command, and we wait until the client finishes its job using
+the statically imported method `sleepUninterruptibly()` provided by Guava.
+
+The `main()` method finishes by closing the client and shutting down the server.  
+
+## Summary
 
 <p class="lead">To be continued...</p>
      
