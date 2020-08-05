@@ -907,15 +907,15 @@ Then, the selected Bounded Context is assembled using these entity types and tes
 the black-box approach. A test suite sends signals (e.g. commands or events) to the implementation
 of the Bounded Context and verifies the changes manifested as events or new states of the entities.
 
-Once the Bounded Context is tested, it is added to a `Server` which gathers Bounded Contexts of
-the solution and accepts incoming requests from the client applications. 
+Once the Bounded Context is tested, it is added to a `Server` which gathers all the Bounded Contexts
+of the solution and accepts incoming requests from the client applications. 
 
 Client applications send commands to modify the business model and subscribe to messages
 like events that reflect the changes of the model.
 
 Once handling of all commands and events of the selected Bounded Context is done, another
-Bounded Context is selected for the development. The process is repeated until all the Contexts
-of the solution are implemented.
+Bounded Context is selected for the development. The process is repeated until all the contexts
+are implemented.
 
 <br/>
    
