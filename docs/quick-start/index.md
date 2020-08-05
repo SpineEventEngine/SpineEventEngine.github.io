@@ -810,13 +810,9 @@ There's not much exciting about the printing part.
              start="void onPrinted(" 
              end="    }"?>
 ```java
-private void printEvent(EventMessage e) {
-    String out = format(
-            "The client received the event: %s%s",
-            e.getClass().getName(),
-            toCompactJson(e)
-    );
-    System.out.println(out);
+private void onPrinted(Printed event) {
+    printEvent(event);
+    cancelSubscriptions();
 }
 ```
 The only interesting thing here is the statically imported `Json.toCompactJson()` call which 
@@ -830,11 +826,10 @@ the `Client.subscriptions()` API for the cancellation:
              start="void cancelSubscriptions()" 
              end="    }"?>
 ```java
-    private void cancelSubscriptions() {
-        if (subscriptions != null) {
-            subscriptions.forEach(s -> client.subscriptions().cancel(s));
-            this.subscriptions = null;
-        }
+private void cancelSubscriptions() {
+    if (subscriptions != null) {
+        subscriptions.forEach(s -> client.subscriptions().cancel(s));
+        subscriptions = null;
     }
 ```  
 Once we finish with the cancellation, we clear the `subscriptions` field.
@@ -879,16 +874,6 @@ public static void main(String[] args) {
         while (!client.isDone()) {
             sleepUninterruptibly(Duration.ofMillis(100));
         }
-    } catch (IOException e) {
-        onError(e);
-    }
-    finally {
-        if (client != null) {
-            client.close();
-        }
-        server.shutdown();
-    }
-}
 ```
 The first thing the method does is creating a `Server` using a random name.
 
@@ -905,7 +890,35 @@ The `main()` method finishes by closing the client and shutting down the server.
 
 ## Summary
 
-<p class="lead">To be continued...</p>
-     
+Although the “business case” of this example is trivial, it shows basic steps of development 
+of a solution based on Spine Event Engine framework. 
+
+The development starts with the discovery of the business using EventStorming or another
+learning approach.
+
+Then, we select a Bounded Context and define events, commands, Value Objects and states of entities
+using Protobuf. Using these `.proto` files Spine Model Compiler generates the code implementing
+the defined data types.
+
+After that we add the business logic for handling commands or events in entity classes derived from
+`Aggregate`, `ProcessManager`, or `Projection`. 
+
+Then, the selected Bounded Context is assembled using these entity types and tested using
+the black-box approach. A test suite sends signals (e.g. commands or events) to the implementation
+of the Bounded Context and verifies the changes manifested as events or new states of the entities.
+
+Once the Bounded Context is tested, it is added to a `Server` which gathers Bounded Contexts of
+the solution and accepts incoming requests from the client applications. 
+
+Client applications send commands to modify the business model and subscribe to messages
+like events that reflect the changes of the model.
+
+Once handling of all commands and events of the selected Bounded Context is done, another
+Bounded Context is selected for the development. The process is repeated until all the Contexts
+of the solution are implemented.
+
+<br/>
+   
+[Next: Development Process Overview]({{site.baseurl}}/docs/introduction/index.html) 
 
 [proto3-guide]: https://developers.google.com/protocol-buffers/docs/proto3
