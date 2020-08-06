@@ -978,7 +978,7 @@ Client applications send commands to modify the business model and subscribe to 
 like events that reflect the changes of the model.
 
 Once handling of all commands and events of the selected Bounded Context is done, another
-Bounded Context is selected for the development. The process is repeated until all the contexts
+context is selected for the development. The process is repeated until all the contexts
 are implemented.
 
 <br/>
