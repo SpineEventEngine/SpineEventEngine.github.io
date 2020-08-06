@@ -756,7 +756,7 @@ public final class Client {
     private final io.spine.client.Client client;
 ```
 
-<p class="note">The `io.spine:spine-client` library is available
+<p class="note">The `io.spine:spine-client` library is provided
 to the example application project as a transitive dependency of
 the `io.spine:spine-server` library, which is added to the project when you do
 `spine.enableJava().server()` in your Gradle project.</p>
