@@ -629,7 +629,7 @@ its state.
 
 ### Testing creation of the event
 
-Testing an event was generated is quite simple. We create the expected event and assert it
+Testing that an event was generated is quite simple. We create the expected event and assert it
 with the test fixture:
 
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
