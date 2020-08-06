@@ -126,6 +126,12 @@
           margin-top: 24px;
         }
       }
+
+      .footer-cell {
+        &.third-cell {
+          padding-top: 32px;
+        }
+      }
     }
 
     @media (max-width: $phone-medium) {
