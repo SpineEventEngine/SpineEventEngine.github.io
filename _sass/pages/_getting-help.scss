@@ -293,7 +293,7 @@
       align-self: end;
 
       .pricing-block {
-        margin-top: 48px;
+        margin-top: 24px;
 
         .price {
           font-size: $font-size--s;
@@ -315,6 +315,10 @@
             display: none;
           }
         }
+      }
+
+      .checkboxes-list {
+        margin-top: 24px;
       }
 
       .pricing-btn {

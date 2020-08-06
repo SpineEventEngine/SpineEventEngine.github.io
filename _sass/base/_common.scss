@@ -245,6 +245,7 @@ $checkbox-size: 18px;
   position: relative;
   display: block;
   cursor: pointer;
+  margin-top: 12px;
   padding-left: $checkbox-size + 12px;
   line-height: 1.4;
   -webkit-user-select: none;
@@ -254,6 +255,10 @@ $checkbox-size: 18px;
 
   &:hover input ~ .checkmark {
     border-color: $mainBrandColor;
+  }
+
+  .text {
+    font-size: 14px;
   }
 
   /* Hide the browser's default checkbox */
@@ -273,7 +278,7 @@ $checkbox-size: 18px;
   /* Custom checkbox */
   .checkmark {
     position: absolute;
-    top: 1px;
+    top: 2px;
     left: 0;
     height: $checkbox-size;
     width: $checkbox-size;
