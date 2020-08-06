@@ -16,6 +16,7 @@ goes through already written code which is quite simple. So, it won't take long.
 </p>
 
 ## What we'll do
+
 We'll go through the example which shows a Bounded Context called “Hello”. 
 The context has one `ProcessManager`, which handles the `Print` command
 sent from the client-side code to the server-side code hosting the context. 
@@ -23,6 +24,7 @@ We'll go through the production code of the example suite, and through the code 
 tests the Hello context.
 
 ## What you'll need
+
 1.  JDK version 8 or higher.
 2.  Git.
 3.  The source code of the [Hello World](https://github.com/spine-examples/hello) example.
@@ -31,6 +33,7 @@ tests the Hello context.
     ```
 
 ## Run the code
+
 To check that you've got everything installed, please run the following command:
 ```bash
 ./gradlew :sayHello
@@ -79,6 +82,7 @@ For the sake of simplicity, this example is organised as a single-module Gradle 
 Most likely, a project for a real world application would be multi-module.
 
 ### The root directory
+
 The root of the project contains the following files:
   * `LICENSE` — the text of the Apache v2 license under which the framework and
      this example are licensed.
@@ -105,6 +109,7 @@ Here are the directories of interest in the project root:
 Let's see how the source code is structured.
 
 ### The `src` directory
+
 The source code directory follows standard Gradle conventions and has two sub-directories:
   * **`main`** — the production code;
   * **`tests`**.
@@ -123,6 +128,7 @@ The production code consists of two parts allocated by sub-directories:
 Now, let's review the code in details, starting with how to add Spine to a Gradle project.
 
 ## Adding Spine to a Gradle project
+
 Let's open `build.gradle` from the root of the project. The simplest and recommended way for
 adding Spine dependencies to a project is the Bootstrap plugin:
 
@@ -366,6 +372,7 @@ target entity, then event fields are analyzed. It is also possible to set custom
 Now, let's see the server-side data of the Hello context.
 
 ### The `console.proto` file
+
 The header of the file is similar to those we saw in `commands.proto` and `events.proto`. 
 The difference is that we use `server` for the proto and Java package names to make sure the 
 server-only is not used by the client code.
@@ -595,6 +602,7 @@ class PrintCommand {
 ```
 
 ### Sending the command
+
 The command is created and sent to the test fixture before each test method:
 
 <?embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
@@ -620,6 +628,7 @@ Now we need to test that handling the command produces the event, and the handli
 its state. 
 
 ### Testing creation of the event
+
 Testing an event was generated is quite simple. We create the expected event and assert it
 with the test fixture:
 
@@ -638,6 +647,7 @@ void event() {
 ```
 
 ### Testing entity state update
+
 For testing the state of the `Console` Process Manager was updated, we construct the expected
 state and pass it to the `assertState()` method of the test fixture:
 
@@ -677,6 +687,7 @@ static {
 ```
 
 ### Configuring the environment
+
 The `configureEnvironment()` method initializes the `Production` environment of this example with
 the settings that are normally used for testing:
 
@@ -697,6 +708,7 @@ A real-world application would use `StorageFactory` and `TransportFactory` insta
 to a database and a messaging system used by the application. 
 
 ### The constructor
+
 The implementation of the `Server` class wraps around the class `io.spine.server.Server` provided
 by the framework. This API is for exposing `BoundedContext`s in a server-side application.
 This is what our `Server` class does in the constructor:
@@ -724,6 +736,7 @@ Once we have the `Server.Builder` instance returned by the `inProcess()` method,
 we add the Hello Context via its builder to the constructed `Server` instance.
 
 ### Start and shutdown
+
 The remaining code of our `Server` class declares `start()` and `shutdown()` methods that
 simply delegate calls to the wrapped `io.spine.server.Server` instance.  
 
@@ -779,6 +792,7 @@ client-server communications.
 Now, let's review the main thing the `Client` class does, sending the `Print` command.
 
 ### Sending the command
+
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
              start="sendCommand() {" 
              end="    }"?>
