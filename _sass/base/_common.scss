@@ -191,11 +191,7 @@ $tooltip-padding: .25rem .65rem;
 // Overrides Bootstrap tooltip styles
 .tooltip {
   font-size: 12px;
-  .arrow {
-    &:before {
-      border-left-color: $tooltip-color;
-    }
-  }
+  line-height: 1.4;
 
   &.show {
     opacity: .87;
@@ -204,6 +200,22 @@ $tooltip-padding: .25rem .65rem;
   .tooltip-inner {
     background-color: $tooltip-color;
     padding: $tooltip-padding;
+  }
+
+  &.bs-tooltip-left .arrow:before {
+    border-left-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-right .arrow:before {
+    border-right-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-top .arrow:before {
+    border-top-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-bottom .arrow:before {
+    border-bottom-color: $tooltip-color;
   }
 }
 
