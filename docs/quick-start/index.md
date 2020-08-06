@@ -745,8 +745,8 @@ public Client(String serverName) {
 ```
 
 Again, similarly to a `Server`, a `Client` is created using in-process connection to a named server.
-The `shutdownTimeout` parameter configures the amount of time allowed for completing current
-client-server communications before closing the client. 
+The `shutdownTimeout` parameter configures the amount of time allowed for completing ongoing
+client-server communications. 
 
 Now, let's review the main thing the `Client` class does, sending the `Print` command.
 
@@ -771,14 +771,14 @@ public void sendCommand() {
 
 The method does two things:
    1. Creates a command message using the login name of the current computer user.
-   2. Posts the command, subscribing to the `Printed` event which will be generated as the result
-      of the handling the posted command.
+   2. Posts the command, subscribing to the `Printed` event. The event will be generated as
+      the result of the handling the posted command.
       
 Let's review the second thing in details.
    
 The `client.asGuest()` call starts composing a client request. For the sake of the simplicity,
-we on do this on behalf of a user who is not logged in. A real-world application would send
-start sending most of the commands using the `client.onBehalfOf(UserId)` call.
+we do this on behalf of a user who is not logged in. A real-world application would send
+most of the commands using `client.onBehalfOf(UserId)`.
 
 The `command(commandMessage)` call tells we want to send a command with the passed message.
 
@@ -787,8 +787,8 @@ the command. The events obtained from the server would be passed to the `onPrint
 of the `Client` class.
 
 The `post()` method sends the command to the server, returning the set with one `Subscription`
-to the `Printed` event. We store the returned set in the field, so that it can be used later 
-for cancelling the subscription upon receiving the event.  
+to the `Printed` event. We store the returned set in the field to use later for cancelling
+the subscription.  
 
 ### Handling the event
 
@@ -886,7 +886,7 @@ After the `Server` is started, we create a `Client` using the name of the server
 Then, the client sends the command, and we wait until the client finishes its job using
 the statically imported method `sleepUninterruptibly()` provided by Guava.
 
-The `main()` method finishes by closing the client and shutting down the server.  
+The `main()` method finishes by closing the client, and shutting down the server.  
 
 ## Summary
 
