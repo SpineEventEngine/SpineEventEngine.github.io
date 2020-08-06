@@ -850,6 +850,7 @@ private void onPrinted(Printed event) {
 ```
 
 There's not much exciting about the printing part.
+
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
              start="void printEvent(" 
              end="    }"?>
