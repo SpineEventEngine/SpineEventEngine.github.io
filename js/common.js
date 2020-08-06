@@ -13,7 +13,7 @@ const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 const $searchField = $('#search-field');
 const mobileSearchOpenedClass = 'mobile-search-opened';
-const pricingHeader = $('#sticky-pricing-header');
+const pricingHeader = $('.compare-support .header');
 let pricingHeaderTopPosition = getPricingHeaderTopPosition();
 
 /** Pages */

@@ -1,5 +1,10 @@
 :root {
   --pricing-card-side-padding: 32px;
+  --pricing-card-gap-between: 24px;
+
+  @media (max-width: $desktop-small) {
+    --pricing-card-gap-between: 16px;
+  }
 
   @media (max-width: $tablet-large) {
     --pricing-card-side-padding: 24px;
@@ -7,6 +12,7 @@
 
   @media (max-width: $phone-large) {
     --pricing-card-side-padding: 16px;
+    --pricing-card-gap-between: 8px;
   }
 }
 
@@ -88,151 +94,71 @@
   }
 
   $card-border-radius: $border-radius-m;
+  $card-border: 1px solid $article-border-color;
+  $empty-line-height-s: 16px;
+  $empty-line-height-m: 32px;
+  $header-animation: all .6s;
+
   .compare-support {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    gap: 0 var(--pricing-card-gap-between);
     margin: 20px 0;
-    background: white;
-    @include box-shadow($feature-card-shadow);
+
+    @media (max-width: $mobile-card-max-screen-size) {
+      grid-template-columns: repeat(2, 1fr);
+
+      .empty-line-s.third-cell,
+      .empty-line-m.third-cell,
+      .header:nth-child(3),
+      .not-compared-items,
+      .terms-third-cell,
+      .footer-cell.third-cell {
+        order: 1;
+        grid-column: 1/3;
+      }
+
+      .header {
+        &:nth-child(3) {
+          margin-top: 24px;
+        }
+      }
+    }
 
     @media (max-width: $phone-medium) {
       margin: 0 -#{$layout-padding-phone};
-
-      .header {
-        border-radius: 0 !important; // The `!important` is needed to declare the property
-        // only once for all siblings
-      }
-    }
-
-    &.compared-on-mobile {
-      @media (max-width: $mobile-card-max-screen-size) {
-        .header-row,
-        .plan-action-row {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .proposal-row,
-        .terms-row {
-          display: block;
-        }
-
-        .header {
-          &:nth-child(2) {
-            border-radius: 0 $card-border-radius 0 0;
-          }
-
-          &:nth-child(3) {
-            display: none;
-          }
-        }
-
-        .not-compared-items {
-          display: none;
-        }
-
-        .action-block {
-          &:nth-child(3) {
-            display: none;
-          }
-        }
-      }
-    }
-
-    &.mobile {
-      @media (min-width: $mobile-card-min-screen-size) {
-        display: none;
-      }
-
-      @media (max-width: $mobile-card-max-screen-size) {
-        .header-row,
-        .proposal-row,
-        .terms-row,
-        .plan-action-row {
-          display: block;
-        }
-
-        .header {
-          &.proof-of-concept-header {
-            background: $nav-blue-gradient;
-            border-radius: $card-border-radius $card-border-radius 0 0;
-          }
-        }
-
-        .action-block {
-          padding-bottom: 40px;
-        }
-      }
-    }
-
-    $header-animation: all .6s;
-
-    .header-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: min-content;
-      z-index: 1;
-
-      &.sticky {
-        position: sticky;
-        position: -webkit-sticky; /* Safari */
-        top: $header-height;
-
-        .header {
-          padding-top: 9px;
-          margin-bottom: 32px;
-          max-height: 40px;
-
-          // Fixes sticky header on mobile devices when the header text in two lines.
-          @media (max-width: 552px) {
-            max-height: 60px;
-          }
-
-          h4 {
-            transform: scale(.8);
-          }
-
-          .support-subtitle {
-            visibility: hidden;
-            opacity: 0;
-          }
-        }
-      }
-    }
-
-    .proposal-row,
-    .terms-row {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: 1fr;
-      margin-top: 16px;
-
-      p {
-        margin: 0 var(--pricing-card-side-padding);
-        padding: 12px 0;
-      }
-    }
-
-    .plan-action-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      align-items: end;
     }
 
     .header {
       padding: 24px var(--pricing-card-side-padding);
       max-height: 300px;
+      border-radius: $card-border-radius $card-border-radius 0 0;
+      background: $mainBrandColor;
+      z-index: 1;
       @include transition($header-animation);
 
-      &:nth-child(1) {
-        background: #5fabdd;
-        border-radius: $card-border-radius 0 0 0;
-      }
+      &.sticky {
+        position: sticky;
+        position: -webkit-sticky; /* Safari */
+        top: $header-height;
+        padding-top: 9px;
+        margin-bottom: 32px;
+        max-height: 40px;
 
-      &:nth-child(2) {
-        background: #3498db;
-      }
+        // Fixes sticky header on mobile devices when the header text in two lines.
+        @media (max-width: 552px) {
+          max-height: 60px;
+        }
 
-      &:nth-child(3) {
-        background: $nav-blue-gradient;
-        border-radius: 0 $card-border-radius 0 0;
+        h4 {
+          transform: scale(.8);
+        }
+
+        .support-subtitle {
+          visibility: hidden;
+          opacity: 0;
+        }
       }
 
       h4 {
@@ -259,16 +185,52 @@
       }
     }
 
+    .card-cell {
+      background: white;
+      border-right: $card-border;
+      border-left: $card-border;
+
+      &.empty-line-s {
+        height: $empty-line-height-s;
+      }
+
+      &.empty-line-m {
+        height: $empty-line-height-m;
+      }
+
+      &.latest {
+        min-height: 100%;
+      }
+
+      &.footer-cell {
+        display: grid;
+        border-bottom: $card-border;
+      }
+    }
+
+    p {
+      margin: 0 var(--pricing-card-side-padding);
+      padding: 12px 0;
+    }
+
     .compared-items {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: min-content;
+      grid-template-rows: min-content min-content min-content auto;
+      gap: 0 var(--pricing-card-gap-between);
+      grid-column: 1/3;
 
       p {
+        height: 100%;
         border-bottom: 1px dotted $divider-color;
       }
 
-      .empty {
+      .item-with-icon {
+        height: 100%;
+        border-bottom: 1px dotted $divider-color;
+      }
+
+      .empty-item {
         position: relative;
 
         span {
@@ -278,61 +240,57 @@
           color: $gray-200;
         }
       }
+    }
 
-      .item-with-icon {
-        position: relative;
-        margin: 0 var(--pricing-card-side-padding);
-        border-bottom: 1px dotted $divider-color;
+    .item-with-icon {
+      position: relative;
+      margin: 0 var(--pricing-card-side-padding);
 
+      i {
+        position: absolute;
+        font-size: 22px;
+        color: $icon-color;
+        margin-left: 10px;
+        top: 13px;
+
+        &.fa-watch {
+          margin-left: 12px;
+        }
+      }
+
+      p {
+        margin: 0;
+        padding-left: 48px;
+        border-bottom: none;
+      }
+
+      @media (max-width: $phone-medium) {
         i {
-          position: absolute;
-          font-size: 22px;
-          color: $icon-color;
-          margin-left: 10px;
-          top: 13px;
+          font-size: 16px;
+          margin-left: 4px;
 
           &.fa-watch {
-            margin-left: 12px;
+            margin-left: 5px;
           }
         }
 
         p {
-          margin: 0;
-          padding-left: 48px;
-          border-bottom: none;
-        }
-
-        @media (max-width: $phone-medium) {
-          i {
-            font-size: 16px;
-            margin-left: 4px;
-
-            &.fa-watch {
-              margin-left: 5px;
-            }
-          }
-
-          p {
-            padding-left: 32px;
-          }
+          padding-left: 32px;
         }
       }
     }
 
-    .section-divider-row {
-      margin: 24px var(--pricing-card-side-padding) 0;
+    .terms-divider {
       background-color: $body-light-gray-color;
       border-radius: $border-radius;
-
-      p {
-        padding: 8px 0 8px 20px;
-        font-weight: bold;
-        color: $gray-300;
-      }
+      padding: 8px 0 8px 20px;
+      font-weight: bold;
+      color: $gray-300;
     }
 
     .action-block {
       margin: 0 var(--pricing-card-side-padding) 40px;
+      align-self: end;
 
       .pricing-block {
         margin-top: 48px;
@@ -391,18 +349,5 @@
         }
       }
     }
-
-    /*.privacy-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-
-      .privacy {
-        display: block;
-        margin: 12px var(--pricing-card-side-padding) 40px;
-        font-size: 13px;
-        font-style: italic;
-        color: $gray-500;
-      }
-    }*/
   }
 }
