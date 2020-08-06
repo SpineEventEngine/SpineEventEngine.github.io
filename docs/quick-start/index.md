@@ -964,7 +964,7 @@ Then, we select a Bounded Context and define events, commands, Value Objects, an
 using Protobuf. Using these `.proto` files Spine Model Compiler generates the code implementing
 the defined data types.
 
-After that we add the business logic for handling commands or events in entity classes derived from
+After that, we add the business logic for handling commands or events in entity classes derived from
 `Aggregate`, `ProcessManager`, or `Projection`. 
 
 Then,  these entity types are assembled into a Bounded Context and tested as a whole.
