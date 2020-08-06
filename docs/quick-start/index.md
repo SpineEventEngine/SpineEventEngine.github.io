@@ -960,7 +960,7 @@ of a solution based on Spine Event Engine framework.
 The development starts with the discovery of the business using EventStorming or another
 learning approach.
 
-Then, we select a Bounded Context and define events, commands, Value Objects and states of entities
+Then, we select a Bounded Context and define events, commands, Value Objects and entity states
 using Protobuf. Using these `.proto` files Spine Model Compiler generates the code implementing
 the defined data types.
 
@@ -969,7 +969,7 @@ After that we add the business logic for handling commands or events in entity c
 
 Then,  these entity types are assembled into a Bounded Context and tested as a whole.
 A test suite sends signals (e.g. commands or events) to the implementation of the Bounded Context
-and verifies the changes manifested as events or new states of the entities.
+and verifies the changes manifested as events or new entity states.
 
 Once the Bounded Context is tested, it is added to a `Server` which gathers all the Bounded Contexts
 of the solution and accepts incoming requests from the client applications. 
