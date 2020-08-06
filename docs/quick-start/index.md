@@ -960,7 +960,7 @@ of a solution based on Spine Event Engine framework.
 The development starts with the discovery of the business using EventStorming or another
 learning approach.
 
-Then, we select a Bounded Context and define events, commands, Value Objects and entity states
+Then, we select a Bounded Context and define events, commands, Value Objects, and entity states
 using Protobuf. Using these `.proto` files Spine Model Compiler generates the code implementing
 the defined data types.
 
