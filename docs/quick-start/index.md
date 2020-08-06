@@ -920,9 +920,9 @@ the defined data types.
 After that we add the business logic for handling commands or events in entity classes derived from
 `Aggregate`, `ProcessManager`, or `Projection`. 
 
-Then, the selected Bounded Context is assembled using these entity types and tested using
-the black-box approach. A test suite sends signals (e.g. commands or events) to the implementation
-of the Bounded Context and verifies the changes manifested as events or new states of the entities.
+Then,  these entity types are assembled into a Bounded Context and tested as a whole.
+A test suite sends signals (e.g. commands or events) to the implementation of the Bounded Context
+and verifies the changes manifested as events or new states of the entities.
 
 Once the Bounded Context is tested, it is added to a `Server` which gathers all the Bounded Contexts
 of the solution and accepts incoming requests from the client applications. 
