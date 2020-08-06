@@ -769,12 +769,14 @@ public void sendCommand() {
 }
 ```
 
-The method does two things:
+The method does three things:
    1. Creates a command message using the login name of the current computer user.
-   2. Posts the command, subscribing to the `Printed` event. The event will be generated as
-      the result of the handling the posted command.
+   2. Subscribes to the `Printed` event which will be generated as the result of
+      handling the command we are going to post (and only this instance of the command,
+      not all `Print` commands).  
+   3. Posts the command. 
       
-Let's review the second thing in details.
+Let's review subscribing and posting in details.
    
 The `client.asGuest()` call starts composing a client request. For the sake of the simplicity,
 we do this on behalf of a user who is not logged in. A real-world application would send
