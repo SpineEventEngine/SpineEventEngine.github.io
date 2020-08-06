@@ -242,6 +242,7 @@
       }
     }
 
+    $icon-left-offset: 10px;
     .item-with-icon {
       position: relative;
       margin: 0 var(--pricing-card-side-padding);
@@ -250,7 +251,7 @@
         position: absolute;
         font-size: 22px;
         color: $icon-color;
-        margin-left: 10px;
+        margin-left: $icon-left-offset;
         top: 13px;
 
         &.fa-watch {
@@ -293,7 +294,7 @@
       align-self: end;
 
       .pricing-block {
-        margin-top: 24px;
+        margin: 32px 0 0 $icon-left-offset;
 
         .price {
           font-size: $font-size--s;
@@ -315,30 +316,31 @@
             display: none;
           }
         }
+
+        @media (max-width: $phone-medium) {
+          margin-left: 0;
+        }
       }
 
       .checkboxes-list {
-        margin-top: 32px;
+        margin: 32px 0 0 $icon-left-offset;
+
+        @media (max-width: $phone-medium) {
+          margin-left: 0;
+        }
       }
 
       .pricing-btn-holder {
         display: inline-block;
         margin-top: 24px;
         cursor: not-allowed; // For the disabled button
-
-        @media (max-width: $tablet-large) {
-          width: 100%;
-        }
+        width: 100%;
       }
 
       .pricing-btn {
-        width: 240px;
-
-        @media (max-width: $tablet-large) {
-          width: 100%;
-          padding-left: 0;
-          padding-right: 0;
-        }
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
 
         $light-blue-btn: #69b7e8;
         $light-blue-btn-hover: #5fabdd;
