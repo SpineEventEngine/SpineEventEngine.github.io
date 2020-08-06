@@ -325,6 +325,10 @@
         display: inline-block;
         margin-top: 24px;
         cursor: not-allowed; // For the disabled button
+
+        @media (max-width: $tablet-large) {
+          width: 100%;
+        }
       }
 
       .pricing-btn {
