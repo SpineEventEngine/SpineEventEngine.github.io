@@ -820,7 +820,7 @@ The method does three things:
       
 Let's review subscribing and posting in details.
    
-The `client.asGuest()` call starts composing a client request. For the sake of the simplicity,
+The `client.asGuest()` call starts composing a client request. For the sake of simplicity,
 we do this on behalf of a user who is not logged in. A real-world application would send
 most of the commands using `client.onBehalfOf(UserId)`.
 
