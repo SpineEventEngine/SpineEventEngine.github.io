@@ -809,12 +809,16 @@ private void onPrinted(Printed event) {
 
 There's not much exciting about the printing part.
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
-             start="void onPrinted(" 
+             start="void printEvent(" 
              end="    }"?>
 ```java
-private void onPrinted(Printed event) {
-    printEvent(event);
-    cancelSubscriptions();
+private void printEvent(EventMessage e) {
+    String out = format(
+            "The client received the event: %s%s",
+            e.getClass().getName(),
+            toCompactJson(e)
+    );
+    System.out.println(out);
 }
 ```
 The only interesting thing here is the statically imported `Json.toCompactJson()` call which 
@@ -826,13 +830,14 @@ Cancelling the subscription, if any, iterates through the set passing each of th
 the `Client.subscriptions()` API for the cancellation:
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
              start="void cancelSubscriptions()" 
-             end="    }"?>
+             end="^    }"?>
 ```java
 private void cancelSubscriptions() {
     if (subscriptions != null) {
         subscriptions.forEach(s -> client.subscriptions().cancel(s));
         subscriptions = null;
     }
+}
 ```  
 Once we finish with the cancellation, we clear the `subscriptions` field.
 
@@ -863,7 +868,7 @@ scenario.
 
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/Example.java" 
              start="void main(" 
-             end="    }"?>
+             end="^    }"?>
 ```java
 public static void main(String[] args) {
     String serverName = UUID.randomUUID().toString();
@@ -876,6 +881,16 @@ public static void main(String[] args) {
         while (!client.isDone()) {
             sleepUninterruptibly(Duration.ofMillis(100));
         }
+    } catch (IOException e) {
+        onError(e);
+    }
+    finally {
+        if (client != null) {
+            client.close();
+        }
+        server.shutdown();
+    }
+}
 ```
 The first thing the method does is creating a `Server` using a random name.
 
