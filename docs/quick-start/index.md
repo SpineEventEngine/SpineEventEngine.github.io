@@ -890,7 +890,7 @@ Once we finish with the cancellation, we clear the `subscriptions` field.
 
 The `close()` method simply delegates to the method of the `io.spine.client.Client` class.
 We also need to tell the calling code if the client has finished its job. 
-This is what the `isDone()` method for:
+This is what the `isDone()` method is for:
 
 <?embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
              start="boolean isDone()" 
