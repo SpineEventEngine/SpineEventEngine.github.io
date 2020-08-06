@@ -19,6 +19,9 @@
 .getting-help {
   $divider-color: #c3d1d6;
   $icon-color: #72858c;
+  $card-border-radius: $border-radius-l;
+  $card-shadow: 0px 8px 10px 0px rgba(black, .02),
+                0px 0px 0px 1px inset rgba(33, 33, 33, .07);
 
   $mobile-card-max-screen-size: $tablet;
   $mobile-card-min-screen-size: $mobile-card-max-screen-size + 1;
@@ -58,8 +61,8 @@
     .support-container {
       padding: 32px;
       background-color: white;
-      border-radius: $border-radius-m;
-      @include box-shadow(0 2px 16px 0 rgba(black, .08));
+      border-radius: $card-border-radius;
+      @include box-shadow($card-shadow);
       height: 100%;
     }
 
@@ -93,7 +96,6 @@
     }
   }
 
-  $card-border-radius: $border-radius-m;
   $card-border: 1px solid $article-border-color;
   $empty-line-height-s: 16px;
   $empty-line-height-m: 32px;
@@ -205,6 +207,7 @@
       &.footer-cell {
         display: grid;
         border-bottom: $card-border;
+        border-radius: 0 0 $card-border-radius $card-border-radius;
       }
     }
 
