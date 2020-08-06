@@ -969,7 +969,7 @@ After that, we add the business logic for handling commands or events in entity 
 `Aggregate`, `ProcessManager`, or `Projection`. 
 
 Then,  these entity types are assembled into a Bounded Context and tested as a whole.
-A test suite sends signals (e.g. commands or events) to the implementation of the Bounded Context
+A test suite sends signals (i.e. commands or events) to the implementation of the Bounded Context
 and verifies the changes manifested as events or new entity states.
 
 Once the Bounded Context is tested, it is added to a `Server` which gathers all the Bounded Contexts
