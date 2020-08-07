@@ -132,7 +132,9 @@ Now, let's review the code in details, starting with how to add Spine to a Gradl
 Let's open `build.gradle` from the root of the project. The simplest and recommended way for
 adding Spine dependencies to a project is the Bootstrap plugin:
 
-<?embed-code file="examples/hello/build.gradle" start="plugins" end="^}"?>
+<?embed-code file="examples/hello/build.gradle"
+             start="plugins"
+             end="^}"?>
 ```groovy
 plugins {
     id 'io.spine.tools.gradle.bootstrap' version '1.5.24'
@@ -142,7 +144,8 @@ plugins {
 Once the plugin is added, we can use its features:
 
 <?embed-code file="examples/hello/build.gradle" 
-             start="spine.enableJava()" end="spine.enableJava()"?>
+             start="spine.enableJava()"
+             end="spine.enableJava()"?>
 ```groovy
 spine.enableJava().server()
 ```
@@ -219,7 +222,8 @@ Then follows the import statement for custom options used when defining data typ
 required for all proto files of a Spine-based project.
 
 <?embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
-             start="spine/options" end="spine/options"?>  
+             start="spine/options"
+             end="spine/options"?>  
 ```proto
 import "spine/options.proto";
 ```
@@ -227,7 +231,8 @@ import "spine/options.proto";
 The following file-wide option defines the prefix for type names used in this file.
 
 <?embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
-             start="type_url_prefix" end="type_url_prefix"?>  
+             start="type_url_prefix"
+             end="type_url_prefix"?>  
 ```proto
 option (type_url_prefix) = "type.spine.io";
 ```
@@ -238,7 +243,8 @@ in a system would use the same prefix.
 Then we see the standard Protobuf option for defining a Java package for the generated code:
 
 <?embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
-             start="java_package" end="java_package"?>  
+             start="java_package"
+             end="java_package"?>  
 ```proto
 option java_package="io.spine.helloworld.hello.command";
 ``` 
@@ -258,7 +264,8 @@ The following standard proto file option defines the name for the outer class ge
 Protobuf Compiler for this `.proto` file: 
 
 <?embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
-             start="java_outer_classname" end="java_outer_classname"?>  
+             start="java_outer_classname"
+             end="java_outer_classname"?>  
 ```proto
 option java_outer_classname = "CommandsProto";
 ```
