@@ -142,7 +142,7 @@
       padding: 24px var(--pricing-card-side-padding);
       max-height: 300px;
       border-radius: $card-border-radius $card-border-radius 0 0;
-      background: $mainBrandColor;
+      background-image: $nav-blue-gradient-light;
       z-index: 1;
       @include transition($header-animation);
 
@@ -185,7 +185,8 @@
         padding: 0;
         margin: 0;
         font-size: 15px;
-        font-weight: 400;
+        font-weight: 500;
+        letter-spacing: .08px;
         line-height: 1.5;
         visibility: visible;
         opacity: 1;
@@ -351,11 +352,10 @@
         padding-left: 0;
         padding-right: 0;
 
-        $light-blue-btn: #69b7e8;
         $light-blue-btn-hover: #5fabdd;
         &.order-btn {
-          background: $light-blue-btn;
-          border-color: $light-blue-btn;
+          background: $mainBrandColor;
+          border-color: $mainBrandColor;
           color: white;
 
           &:after {
