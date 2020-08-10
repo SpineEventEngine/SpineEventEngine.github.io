@@ -13,8 +13,9 @@ const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 const $searchField = $('#search-field');
 const mobileSearchOpenedClass = 'mobile-search-opened';
+const pricingContainer = $('.compare-support');
 const pricingHeader = $('.compare-support .header');
-let pricingHeaderTopPosition = getPricingHeaderTopPosition();
+let pricingHeaderTopPosition = getPricingContainerTopPosition();
 
 /** Pages */
 const isFaqPage = $body.is('.faq');
@@ -110,7 +111,7 @@ $(window).resize(function() {
     fixHead();
     setColorSelectorTopPosition();
     updateSearchPanelOnResize();
-    pricingHeaderTopPosition = getPricingHeaderTopPosition();
+    pricingHeaderTopPosition = getPricingContainerTopPosition();
 
     if (isPromoPage) {
         showCodeColorSelectorOnPromoPage();
@@ -514,12 +515,12 @@ function copyToClipboard(textToCopy) {
 }
 
 /**
- * Gets the pricing header top position.
+ * Gets the pricing container top position.
  * @return {number}
  */
-function getPricingHeaderTopPosition() {
-    if (pricingHeader.length) {
-        return pricingHeader.offset().top - 68; // `68px` sticky header height
+function getPricingContainerTopPosition() {
+    if (pricingContainer.length) {
+        return pricingContainer.offset().top - 68; // `68px` sticky header height
     }
 }
 
