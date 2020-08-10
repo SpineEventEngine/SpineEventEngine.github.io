@@ -168,7 +168,7 @@
         .header-icon {
           &:after {
             @include transform(scale(.68));
-            top: -14px;
+            margin-top: -14px;
           }
         }
 
@@ -198,7 +198,6 @@
         &:after {
           position: absolute;
           content: '';
-          top: 0;
           width: $header-icon-size;
           height: $header-icon-size;
           @include transition($header-animation);
