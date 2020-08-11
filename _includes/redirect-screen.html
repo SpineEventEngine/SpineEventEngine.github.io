@@ -1,4 +1,4 @@
-<div class="redirect-screen">
+<div id="redirect" class="redirect-screen" style="display: none;">
     <div class="redirect-screen-container d-flex align-items-center">
         <div class="redirect-screen-holder">
             <div class="redirect-loader">
@@ -7,12 +7,12 @@
                      alt="Spinner">
                 <p>We are redirecting you<br> to the order page</p>
             </div>
-            <div class="redirect-error d-none">
+            <div class="redirect-error" style="display: none;">
                 <h2>Sorry, the redirection was interrupted</h2>
                 <p>Please try again. If the issue persists, contact us at
                     <a href="mailto:{{ site.data.support.emailDev | encode_email }}">{{ site.data.support.emailDev | html_encode_email }}</a>.</p>
                 <div class="btn-back">
-                    <a href="#" class="link-back">
+                    <a href="#" id="try-again" class="link-back">
                         <span>Try again</span>
                     </a>
                 </div>
