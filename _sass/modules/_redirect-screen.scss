@@ -1,0 +1,30 @@
+.redirect-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: map_get($z-index, 'redirect-screen');
+  background-color: rgba(white, .85);
+  @include animation(fadeIn, .23s, initial, linear, forwards);
+}
+
+@include keyframes(fadeIn) {
+  0% {opacity: 0;}
+  100% {opacity: 100;}
+}
+
+.redirect-screen-holder {
+  position: relative;
+  margin: -20px auto 0;
+
+  .animated-spinner {
+    display: block;
+    margin: 0 auto 16px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 15px;
+  }
+}

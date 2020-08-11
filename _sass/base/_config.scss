@@ -42,6 +42,7 @@ $desktop-large              : 1440px;
 $mobile                     : $desktop-small;
 
 // Z-index
+// Usage: z-index: map_get($z-index, 'color-selector');
 $z-index: (
         'go-top-button'     : 999,
         'color-selector'    : 999,
@@ -49,6 +50,7 @@ $z-index: (
         'snackbar'          : 1000,
         'nav-mobile'        : 1001,
         'side-nav-mobile'   : 1001,
+        'redirect-screen'   : 1001,
         'hamburger-menu'    : 9999,
         'search-mobile'     : 10000
 );
