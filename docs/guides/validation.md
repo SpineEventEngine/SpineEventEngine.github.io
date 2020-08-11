@@ -418,7 +418,7 @@ message LocalTime {
     
     int32 hours = 1 [(range) = "[0..23]"];
     int32 minutes = 2 [(range) = "[0 .. 60)"];
-    float seconds 3 [(range) = "[0 .. 60.0)"];
+    float seconds = 3 [(range) = "[0 .. 60.0)"];
 }
 ```
 
