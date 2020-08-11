@@ -91,9 +91,9 @@ The Event Consumer, as depicted above, implements the Event transformation logic
 establish this communication channel, the **Airplane Supplies** system declares a [gRPC](https://grpc.io/)
 service. In [`supplies_service.proto`](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto):
 
-[//]: # <?embed-code file="examples/airport/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto" 
-[//]: #              start="message Subscription*" 
-[//]: #              end="}*"?>
+<embed-code file="examples/airport/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto" 
+            start="message Subscription*" 
+            end="}*"/>
 ```proto
 message Subscription {
 
@@ -102,9 +102,9 @@ message Subscription {
     google.protobuf.Timestamp starting_from = 3;
 }
 ```
-[//]: # <?embed-code file="examples/airport/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto" 
-[//]: #              start="enum EventType*" 
-[//]: #              end="}*"?>
+<embed-code file="examples/airport/airplane-supplies/src/main/proto/spine/example/airport/supplies/supplies_service.proto" 
+            start="enum EventType*" 
+            end="}*"/>
 ```proto
 enum EventType {
     ALL = 0;
@@ -117,8 +117,8 @@ enum EventType {
 The **Airplane Supplies** system [implements](https://github.com/spine-examples/airport/blob/master/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java)
 the service and exposes it on an endpoint available to the **Takeoffs and Landings** system:
 
-[//]: # <?embed-code file="examples/airport/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java" 
-[//]: #              fragment="SuppliesEventProducer" ?>
+<embed-code file="examples/airport/airplane-supplies/src/main/java/io/spine/example/airport/supplies/SuppliesEventProducer.java" 
+            fragment="SuppliesEventProducer"/>
 ```java
 public final class SuppliesEventProducer extends SuppliesEventProducerImplBase {
 ...
@@ -145,8 +145,8 @@ an&nbsp;[event consumer](https://github.com/spine-examples/airport/blob/master/t
 which constructs a subscription and maintains it as long as the system needs to receive more events.
 The consumer broadcasts the received Events via an instance of [`ThirdPartyContext`](https://spine.io/core-java/reference/server/io/spine/server/integration/ThirdPartyContext.html):
 
-[//]: # <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java" 
-[//]: #              fragment="onNext" ?>
+<embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java" 
+            fragment="onNext"/>
 ```java
 @Override
 public void onNext(SuppliesEvent event) {
@@ -168,9 +168,9 @@ The [`AircraftAggregate`](https://github.com/spine-examples/airport/blob/master/
 reacts on those events. Note that all the events published through `ThirdPartyContext` are always
 `external`, so should be the subscriber and reactor methods.
 
-[//]: # <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/AircraftAggregate.java" 
-[//]: #              start="@React" 
-[//]: #             end="}"?>
+<embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/AircraftAggregate.java" 
+            start="@React" 
+            end="}"/>
 ```java
 @React
 AircraftPreparedForFlight on(@External PreflightCheckComplete event) {
@@ -201,9 +201,9 @@ The Consumer consists of two parts: [`WeatherUpdateClient`](https://github.com/s
 and [`WeatherUpdateEndpoint`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java).
 The client polls the pull-style API of the **Weather** system.
 
-[//]: # <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java" 
-[//]: #              start="private void fetchWeatherUpdates"
-[//]: #              end="^    }"?>
+<embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateClient.java" 
+            start="private void fetchWeatherUpdates"
+            end="^    }"/>
 ```java
 private void fetchWeatherUpdates() {
     Instant lastEvent = lastEventTime;
@@ -230,9 +230,9 @@ private void fetchWeatherUpdates() {
 The endpoint handles the polled measurements and publishes them as Events in
 the **Takeoffs and Landings** context:
 
-[//]: # <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java" 
-[//]: #              start="public void receiveNew"
-[//]: #              end="^    }"?>
+<embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/weather/WeatherUpdateEndpoint.java" 
+            start="public void receiveNew"
+            end="^    }"/>
 ```java             
 public void receiveNew(WeatherMeasurement measurement) {
     checkNotNull(measurement);
@@ -256,8 +256,8 @@ public void receiveNew(WeatherMeasurement measurement) {
 The [`FlightAggregate`](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java)
 reacts on those events and changes its state as the result:
 
-[//]: # <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java" 
-[//]: #              fragment="TemperatureChanged" ?>
+<embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java" 
+            fragment="TemperatureChanged"/>
 ```java
 @React
 EitherOf2<FlightRescheduled, Nothing> on(@External TemperatureChanged event) {
@@ -304,8 +304,8 @@ The **Security Checks** API provides data for each passenger independently. The 
 the data and publishes many intermediate `PassengerBoarded` or `PassengerDeniedBoarding` external
 events via [`ThirdPartyContext`](https://spine.io/core-java/reference/server/io/spine/server/integration/ThirdPartyContext.html):
 
-[//]: # <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java" 
-[//]: #              fragment="Fetch passengers" ?>
+<embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java" 
+            fragment="Fetch passengers"/>
 ```java
 public void start() {
     while (active) {
@@ -334,8 +334,8 @@ The [Process Manager](https://github.com/spine-examples/airport/blob/master/take
 accumulates the Events and, once the whole *Flight* is boarded, emits a `BoardingComplete` event,
 which is later consumed by the&nbsp;[*Flight* Aggregate](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/FlightAggregate.java).
 
-[//]: # <?embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java" 
-[//]: #              fragment="BoardingProcman" ?>
+<embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java" 
+            fragment="BoardingProcman"/>
 ```java
 @React
 EitherOf2<BoardingComplete, Nothing> on(@External PassengerBoarded event) {
