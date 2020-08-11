@@ -138,7 +138,7 @@
                         <label class="checkbox-container" for="confirm-personal-information">
                             <span class="text">I agree to processing of my personal information.
                                 See our <a href="{{ site.baseurl }}/privacy/">Privacy Statement</a>.</span>
-                            <input type="checkbox" id="confirm-personal-information">
+                            <input type="checkbox" id="confirm-personal-information" name="confirmPersonalInformation">
                             <span class="checkmark"></span>
                         </label>
                         <label class="checkbox-container" for="confirm-development-agreement">
@@ -152,10 +152,12 @@
                          data-toggle="tooltip"
                          data-placement="bottom"
                          title="Read and agree to the terms to&nbsp;continue">
-                        <a class="btn btn-bordered-blue pricing-btn order-btn disabled"
+                        <button class="btn btn-bordered-blue pricing-btn order-btn disabled"
                            id="order-now-btn"
                            disabled
-                           href="https://secure.2checkout.com/order/checkout.php?PRODS=31007663&QTY=1&CART=1&CARD=1&SHORT_FORM=1&CURRENCY=EUR">Order Now</a>
+                           >Order Now</button>
+                        <div id="response"></div>
+                        <div id="loader">LOADER</div>
                     </div>
                 </div>
             </div>
