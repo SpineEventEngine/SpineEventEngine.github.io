@@ -8,7 +8,7 @@ layout: docs
 
 <p class="lead">Building a good domain model requires more than just defining data structures. 
 One of the commodities required for describing domain specifics is making sure that the data
-is correct. This guide will walk you though the API the Validation Library which helps achieving
+is correct. This guide will walk you through the API the Validation Library which helps achieving
 this goal.</p>
 
 All of the validation features described here are currently supported in the Java environment.
@@ -549,7 +549,7 @@ Validate.checkValidChange(old, changed);
 In Dart, there is no support for this feature.
 </p>
 
-Many fields of an entity are immutable. They may be set one in the life of the entity and then
+Many fields of an entity are immutable. They may be set once in the life of the entity and then
 should never be changed. The `(set_once)` constraint is checked automatically for entity states upon
 each change.
 
