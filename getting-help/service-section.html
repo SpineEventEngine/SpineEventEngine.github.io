@@ -1,3 +1,12 @@
+{% if jekyll.environment == "production" %}
+<script>
+    window.mode = "production";
+</script>
+{% else %}
+<script>
+    window.mode = "development";
+</script>
+{% endif %}
 <section class="service-section">
     <div class="container-fluid content-holder">
         <h1 class="section-title light">Services</h1>
