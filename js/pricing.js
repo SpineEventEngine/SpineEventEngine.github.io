@@ -50,7 +50,7 @@ $(
         }
 
         /**
-         * Submit order handler
+         * Submit order handler.
          */
         function submitOrder() {
             const orderUrl = "https://secure.2checkout.com/order/checkout.php?PRODS=31007663&QTY=1&CART=1&CARD=1&SHORT_FORM=1&CURRENCY=EUR";
@@ -72,10 +72,10 @@ $(
             sendPaymentTransaction (transactionUrl, data);
 
             /**
-             * Sends transaction data and returns the transaction ID. If request successful redirects to Payment screen.
+             * Sends the transaction data and returns the transaction ID. If the request is successful, redirects to the Payment screen.
              *
-             * @param {String} transactionUrl - API URL
-             * @param {Object} data - transaction data
+             * @param {String} transactionUrl - the API URL
+             * @param {Object} data - the transaction data
              * @return {Object}
              */
             function sendPaymentTransaction (transactionUrl, data) {
@@ -101,8 +101,8 @@ $(
         }
 
         /**
-         * Shows redirect screen.
-         * @param {Boolean} isError - if it is true hides loader and shows error section
+         * Shows the redirect screen.
+         * @param {Boolean} isError - if it is true, hides the loader and shows the error section
          */
         function showRedirect (isError) {
             $redirect.show();
@@ -113,7 +113,7 @@ $(
         }
 
         /**
-         *  Hides redirect screen.
+         *  Hides the redirect screen.
          */
         function hideRedirect () {
             $redirect.hide();
