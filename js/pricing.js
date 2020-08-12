@@ -54,21 +54,18 @@ $(
          */
         function submitOrder() {
             const orderUrl = "https://secure.2checkout.com/order/checkout.php?PRODS=31007663&QTY=1&CART=1&CARD=1&SHORT_FORM=1&CURRENCY=EUR";
-            // Payment transactions API path
-            const apiUrl = "https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction";
+            const prodApiUrl = "https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction";
             const devApiUrl = "http://localhost:5001/spine-site-server/us-central1/paymentTransaction";
+            const apiUrl = window.mode == "development" ? devApiUrl : prodApiUrl;
             const registerTransactionPath = "/transaction";
-
-            const date = new Date();
             const dataProcessingConsent = $confirmPersonalInformation.prop("checked");
             const supportAgreementConsent = $confirmDevelopmentAgreement.prop("checked");
-
             const data = {
-                "timestamp": date,
                 "dataProcessingConsent": dataProcessingConsent,
                 "supportAgreementConsent": supportAgreementConsent
             };
-            const transactionUrl = devApiUrl + registerTransactionPath;
+
+            const transactionUrl = apiUrl + registerTransactionPath;
             sendPaymentTransaction (transactionUrl, data);
 
             /**
@@ -86,12 +83,12 @@ $(
                     success: function (data) {
                         const obj = JSON.parse(data);
                         const paymentUrl = orderUrl + '&CUSTOMERID=' + obj.id;
-                        hideRedirect();
                         window.location = paymentUrl;
+                        hideRedirect();
                     },
-                    error: function (jqXhr, textStatus, errorMessage) {
-                        console.log("textStatus", textStatus);
-                        console.log("Error", jqXhr.responseText);
+                    error: function (jqXhr) {
+                        let errorMessage = jqXhr.status + ': ' + jqXhr.statusText;
+                        console.log(errorMessage);
                         showRedirect(true);
                     }
                 });
