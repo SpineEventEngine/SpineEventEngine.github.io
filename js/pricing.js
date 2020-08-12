@@ -57,7 +57,7 @@ $(
             // Payment transactions API path
             const apiUrl = "https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction";
             const devApiUrl = "http://localhost:5001/spine-site-server/us-central1/paymentTransaction";
-            const registerTransactionPath = "/registerTransaction1";
+            const registerTransactionPath = "/transaction";
 
             const date = new Date();
             const dataProcessingConsent = $confirmPersonalInformation.prop("checked");
