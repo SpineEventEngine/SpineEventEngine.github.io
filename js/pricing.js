@@ -57,7 +57,7 @@ $(
             // Payment transactions API path
             const apiUrl = "https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction";
             const devApiUrl = "http://localhost:5001/spine-site-server/us-central1/paymentTransaction";
-            const registerTransactionPath = "/registerTransaction";
+            const registerTransactionPath = "/registerTransaction1";
 
             const date = new Date();
             const dataProcessingConsent = $confirmPersonalInformation.prop("checked");
@@ -86,15 +86,13 @@ $(
                     success: function (data) {
                         const obj = JSON.parse(data);
                         const paymentUrl = orderUrl + '&CUSTOMERID=' + obj.id;
+                        hideRedirect();
                         window.location = paymentUrl;
                     },
                     error: function (jqXhr, textStatus, errorMessage) {
                         console.log("textStatus", textStatus);
-                        console.log("Error", errorMessage);
+                        console.log("Error", jqXhr.responseText);
                         showRedirect(true);
-                    },
-                    complete: function(){
-                        hideRedirect();
                     }
                 });
             }
