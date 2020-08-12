@@ -51,11 +51,11 @@
                         {% if page.prev_link != false %}
                             {% if page.prev_link %}
                                 <a class="link-back" href="{{ page.prev_link.url }}">
-                                    <span>{{ page.prev_link.page }}</span>
+                                    {{ page.prev_link.page }}
                                 </a>
                             {% else %}
                                 <a class="link-back" href="{{ prev.url }}">
-                                    <span>{{ prev.page }}</span>
+                                    {{ prev.page }}
                                 </a>
                             {% endif %}
                         {% endif %}
@@ -67,11 +67,11 @@
                         {% if page.next_link != false %}
                             {% if page.next_link %}
                                 <a class="link-next" href="{{ page.next_link.url }}">
-                                    <span>{{ page.next_link.page }}</span>
+                                    {{ page.next_link.page }}
                                 </a>
                             {% else %}
                                 <a class="link-next" href="{{ next.url }}">
-                                    <span>{{ next.page }}</span>
+                                    {{ next.page }}
                                 </a>
                             {% endif %}
                         {% endif %}

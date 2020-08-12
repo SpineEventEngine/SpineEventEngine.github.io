@@ -27,17 +27,49 @@
 
     li {
       display: inline-block;
-      width: 49%;
+      width: 45%;
       margin: 0;
+      padding: 0;
 
       &.next {
         float: right;
         text-align: right;
       }
 
-      span {
+      $arrow-icon-offset: $icon-size--s;
+      a {
+        position: relative;
+        display: block;
         font-family: $main-font;
         font-size: $font-size--primary;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.link-next {
+          padding-right: $arrow-icon-offset;
+        }
+
+        &.link-back {
+          padding-left: $arrow-icon-offset;
+        }
+
+        &:after, &:before {
+          position: absolute;
+          top: 12px;
+        }
+
+        &:after {
+          right: 3px;
+        }
+
+        &:before {
+          left: 3px;
+        }
       }
     }
   }
