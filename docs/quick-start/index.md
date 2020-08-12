@@ -112,7 +112,7 @@ Let's see how the source code is structured.
 
 The source code directory follows standard Gradle conventions and has two sub-directories:
   * **`main`** — the production code;
-  * **`tests`**.
+  * **`test`** — the tests for the production code.
 
 The production code consists of two parts allocated by sub-directories:
   * **`proto`** — contains the definition of data structures in Google Protobuf.
