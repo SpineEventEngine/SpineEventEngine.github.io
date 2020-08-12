@@ -134,7 +134,7 @@ adding Spine dependencies to a project is the Bootstrap plugin:
 
 <embed-code file="examples/hello/build.gradle"
             start="plugins"
-            end="^}"/>
+            end="^}"></embed-code>
 ```groovy
 plugins {
     id 'io.spine.tools.gradle.bootstrap' version '1.5.24'
@@ -145,7 +145,7 @@ Once the plugin is added, we can use its features:
 
 <embed-code file="examples/hello/build.gradle" 
             start="spine.enableJava()"
-            end="spine.enableJava()"/>
+            end="spine.enableJava()"></embed-code>
 ```groovy
 spine.enableJava().server()
 ```
@@ -223,7 +223,7 @@ required for all proto files of a Spine-based project.
 
 <embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
             start="spine/options"
-            end="spine/options"/>  
+            end="spine/options"></embed-code>  
 ```proto
 import "spine/options.proto";
 ```
@@ -232,7 +232,7 @@ The following file-wide option defines the prefix for type names used in this fi
 
 <embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
             start="type_url_prefix"
-            end="type_url_prefix"/>  
+            end="type_url_prefix"></embed-code>  
 ```proto
 option (type_url_prefix) = "type.spine.io";
 ```
@@ -244,7 +244,7 @@ Then we see the standard Protobuf option for defining a Java package for the gen
 
 <embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
             start="java_package"
-            end="java_package"/>  
+            end="java_package"></embed-code>  
 ```proto
 option java_package="io.spine.helloworld.hello.command";
 ``` 
@@ -265,7 +265,7 @@ Protobuf Compiler for this `.proto` file:
 
 <embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
             start="java_outer_classname"
-            end="java_outer_classname"/>  
+            end="java_outer_classname"></embed-code>  
 ```proto
 option java_outer_classname = "CommandsProto";
 ```
@@ -282,7 +282,7 @@ generated types.
 
 <embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
             start="java_multiple_files"
-            end="java_multiple_files"/>  
+            end="java_multiple_files"></embed-code>  
 ```proto
 option java_multiple_files = true;
 ```
@@ -291,7 +291,7 @@ The command for printing a text in a console is defined this way:
 
 <embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
             start="message Print" 
-            end="^}"/>  
+            end="^}"></embed-code>  
 ```proto
 message Print {
 
@@ -353,7 +353,7 @@ The command for printing a text in a console is defined this way:
 
 <embed-code file="examples/hello/src/main/proto/hello/events.proto" 
             start="message Printed" 
-            end="^}"/>
+            end="^}"></embed-code>
 ```proto 
 message Printed {
 
@@ -389,7 +389,7 @@ This file defines a single data type. It is the state of the entity handling the
 
 <embed-code file="examples/hello/src/main/proto/hello/server/console.proto" 
             start="message Output" 
-            end="^}"/>
+            end="^}"></embed-code>
 ```proto
 message Output {
     option (entity) = { kind: PROCESS_MANAGER };
@@ -414,7 +414,7 @@ Now, let's see how this data is used at the server-side.
 The class is declared this way:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
-            start="class Console" end="class Console"/>
+            start="class Console" end="class Console"></embed-code>
 ```java
 final class Console extends ProcessManager<String, Output, Output.Builder> {
 ```
@@ -434,7 +434,7 @@ The command is handled by this method:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
             start="@Assign" 
-            end="^    }"/>
+            end="^    }"></embed-code>
 ```java
 @Assign
 Printed handle(Print command) {
@@ -461,7 +461,7 @@ the text printed for each user.
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
             start="String username" 
-            end="addLines(text);"/>
+            end="addLines(text);"></embed-code>
 ```java
 String username = command.getUsername();
 String text = command.getText();
@@ -473,7 +473,7 @@ Then we print the text to `System.out` so that it becomes visible on the screen:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
             start="*println(username*" 
-            end="*println(username*"/>
+            end="*println(username*"></embed-code>
 ```java
 println(username, text);
 ```
@@ -482,7 +482,7 @@ This is done by the method the `Console` class declares:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
             start="private void println(" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 private void println(String userName, String text) {
     String output = format("[%s] %s", userName, text);
@@ -494,7 +494,7 @@ Then, the command-handling method concludes by producing the event message:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/Console.java" 
             start="return Printed" 
-            end="vBuild();"/>
+            end="vBuild();"></embed-code>
 ```java
 return Printed.newBuilder()
         .setUsername(username)
@@ -519,7 +519,7 @@ the name of the Bounded Context:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/HelloContext.java" 
             start="NAME"
-            end="NAME"/>
+            end="NAME"></embed-code>
 ```java
 static final String NAME = "Hello";
 ```
@@ -530,7 +530,7 @@ the `@BoundedContext` annotation:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/package-info.java" 
             start="@BoundedContext" 
-            end="package"/>
+            end="package"></embed-code>
 ```java
 @BoundedContext(HelloContext.NAME)
 package io.spine.helloworld.server.hello;
@@ -544,7 +544,7 @@ The second thing the `HelloContext` does is creating a Builder for the Bounded C
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/hello/HelloContext.java" 
             start="newBuilder()" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 public static BoundedContextBuilder newBuilder() {
     return BoundedContext
@@ -574,7 +574,7 @@ The class of the test suite extends the abstract base called `ContextAwareTest`:
 
 <embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
             start="@DisplayName(*Hello*)" 
-            end="class HelloContextTest"/>
+            end="class HelloContextTest"></embed-code>
 ```java
 @DisplayName("Hello context should")
 class HelloContextTest extends ContextAwareTest {
@@ -589,7 +589,7 @@ We pass the Hello Context for testing using its builder by implementing the abst
 
 <embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
             start="@Override" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 @Override
 protected BoundedContextBuilder contextBuilder() {
@@ -602,7 +602,7 @@ The test methods are gathered under the nested class called
 
 <embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
             start="@Nested" 
-            end="private Print command;"/>
+            end="private Print command;"></embed-code>
 ```java
 @Nested
 @DisplayName("handle the `Print` command")
@@ -617,7 +617,7 @@ The command is created and sent to the test fixture before each test method:
 
 <embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
             start="@BeforeEach" 
-            end="*}"/>
+            end="*}"></embed-code>
 ```java
 @BeforeEach
 void sendCommand() {
@@ -644,7 +644,7 @@ with the test fixture:
 
 <embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
             start="@Test @DisplayName(*event*)" 
-            end="*}"/>
+            end="*}"></embed-code>
 ```java   
 @Test @DisplayName("emitting the `Printed` event")
 void event() {
@@ -663,7 +663,7 @@ state and pass it to the `assertState()` method of the test fixture:
 
 <embed-code file="examples/hello/src/test/java/io/spine/helloworld/server/hello/HelloContextTest.java" 
             start="@Test @DisplayName(*entity*)" 
-            end="*}"/>
+            end="*}"></embed-code>
 ```java
 @Test @DisplayName("updating the `Console` entity")
 void entity() {
@@ -689,7 +689,7 @@ the class configures the server environment:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
             start="static {" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 static {
     configureEnvironment();
@@ -703,7 +703,7 @@ the settings that are normally used for testing:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
             start="void configureEnvironment()" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 private static void configureEnvironment() {
     Class<Production> prod = Production.class;
@@ -725,7 +725,7 @@ This is what our `Server` class does in the constructor:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/server/Server.java" 
             start="public Server(" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 public Server(String serverName) {
     this.server = inProcess(serverName)
@@ -759,7 +759,7 @@ the `io.spine.client.Client` API provided by the `spine-client` library:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="class Client" 
-            end="client;"/>
+            end="client;"></embed-code>
 ```java
 public final class Client {
 
@@ -776,7 +776,7 @@ execution. We'll see how this field is used in a minute.
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="private @Nullable ImmutableSet"
-            end="private @Nullable ImmutableSet"/>
+            end="private @Nullable ImmutableSet"></embed-code>
 ```java
 private @Nullable ImmutableSet<Subscription> subscriptions;
 ```
@@ -787,7 +787,7 @@ First of all, let's see how the `Client` instances are created.
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="public Client(" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 public Client(String serverName) {
     this.client = inProcess(serverName)
@@ -806,7 +806,7 @@ Now, let's review the main thing the `Client` class does, sending the `Print` co
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="sendCommand() {" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 public void sendCommand() {
     String userName = System.getProperty("user.name");
@@ -852,7 +852,7 @@ cancels the subscription:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="void onPrinted(" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 private void onPrinted(Printed event) {
     printEvent(event);
@@ -864,7 +864,7 @@ There's not much exciting about the printing part.
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="void printEvent(" 
-            end="    }"/>
+            end="    }"></embed-code>
 ```java
 private void printEvent(EventMessage e) {
     String out = format(
@@ -886,7 +886,7 @@ the `Client.subscriptions()` API for the cancellation:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="void cancelSubscriptions()" 
-            end="^    }"/>
+            end="^    }"></embed-code>
 ```java
 private void cancelSubscriptions() {
     if (subscriptions != null) {
@@ -906,7 +906,7 @@ This is what the `isDone()` method is for:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="boolean isDone()" 
-            end="    }"/>
+            end="    }"/></embed-code>
 ```java
 public boolean isDone() {
     return client.subscriptions()
@@ -926,7 +926,7 @@ scenario.
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/Example.java" 
             start="void main(" 
-            end="^    }"/>
+            end="^    }"></embed-code>
 ```java
 public static void main(String[] args) {
     String serverName = UUID.randomUUID().toString();
