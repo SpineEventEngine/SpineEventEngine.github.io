@@ -49,9 +49,15 @@
                 {% unless forloop.first %}
                     <li class="previous">
                         {% if page.prev_link != false %}
-                            <a class="link-back" href="{{ prev.url }}">
-                                <span>{{ prev.page }}</span>
-                            </a>
+                            {% if page.prev_link %}
+                                <a class="link-back" href="{{ page.prev_link.url }}">
+                                    <span>{{ page.prev_link.page }}</span>
+                                </a>
+                            {% else %}
+                                <a class="link-back" href="{{ prev.url }}">
+                                    <span>{{ prev.page }}</span>
+                                </a>
+                            {% endif %}
                         {% endif %}
                     </li>
                 {% endunless %}
@@ -59,9 +65,15 @@
                     {% assign next = navigation_list[forloop.index] %}
                     <li class="next">
                         {% if page.next_link != false %}
-                            <a class="link-next" href="{{ next.url }}">
-                                <span>{{ next.page }}</span>
-                            </a>
+                            {% if page.next_link %}
+                                <a class="link-next" href="{{ page.next_link.url }}">
+                                    <span>{{ page.next_link.page }}</span>
+                                </a>
+                            {% else %}
+                                <a class="link-next" href="{{ next.url }}">
+                                    <span>{{ next.page }}</span>
+                                </a>
+                            {% endif %}
                         {% endif %}
                     </li>
                 {% endunless %}
