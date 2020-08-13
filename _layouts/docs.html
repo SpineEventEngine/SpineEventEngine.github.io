@@ -16,8 +16,12 @@ bodyclass: docs
             {% include doc-side-nav.html %}
         </div>
         <div class="col-12 col-lg article-container markdown">
-            {{ content }}
-            {% include doc-next-prev-nav.html %}
+            <div class="content-container">
+                {{ content }}
+            </div>
+            <div class="bottom-nav">
+                {% include doc-next-prev-nav.html %}
+            </div>
         </div>
         <div class="col-lg toc-col">
             <div id="toc" class="toc sticky-element"></div>
