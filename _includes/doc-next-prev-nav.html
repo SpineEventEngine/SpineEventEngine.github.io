@@ -18,6 +18,8 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
+<!-- The `navigation_list` array contains all pages from the `_data/navigation/doc_side_nav.yml`
+file that have internal URLs. All pages are in the right order. -->
 {% assign navigation_list = "" | split: ',' %}
 {% for item in site.data.navigation.doc_side_nav.doc_side_nav %}
     {% if item.url %}
