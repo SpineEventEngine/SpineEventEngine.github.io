@@ -3,7 +3,7 @@ title: Documentation
 headline: Documentation
 bodyclass: docs
 layout: docs
-next_link: false
+next_btn: false
 ---
 # Welcome
 <p class="lead">Welcome to the Spine developer documentation. This page gives the overview of

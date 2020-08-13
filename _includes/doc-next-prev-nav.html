@@ -50,10 +50,10 @@ file that have internal URLs. All pages are in the right order. -->
             {% if nav_item.url == page.url %}
                 {% unless forloop.first %}
                     <li class="previous">
-                        {% if page.prev_link != false %}
-                            {% if page.prev_link %}
-                                <a class="link-back" href="{% if page.prev_link.url %}{{ page.prev_link.url }}{% else %}{{ prev.url }}{% endif %}">
-                                    {{ page.prev_link.page }}
+                        {% if page.prev_btn != false %}
+                            {% if page.prev_btn %}
+                                <a class="link-back" href="{% if page.prev_btn.url %}{{ page.prev_btn.url }}{% else %}{{ prev.url }}{% endif %}">
+                                    {{ page.prev_btn.page }}
                                 </a>
                             {% else %}
                                 <a class="link-back" href="{{ prev.url }}">
@@ -66,10 +66,10 @@ file that have internal URLs. All pages are in the right order. -->
                 {% unless forloop.last %}
                     {% assign next = navigation_list[forloop.index] %}
                     <li class="next">
-                        {% if page.next_link != false %}
-                            {% if page.next_link %}
-                                <a class="link-next" href="{% if page.next_link.url %}{{ page.next_link.url }}{% else %}{{ next.url }}{% endif %}">
-                                    {{ page.next_link.page }}
+                        {% if page.next_btn != false %}
+                            {% if page.next_btn %}
+                                <a class="link-next" href="{% if page.next_btn.url %}{{ page.next_btn.url }}{% else %}{{ next.url }}{% endif %}">
+                                    {{ page.next_btn.page }}
                                 </a>
                             {% else %}
                                 <a class="link-next" href="{{ next.url }}">

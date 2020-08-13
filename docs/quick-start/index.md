@@ -3,7 +3,7 @@ title: Getting Started in Java
 headline: Documentation
 bodyclass: docs
 layout: docs
-next_link: 
+next_btn: 
   page: Development Process Overview
 ---
 
