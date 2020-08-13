@@ -12,7 +12,7 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 - [Adding code samples to the site](#adding-code-samples-to-the-site)
 - [Testing broken links](#testing-broken-links)
 - [Adding email links](#adding-email-links)
-- [Managing the “Prev”/“Next” buttons in the documentation](#managing-the--prev---next--buttons-in-the-documentation)
+- [Managing the “Prev”/“Next” buttons in the documentation](#managing-the-prevnext-buttons-in-the-documentation)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
