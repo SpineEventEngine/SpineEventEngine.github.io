@@ -5,7 +5,6 @@ bodyclass: docs
 layout: docs
 next_link: 
   page: Development Process Overview
-  url: /docs/introduction/
 ---
 
 [//]: <> (The base path for code samples is `_samples/examples/src/main/`.)
