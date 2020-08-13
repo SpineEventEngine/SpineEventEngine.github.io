@@ -6,8 +6,8 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 - [Using URLs in Markdown](#using-urls-in-markdown)
     + [Links to Blog Posts](#links-to-blog-posts)
       - [Rule 1 -- Always concatenate Jekyll and Liquid tags](#rule-1----always-concatenate-jekyll-and-liquid-tags)
-      - [Rule 2 -- *(Almost)* Always start links with `{{ site.baseurl }}`](#rule-2------almost---always-start-links-with-----sitebaseurl----)
-      - [Rule 3 -- Always use a trailing slash after `{{ site.baseurl }}`](#rule-3----always-use-a-trailing-slash-after-----sitebaseurl----)
+      - [Rule 2 -- *(Almost)* Always start links with `{{ site.baseurl }}`](#rule-2----almost-always-start-links-with--sitebaseurl-)
+      - [Rule 3 -- Always use a trailing slash after `{{ site.baseurl }}`](#rule-3----always-use-a-trailing-slash-after--sitebaseurl-)
 - [Adding collapsible list for sidebar navigation](#adding-collapsible-list-for-sidebar-navigation)
 - [Adding code samples to the site](#adding-code-samples-to-the-site)
 - [Testing broken links](#testing-broken-links)
@@ -61,7 +61,7 @@ For instructions on adding or changing sidebar navigation, please see the [Navig
 
 # Adding code samples to the site
 
-Please see [this document](_code/README.md) for the instructions.
+Please see [this document](_code/EMBEDDING.md) for the instructions.
 
 # Testing broken links
 
