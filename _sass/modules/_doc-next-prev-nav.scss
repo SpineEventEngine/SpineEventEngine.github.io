@@ -22,21 +22,29 @@
   margin-top: 48px;
 
   ul {
+    display: flex;
     list-style: none;
     margin: 0;
 
+    $padding-between: 8px;
     li {
-      display: inline-block;
-      width: 45%;
+      flex: 1 1 auto;
+      width: 50%;
       margin: 0;
       padding: 0;
 
+      &.previous {
+        padding-right: $padding-between;
+      }
+
       &.next {
+        padding-left: $padding-between;
         float: right;
         text-align: right;
       }
 
       $arrow-icon-offset: $icon-size--s;
+      $arrow-icon-offset-mobile: 20px;
       a {
         position: relative;
         display: block;
@@ -52,10 +60,18 @@
 
         &.link-next {
           padding-right: $arrow-icon-offset;
+
+          @media (max-width: $phone-large) {
+            padding-right: $arrow-icon-offset-mobile;
+          }
         }
 
         &.link-back {
           padding-left: $arrow-icon-offset;
+
+          @media (max-width: $phone-large) {
+            padding-left: $arrow-icon-offset-mobile;
+          }
         }
 
         &:after, &:before {
