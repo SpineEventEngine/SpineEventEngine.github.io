@@ -12,6 +12,7 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 - [Adding code samples to the site](#adding-code-samples-to-the-site)
 - [Testing broken links](#testing-broken-links)
 - [Adding email links](#adding-email-links)
+- [Managing the “Prev”/“Next” buttons in the documentation](#managing-the--prev---next--buttons-in-the-documentation)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -119,3 +120,50 @@ The above code will yield:
 ```
 <a href="%65%78%61%6D%70%6C%65@%65%78%61%6D%70%6C%65.%63%6F%6D">Contact us</a>
 ```
+
+# Managing the “Prev”/“Next” buttons in the documentation
+
+The “Prev”/“Next” buttons are generated automatically for all document pages. The generation is 
+based on the [`doc_side_nav.yml`](_data/navigation/doc_side_nav.yml) navigation.
+
+To customize the automatically added “Prev”/“Next” buttons, add the appropriate variables to 
+the **front matter** block of the document page.
+
+### To hide the “Previous” or “Next” button:
+
+```
+prev_btn: false
+```
+
+```
+next_btn: false
+```
+
+### To customize the “Previous” or “Next” button name:
+```
+prev_btn: 
+  page: Development Process Overview
+```
+
+```
+next_btn: 
+  page: Development Process Overview
+```
+
+### To customize the “Previous” or “Next” button name and URL:
+```
+prev_btn: 
+  page: Development Process Overview
+  url: /docs/introduction/
+```
+
+```
+next_btn: 
+  page: Architecture Overview
+  url: /docs/introduction/architecture.html
+```
+
+**Related files:**
+- `_includes/doc-next-prev-nav.html` - the navigation template with the automatic button generation;
+- `_sass/modules/_doc-next-prev-nav.scss` - navigation styles;
+- `_layouts/docs.html` - the documentation layout where the `doc-next-prev-nav` is included.
