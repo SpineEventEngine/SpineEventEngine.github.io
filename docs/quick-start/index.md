@@ -3,6 +3,8 @@ title: Getting Started in Java
 headline: Documentation
 bodyclass: docs
 layout: docs
+next_btn: 
+  page: Development Process Overview
 ---
 
 [//]: <> (The base path for code samples is `_samples/examples/src/main/`.)
@@ -991,10 +993,6 @@ like events that reflect the changes of the model.
 
 Once handling of all commands and events of the selected Bounded Context is done, another
 context is selected for the development. The process is repeated until all the contexts
-are implemented.
-
-<br/>
-   
-[Next: Development Process Overview]({{site.baseurl}}/docs/introduction/index.html) 
+are implemented. 
 
 [proto3-guide]: https://developers.google.com/protocol-buffers/docs/proto3
