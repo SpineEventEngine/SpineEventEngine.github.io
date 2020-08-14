@@ -1,6 +1,6 @@
 ---
 ---
-// Do not remove `---` tags. These are the frontmatter tags for Jekyll variables..
+// Do not remove `---` tags. These are the frontmatter tags for Jekyll variables.
 /**
  * This script contains helper functions for the agreement checkboxes on `Getting Help` page.
  *
@@ -76,7 +76,8 @@ $(
         };
 
         /**
-         * Sends the transaction data and returns the transaction ID. If the request is successful, redirects to the Payment screen.
+         * Sends the transaction data and returns the transaction ID. If the request is successful,
+         * redirects to the Payment screen.
          *
          * @param {String} transactionUrl - the API URL
          * @param {Object} data - the transaction data
