@@ -95,8 +95,7 @@ $(
                     hideRedirect();
                 },
                 error: (jqXhr) => {
-                    let errorMessage = jqXhr.status + ': ' + jqXhr.statusText;
-                    console.debug(errorMessage);
+                    console.error(jqXhr.status + ': ' + jqXhr.statusText);
                     showRedirect(true);
                 }
             });
