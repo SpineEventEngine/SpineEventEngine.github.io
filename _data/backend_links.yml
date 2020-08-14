@@ -1,0 +1,5 @@
+orderUrl: https://secure.2checkout.com/order/checkout.php?PRODS=31007663&QTY=1&CART=1&CARD=1&SHORT_FORM=1&CURRENCY=EUR
+prodApiUrl: https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction
+devApiUrl: http://localhost:5002/spine-site-server/us-central1/paymentTransaction
+registerTransactionPath: /transaction
+

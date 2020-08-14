@@ -1,3 +1,6 @@
+---
+---
+// Do not remove `---` tags. This the frontmatter tags for Jekyll variables.
 /**
  * This script contains helper functions for the agreement checkboxes on `Getting Help` page.
  *
@@ -14,6 +17,14 @@ $(
         const $loader = $('.redirect-loader', '#redirect');
         const $errorContainer = $('.redirect-error', '#redirect');
         const $tryAgain = $('#try-again');
+
+        const orderUrl = "{{site.data.backend_links.orderUrl}}";
+        const prodApiUrl = "{{site.data.backend_links.prodApiUrl}}";
+        const devApiUrl = "{{site.data.backend_links.devApiUrl}}";
+        const registerTransactionPath = "{{site.data.backend_links.registerTransactionPath}}";
+        // `window.mode` we setup in the `getting-help/service-section.html` file by Jekyll.
+        const apiUrl = window.mode === "development" ? devApiUrl : prodApiUrl;
+
 
         $confirmPersonalInformation.change(function () {
             confirmAgreement($orderButton);
@@ -38,7 +49,7 @@ $(
          *
          * @param {Object} disabledElement - disabled/enabled element
          */
-        function confirmAgreement(disabledElement) {
+        const confirmAgreement = (disabledElement) => {
             const isConfirmed = $confirmPersonalInformation.prop('checked') && $confirmDevelopmentAgreement.prop('checked');
             if (isConfirmed) {
                 disabledElement.removeAttr('disabled');
@@ -47,70 +58,65 @@ $(
                 disabledElement.attr('disabled', true);
                 disabledElement.addClass('disabled');
             }
-        }
+        };
 
         /**
          * Submit order handler.
          */
-        function submitOrder() {
-            const orderUrl = "https://secure.2checkout.com/order/checkout.php?PRODS=31007663&QTY=1&CART=1&CARD=1&SHORT_FORM=1&CURRENCY=EUR";
-            const prodApiUrl = "https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction";
-            const devApiUrl = "http://localhost:5001/spine-site-server/us-central1/paymentTransaction";
-            const apiUrl = window.mode == "development" ? devApiUrl : prodApiUrl;
-            const registerTransactionPath = "/transaction";
+        const submitOrder = () => {
             const dataProcessingConsent = $confirmPersonalInformation.prop("checked");
             const supportAgreementConsent = $confirmDevelopmentAgreement.prop("checked");
-            const data = {
+            const data = JSON.stringify({
                 "dataProcessingConsent": dataProcessingConsent,
                 "supportAgreementConsent": supportAgreementConsent
-            };
+            });
 
             const transactionUrl = apiUrl + registerTransactionPath;
             sendPaymentTransaction (transactionUrl, data);
+        };
 
-            /**
-             * Sends the transaction data and returns the transaction ID. If the request is successful, redirects to the Payment screen.
-             *
-             * @param {String} transactionUrl - the API URL
-             * @param {Object} data - the transaction data
-             * @return {Object}
-             */
-            function sendPaymentTransaction (transactionUrl, data) {
-                showRedirect(false);
-                $.ajax(transactionUrl, {
-                    type: 'POST',
-                    data: data,
-                    success: function (data) {
-                        const obj = JSON.parse(data);
-                        const paymentUrl = orderUrl + '&CUSTOMERID=' + obj.id;
-                        window.location = paymentUrl;
-                        hideRedirect();
-                    },
-                    error: function (jqXhr) {
-                        let errorMessage = jqXhr.status + ': ' + jqXhr.statusText;
-                        console.log(errorMessage);
-                        showRedirect(true);
-                    }
-                });
-            }
-        }
+        /**
+         * Sends the transaction data and returns the transaction ID. If the request is successful, redirects to the Payment screen.
+         *
+         * @param {String} transactionUrl - the API URL
+         * @param {Object} data - the transaction data
+         */
+        const sendPaymentTransaction = (transactionUrl, data) => {
+            showRedirect(false);
+            $.ajax(transactionUrl, {
+                type: 'POST',
+                data: data,
+                contentType: 'application/json',
+                success: (data) => {
+                    const obj = JSON.parse(data);
+                    const paymentUrl = orderUrl + '&CUSTOMERID=' + obj.id;
+                    window.location = paymentUrl;
+                    hideRedirect();
+                },
+                error: (jqXhr) => {
+                    let errorMessage = jqXhr.status + ': ' + jqXhr.statusText;
+                    console.debug(errorMessage);
+                    showRedirect(true);
+                }
+            });
+        };
 
         /**
          * Shows the redirect screen.
          * @param {Boolean} isError - if it is true, hides the loader and shows the error section
          */
-        function showRedirect (isError) {
+        const showRedirect = (isError) => {
             $redirect.show();
             if (isError) {
                 $errorContainer.show();
                 $loader.hide();
             }
-        }
+        };
 
         /**
          *  Hides the redirect screen.
          */
-        function hideRedirect () {
+        const hideRedirect = () => {
             $redirect.hide();
         }
     }
