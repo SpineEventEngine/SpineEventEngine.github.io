@@ -12,8 +12,8 @@ which consists of the stages described in this document.</p>
 ## Getting domain knowledge
 
 The purpose of this step is to find out what we're going to build and why.
-Consider using [EventStorming](https://eventstorming.com) or another DDD-based analysis 
-methodology for helping you grasp the domain knowledge from the experts.
+Consider using [EventStorming](https://eventstorming.com) or another domain discovery 
+approach for grasping the knowledge from the experts.
  
 Most likely that the solution would have several [Bounded Contexts](concepts.html#bounded-context). 
 For each context developers need to define:
