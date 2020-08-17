@@ -38,11 +38,11 @@ final class TaskAggregate extends Aggregate<TaskId, Task, Task.Builder> {
     @Assign
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
         return TaskCreated.newBuilder()
-                .setTask(cmd.getId())
-                .setName(cmd.getName())
-                .setDescription(cmd.getDescription())
-                .setOwner(ctx.getActorContext().getActor())
-                .vBuild();
+                    .setTask(cmd.getId())
+                    .setName(cmd.getName())
+                    .setDescription(cmd.getDescription())
+                    .setOwner(ctx.getActorContext().getActor())
+                    .vBuild();
     }
 
     @Apply

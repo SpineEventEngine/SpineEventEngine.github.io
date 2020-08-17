@@ -20,7 +20,6 @@
 
 package io.spine.site.home.server;
 
-import io.spine.base.CommandMessage;
 import io.spine.server.BoundedContextBuilder;
 import io.spine.site.home.Task;
 import io.spine.site.home.TaskId;
@@ -46,54 +45,60 @@ public class TaskCreationTest extends ContextAwareTest {
         return NanoPmContext.newBuilder();
     }
 
-    @BeforeEach
-    void postCommand() {
+    private CreateTask generateCommand() {
         task = TaskId.generate();
         name = randomString();
         description = randomString();
+        return CreateTask.newBuilder()
+                   .setId(task)
+                   .setName(name)
+                   .setDescription(description)
+                   .vBuild();
+    }
 
-        CommandMessage c = CreateTask
-                .newBuilder()
-                .setId(task)
-                .setName(name)
-                .setDescription(description)
-                .vBuild();
-        context().receivesCommand(c);
+    @BeforeEach
+    void postCommand() {
+        CreateTask cmd = generateCommand();
+        context().receivesCommand(cmd);
     }
 
     @Test
-    @DisplayName("generate the `TaskCreated` event")
+    @DisplayName("generate `TaskCreated` event")
     void eventGenerated() {
-        TaskCreated expectedEvent = TaskCreated
-                .newBuilder()
+        TaskCreated expected = expectedEvent();
+        context().assertEvent(TaskCreated.class)
+                 .comparingExpectedFieldsOnly()
+                 .isEqualTo(expected);
+    }
+
+    private TaskCreated expectedEvent() {
+        return TaskCreated.newBuilder()
                 .setTask(task)
                 .setName(name)
                 .setDescription(description)
                 .buildPartial();
-
-        context().assertEvent(TaskCreated.class)
-                 .comparingExpectedFieldsOnly()
-                 .isEqualTo(expectedEvent);
     }
 
     @Test
-    @DisplayName("creating a `Task`")
+    @DisplayName("create a `Task`")
     void aggregateCreation() {
-        Task expected = Task
-                .newBuilder()
-                .setId(task)
-                .setName(name)
-                .setDescription(description)
-                .buildPartial();
-
+        Task expected = expectedState();
         context().assertEntityWithState(task, Task.class)
                  .hasStateThat()
                  .comparingExpectedFieldsOnly()
                  .isEqualTo(expected);
     }
 
+    private Task expectedState() {
+        return Task.newBuilder()
+                   .setId(task)
+                   .setName(name)
+                   .setDescription(description)
+                   .buildPartial();
+    }
+
     @Test
-    @DisplayName("creating a `TaskItem`")
+    @DisplayName("create a `TaskItem`")
     void projectionCreation() {
         TaskItem expected = TaskItem
                 .newBuilder()
