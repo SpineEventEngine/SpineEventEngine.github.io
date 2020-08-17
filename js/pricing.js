@@ -18,10 +18,9 @@ $(
         const $errorContainer = $('.redirect-error', '#redirect');
         const $tryAgain = $('#try-again');
 
-        const orderUrl = "{{site.data.backend_links.orderUrl}}";
-        const prodApiUrl = "{{site.data.backend_links.prodApiUrl}}";
-        const devApiUrl = "{{site.data.backend_links.devApiUrl}}";
-        const registerTransactionPath = "{{site.data.backend_links.registerTransactionPath}}";
+        const orderUrl = "{{site.data.payment_config.orderUrl}}";
+        const prodApiUrl = "{{site.data.payment_config.prodApiUrl}}";
+        const devApiUrl = "{{site.data.payment_config.devApiUrl}}";
         // `window.mode` we setup in the `getting-help/service-section.html` file by Jekyll.
         const apiUrl = window.mode === "development" ? devApiUrl : prodApiUrl;
 
@@ -71,7 +70,7 @@ $(
                 "supportAgreementConsent": supportAgreementConsent
             });
 
-            const transactionUrl = apiUrl + registerTransactionPath;
+            const transactionUrl = apiUrl + '/transaction';
             sendPaymentTransaction (transactionUrl, data);
         };
 
