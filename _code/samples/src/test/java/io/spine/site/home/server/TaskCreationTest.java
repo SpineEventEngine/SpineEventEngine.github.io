@@ -82,14 +82,14 @@ public class TaskCreationTest extends ContextAwareTest {
     @Test
     @DisplayName("create a `Task`")
     void aggregateCreation() {
-        Task expected = expectedState();
+        Task expected = expectedAggregateState();
         context().assertEntityWithState(task, Task.class)
                  .hasStateThat()
                  .comparingExpectedFieldsOnly()
                  .isEqualTo(expected);
     }
 
-    private Task expectedState() {
+    private Task expectedAggregateState() {
         return Task.newBuilder()
                    .setId(task)
                    .setName(name)
@@ -100,15 +100,17 @@ public class TaskCreationTest extends ContextAwareTest {
     @Test
     @DisplayName("create a `TaskItem`")
     void projectionCreation() {
-        TaskItem expected = TaskItem
-                .newBuilder()
-                .setName(name)
-                .setDescription(description)
-                .buildPartial();
-
+        TaskItem expected = expectedProjectionState();
         context().assertEntityWithState(task, TaskItem.class)
                  .hasStateThat()
                  .comparingExpectedFieldsOnly()
                  .isEqualTo(expected);
+    }
+
+    private TaskItem expectedProjectionState() {
+        return TaskItem.newBuilder()
+                .setName(name)
+                .setDescription(description)
+                .buildPartial();
     }
 }
