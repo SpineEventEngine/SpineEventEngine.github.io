@@ -22,24 +22,23 @@ $(
         const prodApiUrl = "{{site.data.payment_config.prodApiUrl}}";
         const devApiUrl = "{{site.data.payment_config.devApiUrl}}";
         // `window.mode` we setup in the `getting-help/service-section.html` file by Jekyll.
-        const apiUrl = window.mode === "development" ? devApiUrl : prodApiUrl;
+        const apiUrl = "{{jekyll.environment}}" === "development" ? devApiUrl : prodApiUrl;
 
-
-        $confirmPersonalInformation.change(function () {
+        $confirmPersonalInformation.change(() => {
             confirmAgreement($orderButton);
         });
 
-        $confirmDevelopmentAgreement.change(function () {
+        $confirmDevelopmentAgreement.change(() => {
             confirmAgreement($orderButton);
         });
 
-        $orderButton.click(function() {
+        $orderButton.click(() => {
             submitOrder();
         });
 
-        $tryAgain.click(function(event) {
-            event.preventDefault();
-            hideRedirect ();
+        $tryAgain.click(e => {
+            e.preventDefault();
+            hideRedirect();
             submitOrder();
         });
 
@@ -48,7 +47,7 @@ $(
          *
          * @param {Object} disabledElement - disabled/enabled element
          */
-        const confirmAgreement = (disabledElement) => {
+        function confirmAgreement(disabledElement) {
             const isConfirmed = $confirmPersonalInformation.prop('checked') && $confirmDevelopmentAgreement.prop('checked');
             if (isConfirmed) {
                 disabledElement.removeAttr('disabled');
@@ -62,16 +61,12 @@ $(
         /**
          * Submit order handler.
          */
-        const submitOrder = () => {
+        function submitOrder() {
             const dataProcessingConsent = $confirmPersonalInformation.prop("checked");
             const supportAgreementConsent = $confirmDevelopmentAgreement.prop("checked");
-            const data = JSON.stringify({
-                "dataProcessingConsent": dataProcessingConsent,
-                "supportAgreementConsent": supportAgreementConsent
-            });
-
+            const data = JSON.stringify({dataProcessingConsent, supportAgreementConsent});
             const transactionUrl = `${apiUrl}/transaction`;
-            sendPaymentTransaction (transactionUrl, data);
+            sendPaymentTransaction(transactionUrl, data);
         };
 
         /**
@@ -81,7 +76,7 @@ $(
          * @param {String} transactionUrl - the API URL
          * @param {Object} data - the transaction data
          */
-        const sendPaymentTransaction = (transactionUrl, data) => {
+        function sendPaymentTransaction(transactionUrl, data) {
             showRedirect(false);
             $.ajax(transactionUrl, {
                 type: 'POST',
@@ -102,9 +97,10 @@ $(
 
         /**
          * Shows the redirect screen.
+         *
          * @param {Boolean} isError - if it is true, hides the loader and shows the error section
          */
-        const showRedirect = (isError) => {
+        function showRedirect(isError) {
             $redirect.show();
             if (isError) {
                 $errorContainer.show();
@@ -115,7 +111,7 @@ $(
         /**
          *  Hides the redirect screen.
          */
-        const hideRedirect = () => {
+        function hideRedirect() {
             $redirect.hide();
         }
     }
