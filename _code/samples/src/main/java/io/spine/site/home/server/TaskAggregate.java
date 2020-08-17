@@ -42,7 +42,7 @@ final class TaskAggregate extends Aggregate<TaskId, Task, Task.Builder> {
                     .setName(cmd.getName())
                     .setDescription(cmd.getDescription())
                     .setOwner(ctx.getActorContext().getActor())
-                    .vBuild();
+                    .vBuild(); // validate the event
     }
 
     @Apply
