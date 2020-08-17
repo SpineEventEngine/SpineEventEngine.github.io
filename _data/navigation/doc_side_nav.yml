@@ -21,6 +21,8 @@ doc_side_nav:
     children:
       - page: Starting a new project
         url: /docs/guides/start-new-project.html
+      - page: Gradle configuration
+        url: /docs/guides/gradle.html
       - page: Validation
         url: /docs/guides/validation.html
       - page: Working with Rejections
