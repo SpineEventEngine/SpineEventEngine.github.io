@@ -13,7 +13,7 @@ import "spine/site/home/identifiers.proto";
 
 // Create a new task.
 message CreateTask {
-    TaskId id = 1;
+    TaskId id = 1; // assumed `required`
     string name = 2 [(required) = true];
     string description = 3;
 }

@@ -15,7 +15,7 @@ import "spine/site/home/identifiers.proto";
 // A task which can be assigned to a user.
 message Task {
     option (entity).kind = AGGREGATE;
-    TaskId id = 1;
+    TaskId id = 1; // assumed `required`
     string name = 2 [(required) = true];
     string description = 3;
     spine.core.UserId owner = 4 [(required) = true];
