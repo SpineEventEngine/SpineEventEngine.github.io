@@ -13,9 +13,9 @@ $(
         const $confirmPersonalInformation = $('#confirm-personal-information');
         const $confirmDevelopmentAgreement = $('#confirm-development-agreement');
         const $orderButton = $('#order-now-btn');
-        const $redirect = $('#redirect');
-        const $loader = $('.redirect-loader', '#redirect');
-        const $errorContainer = $('.redirect-error', '#redirect');
+        const $redirectScreen = $('#redirectScreen');
+        const $loader = $('.redirect-loader', '#redirectScreen');
+        const $errorContainer = $('.redirect-error', '#redirectScreen');
         const $tryAgain = $('#try-again');
 
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
@@ -32,9 +32,7 @@ $(
             confirmAgreement($orderButton);
         });
 
-        $orderButton.click(() => {
-            submitOrder();
-        });
+        $orderButton.click(submitOrder);
 
         $tryAgain.click(e => {
             e.preventDefault();
@@ -45,7 +43,7 @@ $(
         /**
          * Disables and enables order button.
          *
-         * @param {Object} disabledElement - disabled/enabled element
+         * @param {jQuery} disabledElement - disabled/enabled element
          */
         function confirmAgreement(disabledElement) {
             const isConfirmed = $confirmPersonalInformation.prop('checked') && $confirmDevelopmentAgreement.prop('checked');
@@ -56,7 +54,7 @@ $(
                 disabledElement.attr('disabled', true);
                 disabledElement.addClass('disabled');
             }
-        };
+        }
 
         /**
          * Submit order handler.
@@ -67,14 +65,22 @@ $(
             const data = JSON.stringify({dataProcessingConsent, supportAgreementConsent});
             const transactionUrl = `${apiUrl}/transaction`;
             sendPaymentTransaction(transactionUrl, data);
-        };
+        }
+
+        /**
+         * The consent data.
+         * @typedef {object} Consent
+         * @property {boolean} dataProcessingConsent - Indicates whether the user give a consent to processing of his
+         * personal information.
+         * @property {boolean} supportAgreementConsent - Indicates whether the user agree to be bound by the terms of
+         */
 
         /**
          * Sends the transaction data and returns the transaction ID. If the request is successful,
          * redirects to the Payment screen.
          *
          * @param {String} transactionUrl - the API URL
-         * @param {Object} data - the transaction data
+         * @param {Consent} data - the transaction data
          */
         function sendPaymentTransaction(transactionUrl, data) {
             showRedirect(false);
@@ -93,7 +99,7 @@ $(
                     showRedirect(true);
                 }
             });
-        };
+        }
 
         /**
          * Shows the redirect screen.
@@ -101,18 +107,18 @@ $(
          * @param {Boolean} isError - if it is true, hides the loader and shows the error section
          */
         function showRedirect(isError) {
-            $redirect.show();
+            $redirectScreen.show();
             if (isError) {
                 $errorContainer.show();
                 $loader.hide();
             }
-        };
+        }
 
         /**
          *  Hides the redirect screen.
          */
         function hideRedirect() {
-            $redirect.hide();
+            $redirectScreen.hide();
         }
     }
 );
