@@ -70,7 +70,7 @@ $(
                 "supportAgreementConsent": supportAgreementConsent
             });
 
-            const transactionUrl = apiUrl + '/transaction';
+            const transactionUrl = `${apiUrl}/transaction`;
             sendPaymentTransaction (transactionUrl, data);
         };
 
@@ -89,7 +89,7 @@ $(
                 contentType: 'application/json',
                 success: (data) => {
                     const obj = JSON.parse(data);
-                    const paymentUrl = orderUrl + '&CUSTOMERID=' + obj.id;
+                    const paymentUrl = `${orderUrl}&CUSTOMERID=${obj.id}`;
                     window.location = paymentUrl;
                     hideRedirect();
                 },
