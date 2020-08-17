@@ -1,4 +1,6 @@
 .redirect-screen {
+  display: none;
+
   .redirect-screen-container {
     position: fixed;
     top: 0;
@@ -33,6 +35,7 @@
     }
 
     .redirect-error {
+      display: none;
       text-align: center;
 
       h2 {
