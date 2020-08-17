@@ -17,41 +17,43 @@ bodyclass: promo-page
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-8">
 {% highlight proto %}
-// A command to create a new task.
+// Create a new task.
 message CreateTask {
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
 }
-...
 {% endhighlight %}
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-8">
 {% highlight proto %}
 // A new task has been created.
 message TaskCreated {
-    TaskId task = 1;
+    TaskId task = 1 [(required) = true];
     string name = 2 [(required) = true];
     string description = 3;
+    spine.core.UserId owner = 4 [(required) = true];
 }
-...
 {% endhighlight %}
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-8">
 {% highlight proto %}
+// A task which can be assigned to a user.
 message Task {
     option (entity).kind = AGGREGATE;
     TaskId id = 1;
     string name = 2 [(required) = true];
     string description = 3;
-    DeveloperId assignee = 4;
+    spine.core.UserId owner = 4 [(required) = true];
+    spine.core.UserId assignee = 5;
 }
 {% endhighlight %}
             </div>
+
         </div>
         <div class="row step-row">
             <div class="col-md-12">
@@ -84,40 +86,62 @@ message Task {
         </div>
         <div class="row">
             <!--Aggregate code -->
-            <div class="col-md-6">
+            <div class="col-md-8">
 {% highlight java %}
-final class TaskAggregate
-    extends Aggregate<TaskId, Task, Task.Builder> {
-    ...
+final class TaskAggregate extends Aggregate<TaskId, Task, Task.Builder> {
+
     @Assign
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
-        return TaskCreated
-                .newBuilder()
-                .setTask(cmd.getId())
-                .setName(cmd.getName())
-                .setOwner(ctx.getActor())
-                .vBuild();
+        return TaskCreated.newBuilder()
+                    .setTask(cmd.getId())
+                    .setName(cmd.getName())
+                    .setDescription(cmd.getDescription())
+                    .setOwner(ctx.getActorContext().getActor())
+                    .vBuild();
     }
-    ...
+
+    @Apply
+    private void event(TaskCreated e) {
+        builder().setName(e.getName())
+                 .setDescription(e.getDescription())
+                 .setOwner(e.getOwner());
+    }
 }
 {% endhighlight %}
             </div>
 
-            <!--Projection code -->
-            <div class="col-md-6">
+            <div class="col-md-8">
 {% highlight java %}
-final class TaskProjection
-    extends Projection<TaskId, TaskItem, TaskItem.Builder> {
+@DisplayName("Handling `CreateTask` command should")
+public class TaskCreationTest extends ContextAwareTest {
+
+    private TaskId task;
+    private String name;
+    private String description;
     ...
-    @Subscribe
-    void on(TaskCreated e) {
-        builder().setTask(e.getTask())
-                 .setName(e.getName())
+    @BeforeEach
+    void postCommand() {
+        CreateTask cmd = generateCommand();
+        context().receivesCommand(cmd);
     }
 
-    @Subscribe
-    void on(TaskCompleted e, EventContext ctx) {
-        builder().setWhenDone(ctx.getTimestamp());
+    @Test
+    @DisplayName("generate `TaskCreated` event")
+    void eventGenerated() {
+        TaskCreated expected = expectedEvent();
+        context().assertEvent(TaskCreated.class)
+                 .comparingExpectedFieldsOnly()
+                 .isEqualTo(expected);
+    }
+
+    @Test
+    @DisplayName("create a `Task`")
+    void aggregateCreation() {
+        Task expected = expectedState();
+        context().assertEntityWithState(task, Task.class)
+                 .hasStateThat()
+                 .comparingExpectedFieldsOnly()
+                 .isEqualTo(expected);
     }
 }
 {% endhighlight %}
