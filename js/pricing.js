@@ -19,10 +19,13 @@ $(
         const $linkBack = $redirectScreen.find('#linkBack');
 
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
-        const prodApiUrl = "{{site.data.payment_config.prodApiUrl}}";
-        const devApiUrl = "{{site.data.payment_config.devApiUrl}}";
-        // `window.mode` we setup in the `getting-help/service-section.html` file by Jekyll.
-        const apiUrl = "{{jekyll.environment}}" === "development" ? devApiUrl : prodApiUrl;
+
+        let apiUrl;
+        if ("{{jekyll.environment}}" === "development") {
+            apiUrl = "{{site.data.payment_config.devApiUrl}}";
+        } else {
+            apiUrl = "{{site.data.payment_config.prodApiUrl}}";
+        }
 
         $confirmPersonalInformation.change(() => {
             confirmAgreement($orderButton);
@@ -67,19 +70,25 @@ $(
         }
 
         /**
-         * The consent data.
-         * @typedef {object} Consent
-         * @property {boolean} dataProcessingConsent - Indicates whether the user give a consent to processing of his
-         * personal information.
-         * @property {boolean} supportAgreementConsent - Indicates whether the user agree to be bound by the terms of
+         * The user's consent.
+         *
+         * <p>Contains user's consents for services and data processing flows.
+         *
+         * @typedef {Object} Consent
+         * @property {boolean} privacyConsent indicates whether the user give a consent to
+         * process his personal information
+         * @property {boolean} supportAgreementConsent indicates whether the user agree to be bound by the
+         * terms of Development Support Agreement
          */
 
         /**
-         * Sends the transaction data and returns the transaction ID. If the request is successful,
+         * Generates the payment processing transaction.
+         *
+         * <p>Sends the transaction data and returns the transaction ID. If the request is successful,
          * redirects to the Payment screen.
          *
-         * @param {String} transactionUrl - the API URL
-         * @param {Consent} data - the transaction data
+         * @param {string} transactionUrl the transaction API URL
+         * @param {Consent} data the Consent transaction data
          */
         function sendPaymentTransaction(transactionUrl, data) {
             showRedirect();
