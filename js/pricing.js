@@ -10,13 +10,14 @@
 
 $(
     function () {
-        const $confirmPersonalInformation = $('#confirm-personal-information');
-        const $confirmDevelopmentAgreement = $('#confirm-development-agreement');
+        const $privacyConsent = $('#privacyConsent');
+        const $supportAgreementConsent = $('#supportAgreementConsent');
         const $orderButton = $('#order-now-btn');
         const $redirectScreen = $('#redirectScreen');
         const $loader = $redirectScreen.find('.redirect-loader');
         const $errorContainer = $redirectScreen.find('.redirect-error');
         const $linkBack = $redirectScreen.find('#linkBack');
+        const $consentCheckboxes = $("input[type='checkbox'].consent");
 
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
 
@@ -27,15 +28,15 @@ $(
             apiUrl = "{{site.data.payment_config.prodApiUrl}}";
         }
 
-        $confirmPersonalInformation.change(() => {
-            confirmAgreement($orderButton);
+        $consentCheckboxes.change(() => {
+            changeElementState($orderButton, isConsentObtained());
         });
 
-        $confirmDevelopmentAgreement.change(() => {
-            confirmAgreement($orderButton);
+        $orderButton.click(() => {
+            if (isConsentObtained()) {
+                submitOrder();
+            }
         });
-
-        $orderButton.click(submitOrder);
 
         $linkBack.click(e => {
             e.preventDefault();
@@ -43,18 +44,28 @@ $(
         });
 
         /**
-         * Disables and enables order button.
+         * Checks if all consent checkboxes are checked.
          *
-         * @param {jQuery} disabledElement - disabled/enabled element
+         * @return {boolean} true if all checkboxes are checked
          */
-        function confirmAgreement(disabledElement) {
-            const isConfirmed = $confirmPersonalInformation.prop('checked') && $confirmDevelopmentAgreement.prop('checked');
-            if (isConfirmed) {
-                disabledElement.removeAttr('disabled');
-                disabledElement.removeClass('disabled');
+        function isConsentObtained () {
+            return $consentCheckboxes.length == $consentCheckboxes.filter(":checked").length;
+        }
+
+        /**
+         * Changes element disabled/enabled state.
+         *
+         * @param {jQuery} element the element, which state will be changed
+         * @param {boolean} state if state is `true` the element will be enabled, otherwise it
+         * will be disabled
+         */
+        function changeElementState(element, enabled) {
+            if (enabled) {
+                element.removeAttr('disabled');
+                element.removeClass('disabled');
             } else {
-                disabledElement.attr('disabled', true);
-                disabledElement.addClass('disabled');
+                element.attr('disabled', true);
+                element.addClass('disabled');
             }
         }
 
@@ -62,9 +73,9 @@ $(
          * Submit order handler.
          */
         function submitOrder() {
-            const dataProcessingConsent = $confirmPersonalInformation.prop("checked");
-            const supportAgreementConsent = $confirmDevelopmentAgreement.prop("checked");
-            const data = JSON.stringify({dataProcessingConsent, supportAgreementConsent});
+            const privacyConsent = $privacyConsent.prop("checked");
+            const supportAgreementConsent = $supportAgreementConsent.prop("checked");
+            const data = JSON.stringify({privacyConsent, supportAgreementConsent});
             const transactionUrl = `${apiUrl}/transaction`;
             sendPaymentTransaction(transactionUrl, data);
         }
