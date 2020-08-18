@@ -56,7 +56,7 @@ $(
          * Changes element disabled/enabled state.
          *
          * @param {jQuery} element the element, which state will be changed
-         * @param {boolean} state if state is `true` the element will be enabled, otherwise it
+         * @param {boolean} enabled if state is `true` the element will be enabled, otherwise it
          * will be disabled
          */
         function changeElementState(element, enabled) {
