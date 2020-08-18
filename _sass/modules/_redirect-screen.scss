@@ -1,5 +1,5 @@
 .redirect-screen {
-  display: none;
+  display: none; //The section will be hidden until the order request button is pressed.
 
   .redirect-screen-container {
     position: fixed;
@@ -35,7 +35,7 @@
     }
 
     .redirect-error {
-      display: none;
+      display: none; //The section will be hidden unless errors appears.
       text-align: center;
 
       h2 {
