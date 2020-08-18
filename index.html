@@ -108,7 +108,7 @@ final class TaskAggregate extends Aggregate<TaskId, Task, Task.Builder> {
 }
 {% endhighlight %}
             </div>
-
+            <!--Testing code -->
             <div class="col-md-8">
 {% highlight java %}
 @DisplayName("Handling `CreateTask` command should")
@@ -147,18 +147,37 @@ public class TaskCreationTest extends ContextAwareTest {
             </div>
         </div>
         <div class="row step-row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <p class="step-title">Step 4.</p>
                 <h2>Easily deploy to Google Cloud or a custom environment</h2>
                 <p>In-memory and JDBC-based storage implementations allow to implement and test
                     the core logic quickly. Adopt your application to selected deployment
                     environment(s) with a few lines of code.</p>
             </div>
-            <div class="col-md-6">
-                <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg"
-                     alt="Evolve your domain model">
+            <!--Environment configuration code -->
+            <div class="col-md-8">
+{% highlight java %}
+static void configureEnvironment() {
+    StorageFactory jdbc = JdbcStorageFactory.newBuilder()
+        .setDataSource(dataSource())
+        .build();
+    StorageFactory datastore = DatastoreStorageFactory.newBuilder()
+        .setDatastore(datastoreService())
+        .build();
+
+    ServerEnvironment.instance()
+        .use(jdbc, Tests.class) // use JDBC instead of default In-Memory storage for tests.
+        .use(datastore, Production.class);
+}
+{% endhighlight %}
             </div>
-        </div>
+
+            <!--Deploy command line -->
+            <div class="col-md-8">
+{% highlight bash %}
+./gradlew build deploy
+{% endhighlight}
+            </div>
     </div>
 </section>
 
