@@ -14,9 +14,9 @@ $(
         const $confirmDevelopmentAgreement = $('#confirm-development-agreement');
         const $orderButton = $('#order-now-btn');
         const $redirectScreen = $('#redirectScreen');
-        const $loader = $('.redirect-loader', '#redirectScreen');
-        const $errorContainer = $('.redirect-error', '#redirectScreen');
-        const $tryAgain = $('#try-again');
+        const $loader = $redirectScreen.find('.redirect-loader');
+        const $errorContainer = $redirectScreen.find('.redirect-error');
+        const $linkBack = $redirectScreen.find('#linkBack');
 
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
         const prodApiUrl = "{{site.data.payment_config.prodApiUrl}}";
@@ -34,10 +34,9 @@ $(
 
         $orderButton.click(submitOrder);
 
-        $tryAgain.click(e => {
+        $linkBack.click(e => {
             e.preventDefault();
             hideRedirect();
-            submitOrder();
         });
 
         /**
@@ -83,7 +82,7 @@ $(
          * @param {Consent} data - the transaction data
          */
         function sendPaymentTransaction(transactionUrl, data) {
-            showRedirect(false);
+            showRedirect();
             $.ajax(transactionUrl, {
                 type: 'POST',
                 data: data,
@@ -96,22 +95,25 @@ $(
                 },
                 error: (jqXhr) => {
                     console.error(jqXhr.status + ': ' + jqXhr.statusText);
-                    showRedirect(true);
+                    showErrorMessage();
                 }
             });
         }
 
         /**
          * Shows the redirect screen.
-         *
-         * @param {Boolean} isError - if it is true, hides the loader and shows the error section
          */
-        function showRedirect(isError) {
+        function showRedirect() {
+            initRedirectScreenState();
             $redirectScreen.show();
-            if (isError) {
-                $errorContainer.show();
-                $loader.hide();
-            }
+        }
+
+        /**
+         * Hides the loader and shows the error message.
+         */
+        function showErrorMessage() {
+            $loader.hide();
+            $errorContainer.show();
         }
 
         /**
@@ -119,6 +121,14 @@ $(
          */
         function hideRedirect() {
             $redirectScreen.hide();
+        }
+
+        /**
+         *  Inits the redirect screen.
+         */
+        function initRedirectScreenState() {
+            $errorContainer.hide();
+            $loader.show();
         }
     }
 );
