@@ -6,7 +6,7 @@ bodyclass: promo-page
 
 {% include color-selector.html %}
 <section id="landing-content" class="landing-content-container">
-    <div class="container-fluid content-holder">
+    <div class="container-fluid content-holder justify-content-md-center">
         <div class="row">
             <div class="col-md-12">
                 <p class="step-title">Step 1.</p>
@@ -16,7 +16,7 @@ bodyclass: promo-page
                 </p>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-8">
 {% highlight proto %}
 // Create a new task.
@@ -83,7 +83,7 @@ message Task {
                     message delivery, and other environment matters are isolated from the main code.</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <!--Aggregate code -->
             <div class="col-md-8">
 {% highlight java %}
@@ -154,7 +154,9 @@ public class TaskCreationTest extends ContextAwareTest {
                     the core logic quickly. Adopt your application to selected deployment
                     environment(s) with a few lines of code.</p>
             </div>
+        </div>
             <!--Environment configuration code -->
+        <div class="row justify-content-center">
             <div class="col-md-8">
 {% highlight java %}
 static void configureEnvironment() {
@@ -178,6 +180,7 @@ static void configureEnvironment() {
 ./gradlew build deploy
 {% endhighlight}
             </div>
+        </div>
     </div>
 </section>
 
