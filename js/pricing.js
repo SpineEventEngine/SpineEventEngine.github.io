@@ -43,12 +43,7 @@ $(
 
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
 
-        let apiUrl;
-        if ("{{jekyll.environment}}" === "development") {
-            apiUrl = "{{site.data.payment_config.devApiUrl}}";
-        } else {
-            apiUrl = "{{site.data.payment_config.prodApiUrl}}";
-        }
+        const apiUrl = getApiUrl();
 
         $consentCheckboxes.change(() => {
             changeElementState($orderButton, isConsentObtained());
@@ -64,6 +59,18 @@ $(
             e.preventDefault();
             hideRedirect();
         });
+
+        /** Returns transaction API Url.
+         *
+         * @return {string} returns development or production API Url based on jekyll environment
+         */
+        function getApiUrl () {
+            if ("{{jekyll.environment}}" === "development") {
+                return "{{site.data.payment_config.devApiUrl}}";
+            } else {
+                return "{{site.data.payment_config.prodApiUrl}}";
+            }
+        }
 
         /**
          * Checks if all consent checkboxes are checked.
