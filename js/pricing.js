@@ -27,7 +27,6 @@
  *
  * Please see `/getting-help/service-section.html` for usage.
  */
-
 'use strict';
 
 $(
@@ -60,7 +59,8 @@ $(
             hideRedirect();
         });
 
-        /** Returns transaction API Url.
+        /**
+         * Returns transaction API Url.
          *
          * @return {string} returns development or production API Url based on jekyll environment
          */
@@ -115,7 +115,7 @@ $(
         /**
          * The user's consent.
          *
-         * <p>Contains user's consents for services and data processing flows.
+         * <p>The user's consents for services and data processing flows.
          *
          * @typedef {Object} Consent
          * @property {boolean} privacyConsent indicates whether the user gives consent to
