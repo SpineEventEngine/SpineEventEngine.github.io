@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package spine.site.home;
+
+import "spine/options.proto";
+
+option (type_url_prefix) = "type.spine.io";
+option java_package = "io.spine.site.home.event";
+option java_outer_classname = "CommandsProto";
+option java_multiple_files = true;
+
+import "spine/site/home/identifiers.proto";
+
+// A new task has been created.
+message TaskCreated {
+    TaskId task = 1 [(required) = true];
+    string name = 2 [(required) = true];
+    string description = 3;
+    spine.core.UserId owner = 4 [(required) = true];
+}
+
+// A task was assigned to a user.
+message TaskAssigned {
+    TaskId task = 1 [(required) = true];
+    spine.core.UserId assignee = 2 [(required) = true];
+}
+
+// A task was marked as completed.
+message TaskCompleted {
+    TaskId task = 1 [(required) = true];
+}
