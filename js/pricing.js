@@ -1,5 +1,5 @@
 ---
-# Do not remove `---` tags. These are the frontmatter tags for Jekyll variables.
+# Do not remove`---` tags.These are the frontmatter tags for Jekyll variables.
 ---
 
 /*
@@ -64,7 +64,7 @@ $(
          *
          * @return {string} returns development or production API Url based on jekyll environment
          */
-        function getApiUrl () {
+        function getApiUrl() {
             if ("{{jekyll.environment}}" === "development") {
                 return "{{site.data.payment_config.devApiUrl}}";
             } else {
@@ -75,21 +75,21 @@ $(
         /**
          * Checks if all consent checkboxes are checked.
          *
-         * @return {boolean} true if all checkboxes are checked
+         * @return {boolean} `true` if all checkboxes are checked, `false` otherwise
          */
-        function isConsentObtained () {
+        function isConsentObtained() {
             return $consentCheckboxes.length == $consentCheckboxes.filter(":checked").length;
         }
 
         /**
-         * Changes element disabled/enabled state.
+         * Changes element's disabled/enabled state.
          *
-         * @param {jQuery} element the element, which state will be changed
-         * @param {boolean} enabled if state is `true` the element will be enabled, otherwise it
-         * will be disabled
+         * @param {jQuery} element the element to change the state for
+         * @param {boolean} enable denotes whether the element should be enabled.
+         * If `true` — enables the element, otherwise — disables
          */
-        function changeElementState(element, enabled) {
-            if (enabled) {
+        function changeElementState(element, enable) {
+            if (enable) {
                 element.removeAttr('disabled');
                 element.removeClass('disabled');
             } else {
@@ -99,7 +99,10 @@ $(
         }
 
         /**
-         * Submit order handler.
+         * Submits consent transaction.
+         *
+         * <p>Prepares Privacy, Support Agreement consents data and transaction Url for sending and
+         * calls send transaction function.
          */
         function submitOrder() {
             const privacyConsent = $privacyConsent.prop("checked");
@@ -115,10 +118,10 @@ $(
          * <p>Contains user's consents for services and data processing flows.
          *
          * @typedef {Object} Consent
-         * @property {boolean} privacyConsent indicates whether the user give a consent to
+         * @property {boolean} privacyConsent indicates whether the user gives consent to
          * process his personal information
-         * @property {boolean} supportAgreementConsent indicates whether the user agree to be bound by the
-         * terms of Development Support Agreement
+         * @property {boolean} supportAgreementConsent indicates whether the user agrees to be bound by the
+         * terms of the Development Support Agreement
          */
 
         /**
