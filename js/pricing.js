@@ -156,7 +156,8 @@ $(
          * Shows the redirect screen.
          */
         function showRedirect() {
-            initRedirectScreenState();
+            $errorContainer.hide();
+            $loader.show();
             $redirectScreen.show();
         }
 
@@ -173,14 +174,6 @@ $(
          */
         function hideRedirect() {
             $redirectScreen.hide();
-        }
-
-        /**
-         *  Inits the redirect screen.
-         */
-        function initRedirectScreenState() {
-            $errorContainer.hide();
-            $loader.show();
         }
     }
 );
