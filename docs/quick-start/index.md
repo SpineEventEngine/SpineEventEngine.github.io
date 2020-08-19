@@ -908,7 +908,7 @@ This is what the `isDone()` method is for:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="boolean isDone()" 
-            end="    }"/></embed-code>
+            end="    }"></embed-code>
 ```java
 public boolean isDone() {
     return client.subscriptions()
