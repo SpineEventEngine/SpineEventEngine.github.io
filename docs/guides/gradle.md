@@ -12,9 +12,11 @@ as [Gradle plugins](https://docs.gradle.org/current/userguide/plugins.html) — 
 way to tap into a project build process.
 
 The minimal Gradle configuration you will need to start a new project is:
-```gradle
+
+<embed-code file="examples/hello/build.gradle" start="plugins" end="}"></embed-code>
+```groovy
 plugins {
-    id 'io.spine.tools.gradle.bootstrap' version '<version of Spine>'
+    id 'io.spine.tools.gradle.bootstrap' version '1.5.24'
 }
 ```
 
