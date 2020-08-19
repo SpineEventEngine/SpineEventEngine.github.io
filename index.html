@@ -157,7 +157,7 @@ public class TaskCreationTest extends ContextAwareTest {
             <div class="col-md-8">
 {% highlight java %}
 static void configureEnvironment() {
-    StorageFactory jdbc = JdbcStorageFactory.newBuilder()
+    StorageFactory rdbms = JdbcStorageFactory.newBuilder()
         .setDataSource(dataSource())
         .build();
     StorageFactory datastore = DatastoreStorageFactory.newBuilder()
@@ -165,7 +165,7 @@ static void configureEnvironment() {
         .build();
 
     ServerEnvironment.instance()
-        .use(jdbc, Tests.class) // use JDBC instead of default In-Memory storage for tests.
+        .use(rdbms, Tests.class) // use RDBMS instead of default In-Memory storage for tests.
         .use(datastore, Production.class);
 }
 {% endhighlight %}
