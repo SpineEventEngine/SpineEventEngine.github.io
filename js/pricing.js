@@ -146,7 +146,7 @@ $(
                     hideRedirect();
                 },
                 error: (jqXhr) => {
-                    console.error(jqXhr.status + ': ' + jqXhr.statusText);
+                    console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
                     showErrorMessage();
                 }
             });
