@@ -1,11 +1,12 @@
 ---
+# Do not remove `---` tags. These are the frontmatter tags for Jekyll variables.
 ---
-// Do not remove `---` tags. These are the frontmatter tags for Jekyll variables.
 /**
  * This script contains helper functions for the agreement checkboxes on `Getting Help` page.
  *
  * Please see `/getting-help/service-section.html` for usage.
  */
+
 'use strict';
 
 $(
