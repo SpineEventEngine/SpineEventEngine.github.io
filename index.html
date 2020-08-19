@@ -27,7 +27,6 @@ message CreateTask {
 }
 {% endhighlight %}
             </div>
-
             <div class="col-md-8">
 {% highlight proto %}
 // A new task has been created.
@@ -39,7 +38,6 @@ message TaskCreated {
 }
 {% endhighlight %}
             </div>
-
             <div class="col-md-8">
 {% highlight proto %}
 // A task which can be assigned to a user.
@@ -53,7 +51,6 @@ message Task {
 }
 {% endhighlight %}
             </div>
-
         </div>
         <div class="row step-row">
             <div class="col-md-12">
@@ -155,8 +152,9 @@ public class TaskCreationTest extends ContextAwareTest {
                     environment(s) with a few lines of code.</p>
             </div>
         </div>
-            <!--Environment configuration code -->
+
         <div class="row justify-content-center">
+            <!--Environment configuration code -->
             <div class="col-md-8">
 {% highlight java %}
 static void configureEnvironment() {
@@ -173,7 +171,6 @@ static void configureEnvironment() {
 }
 {% endhighlight %}
             </div>
-
             <!--Deploy command line -->
             <div class="col-md-8">
 {% highlight bash %}
