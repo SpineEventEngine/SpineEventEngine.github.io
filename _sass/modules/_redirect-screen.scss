@@ -1,0 +1,50 @@
+.redirect-screen {
+  display: none; //The section will be hidden until the order request button is pressed.
+
+  .redirect-screen-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: map_get($z-index, 'redirect-screen');
+    background-color: rgba(white, .9);
+    @include animation(fadeIn, .23s, initial, linear, forwards);
+  }
+
+  @include keyframes(fadeIn) {
+    0% {opacity: 0;}
+    100% {opacity: 100;}
+  }
+
+  .redirect-screen-holder {
+    position: relative;
+    margin: -20px auto 0;
+    padding: 20px;
+
+    .redirect-loader {
+      .animated-spinner {
+        display: block;
+        margin: 0 auto 16px;
+      }
+
+      p {
+        text-align: center;
+        font-size: 15px;
+      }
+    }
+
+    .redirect-error {
+      display: none; //The section will be hidden unless errors appears.
+      text-align: center;
+
+      h2 {
+        font-size: $font-size--xl;
+      }
+
+      .btn-back {
+        margin-top: 40px;
+      }
+    }
+  }
+}

@@ -4,17 +4,27 @@
         <p class="subtitle">Get assistance by the core engineers of the framework.</p>
         <div class="compare-support">
             <div class="header">
-                <h4>Development Support</h4>
-                <p class="support-subtitle">Get ongoing guidance when implementing your&nbsp;project
-                    with Spine</p>
+                <i class="header-icon development-support"></i>
+                <div class="text-container">
+                    <h4>Development Support</h4>
+                    <p class="support-subtitle">Get ongoing guidance when implementing your&nbsp;project
+                        with Spine</p>
+                </div>
             </div>
             <div class="header">
-                <h4>Premium Support</h4>
-                <p class="support-subtitle">Extend the framework up to your needs</p>
+                <i class="header-icon premium-support"></i>
+                <div class="text-container">
+                    <h4>Premium Support</h4>
+                    <p class="support-subtitle">Extend the framework up to your needs</p>
+                </div>
             </div>
             <div class="header">
-                <h4>Proof of Concept</h4>
-                <p class="support-subtitle">Let us help you start your project with our&nbsp;framework</p>
+                <i class="header-icon proof-of-concept"></i>
+                <div class="text-container">
+                    <h4>Proof of Concept</h4>
+                    <p class="support-subtitle">Let us help you start your project with
+                        our&nbsp;framework</p>
+                </div>
             </div>
             <!-- Empty line -->
             <div class="card-cell empty-line-s"></div>
@@ -64,19 +74,6 @@
                 <!-- Line 1 -->
                 <div class="card-cell">
                     <div class="item-with-icon">
-                        <i class="fal fa-envelope"></i>
-                        <p>Provided by email</p>
-                    </div>
-                </div>
-                <div class="card-cell">
-                    <div class="item-with-icon">
-                        <i class="fal fa-envelope"></i>
-                        <p>Provided by email</p>
-                    </div>
-                </div>
-                <!-- Line 2 -->
-                <div class="card-cell">
-                    <div class="item-with-icon">
                         <i class="fal fa-watch"></i>
                         <p>Responses within one business day</p>
                     </div>
@@ -87,30 +84,25 @@
                         <p>Responses within 4 business hours</p>
                     </div>
                 </div>
-                <!-- Line 3 -->
+                <!-- Line 2 -->
                 <div class="card-cell">
                     <div class="item-with-icon">
-                        <i class="fal fa-headset"></i>
-                        <p>One support contact</p>
+                        <i class="fal fa-envelope"></i>
+                        <p>Provided by email</p>
                     </div>
                 </div>
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="fal fa-envelope"></i>
+                        <p>Provided by email</p>
+                    </div>
+                </div>
+                <!-- Line 3 -->
+                <div class="card-cell term-cell"><p class="empty-item"><span>—</span></p></div>
                 <div class="card-cell">
                     <div class="item-with-icon">
                         <i class="fal fa-headset"></i>
                         <p>Phone, chat and remote desktop on&nbsp;request</p>
-                    </div>
-                </div>
-                <!-- Line 4 -->
-                <div class="card-cell">
-                    <div class="item-with-icon">
-                        <i class="fal fa-clock"></i>
-                        <p>Support hours Monday – Friday, from&nbsp;11:00 to 19:00 (UTC+02:00)</p>
-                    </div>
-                </div>
-                <div class="card-cell">
-                    <div class="item-with-icon">
-                        <i class="fal fa-clock"></i>
-                        <p>Support hours Monday – Friday, from&nbsp;11:00 to 19:00 (UTC+02:00)</p>
                     </div>
                 </div>
                 <!-- Line 4 Empty -->
@@ -119,12 +111,16 @@
             </div>
             <div class="card-cell not-compared-items">
                 <div class="item-with-icon">
-                    <i class="fal fa-calendar-alt"></i>
-                    <p>A 3-5 days on-site or online session with your&nbsp;team</p>
+                    <i class="fal fa-clipboard-list"></i>
+                    <p>Preliminary remote research</p>
+                </div>
+                <div class="item-with-icon">
+                    <i class="fal fa-users-class"></i>
+                    <p>A 3-5 days joint session with your team on-site or&nbsp;online</p>
                 </div>
                 <div class="item-with-icon">
                     <i class="fal fa-headset"></i>
-                    <p>Further remote support on&nbsp;request</p>
+                    <p>Further project guidance and support on&nbsp;request</p>
                 </div>
             </div>
             <div class="card-cell footer-cell">
@@ -135,16 +131,16 @@
                         <span class="description">1 support pack (100&nbsp;hours)</span>
                     </div>
                     <div class="checkboxes-list">
-                        <label class="checkbox-container" for="confirm-personal-information">
+                        <label class="checkbox-container" for="privacyConsent">
                             <span class="text">I agree to processing of my personal information.
                                 See our <a href="{{ site.baseurl }}/privacy/">Privacy Statement</a>.</span>
-                            <input type="checkbox" id="confirm-personal-information">
+                            <input type="checkbox" class="consent" id="privacyConsent">
                             <span class="checkmark"></span>
                         </label>
-                        <label class="checkbox-container" for="confirm-development-agreement">
+                        <label class="checkbox-container" for="supportAgreementConsent">
                             <span class="text">I agree to be bound by the terms of
                                 <a href="#">Development Support Agreement</a>.</span>
-                            <input type="checkbox" id="confirm-development-agreement">
+                            <input type="checkbox" class="consent" id="supportAgreementConsent">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -152,10 +148,10 @@
                          data-toggle="tooltip"
                          data-placement="bottom"
                          title="Read and agree to the terms to&nbsp;continue">
-                        <a class="btn btn-bordered-blue pricing-btn order-btn disabled"
+                        <button class="btn btn-bordered-blue pricing-btn order-btn disabled"
                            id="order-now-btn"
                            disabled
-                           href="https://secure.2checkout.com/order/checkout.php?PRODS=31007663&QTY=1&CART=1&CARD=1&SHORT_FORM=1&CURRENCY=EUR">Order Now</a>
+                           >Order Now</button>
                     </div>
                 </div>
             </div>
@@ -172,3 +168,5 @@
         </div>
     </div>
 </section>
+
+{% include redirect-screen.html %}
