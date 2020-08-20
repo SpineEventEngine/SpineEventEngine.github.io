@@ -131,16 +131,16 @@
                         <span class="description">1 support pack (100&nbsp;hours)</span>
                     </div>
                     <div class="checkboxes-list">
-                        <label class="checkbox-container" for="confirm-personal-information">
+                        <label class="checkbox-container" for="privacyConsent">
                             <span class="text">I agree to processing of my personal information.
                                 See our <a href="{{ site.baseurl }}/privacy/">Privacy Statement</a>.</span>
-                            <input type="checkbox" id="confirm-personal-information">
+                            <input type="checkbox" class="consent" id="privacyConsent">
                             <span class="checkmark"></span>
                         </label>
-                        <label class="checkbox-container" for="confirm-development-agreement">
+                        <label class="checkbox-container" for="supportAgreementConsent">
                             <span class="text">I agree to be bound by the terms of
                                 <a href="#">Development Support Agreement</a>.</span>
-                            <input type="checkbox" id="confirm-development-agreement">
+                            <input type="checkbox" class="consent" id="supportAgreementConsent">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -148,10 +148,10 @@
                          data-toggle="tooltip"
                          data-placement="bottom"
                          title="Read and agree to the terms to&nbsp;continue">
-                        <a class="btn btn-bordered-blue pricing-btn order-btn disabled"
+                        <button class="btn btn-bordered-blue pricing-btn order-btn disabled"
                            id="order-now-btn"
                            disabled
-                           href="https://secure.2checkout.com/order/checkout.php?PRODS=31007663&QTY=1&CART=1&CARD=1&SHORT_FORM=1&CURRENCY=EUR">Order Now</a>
+                           >Order Now</button>
                     </div>
                 </div>
             </div>
@@ -169,6 +169,4 @@
     </div>
 </section>
 
-<!-- TODO:2020-08-11:juliaevseeva: Uncomment this code to show the redirect screen while we wait
-TODO: for a response from the server. -->
-<!--{% include redirect-screen.html %}-->
+{% include redirect-screen.html %}
