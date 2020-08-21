@@ -158,6 +158,7 @@ $(
                 },
                 error: (jqXhr) => {
                     console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
+                    console.error(`Error message: ${jqXhr.responseJSON.message}`);
                     showErrorMessage();
                 }
             });
