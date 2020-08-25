@@ -67,6 +67,16 @@ the domain model types. Note that it is perfectly normal to have more Protobuf t
 these modules, as long as those types are internal to the server and are not a part of
 the publicly-visible domain model.
 
+<p class="note">
+Note the use of the `protobuf` configuration. This tells our tools that the Protobuf definitions
+in the subproject `model` must be converted into Java code in the current subproject.
+
+Alternatively, if, for instance, the upstream project already contains code generated from Protobuf
+and no additional codegen is required, the `api`/`implementation` configurations should be used. See
+[this Gradle doc](https://docs.gradle.org/current/userguide/dependency_management_for_java_projects.html)
+for more info.
+</p>
+
 ### Java web server
 
 If your project contains a JavaScript frontend, you may declare a `web-server` subproject, which
@@ -81,6 +91,25 @@ The `spine-web` artifact provides the components for handling requests from a Ja
 frontend. Note that `web-server` depends on all the server-side subprojects in order to be able
 to dispatch commands to and read states from their respective Bounded Contexts.
 
+<p class="note">
+Note the use of `spine.version()`. This method provides the framework version used by the current
+version of the plugin. Prefer this construction over a hardcoded library version for `spine-money`,
+`spine-web`, etc. 
+</p>
+
+For any specific subproject, you can configure to run or skip certain code generation routines.
+For example:
+```groovy
+spine.enableJava {
+    server() // Enable Server API.
+    codegen {
+        protobuf = true // Generate default Protobuf Java classes.
+        spine = false // Avoid enhancing Protobuf Java classes with Spine validation, interfaces, etc.
+        grpc = true // Generate gRPC stubs and implementation bases from Protobuf service definitions.  
+    }
+}
+```
+
 ### JavaScript client
 
 Finally, a JavaScript client is also one or more Gradle subprojects. In `build.gradle` for those
@@ -94,28 +123,6 @@ dependencies {
 ```
 This configuration sets up JavaScript code generation from the `model` definitions. Handle NPM
 dependencies separately (e.g. adding the dependency for [`spine-web`](https://www.npmjs.com/package/spine-web)).
-
-### Further customization
-
-Here are some notable things about the described project structure and configration.
-1. Use `protobuf` dependencies when you need to generate code from the Protobuf definitions from
-   another subproject. Otherwise, use `implementation`.
-2. The Bootstrap plugin provides the current version via `spine.version()`. This way, the version of
-   the whole framework is only declared once — in the declaration of the plugin. Use this version
-   when adding dependencies to optional Spine dependencies, such as `spine-money`,
-   `spine-datastore`, etc.
-3. For any specific subproject, you can configure to run or skip certain code generation routines.
-   For example:
-   ```groovy
-   spine.enableJava {
-       server() // Enable Server API.
-       codegen {
-           protobuf = true // Generate default Protobuf Java classes.
-           spine = false // Avoid enhancing Protobuf Java classes with Spine validation, interfaces, etc.
-           grpc = true // Generate gRPC stubs and implementation bases from Protobuf service definitions.  
-       }
-   }
-   ```
 
 ## Verbose configuration
 
