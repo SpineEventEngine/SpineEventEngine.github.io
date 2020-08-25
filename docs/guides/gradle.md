@@ -31,7 +31,7 @@ or on our [Getting Started page]({{site.baseurl}}/docs/quick-start).
 Spine Bootstrap plugin (Bootstrap for short) serves to automate the configuration of the modules
 in your Spine-based app.
 
-We recommend having separate Gradle subprojects for domain model definition, server  implementation,
+We recommend having separate Gradle subprojects for domain model definition, server implementation,
 and client code. Bootstrap is applied a bit differently in each of these cases.
 
 ### Model definitions
