@@ -20,7 +20,7 @@ This reference is on the implementation of the Spine Web API using the Firebase 
 to deliver data to web clients.
 
 ## JavaScript
-- [JavaScript Client]({{site.js_api_doc}}/client-js/index.html)
+- [JavaScript Client]({{site.js_api_doc}}/index.html)
 
 ## Dart
 - [Dart Client]({{site.dart_api_doc}}/client/index.html)
