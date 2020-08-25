@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
+      - run: git submodule update --init --recursive
       - name: Set up Ruby and Bundler
         uses: actions/setup-ruby@v1
         with:
