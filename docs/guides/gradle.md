@@ -92,7 +92,7 @@ processes the HTTP requests from JS. In `web-server/build.gradle`:
 ```groovy
 dependencies {
     implementation("io.spine:spine-web:${spine.version()}")
-    implenemtation(project(':server'))
+    implementation(project(':server'))
 }
 ```
 The `spine-web` artifact provides the components for handling requests from a JavaScript
