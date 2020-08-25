@@ -7,7 +7,7 @@ layout: docs
 
 # Configuring a project with Gradle
 
-Spine provides build-time tools for code generation and analysis. These tools are written
+Spine provides build-time tools for code generation and analysis. These tools are implemented
 as [Gradle plugins](https://docs.gradle.org/current/userguide/plugins.html) — an extendable, uniform
 way to tap into a project build process.
 
@@ -42,7 +42,7 @@ subprojects, declare:
 ```groovy
 spine.assembleModel()
 ```
-If one of our Bounded Contexts shares some domain language with another, add a dependency between
+If one of the Bounded Contexts shares some domain language with another, add a dependency between
 them. This way, the downstream context may use Protobuf definitions of the upstream context.
 ```groovy
 dependencies {
@@ -93,7 +93,7 @@ dependencies {
 }
 ```
 This configuration sets up JavaScript code generation from the `model` definitions. Handle NPM
-dependencies separately (e.g. adding the dependency for `spine-web`).
+dependencies separately (e.g. adding the dependency for [`spine-web`](https://www.npmjs.com/package/spine-web)).
 
 ### Further customization
 
@@ -120,10 +120,11 @@ Here are some notable things about the described project structure and configrat
 ## Verbose configuration
 
 If the Bootstrap configuration is not customizable enough for you, there are other Gradle plugins
-which can provide the right API.
+which may provide the right API.
 
-Under the hood, Bootstrap uses other Spine Gradle plugins to do the work. Those plugins are
-Spine Model Compiler for Java subprojects and Spine ProtoJs plugin for JavaScript submodules.
+Those plugins are Spine Model Compiler for Java subprojects and Spine ProtoJs plugin for JavaScript
+submodules. Under the hood, Bootstrap uses those plugins to do the work. This means that Bootstrap
+automatically applies the correct low-level plugin for you.
 
 ### Model Compiler
 
