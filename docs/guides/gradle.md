@@ -118,6 +118,30 @@ dependencies {
 This configuration sets up JavaScript code generation from the `model` definitions. Handle NPM
 dependencies separately (e.g. adding the dependency for [`spine-web`](https://www.npmjs.com/package/spine-web)).
 
+### Working with many Bounded Contexts 
+
+In a system with more than one Bounded Context, we recommend a similar project structure. Instead of
+having a single `model` subproject, you should form a subproject per Bounded Context, for example,
+`users-model`, `trains-model`, `billing-model`, etc. If one of the Bounded Contexts shares some
+domain language with another, add a dependency between them. This way, the downstream context may
+use Protobuf definitions of the upstream context.
+```groovy
+dependencies {
+    implemetation(project(':model-users'))
+}
+```
+
+For domain logic implementation, also use a single subproject per Bounded Context. The convention
+for calling those projects by the context names: `users` , `trains`, `billing`, etc. It is a good
+idea to have a server implementation subproject depend only on one model subproject to preserve
+language and responsibility boundaries.
+
+If your server should be deployed as a whole, use a single `web-server` for all the contexts. If you
+would like to deploy different contexts separately, declare a specific `web-server` subprojects
+for each of those contexts. See the [API reference]({{site.core_api_doc}}/server/io/spine/server/ServerEnvironment.html#use-io.spine.server.transport.TransportFactory-io.spine.base.EnvironmentType-)
+for the instructions on integrating Bounded Contexts. Also, see [this guide]({{site.baseurl}}/docs/guides/integration.html)
+on the principles of integrating separate Bounded Contexts and third-party systems in Spine.
+
 ## Verbose configuration
 
 If the Bootstrap configuration is not customizable enough for you, there are other Gradle plugins
