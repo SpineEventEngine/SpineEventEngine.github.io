@@ -154,7 +154,7 @@ automatically applies the correct low-level plugin for you.
 ### Model Compiler
 
 Spine Model Compiler is a Gradle plugin which executes all the code generation routines via several
-Gradle tasks as well as the `modelCompiler { ... }` extension, which allows you to configure those
+Gradle tasks as well as the `modelCompiler { }` extension, which allows you to configure those
 tasks.
 
 See the API reference for the list of the [declared tasks]({{site.base_api_doc}}/plugin-base/io/spine/tools/gradle/ModelCompilerTaskName.html)
@@ -166,6 +166,6 @@ ProtoJs Gradle plugin manages and enhances JavaScript code generation from Proto
 The plugin adds the `generateJsonParsers` task, which appends generated JS files with code parsing
 Protobuf messages out of plain JS objects.
 
-The plugin also provides the `protoJs { ... }` extension, which allows you to configure JS code
+The plugin also provides the `protoJs { }` extension, which allows you to configure JS code
 generation. See the [API reference]({{site.base_api_doc}}/proto-js-plugin/io/spine/js/gradle/Extension.html)
 for more info.
