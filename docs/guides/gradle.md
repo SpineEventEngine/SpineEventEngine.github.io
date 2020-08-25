@@ -140,11 +140,11 @@ tasks The tasks are:
  - `generateRejections` & `generateTestRejections` — generate rejection classes which extend
    `Throwable` from Protobuf definitions. See more on rejections [here]({{site.baseurl}}/docs/guides/rejections).
  - `generateColumnInterfaces` & `generateTestColumnInterfaces` generate helper interfaces for
-   declaring [columns in entity states]({{site.baseurl}}/base/reference/base/io/spine/base/EntityWithColumns.html).
+   declaring [columns in entity states]({{site.base_api_doc}}/base/io/spine/base/EntityWithColumns.html).
  - `annotateProto` & `annotateTestProto` — annotate Java classes generated from Protobuf types with
    API-level annotations, such as `Internal`, etc.
    
-See the [API reference]({{site.baseurl}}/base/reference/model-compiler/io/spine/tools/gradle/compiler/Extension.html)
+See the [API reference]({{site.base_api_doc}}/model-compiler/io/spine/tools/gradle/compiler/Extension.html)
 on how to configure specific aspects of code generation.
 
 ### ProtoJS Plugin
@@ -154,5 +154,5 @@ The plugin adds the `generateJsonParsers` task, which appends generated JS files
 Protobuf messages out of plain JS objects.
 
 The plugin also provides the `protoJs { ... }` extension, which allows you to configure JS code
-generation. See the [API reference]({{site.baseurl}}/base/reference/proto-js-plugin/io/spine/js/gradle/Extension.html)
+generation. See the [API reference]({{site.base_api_doc}}/proto-js-plugin/io/spine/js/gradle/Extension.html)
 for more info.

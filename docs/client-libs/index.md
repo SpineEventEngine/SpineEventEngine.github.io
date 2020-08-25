@@ -6,5 +6,5 @@ layout: docs
 ---
 # Java Client Library
 
- * [Reference documentation](https://spine.io/core-java/reference/client/index.html)
- * [Source code](https://github.com/SpineEventEngine/core-java/tree/master/client)
+ * [Reference documentation]({{site.core_api_doc}}/client/index.html)
+ * [Source code]({{site.code_java_repo}}/tree/master/client)

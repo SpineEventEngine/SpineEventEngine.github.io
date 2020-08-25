@@ -9,10 +9,18 @@ base_repo: https://github.com/SpineEventEngine/base
 web_repo: https://github.com/SpineEventEngine/web
 gcloud_java_repo: https://github.com/SpineEventEngine/gcloud-java
 money_repo: https://github.com/SpineEventEngine/money
+dart_repo: https://github.com/SpineEventEngine/dart
 
 twitter_username: SpineEngine
 github_username: SpineEventEngine
 gitter_username: SpineEventEngine
+
+api_doc_root: https://spine.io
+base_api_doc: {{api_doc_root}}/base/reference
+core_api_doc: {{api_doc_root}}/core-java/reference
+web_api_doc: {{api_doc_root}}/web/reference
+js_api_doc: {{api_doc_root}}/client-js/reference
+dart_api_doc: {{api_doc_root}}/dart/reference
 
 google_analytics_tag: UA-71822190-1
 
