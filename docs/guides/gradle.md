@@ -28,33 +28,27 @@ or on our [Getting Started page]({{site.baseurl}}/docs/quick-start).
 
 ## Spine Bootstrap plugin 
 
-Spine Bootstrap plugin (Bootstrap for short) can configure a Spine Java server and JS client for
-you.
+Spine Bootstrap plugin (Bootstrap for short) serves to automate the configuration of the modules
+in your Spine-based app.
 
-The idea is to use Gradle subprojects for different parts of the system.
+We recommend having separate Gradle subprojects for domain model definition, server  implementation,
+and client code. Bootstrap is applied a bit differently in each of these cases.
 
 ### Model definitions
 
-One subproject would contain Protobuf definitions for the domain model. This subproject is
-typically called `model`. If the system contains more than one Bounded Context, there could be
-many subprojects, e.g. `model-users`, `model-trains`, etc. In `build.gradle` for those
-subprojects, declare:
+Let's assume one of the subprojects contains Protobuf definitions for the domain model. This
+subproject is typically called `model`. In `build.gradle` for that subproject, declare:
 ```groovy
 spine.assembleModel()
 ```
-If one of the Bounded Contexts shares some domain language with another, add a dependency between
-them. This way, the downstream context may use Protobuf definitions of the upstream context.
-```groovy
-dependencies {
-    implemetation(project(':model-users'))
-}
-```
+This way, the subproject will receive all the required Spine dependencies but no code will be
+generated from Protobuf.
 
-### Java implementation
+### Java server implementation
 
-Each Bounded Context should have a separate Gradle subproject for implementing server-side
-business logic. For example, `users` , `trains`, etc. In `build.gradle` for those
-subprojects, declare:
+A separate Gradle subproject is dedicated to the server-side business logic of your Bounded Context.
+Usually, this subproject is named `server` or after the Bounded Context it implements, e.g. `users`.
+In `build.gradle` for that subproject declare:
 ```groovy
 spine.enableJava().server()
 
@@ -63,39 +57,10 @@ dependencies {
 }
 ```
 This will add dependencies to the `spine-server` artifact and set up code generation for
-the domain model types. Note that it is perfectly normal to have more Protobuf types in
-these modules, as long as those types are internal to the server and are not a part of
-the publicly-visible domain model.
+the domain model types.
 
-<p class="note">
-Note the use of the `protobuf` configuration. This tells our tools that the Protobuf definitions
-in the subproject `model` must be converted into Java code in the current subproject.
-
-Alternatively, if, for instance, the upstream project already contains code generated from Protobuf
-and no additional codegen is required, the `api`/`implementation` configurations should be used. See
-[this Gradle doc](https://docs.gradle.org/current/userguide/dependency_management_for_java_projects.html)
-for more info.
-</p>
-
-### Java web server
-
-If your project contains a JavaScript frontend, you may declare a `web-server` subproject, which
-processes the HTTP requests from JS. In `web-server/build.gradle`:
-```groovy
-dependencies {
-    implementation("io.spine:spine-web:${spine.version()}")
-    implenemtation(project(':users'), project(':trains'))
-}
-```
-The `spine-web` artifact provides the components for handling requests from a JavaScript
-frontend. Note that `web-server` depends on all the server-side subprojects in order to be able
-to dispatch commands to and read states from their respective Bounded Contexts.
-
-<p class="note">
-Note the use of `spine.version()`. This method provides the framework version used by the current
-version of the plugin. Prefer this construction over a hardcoded library version for `spine-money`,
-`spine-web`, etc. 
-</p>
+It is perfectly normal to have more Protobuf types in these modules, as long as those types are
+internal to your Java implementation and are not a part of the publicly-visible domain model.
 
 For any specific subproject, you can configure to run or skip certain code generation routines.
 For example:
@@ -109,6 +74,35 @@ spine.enableJava {
     }
 }
 ```
+
+<p class="note">
+Note the use of the `protobuf` configuration. This tells our tools that the Protobuf definitions
+in the subproject `model` must be converted into Java code in the current subproject.
+
+Alternatively, if, for instance, the upstream project already contains code generated from Protobuf,
+and no additional codegen is required, the `api`/`implementation` configurations should be used. See
+[this Gradle doc](https://docs.gradle.org/current/userguide/dependency_management_for_java_projects.html)
+for more info.
+</p>
+
+### Java web server
+
+If your project contains a JavaScript frontend, you may declare a `web-server` subproject, which
+processes the HTTP requests from JS. In `web-server/build.gradle`:
+```groovy
+dependencies {
+    implementation("io.spine:spine-web:${spine.version()}")
+    implenemtation(project(':server'))
+}
+```
+The `spine-web` artifact provides the components for handling requests from a JavaScript
+frontend.
+
+<p class="note">
+Note the use of `spine.version()`. This method provides the framework version used by the current
+version of the plugin. Prefer this construction over a hardcoded library version for `spine-money`,
+`spine-web`, etc.
+</p>
 
 ### JavaScript client
 
