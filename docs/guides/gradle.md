@@ -5,6 +5,10 @@ bodyclass: docs
 layout: docs
 ---
 
+This guide will lead you through setting up a simple Spine-based project with a Java backend and
+a JavaScript frontend. The project defines a domain model using Protobuf, which is then converted
+into Java for server usage and JavaScript for client usage.
+
 # Configuring a project with Gradle
 
 Spine provides build-time tools for code generation and analysis. These tools are implemented
