@@ -151,7 +151,7 @@ on the principles of integrating separate Bounded Contexts and third-party syste
 ## Verbose configuration
 
 If the Bootstrap configuration is not customizable enough for you, there are other Gradle plugins
-which may provide the right API.
+which may provide fine-grained API.
 
 Those plugins are Spine Model Compiler for Java subprojects and Spine ProtoJs plugin for JavaScript
 submodules. Under the hood, Bootstrap uses those plugins to do the work. This means that Bootstrap
