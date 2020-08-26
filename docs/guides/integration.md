@@ -143,7 +143,7 @@ The event producer obtains cached historical events, matches them to the receive
 and sends them to the client. The **Takeoffs and Landings** system implements 
 an&nbsp;[event consumer](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java)
 which constructs a subscription and maintains it as long as the system needs to receive more events.
-The consumer broadcasts the received Events via an instance of [`ThirdPartyContext`](https://spine.io/core-java/reference/server/io/spine/server/integration/ThirdPartyContext.html):
+The consumer broadcasts the received Events via an instance of [`ThirdPartyContext`]({{site.core_api_doc}}/server/io/spine/server/integration/ThirdPartyContext.html):
 
 <embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/supplies/SuppliesEventConsumer.java" 
             fragment="onNext"></embed-code>
@@ -302,7 +302,7 @@ which performs all the technical work of obtaining and validating data, and a [P
 for the [Boarding process](https://github.com/spine-examples/airport/blob/master/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/BoardingProcman.java).
 The **Security Checks** API provides data for each passenger independently. The client polls
 the data and publishes many intermediate `PassengerBoarded` or `PassengerDeniedBoarding` external
-events via [`ThirdPartyContext`](https://spine.io/core-java/reference/server/io/spine/server/integration/ThirdPartyContext.html):
+events via [`ThirdPartyContext`]({{site.core_api_doc}}/server/io/spine/server/integration/ThirdPartyContext.html):
 
 <embed-code file="examples/airport/takeoffs-and-landings/src/main/java/io/spine/example/airport/tl/passengers/PassengerClient.java" 
             fragment="Fetch passengers"></embed-code>

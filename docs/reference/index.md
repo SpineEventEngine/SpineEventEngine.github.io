@@ -8,18 +8,19 @@ layout: docs
 
 ## Java
 
-- [Server](https://spine.io/core-java/reference/server/index.html)
+- [Server]({{site.core_api_doc}}/server/index.html)
 
-- [Client](https://spine.io/core-java/reference/client/index.html)
+- [Client]({{site.core_api_doc}}/client/index.html)
 
-- [Spine Web API](https://spine.io/web/reference/web/index.html).
-This reference defines the API for communicating with a Spine-based backend using web requests.  
-- [Implementation on Firebase](https://spine.io/web/reference/firebase-web/index.html).
+- [Spine Web API]({{site.web_api_doc}}/web/index.html).
+This reference defines the API for communicating with a Spine-based backend using web requests.
+
+- [Web API implementation on Firebase]({{site.web_api_doc}}/firebase-web/index.html).
 This reference is on the implementation of the Spine Web API using the Firebase Realtime Database
-to deliver data to web clients.  
+to deliver data to web clients.
 
 ## JavaScript
-- [JavaScript Client](https://spine.io/web/reference/client-js/index.html)
+- [JavaScript Client]({{site.js_api_doc}}/index.html)
 
 ## Dart
-- [Dart Client](https://spine.io/dart/reference/client/index.html)
+- [Dart Client]({{site.dart_api_doc}}/client/index.html)

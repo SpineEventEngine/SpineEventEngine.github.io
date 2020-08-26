@@ -5,6 +5,6 @@ bodyclass: docs
 layout: docs
 ---
 # Dart Client Library
- * [Reference documentation](https://spine.io/dart/reference/client/index.html)
- * [Source code](https://github.com/SpineEventEngine/dart/tree/master/client)
+ * [Reference documentation]({{site.dart_api_doc}}/client/index.html)
+ * [Source code]({{site.dart_repo}}/tree/master/client)
 
