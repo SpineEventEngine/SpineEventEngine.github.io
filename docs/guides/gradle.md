@@ -46,7 +46,9 @@ subproject is typically called `model`. In `build.gradle` for that subproject, d
 spine.assembleModel()
 ```
 This way, the subproject will receive all the required Spine dependencies but no code will be
-generated from Protobuf.
+generated from Protobuf. Instead, we generate code for specific languages in subprojects where that
+code is needed. By placing model definitions into a separate subproject, we allow them to be shared
+between other, language-specific subprojects.
 
 ### Java server implementation
 
