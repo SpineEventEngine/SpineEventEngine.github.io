@@ -34,18 +34,22 @@ $(
         const $privacyConsent = $('#privacyConsent');
         const $supportAgreementConsent = $('#supportAgreementConsent');
         const $orderButton = $('#order-now-btn');
+        const $orderButtonHolder = $('.pricing-btn-holder');
         const $redirectScreen = $('#redirectScreen');
         const $loader = $redirectScreen.find('.redirect-loader');
         const $errorContainer = $redirectScreen.find('.redirect-error');
         const $linkBack = $redirectScreen.find('#linkBack');
         const $consentCheckboxes = $("input[type='checkbox'].consent");
+        const disabledBtnTitle = 'Read and agree to the terms to\xA0continue';
 
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
 
         const apiUrl = getApiUrl();
 
+        $orderButtonHolder.attr('data-original-title', disabledBtnTitle);
+
         $consentCheckboxes.change(() => {
-            changeElementState($orderButton, isConsentObtained());
+            changeElementState($orderButton, $orderButtonHolder, isConsentObtained());
         });
 
         $orderButton.click(() => {
@@ -85,16 +89,19 @@ $(
          * Changes element's disabled/enabled state.
          *
          * @param {jQuery} element the element to change the state for
+         * @param {jQuery} elementHolder the element holder to apply or hide a tooltip
          * @param {boolean} enable denotes whether the element should be enabled.
          * If `true` — enables the element, otherwise — disables
          */
-        function changeElementState(element, enable) {
+        function changeElementState(element, elementHolder, enable) {
             if (enable) {
                 element.removeAttr('disabled');
                 element.removeClass('disabled');
+                elementHolder.removeAttr('data-original-title');
             } else {
                 element.attr('disabled', true);
                 element.addClass('disabled');
+                elementHolder.attr('data-original-title', disabledBtnTitle);
             }
         }
 
