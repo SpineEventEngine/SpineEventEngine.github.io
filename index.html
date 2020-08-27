@@ -6,7 +6,7 @@ bodyclass: promo-page
 
 {% include color-selector.html %}
 <section id="landing-content" class="landing-content-container">
-    <div class="container-fluid content-holder">
+    <div class="container-fluid content-holder justify-content-md-center">
         <div class="row">
             <div class="col-md-12">
                 <p class="step-title">Step 1.</p>
@@ -16,39 +16,38 @@ bodyclass: promo-page
                 </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
 {% highlight proto %}
-// A command to create a new task.
+// Create a new task.
 message CreateTask {
-    TaskId id = 1;
+    TaskId id = 1; // assumed `required`
     string name = 2 [(required) = true];
     string description = 3;
 }
-...
 {% endhighlight %}
             </div>
-
-            <div class="col-md-4">
+            <div class="col-md-8">
 {% highlight proto %}
 // A new task has been created.
 message TaskCreated {
-    TaskId task = 1;
+    TaskId task = 1 [(required) = true];
     string name = 2 [(required) = true];
     string description = 3;
+    spine.core.UserId owner = 4 [(required) = true];
 }
-...
 {% endhighlight %}
             </div>
-
-            <div class="col-md-4">
+            <div class="col-md-8">
 {% highlight proto %}
+// A task which can be assigned to a user.
 message Task {
     option (entity).kind = AGGREGATE;
-    TaskId id = 1;
+    TaskId id = 1; // assumed `required`
     string name = 2 [(required) = true];
     string description = 3;
-    DeveloperId assignee = 4;
+    spine.core.UserId owner = 4 [(required) = true];
+    spine.core.UserId assignee = 5;
 }
 {% endhighlight %}
             </div>
@@ -56,8 +55,7 @@ message Task {
         <div class="row step-row">
             <div class="col-md-12">
                 <p class="step-title">Step 2.</p>
-                <h2>Generate the code for all tiers and multiple languages</h2>
-                <p>Java, JavaScript, and Dart are currently supported.</p>
+                <h2>Generate the data types code for all tiers and runtimes</h2>
             </div>
         </div>
         <div class="row">
@@ -74,7 +72,7 @@ message Task {
         <div class="row step-row">
             <div class="col-md-12">
                 <p class="step-title">Step 3.</p>
-                <h2>Code business logic in straight and testable way</h2>
+                <h2>Add business logic in a straight and testable way</h2>
                 <p>Focus on business logic rather than “plumbing”.
                     A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
                     <code>Projection</code>s will get all <code>Event</code>s they need.
@@ -82,58 +80,101 @@ message Task {
                     message delivery, and other environment matters are isolated from the main code.</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <!--Aggregate code -->
-            <div class="col-md-6">
+            <div class="col-md-8">
 {% highlight java %}
-final class TaskAggregate
-    extends Aggregate<TaskId, Task, Task.Builder> {
-    ...
+final class TaskAggregate extends Aggregate<TaskId, Task, Task.Builder> {
+
     @Assign
     TaskCreated handle(CreateTask cmd, CommandContext ctx) {
-        return TaskCreated
-                .newBuilder()
-                .setTask(cmd.getId())
-                .setName(cmd.getName())
-                .setOwner(ctx.getActor())
-                .vBuild();
+        return TaskCreated.newBuilder()
+                    .setTask(cmd.getId())
+                    .setName(cmd.getName())
+                    .setDescription(cmd.getDescription())
+                    .setOwner(ctx.getActorContext().getActor())
+                    .vBuild(); // validate the event
     }
-    ...
+
+    @Apply
+    private void event(TaskCreated e) {
+        builder().setName(e.getName())
+                 .setDescription(e.getDescription())
+                 .setOwner(e.getOwner());
+    }
 }
 {% endhighlight %}
             </div>
-
-            <!--Projection code -->
-            <div class="col-md-6">
+            <!--Testing code -->
+            <div class="col-md-8">
 {% highlight java %}
-final class TaskProjection
-    extends Projection<TaskId, TaskItem, TaskItem.Builder> {
+@DisplayName("Handling `CreateTask` command should")
+public class TaskCreationTest extends ContextAwareTest {
+
+    private TaskId task;
+    private String name;
+    private String description;
     ...
-    @Subscribe
-    void on(TaskCreated e) {
-        builder().setTask(e.getTask())
-                 .setName(e.getName())
+    @BeforeEach
+    void postCommand() {
+        CreateTask cmd = generateCommand();
+        context().receivesCommand(cmd);
     }
 
-    @Subscribe
-    void on(TaskCompleted e, EventContext ctx) {
-        builder().setWhenDone(ctx.getTimestamp());
+    @Test
+    @DisplayName("generate `TaskCreated` event")
+    void eventGenerated() {
+        TaskCreated expected = expectedEvent();
+        context().assertEvent(TaskCreated.class)
+                 .comparingExpectedFieldsOnly()
+                 .isEqualTo(expected);
+    }
+
+    @Test
+    @DisplayName("create a `Task`")
+    void aggregateCreation() {
+        Task expected = expectedAggregateState();
+        context().assertEntityWithState(task, Task.class)
+                 .hasStateThat()
+                 .comparingExpectedFieldsOnly()
+                 .isEqualTo(expected);
     }
 }
 {% endhighlight %}
             </div>
         </div>
         <div class="row step-row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <p class="step-title">Step 4.</p>
                 <h2>Easily deploy to Google Cloud or a custom environment</h2>
                 <p>In-memory and JDBC-based storage implementations allow to implement and test
                     the core logic quickly. Adopt your application to selected deployment
                     environment(s) with a few lines of code.</p>
             </div>
-            <div class="col-md-6">
-                <img class="landing-image" src="{{ site.baseurl }}/img/landing-start-quickly.jpg"
-                     alt="Evolve your domain model">
+        </div>
+        <div class="row justify-content-center">
+            <!--Environment configuration code -->
+            <div class="col-md-8">
+{% highlight java %}
+static void configureEnvironment() {
+    StorageFactory rdbms = JdbcStorageFactory.newBuilder()
+        .setDataSource(dataSource())
+        .build();
+    StorageFactory datastore = DatastoreStorageFactory.newBuilder()
+        .setDatastore(datastoreService())
+        .build();
+
+    ServerEnvironment.instance()
+        .use(rdbms, Tests.class) // use RDBMS instead of default In-Memory storage for tests.
+        .use(datastore, Production.class);
+}
+{% endhighlight %}
+            </div>
+            <!--Deploy command line -->
+            <div class="col-md-8">
+{% highlight bash %}
+./gradlew build deploy
+{% endhighlight %}
             </div>
         </div>
     </div>

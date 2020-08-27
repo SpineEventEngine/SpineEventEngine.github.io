@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package spine.site.home;
+
+import "spine/options.proto";
+
+option (type_url_prefix) = "type.spine.io";
+option java_package = "io.spine.site.home";
+option java_outer_classname = "IdentifiersProto";
+option java_multiple_files = true;
+
+import public "spine/core/user_id.proto";
+
+message TaskId {
+    string uuid = 1;
+}

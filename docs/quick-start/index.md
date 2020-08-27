@@ -7,9 +7,6 @@ next_btn:
   page: Development Process Overview
 ---
 
-[//]: <> (The base path for code samples is `_samples/examples/src/main/`.)
-[//]: <> (Change it to `_examples/hello/`.)
-
 # Getting started with Spine in Java
 
 <p class="lead">This guide will walk you through a minimal client-server application in Java
@@ -908,7 +905,7 @@ This is what the `isDone()` method is for:
 
 <embed-code file="examples/hello/src/main/java/io/spine/helloworld/client/Client.java" 
             start="boolean isDone()" 
-            end="    }"/></embed-code>
+            end="    }"></embed-code>
 ```java
 public boolean isDone() {
     return client.subscriptions()

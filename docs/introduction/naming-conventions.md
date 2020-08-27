@@ -247,7 +247,7 @@ which seem hierarchical for convenience. When it comes to placing source code fi
 in a project, there is usually nesting formed by the directories in a file system.
 
 Spine framework uses this notion of “nesting” for marking multiple packages of a server-side code 
-[belonging to a Bounded Context](https://spine.io/core-java/reference/core/io/spine/core/BoundedContext.html)
+[belonging to a Bounded Context]({{site.core_api_doc}}/core/io/spine/core/BoundedContext.html)
 easier. But this is a convenience feature, not a requirement.
    
 Please see our recommendations for organizing generated and handcrafted code in sections below.
