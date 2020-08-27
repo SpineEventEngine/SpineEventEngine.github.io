@@ -1,51 +1,55 @@
 ---
-# Do not remove`---` tags.These are the frontmatter tags for Jekyll variables.
+    # Do not remove`---` tags.These are the frontmatter tags for Jekyll variables.
 ---
 
-/*
- * Copyright 2020, TeamDev. All rights reserved.
- *
- * Redistribution and use in source and/or binary forms, with or without
- * modification, must retain the above copyright notice and the following
- * disclaimer.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+    /*
+     * Copyright 2020, TeamDev. All rights reserved.
+     *
+     * Redistribution and use in source and/or binary forms, with or without
+     * modification, must retain the above copyright notice and the following
+     * disclaimer.
+     *
+     * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+     * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+     * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+     * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+     * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+     * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+     * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+     * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+     * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+     * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+     * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+     */
 
-/**
- * This script contains helper functions for the agreement checkboxes on `Getting Help` page.
- *
- * Please see `/getting-help/service-section.html` for usage.
- */
-'use strict';
+    /**
+     * This script contains helper functions for the agreement checkboxes on `Getting Help` page.
+     *
+     * Please see `/getting-help/service-section.html` for usage.
+     */
+    'use strict';
 
 $(
     function () {
         const $privacyConsent = $('#privacyConsent');
         const $supportAgreementConsent = $('#supportAgreementConsent');
         const $orderButton = $('#order-now-btn');
+        const $orderButtonHolder = $('.pricing-btn-holder');
         const $redirectScreen = $('#redirectScreen');
         const $loader = $redirectScreen.find('.redirect-loader');
         const $errorContainer = $redirectScreen.find('.redirect-error');
         const $linkBack = $redirectScreen.find('#linkBack');
         const $consentCheckboxes = $("input[type='checkbox'].consent");
+        const disabledBtnTitle = 'Read and agree to the terms to\xA0continue';
 
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
 
         const apiUrl = getApiUrl();
 
+        $orderButtonHolder.attr('data-original-title', disabledBtnTitle);
+
         $consentCheckboxes.change(() => {
-            changeElementState($orderButton, isConsentObtained());
+            changeElementState($orderButton, $orderButtonHolder, isConsentObtained());
         });
 
         $orderButton.click(() => {
@@ -85,16 +89,19 @@ $(
          * Changes element's disabled/enabled state.
          *
          * @param {jQuery} element the element to change the state for
+         * @param {jQuery} elementHolder the element holder to apply or hide a tooltip
          * @param {boolean} enable denotes whether the element should be enabled.
          * If `true` — enables the element, otherwise — disables
          */
-        function changeElementState(element, enable) {
+        function changeElementState(element, elementHolder, enable) {
             if (enable) {
                 element.removeAttr('disabled');
                 element.removeClass('disabled');
+                elementHolder.removeAttr('data-original-title');
             } else {
                 element.attr('disabled', true);
                 element.addClass('disabled');
+                elementHolder.attr('data-original-title', disabledBtnTitle);
             }
         }
 
