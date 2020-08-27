@@ -116,7 +116,7 @@ $(
             grecaptcha.ready(() => {
                 grecaptcha
                     .execute(reCaptchaSiteKey, {action: 'submitPaymentTransaction'})
-                    .then(function (token) {
+                    .then((token) => {
                         let data = {
                             consent: {privacyConsent, supportAgreementConsent}
                         };
