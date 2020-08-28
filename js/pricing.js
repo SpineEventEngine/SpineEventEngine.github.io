@@ -93,13 +93,14 @@ $(
          * If `true` — enables the element, otherwise — disables
          */
         function changeElementState(element, enable) {
+            const button = element.find($orderButton);
             if (enable) {
-                element.find($orderButton).removeAttr('disabled');
-                element.find($orderButton).removeClass('disabled');
+                button.removeAttr('disabled');
+                button.removeClass('disabled');
                 element.removeAttr('data-original-title');
             } else {
-                element.find($orderButton).attr('disabled', true);
-                element.find($orderButton).addClass('disabled');
+                button.attr('disabled', true);
+                button.addClass('disabled');
                 element.attr('data-original-title', disabledBtnTitle);
             }
         }
