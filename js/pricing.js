@@ -33,8 +33,8 @@ $(
     function () {
         const $privacyConsent = $('#privacyConsent');
         const $supportAgreementConsent = $('#supportAgreementConsent');
-        const $orderButton = $('#order-now-btn');
         const $orderButtonHolder = $('.pricing-btn-holder');
+        const $orderButton = $('#order-now-btn');
         const $redirectScreen = $('#redirectScreen');
         const $loader = $redirectScreen.find('.redirect-loader');
         const $errorContainer = $redirectScreen.find('.redirect-error');
@@ -49,7 +49,7 @@ $(
         $orderButtonHolder.attr('data-original-title', disabledBtnTitle);
 
         $consentCheckboxes.change(() => {
-            changeElementState($orderButton, $orderButtonHolder, isConsentObtained());
+            changeElementState($orderButtonHolder, isConsentObtained());
         });
 
         $orderButton.click(() => {
@@ -89,19 +89,18 @@ $(
          * Changes element's disabled/enabled state.
          *
          * @param {jQuery} element the element to change the state for
-         * @param {jQuery} elementHolder the element holder to apply or hide a tooltip
          * @param {boolean} enable denotes whether the element should be enabled.
          * If `true` — enables the element, otherwise — disables
          */
-        function changeElementState(element, elementHolder, enable) {
+        function changeElementState(element, enable) {
             if (enable) {
-                element.removeAttr('disabled');
-                element.removeClass('disabled');
-                elementHolder.removeAttr('data-original-title');
+                element.find($orderButton).removeAttr('disabled');
+                element.find($orderButton).removeClass('disabled');
+                element.removeAttr('data-original-title');
             } else {
-                element.attr('disabled', true);
-                element.addClass('disabled');
-                elementHolder.attr('data-original-title', disabledBtnTitle);
+                element.find($orderButton).attr('disabled', true);
+                element.find($orderButton).addClass('disabled');
+                element.attr('data-original-title', disabledBtnTitle);
             }
         }
 
