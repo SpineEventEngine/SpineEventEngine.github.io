@@ -33,19 +33,23 @@ $(
     function () {
         const $privacyConsent = $('#privacyConsent');
         const $supportAgreementConsent = $('#supportAgreementConsent');
+        const $orderButtonHolder = $('.pricing-btn-holder');
         const $orderButton = $('#order-now-btn');
         const $redirectScreen = $('#redirectScreen');
         const $loader = $redirectScreen.find('.redirect-loader');
         const $errorContainer = $redirectScreen.find('.redirect-error');
         const $linkBack = $redirectScreen.find('#linkBack');
         const $consentCheckboxes = $("input[type='checkbox'].consent");
+        const disabledBtnTitle = 'Read and agree to the terms to\xA0continue';
 
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
 
         const apiUrl = getApiUrl();
 
+        $orderButtonHolder.attr('data-original-title', disabledBtnTitle);
+
         $consentCheckboxes.change(() => {
-            changeElementState($orderButton, isConsentObtained());
+            changeElementState($orderButtonHolder, isConsentObtained());
         });
 
         $orderButton.click(() => {
@@ -89,12 +93,15 @@ $(
          * If `true` — enables the element, otherwise — disables
          */
         function changeElementState(element, enable) {
+            const button = element.find($orderButton);
             if (enable) {
-                element.removeAttr('disabled');
-                element.removeClass('disabled');
+                button.removeAttr('disabled');
+                button.removeClass('disabled');
+                element.removeAttr('data-original-title');
             } else {
-                element.attr('disabled', true);
-                element.addClass('disabled');
+                button.attr('disabled', true);
+                button.addClass('disabled');
+                element.attr('data-original-title', disabledBtnTitle);
             }
         }
 
