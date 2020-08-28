@@ -142,7 +142,7 @@ $(
         /**
          * The user's consent transaction data.
          *
-         * <p>The user's consents and the reCaptcha token. The token uses to verify whether it is a
+         * <p>The user's consents and the reCAPTCHA token. The token uses to verify whether it is a
          * real user or some malicious code.
          *
          * @typedef {Object} TransactionRequest
