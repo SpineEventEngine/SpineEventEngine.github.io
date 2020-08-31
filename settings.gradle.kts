@@ -22,4 +22,8 @@ rootProject.name = "spine.io"
 
 includeBuild("./_code/samples")
 
+includeBuild("./_code/examples/airport")
+includeBuild("./_code/examples/blog")
 includeBuild("./_code/examples/hello")
+includeBuild("./_code/examples/kanban")
+includeBuild("./_code/examples/todo-list")
