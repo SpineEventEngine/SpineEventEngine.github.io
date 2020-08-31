@@ -55,7 +55,7 @@
 /**
  * The user's consent transaction response.
  *
- * <p>As a response we get the transaction ID.
+ * <p>As a response gets the transaction ID.
  *
  * @typedef {Object} TransactionResponse
  * @property {string} id consent transaction ID
