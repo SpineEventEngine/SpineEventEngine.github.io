@@ -47,7 +47,6 @@
   .support-section,
   .service-section {
     padding-top: 40px;
-    padding-bottom: 40px;
 
     @media (max-width: $tablet-large) {
       padding-bottom: 24px;
@@ -55,6 +54,8 @@
   }
 
   .support-section {
+    padding-bottom: 40px;
+
     h4 {
       margin: 0 0 16px;
       font-size: 20px;
@@ -91,6 +92,7 @@
 
   .service-section {
     padding-top: 24px;
+    padding-bottom: 12px;
 
     p {
       font-size: $font-size--xs;
@@ -458,3 +460,5 @@
     }
   }
 }
+
+.grecaptcha-badge { visibility: hidden; }
