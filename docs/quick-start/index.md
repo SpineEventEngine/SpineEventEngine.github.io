@@ -136,7 +136,7 @@ adding Spine dependencies to a project is the Bootstrap plugin:
             end="^}"></embed-code>
 ```groovy
 plugins {
-    id 'io.spine.tools.gradle.bootstrap' version '1.5.24'
+    id 'io.spine.tools.gradle.bootstrap' version '1.5.27'
 }
 ```
 
