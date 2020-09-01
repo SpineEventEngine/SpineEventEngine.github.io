@@ -317,7 +317,7 @@
       }
     }
 
-    $icon-left-offset: 10px;
+    $icon-left-offset: 2px;
     .item-with-icon {
       position: relative;
       margin: 0 var(--pricing-card-side-padding);
@@ -331,11 +331,11 @@
 
         &.fa-watch,
         &.fa-clipboard-list {
-          margin-left: 12px;
+          margin-left: 4px;
         }
 
         &.fa-users-class {
-          margin-left: 7px;
+          margin-left: -1px;
         }
       }
 
