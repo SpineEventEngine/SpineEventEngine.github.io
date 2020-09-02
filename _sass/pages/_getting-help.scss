@@ -103,7 +103,6 @@
   $card-border: 1px solid $article-border-color;
   $empty-line-height-s: 16px;
   $empty-line-height-m: 32px;
-  $header-animation: all .6s;
 
   .compare-support {
     display: grid;
@@ -148,47 +147,6 @@
       max-height: 300px;
       border-radius: $card-border-radius $card-border-radius 0 0;
       background-image: $nav-blue-gradient-light;
-      z-index: 1;
-      @include transition($header-animation);
-
-      &.sticky {
-        position: sticky;
-        position: -webkit-sticky; /* Safari */
-        top: $header-height;
-        padding-top: 9px;
-        max-height: 40px;
-
-        // Fixes sticky header height on mobile devices when the header text in two lines.
-        @media (min-width: $mobile-card-min-screen-size) and (max-width: 943px) {
-          max-height: 60px;
-        }
-
-        @media (max-width: 534px) {
-          max-height: 60px;
-        }
-
-        .header-icon {
-          &:after {
-            @include transform(scale(.68));
-            margin-top: -14px;
-          }
-        }
-
-        .text-container {
-          padding-top: 0;
-          padding-left: $header-icon-size + 2px;
-
-        }
-
-        h4 {
-          @include transform(scale(.8));
-        }
-
-        .support-subtitle {
-          visibility: hidden;
-          opacity: 0;
-        }
-      }
 
       .header-icon {
         position: relative;
@@ -202,7 +160,6 @@
           content: '';
           width: $header-icon-size;
           height: $header-icon-size;
-          @include transition($header-animation);
         }
 
         @mixin header-icon($image-url) {
@@ -227,7 +184,6 @@
       .text-container {
         padding-top: 8px;
         padding-left: $header-icon-size + 10px;
-        @include transition($header-animation);
 
         @media (max-width: $phone-xlarge) {
           padding: 0 !important; // `!important` is needed here to override sticky element too.
@@ -240,9 +196,6 @@
         margin: 0 0 4px;
         font-size: 20px;
         font-weight: 700;
-        transform-origin: top left;
-        transform: scale(1);
-        @include transition($header-animation);
       }
 
       .support-subtitle {
@@ -253,9 +206,6 @@
         font-weight: 500;
         letter-spacing: .08px;
         line-height: 1.5;
-        visibility: visible;
-        opacity: 1;
-        @include transition($header-animation);
       }
     }
 

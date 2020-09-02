@@ -13,15 +13,11 @@ const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 const $searchField = $('#search-field');
 const mobileSearchOpenedClass = 'mobile-search-opened';
-const pricingContainer = $('.compare-support');
-const pricingHeader = $('.compare-support .header');
-let pricingHeaderTopPosition = getPricingContainerTopPosition();
 
 /** Pages */
 const isFaqPage = $body.is('.faq');
 const isDocsPage = $body.is('.docs');
 const isPromoPage = $body.is('.promo-page');
-const isGettingHelpPage = $body.is('.getting-help');
 
 /** Code color variables */
 const $colorSelector = $('.color-selector');
@@ -64,10 +60,6 @@ $(function() {
     if (isFaqPage) {
         expandItemOnHashChange();
     }
-
-    if (isGettingHelpPage) {
-        fixGettingHelpHeader();
-    }
 });
 
 jQuery(window).on('load', function() {
@@ -99,10 +91,6 @@ window.onscroll = function() {
     if (isPromoPage) {
         showCodeColorSelectorOnPromoPage();
     }
-
-    if (isGettingHelpPage) {
-        fixGettingHelpHeader();
-    }
 };
 
 $(window).resize(function() {
@@ -111,7 +99,6 @@ $(window).resize(function() {
     fixHead();
     setColorSelectorTopPosition();
     updateSearchPanelOnResize();
-    pricingHeaderTopPosition = getPricingContainerTopPosition();
 
     if (isPromoPage) {
         showCodeColorSelectorOnPromoPage();
@@ -512,25 +499,4 @@ function copyToClipboard(textToCopy) {
     document.execCommand('copy');
     document.body.removeChild(dummy);
     showSnackbar('Copied to clipboard');
-}
-
-/**
- * Gets the pricing container top position.
- * @return {number}
- */
-function getPricingContainerTopPosition() {
-    if (pricingContainer.length) {
-        return pricingContainer.offset().top - 68; // `68px` sticky header height
-    }
-}
-
-/**
- * Makes pricing header sticky on Getting Help page.
- */
-function fixGettingHelpHeader() {
-    if (window.pageYOffset >= pricingHeaderTopPosition) {
-        pricingHeader.addClass('sticky');
-    } else {
-        pricingHeader.removeClass('sticky');
-    }
 }
