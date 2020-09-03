@@ -63,7 +63,8 @@ dependencies {
 }
 ```
 This will add dependencies to the `spine-server` artifact and set up code generation for
-the domain model types.
+the domain model types. Also, use `spine.enableJava().withDatastore()` to add the Google Cloud
+Datastore-based storage implementation to the given subproject.
 
 It is perfectly normal to have more Protobuf types in these modules, as long as those types are
 internal to your Java implementation and are not a part of the publicly-visible domain model.
@@ -96,19 +97,16 @@ for more info.
 If your project contains a JavaScript frontend, you may declare a `web-server` subproject, which
 processes the HTTP requests from JS. In `web-server/build.gradle`:
 ```groovy
+spine.enableJava().webServer()
+
 dependencies {
-    implementation("io.spine:spine-web:${spine.version()}")
     implementation(project(':server'))
 }
 ```
-The `spine-web` artifact provides the components for handling requests from a JavaScript
-frontend.
-
-<p class="note">
-Note the use of `spine.version()`. This method provides the framework version used by the current
-version of the plugin. Prefer this construction over a hardcoded library version for `spine-money`,
-`spine-web`, etc.
-</p>
+Using `webServer()` has the same effect as just declaring the subproject to be a part of `server()`
+and also adds the `io.spine:spine-web` dependency to the subproject. This dependency provides
+components for handling requests from a JavaScript frontend See also `firebaseWebServer()` for using
+a Firebase database to communicate between the server and the client.
 
 ### JavaScript client
 
