@@ -161,17 +161,15 @@ Client-side applications or modules should call: `spine.enableJava().client()`.
 The rest of the `build.gradle` file does the following:
  1. Sets the version of Java to 8.
 
- 2. Adds JUnit dependencies by applying the `tests.gradle` script plugin. 
-    
-    <p class="note">We chose to extract this and previous scripts into separate files to simplify
-     the code of `build.gradle`.</p>
+ 2. Adds JUnit dependencies by applying the `tests.gradle` script plugin (which we extracted
+    for the sake of simplicity). 
     
  3. Defines the `sayHello` task which runs the `Example` application, which orchestrates
     the demo.  
 
 We are not reviewing these parts of the project configuration deeper because they are not
 related to the use of the Spine framework. If you're interested in more details, please look into
-the code of these scripts.
+the mentioned `.gradle` files.
 
 Now, let's look into the data structure of the Hello context. 
  
