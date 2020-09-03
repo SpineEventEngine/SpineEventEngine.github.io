@@ -5,59 +5,65 @@
     <div class="container-fluid content-holder">
         <h1 class="section-title light">Services</h1>
         <p class="subtitle">Get assistance by the core engineers of the framework.</p>
-        <div class="compare-support">
+        <div class="support-card compare-support">
             <div class="header">
-                <i class="header-icon development-support"></i>
+                <i class="header-icon fas fa-brackets-curly"></i>
                 <div class="text-container">
                     <h4>Development Support</h4>
-                    <p class="support-subtitle">Get ongoing guidance when implementing your&nbsp;project
+                    <p class="header-subtitle">Get ongoing guidance when implementing your&nbsp;project
                         with Spine</p>
                 </div>
             </div>
             <div class="header">
-                <i class="header-icon premium-support"></i>
+                <i class="header-icon fas fa-crown"></i>
                 <div class="text-container">
                     <h4>Premium Support</h4>
-                    <p class="support-subtitle">Extend the framework up to your needs</p>
-                </div>
-            </div>
-            <div class="header">
-                <i class="header-icon proof-of-concept"></i>
-                <div class="text-container">
-                    <h4>Proof of Concept</h4>
-                    <p class="support-subtitle">Let us help you start your project with
-                        our&nbsp;framework</p>
+                    <p class="header-subtitle">We become closer for some extra money</p>
                 </div>
             </div>
             <!-- Empty line -->
             <div class="card-cell empty-line-s"></div>
             <div class="card-cell empty-line-s"></div>
-            <div class="card-cell empty-line-s third-cell"></div>
             <!-- End empty line -->
             <div class="compared-items">
                 <!-- Line 1 -->
-                <div class="card-cell"><p>Help with the use of the framework</p></div>
-                <div class="card-cell"><p>Help with the use of the framework</p></div>
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Help with the use of the framework</p>
+                    </div>
+                </div>
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Help with the use of the framework</p>
+                    </div>
+                </div>
                 <!-- Line 2 -->
-                <div class="card-cell"><p>Priority issue resolution</p></div>
-                <div class="card-cell"><p>Priority issue resolution</p></div>
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Priority issue resolution</p>
+                    </div>
+                </div>
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Priority issue resolution</p>
+                    </div>
+                </div>
                 <!-- Line 3 -->
-                <div class="card-cell"><p class="empty-item"><span>—</span></p></div>
-                <div class="card-cell"><p>Priority enhancements of the framework and&nbsp;libraries</p></div>
-                <!-- Line 4 Empty -->
-                <div class="card-cell"></div>
-                <div class="card-cell"></div>
-            </div>
-            <div class="card-cell not-compared-items">
-                <p>Guidance on applying DDD, CQRS, and Event Sourcing with Spine Event Engine</p>
-                <p>Domain discovery with #EventStorming session</p>
-                <p>Development roadmap and a plan for your&nbsp;solution</p>
-                <p>Suggestions on further implementation</p>
+                <div class="card-cell"><p class="empty-item"></p></div>
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Priority enhancements of the framework and&nbsp;libraries</p>
+                    </div>
+                </div>
             </div>
             <!-- Empty line -->
             <div class="card-cell empty-line-m"></div>
             <div class="card-cell empty-line-m"></div>
-            <div class="card-cell empty-line-m third-cell"></div>
             <!-- End empty line -->
             <div class="compared-items">
                 <!-- Line 1 -->
@@ -87,29 +93,12 @@
                     </div>
                 </div>
                 <!-- Line 3 -->
-                <div class="card-cell term-cell"><p class="empty-item"><span>—</span></p></div>
+                <div class="card-cell"><p class="empty-item"></p></div>
                 <div class="card-cell">
                     <div class="item-with-icon">
                         <i class="fal fa-headset"></i>
                         <p>Phone, chat and remote desktop on&nbsp;request</p>
                     </div>
-                </div>
-                <!-- Line 4 Empty -->
-                <div class="card-cell"></div>
-                <div class="card-cell"></div>
-            </div>
-            <div class="card-cell not-compared-items">
-                <div class="item-with-icon">
-                    <i class="fal fa-clipboard-list"></i>
-                    <p>Preliminary remote research</p>
-                </div>
-                <div class="item-with-icon">
-                    <i class="fal fa-users-class"></i>
-                    <p>A 3-5 days joint session with your team on-site or&nbsp;online</p>
-                </div>
-                <div class="item-with-icon">
-                    <i class="fal fa-headset"></i>
-                    <p>Further project guidance and support on&nbsp;request</p>
                 </div>
             </div>
             <div class="card-cell footer-cell">
@@ -122,7 +111,7 @@
                     <div class="checkboxes-list">
                         <label class="checkbox-container" for="privacyConsent">
                             <span class="text">I agree to processing of my personal information as per
-                                <a href="{{ site.baseurl }}/privacy/">Privacy Statement</a>.</span>
+                                <a href="{{ site.baseurl }}/privacy/">Privacy&nbsp;Statement</a>.</span>
                             <input type="checkbox" class="consent" id="privacyConsent">
                             <span class="checkmark"></span>
                         </label>
@@ -148,9 +137,55 @@
                     <a class="btn btn-bordered-blue pricing-btn" href="mailto:{{ site.data.support.emailSales | encode_email }}">Contact Us</a>
                 </div>
             </div>
-            <div class="card-cell footer-cell third-cell">
+        </div>
+        <div class="support-card not-compare-support">
+            <div class="header">
+                <i class="header-icon fas fa-presentation"></i>
+                <div class="text-container">
+                    <h4>Proof of Concept</h4>
+                    <p class="header-subtitle">Let us help you start your project with
+                        our&nbsp;framework</p>
+                </div>
+            </div>
+            <div class="card-cell empty-line-s"></div>
+            <div class="content-row">
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Guidance on applying DDD, CQRS, and Event Sourcing with&nbsp;Spine&nbsp;Event&nbsp;Engine</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Domain discovery with #EventStorming session</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Development roadmap and a plan for your&nbsp;solution</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Suggestions on further implementation</p>
+                    </div>
+                </div>
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="fal fa-search"></i>
+                        <p>Preliminary remote research</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="fal fa-users-class"></i>
+                        <p>A 3-5 days joint session with your team on-site or&nbsp;online</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="fal fa-headset"></i>
+                        <p>Further project guidance and support on&nbsp;request</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-cell footer-cell">
                 <div class="action-block">
-                    <a class="btn btn-bordered-blue pricing-btn" href="mailto:{{ site.data.support.emailSales | encode_email }}">Contact Us</a>
+                    <a class="btn btn-bordered-blue pricing-btn"
+                       href="mailto:{{ site.data.support.emailSales | encode_email }}">Contact Us</a>
                 </div>
             </div>
         </div>
