@@ -136,7 +136,7 @@ adding Spine dependencies to a project is the Bootstrap plugin:
             end="^}"></embed-code>
 ```groovy
 plugins {
-    id 'io.spine.tools.gradle.bootstrap' version '1.5.27'
+    id 'io.spine.tools.gradle.bootstrap' version '1.5.29'
 }
 ```
 
@@ -161,25 +161,15 @@ Client-side applications or modules should call: `spine.enableJava().client()`.
 The rest of the `build.gradle` file does the following:
  1. Sets the version of Java to 8.
 
- 2. Adds `generated` code directories to IntelliJ IDEA module by applying the `idea.gradle`
-    script plugin. 
+ 2. Adds JUnit dependencies by applying the `tests.gradle` script plugin (which we extracted
+    for the sake of simplicity). 
     
-    <p class="note">The framework does not depend on IDEA or its Gradle plugin.
-    We added this code because we use this IDE for development.
-    If you use it too, you may want look into `idea.gradle` to configure your Spine-based 
-    projects similarly.</p>
-    
- 3. Adds JUnit dependencies by applying the `tests.gradle` script plugin. 
-    
-    <p class="note">We chose to extract this and previous scripts into separate files to simplify
-     the code of `build.gradle`.</p>
-    
- 4. Defines the `sayHello` task which runs the `Example` application, which orchestrates
+ 3. Defines the `sayHello` task which runs the `Example` application, which orchestrates
     the demo.  
 
 We are not reviewing these parts of the project configuration deeper because they are not
 related to the use of the Spine framework. If you're interested in more details, please look into
-the code of these scripts.
+the mentioned `.gradle` files.
 
 Now, let's look into the data structure of the Hello context. 
  
