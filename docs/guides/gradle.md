@@ -63,7 +63,8 @@ dependencies {
 }
 ```
 This will add dependencies to the `spine-server` artifact and set up code generation for
-the domain model types.
+the domain model types. Also, use `spine.enableJava().withDatastore()` to add the Google Cloud
+Datastore-based storage implementation to the given subproject.
 
 It is perfectly normal to have more Protobuf types in these modules, as long as those types are
 internal to your Java implementation and are not a part of the publicly-visible domain model.
