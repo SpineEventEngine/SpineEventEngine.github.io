@@ -51,15 +51,14 @@
   .support-section,
   .service-section {
     padding-top: 40px;
+    padding-bottom: 24px;
 
     @media (max-width: $tablet-large) {
-      padding-bottom: 24px;
+      padding-top: 20px;
     }
   }
 
   .support-section {
-    padding-bottom: 40px;
-
     h4 {
       margin: 0 0 16px;
       font-size: 20px;
@@ -93,8 +92,9 @@
   }
 
   .service-section {
-    padding-top: 24px;
-    padding-bottom: 20px;
+    @media (max-width: $tablet-large) {
+      padding-top: 0;
+    }
 
     p {
       font-size: $font-size--xs;
@@ -122,6 +122,7 @@
       border-left: $card-border;
 
       @media (max-width: $tablet) {
+        padding-top: 24px;
         padding-bottom: 16px;
       }
 
@@ -175,7 +176,7 @@
           // TODO:2020-09-03:juliaevseeva: Remove styles for the `&.fa-brackets-curly` when the
           //  Font Awesome is updated to version `5.7.0` or higher.
           &.fa-brackets-curly {
-            @include transform(scale(.8));
+            @include transform(scale(.74));
           }
         }
 
