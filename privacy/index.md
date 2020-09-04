@@ -1,7 +1,6 @@
 ---
-title: Privacy Statements
-headline: Privacy Statements
-bodyclass: privacy-statements
+title: Privacy Statement
+bodyclass: privacy
 layout: privacy
 header_type: fixed-header
 ---
