@@ -1,7 +1,7 @@
 ---
 title: Versioning Policy
 headline: Versioning Policy
-bodyclass: privacy-statements
+bodyclass: privacy
 layout: privacy
 header_type: fixed-header
 ---
