@@ -16,7 +16,7 @@
     --pricing-card-gap-between: 8px;
   }
 
-  @media (max-width: $phone-large) {
+  @media (max-width: $phone-small) {
     --pricing-card-side-padding: 16px;
     --pricing-card-header-side-padding: 16px;
   }
@@ -367,6 +367,10 @@
         &:nth-child(even) {
           margin-top: 24px;
         }
+      }
+
+      .empty-item {
+        display: none; // Hides empty items when all cards line up in a column.
       }
 
       .footer-cell {
