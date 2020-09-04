@@ -12,6 +12,10 @@
     margin-bottom: 16px;
   }
 
+  .date {
+    margin: -20px 0 32px;
+  }
+
   table {
     width: 100%;
     padding: 0;
@@ -38,6 +42,37 @@
 
     th {
       font-weight: bold;
+    }
+  }
+
+  &.development-support-agreement {
+    .article-container {
+      ul {
+        list-style-type: none;
+        counter-reset: item;
+        margin: 0;
+        padding: 0;
+
+        > li {
+          display: table;
+          counter-increment: item;
+          margin: 0;
+
+          &:before {
+            content: counters(item, ".") ". ";
+            display: table-cell;
+            padding-right: .6em;
+          }
+        }
+      }
+
+      // Makes list numbers the same style as h2 titles.
+      .title-list-item {
+        &:before {
+          font-size: 28px;
+          font-weight: bold;
+        }
+      }
     }
   }
 }
