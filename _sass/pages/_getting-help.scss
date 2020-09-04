@@ -1,20 +1,24 @@
 :root {
   --pricing-card-side-padding: 32px;
-  --pricing-card-gap-between: 24px;
   --pricing-card-header-side-padding: 32px;
+  --pricing-card-gap-between: 24px;
 
   @media (max-width: $desktop-small) {
     --pricing-card-gap-between: 16px;
-    --pricing-card-header-side-padding: 16px;
   }
 
   @media (max-width: $tablet-large) {
     --pricing-card-side-padding: 24px;
+    --pricing-card-header-side-padding: 24px;
+  }
+
+  @media (max-width: $phone-xlarge) {
+    --pricing-card-gap-between: 8px;
   }
 
   @media (max-width: $phone-large) {
     --pricing-card-side-padding: 16px;
-    --pricing-card-gap-between: 8px;
+    --pricing-card-header-side-padding: 16px;
   }
 }
 
@@ -67,6 +71,10 @@
       border-radius: $card-border-radius;
       @include box-shadow($card-shadow);
       height: 100%;
+
+      p {
+        margin-bottom: 12px;
+      }
     }
 
     .support-get-started,
@@ -80,12 +88,6 @@
     .support-resources {
       p {
         margin-bottom: 8px;
-      }
-    }
-
-    .support-community {
-      p {
-        margin-bottom: 12px;
       }
     }
   }
@@ -104,7 +106,9 @@
   $empty-line-height-s: 8px;
   $empty-line-height-m: 24px;
   $icon-size: 22px;
+  $icon-size-mobile: 16px;
   $text-left-padding: $icon-size + 26px;
+  $text-left-padding-mobile: $icon-size-mobile + 16px;
 
   .support-card {
     .header {
@@ -117,6 +121,10 @@
       border-right: $card-border;
       border-left: $card-border;
 
+      @media (max-width: $tablet) {
+        padding-bottom: 16px;
+      }
+
       .header-icon {
         position: absolute;
         font-size: $icon-size;
@@ -128,14 +136,14 @@
           background: url('/img/icons/getting-help/brackets-curly.svg');
           height: $icon-size;
           width: 28px;
+          -webkit-transform-origin: 0 0;
+          -moz-transform-origin: 0 0;
+          -o-transform-origin: 0 0;
+          transform-origin: 0 0;
         }
 
         &.fa-presentation {
           margin-top: 3px;
-        }
-
-        @media (max-width: $phone-xlarge) {
-          display: none;
         }
       }
 
@@ -157,6 +165,26 @@
         margin: 0;
         font-size: 14px;
         line-height: 1.5;
+      }
+
+      @media (max-width: $phone-medium) {
+        .header-icon {
+          font-size: $icon-size-mobile;
+
+          // TODO:2020-09-03:juliaevseeva: Remove styles for the `&.fa-brackets-curly` when the
+          //  Font Awesome is updated to version `5.7.0` or higher.
+          &.fa-brackets-curly {
+            @include transform(scale(.8));
+          }
+        }
+
+        h4 {
+          font-size: 16px;
+        }
+
+        .text-container {
+          padding-left: $text-left-padding-mobile;
+        }
       }
     }
 
@@ -242,7 +270,7 @@
 
       @media (max-width: $phone-medium) {
         i {
-          font-size: 16px;
+          font-size: $icon-size-mobile;
           margin-left: 4px;
 
           &.fa-watch,
@@ -256,7 +284,7 @@
         }
 
         p {
-          padding-left: 32px;
+          padding-left: $text-left-padding-mobile;
         }
       }
     }
@@ -368,12 +396,30 @@
 
   .not-compare-support {
     background-color: white;
+    border: $card-border;
+    border-radius: $card-border-radius;
+
+    .header,
+    .card-cell,
+    .card-cell.footer-cell  {
+      border: none;
+    }
 
     .content-row {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: min-content;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
+
+      @media (max-width: $tablet) {
+        grid-template-columns: repeat(1, 1fr);
+
+        .card-cell {
+          &:nth-child(2) {
+            margin-top: 24px;
+          }
+        }
+      }
 
       .card-cell {
         &:nth-child(1) {
@@ -385,9 +431,14 @@
           margin-right: var(--pricing-card-gap-between)/2;
         }
       }
+    }
 
-      .action-block {
-        margin-top: 24px;
+    .action-block {
+      .pricing-btn {
+        @media (max-width: $phone-large) {
+          float: none;
+          width: 100%;
+        }
       }
     }
   }
