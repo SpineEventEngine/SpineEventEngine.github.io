@@ -170,16 +170,13 @@
       @media (max-width: $phone-medium) {
         .header-icon {
           font-size: $icon-size-mobile;
+          margin-top: 2px;
 
           // TODO:2020-09-03:juliaevseeva: Remove styles for the `&.fa-brackets-curly` when the
           //  Font Awesome is updated to version `5.7.0` or higher.
           &.fa-brackets-curly {
             @include transform(scale(.8));
           }
-        }
-
-        h4 {
-          font-size: 16px;
         }
 
         .text-container {
@@ -354,8 +351,30 @@
     gap: 0 var(--pricing-card-gap-between);
     margin: 20px 0;
 
-    @media (max-width: $phone-medium) {
-      margin: 0 -#{$layout-padding-phone};
+    @media (max-width: $phone-large) {
+      .header,
+      .card-cell,
+      .footer-cell {
+        grid-column: 1/3;
+
+        &:nth-child(even) {
+          order: 1;
+        }
+      }
+
+      .header {
+        &:nth-child(even) {
+          margin-top: 24px;
+        }
+      }
+
+      .footer-cell {
+        &:nth-child(even) {
+          .pricing-btn {
+            margin-top: 32px;
+          }
+        }
+      }
     }
 
     .action-block {
