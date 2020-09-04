@@ -4,4 +4,40 @@
   @media (max-width: $phone-xlarge) {
     background-color: white;
   }
+
+  $table-border-color: rgba(black, .12);
+  .table-container {
+    overflow-x: auto;
+    border: 1px solid $table-border-color;
+    margin-bottom: 16px;
+  }
+
+  table {
+    width: 100%;
+    padding: 0;
+    border: none;
+
+    tr {
+      border-bottom: 1px solid $table-border-color;
+    }
+
+    tbody {
+      tr {
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    td, th {
+      padding: 12px 16px;
+      border: none;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    th {
+      font-weight: bold;
+    }
+  }
 }
