@@ -39,9 +39,10 @@ Contributions.
     by You to TeamDev for inclusion in, or documentation of the Framework. For the purposes of 
     this definition, "submitted" means any form of electronic, verbal, or written communication 
     sent to TeamDev or its representatives, including but not limited to communication on electronic 
-    mailing lists, by email, or via source code control systems that are managed by, or on behalf of, 
-    TeamDev for the purpose of discussing and improving the Framework, but excluding communication 
-    that is conspicuously marked or otherwise designated in writing by You as "Not a Contribution."
+    mailing lists, by email, or via source code control systems that are managed by, or on behalf 
+    of, TeamDev for the purpose of discussing and improving the Framework, but excluding 
+    communication that is conspicuously marked or otherwise designated in writing by You as 
+    "Not a Contribution."
 
     **“CLA”** shall mean this Contributor License Agreement.
 
