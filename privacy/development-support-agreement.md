@@ -8,7 +8,7 @@ permalink: /development-support-agreement
 
 # Development Support Agreement
 
-<p class="date">Last updated: Sept 4, 2020</p>
+<p class="date">Last updated: Sept 7, 2020</p>
 
 This Development Support Agreement (Agreement) is made and entered by and between TeamDev 
 Management OÜ. (TDM, also we or us) and you, either a person or an entity (Customer, also you). 
@@ -71,11 +71,11 @@ related to TeamDev Ltd. software worldwide.
     and a standard forty (40) hour work week Monday through Friday from 11 AM to 8 PM Eastern 
     European time.
         
-    1. **One email.** You agree that TDM will accept Development Support requests from your one email 
-    address that you provide to us at the time of the purchase. You represent and warrant that (i) 
-    you will only use your email address to submit the requests, (ii) will not provide us with 
-    false personal information, (iii) will not allow any other person or entity to use your email 
-    to submit requests to us.
+    1. **One email.** You agree that TDM will accept Development Support requests from your one 
+    email address that you provide to us at the time of the purchase. You represent and warrant 
+    that (i) you will only use your email address to submit the requests, (ii) will not provide 
+    us with false personal information, (iii) will not allow any other person or entity to use 
+    your email to submit requests to us.
 
 1. ## Results, Acceptance
     1. The Development Support activities may result in provision of a Modified Framework.
@@ -140,13 +140,13 @@ related to TeamDev Ltd. software worldwide.
     code, program or data not supplied by TDM; (iv) adaptation or modification of the Framework or 
     Modified Framework not performed by TDM.
     
-    1. **Customer Indemnity.** You are responsible and will indemnify and holds TDМ harmless for any 
-    and all losses, liability, or damages arising out of, or incurred in connection with, any 
+    1. **Customer Indemnity.** You are responsible and will indemnify and holds TDМ harmless for 
+    any and all losses, liability, or damages arising out of, or incurred in connection with, any 
     infringement or misappropriation claim based on: (i) your use of the Framework, Modified 
     Framework or Your Project, (ii) modifications you make to the Framework or Your Project.
     
-    1. The foregoing states the parties’ exclusive liability and obligation arising out of any actual 
-    or alleged intellectual property or proprietary right infringement.
+    1. The foregoing states the parties’ exclusive liability and obligation arising out of any 
+    actual or alleged intellectual property or proprietary right infringement.
 
 1. ## Limitation of Liability
     TDM shall not be responsible for any error or nonconformities attributable to any 
