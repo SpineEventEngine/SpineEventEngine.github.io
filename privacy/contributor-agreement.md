@@ -111,7 +111,6 @@ Contributions.
     
 1. ## Signing this Agreement.
     **To sign the Contributor agreement as an individual developer, please fill out the 
-    following form.** [Form](https://docs.google.com/forms/d/e/1FAIpQLSeE45wkS5mfehTfeo85EU1457PnuDpgrj10CyhJOwbgZyxQew/viewform) 
+    following [form](https://docs.google.com/forms/d/e/1FAIpQLSeE45wkS5mfehTfeo85EU1457PnuDpgrj10CyhJOwbgZyxQew/viewform).** 
     
-    **To sign the Contributor agreement as a Company, please fill out the following form.**
-    [Form](https://docs.google.com/forms/d/e/1FAIpQLScpjZjJ_suMOFa7JdJwirizuGDErMbABjYAzEZjgy7br3etuQ/viewform)
+    **To sign the Contributor agreement as a Company, please fill out the following [form](https://docs.google.com/forms/d/e/1FAIpQLScpjZjJ_suMOFa7JdJwirizuGDErMbABjYAzEZjgy7br3etuQ/viewform).**
