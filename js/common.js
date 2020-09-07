@@ -14,6 +14,7 @@ const scrollToOffset = initialHeadHeight + topOffset;
 const $searchField = $('#search-field');
 const mobileSearchOpenedClass = 'mobile-search-opened';
 const $customOrderedList = $('.custom-ordered-list');
+const $customOrderedListTitle = $('.custom-ordered-list h2');
 
 /** Pages */
 const isFaqPage = $body.is('.faq');
@@ -510,12 +511,12 @@ function copyToClipboard(textToCopy) {
 /**
  * Adds class to the list item that has `h2` tag inside.
  *
- * <p>The function is used for the custom ordered list on the Development Support Agreement page.
+ * <p>The function is used for the custom ordered list on the Privacy pages.
  * Styles applies in the `_sass/pages/_privacy.scss` file.
  */
 function addOrderedListTitleClass() {
     if ($customOrderedList.length) {
-        const titleListItem = $('.custom-ordered-list h2').parents('li');
+        const titleListItem = $customOrderedListTitle.parents('li');
         titleListItem.addClass('title-list-item');
     }
 }

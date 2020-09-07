@@ -1,6 +1,6 @@
 ---
 title: Contributor License Agreement
-bodyclass: privacy
+bodyclass: privacy contributor-agreement
 layout: privacy
 header_type: fixed-header
 ---
@@ -22,6 +22,7 @@ Contributions submitted to TeamDev. Except for the license granted herein to Tea
 recipients of the Framework, You reserve all right, title, and interest in and to Your 
 Contributions.
 
+{: .custom-ordered-list }
 1. ## Definitions.
     **“You”** (or **“Your”**) shall mean the copyright owner or legal entity authorized by the 
     copyright owner that is entering into this Agreement with TeamDev. For legal entities, the 
@@ -44,22 +45,22 @@ Contributions.
     **“CLA”** shall mean this Contributor License Agreement.
 
 1. ## Grant of Copyright License. 
-Subject to the terms and conditions of this Agreement, You hereby grant to TeamDev and to 
-recipients of the Framework a perpetual, worldwide, non-exclusive, no-charge, royalty-free, 
-irrevocable copyright license to reproduce, prepare derivative works of, publicly display, 
-publicly perform, sublicense, and distribute Your Contributions and such derivative works.
+    Subject to the terms and conditions of this Agreement, You hereby grant to TeamDev and to 
+    recipients of the Framework a perpetual, worldwide, non-exclusive, no-charge, royalty-free, 
+    irrevocable copyright license to reproduce, prepare derivative works of, publicly display, 
+    publicly perform, sublicense, and distribute Your Contributions and such derivative works.
 
 1. ## Grant of Patent License.
-Subject to the terms and conditions of this Agreement, You hereby grant to TeamDev and to 
-recipients of the Framework a perpetual, worldwide, non-exclusive, no-charge, royalty-free, 
-irrevocable (except as stated in this section) patent license to make, have made, use, offer 
-to sell, sell, import, and otherwise transfer the Framework, where such license applies only 
-to those patent claims licensable by You that are necessarily infringed by Your Contribution(s) 
-alone or by combination of Your Contribution(s) with the Framework. If any entity institutes 
-patent litigation against You or any other entity (including a cross-claim or counterclaim in 
-a lawsuit) alleging that your Contribution, or the Framework, constitutes direct or contributory 
-patent infringement, then any patent licenses granted to that entity under this Agreement for 
-that Contribution or Framework shall terminate as of the date such litigation is filed.
+    Subject to the terms and conditions of this Agreement, You hereby grant to TeamDev and to 
+    recipients of the Framework a perpetual, worldwide, non-exclusive, no-charge, royalty-free, 
+    irrevocable (except as stated in this section) patent license to make, have made, use, offer 
+    to sell, sell, import, and otherwise transfer the Framework, where such license applies only 
+    to those patent claims licensable by You that are necessarily infringed by Your Contribution(s) 
+    alone or by combination of Your Contribution(s) with the Framework. If any entity institutes 
+    patent litigation against You or any other entity (including a cross-claim or counterclaim in 
+    a lawsuit) alleging that your Contribution, or the Framework, constitutes direct or contributory 
+    patent infringement, then any patent licenses granted to that entity under this Agreement for 
+    that Contribution or Framework shall terminate as of the date such litigation is filed.
 
 1. ## Representations of Legibility to Grant the License.
     You represent that you are legally entitled to grant the above license. If your employer(s) 
@@ -75,23 +76,23 @@ that Contribution or Framework shall terminate as of the date such litigation is
     with any part of Your Contributions.
 
 1. ## Support. Disclaimer of Warranty.
-You are not expected to provide support for Your Contributions, except to the extent You desire 
-to provide support. You may provide support for free, for a fee, or not at all. Unless required 
-by applicable law or agreed to in writing, You provide Your Contributions on an "AS IS" BASIS, 
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without 
-limitation, any warranties or conditions of TITLE, NON- INFRINGEMENT, MERCHANTABILITY, or FITNESS 
-FOR A PARTICULAR PURPOSE.
+    You are not expected to provide support for Your Contributions, except to the extent You desire 
+    to provide support. You may provide support for free, for a fee, or not at all. Unless required 
+    by applicable law or agreed to in writing, You provide Your Contributions on an "AS IS" BASIS, 
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without 
+    limitation, any warranties or conditions of TITLE, NON- INFRINGEMENT, MERCHANTABILITY, or 
+    FITNESS FOR A PARTICULAR PURPOSE.
 
 1. ## Submission on Behalf of Others.
-Should You wish to submit work that is not Your original creation, You may submit it to TeamDev 
-separately from any Contribution, identifying the complete details of its source and of any license 
-or other restriction (including, but not limited to, related patents, trademarks, and license 
-agreements) of which you are personally aware, and conspicuously marking the work as 
-“Submitted on behalf of a third-party: [named here]”.
+    Should You wish to submit work that is not Your original creation, You may submit it to TeamDev 
+    separately from any Contribution, identifying the complete details of its source and of any 
+    license or other restriction (including, but not limited to, related patents, trademarks, and 
+    license agreements) of which you are personally aware, and conspicuously marking the work as 
+    “Submitted on behalf of a third-party: [named here]”.
 
 1. ## Notification of Changes.
-You agree to notify TeamDev of any facts or circumstances of which you become aware that would 
-make these representations inaccurate in any respect.
+    You agree to notify TeamDev of any facts or circumstances of which you become aware that would 
+    make these representations inaccurate in any respect.
 
 1. ## Company Contributor.
     In addition to the terms above, if you accept the Contributor Agreement on behalf of an entity 

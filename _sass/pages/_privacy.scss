@@ -45,6 +45,11 @@
     }
   }
 
+  %title-as-h2 {
+    font-size: 27px;
+    font-weight: bold;
+  }
+
   &.development-support-agreement {
     .article-container {
       ul {
@@ -67,11 +72,21 @@
       }
 
       // Makes list numbers the same style as h2 titles.
+      // The `.title-list-item` class is applied in the `common.js` file.
       .title-list-item {
         &:before {
-          font-size: 28px;
-          font-weight: bold;
+          @extend %title-as-h2;
         }
+      }
+    }
+  }
+
+  &.contributor-agreement {
+    .article-container {
+      // Makes list numbers the same style as h2 titles.
+      // The `.title-list-item` class is applied in the `common.js` file.
+      .title-list-item {
+        @extend %title-as-h2;
       }
     }
   }
