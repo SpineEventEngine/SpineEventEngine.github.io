@@ -201,7 +201,7 @@ related to TeamDev Ltd. software worldwide.
         
 - ## Personal Information
 TDM will collect and process your personal information in accordance with our 
-[privacy policy]({{site.baseurl}}/privacy/).
+[privacy policy]({{site.baseurl}}/privacy/privacy-statement).
     
 - ## Trademarks
 This Agreement does not grant any rights to use the trademarks or trade names: “TeamDev”, 
