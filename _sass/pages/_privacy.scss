@@ -9,6 +9,10 @@
     }
   }
 
+  h2 {
+    font-family: $main-font;
+  }
+
   $table-border-color: rgba(black, .12);
   .table-container {
     overflow-x: auto;
@@ -55,6 +59,7 @@
 
   $title-size-mobile: 24px;
   %title-as-h2 {
+    font-family: $main-font;
     font-size: 27px;
     font-weight: bold;
 
