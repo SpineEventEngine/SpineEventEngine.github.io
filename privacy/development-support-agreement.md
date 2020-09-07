@@ -55,8 +55,9 @@ related to TeamDev Ltd. software worldwide.
 - ## Services 
     - Pursuant to your purchase of a Development Support Pack TDM shall provide to you the 
       Development Support service, that shall include:
-        - (i) help with the use of the Framework;
-        - (ii) priority Issue resolution.
+        
+        (i) help with the use of the Framework; <br>
+        (ii) priority Issue resolution.
    
     - The Development Support Pack shall be valid for twelve (12) months and shall expire on 
       the first anniversary of the purchase date.
@@ -83,8 +84,8 @@ related to TeamDev Ltd. software worldwide.
       
 - ## Costs and Payments
     - The Development Support Pack is available based on the prepayment. The fees for the 
-    Development Support Pack shall be reflected on the official Spine Event Engine website  
-    and are subject to change without notice from TDM and with no liability to us.
+    Development Support Pack shall be reflected on the official Spine Event Engine website and 
+    are subject to change without notice from TDM and with no liability to us.
     - The fees are non-cancellable and non-refundable.
     - You agree to pay all payments and taxes in relation to the payment transactions.
 
@@ -189,6 +190,8 @@ related to TeamDev Ltd. software worldwide.
     Confidential Information shall survive any expiration or termination of the Agreement. 
     
     - Neither party shall have any obligation with respect to Confidential Information which:
+    
+        {: .lower-alpha-type }
         - **is publicly available as OSS;**
         - is or becomes generally known to the public by any means other than a breach of the 
         obligations of a receiving party;

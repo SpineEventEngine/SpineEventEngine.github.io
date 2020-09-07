@@ -71,6 +71,12 @@
         }
       }
 
+      // Shows list as: a. b. c. ...
+      // To use it, add the `lower-alpha-type` class to the `<ol>` tag.
+      ul.lower-alpha-type > li:before {
+        content: counter(item, lower-alpha) ". ";
+      }
+
       // Makes list numbers the same style as h2 titles.
       // The `.title-list-item` class is applied in the `common.js` file.
       .title-list-item {
