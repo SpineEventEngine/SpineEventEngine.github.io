@@ -13,11 +13,14 @@ const topOffset = 12; // Offset from the `header` navigation
 const scrollToOffset = initialHeadHeight + topOffset;
 const $searchField = $('#search-field');
 const mobileSearchOpenedClass = 'mobile-search-opened';
+const $customOrderedList = $('.custom-ordered-list');
+const $customOrderedListTitle = $('.custom-ordered-list h2');
 
 /** Pages */
 const isFaqPage = $body.is('.faq');
 const isDocsPage = $body.is('.docs');
 const isPromoPage = $body.is('.promo-page');
+const isPrivacyPage = $body.is('.privacy');
 
 /** Code color variables */
 const $colorSelector = $('.color-selector');
@@ -59,6 +62,10 @@ $(function() {
 
     if (isFaqPage) {
         expandItemOnHashChange();
+    }
+
+    if (isPrivacyPage) {
+        addOrderedListTitleClass();
     }
 });
 
@@ -499,4 +506,17 @@ function copyToClipboard(textToCopy) {
     document.execCommand('copy');
     document.body.removeChild(dummy);
     showSnackbar('Copied to clipboard');
+}
+
+/**
+ * Adds class to the list item that has `h2` tag inside.
+ *
+ * <p>The function is used for the custom ordered list on the Privacy pages.
+ * Styles applies in the `_sass/pages/_privacy.scss` file.
+ */
+function addOrderedListTitleClass() {
+    if ($customOrderedList.length) {
+        const titleListItem = $customOrderedListTitle.parents('li');
+        titleListItem.addClass('title-list-item');
+    }
 }
