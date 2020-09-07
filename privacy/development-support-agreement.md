@@ -3,7 +3,7 @@ title: Development Support Agreement
 bodyclass: privacy development-support-agreement
 layout: privacy
 header_type: fixed-header
-permalink: development-support-agreement
+permalink: /development-support-agreement
 ---
 
 # Development Support Agreement
