@@ -6,7 +6,7 @@ header_type: fixed-header
 permalink: /development-support-agreement
 ---
 
-# Development Support Agreement
+# Spine Event Engine Development Support Agreement
 
 <p class="date">Last updated: Sept 7, 2020</p>
 
