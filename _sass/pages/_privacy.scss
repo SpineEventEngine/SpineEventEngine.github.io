@@ -10,39 +10,39 @@
     overflow-x: auto;
     border: 1px solid $table-border-color;
     margin-bottom: 16px;
+
+    table {
+      width: 100%;
+      padding: 0;
+      border: none;
+
+      tr {
+        border-bottom: 1px solid $table-border-color;
+      }
+
+      tbody {
+        tr {
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+
+      td, th {
+        padding: 12px 16px;
+        border: none;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      th {
+        font-weight: bold;
+      }
+    }
   }
 
   .date {
     margin: -20px 0 32px;
-  }
-
-  table {
-    width: 100%;
-    padding: 0;
-    border: none;
-
-    tr {
-      border-bottom: 1px solid $table-border-color;
-    }
-
-    tbody {
-      tr {
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
-
-    td, th {
-      padding: 12px 16px;
-      border: none;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    th {
-      font-weight: bold;
-    }
   }
 
   %title-as-h2 {
@@ -52,7 +52,7 @@
 
   &.development-support-agreement {
     .article-container {
-      ul {
+      ol {
         list-style-type: none;
         counter-reset: item;
         margin: 0;
@@ -73,7 +73,7 @@
 
       // Shows list as: a. b. c. ...
       // To use it, add the `lower-alpha-type` class to the `<ol>` tag.
-      ul.lower-alpha-type > li:before {
+      ol.lower-alpha-type > li:before {
         content: counter(item, lower-alpha) ". ";
       }
 
