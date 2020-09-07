@@ -45,7 +45,7 @@ const tablet = 767;
  * The same value should be used in the `_nav-search.scss` file for the
  * `$mobile-search-max-size` variable.
  */
-const mobileSearchScreenSize = 880;
+const mobileSearchScreenSize = 950;
 
 $(function() {
     fixHead();

@@ -14,6 +14,7 @@ dart_repo: https://github.com/SpineEventEngine/dart
 twitter_username: SpineEngine
 github_username: SpineEventEngine
 gitter_username: SpineEventEngine
+stackoverflow_username: Spine-Event-Engine
 
 base_api_doc: https://spine.io/base/reference
 core_api_doc: https://spine.io/core-java/reference

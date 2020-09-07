@@ -1,0 +1,192 @@
+<!-- reCaptcha v3 API -->
+<script src="https://www.google.com/recaptcha/api.js?render={{ site.data.payment_config.reCaptchaSiteKey }}"></script>
+
+<section class="service-section">
+    <div class="container-fluid content-holder">
+        <h1 class="section-title light">Services</h1>
+        <p class="subtitle">Get assistance by the core engineers of the framework.</p>
+        <div class="support-card compare-support">
+            <div class="header">
+                <i class="header-icon fas fa-brackets-curly"></i>
+                <div class="text-container">
+                    <h4>Development Support</h4>
+                    <p class="header-subtitle">Get ongoing guidance when implementing your&nbsp;project
+                        with Spine</p>
+                </div>
+            </div>
+            <div class="header">
+                <i class="header-icon fas fa-crown"></i>
+                <div class="text-container">
+                    <h4>Premium Support</h4>
+                    <p class="header-subtitle">We become closer for some extra money</p>
+                </div>
+            </div>
+            <!-- Empty line -->
+            <div class="card-cell empty-line-s"></div>
+            <div class="card-cell empty-line-s"></div>
+            <!-- End empty line -->
+            <!-- Line 1 -->
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="bullet"></i>
+                    <p>Help with the use of the framework</p>
+                </div>
+            </div>
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="bullet"></i>
+                    <p>Help with the use of the framework</p>
+                </div>
+            </div>
+            <!-- Line 2 -->
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="bullet"></i>
+                    <p>Priority issue resolution</p>
+                </div>
+            </div>
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="bullet"></i>
+                    <p>Priority issue resolution</p>
+                </div>
+            </div>
+            <!-- Line 3 -->
+            <div class="card-cell"><p class="empty-item"></p></div>
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="bullet"></i>
+                    <p>Priority enhancements of the framework and&nbsp;libraries</p>
+                </div>
+            </div>
+            <!-- Empty line -->
+            <div class="card-cell empty-line-m"></div>
+            <div class="card-cell empty-line-m"></div>
+            <!-- End empty line -->
+            <!-- Line 4 -->
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="fal fa-watch"></i>
+                    <p>Responses within one business day</p>
+                </div>
+            </div>
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="fal fa-watch"></i>
+                    <p>Responses within 4 business hours</p>
+                </div>
+            </div>
+            <!-- Line 5 -->
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="fal fa-envelope"></i>
+                    <p>Provided by email</p>
+                </div>
+            </div>
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="fal fa-envelope"></i>
+                    <p>Provided by email</p>
+                </div>
+            </div>
+            <!-- Line 6 -->
+            <div class="card-cell"><p class="empty-item"></p></div>
+            <div class="card-cell">
+                <div class="item-with-icon">
+                    <i class="fal fa-headset"></i>
+                    <p>Phone, chat and remote desktop on&nbsp;request</p>
+                </div>
+            </div>
+            <!-- Footer -->
+            <div class="card-cell footer-cell">
+                <div class="action-block">
+                    <div class="pricing-block">
+                        <span class="price">€ 4,990</span>
+                        <span class="slash">/</span>
+                        <span class="description">1 support pack (100&nbsp;hours)</span>
+                    </div>
+                    <div class="checkboxes-list">
+                        <label class="checkbox-container" for="privacyConsent">
+                            <span class="text">I agree to processing of my personal information as per
+                                <a href="{{ site.baseurl }}/privacy-statement">Privacy&nbsp;Statement</a>.</span>
+                            <input type="checkbox" class="consent" id="privacyConsent">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container" for="supportAgreementConsent">
+                            <span class="text">I agree to the terms of
+                                <a href="{{ site.baseurl }}/development-support-agreement">Development Support Agreement</a>.</span>
+                            <input type="checkbox" class="consent" id="supportAgreementConsent">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <!-- The tooltip is managing in the `js/pricing.js`. -->
+                    <div class="pricing-btn-holder"
+                         data-toggle="tooltip"
+                         data-placement="bottom">
+                        <button class="btn btn-bordered-blue pricing-btn order-btn disabled"
+                                id="order-now-btn"
+                                disabled>Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-cell footer-cell">
+                <div class="action-block">
+                    <a class="btn btn-bordered-blue pricing-btn" href="mailto:{{ site.data.support.emailSales | encode_email }}">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="support-card not-compare-support">
+            <div class="header">
+                <i class="header-icon fas fa-presentation"></i>
+                <div class="text-container">
+                    <h4>Proof of Concept</h4>
+                    <p class="header-subtitle">Let us help you start your project with
+                        our&nbsp;framework</p>
+                </div>
+            </div>
+            <div class="card-cell empty-line-s"></div>
+            <div class="content-row">
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Guidance on applying DDD, CQRS, and Event Sourcing with&nbsp;Spine&nbsp;Event&nbsp;Engine</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Domain discovery with #EventStorming session</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Development roadmap and a plan for your&nbsp;solution</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="bullet"></i>
+                        <p>Suggestions on further implementation</p>
+                    </div>
+                </div>
+                <div class="card-cell">
+                    <div class="item-with-icon">
+                        <i class="fal fa-search"></i>
+                        <p>Preliminary remote research</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="fal fa-users-class"></i>
+                        <p>A 3-5 days joint session with your team on-site or&nbsp;online</p>
+                    </div>
+                    <div class="item-with-icon">
+                        <i class="fal fa-headset"></i>
+                        <p>Further project guidance and support on&nbsp;request</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-cell footer-cell">
+                <div class="action-block">
+                    <a class="btn btn-bordered-blue pricing-btn"
+                       href="mailto:{{ site.data.support.emailSales | encode_email }}">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include redirect-screen.html %}

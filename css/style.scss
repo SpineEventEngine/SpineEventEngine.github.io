@@ -33,6 +33,8 @@
 @import "modules/_loader";
 @import "modules/color-selector";
 @import "modules/snackbar";
+@import "modules/redirect-screen";
+@import "modules/_recaptcha-note";
 
 @import "pages/_blog";
 @import "pages/_docs";
@@ -45,3 +47,4 @@
 @import "pages/_search-result";
 @import "pages/_resources";
 @import "pages/_release-notes";
+@import "pages/_getting-help";

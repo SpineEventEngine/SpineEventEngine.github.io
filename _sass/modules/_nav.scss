@@ -1,6 +1,11 @@
+// `$mobile-nav-max-width` is a screen size on which the mobile navigation will be shown.
+// The variable is used in the `_nav-search.scss` file.
+$mobile-nav-max-width: 800px;
+$mobile-nav-min-width: $mobile-nav-max-width + 1;
+
 // Navigation
 .navigation-opened {
-  @media(max-width: $tablet){
+  @media (max-width: $mobile-nav-max-width) {
     overflow: hidden;
   }
 
@@ -67,7 +72,7 @@
   .navigation-holder {
     margin-left: auto; // Makes float:right; for the Bootstrap v4
 
-    @media (max-width: 767px) {
+    @media (max-width: $mobile-nav-max-width) {
       background-color: $footerColor;
       @include box-shadow(-1px 0px 8px 0px rgba(black, .25));
       z-index: map_get($z-index, 'nav-mobile');
@@ -95,7 +100,7 @@
   .navigation {
     margin: 0 -24px 48px;
 
-    @media (min-width: $tablet) {
+    @media (min-width: $mobile-nav-min-width) {
       float: right;
       margin: 5px 0;
     }
@@ -106,7 +111,7 @@
       -webkit-transform: translateZ(0);
       line-height: 22px;
 
-      @media (min-width: $tablet) {
+      @media (min-width: $mobile-nav-min-width) {
         display: inline-block;
       }
 
@@ -119,7 +124,7 @@
         @include transition(all .2s ease-in-out);
         -webkit-transform: translateZ(0);
 
-        @media (min-width: $tablet) {
+        @media (min-width: $mobile-nav-min-width) {
           padding: 16px;
           font-size: 15px;
           letter-spacing: 0.5px;
@@ -154,12 +159,16 @@
       }
 
       &.home-item {
-        @media (min-width: $tablet) {
+        @media (min-width: $mobile-nav-min-width) {
           display: none;
         }
       }
 
       .mobile-caret-icon {
+        @media (min-width: $mobile-nav-min-width) {
+          display: none;
+        }
+
         // Initial icon-caret state
         &.collapsed {
           opacity: .54;
@@ -194,7 +203,7 @@
     .doc-list-inside {
       margin-bottom: 8px;
 
-      @media (min-width:$tablet) {
+      @media (min-width: $mobile-nav-min-width) {
         display: none;
       }
     }
@@ -235,7 +244,7 @@
   margin-right: 16px;
   position: absolute;
 
-  @media (max-width: 767px) {
+  @media (max-width: $mobile-nav-max-width) {
     display: block;
   }
 
@@ -243,10 +252,7 @@
     width: 32px;
     height: 32px;
     position: relative;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
+    @include transform(rotate(0deg));
     @include transition(.5s ease-in-out);
     z-index: map_get($z-index, 'hamburger-menu');
     cursor: pointer;
@@ -261,10 +267,7 @@
     border-radius: $border-radius-s;
     opacity: 1;
     left: 4px;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
+    @include transform(rotate(0deg));
     @include transition(.25s ease-in-out);
   }
 
@@ -287,17 +290,11 @@
   }
 
   #nav-icon-menu.open span:nth-child(2) {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
+    @include transform(rotate(45deg));
   }
 
   #nav-icon-menu.open span:nth-child(3) {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    @include transform(rotate(-45deg));
   }
 
   #nav-icon-menu.open span:nth-child(4) {
@@ -317,47 +314,4 @@
   color: $white;
   font-size: 32px;
   font-weight: 400;
-}
-
-.description-section {
-  margin: 8px 0 56px;
-  position: relative;
-  opacity:0;
-  -webkit-animation: animateTitle 1.3s forwards;
-  -moz-animation: animateTitle 1.3s forwards;
-  -o-animation: animateTitle 1.3s forwards;
-  animation: animateTitle 1.3s forwards;
-
-  p.lead {
-    font-size: $font-size--s;
-    line-height: 1.7;
-    font-weight: 400;
-    color: #99e8ff;
-
-    & strong {
-      color: $white;
-      font-weight: 700;
-    }
-
-    a {
-      color: #99e8ff;
-      border-bottom: 1px solid rgba(#99e8ff, .54);
-      padding-bottom: 2px;
-      @include transition(all .25s ease-in-out);
-
-      &:hover {
-        text-decoration: none;
-        color: $white;
-        border-bottom-color: currentColor;
-      }
-      &.external {
-        &:hover {
-          &:after {
-            color: $white;
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
 }

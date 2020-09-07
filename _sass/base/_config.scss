@@ -2,6 +2,11 @@
 $main-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $main-mono-font: 'Roboto Mono', monospace;
 
+// Layout
+$layout-max-width: 1260px;
+$custom-side-col-width: 240px;
+$center-col-width: $layout-max-width - $custom-side-col-width - $custom-side-col-width; // 780px;
+
 // Font sizes
 $font-size--primary         : 16px;
 $font-size--xxs             : .8rem;
@@ -37,6 +42,7 @@ $desktop-large              : 1440px;
 $mobile                     : $desktop-small;
 
 // Z-index
+// Usage: z-index: map_get($z-index, 'color-selector');
 $z-index: (
         'go-top-button'     : 999,
         'color-selector'    : 999,
@@ -44,6 +50,7 @@ $z-index: (
         'snackbar'          : 1000,
         'nav-mobile'        : 1001,
         'side-nav-mobile'   : 1001,
+        'redirect-screen'   : 1001,
         'hamburger-menu'    : 9999,
         'search-mobile'     : 10000
 );
@@ -59,6 +66,7 @@ $icon-size--xs              : 16px;
 $icon-size--s               : 24px;
 $icon-size--m               : 32px;
 $icon-size--l               : 40px;
+$icon-size--xl              : 48px;
 
 // Width for the element that is inside the custom column in 240px
 // Width equals `custom-column-width` minus `padding` (240px - 15px - 15px = 210px)

@@ -28,7 +28,7 @@
                         <li class="nav-item"><a href="{{ site.baseurl }}/docs/" {% if current[1]=='docs' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Docs</span></a>
                             <div {% if current[1]=='docs' %} class='mobile-caret-icon' aria-expanded='true' {% else %} class='mobile-caret-icon collapsed' aria-expanded='false' {% endif %} data-toggle="collapse" data-target="#docListInside" aria-controls="docListInside"></div>
                             <ul {% if current[1]=='docs' %} class='doc-list-inside collapse show' {% else %} class='doc-list-inside collapse' {% endif %} id="docListInside">
-                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path=='docs/index.html' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Home</span></a></li>
+                                <li class="nav-item doc"><a href="{{ site.baseurl }}/docs" {% if page.path=='docs/index.md' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Home</span></a></li>
                                 <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/introduction" {% if current[2]=='introduction' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Introduction</span></a></li>
                                 <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/quick-start/" {% if current[2]=='quick-start' %}class='nav-item-link current'{% else %} class='nav-item-link' {% endif %}><span>Quick Start</span></a></li>
                                 <li class="nav-item doc"><a href="{{ site.baseurl }}/docs/guides/validation.html" {% if current[2]=='guides' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Guides</span></a></li>
@@ -38,8 +38,9 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="{{ site.baseurl }}/release-notes/" {% if current[1]=='release-notes' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Release Notes</span></a></li>
-                        <li class="nav-item"><a href="{{ site.baseurl }}/blog/" {% if current[1]=='blog' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Blog</span></a></li>
                         <li class="nav-item"><a href="{{ site.baseurl }}/faq/" {% if current[1]=='faq' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>FAQ</span></a></li>
+                        <li class="nav-item"><a href="{{ site.baseurl }}/getting-help/" {% if current[1]=='getting-help' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Getting Help</span></a></li>
+                        <li class="nav-item"><a href="{{ site.baseurl }}/blog/" {% if current[1]=='blog' %} class='nav-item-link current' {% else %} class='nav-item-link' {% endif %}><span>Blog</span></a></li>
                         <li class="nav-item"><a class="nav-item-link github-icon" href="https://github.com/SpineEventEngine" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
                     </ul>
                 </nav>

@@ -18,13 +18,9 @@
   right: 12px; // Make icon align with hamburger menu
   width: 40px;
   height: 40px;
-  transform: rotate(180deg);
+  @include transform(rotate(180deg));
   border-radius: 50%;
   @include transition(all .3s ease-in-out);
-
-  @media(min-width: $tablet){
-    display: none;
-  }
 }
 
 // Shared
@@ -53,8 +49,8 @@
 
 .toc-col,
 .side-nav-col {
-  -ms-flex: 0 0 240px;
-  flex: 0 0 240px;
+  -ms-flex: 0 0 $custom-side-col-width;
+  flex: 0 0 $custom-side-col-width;
 }
 
 .toc-col {
@@ -190,16 +186,12 @@ table {
 }
 
 $tooltip-color: $footerColor;
-$tooltip-padding: .25rem .65rem;
+$tooltip-padding: .5rem .7rem;
 
 // Overrides Bootstrap tooltip styles
 .tooltip {
   font-size: 12px;
-  .arrow {
-    &:before {
-      border-left-color: $tooltip-color;
-    }
-  }
+  line-height: 1.4;
 
   &.show {
     opacity: .87;
@@ -208,6 +200,22 @@ $tooltip-padding: .25rem .65rem;
   .tooltip-inner {
     background-color: $tooltip-color;
     padding: $tooltip-padding;
+  }
+
+  &.bs-tooltip-left .arrow:before {
+    border-left-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-right .arrow:before {
+    border-right-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-top .arrow:before {
+    border-top-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-bottom .arrow:before {
+    border-bottom-color: $tooltip-color;
   }
 }
 
@@ -240,5 +248,53 @@ $article-container-min-height: 460px;
 
   &:after {
     vertical-align: -2px;
+  }
+}
+
+/* Custom checkbox styles */
+$checkbox-size: 18px;
+.checkbox-container {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin-top: 12px;
+  padding-left: $checkbox-size + 12px;
+  line-height: 1.4;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:hover input ~ .checkmark {
+    border-color: $mainBrandColor;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background: url('../../img/icons/checkbox.svg') no-repeat center/cover;
+      border: none;
+    }
+  }
+
+  /* Custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: $checkbox-size;
+    width: $checkbox-size;
+    border: 1px solid $gray-300;
+    border-radius: $border-radius-s;
   }
 }
