@@ -55,7 +55,7 @@ Visit [Configuring Jekyll for Project GitHub Pages and for User GitHub Pages](ht
 
 # Adding collapsible list for sidebar navigation
 
-For collapsible categories we use the Bootstrap [Collapse](https://getbootstrap.com/docs/4.0/components/collapse/) component.
+For collapsible categories we use the Bootstrap [Collapse](https://getbootstrap.com/docs/4.5/components/collapse/) component.
 
 For instructions on adding or changing sidebar navigation, please see the [Navigation Author Guide](_data/navigation/NAVIGATION.md).
 

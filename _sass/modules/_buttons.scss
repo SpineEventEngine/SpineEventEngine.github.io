@@ -61,6 +61,7 @@ $btn-font-size: 14px;
   padding: 12px 56px;
 
   &:hover, &:focus {
+    color: white;
     background-color: rgba($lightBlueColor, .2);
     border: 1px solid $lightBlueColor;
     @include box-shadow(0 5px 20px 0 rgba($footerColor, 0.28));
