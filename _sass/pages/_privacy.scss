@@ -3,6 +3,10 @@
 
   @media (max-width: $phone-xlarge) {
     background-color: white;
+
+    a {
+      word-break: break-all;
+    }
   }
 
   $table-border-color: rgba(black, .12);
@@ -43,15 +47,30 @@
 
   .date {
     margin: -20px 0 32px;
+
+    @media (max-width: $phone-xlarge) {
+      margin-top: 0;
+    }
   }
 
+  $title-size-mobile: 24px;
   %title-as-h2 {
     font-size: 27px;
     font-weight: bold;
+
+    @media (max-width: $phone-xlarge) {
+      font-size: $title-size-mobile - 2px;
+    }
   }
 
   &.development-support-agreement {
     .article-container {
+      @media (max-width: $phone-xlarge) {
+        h2 {
+          font-size: $title-size-mobile;
+        }
+      }
+
       ol {
         list-style-type: none;
         counter-reset: item;
@@ -67,6 +86,10 @@
             content: counters(item, ".") ". ";
             display: table-cell;
             padding-right: .6em;
+
+            @media (max-width: $phone-xlarge) {
+              padding-right: .36em;
+            }
           }
         }
       }
