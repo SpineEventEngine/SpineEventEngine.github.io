@@ -116,7 +116,7 @@ We do not sell or rent your personal information to other companies.
 
 We may disclose your personal information if it is required by law or litigation.
 
-<h2 id="cookies">Cookie policy</h2>
+## Cookie policy
 We use cookies to make this website work properly and to gather anonymized aggregated statistics 
 on our website usage.
 
