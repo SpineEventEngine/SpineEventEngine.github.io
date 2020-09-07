@@ -3,6 +3,7 @@ title: Privacy Statement
 bodyclass: privacy
 layout: privacy
 header_type: fixed-header
+permalink: /privacy-statement
 ---
 
 # Spine Event Engine Privacy Statement
@@ -66,7 +67,7 @@ just as much as necessary to prevent fraud and exercise our rights. Such informa
 be kept secure and with a limited access.
 
 NOTE: this section will not apply if you are a Contributor who has signed the 
-[Spine Event Engine Contributor Agreement]({{site.baseurl}}/privacy/contributor-agreement).
+[Spine Event Engine Contributor Agreement]({{site.baseurl}}/contributor-agreement).
 
 Spine Event Engine project and contributions to it are public and a record of the contribution 
 (including all personal information that you submit with it, including your full name and email 

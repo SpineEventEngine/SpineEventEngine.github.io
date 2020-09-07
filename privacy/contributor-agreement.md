@@ -3,6 +3,7 @@ title: Contributor License Agreement
 bodyclass: privacy contributor-agreement
 layout: privacy
 header_type: fixed-header
+permalink: /contributor-agreement
 ---
 
 # Spine Event Engine Contributor License Agreement

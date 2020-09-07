@@ -1,7 +1,7 @@
 $(function handleSimpleIntegration() {
 
     cookieChoices.showCookieBar({
-        linkHref: '/privacy/privacy-statement#cookies',
+        linkHref: '/privacy-statement#cookies',
         cookieText: 'spine.io uses cookies to help operate the site and gather analytics data. You can read more about it in our',
         linkText: 'Privacy&nbsp;Statement',
         dismissText: 'I&nbsp;agree',

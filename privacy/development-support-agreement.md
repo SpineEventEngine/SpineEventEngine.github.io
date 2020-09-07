@@ -3,6 +3,7 @@ title: Development Support Agreement
 bodyclass: privacy development-support-agreement
 layout: privacy
 header_type: fixed-header
+permalink: development-support-agreement
 ---
 
 # Development Support Agreement
@@ -204,7 +205,7 @@ related to TeamDev Ltd. software worldwide.
         
 1. ## Personal Information
 TDM will collect and process your personal information in accordance with our 
-[privacy policy]({{site.baseurl}}/privacy/privacy-statement).
+[privacy policy]({{site.baseurl}}/privacy-statement).
     
 1. ## Trademarks
 This Agreement does not grant any rights to use the trademarks or trade names: “TeamDev”, 
