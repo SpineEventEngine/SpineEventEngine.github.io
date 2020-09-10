@@ -1,5 +1,7 @@
 - page: "2020"
   children:
+    - page: "v1.6.0"
+      url: /release-notes/2020/v1.6.0.html
     - page: "v1.5.0"
       url: /release-notes/2020/v1.5.0.html
     - page: "v1.4.0"
