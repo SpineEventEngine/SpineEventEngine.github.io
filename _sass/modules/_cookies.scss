@@ -119,4 +119,12 @@
       padding-bottom: 70px;
     }
   }
+
+  .grecaptcha-badge {
+    bottom: 100px !important;
+
+    @media (max-width: $phone-xlarge){
+      bottom: 120px !important;
+    }
+  }
 }
