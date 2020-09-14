@@ -90,7 +90,7 @@
 // Usage: `@include list();`
 @mixin list($item-line-height: 1.6) {
   ol, ul {
-    margin: 0 0 32px 6px;
+    margin: 0 0 32px 0;
     line-height: $item-line-height;
 
     @media (max-width: $tablet) {
