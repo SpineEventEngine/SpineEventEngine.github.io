@@ -45,13 +45,29 @@ $article-line-height: 1.74;
   }
 
   ul + h2,
-  ul + div + h2 {
+  ol + h2,
+  ul + div + h2,
+  ol + div + h2 {
     padding-top: 16px;
   }
 
   // `div` is an invisible element that is created by Anchor JS library.
   h2 + div + h3 {
     padding-top: 4px;
+  }
+
+  h3 + div + h4 {
+    margin-top: 12px;
+  }
+
+  ol + div + h3,
+  ul + div + h3 {
+    padding-top: 0;
+  }
+
+  ol + div + h4,
+  ul + div + h4 {
+    margin-top: 0;
   }
 
   img {

@@ -10,6 +10,8 @@ web_repo: https://github.com/SpineEventEngine/web
 gcloud_java_repo: https://github.com/SpineEventEngine/gcloud-java
 money_repo: https://github.com/SpineEventEngine/money
 dart_repo: https://github.com/SpineEventEngine/dart
+bootstrap_repo: https://github.com/SpineEventEngine/bootstrap
+jdbc_storage_repo: https://github.com/SpineEventEngine/jdbc-storage
 
 twitter_username: SpineEngine
 github_username: SpineEventEngine
