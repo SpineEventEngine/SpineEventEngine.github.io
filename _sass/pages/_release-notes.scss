@@ -1,4 +1,9 @@
 .release-notes {
+  .release-notes-content-col {
+    // Fix the `pre` element that is inside `ul` or `ol` list and breaks the flex layout width.
+    min-width: 0;
+  }
+
   .article-container {
     margin-bottom: 16px;
     min-height: 350px;
