@@ -54,7 +54,8 @@
 }
 
 .toc-col {
-  @media (max-width: $desktop-small) {
+  // Custom width is used here to have the central content column more readable.
+  @media (max-width: 1140px) {
     display: none;
   }
 }
