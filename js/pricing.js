@@ -59,6 +59,7 @@
  *
  * @typedef {Object} TransactionResponse
  * @property {string} id consent transaction ID
+ * @property {string} signature digital signature for 2checkout payment form processing
  */
 
 $(
@@ -223,7 +224,7 @@ $(
          * @param {TransactionResponse} transactionResponse the consent transaction response.
          */
         function redirectToPaymentPage(transactionResponse) {
-            window.location = `${orderUrl}&CUSTOMERID=${transactionResponse.id}`;
+            window.location = `${orderUrl}&customer-ext-ref=${transactionResponse.id}&signature=${transactionResponse.signature}`;
         }
     }
 );
