@@ -224,7 +224,33 @@ $(
          * @param {TransactionResponse} transactionResponse the consent transaction response.
          */
         function redirectToPaymentPage(transactionResponse) {
-            window.location = `${orderUrl}&customer-ext-ref=${transactionResponse.id}&signature=${transactionResponse.signature}`;
+            window.location = `${orderUrl}${urlParams(transactionResponse)}`;
+        }
+
+        /**
+         * Creates payment URL parameters string.
+         *
+         * @param {TransactionResponse} transactionResponse the consent transaction response.
+         * @return {string} returns parameters string.
+         */
+        function urlParams(transactionResponse) {
+            const params = {
+                'merchant': '999999999589',
+                'currency': 'EUR',
+                'tpl': 'default',
+                'prod': '4HJME1JJDF',
+                'qty': 1,
+                'customer-ext-ref': transactionResponse.id,
+                'signature': transactionResponse.signature
+            };
+            let paramsString = "";
+            for (let key in params) {
+                if (paramsString != "") {
+                    paramsString += "&";
+                }
+                paramsString += `${key}=${encodeURIComponent(params[key])}`;
+            }
+            return paramsString;
         }
     }
 );

@@ -1,4 +1,4 @@
-orderUrl: https://secure.2checkout.com/checkout/buy?merchant=999999999589&currency=EUR&tpl=default&prod=4HJME1JJDF&qty=1
+orderUrl: https://secure.2checkout.com/checkout/buy?
 prodApiUrl: https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction
 devApiUrl: http://localhost:5002/spine-site-server/us-central1/paymentTransaction
 reCaptchaSiteKey: 6Lef7b0ZAAAAAHPIbf6XQIzzeyCoSzS56GTej1c0
