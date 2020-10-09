@@ -75,7 +75,7 @@ $(
         const $consentCheckboxes = $("input[type='checkbox'].consent");
         const disabledBtnTitle = 'Read and agree to the terms to\xA0continue';
 
-        const reCaptchaSiteKey = "{{site.data.payment_config.reCaptchaSiteKey}}"
+        const reCaptchaSiteKey = "{{site.data.payment_config.reCaptchaSiteKey}}";
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
 
         const apiUrl = getApiUrl();
@@ -224,33 +224,7 @@ $(
          * @param {TransactionResponse} transactionResponse the consent transaction response.
          */
         function redirectToPaymentPage(transactionResponse) {
-            window.location = `${orderUrl}${urlParams(transactionResponse)}`;
-        }
-
-        /**
-         * Creates payment URL parameters string.
-         *
-         * @param {TransactionResponse} transactionResponse the consent transaction response.
-         * @return {string} returns parameters string.
-         */
-        function urlParams(transactionResponse) {
-            const params = {
-                'merchant': '999999999589',
-                'currency': 'EUR',
-                'tpl': 'default',
-                'prod': '4HJME1JJDF',
-                'qty': 1,
-                'customer-ext-ref': transactionResponse.id,
-                'signature': transactionResponse.signature
-            };
-            let paramsString = "";
-            for (let key in params) {
-                if (paramsString != "") {
-                    paramsString += "&";
-                }
-                paramsString += `${key}=${encodeURIComponent(params[key])}`;
-            }
-            return paramsString;
+            window.location = `${orderUrl}&customer-ext-ref=${transactionResponse.id}&signature=${transactionResponse.signature}`;
         }
     }
 );
