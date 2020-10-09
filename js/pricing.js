@@ -182,8 +182,7 @@ $(
                 data: JSON.stringify(transactionRequest),
                 contentType: 'application/json',
                 success: (response) => {
-                    const transactionResponse = JSON.parse(response);
-                    redirectToPaymentPage(transactionResponse);
+                    redirectToPaymentPage(response);
                     hideRedirect();
                 },
                 error: (jqXhr) => {
