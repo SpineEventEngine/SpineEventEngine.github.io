@@ -53,12 +53,11 @@
  */
 
 /**
- * The user's consent transaction response.
+ * The user's consent transaction ID and 2checkout signature.
  *
- * <p>As a response gets the transaction ID.
- *
- * @typedef {Object} TransactionResponse
+ * @typedef {Object} Transaction
  * @property {string} id consent transaction ID
+ * @property {string} signature HMAC signature for 2checkout payment form processing
  */
 
 $(
@@ -74,7 +73,7 @@ $(
         const $consentCheckboxes = $("input[type='checkbox'].consent");
         const disabledBtnTitle = 'Read and agree to the terms to\xA0continue';
 
-        const reCaptchaSiteKey = "{{site.data.payment_config.reCaptchaSiteKey}}"
+        const reCaptchaSiteKey = "{{site.data.payment_config.reCaptchaSiteKey}}";
         const orderUrl = "{{site.data.payment_config.orderUrl}}";
 
         const apiUrl = getApiUrl();
@@ -180,9 +179,8 @@ $(
                 type: 'POST',
                 data: JSON.stringify(transactionRequest),
                 contentType: 'application/json',
-                success: (response) => {
-                    const transactionResponse = JSON.parse(response);
-                    redirectToPaymentPage(transactionResponse);
+                success: (transaction) => {
+                    redirectToPaymentPage(transaction);
                     hideRedirect();
                 },
                 error: (jqXhr) => {
@@ -220,10 +218,10 @@ $(
         /**
          * Redirects to the payment page.
          *
-         * @param {TransactionResponse} transactionResponse the consent transaction response.
+         * @param {Transaction} transaction the consent transaction response.
          */
-        function redirectToPaymentPage(transactionResponse) {
-            window.location = `${orderUrl}&CUSTOMERID=${transactionResponse.id}`;
+        function redirectToPaymentPage(transaction) {
+            window.location = `${orderUrl}&customer-ext-ref=${transaction.id}&signature=${transaction.signature}`;
         }
     }
 );
