@@ -53,13 +53,11 @@
  */
 
 /**
- * The user's consent transaction response.
+ * The user's consent transaction ID and 2checkout signature.
  *
- * <p>As a response gets the transaction ID and the signature.
- *
- * @typedef {Object} TransactionResponse
+ * @typedef {Object} Transaction
  * @property {string} id consent transaction ID
- * @property {string} signature digital signature for 2checkout payment form processing
+ * @property {string} signature HMAC signature for 2checkout payment form processing
  */
 
 $(
@@ -181,8 +179,8 @@ $(
                 type: 'POST',
                 data: JSON.stringify(transactionRequest),
                 contentType: 'application/json',
-                success: (response) => {
-                    redirectToPaymentPage(response);
+                success: (transaction) => {
+                    redirectToPaymentPage(transaction);
                     hideRedirect();
                 },
                 error: (jqXhr) => {
@@ -220,10 +218,10 @@ $(
         /**
          * Redirects to the payment page.
          *
-         * @param {TransactionResponse} transactionResponse the consent transaction response.
+         * @param {Transaction} transaction the consent transaction response.
          */
-        function redirectToPaymentPage(transactionResponse) {
-            window.location = `${orderUrl}&customer-ext-ref=${transactionResponse.id}&signature=${transactionResponse.signature}`;
+        function redirectToPaymentPage(transaction) {
+            window.location = `${orderUrl}&customer-ext-ref=${transaction.id}&signature=${transaction.signature}`;
         }
     }
 );
