@@ -35,17 +35,10 @@
   background-color: $body-light-gray-color;
 
   .section-title {
-    font-size: 36px;
+    font-size: 34px;
     margin-bottom: 4px;
     padding-top: 0;
-  }
-
-  .subtitle {
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: .2px;
-    max-width: 780px;
-    margin-bottom: 24px;
+    text-align: center;
   }
 
   .support-section,
@@ -351,7 +344,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: min-content;
     gap: 0 var(--pricing-card-gap-between);
-    margin: 20px 0;
+    margin: 32px 0;
 
     // A custom width is used here to keep the compared items together as long as possible.
     @media (max-width: 580px) {
