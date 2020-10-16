@@ -29,23 +29,16 @@
   $card-shadow: 0px 8px 10px 0px rgba(black, .02),
                 0px 0px 0px 1px inset rgba(33, 33, 33, .07);
 
-  $mobile-card-max-screen-size: $tablet;
-  $mobile-card-min-screen-size: $mobile-card-max-screen-size + 1;
+  // A custom width is used here to keep the compared items together as long as possible.
+  $mobile-card-screen-size: 610px;
 
   background-color: $body-light-gray-color;
 
   .section-title {
-    font-size: 36px;
+    font-size: 34px;
     margin-bottom: 4px;
     padding-top: 0;
-  }
-
-  .subtitle {
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: .2px;
-    max-width: 780px;
-    margin-bottom: 24px;
+    text-align: center;
   }
 
   .support-section,
@@ -343,6 +336,12 @@
           }
         }
       }
+
+      a {
+        &.external {
+          white-space: normal;
+        }
+      }
     }
   }
 
@@ -351,10 +350,9 @@
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: min-content;
     gap: 0 var(--pricing-card-gap-between);
-    margin: 20px 0;
+    margin: 32px 0;
 
-    // A custom width is used here to keep the compared items together as long as possible.
-    @media (max-width: 580px) {
+    @media (max-width: $mobile-card-screen-size) {
       .header,
       .card-cell,
       .footer-cell {
@@ -442,7 +440,7 @@
 
     .action-block {
       .pricing-btn {
-        @media (max-width: $phone-large) {
+        @media (max-width: $mobile-card-screen-size) {
           float: none;
           width: 100%;
         }
