@@ -160,6 +160,16 @@ $mobile-search-min-size: $mobile-search-max-size + 1;
       font-size: 20px;
     }
   }
+
+  // Clears the default `X` icon from Chrome
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+  /* Clears the default ‘X’ icon from Internet Explorer */
+  input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+  input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
 }
 
 // The block to open the mobile search with the `click` trigger.
