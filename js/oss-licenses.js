@@ -1,7 +1,7 @@
 /**
  * This is a JavaScript file which loads `license-report` md-files from the external repositories.
  *
- * Please see `/os-licenses/index.html` for usage.
+ * Please see `/oss-licenses/index.html` for usage.
  */
 'use strict';
 
