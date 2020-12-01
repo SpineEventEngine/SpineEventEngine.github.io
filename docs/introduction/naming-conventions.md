@@ -175,6 +175,45 @@ message CreateTask {
 </div>
 </div>
 
+### `repeated` and `map` fields
+
+We recommend naming `repeated` and `map` fields using singular nouns as such a naming appears 
+to be closer to the language we speak. It also provides easier to use generated code.
+
+<p class="note">This convention contradicts with the official 
+[Protobuf Style Guide](https://developers.google.com/protocol-buffers/docs/style#repeated_fields 
+"Protocol Buffers Style Guide") which suggests naming `map` and `repeated` fields after plural
+nouns. Knowing this, we still recommend singular because of the following.
+
+The code generated for a `repeated` and `map` field named after a singular noun is closer to 
+real English. For the code related to the Domain-Driven Design this is far more important than 
+the consistency with the style guide.</p>
+
+So when defining `repeated` and `map` fields use:
+
+<div class="row">
+<div class="col-xl-6">
+<p>Singulars</p>
+{% highlight proto %}
+message Task {
+    TaskId id = 1;
+    repeated SubTaskId subtask = 2;
+    map<string, string> user_label = 3;
+}
+{% endhighlight %}
+</div>
+<div class="col-xl-6">
+<p>Over pluralized names</p>
+{% highlight proto %}
+message CreateTask {
+    TaskId id = 1;
+    repeated SubTaskId subtasks = 2;
+    map<string, string> user_labels = 3;
+}
+{% endhighlight %}
+</div>
+</div>
+
 ### Commands
 
 A command is defined as an imperative:
