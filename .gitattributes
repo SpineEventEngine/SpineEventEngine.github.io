@@ -41,6 +41,11 @@ LICENSE text
 
 # Declare files that will always have LF line endings on checkout.
 *.sh text eol=lf
+_script/jekyll-build eol=lf
+_script/embed-code eol=lf
+_script/check-samples eol=lf
+_script/jekyll-serve eol=lf
+_script/proof-links eol=lf
 gradlew text eol=lf
 pull text eol=lf
 
