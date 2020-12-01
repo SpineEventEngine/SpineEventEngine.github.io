@@ -522,7 +522,7 @@ import "spine/net/email_address.proto";
 message User {
     // ...
 
-    repeated spine.net.EmailAddress recovery_emails = 42 [(distinct) = true];
+    repeated spine.net.EmailAddress recovery_email = 42 [(distinct) = true];
 }
 ```
 
