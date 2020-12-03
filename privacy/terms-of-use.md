@@ -16,13 +16,13 @@ These terms also apply to the information posted on our official information cha
 networks, support forums owned and under control of TeamDev.
 
 ## Copyright and Usage of the Website Content
-The copyright and all other rights to the materials on this site belong to TeamDev Ltd.
+The copyright and all other rights to the materials on this site belong to TeamDev&nbsp;Ltd.
 
 You are entitled to view, download and reproduce any materials contained on this website solely for 
 your internal use or personal information. When using information from this site you should: 
 - leave all the respective original notices in place;
 - utilize the images on the site only together with the surrounding text;
-- include the following copyright notice: &#169; TeamDev Ltd. All rights reserved.
+- include the following copyright notice: &#169;&nbsp;TeamDev&nbsp;Ltd. All rights reserved.
 
 You are strictly prohibited to publish or use for any commercial purposes any materials from this 
 website without prior written permission from TeamDev.
