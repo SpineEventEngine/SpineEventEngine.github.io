@@ -47,3 +47,10 @@ or this website is error-free.
 
 ### Pricing Disclaimer
 Prices indicated on this website are subject to change without prior notice from TeamDev.
+
+## Trademarks
+Java and JavaScript are registered trademarks of Oracle and/or its affiliates.
+
+Google Cloud&#8482; is a trademark of Google Inc.
+
+All other trademarks are the properties of their respective owners.
