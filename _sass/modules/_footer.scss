@@ -271,22 +271,24 @@ footer {
     }
 
     .privacy-link {
-      margin-right: 24px;
+      margin-right: 20px;
 
       @media (max-width: $tablet) {
         padding-bottom: 2px;
         border-bottom-color: rgba($white, .26);
       }
 
-      @media (max-width: $phone-large) {
-        margin-right: 0;
+      @media (max-width: $phone-xlarge) {
+        &.terms {
+          margin-right: 0;
+        }
       }
     }
 
     .description {
       letter-spacing: .6px;
       
-      @media (max-width: $phone-large) {
+      @media (max-width: $phone-xlarge) {
         display: block;
       }
 
