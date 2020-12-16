@@ -12,6 +12,7 @@ money_repo: https://github.com/SpineEventEngine/money
 dart_repo: https://github.com/SpineEventEngine/dart
 bootstrap_repo: https://github.com/SpineEventEngine/bootstrap
 jdbc_storage_repo: https://github.com/SpineEventEngine/jdbc-storage
+time_repo: https://github.com/SpineEventEngine/time
 
 twitter_username: SpineEngine
 github_username: SpineEventEngine
