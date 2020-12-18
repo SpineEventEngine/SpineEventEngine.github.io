@@ -810,10 +810,11 @@ Now, let's review the main thing the `Client` class does, sending the `Print` co
 ```java
 public void sendCommand() {
     String userName = System.getProperty("user.name");
-    Print commandMessage = Print.newBuilder()
-            .setUsername(userName)
-            .setText("Hello World!")
-            .vBuild();
+    Print commandMessage =
+            Print.newBuilder()
+                 .setUsername(userName)
+                 .setText("Hello World!")
+                 .vBuild();
     this.subscriptions =
             client.asGuest()
                   .command(commandMessage)
@@ -869,7 +870,8 @@ There's not much exciting about the printing part.
 private void printEvent(EventMessage e) {
     String out = format(
             "The client received the event: %s%s",
-            e.getClass().getName(),
+            e.getClass()
+             .getName(),
             toCompactJson(e)
     );
     System.out.println(out);
@@ -942,8 +944,7 @@ public static void main(String[] args) {
         }
     } catch (IOException e) {
         onError(e);
-    }
-    finally {
+    } finally {
         if (client != null) {
             client.close();
         }
