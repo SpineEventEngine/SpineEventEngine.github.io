@@ -51,6 +51,9 @@ Prices indicated on this website are subject to change without prior notice from
 ## Trademarks
 Java and JavaScript are registered trademarks of Oracle and/or its affiliates.
 
-Google Cloud&#8482; is a trademark of Google Inc.
+Google Cloud&#8482; and Datastore&#8482; are trademarks of Google Inc.
+
+Dart and the related logo are trademarks of Google LLC. We are not endorsed by or affiliated 
+with Google LLC.
 
 All other trademarks are the properties of their respective owners.
