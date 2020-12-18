@@ -1,6 +1,12 @@
 /*
  * Copyright 2020, TeamDev. All rights reserved.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
  * disclaimer.
@@ -32,9 +38,11 @@ import java.net.URI
  *  https://github.com/uber/NullAway/blob/master/gradle/dependencies.gradle
  */
 
-data class Repository(val releases: String,
-                      val snapshots: String,
-                      val credentials: String)
+data class Repository(
+    val releases: String,
+    val snapshots: String,
+    val credentials: String
+)
 
 /**
  * Repositories to which we may publish. Normally, only one repository will be used.
@@ -43,14 +51,14 @@ data class Repository(val releases: String,
  */
 object PublishingRepos {
     val mavenTeamDev = Repository(
-            releases = "http://maven.teamdev.com/repository/spine",
-            snapshots = "http://maven.teamdev.com/repository/spine-snapshots",
-            credentials = "credentials.properties"
+        releases = "http://maven.teamdev.com/repository/spine",
+        snapshots = "http://maven.teamdev.com/repository/spine-snapshots",
+        credentials = "credentials.properties"
     )
     val cloudRepo = Repository(
-            releases = "https://spine.mycloudrepo.io/public/repositories/releases",
-            snapshots = "https://spine.mycloudrepo.io/public/repositories/snapshots",
-            credentials = "cloudrepo.properties"
+        releases = "https://spine.mycloudrepo.io/public/repositories/releases",
+        snapshots = "https://spine.mycloudrepo.io/public/repositories/snapshots",
+        credentials = "cloudrepo.properties"
     )
 }
 
@@ -67,41 +75,41 @@ object Repos {
 }
 
 object Versions {
-    val checkerFramework = "3.3.0"
-    val errorProne       = "2.3.4"
+    val checkerFramework = "3.7.1"
+    val errorProne       = "2.4.0"
     val errorProneJavac  = "9+181-r4173-1" // taken from here: https://github.com/tbroyer/gradle-errorprone-plugin/blob/v0.8/build.gradle.kts
-    val errorPronePlugin = "1.2.1"
+    val errorPronePlugin = "1.3.0"
     val pmd              = "6.24.0"
     val checkstyle       = "8.29"
-    val protobufPlugin   = "0.8.12"
-    val appengineApi     = "1.9.79"
+    val protobufPlugin   = "0.8.13"
+    val appengineApi     = "1.9.82"
     val appenginePlugin  = "2.2.0"
     val findBugs         = "3.0.2"
-    val guava            = "29.0-jre"
-    val protobuf         = "3.11.4"
+    val guava            = "30.0-jre"
+    val protobuf         = "3.13.0"
     val grpc             = "1.28.1"
     val flogger          = "0.5.1"
-    val junit4           = "4.12"
-    val junit5           = "5.6.2"
-    val junitPlatform    = "1.6.2"
-    val junitPioneer     = "0.4.2"
-    val truth            = "1.0.1"
+    val junit4           = "4.13.1"
+    val junit5           = "5.7.0"
+    val junitPlatform    = "1.7.0"
+    val junitPioneer     = "1.0.0"
+    val truth            = "1.1"
     val httpClient       = "1.34.2"
     val apacheHttpClient = "2.1.2"
     val firebaseAdmin    = "6.12.2"
     val roaster          = "2.21.2.Final"
     val licensePlugin    = "1.13"
-    val javaPoet         = "1.12.1"
-    val autoService      = "1.0-rc6"
+    val javaPoet         = "1.13.0"
+    val autoService      = "1.0-rc7"
     val autoCommon       = "0.10"
     val jackson          = "2.9.10.5"
-    val animalSniffer    = "1.18"
+    val animalSniffer    = "1.19"
     val apiguardian      = "1.1.0"
     val javaxAnnotation  = "1.3.2"
     val klaxon           = "5.4"
-    val ouathJwt         = "3.10.3"
+    val ouathJwt         = "3.11.0"
     val bouncyCastlePkcs = "1.66"
-    val assertK          = "0.22"
+    val assertK          = "0.23"
 
     /**
      * Version of the SLF4J library.
@@ -113,7 +121,7 @@ object Versions {
      * this version and force it via [forceConfiguration(..)][DependencyResolution.forceConfiguration].
      */
     @Deprecated("Use Flogger over SLF4J.", replaceWith = ReplaceWith("flogger"))
-    val slf4j            = "1.7.29"
+    val slf4j            = "1.7.30"
 }
 
 object GradlePlugins {
@@ -126,25 +134,25 @@ object GradlePlugins {
 object Build {
     val errorProneJavac        = "com.google.errorprone:javac:${Versions.errorProneJavac}"
     val errorProneAnnotations = listOf(
-            "com.google.errorprone:error_prone_annotations:${Versions.errorProne}",
-            "com.google.errorprone:error_prone_type_annotations:${Versions.errorProne}"
+        "com.google.errorprone:error_prone_annotations:${Versions.errorProne}",
+        "com.google.errorprone:error_prone_type_annotations:${Versions.errorProne}"
     )
     val errorProneCheckApi     = "com.google.errorprone:error_prone_check_api:${Versions.errorProne}"
     val errorProneCore         = "com.google.errorprone:error_prone_core:${Versions.errorProne}"
     val errorProneTestHelpers  = "com.google.errorprone:error_prone_test_helpers:${Versions.errorProne}"
     val checkerAnnotations     = "org.checkerframework:checker-qual:${Versions.checkerFramework}"
     val checkerDataflow        = listOf(
-            "org.checkerframework:dataflow:${Versions.checkerFramework}",
-            "org.checkerframework:javacutil:${Versions.checkerFramework}"
+        "org.checkerframework:dataflow:${Versions.checkerFramework}",
+        "org.checkerframework:javacutil:${Versions.checkerFramework}"
     )
     val autoCommon             = "com.google.auto:auto-common:${Versions.autoCommon}"
     val autoService            = AutoService
     val jsr305Annotations      = "com.google.code.findbugs:jsr305:${Versions.findBugs}"
     val guava                  = "com.google.guava:guava:${Versions.guava}"
     val flogger                = "com.google.flogger:flogger:${Versions.flogger}"
-    val protobuf = listOf(
-            "com.google.protobuf:protobuf-java:${Versions.protobuf}",
-            "com.google.protobuf:protobuf-java-util:${Versions.protobuf}"
+    val protobuf               = listOf(
+        "com.google.protobuf:protobuf-java:${Versions.protobuf}",
+        "com.google.protobuf:protobuf-java-util:${Versions.protobuf}"
     )
     val protoc                 = "com.google.protobuf:protoc:${Versions.protobuf}"
     val googleHttpClient       = "com.google.http-client:google-http-client:${Versions.httpClient}"
@@ -224,20 +232,20 @@ object Runtime {
 
 object Test {
     val junit4        = "junit:junit:${Versions.junit4}"
-    val junit5Api = listOf(
-            "org.junit.jupiter:junit-jupiter-api:${Versions.junit5}",
-            "org.junit.jupiter:junit-jupiter-params:${Versions.junit5}",
-            "org.apiguardian:apiguardian-api:${Versions.apiguardian}"
+    val junit5Api     = listOf(
+        "org.junit.jupiter:junit-jupiter-api:${Versions.junit5}",
+        "org.junit.jupiter:junit-jupiter-params:${Versions.junit5}",
+        "org.apiguardian:apiguardian-api:${Versions.apiguardian}"
     )
     val junit5Runner  = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit5}"
     val junitPioneer  = "org.junit-pioneer:junit-pioneer:${Versions.junitPioneer}"
     val guavaTestlib  = "com.google.guava:guava-testlib:${Versions.guava}"
     val mockito       = "org.mockito:mockito-core:2.12.0"
     val hamcrest      = "org.hamcrest:hamcrest-all:1.3"
-    val truth = listOf(
-            "com.google.truth:truth:${Versions.truth}",
-            "com.google.truth.extensions:truth-java8-extension:${Versions.truth}",
-            "com.google.truth.extensions:truth-proto-extension:${Versions.truth}"
+    val truth         = listOf(
+        "com.google.truth:truth:${Versions.truth}",
+        "com.google.truth.extensions:truth-java8-extension:${Versions.truth}",
+        "com.google.truth.extensions:truth-proto-extension:${Versions.truth}"
     )
     @Deprecated("Use Flogger over SLF4J.",
             replaceWith = ReplaceWith("Deps.runtime.floggerSystemBackend"))
@@ -298,33 +306,36 @@ object DependencyResolution {
                 cacheChangingModulesFor(0, "seconds")
                 @Suppress("DEPRECATION") // Force SLF4J version.
                 force(
-                        Deps.build.slf4j,
-                        Deps.build.errorProneAnnotations,
-                        Deps.build.jsr305Annotations,
-                        Deps.build.checkerAnnotations,
-                        Deps.build.autoCommon,
-                        Deps.build.guava,
-                        Deps.build.animalSniffer,
-                        Deps.build.protobuf,
-                        Deps.test.guavaTestlib,
-                        Deps.test.truth,
-                        Deps.test.junit5Api,
-                        Deps.test.junit4,
+                    Deps.build.slf4j,
+                    Deps.build.errorProneAnnotations,
+                    Deps.build.jsr305Annotations,
+                    Deps.build.checkerAnnotations,
+                    Deps.build.autoCommon,
+                    Deps.build.guava,
+                    Deps.build.animalSniffer,
+                    Deps.build.protobuf,
+                    Deps.test.guavaTestlib,
+                    Deps.test.truth,
+                    Deps.test.junit5Api,
+                    Deps.test.junit4,
 
-                        // Transitive dependencies of 3rd party components that we don't use directly.
-                        "com.google.code.gson:gson:2.8.6",
-                        "com.google.j2objc:j2objc-annotations:1.3",
-                        "org.codehaus.plexus:plexus-utils:3.3.0",
-                        "com.squareup.okio:okio:1.17.5", // Last version before next major.
-                        "commons-cli:commons-cli:1.4",
+                    // Transitive dependencies of 3rd party components that we don't use directly.
+                    "org.junit.platform:junit-platform-commons:${Versions.junitPlatform}",
+                    "com.google.auto.value:auto-value-annotations:1.7.4",
+                    "com.google.auto.service:auto-service-annotations:1.0-rc7",
+                    "com.google.code.gson:gson:2.8.6",
+                    "com.google.j2objc:j2objc-annotations:1.3",
+                    "org.codehaus.plexus:plexus-utils:3.3.0",
+                    "com.squareup.okio:okio:1.17.5", // Last version before next major.
+                    "commons-cli:commons-cli:1.4",
 
-                        // Force discontinued transitive dependency until everybody migrates off it.
-                        "org.checkerframework:checker-compat-qual:2.5.5",
+                    // Force discontinued transitive dependency until everybody migrates off it.
+                    "org.checkerframework:checker-compat-qual:2.5.5",
 
-                        "commons-logging:commons-logging:1.2",
+                    "commons-logging:commons-logging:1.2",
 
-                        // Force the Gradle Protobuf plugin version.
-                        Deps.build.gradlePlugins.protobuf
+                    // Force the Gradle Protobuf plugin version.
+                    Deps.build.gradlePlugins.protobuf
                 )
             }
         }
@@ -335,10 +346,13 @@ object DependencyResolution {
         excludeProtoLite(configurations, "testRuntime")
     }
 
-    private fun excludeProtoLite(configurations: ConfigurationContainer,
-                                 configurationName: String) {
-        configurations.named(configurationName).get()
-                .exclude(mapOf("group" to "com.google.protobuf", "module" to "protobuf-lite"))
+    private fun excludeProtoLite(
+        configurations: ConfigurationContainer,
+        configurationName: String
+    ) {
+        configurations
+            .named(configurationName).get()
+            .exclude(mapOf("group" to "com.google.protobuf", "module" to "protobuf-lite"))
     }
 
     fun defaultRepositories(repositories: RepositoryHandler) {
