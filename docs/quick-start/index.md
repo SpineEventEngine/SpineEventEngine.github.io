@@ -27,6 +27,7 @@ tests the Hello context.
 1.  JDK version 8 or higher.
 2.  Git.
 3.  The source code of the [Hello World](https://github.com/spine-examples/hello) example.
+    
     ```bash
     git clone git@github.com:spine-examples/hello.git
     ```
@@ -34,30 +35,39 @@ tests the Hello context.
 ## Run the code
 
 To check that you've got everything installed, please run the following command:
+
 ```bash
 ./gradlew :sayHello
 ```
+
 If you're under Windows, it would be:
-```
+
+```bat
 gradlew.bat :sayHello
 ```
+
 This would build and execute the example. 
 The process should finish with the output which looks like this:
 
 ```
 > Task :sayHello
-Jun 04, 2020 5:04:55 PM io.spine.server.Server lambda$start$1
-INFO: In-process server started with the name `318ea6c4-283e-4c43-b367-93310b703d31`.
-[sanders] Hello World!
-The client received the event: io.spine.helloworld.hello.event.Printed{"username":"sanders","text":"Hello World!"}
-Jun 04, 2020 5:04:57 PM io.spine.server.Server shutdown
+Dec 18, 2020 5:32:11 PM io.spine.base.Environment setCurrentType
+INFO: `Environment` set to `io.spine.base.Production`.
+Dec 18, 2020 5:32:12 PM io.spine.server.Server lambda$start$1
+INFO: In-process server started with the name `a7c62b63-2cc6-4679-bb92-072591142275`.
+[savik] Hello World!
+The client received the event: io.spine.helloworld.hello.event.Printed{"username":"savik","text":"Hello World!"}
+Dec 18, 2020 5:32:15 PM io.spine.server.Server shutdown
 INFO: Shutting down the server...
-Jun 04, 2020 5:04:57 PM io.spine.server.Server shutdown
+Dec 18, 2020 5:32:15 PM io.spine.server.Server shutdown
 INFO: Server shut down.
 ```  
+
 The first line tells which Gradle task we run. The following couple of lines is the server-side
 logging that informs us that the server was started. 
 
+The line with the `Environment` tells that we're running the application in the `Production` 
+environment.
 The line with “Hello World!” text is the “meat” of this example suite. 
 It is what our `ProcessManager` (called `Console`) does in response to the `Print` command received
 from the `Client`. 
@@ -77,6 +87,7 @@ Then, the server shuts down concluding the example.
 Now, let's dive into the code.
  
 ## Project structure
+
 For the sake of simplicity, this example is organised as a single-module Gradle project.
 Most likely, a project for a real world application would be multi-module.
 
@@ -134,9 +145,9 @@ adding Spine dependencies to a project is the Bootstrap plugin:
 <embed-code file="examples/hello/build.gradle"
             start="plugins"
             end="^}"></embed-code>
-```groovy
+```gradle
 plugins {
-    id 'io.spine.tools.gradle.bootstrap' version '1.6.0'
+    id("io.spine.tools.gradle.bootstrap").version("1.7.0")
 }
 ```
 
@@ -275,7 +286,7 @@ generated types.
 ```proto
 option java_multiple_files = true;
 ```
-     
+
 The command for printing a text in a console is defined this way:
 
 <embed-code file="examples/hello/src/main/proto/hello/commands.proto" 
@@ -324,6 +335,7 @@ Events are declared similarly to commands. The header of the file has:
     ```proto
     option java_package="io.spine.helloworld.hello.event";
     ```
+   
  * The outer Java class for all types in this file:
  
     ```proto
@@ -444,7 +456,7 @@ Let's review the method in details.
 The `@Assign` annotation tells that we assign this method to handle the command which the
 method accepts as the parameter. The method returns the event message `Printed`.
 
-The following code obtains the name of the user and the text to print from the received command,
+The following code obtains the name of the user, and the text to print from the received command,
 and then applies them to the state of the Process Manager. Instances of the `Console` class store
 the text printed for each user.
 
@@ -695,16 +707,15 @@ the settings that are normally used for testing:
             end="    }"></embed-code>
 ```java
 private static void configureEnvironment() {
-    Class<Production> prod = Production.class;
-    ServerEnvironment.instance()
-            .use(InMemoryStorageFactory.newInstance(), prod)
-            .use(Delivery.localAsync(), prod)
-            .use(InMemoryTransportFactory.newInstance(), prod);
+    ServerEnvironment.when(Production.class)
+            .use(InMemoryStorageFactory.newInstance())
+            .use(Delivery.localAsync())
+            .use(InMemoryTransportFactory.newInstance());
 }
 ``` 
 
 A real-world application would use `StorageFactory` and `TransportFactory` instances that correspond
-to a database and a messaging system used by the application. 
+to a database, and a messaging system used by the application. 
 
 ### The constructor
 
@@ -780,7 +791,7 @@ First of all, let's see how the `Client` instances are created.
 ```java
 public Client(String serverName) {
     this.client = inProcess(serverName)
-            .shutdownTimout(2, TimeUnit.SECONDS)
+            .shutdownTimeout(2, TimeUnit.SECONDS)
             .build();
 }
 ```
@@ -898,8 +909,9 @@ This is what the `isDone()` method is for:
             end="    }"></embed-code>
 ```java
 public boolean isDone() {
-    return client.subscriptions()
-                 .isEmpty();
+    return client
+            .subscriptions()
+            .isEmpty();
 }
 ```
 
@@ -918,7 +930,7 @@ scenario.
             end="^    }"></embed-code>
 ```java
 public static void main(String[] args) {
-    String serverName = UUID.randomUUID().toString();
+    String serverName = Identifier.newUuid();
     Server server = new Server(serverName);
     Client client = null;
     try {
