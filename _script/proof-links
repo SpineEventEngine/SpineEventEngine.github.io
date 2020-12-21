@@ -13,4 +13,8 @@ elif [ -f ${BASH_RC} ]; then
 fi
 
 # Check the links used by the site.
-bundle exec htmlproofer --assume-extension ./_site --only_4xx --http-status-ignore "429"
+bundle exec htmlproofer \
+  --assume-extension ./_site \
+  --only_4xx \
+  --http-status-ignore "429" \
+  --url-ignore "/twitter.com/"
