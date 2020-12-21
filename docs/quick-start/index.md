@@ -350,8 +350,6 @@ Events are declared similarly to commands. The header of the file has:
 
 The sole event in this project is declared this way:
 
-The command for printing a text in a console is defined this way:
-
 <embed-code file="examples/hello/src/main/proto/hello/events.proto" 
             start="message Printed" 
             end="^}"></embed-code>
