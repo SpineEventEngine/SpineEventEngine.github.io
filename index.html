@@ -164,9 +164,12 @@ static void configureEnvironment() {
         .setDatastore(datastoreService())
         .build();
 
-    ServerEnvironment.instance()
-        .use(rdbms, Tests.class) // use RDBMS instead of default In-Memory storage for tests.
-        .use(datastore, Production.class);
+    ServerEnvironment
+        .when(Production.class)
+        .use(datastore);
+    ServerEnvironment
+        .when(Tests.class)
+        .use(rdbms); // use RDBMS instead of default In-Memory storage for tests.
 }
 {% endhighlight %}
             </div>
