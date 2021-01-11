@@ -44,6 +44,7 @@ pre {
     overflow: auto;
     color: #a9b7c6; // Color for the dark theme while site is loading
     overflow-wrap: normal; // For the Safari browser
+    word-wrap: normal; // Overrides default Bootstrap property to fix the overflow in Safari
 
     @media print {
       white-space: pre-wrap;
