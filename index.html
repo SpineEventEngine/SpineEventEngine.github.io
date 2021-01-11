@@ -13,10 +13,14 @@ bodyclass: promo-page
                 <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
                 <p>Describe commands, events, and state of entities using
                     <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.
+                    <a class="code-toggle collapsed" href="#step-one" data-toggle="collapse">
+                        <span class="show-code">Show&nbsp;code</span>
+                        <span class="hide-code">Hide&nbsp;code</span>
+                    </a>
                 </p>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center collapse" id="step-one">
             <div class="col-md-8">
 {% highlight proto %}
 // Create a new task.
@@ -50,6 +54,9 @@ message Task {
     spine.core.UserId assignee = 5;
 }
 {% endhighlight %}
+                <a class="code-toggle hide-link"
+                   href="#step-one"
+                   data-toggle="collapse">Hide&nbsp;code</a>
             </div>
         </div>
         <div class="row step-row">
@@ -77,10 +84,15 @@ message Task {
                     A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
                     <code>Projection</code>s will get all <code>Event</code>s they need.
                     <code>ProcessManager</code>s will cover more complex scenarios. Storage,
-                    message delivery, and other environment matters are isolated from the main code.</p>
+                    message delivery, and other environment matters are isolated from the main code.
+                    <a class="code-toggle collapsed" href="#step-three" data-toggle="collapse">
+                        <span class="show-code">Show&nbsp;code</span>
+                        <span class="hide-code">Hide&nbsp;code</span>
+                    </a>
+                </p>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center collapse" id="step-three">
             <!--Aggregate code -->
             <div class="col-md-8">
 {% highlight java %}
@@ -141,6 +153,9 @@ public class TaskCreationTest extends ContextAwareTest {
     }
 }
 {% endhighlight %}
+                <a class="code-toggle hide-link"
+                   href="#step-three"
+                   data-toggle="collapse">Hide&nbsp;code</a>
             </div>
         </div>
         <div class="row step-row">
@@ -149,10 +164,15 @@ public class TaskCreationTest extends ContextAwareTest {
                 <h2>Easily deploy to Google Cloud or a custom environment</h2>
                 <p>In-memory and JDBC-based storage implementations allow to implement and test
                     the core logic quickly. Adopt your application to selected deployment
-                    environment(s) with a few lines of code.</p>
+                    environment(s) with a few lines of code.
+                    <a class="code-toggle collapsed" href="#step-four" data-toggle="collapse">
+                        <span class="show-code">Show&nbsp;code</span>
+                        <span class="hide-code">Hide&nbsp;code</span>
+                    </a>
+                </p>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center collapse" id="step-four">
             <!--Environment configuration code -->
             <div class="col-md-8">
 {% highlight java %}
@@ -178,6 +198,9 @@ static void configureEnvironment() {
 {% highlight bash %}
 ./gradlew build deploy
 {% endhighlight %}
+                <a class="code-toggle hide-link"
+                   href="#step-four"
+                   data-toggle="collapse">Hide&nbsp;code</a>
             </div>
         </div>
     </div>
