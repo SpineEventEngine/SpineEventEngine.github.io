@@ -13,10 +13,9 @@ bodyclass: promo-page
                 <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
                 <p>Describe commands, events, and state of entities using
                     <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.
-                    <a class="code-toggle collapsed" href="#step-one" data-toggle="collapse">
-                        <span class="show-code">Show&nbsp;code</span>
-                        <span class="hide-code">Hide&nbsp;code</span>
-                    </a>
+                    <a class="code-toggle collapsed"
+                       href="#step-one"
+                       data-toggle="collapse">Show&nbsp;code</a>
                 </p>
             </div>
         </div>
@@ -54,7 +53,7 @@ message Task {
     spine.core.UserId assignee = 5;
 }
 {% endhighlight %}
-                <a class="code-toggle hide-link"
+                <a class="hide-code-link"
                    href="#step-one"
                    data-toggle="collapse">Hide&nbsp;code</a>
             </div>
@@ -85,10 +84,9 @@ message Task {
                     <code>Projection</code>s will get all <code>Event</code>s they need.
                     <code>ProcessManager</code>s will cover more complex scenarios. Storage,
                     message delivery, and other environment matters are isolated from the main code.
-                    <a class="code-toggle collapsed" href="#step-three" data-toggle="collapse">
-                        <span class="show-code">Show&nbsp;code</span>
-                        <span class="hide-code">Hide&nbsp;code</span>
-                    </a>
+                    <a class="code-toggle collapsed"
+                       href="#step-three"
+                       data-toggle="collapse">Show&nbsp;code</a>
                 </p>
             </div>
         </div>
@@ -153,7 +151,7 @@ public class TaskCreationTest extends ContextAwareTest {
     }
 }
 {% endhighlight %}
-                <a class="code-toggle hide-link"
+                <a class="hide-code-link"
                    href="#step-three"
                    data-toggle="collapse">Hide&nbsp;code</a>
             </div>
@@ -165,10 +163,9 @@ public class TaskCreationTest extends ContextAwareTest {
                 <p>In-memory and JDBC-based storage implementations allow to implement and test
                     the core logic quickly. Adopt your application to selected deployment
                     environment(s) with a few lines of code.
-                    <a class="code-toggle collapsed" href="#step-four" data-toggle="collapse">
-                        <span class="show-code">Show&nbsp;code</span>
-                        <span class="hide-code">Hide&nbsp;code</span>
-                    </a>
+                    <a class="code-toggle collapsed"
+                       href="#step-four"
+                       data-toggle="collapse">Show&nbsp;code</a>
                 </p>
             </div>
         </div>
@@ -198,7 +195,7 @@ static void configureEnvironment() {
 {% highlight bash %}
 ./gradlew build deploy
 {% endhighlight %}
-                <a class="code-toggle hide-link"
+                <a class="hide-code-link"
                    href="#step-four"
                    data-toggle="collapse">Hide&nbsp;code</a>
             </div>

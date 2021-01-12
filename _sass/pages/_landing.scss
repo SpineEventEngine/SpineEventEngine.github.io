@@ -28,11 +28,7 @@
   }
 
   p {
-    margin-bottom: 40px;
-
-    @media(max-width: $phone-xlarge) {
-      margin-bottom: 24px
-    }
+    margin-bottom: 24px;
 
     &.landing-row-intro {
       text-align: center;
@@ -88,18 +84,18 @@
   }
 
   .code-toggle {
+    color: rgba(0, 0, 0, .38);
     border-bottom: 1px dotted;
+    pointer-events: none;
 
     &:hover {
       text-decoration: none;
     }
 
-    &.hide-link {
-      display: inline-block;
-      margin: 8px 0 16px;
-    }
-
     &.collapsed {
+      color: $mainBrandColor;
+      pointer-events: auto;
+
       .show-code {
         display: inline;
       }
@@ -114,6 +110,16 @@
 
     .hide-code {
       display: inline;
+    }
+  }
+
+  .hide-code-link {
+    display: inline-block;
+    border-bottom: 1px dotted;
+    margin: 8px 0 16px;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 }
