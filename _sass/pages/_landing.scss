@@ -95,21 +95,6 @@
     &.collapsed {
       color: $mainBrandColor;
       pointer-events: auto;
-
-      .show-code {
-        display: inline;
-      }
-      .hide-code {
-        display: none;
-      }
-    }
-
-    .show-code {
-      display: none;
-    }
-
-    .hide-code {
-      display: inline;
     }
   }
 
