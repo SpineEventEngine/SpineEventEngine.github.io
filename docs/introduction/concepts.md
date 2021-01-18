@@ -275,7 +275,7 @@ It “reflects” how it “looks” at the time of the last update.
 
 ### Stand
 
-In Spine, Stand is a read-side API façade of a BoundedContext.
+In Spine, Stand is a read-side API facade of a BoundedContext.
  
 ### System Context
 
