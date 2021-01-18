@@ -84,17 +84,28 @@
   }
 
   .code-toggle {
-    color: $gray-300;
     border-bottom: 1px dotted;
-    pointer-events: none;
 
     &:hover {
       text-decoration: none;
     }
 
     &.collapsed {
-      color: $mainBrandColor;
-      pointer-events: auto;
+      .show-code {
+        display: inline;
+      }
+
+      .hide-code {
+        display: none;
+      }
+    }
+
+    .show-code {
+      display: none;
+    }
+
+    .hide-code {
+      display: inline;
     }
   }
 
