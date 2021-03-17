@@ -73,6 +73,7 @@ $(
         const $codeTabs = $('.code-tabs');
         const $codeTabContent = $('.code-tab-content');
 
+        // TODO:2021-03-17:juliaevseeva: Update the logic to make it easy to add new programming languages.
         const primaryLang = 'java';
         const secondaryLang = 'kotlin';
 
