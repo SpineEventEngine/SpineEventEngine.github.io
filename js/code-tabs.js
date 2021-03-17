@@ -27,41 +27,50 @@
 /**
  * This script contains helper functions for switching between Java/Kotlin source code examples.
  *
- * The selected language will be saved in cookies so that the user can switch between pages.
+ * The selected language will be saved in cookies so that the user can navigate between pages.
  *
- * To show tabs in HTML or markdown file use this structure:
+ * To show tabs use this structure:
  * ```
  * <div class="code-tabs">
- *     <div class="code-tab-content java"
+ *     <div class="code-tab-content java">
  *          Any Java content here
  *     </div>
- *
- *     <div class="code-tab-content kotlin"
+ *     <div class="code-tab-content kotlin">
  *          Any Kotlin content here
  *     </div>
  * </div>
  * ```
  *
- * In markdown all tags should be aligned to the left side so that blocks of code
+ * In markdown, all tags should be left-aligned. This way, the blocks of code
  * will not be broken:
  * ```
  * <div class="code-tabs">
- * <div class="code-tab-content java"
+ * <div class="code-tab-content java">
  * Any Java content here
  * </div>
- *
- * <div class="code-tab-content kotlin"
+ * <div class="code-tab-content kotlin">
  * Any Kotlin content here
  * </div>
  * </div>
  * ```
  *
- * If it is needed to display a specific paragraph of text or change the title for some
- * language and not display tabs, simply use this:
+ * If you don't need to display the tabs, but only need to show a specific paragraph of text
+ * or change the title depending on the language, just use this:
  * ```
  * <div class="code-tab-content java">
- *     This text will be shown only for the Java language.
+ * # Getting started with Spine in Java
  * </div>
+ * <div class="code-tab-content kotlin">
+ * # Getting started with Spine in Kotlin
+ * </div>
+ * ```
+ *
+ * To change only some of the words in a sentence, use the `<span>` tag with the `.inline` class:
+ * ```
+ * A minimal client-server application in
+ * <span class="code-tab-content inline java">Java</span>
+ * <span class="code-tab-content inline kotlin">Kotlin</span>
+ * which handles one command to print some text...
  * ```
  */
 
