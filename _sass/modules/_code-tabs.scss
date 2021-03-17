@@ -31,6 +31,7 @@ $code-tab-border-color: #d4e8f9;
 
 .code-tabs {
   margin-top: 18px;
+  margin-bottom: 20px;
 
   .tabs {
     margin-bottom: 8px;
@@ -82,5 +83,9 @@ $code-tab-border-color: #d4e8f9;
 
   &.show {
     display: block;
+  }
+
+  &.inline.show {
+    display: inline-block;
   }
 }
