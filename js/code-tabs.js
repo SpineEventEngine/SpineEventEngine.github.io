@@ -87,6 +87,7 @@
 $(
     function() {
         const cookieCodeLang = 'codeLang';
+        const tabLangAttr = 'lang';
         const $codeTabs = $('.code-tabs');
         const $codeTabContent = $('.code-tab-content');
 
@@ -156,7 +157,7 @@ $(
          * @return {{langName, langClass}}
          */
         function getLang(el) {
-            const lang = el.attr('lang');
+            const lang = el.attr(tabLangAttr);
             if (typeof lang !== 'undefined' && lang !== false ) {
                 const langName = lang;
                 let langClass = lang.replace(/\s+/g, '-').toLowerCase();
