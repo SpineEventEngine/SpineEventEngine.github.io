@@ -1,0 +1,90 @@
+/*!
+ * Copyright 2021, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+// Classes are generated in the `js/code-tabs.js` file.
+
+$code-tab-color: $note-bg-color;
+$code-tab-border-color: #d4e8f9;
+
+.code-tabs {
+  margin-top: 18px;
+  margin-bottom: 20px;
+
+  .tabs {
+    margin-bottom: 8px;
+
+    .tab {
+      display: inline-block;
+      border: 1px solid #d4e8f9;
+      padding: 6px 16px 7px;
+      cursor: pointer;
+      font-family: $main-font;
+      font-size: 14px;
+      line-height: 1;
+      color: $mainBrandColor;
+      @include transition(all .2s ease-in-out);
+
+      &:first-child {
+        border-radius: $border-radius 0 0 $border-radius;
+      }
+
+      &:last-child {
+        border-radius: 0 $border-radius $border-radius 0;
+      }
+
+      &:not(:first-child) {
+        margin-left: -1px;
+      }
+
+      &:hover {
+        background-color: rgba($code-tab-color, .26);
+      }
+
+      &.selected {
+        background-color: $code-tab-color;
+        color: $black;
+      }
+    }
+  }
+
+  .code-tab-content {
+    p {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.code-tab-content {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  &.inline.show {
+    display: inline-block;
+  }
+}

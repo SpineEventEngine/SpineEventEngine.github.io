@@ -13,6 +13,7 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 - [Testing broken links](#testing-broken-links)
 - [Adding email links](#adding-email-links)
 - [Managing the “Prev”/“Next” buttons in the documentation](#managing-the-prevnext-buttons-in-the-documentation)
+- [Using a language switcher for source code samples](#using-a-language-switcher-for-source-code-samples)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -167,3 +168,67 @@ next_btn:
 - `_includes/doc-next-prev-nav.html` - the navigation template with the automatic button generation;
 - `_sass/modules/_doc-next-prev-nav.scss` - navigation styles;
 - `_layouts/docs.html` - the documentation layout where the `doc-next-prev-nav` is included.
+
+# Using a language switcher for source code samples
+
+The switch state will be saved globally so that the user can navigate between pages.
+
+### Usage
+
+To show language tabs use the structure below.
+Add a `lang` attribute with `Java`, `Kotlin`, `JavaScript` or any other language value 
+for `div`s with content. If no language is provided, the content will not be displayed.
+```
+<div class="code-tabs">
+    <div class="code-tab-content" lang="Java">
+         Any Java content here
+    </div>
+    <div class="code-tab-content" lang="Kotlin">
+         Any Kotlin content here
+    </div>
+    <div class="code-tab-content" lang="JavaScript">
+         Any JavaScript content here
+    </div>
+</div>
+```
+
+In **markdown**, all tags should be left-aligned. This way, the blocks 
+of code will not be broken:
+
+```
+<div class="code-tabs">
+<div class="code-tab-content" lang="Java">
+Any Java content here
+</div>
+<div class="code-tab-content" lang="Kotlin">
+Any Kotlin content here
+</div>
+<div class="code-tab-content" lang="JavaScript">
+Any JavaScript content here
+</div>
+</div>
+```
+
+If you don't need to display the tabs, but only need to show a specific paragraph of text 
+or change the title depending on the language, just use this:
+```
+<div class="code-tab-content" lang="Java">
+# Getting started with Spine in Java
+</div>
+
+<div class="code-tab-content" lang="Kotlin">
+# Getting started with Spine in Kotlin
+</div>
+```
+
+To change only some of the words in a sentence, use the `<span>` tag with the `.inline` class:
+```
+A minimal client-server application in
+<span class="code-tab-content inline" lang="Java">Java</span>
+<span class="code-tab-content inline" lang="Kotlin">Kotlin</span>
+which handles one command to print some text...
+```
+
+**Related files:**
+- `_sass/modules/_code-tabs.scss` - styles for the code tabs;
+- `js/code-tabs.js` - code tab implementation.

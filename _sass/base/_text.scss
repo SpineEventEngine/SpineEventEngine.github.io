@@ -73,7 +73,7 @@ p {
   }
 
   &.note {
-    background-color: #e0f2ff;
+    background-color: $note-bg-color;
     border-left: 4px solid $mainBrandColor;
     padding: 12px 24px 13px;
     color: $black;
