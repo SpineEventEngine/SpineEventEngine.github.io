@@ -13,7 +13,7 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 - [Testing broken links](#testing-broken-links)
 - [Adding email links](#adding-email-links)
 - [Managing the “Prev”/“Next” buttons in the documentation](#managing-the-prevnext-buttons-in-the-documentation)
-- [Using Java / Kotlin switcher for source code samples](#using-java--kotlin-switcher-for-source-code-samples)
+- [Using a language switcher for source code samples](#using-a-language-switcher-for-source-code-samples)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -169,7 +169,7 @@ next_btn:
 - `_sass/modules/_doc-next-prev-nav.scss` - navigation styles;
 - `_layouts/docs.html` - the documentation layout where the `doc-next-prev-nav` is included.
 
-# Using Java / Kotlin switcher for source code samples
+# Using a language switcher for source code samples
 
 The switch state will be saved globally so that the user can navigate between pages.
 
