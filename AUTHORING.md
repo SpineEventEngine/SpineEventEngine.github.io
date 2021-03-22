@@ -176,14 +176,18 @@ The switch state will be saved globally so that the user can navigate between pa
 ### Usage
 
 To show language tabs use the structure below.
-Add corresponding `.java` and `.kotlin` classes for `div`s with content.
+Add a `lang` attribute with `Java`, `Kotlin`, `JavaScript` or any other language value 
+for `div`s with content. If no language is provided, the content will not be displayed.
 ```
 <div class="code-tabs">
-    <div class="code-tab-content java">
+    <div class="code-tab-content" lang="Java">
          Any Java content here
     </div>
-    <div class="code-tab-content kotlin">
+    <div class="code-tab-content" lang="Kotlin">
          Any Kotlin content here
+    </div>
+    <div class="code-tab-content" lang="JavaScript">
+         Any JavaScript content here
     </div>
 </div>
 ```
@@ -193,11 +197,14 @@ of code will not be broken:
 
 ```
 <div class="code-tabs">
-<div class="code-tab-content java">
+<div class="code-tab-content" lang="Java">
 Any Java content here
 </div>
-<div class="code-tab-content kotlin">
+<div class="code-tab-content" lang="Kotlin">
 Any Kotlin content here
+</div>
+<div class="code-tab-content" lang="JavaScript">
+Any JavaScript content here
 </div>
 </div>
 ```
@@ -205,11 +212,11 @@ Any Kotlin content here
 If you don't need to display the tabs, but only need to show a specific paragraph of text 
 or change the title depending on the language, just use this:
 ```
-<div class="code-tab-content java">
+<div class="code-tab-content" lang="Java">
 # Getting started with Spine in Java
 </div>
 
-<div class="code-tab-content kotlin">
+<div class="code-tab-content" lang="Kotlin">
 # Getting started with Spine in Kotlin
 </div>
 ```
@@ -217,8 +224,8 @@ or change the title depending on the language, just use this:
 To change only some of the words in a sentence, use the `<span>` tag with the `.inline` class:
 ```
 A minimal client-server application in
-<span class="code-tab-content inline java">Java</span>
-<span class="code-tab-content inline kotlin">Kotlin</span>
+<span class="code-tab-content inline" lang="Java">Java</span>
+<span class="code-tab-content inline" lang="Kotlin">Kotlin</span>
 which handles one command to print some text...
 ```
 

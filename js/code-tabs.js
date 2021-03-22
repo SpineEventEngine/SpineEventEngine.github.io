@@ -25,8 +25,10 @@
  */
 
 /**
- * This script contains helper functions for switching between Java/Kotlin source code examples.
+ * This script contains helper functions for switching between any language of source
+ * code examples.
  *
+ * This script does not need to be modified if a new language needs to be added to the layout.
  * The selected language will be saved in cookies so that the user can navigate between pages.
  *
  * To show tabs use the structure below.
