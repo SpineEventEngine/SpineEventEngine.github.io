@@ -30,15 +30,19 @@
  * The selected language will be saved in cookies so that the user can navigate between pages.
  *
  * To show tabs use the structure below.
- * Add corresponding `.java`, `.kotlin`, or any other language class for `div`s with content.
- * If no language is provided, the content will not be displayed.
+ * Add the `lang` attribute with `Java`, `Kotlin`, `JavaScript`, or any other language value
+ * for `div`s with content. If no language is provided, the content will not be displayed.
+ *
  * ```
  * <div class="code-tabs">
- *     <div class="code-tab-content java">
+ *     <div class="code-tab-content" lang="Java">
  *          Any Java content here
  *     </div>
- *     <div class="code-tab-content kotlin">
+ *     <div class="code-tab-content" lang="Kotlin">
  *          Any Kotlin content here
+ *     </div>
+ *     <div class="code-tab-content" lang="JavaScript">
+ *          Any JavaScript content here
  *     </div>
  * </div>
  * ```
@@ -47,10 +51,10 @@
  * will not be broken:
  * ```
  * <div class="code-tabs">
- * <div class="code-tab-content java">
+ * <div class="code-tab-content" lang="Java">
  * Any Java content here
  * </div>
- * <div class="code-tab-content kotlin">
+ * <div class="code-tab-content" lang="Kotlin">
  * Any Kotlin content here
  * </div>
  * </div>
@@ -59,10 +63,10 @@
  * If you don't need to display the tabs, but only need to show a specific paragraph of text
  * or change the title depending on the language, just use this:
  * ```
- * <div class="code-tab-content java">
+ * <div class="code-tab-content" lang="Java">
  * # Getting started with Spine in Java
  * </div>
- * <div class="code-tab-content kotlin">
+ * <div class="code-tab-content" lang=Kotlin>
  * # Getting started with Spine in Kotlin
  * </div>
  * ```
@@ -70,8 +74,8 @@
  * To change only some of the words in a sentence, use the `<span>` tag with the `.inline` class:
  * ```
  * A minimal client-server application in
- * <span class="code-tab-content inline java">Java</span>
- * <span class="code-tab-content inline kotlin">Kotlin</span>
+ * <span class="code-tab-content inline" lang="Java">Java</span>
+ * <span class="code-tab-content inline" lang="Kotlin">Kotlin</span>
  * which handles one command to print some text...
  * ```
  */
@@ -85,6 +89,7 @@ $(
         const $codeTabContent = $('.code-tab-content');
 
         addTabSwitcher();
+        addTabContentClass();
         initCodeLangSwitcher();
 
         /**
@@ -112,18 +117,50 @@ $(
         /**
          * Creates a tab inside the container for each `code-tab-content` element.
          *
+         * Adds the corresponding class to the tab that was provided in the `lang` attribute.
+         *
          * @param tabBlock a block that contains tabs.
          * @param tabContainer a container for tabs.
          */
         function createTab(tabBlock, tabContainer) {
             const tabContent = tabBlock.find($codeTabContent);
             tabContent.each(function () {
-                const tabName = $(this).attr('class').split(' ')[1];
-                if (typeof tabName !== 'undefined') {
-                    const item = $(`<div class="tab ${tabName}">${tabName}</div>`);
+                const lang = getLang($(this));
+                if (lang) {
+                    const item = $(`<div class="tab ${lang.langClass}">${lang.langName}</div>`);
                     tabContainer.append(item);
                 }
             });
+        }
+
+        /**
+         * Adds the class to the `code-tab-content` element from the `lang` attribute.
+         */
+        function addTabContentClass() {
+            $codeTabContent.each(function () {
+                const lang = getLang($(this));
+                if (lang) {
+                    $(this).addClass(lang.langClass);
+                }
+            });
+        }
+
+        /**
+         * Gets the language value from the `lang` attribute of the element.
+         *
+         * And generates a valid class name based on the value of the attribute.
+         *
+         * @param el an element that has `lang` attribute.
+         * @return {{langName, langClass}}
+         */
+        function getLang(el) {
+            const lang = el.attr('lang');
+            if (typeof lang !== 'undefined' && lang !== false ) {
+                const langName = lang;
+                let langClass = lang.replace(/\s+/g, '-').toLowerCase();
+                langClass = langClass.replace(/[.,+\/#!$%\^&\*;:{}=\_`~()]/g,'-');
+                return {langName, langClass}
+            }
         }
 
         /**
@@ -144,7 +181,7 @@ $(
 
             $('.tab').click(function() {
                 const lang = $(this).attr('class').split(' ')[1];
-                if (typeof lang !== 'undefined') {
+                if (typeof lang !== 'undefined' && lang !== false) {
                     setCodeLang(lang);
                 }
             });
