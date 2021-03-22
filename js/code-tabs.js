@@ -29,7 +29,9 @@
  *
  * The selected language will be saved in cookies so that the user can navigate between pages.
  *
- * To show tabs use this structure:
+ * To show tabs use the structure below.
+ * Add corresponding `.java`, `.kotlin`, or any other language class for `div`s with content.
+ * If no language is provided, the content will not be displayed.
  * ```
  * <div class="code-tabs">
  *     <div class="code-tab-content java">
@@ -82,10 +84,6 @@ $(
         const $codeTabs = $('.code-tabs');
         const $codeTabContent = $('.code-tab-content');
 
-        // TODO:2021-03-17:juliaevseeva: Update the logic to make it easy to add new programming languages.
-        const primaryLang = 'java';
-        const secondaryLang = 'kotlin';
-
         addTabSwitcher();
         initCodeLangSwitcher();
 
@@ -121,8 +119,10 @@ $(
             const tabContent = tabBlock.find($codeTabContent);
             tabContent.each(function () {
                 const tabName = $(this).attr('class').split(' ')[1];
-                const item = $(`<div class="tab ${tabName}">${tabName}</div>`);
-                tabContainer.append(item);
+                if (typeof tabName !== 'undefined') {
+                    const item = $(`<div class="tab ${tabName}">${tabName}</div>`);
+                    tabContainer.append(item);
+                }
             });
         }
 
@@ -133,22 +133,19 @@ $(
          * On a tab click switches between code languages.
          */
         function initCodeLangSwitcher() {
+            const primaryLang = 'java';
             const cookieValue = Cookies.get(cookieCodeLang);
 
             if (cookieValue == null) {
                 setCodeLang(primaryLang);
             } else {
-                primaryLang === cookieValue && setCodeLang(primaryLang);
-                secondaryLang === cookieValue && setCodeLang(secondaryLang);
+                setCodeLang(cookieValue);
             }
 
             $('.tab').click(function() {
                 const lang = $(this).attr('class').split(' ')[1];
-
-                if (lang === primaryLang) {
-                    setCodeLang(primaryLang);
-                } else {
-                    setCodeLang(secondaryLang);
+                if (typeof lang !== 'undefined') {
+                    setCodeLang(lang);
                 }
             });
         }
