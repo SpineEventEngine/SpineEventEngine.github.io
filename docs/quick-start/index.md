@@ -402,7 +402,7 @@ message Output {
 ```
 
 The option `(entity)` tells us that this type is going to be used by a `ProcessManager`.
-The first field of the type holds and ID of this entity. The framework assumes such fields as
+The first field of the type holds the ID of this entity. The framework assumes such fields as
 implicitly `(required)`. Then goes the declaration of the remote screen output.  The value of this
 field is empty until something is printed on the screen. Therefore, it is not marked `(required)`.
 
