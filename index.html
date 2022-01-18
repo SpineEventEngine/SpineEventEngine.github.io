@@ -7,19 +7,21 @@ bodyclass: promo-page
 {% include color-selector.html %}
 <section id="landing-content" class="landing-content-container">
     <div class="container-fluid content-holder justify-content-md-center">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row row-with-btn">
+            <div class="col-text">
                 <p class="step-title">Step 1.</p>
                 <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
                 <p>Describe commands, events, and state of entities using
                     <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.
-                    <a class="code-toggle collapsed"
-                       href="#step-one"
-                       data-toggle="collapse">
-                        <span class="show-code">Show&nbsp;code</span>
-                        <span class="hide-code">Hide&nbsp;code</span>
-                    </a>
                 </p>
+            </div>
+            <div class="col-btn">
+                <a class="code-toggle collapsed btn btn-bordered-blue"
+                   href="#step-one"
+                   data-toggle="collapse">
+                    <span class="show-code">Show&nbsp;code</span>
+                    <span class="hide-code">Hide&nbsp;code</span>
+                </a>
             </div>
         </div>
         <div class="row justify-content-center collapse" id="step-one">
@@ -78,22 +80,24 @@ message Task {
                 </picture>
             </div>
         </div>
-        <div class="row step-row">
-            <div class="col-md-12">
+        <div class="row step-row row-with-btn">
+            <div class="col-text">
                 <p class="step-title">Step 3.</p>
                 <h2>Add business logic in a straight and testable way</h2>
                 <p>Focus on business logic rather than “plumbing”.
                     A <code>Command</code> will be delivered to only one <code>Aggregate</code>.
                     <code>Projection</code>s will get all <code>Event</code>s they need.
                     <code>ProcessManager</code>s will cover more complex scenarios. Storage,
-                    message delivery, and other environment matters are isolated from the main code.
-                    <a class="code-toggle collapsed"
-                       href="#step-three"
-                       data-toggle="collapse">
-                        <span class="show-code">Show&nbsp;code</span>
-                        <span class="hide-code">Hide&nbsp;code</span>
-                    </a>
+                    message delivery, and other environment matters are isolated from the main&nbsp;code.
                 </p>
+            </div>
+            <div class="col-btn">
+                <a class="code-toggle collapsed btn btn-bordered-blue"
+                   href="#step-three"
+                   data-toggle="collapse">
+                    <span class="show-code">Show&nbsp;code</span>
+                    <span class="hide-code">Hide&nbsp;code</span>
+                </a>
             </div>
         </div>
         <div class="row justify-content-center collapse" id="step-three">
@@ -162,20 +166,22 @@ public class TaskCreationTest extends ContextAwareTest {
                    data-toggle="collapse">Hide&nbsp;code</a>
             </div>
         </div>
-        <div class="row step-row">
-            <div class="col-md-12">
+        <div class="row step-row row-with-btn">
+            <div class="col-text">
                 <p class="step-title">Step 4.</p>
                 <h2>Easily deploy to Google Cloud or a custom environment</h2>
                 <p>In-memory and JDBC-based storage implementations allow to implement and test
-                    the core logic quickly. Adopt your application to selected deployment
+                    the core logic quickly. Adopt your application to&nbsp;selected deployment
                     environment(s) with a few lines of code.
-                    <a class="code-toggle collapsed"
-                       href="#step-four"
-                       data-toggle="collapse">
-                        <span class="show-code">Show&nbsp;code</span>
-                        <span class="hide-code">Hide&nbsp;code</span>
-                    </a>
                 </p>
+            </div>
+            <div class="col-btn">
+                <a class="code-toggle collapsed btn btn-bordered-blue"
+                   href="#step-four"
+                   data-toggle="collapse">
+                    <span class="show-code">Show&nbsp;code</span>
+                    <span class="hide-code">Hide&nbsp;code</span>
+                </a>
             </div>
         </div>
         <div class="row justify-content-center collapse" id="step-four">
