@@ -61,10 +61,10 @@ $(
         }
 
         /**
-         * Changes code color theme by clicking on the `color-selector` icons.
+         * Changes code color theme by clicking on the `code-theme-switcher` icon.
          *
-         * <p>On page load, the color will be set from the cookie value. If the cookie value is `null`
-         * will be set default cookie value.
+         * <p>On page load, the color will be set based on the cookie value.
+         * If the cookie value is `null`, the default color will be set.
          */
         function changeCodeColorTheme() {
             const cookieValue = Cookies.get(cookieColorName);
@@ -86,7 +86,7 @@ $(
         }
 
         /**
-         * Sets default cookie value for the `code` color as `dark`.
+         * Sets the default `dart` color to the cookie.
          */
         function setDefaultCookieValue() {
             Cookies.set(cookieColorName, defaultColor);
@@ -112,7 +112,33 @@ $(
         }
 
         /**
-         * Adds a selected color class to the switcher and sets the value to the `cookie`.
+         * Loads theme style sheets to highlight the code.
+         *
+         * <p>`<style>` tag with the `#code-highlight-styles` ID will be created in the
+         * `head` of the document. If the tag is already exist it will be updated depending
+         * on the selected theme color.
+         *
+         * <p>Style files are located in the `/libs/rouge/skins/` folder.
+         *
+         * @param {string} stylesHref `href` that leads to the `css` file
+         */
+        function loadCodeStyles(stylesHref) {
+            const $codeStyles = $('#code-highlight-styles');
+
+            if ($codeStyles.length) {
+                $codeStyles.attr('href', stylesHref);
+            } else {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.id = 'code-highlight-styles';
+                link.type = 'text/css';
+                link.href = stylesHref;
+                head.appendChild(link);
+            }
+        }
+
+        /**
+         * Adds a selected color class to the switcher and sets a new value to the `cookie`.
          *
          * @param {string} color selected color value
          */
