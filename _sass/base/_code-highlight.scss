@@ -57,14 +57,18 @@ pre {
   border-radius: $code-block-border-radius;
 }
 
-.highlighter-rouge {
+div.highlight,
+figure.highlight {
   position: relative;
 }
 
+$switcher-size: 18px;
 .code-theme-switcher {
   position: absolute;
   top: -30px;
   right: 0;
+  width: $switcher-size;
+  height: $switcher-size;
   cursor: pointer;
   opacity: .38;
   @include transition(all, .2, ease-in-out);
@@ -73,8 +77,8 @@ pre {
     content: '';
     position: absolute;
     background: url("../img/icons/brightness.svg") no-repeat center/cover;
-    width: 18px;
-    height: 18px;
+    width: $switcher-size;
+    height: $switcher-size;
   }
 
   &.dark {
