@@ -31,6 +31,15 @@ figure.highlight {
   position: relative;
 }
 
+figure.highlight {
+  margin-bottom: 28px;
+
+  .code-theme-switcher {
+    top: -24px;
+    right: 8px;
+  }
+}
+
 $switcher-size: 18px;
 .code-theme-switcher {
   position: absolute;
