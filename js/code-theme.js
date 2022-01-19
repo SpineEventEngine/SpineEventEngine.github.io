@@ -28,7 +28,7 @@
 
 $(
     function() {
-        const $codeContainer = $('pre');
+        const $codeContainer = $('div.highlight');
         const switcherClass = 'code-theme-switcher';
         const colorDark = 'dark';
         const colorLight = 'light';
@@ -55,8 +55,7 @@ $(
         function initSwitcherTooltip() {
             $('body').tooltip({
                 selector: `.${switcherClass}`,
-                placement: 'top',
-                delay: { "show": 500, "hide": 100 },
+                container: 'body'
             });
         }
 
