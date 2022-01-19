@@ -86,6 +86,7 @@
 
 $(
     function() {
+        const defaultLang = 'java'
         const cookieCodeLang = 'codeLang';
         const tabLangAttr = 'lang';
         const $codeTabs = $('.code-tabs');
@@ -175,7 +176,7 @@ $(
          * On a tab click switches between code languages.
          */
         function initCodeLangSwitcher() {
-            const primaryLang = 'java';
+            const primaryLang = defaultLang;
             const cookieValue = Cookies.get(cookieCodeLang);
 
             if (cookieValue == null) {
