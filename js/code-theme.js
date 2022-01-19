@@ -28,7 +28,8 @@
 
 $(
     function() {
-        const $codeContainer = $('div.highlight');
+        const $switcherContainer = $('div.highlight');
+        const $htmlSwitcherContainer = $('figure.highlight');
         const switcherClass = 'code-theme-switcher';
         const colorDark = 'dark';
         const colorLight = 'light';
@@ -38,12 +39,22 @@ $(
         const darkStylesUrl = codeStylePath + 'dark-theme.css';
         const lightStylesUrl = codeStylePath + 'light-theme.css';
 
-        createSwitcherIcon();
+        prepareContainer();
         initSwitcherTooltip();
         changeCodeColorTheme();
 
-        function createSwitcherIcon() {
-            $codeContainer.each(function() {
+        function prepareContainer() {
+            if ($switcherContainer.length) {
+                createSwitcherIcon($switcherContainer);
+            }
+
+            if ($htmlSwitcherContainer.length) {
+                createSwitcherIcon($htmlSwitcherContainer);
+            }
+        }
+
+        function createSwitcherIcon(container) {
+            container.each(function() {
                 const icon = $(`<a class="${switcherClass}" 
                                    data-toggle="tooltip"
                                    data-placement="top"
