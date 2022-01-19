@@ -108,11 +108,13 @@ $(
         /**
          * Creates a container for tabs.
          *
+         * Also, creates the `indicator` line which is used to underline the selected tab.
+         *
          * @param tabBlock a block that contains tabs.
          * @return {jQuery|HTMLElement} tabContainer a container for tabs.
          */
         function createTabContainer(tabBlock) {
-            const tabContainer = $('<div class="tabs"></div>');
+            const tabContainer = $('<div class="tabs"><div class="indicator"></div></div>');
             tabBlock.prepend(tabContainer);
             return tabContainer;
         }
@@ -194,16 +196,24 @@ $(
          * Sets the chosen code language to the `cookie` and adds corresponding
          * CSS classes to the selected tab and content element.
          *
+         * Sets the width and left position of the selected tab to the indicator line.
+         *
          * The CSS file is located at `_sass/modules/_code-tabs.scss`.
          *
          * @param codeLang a selected code language.
          */
         function setCodeLang(codeLang) {
+            const $selectedTab = $('.tab.' + codeLang);
             Cookies.set(cookieCodeLang, codeLang);
             $('.tab').removeClass('selected');
-            $('.tab.' + codeLang).addClass('selected');
+            $selectedTab.addClass('selected');
             $codeTabContent.removeClass('show');
             $('.code-tab-content.' + codeLang).addClass('show');
+
+            $('.tabs .indicator').css({
+                width: $selectedTab.outerWidth(),
+                left: $selectedTab.position().left
+            });
         }
     }
 );
