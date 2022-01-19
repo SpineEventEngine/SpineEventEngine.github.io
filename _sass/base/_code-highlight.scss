@@ -56,3 +56,36 @@ pre {
   // Additional `border-radius` to make it work for the `code` in markdown
   border-radius: $code-block-border-radius;
 }
+
+.highlighter-rouge {
+  position: relative;
+}
+
+.code-theme-switcher {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  cursor: pointer;
+  opacity: .38;
+  @include transition(all, .2, ease-in-out);
+
+  &:after {
+    content: '';
+    position: absolute;
+    background: url("../img/icons/brightness.svg") no-repeat center/cover;
+    width: 18px;
+    height: 18px;
+  }
+
+  &.dark {
+    opacity: .38;
+  }
+
+  &.light {
+    opacity: .26;
+  }
+
+  &:hover {
+    opacity: .54;
+  }
+}
