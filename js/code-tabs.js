@@ -211,10 +211,12 @@ $(
             $codeTabContent.removeClass('show');
             $('.code-tab-content.' + codeLang).addClass('show');
 
-            $('.tabs .indicator').css({
-                width: $selectedTab.outerWidth(),
-                left: $selectedTab.position().left
-            });
+            if ($selectedTab.length) {
+                $('.tabs .indicator').css({
+                    width: $selectedTab.outerWidth(),
+                    left: $selectedTab.position().left
+                });
+            }
         }
     }
 );
