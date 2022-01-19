@@ -24,7 +24,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-'use strict'
+/**
+ * This script contains helper functions for switching code theme colors
+ * and displaying the theme switcher icon near each code block.
+ *
+ * The selected theme will be stored in cookies so that the user can
+ * navigate between pages.
+ */
+
+'use strict';
 
 $(
     function() {
@@ -43,6 +51,10 @@ $(
         initSwitcherTooltip();
         changeCodeColorTheme();
 
+        /**
+         * Creates the switcher icon inside the markdown or HTML code container
+         * if they exist on the page.
+         */
         function prepareContainer() {
             if ($switcherContainer.length) {
                 createSwitcherIcon($switcherContainer);
@@ -53,6 +65,11 @@ $(
             }
         }
 
+        /**
+         * Creates the switcher icon in the DOM inside the provided `container`.
+         *
+         * @param container a container for the icon.
+         */
         function createSwitcherIcon(container) {
             container.each(function() {
                 const icon = $(`<a class="${switcherClass}" 
@@ -63,6 +80,9 @@ $(
             })
         }
 
+        /**
+         * Inits the Bootstrap tooltip for the dynamically created icon.
+         */
         function initSwitcherTooltip() {
             $('body').tooltip({
                 selector: `.${switcherClass}`,
