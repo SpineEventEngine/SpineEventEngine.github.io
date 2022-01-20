@@ -30,6 +30,8 @@
  *
  * The selected theme will be stored in cookies so that the user can
  * navigate between pages.
+ *
+ * The CSS styles are located in `_sass/base/_code-theme-switcher.scss`.
  */
 
 'use strict';
@@ -116,7 +118,7 @@ $(
         }
 
         /**
-         * Sets the default `dart` color to the cookie.
+         * Sets the default `dark` color to the cookie.
          */
         function setDefaultCookieValue() {
             Cookies.set(cookieColorName, defaultColor);
@@ -129,7 +131,7 @@ $(
         function setDarkTheme() {
             loadCodeStyles(darkStylesUrl);
             $pre.css('opacity', '1');
-            makeSwitcherActive(colorDark);
+            updateSwitcher(colorDark);
         }
 
         /**
@@ -138,7 +140,7 @@ $(
         function setLightTheme() {
             loadCodeStyles(lightStylesUrl);
             $pre.css('opacity', '1');
-            makeSwitcherActive(colorLight);
+            updateSwitcher(colorLight);
         }
 
         /**
@@ -148,7 +150,7 @@ $(
          * `head` of the document. If the tag is already exist it will be updated depending
          * on the selected theme color.
          *
-         * <p>Style files are located in the `/libs/rouge/skins/` folder.
+         * <p>Files with themes are located in the `/libs/rouge/skins/` folder.
          *
          * @param {string} stylesHref `href` that leads to the `css` file
          */
@@ -168,11 +170,13 @@ $(
         }
 
         /**
-         * Adds a selected color class to the switcher and sets a new value to the `cookie`.
+         * Updates switcher depending on the `color` value.
+         *
+         * <p>Adds a selected color class to the switcher and sets a new value to the `cookie`.
          *
          * @param {string} color selected color value
          */
-        function makeSwitcherActive(color) {
+        function updateSwitcher(color) {
             const $switcher = $('.' + switcherClass);
             $switcher.attr('class', switcherClass);
             $switcher.addClass(color);
