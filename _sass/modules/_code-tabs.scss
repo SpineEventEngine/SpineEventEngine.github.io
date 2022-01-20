@@ -37,7 +37,6 @@ $hoverTabColor: $textColor;
   .tabs {
     display: flex;
     position: relative;
-    column-gap: 24px;
     margin-bottom: 12px;
 
     .indicator {
@@ -60,6 +59,12 @@ $hoverTabColor: $textColor;
       font-weight: 500;
       color: $defaultTabColor;
       @include transition(all .2s ease-in-out);
+
+      // The flex `column-gap` doesn't work with the earlier versions of Safari.
+      // That's why the margin is used here.
+      &:not(:nth-child(2)) {
+        margin-left: 24px;
+      }
 
       &:hover {
         color: $hoverTabColor;

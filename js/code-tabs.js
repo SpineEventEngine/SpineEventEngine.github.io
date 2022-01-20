@@ -212,9 +212,11 @@ $(
             $('.code-tab-content.' + codeLang).addClass('show');
 
             if ($selectedTab.length) {
+                const leftPosition = $selectedTab.position().left
+                    + parseInt($selectedTab.css('marginLeft'), 10);
                 $('.tabs .indicator').css({
                     width: $selectedTab.outerWidth(),
-                    left: $selectedTab.position().left
+                    left: leftPosition
                 });
             }
         }
