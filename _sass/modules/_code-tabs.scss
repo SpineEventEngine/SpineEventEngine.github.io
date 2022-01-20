@@ -26,46 +26,52 @@
 
 // Classes are generated in the `js/code-tabs.js` file.
 
-$code-tab-color: $note-bg-color;
-$code-tab-border-color: #d4e8f9;
+$selectedTabColor: $mainBrandColor;
+$defaultTabColor: rgba($textColor, .64);
+$hoverTabColor: $textColor;
 
 .code-tabs {
-  margin-top: 18px;
+  margin-top: 24px;
   margin-bottom: 20px;
 
   .tabs {
-    margin-bottom: 8px;
+    display: flex;
+    position: relative;
+    margin-bottom: 12px;
+
+    .indicator {
+      position: absolute;
+      top: 100%;
+      min-width: 0;
+      width: 0;
+      height: 2px;
+      background: $selectedTabColor;
+      will-change: left, width;
+      transition: left .3s ease, width .3s ease;
+    }
 
     .tab {
-      display: inline-block;
-      border: 1px solid #d4e8f9;
-      padding: 6px 16px 7px;
+      padding: 4px 0;
       cursor: pointer;
       font-family: $main-font;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1;
-      color: $mainBrandColor;
+      font-weight: 500;
+      color: $defaultTabColor;
       @include transition(all .2s ease-in-out);
 
-      &:first-child {
-        border-radius: $border-radius 0 0 $border-radius;
-      }
-
-      &:last-child {
-        border-radius: 0 $border-radius $border-radius 0;
-      }
-
-      &:not(:first-child) {
-        margin-left: -1px;
+      // The flex `column-gap` doesn't work with the earlier versions of Safari.
+      // That's why the margin is used here.
+      &:not(:nth-child(2)) {
+        margin-left: 24px;
       }
 
       &:hover {
-        background-color: rgba($code-tab-color, .26);
+        color: $hoverTabColor;
       }
 
       &.selected {
-        background-color: $code-tab-color;
-        color: $black;
+        color: $selectedTabColor;
       }
     }
   }

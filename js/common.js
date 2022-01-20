@@ -22,21 +22,8 @@ const isDocsPage = $body.is('.docs');
 const isPromoPage = $body.is('.promo-page');
 const isPrivacyPage = $body.is('.privacy');
 
-/** Code color variables */
-const $colorSelector = $('.color-selector');
-const $colorSelectorLinks = $('.color-selector .color-link');
-const $selectorDark = $('.color-link.dark');
-const $selectorLight = $('.color-link.light');
-const colorDark = 'dark';
-const colorLight = 'light';
-const cookieColorName = 'themeColor';
-const codeStylePath = '/libs/rouge/skins/';
-const darkStylesUrl = codeStylePath + 'dark-theme.css';
-const lightStylesUrl = codeStylePath + 'light-theme.css';
-
 /** Grid breakpoints */
 const windowHeightMobile = 520;
-const phoneMedium = 480;
 const phoneXLarge = 640;
 const tablet = 767;
 
@@ -49,7 +36,6 @@ const mobileSearchScreenSize = 950;
 
 $(function() {
     fixHead();
-    changeCodeColor();
     openHeaderMenuOnMobile();
     openSearchPanelOnMobile();
     closeSearchPanelOnMobile();
@@ -57,7 +43,6 @@ $(function() {
     initTocTocify();
     showScrollTopBtn();
     fixStickyElement();
-    showCodeColorSelector();
     initBootstrapTooltips();
 
     if (isFaqPage) {
@@ -94,22 +79,13 @@ window.onscroll = function() {
     fixHead();
     setStickyElMaxHeight();
     showScrollTopBtn();
-
-    if (isPromoPage) {
-        showCodeColorSelectorOnPromoPage();
-    }
 };
 
 $(window).resize(function() {
     resizeStickyElHeightWithWindow();
     ifCookiesExist();
     fixHead();
-    setColorSelectorTopPosition();
     updateSearchPanelOnResize();
-
-    if (isPromoPage) {
-        showCodeColorSelectorOnPromoPage();
-    }
 });
 
 /**
@@ -120,153 +96,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         anchors.add();
     }
 });
-
-/**
- * Changes code color theme by clicking on the `color-selector` icons.
- *
- * <p>On page load, the color will be set from the cookie value. If the cookie value is `null`
- * will be set default cookie value.
- */
-function changeCodeColor() {
-    const cookieValue = Cookies.get(cookieColorName);
-
-    if (cookieValue == null) {
-        setDefaultCookieValue();
-    } else {
-        colorDark === cookieValue && setDarkTheme();
-        colorLight === cookieValue && setLightTheme();
-    }
-
-    $selectorDark.click(function() {
-        setDarkTheme();
-    });
-
-    $selectorLight.click(function() {
-        setLightTheme();
-    })
-}
-
-/**
- * Sets default cookie value for the `code` color as `dark`.
- */
-function setDefaultCookieValue() {
-    Cookies.set(cookieColorName, colorDark);
-    setDarkTheme();
-}
-
-/**
- * Sets dark theme color.
- */
-function setDarkTheme() {
-    loadCodeStyles(darkStylesUrl);
-    $pre.css('opacity', '1');
-    makeSelectorActive($selectorDark, colorDark);
-}
-
-/**
- * Sets light theme color.
- */
-function setLightTheme() {
-    loadCodeStyles(lightStylesUrl);
-    $pre.css('opacity', '1');
-    makeSelectorActive($selectorLight, colorLight);
-}
-
-/**
- * Loads theme style sheets to highlight the code.
- *
- * <p>`<style>` tag with the `#code-highlight-styles` ID will be created in the `head` of the
- * document. If the tag is already exist it will be updated depending on the selected theme color.
- * Style files are located in the `/libs/rouge/skins/` folder.
- *
- * @param {string} stylesHref `href` to the `css` file
- */
-function loadCodeStyles(stylesHref) {
-    const $codeStyles = $('#code-highlight-styles');
-
-    if ($codeStyles.length) {
-        $codeStyles.attr('href', stylesHref);
-    } else {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.id = 'code-highlight-styles';
-        link.type = 'text/css';
-        link.href = stylesHref;
-        head.appendChild(link);
-    }
-}
-
-/**
- * Makes color selector active and sets the value to the `cookie`.
- *
- * @param {Object} selector color selector DOM element
- * @param {string} color color value
- */
-function makeSelectorActive(selector, color) {
-    $colorSelectorLinks.removeClass('active');
-    selector.addClass('active');
-    Cookies.set(cookieColorName, color);
-}
-
-/**
- * Shows the code color selector if there is a `pre` tag on the page and the scroll position
- * under the header.
- */
-function showCodeColorSelector() {
-    const isPreElementExist = $pre.length;
-
-    setColorSelectorTopPosition();
-
-    if (isPreElementExist) {
-        if (isPromoPage) {
-            showCodeColorSelectorOnPromoPage();
-        } else {
-            $colorSelector.addClass('show');
-        }
-    } else {
-        $colorSelector.removeClass('show');
-    }
-}
-
-/**
- * Sets the top position of the `color-selector` depending on the screen size.
- */
-function setColorSelectorTopPosition() {
-    const inMiddleOnMobile = 42 + '%';
-    const topOffset = 24;
-    const docsTopPosition = headerFixPosition + topOffset;
-    const isWindowHeightMobile = $(window).height() < windowHeightMobile;
-
-    if (isDocsPage && !isWindowHeightMobile) {
-        $colorSelector.css('top', docsTopPosition);
-    } else {
-        $colorSelector.css('top', inMiddleOnMobile);
-    }
-}
-
-/**
- * Shows `color-selector` on promo page only if it doesn't overlap the `hero` section.
- *
- * <p>If it overlaps `hero` section it will be shown when scroll position below the `hero`.
- * It also works for the screens with small height.
- */
-function showCodeColorSelectorOnPromoPage() {
-    const phoneScreenWidth = phoneMedium;
-    const phoneScreenHeight = windowHeightMobile;
-    const isPhone = $(window).width() <= phoneScreenWidth;
-    const isPhoneHorizontal = $(window).height() <= phoneScreenHeight;
-    const scrollPositionUnderHero = window.pageYOffset > headerFixPosition;
-    const isPhoneAndUnderHero = isPhone && scrollPositionUnderHero;
-    const isPhoneHorizontalAndUnderHero = isPhoneHorizontal && scrollPositionUnderHero;
-
-    if (isPromoPage) {
-        if (isPhoneAndUnderHero || isPhoneHorizontalAndUnderHero || !isPhone && !isPhoneHorizontal) {
-            $colorSelector.addClass('show');
-        } else {
-            $colorSelector.removeClass('show');
-        }
-    }
-}
 
 /**
  * Opens header menu on mobile device.

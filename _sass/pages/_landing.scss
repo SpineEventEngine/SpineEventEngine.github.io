@@ -114,7 +114,6 @@
   }
 
   .code-toggle {
-    margin-bottom: 24px;
     padding: 9px 36px;
     min-width: 158px;
     font-size: $font-size--primary;
@@ -128,8 +127,7 @@
     }
 
     @media (max-width: 767px) {
-      margin-left: auto;
-      margin-right: 0;
+      margin: 0 0 40px auto;
     }
 
     &.collapsed {
@@ -155,7 +153,7 @@
     display: inline-block;
     float: right;
     border-bottom: 1px dotted;
-    margin: 8px 0 16px;
+    margin-bottom: 16px;
 
     &:hover {
       text-decoration: none;

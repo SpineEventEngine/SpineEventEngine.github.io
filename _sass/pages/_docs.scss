@@ -81,6 +81,40 @@
       }
     }
   }
+
+  $code-block-offset: 56px;
+  $tablet-code-block-offset: 32px;
+  $mobile-code-block-offset: 20px;
+  pre.highlight {
+    border-radius: 0;
+    margin-right: -$code-block-offset;
+    margin-left: -$code-block-offset;
+    padding-right: $code-block-offset;
+    padding-left: $code-block-offset;
+
+    @media (max-width: $phone-xlarge) {
+      margin-right: -$tablet-code-block-offset;
+      margin-left: -$tablet-code-block-offset;
+      padding-right: $tablet-code-block-offset;
+      padding-left: $tablet-code-block-offset;
+    }
+
+    @media (max-width: $phone-medium) {
+      margin-right: -$mobile-code-block-offset;
+      margin-left: -$mobile-code-block-offset;
+      padding-right: $mobile-code-block-offset;
+      padding-left: $mobile-code-block-offset;
+    }
+  }
+
+  li {
+    pre.highlight {
+      margin-left: unset;
+      margin-right: unset;
+      padding: $code-block-padding;
+      border-radius: $code-block-border-radius;
+    }
+  }
 }
 
 #spine-architecture-diagram {

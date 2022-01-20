@@ -13,6 +13,7 @@
 @import "base/_reset";
 @import "base/_colors";
 @import "base/_code-highlight";
+@import "base/_code-theme-switcher";
 @import "base/_footer-at-bottom";
 @import "base/_common";
 @import "base/_text";
@@ -31,7 +32,6 @@
 @import "modules/_cookies";
 @import "modules/_feature-cards";
 @import "modules/_loader";
-@import "modules/color-selector";
 @import "modules/snackbar";
 @import "modules/redirect-screen";
 @import "modules/code-tabs";
