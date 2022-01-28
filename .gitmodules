@@ -16,6 +16,3 @@
 [submodule "_code/config"]
 	path = config
 	url = https://github.com/SpineEventEngine/config
-[submodule "docs"]
-	path = docs
-	url = https://github.com/SpineEventEngine/documentation.git
