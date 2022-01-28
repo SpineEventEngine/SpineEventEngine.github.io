@@ -35,6 +35,29 @@ To build the site without running the server:
 If you experience issues with this step, please check out
 the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
+# Documentation
+
+The [`documentation`](https://github.com/SpineEventEngine/documentation.git) is added 
+as a submodule to the `_docs` directory. This directory is 
+a [collection](https://jekyllrb.com/docs/step-by-step/09-collections/) 
+configured to build only the `docs` folder inside.
+
+Any documentation updates should be made inside the 
+[`documentation`](https://github.com/SpineEventEngine/documentation.git) repository.
+
+#### Steps to get updates
+1. Update submodules:
+```
+git submodule update --remote
+```
+
+2. Add any new files pulled from the repository:
+```
+git add .
+```
+
+3. Perform a commit and push back to origin to rebuild the site.
+
 # Authoring
 
 For instructions on adding the content to the site, please see
