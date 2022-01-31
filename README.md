@@ -37,15 +37,15 @@ the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
 # Documentation
 
-The [`documentation`](https://github.com/SpineEventEngine/documentation.git) is added 
-as a submodule to the `_docs` directory. This directory is 
-a [collection](https://jekyllrb.com/docs/step-by-step/09-collections/) 
-configured to build only the `docs` folder inside.
+The [`documentation`](https://github.com/SpineEventEngine/documentation.git) repository is added 
+as a submodule to the `_docs` directory. This directory is configured as 
+a [collection](https://jekyllrb.com/docs/step-by-step/09-collections/) and builds only 
+the `docs` folder inside.
 
 Any documentation updates should be made inside the 
 [`documentation`](https://github.com/SpineEventEngine/documentation.git) repository.
 
-#### Steps to get updates
+### Steps to get updates
 1. Update submodules:
 ```
 git submodule update --remote
