@@ -37,13 +37,16 @@ the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
 # Documentation
 
-The [`documentation`](https://github.com/SpineEventEngine/documentation.git) repository is added 
-as a submodule to the `_docs` directory. This directory is configured as 
-a [collection](https://jekyllrb.com/docs/step-by-step/09-collections/) and builds only 
-the `docs` folder inside, which helps to avoid the absolute path to `/docs/docs/index.md`.
+The documentation is located in a [separate repository](https://github.com/SpineEventEngine/documentation.git). 
+It is added to this site as a Git submodule, but changes to its pages can only be made 
+in its repository.
 
-Any documentation updates should be made inside the 
-[`documentation`](https://github.com/SpineEventEngine/documentation.git) repository.
+In order to build the documentation in its [repository](https://github.com/SpineEventEngine/documentation.git) 
+and to make all links work correctly, the documentation files were placed in the `docs` folder.
+
+Here on the main site, to avoid the problem with `docs/docs/index.md`, we added a submodule 
+to the `_docs` directory and configured the build of this folder with 
+[Jekyll collections](https://jekyllrb.com/docs/step-by-step/09-collections/).
 
 ### Steps to get updates
 1. Update submodules:
