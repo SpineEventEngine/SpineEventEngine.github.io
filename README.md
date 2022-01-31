@@ -39,13 +39,13 @@ the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
 The documentation is located in a [separate repository](https://github.com/SpineEventEngine/documentation.git). 
 It is added to this site as a Git submodule, but changes to its pages can only be made 
-in its repository.
+in its own [repository](https://github.com/SpineEventEngine/documentation.git).
 
 In order to build the documentation in its [repository](https://github.com/SpineEventEngine/documentation.git) 
 and to make all links work correctly, the documentation files were placed in the `docs` folder.
 
-Here on the main site, to avoid the problem with `docs/docs/index.md`, we added a submodule 
-to the `_docs` directory and configured the build of this folder with 
+Here on the main site, to avoid the problem with `docs/docs/index.md` URL, the submodule with 
+documentation has been added to the `_docs` directory and configured the build of this folder with 
 [Jekyll collections](https://jekyllrb.com/docs/step-by-step/09-collections/).
 
 ### Steps to get updates
