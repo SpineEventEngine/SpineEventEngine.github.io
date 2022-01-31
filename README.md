@@ -40,7 +40,7 @@ the [Troubleshooting Guide](TROUBLESHOOTING.md).
 The [`documentation`](https://github.com/SpineEventEngine/documentation.git) repository is added 
 as a submodule to the `_docs` directory. This directory is configured as 
 a [collection](https://jekyllrb.com/docs/step-by-step/09-collections/) and builds only 
-the `docs` folder inside.
+the `docs` folder inside, which helps to avoid the absolute path to `/docs/docs/index.md`.
 
 Any documentation updates should be made inside the 
 [`documentation`](https://github.com/SpineEventEngine/documentation.git) repository.
