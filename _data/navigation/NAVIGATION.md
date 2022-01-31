@@ -15,10 +15,12 @@ The navigation supports 3 levels of nesting.
 
 ```
 doc_side_nav:
+  - page: Overview
+    url: /docs/concepts/index
   - page: Command
-    url: /docs/concepts/command.html
+    url: /docs/concepts/command
   - page: Event
-    url: /docs/concepts/event.html
+    url: /docs/concepts/event
 ```
 
 Where:
@@ -33,9 +35,9 @@ doc_side_nav:
   - page: Messaging
     children:
       - page: Command
-        url: /docs/concepts/command.html
+        url: /docs/concepts/command
       - page: Event
-        url: /docs/concepts/event.html
+        url: /docs/concepts/event
 ```
 
 - `page` - the page name that will be displayed in the navigation and will show a collapsed 
@@ -54,5 +56,5 @@ doc_side_nav:
       - page: Event
         children:
           - page: New page on the 3rd level
-            url: /docs/conceps/3rd-level-file.html
+            url: /docs/conceps/3rd-level-file
 ```

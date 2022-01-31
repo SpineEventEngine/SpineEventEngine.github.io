@@ -48,6 +48,11 @@ kramdown:
   hard_wrap: false
   parse_block_html: true
 
+collections:
+  docs:
+    output: true
+    permalink: /:path
+
 exclude:
   - .github/
   - .idea/

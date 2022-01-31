@@ -1,34 +1,34 @@
 doc_side_nav:
   - page: Overview
-    url: /docs/
+    url: /docs/index
   - page: Quick Start
-    url: /docs/quick-start/
+    url: /docs/quick-start/index
   - page: Introduction
     children:
       - page: Development Process
-        url: /docs/introduction/
+        url: /docs/introduction/index
       - page: Rules
-        url: /docs/introduction/rules.html
+        url: /docs/introduction/rules
       - page: Architecture
-        url: /docs/introduction/architecture.html
+        url: /docs/introduction/architecture
       - page: Project Structure
-        url: /docs/introduction/project-structure.html
+        url: /docs/introduction/project-structure
       - page: Concepts
-        url: /docs/introduction/concepts.html
+        url: /docs/introduction/concepts
       - page: Naming Conventions
-        url: /docs/introduction/naming-conventions.html
+        url: /docs/introduction/naming-conventions
   - page: Guides
     children:
       - page: Starting a new project
-        url: /docs/guides/start-new-project.html
+        url: /docs/guides/start-new-project
       - page: Gradle configuration
-        url: /docs/guides/gradle.html
+        url: /docs/guides/gradle
       - page: Validation
-        url: /docs/guides/validation.html
+        url: /docs/guides/validation
       - page: Working with Rejections
-        url: /docs/guides/rejections.html
+        url: /docs/guides/rejections
       - page: Integration with a third party
-        url: /docs/guides/integration.html
+        url: /docs/guides/integration
       - page: Related Guides
         children:
           - page: Protocol Buffers
@@ -38,29 +38,29 @@ doc_side_nav:
   - page: Client Libraries
     children:
       - page: Java
-        url: /docs/client-libs/
+        url: /docs/client-libs/index
       - page: JavaScript
-        url: /docs/client-libs/js.html
+        url: /docs/client-libs/js
       - page: Dart
-        url: /docs/client-libs/dart.html
+        url: /docs/client-libs/dart
   - page: API Reference
-    url: /docs/reference/
+    url: /docs/reference/index
 
   - page: Examples
-    url: /docs/examples/
+    url: /docs/examples/index
   - page: DDD Resources
     children:
       - page: Overview
-        url: /docs/resources/
+        url: /docs/resources/index
       - page: Books
-        url: /docs/resources/books.html
+        url: /docs/resources/books
       - page: People
-        url: /docs/resources/people.html
+        url: /docs/resources/people
       - page: Blogs
-        url: /docs/resources/blogs.html
+        url: /docs/resources/blogs
       - page: Sites
-        url: /docs/resources/sites.html
+        url: /docs/resources/sites
       - page: Communities
-        url: /docs/resources/communities.html
+        url: /docs/resources/communities
       - page: Libraries and Frameworks
-        url: /docs/resources/libraries.html
+        url: /docs/resources/libraries

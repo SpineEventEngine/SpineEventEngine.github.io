@@ -35,6 +35,38 @@ To build the site without running the server:
 If you experience issues with this step, please check out
 the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
+# Documentation
+
+The documentation is located in a [separate repository](https://github.com/SpineEventEngine/documentation.git).
+It is added to this site as a Git submodule.
+
+Any changes to the documentation must be made in its own 
+[repository](https://github.com/SpineEventEngine/documentation.git).
+
+The `documentation` repository is made to be self-sustainable in terms of editing. A fully-fledged 
+Jekyll site has been set up for it. All the contents and links in it are working as intended. 
+It allows making changes to it more convenient for authors.
+
+However, to make it all possible, the `documentation` repository has its own `docs` folder — 
+otherwise, all links would be broken. Therefore, to avoid any confusion, the submodule 
+in this “main” repository is named `_docs`.
+
+In terms of building the “main” site, the [Jekyll collections](https://jekyllrb.com/docs/step-by-step/09-collections/)
+are used to embed the contents of the `_docs` submodule.
+
+### Steps to get updates
+1. Update submodules:
+```
+git submodule update --remote
+```
+
+2. Add any new files pulled from the repository:
+```
+git add .
+```
+
+3. Perform a commit and push back to origin to rebuild the site.
+
 # Authoring
 
 For instructions on adding the content to the site, please see
