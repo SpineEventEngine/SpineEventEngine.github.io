@@ -1,0 +1,16 @@
+.docs {
+  // Aligns bottom navigation.
+  .article-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .content-container {
+      flex-grow: 1;
+    }
+
+    .bottom-nav {
+      flex-shrink: 0;
+    }
+  }
+}
