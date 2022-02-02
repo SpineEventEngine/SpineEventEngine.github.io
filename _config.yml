@@ -71,6 +71,12 @@ exclude:
   - TROUBLESHOOTING.md
   - Gemfile
   - Gemfile.lock
+  - _docs/404.html
+  - _docs/Gemfile
+  - _docs/Gemfile.lock
+  - _docs/index.html
+  - _docs/LICENSE
+  - _docs/README.md
 
 embed_code:
   code_root: ./_code
