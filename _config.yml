@@ -37,6 +37,9 @@ highlighter: rouge
 excerpt_separator: <!--more-->
 
 sass:
+  load_paths:
+    - _sass
+    - _docs/_sass
   style: compressed
 
 # Outputting
