@@ -32,7 +32,7 @@ plugins:
   - jekyll-email-protect
 
 # Conversion
-markdown:    kramdown
+markdown: kramdown
 highlighter: rouge
 excerpt_separator: <!--more-->
 
