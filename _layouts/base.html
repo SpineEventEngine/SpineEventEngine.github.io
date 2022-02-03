@@ -63,9 +63,6 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <!-- JavaScript Cookie https://github.com/js-cookie/js-cookie -->
-  <script src="{{ site.baseurl }}/libs/js-cookie/js.cookie.js"></script>
-
   <!-- Open Group metadata -->
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
@@ -90,7 +87,12 @@
 
   <!-- Include all compiled plugins (below), or include individual files as needed -->
 
-  <!-- TOC navigation (`jquery-ui` is required for TOC to work)-->
+  <!-- JavaScript API for handling cookies https://github.com/js-cookie/js-cookie -->
+  <script src="{{ site.baseurl }}/libs/js.cookie.min.js"
+          type="text/javascript"
+          charset="utf-8"></script>
+
+  <!-- TOC navigation (`jquery-ui` is required to make the TOC work)-->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
           integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
           crossorigin="anonymous"></script>
