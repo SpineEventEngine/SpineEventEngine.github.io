@@ -244,7 +244,7 @@ $article-container-min-height: 460px;
 
 .anchorjs-link {
   &:hover {
-    text-decoration: none;
+    text-decoration: none !important;
   }
 
   &:after {
