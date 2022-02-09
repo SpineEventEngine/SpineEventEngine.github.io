@@ -1,65 +1,12 @@
-.diagram-box {
-  margin-top: 44px;
+#spine-architecture-diagram {
+  visibility: hidden;
 }
 
-.full-screen-preview {
-  .preview-header {
-    padding: 24px 24px 16px;
-    border-bottom: 1px solid rgba(0, 0, 0, .12);
-
-    .preview-title {
-      padding: 0;
-      margin: 0;
-    }
-
-    .preview-subtitle {
-      font-size: 15px;
-      margin-top: 8px;
-      max-width: 500px;
-    }
-
-    .close-btn-wrapper {
-      float: right;
-      
-      .close-btn {
-        display: block;
-        cursor: pointer;
-        line-height: 0;
-        padding: 1rem;  // Makes a clickable zone bigger on 16px
-        margin: -14px -1rem -1rem auto; // `-14px` is used to align the icon with the title text
-
-        .close-icon {
-          @include close-icon;
-        }
-
-        &:hover {
-          .close-icon {
-            opacity: .87;
-          }
-        }
-      }
-    }
-  }
-
-  .preview-body {
-    padding: 24px 24px 56px;
-
-    svg {
-      display: block;
-      margin: 0 auto;
-      max-width: 1424px;
-    }
-  }
+.architecture-link {
+  cursor: pointer;
+  color: $linkColor;
+  border-bottom:1px dotted $linkColor;
 }
-
-.full-screen-link {
-  margin-top: 24px;
-
-  i {
-    margin-right: 8px;
-  }
-
-  span {
-    font-size: 15px;
-  }
+.architecture-link:hover {
+  color: $linkHoverColor;
 }
