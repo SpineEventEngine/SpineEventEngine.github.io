@@ -24,7 +24,7 @@ web_api_doc: https://spine.io/web/reference
 js_api_doc: https://spine.io/web/reference/client-js
 dart_api_doc: https://spine.io/dart/reference
 
-google_analytics_tag: UA-71822190-1
+google_tag_manager_id: GTM-T6NZS3S
 
 # Gems
 plugins:

@@ -220,31 +220,9 @@ $tooltip-padding: .5rem .7rem;
   }
 }
 
-$article-container-border: 1px solid $article-border-color;
-$article-container-padding: 32px 56px 40px;
-$article-container-padding-mobile: 0 15px;
-$article-container-margin-bottom: 32px;
-$article-container-border-radius: $border-radius;
-$article-container-min-height: 460px;
-
-.article-container {
-  background-color: $white;
-  border: $article-container-border;
-  border-radius: $article-container-border-radius;
-  padding: $article-container-padding;
-  margin-bottom: $article-container-margin-bottom;
-  min-width: 0; // Fixes a bug when `pre` code breaks flex element
-  min-height: $article-container-min-height;
-
-  @media (max-width: $phone-xlarge) {
-    padding: $article-container-padding-mobile;
-    border: none;
-  }
-}
-
 .anchorjs-link {
   &:hover {
-    text-decoration: none;
+    text-decoration: none !important;
   }
 
   &:after {
