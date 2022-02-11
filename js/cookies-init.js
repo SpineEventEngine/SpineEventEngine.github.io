@@ -1,5 +1,4 @@
 $(function handleSimpleIntegration() {
-
     cookieChoices.showCookieBar({
         linkHref: '/privacy-statement#cookie-policy',
         cookieText: 'spine.io uses cookies to help operate the site and gather analytics data. You can read more about it in our',
@@ -8,5 +7,4 @@ $(function handleSimpleIntegration() {
         dismissTextAlt: 'I&nbsp;agree',
         styles: 'position: fixed;'
     });
-
 });

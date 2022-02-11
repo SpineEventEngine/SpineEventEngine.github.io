@@ -229,6 +229,9 @@ A minimal client-server application in
 which handles one command to print some text...
 ```
 
-**Related files:**
-- `_sass/modules/_code-tabs.scss` - styles for the code tabs;
-- `js/code-tabs.js` - code tab implementation.
+**Related files**
+
+The files are stored in the [`documentation`](https://github.com/SpineEventEngine/documentation) 
+repository.
+- `_sass/base/_code-tabs.scss` - styles for the code tabs;
+- `tools/code-tabs.js` - code tab implementation.
