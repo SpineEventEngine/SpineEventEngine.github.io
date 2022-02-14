@@ -1,10 +1,12 @@
 $docsearch-icon-color: rgba(white, .54);
+$docsearch-mobile-breakpoint: 800px;
 
 .nav-search-container {
   padding-top: 13px;
+  margin-left: 5px;
 
-  @media (max-width: 800px) {
-    margin: 0 32px 0 auto;
+  @media (max-width: $docsearch-mobile-breakpoint) {
+    margin: 1px 32px 0 auto;
   }
 }
 
@@ -36,6 +38,10 @@ mark {
 
   .DocSearch-Search-Icon {
     color: $docsearch-icon-color;
+
+    @media (max-width: $docsearch-mobile-breakpoint) {
+      color: white;
+    }
   }
 
   .DocSearch-Button-Placeholder {
