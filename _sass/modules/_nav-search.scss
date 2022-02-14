@@ -1,237 +1,52 @@
-$search-icon-size: 18px;
-$search-icon-left-position: 12px;
-$search-field-left-padding: $search-icon-size + $search-icon-left-position + 10px;
-$search-icon-color: rgba(white, .54);
-$search-placeholder-color: rgba(white, .38);
-
-// Screen size on which the mobile search will be shown.
-// The same value should be used in the `common.js` file for the `mobileSearchScreenSize` variable.
-$mobile-search-max-size: 950px;
-$mobile-search-min-size: $mobile-search-max-size + 1;
+$docsearch-icon-color: rgba(white, .54);
 
 .nav-search-container {
   padding-top: 13px;
 
-  // `$mobile-nav-max-width` when the main navigation collapses into a hamburger menu.
-  // The variable is in the `_nav.scss` file.
-  @media (max-width: $mobile-nav-max-width) {
-    margin-left: auto;
-    margin-right: 40px;
-  }
-
-  @media (max-width: $phone-xlarge) {
-    margin-right: 48px;
+  @media (max-width: 800px) {
+    margin: 0 32px 0 auto;
   }
 }
 
-.nav-search {
-  position: relative;
-  margin-left: 4px;
+button {
+  line-height: normal;
+}
 
-  &:hover {
-    .search-icon {
-      color: white;
-    }
-  }
+mark {
+  padding: 0;
+  background-color: transparent;
+}
 
-  // Algolia styles
-  .ds-dropdown-menu {
-    line-height: 1.4;
-
-    .algolia-docsearch-suggestion {
-      @media (max-width: $tablet) {
-        .algolia-docsearch-suggestion--subcategory-column,
-        .algolia-docsearch-suggestion--content {
-          display: block;
-          width: 100%;
-        }
-
-        .algolia-docsearch-suggestion--wrapper {
-          padding-bottom: 8px;
-        }
-
-        .algolia-docsearch-suggestion--subcategory-column {
-          font-weight: 400;
-        }
-
-        .algolia-docsearch-suggestion--category-header {
-          font-weight: 600;
-          color: $mainBrandColor;
-          margin-top: 20px;
-        }
-      }
-    }
-
-    // Overrides the default Algolia padding to avoid a jump in letters when highlighting a result.
-    .algolia-docsearch-suggestion--highlight {
-      padding: 0;
-    }
-
-    .ds-suggestion {
-      &.ds-cursor {
-        // Changes the highlight color to the main brand color for the item in focus.
-        .algolia-docsearch-suggestion--content {
-          background-color: rgba($mainBrandColor, .08) !important;
-        }
-      }
-    }
-
-    .algolia-docsearch-suggestion--title {
-      margin-bottom: 0 !important;
-    }
-  }
-
-  .search-icon {
-    position: absolute;
-    font-size: $search-icon-size;
-    color: $search-icon-color;
-    top: 10px;
-    left: $search-icon-left-position;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .search-field {
-    background-color: transparent;
-    border: none;
-    width: 26px;
-    font-size: 16px;
-    line-height: 19px;
-    height: calc(2.25rem + 2px);
-    padding: 6px 12px 6px 28px;
-    border-radius: $border-radius-m;
-    color: white;
-    caret-color: white;
-    cursor: pointer;
+/* Overrides for the Algolia DocSearch. */
+#docsearch {
+  .DocSearch-Button {
+    background: none;
+    margin-left: 0;
     @include transition(all .25s ease-in-out);
 
-    &::placeholder {
-      color: $search-placeholder-color;
-      opacity: 1; /* Firefox */
-    }
+    &:hover {
+      background: rgba(black, .12);
+      box-shadow: none;
 
-    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: $search-placeholder-color;
-    }
-
-    &::-ms-input-placeholder { /* Microsoft Edge */
-      color: $search-placeholder-color;
-    }
-
-    &:focus {
-      padding-left: $search-field-left-padding;
-      background-color: rgba(11, 52, 99, .26);
-      width: 240px;
-
-      @media (max-width: $tablet-large) {
-        width: 180px;
-      }
-
-      + .search-icon {
-        color: $search-icon-color;
+      .DocSearch-Search-Icon {
+        color: white;
       }
     }
   }
 
-  .search-field:focus + .search-icon {
-    color: rgba(white, .54);
+  .DocSearch-Search-Icon {
+    color: $docsearch-icon-color;
   }
 
-  // Search on mobile.
-  @media (max-width: $mobile-search-max-size) {
-    .search-field {
-      @include transition(none);
-    }
-
-    .search-icon {
-      color: white;
-    }
-  }
-
-  .close-btn {
+  .DocSearch-Button-Placeholder {
     display: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
-
-    .close-icon {
-      color: white;
-      font-size: 20px;
-    }
   }
 
-  // Clears the default `X` icon from Chrome
-  input[type="search"]::-webkit-search-decoration,
-  input[type="search"]::-webkit-search-cancel-button,
-  input[type="search"]::-webkit-search-results-button,
-  input[type="search"]::-webkit-search-results-decoration { display: none; }
-
-  /* Clears the default ‘X’ icon from Internet Explorer */
-  input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
-  input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
-}
-
-// The block to open the mobile search with the `click` trigger.
-.mobile-search-panel {
-  position: absolute;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-
-  @media (min-width: $mobile-search-min-size) {
+  .DocSearch-Button-Keys {
     display: none;
   }
 }
 
-.mobile-search-opened {
-  @media (max-width: $mobile-search-max-size) {
-    .algolia-autocomplete {
-      width: calc(100% - 48px);
-
-      .ds-dropdown-menu {
-        width: 100%;
-        min-width: 0 !important;
-        max-width: none;
-      }
-    }
-
-    .nav-search-container {
-      display: block;
-      z-index: map_get($z-index, 'search-mobile');
-      position: fixed;
-      background-image: $nav-blue-gradient;
-      top: 0;
-      left: 0;
-      margin: 0;
-      width: 100%;
-      height: $header-height;
-      padding: 13px;
-    }
-
-    .close-btn {
-      display: inline-block;
-    }
-
-    .search-icon {
-      top: 10px;
-      font-size: 16px;
-    }
-
-    .search-field,
-    .search-field:focus {
-      width: 100%;
-      background-color: rgba(white, .08);
-      padding-left: $search-field-left-padding;
-      border: 1px solid transparent;
-      @include transition(width .25s ease-in-out);
-    }
-
-    .search-field {
-      &:focus {
-        border-color: rgba(white, .4);
-      }
-    }
-  }
+.DocSearch-Container {
+  z-index: map_get($z-index, 'search-mobile') !important;
 }
