@@ -185,7 +185,8 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
       }
 
       .github-icon {
-        width: 60px; // To avoid jumping while the icon is loading
+        width: 54px; // To avoid jumping while the icon is loading
+        height: 54px;
 
         &.external {
           &:after {
