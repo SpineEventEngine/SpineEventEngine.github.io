@@ -1,5 +1,7 @@
 $docsearch-icon-color: rgba(white, .54);
 $docsearch-mobile-breakpoint: 800px;
+$docsearch-algolia-mobile: 750px; // Breakpoint when the Algolia modal becomes full page
+$docsearch-border-color: #ebedf5;
 
 .nav-search-container {
   padding-top: 13px;
@@ -55,4 +57,33 @@ mark {
 
 .DocSearch-Container {
   z-index: map_get($z-index, 'search-mobile') !important;
+
+  .DocSearch-SearchBar {
+    border-bottom: 1px solid $docsearch-border-color;
+    padding: 8px;
+
+    @media (max-width: $docsearch-algolia-mobile) {
+      border: none;
+    }
+
+    .DocSearch-Form {
+      @media (max-width: $docsearch-algolia-mobile) {
+        border: 1px solid $docsearch-border-color;
+      }
+    }
+
+    .DocSearch-Search-Icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .DocSearch-Input {
+      padding-left: 12px;
+    }
+  }
+
+  // Hides shortcuts
+  .DocSearch-Commands {
+    display: none;
+  }
 }
