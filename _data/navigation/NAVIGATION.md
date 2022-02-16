@@ -16,7 +16,7 @@ The navigation supports 3 levels of nesting.
 ```
 doc_side_nav:
   - page: Overview
-    url: /docs/concepts/index
+    url: /docs/concepts/
   - page: Command
     url: /docs/concepts/command
   - page: Event

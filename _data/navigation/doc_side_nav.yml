@@ -1,12 +1,12 @@
 doc_side_nav:
   - page: Overview
-    url: /docs/index
+    url: /docs/
   - page: Quick Start
-    url: /docs/quick-start/index
+    url: /docs/quick-start/
   - page: Introduction
     children:
       - page: Development Process
-        url: /docs/introduction/index
+        url: /docs/introduction/
       - page: Rules
         url: /docs/introduction/rules
       - page: Architecture
@@ -38,20 +38,20 @@ doc_side_nav:
   - page: Client Libraries
     children:
       - page: Java
-        url: /docs/client-libs/index
+        url: /docs/client-libs/
       - page: JavaScript
         url: /docs/client-libs/js
       - page: Dart
         url: /docs/client-libs/dart
   - page: API Reference
-    url: /docs/reference/index
+    url: /docs/reference/
 
   - page: Examples
-    url: /docs/examples/index
+    url: /docs/examples/
   - page: DDD Resources
     children:
       - page: Overview
-        url: /docs/resources/index
+        url: /docs/resources/
       - page: Books
         url: /docs/resources/books
       - page: People
