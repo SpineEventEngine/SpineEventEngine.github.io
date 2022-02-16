@@ -47,7 +47,8 @@ file that have internal URLs. All pages are in the right order. -->
 <div class="next-prev-nav">
     <ul class="next-prev-list">
         {% for nav_item in navigation_list %}
-            {% if nav_item.url == page.url %}
+        {% assign pageUrl = page.url | remove: 'index' %}
+            {% if nav_item.url == pageUrl %}
                 {% unless forloop.first %}
                     <li class="previous">
                         {% if page.prev_btn != false %}

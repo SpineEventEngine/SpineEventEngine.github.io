@@ -54,6 +54,26 @@ This fixes almost all of the in-site links. The next rule covers the remainder.
 
 Visit [Configuring Jekyll for Project GitHub Pages and for User GitHub Pages](http://downtothewire.io/2015/08/15/configuring-jekyll-for-user-and-project-github-pages/) if you want to know why these rules should be followed.
 
+### URL rules
+
+All these URLs lead to the same page: `/docs`, `/docs/`, `/docs/index`, `/docs/index.html`.
+But if you use them all throughout the site, it will create problems for search crawlers.
+
+Please stick to these rules for using links on the site.
+
+#### Use a trailing slash to refer to the directory containing the `index.html` file
+
+| Good                                          | Bad                                                |
+|-----------------------------------------------|----------------------------------------------------|
+|`{{ site.baseurl }}/docs/introduction/`        | `{{ site.baseurl }}/docs/introduction/index`       |
+
+#### Drop the `.html` suffix. This will simplify the URL
+
+| Good                                          | Bad                                                |
+|-----------------------------------------------|----------------------------------------------------|
+|`{{ site.baseurl }}/docs/introduction/rules`   | `{{ site.baseurl }}/docs/introduction/rules.html`  |
+
+
 # Adding collapsible list for sidebar navigation
 
 For collapsible categories we use the Bootstrap [Collapse](https://getbootstrap.com/docs/4.5/components/collapse/) component.

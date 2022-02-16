@@ -16,7 +16,8 @@
     {% if site.data.navigation.release_notes_nav %}
         {% for item in site.data.navigation.release_notes_nav %}
         {% assign collapsedElId = "year-" | append: item.page | slugify %}
-        <li><a class="side-nav-link {% if item.url == page.url %} active {% endif %} {% if item.page == currentYear %} currentYear {% endif %}"
+        {% assign pageUrl = page.url | remove: '.html' %}
+        <li><a class="side-nav-link {% if item.url == pageUrl %} active {% endif %} {% if item.page == currentYear %} currentYear {% endif %}"
                href="{% if item.children %}#{{ collapsedElId }}{% else %}{{ item.url }}{% endif %}"
                aria-expanded="false">
                 {{ item.page }}
@@ -24,7 +25,7 @@
             {% if item.children[0] %}
             <ul id="{{ collapsedElId }}" class="sub-nav collapse {% if item.page == currentYear %} show {% endif %}">
                 {% for entry in item.children %}
-                <li><a class="side-nav-link {% if entry.url == page.url %} active {% endif %}"
+                <li><a class="side-nav-link {% if entry.url == pageUrl %} active {% endif %}"
                        href="{{ entry.url }}">
                         {{ entry.page }}
                     </a>
