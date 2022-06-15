@@ -1,7 +1,7 @@
 title: Spine Event Engine
 description: CQRS/ES framework for modern could applications
 
-baseurl:
+baseurl: ""
 
 githuburl: https://github.com/SpineEventEngine/SpineEventEngine.github.io/
 core_java_repo: https://github.com/SpineEventEngine/core-java
@@ -18,9 +18,9 @@ twitter_username: SpineEngine
 github_username: SpineEventEngine
 stackoverflow_username: Spine-Event-Engine
 
-base_api_doc: https://spine.io/base/reference
-core_api_doc: https://spine.io/core-java/reference
-web_api_doc: https://spine.io/web/reference
+base_api_doc: https://spine.io/base/dokka-reference
+core_api_doc: https://spine.io/core-java/dokka-reference
+web_api_doc: https://spine.io/web/dokka-reference
 js_api_doc: https://spine.io/web/reference/client-js
 dart_api_doc: https://spine.io/dart/reference
 
