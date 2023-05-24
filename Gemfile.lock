@@ -288,7 +288,6 @@ GEM
       unf_ext
     unf_ext (0.0.8.1)
     unicode-display_width (1.8.0)
-    webrick (1.8.1)
     yell (2.2.2)
     zeitwerk (2.5.4)
 
@@ -304,9 +303,7 @@ DEPENDENCIES
   jekyll
   jekyll-email-protect
   jekyll-paginate
-  liquid (= 4.0.4)
   rouge
-  webrick
 
 BUNDLED WITH
    2.4.13
