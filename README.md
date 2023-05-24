@@ -16,7 +16,7 @@ please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
 
 # Prerequisites
 
- 1. Install Ruby.
+ 1. Install Ruby 3.2.
  2. Install the `bundler` tool.
  3. Install the project dependencies by running `bundle install`.
  
