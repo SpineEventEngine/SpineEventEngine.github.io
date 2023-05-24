@@ -23,10 +23,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: Run Jekyll build
-        run: |
-          gem install bundler
-          bundle install
-          jekyll build
+        run: bundle exec jekyll build
 
       - name: Proof Links
         run: ./_script/proof-links
