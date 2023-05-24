@@ -19,11 +19,13 @@ jobs:
       - name: Set up Ruby and Bundler
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7'
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          ruby-version: '2.7.4'
 
       - name: Run Jekyll build
-        run: bundle exec jekyll build
+        run: |
+          gem install bundler
+          bundle install
+          bundle exec jekyll build
 
       - name: Proof Links
         run: ./_script/proof-links

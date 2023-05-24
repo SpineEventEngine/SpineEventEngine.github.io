@@ -31,11 +31,14 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - name: Set up Ruby and Bundler
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7'
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          ruby-version: '2.7.4'
+
+      - run: |
+          gem install bundler
+          bundle install
 
       - name: Check Embedding
         run: ./_script/check-samples
