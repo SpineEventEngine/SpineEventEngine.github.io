@@ -13,25 +13,29 @@ jobs:
   build-embedded-code:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - run: git submodule update --init --recursive
-      - uses: actions/setup-java@v1
+      - uses: actions/checkout@v3
         with:
-          java-version: 1.8
+          submodules: 'recursive'
+
+      - uses: actions/setup-java@v3
+        with:
+          java-version: 8
+          distribution: zulu
+
       - run: ./gradlew :buildAll
 
   check-embedded-samples:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - run: git submodule update --init --recursive
-      - name: Set up Ruby and Bundler
-        uses: actions/setup-ruby@v1
+      - uses: actions/checkout@v3
         with:
-          ruby-version: '3.2.x'
-      - run: |
-          gem install bundler
-          bundle install
+          submodules: 'recursive'
+
+      - name: Set up Ruby and Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: Check Embedding
         run: ./_script/check-samples
