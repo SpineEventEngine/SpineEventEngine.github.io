@@ -1,3 +1,7 @@
+- page: "2023"
+  children:
+    - page: "v1.9.0"
+      url: /release-notes/2023/v1.9.0
 - page: "2022"
   children:
     - page: "v1.8.2"

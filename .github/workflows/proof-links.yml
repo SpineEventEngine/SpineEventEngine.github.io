@@ -12,20 +12,20 @@ jobs:
   proof-links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          submodules: true
+          submodules: 'recursive'
 
-      - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+      - name: Set up Ruby and Bundler
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.x'
+          ruby-version: '2.7.4'
 
       - name: Run Jekyll build
         run: |
           gem install bundler
           bundle install
-          jekyll build
+          bundle exec jekyll build
 
       - name: Proof Links
         run: ./_script/proof-links
