@@ -13,7 +13,17 @@ $(
         const repoName = 'repo-name';
 
         /**
-         * Loads `license-report` file from the repository.
+         * Loads the dependency report file from the repository.
+         *
+         * <p>There may be one of two report files present in the repo: `license-report.md`
+         * or `dependencies.md`. The latter is a newer version of the report, so it is loaded
+         * first. In case it is missing, `license-report.md` is loaded, as a fallback.
+         * Eventually, all Spine repositories will migrate to having `dependencies.md`.
+         *
+         * <p>The report sections describing the terms of use for dual-licensed dependencies,
+         * and another one with the credits paid to the author of Gradle plugin
+         * we use for reporting, are removed from DOM, as they are now moved
+         * to the static part of the page (see `/oss-licenses.index.html`).
          *
          * <p>Executes by clicking on the corresponding link. The destination `div` element
          * should have the `id` like `md-destination-REPO_NAME`.
