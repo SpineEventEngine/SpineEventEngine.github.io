@@ -1,7 +1,8 @@
 /**
- * This is a JavaScript file which loads `license-report` md-files from the external repositories.
+ * This is a JavaScript file which loads Markdown content from the dependency report files
+ * via Spine public repositories.
  *
- * Please see `/oss-licenses/index.html` for usage.
+ * See `/oss-licenses/index.html` for usage.
  */
 'use strict';
 
@@ -12,12 +13,19 @@ $(
         const repoAttr = 'repo';
         const repoName = 'repo-name';
 
+        // Spine repositories are migrated being migrated to listing their deps in this file.
+        const reportFilePath = '/master/dependencies.md';
+
+        // Previously used report file path, as a fallback for non-migrated repos.
+        const legacyFilePath = '/master/license-report.md';
+
         /**
          * Loads the dependency report file from the repository.
          *
-         * <p>There may be one of two report files present in the repo: `license-report.md`
-         * or `dependencies.md`. The latter is a newer version of the report, so it is loaded
-         * first. In case it is missing, `license-report.md` is loaded, as a fallback.
+         * <p>There may be one of two report files present in the repo:
+         * `license-report.md` or `dependencies.md`.
+         * The latter is a newer version of the report, so it is loaded
+         * as a priority. In case it is missing, `license-report.md` is loaded, as a fallback.
          * Eventually, all Spine repositories will migrate to having `dependencies.md`.
          *
          * <p>The report sections describing the terms of use for dual-licensed dependencies,
@@ -36,20 +44,25 @@ $(
 
             if (loaded === 'false') {
                 const repositoryUrl = clickedElement.attr(repoAttr);
-                $.get(
-                    repositoryUrl + '/master/license-report.md',
-                    function (data) {
-                        const html = converter.makeHtml(data);
-                        mdDestinationEl.html(html);
-                        clickedElement.attr(loadedAttr, 'true');
-                        makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
-                    }
-                );
+                let processLoadedContent = function (data) {
+                    const html = converter.makeHtml(data);
+                    mdDestinationEl.html(html);
+                    clickedElement.attr(loadedAttr, 'true');
+                    makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
+                };
+
+                let reportUrl = repositoryUrl + reportFilePath;
+                let legacyReportUrl = repositoryUrl + legacyFilePath;
+                
+                $.get(reportUrl, processLoadedContent)
+                    .fail(function () {
+                        $.get(legacyReportUrl, processLoadedContent)
+                    });
             }
         });
 
         /**
-         * Makes a `license-report` content collapsible.
+         * Makes the report content collapsible.
          *
          * @param mdDestinationEl `div` with the markdown content
          * @param clickedElRepoName repository name from the link attribute
