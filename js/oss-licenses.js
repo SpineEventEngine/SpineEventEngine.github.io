@@ -68,7 +68,7 @@ $(
             });
 
             /**
-             * Makes all markdown links external.
+             * Makes all Markdown links external.
              */
             linkElements.addClass('external');
             linkElements.attr('target', '_blank');
@@ -81,6 +81,7 @@ $(
                 const titleID =  clickedElRepoName + '-' + this.id + '-md';
                 const collapsibleContent = $(element).next('ol');
                 const reportInfoContent = collapsibleContent.next('p');
+                const whenGeneratedContent = reportInfoContent.next('p');
 
                 $(element).addClass('collapse-link collapsed');
                 $(element).attr('href', '#' + titleID);
@@ -89,35 +90,8 @@ $(
                 collapsibleContent.addClass('dependencies-container collapse');
                 collapsibleContent.attr('id', titleID);
 
-                reportInfoContent.addClass('report-info collapse');
-                reportInfoContent.attr('id', titleID + '-p');
-            });
-
-            makeReportInfoCollapsible(mdDestinationEl);
-        }
-
-        /**
-         * Makes report information content collapsible.
-         *
-         * <p>Report information contains a generation date and the name of the plugin.
-         *
-         * @param mdDestinationEl it is a `div` with a markdown content
-         */
-        function makeReportInfoCollapsible(mdDestinationEl) {
-            const reportInfoContent = mdDestinationEl.find('.report-info');
-
-            /**
-             * Inserts a new collapsible title for the paragraph with a report information.
-             */
-            const reportInfoTitleEl = "<h2 class='report-info-title collapse-link collapsed'>Report info</h2>";
-            $(reportInfoTitleEl).insertBefore(reportInfoContent);
-
-            reportInfoContent.each(function (index, element) {
-                const reportInfoID = this.id;
-                const reportInfoTitle = $(element).prev('.report-info-title');
-
-                reportInfoTitle.attr('href', '#' + reportInfoID);
-                reportInfoTitle.attr('data-toggle', 'collapse');
+                reportInfoContent.remove();
+                whenGeneratedContent.remove();
             });
         }
     }
