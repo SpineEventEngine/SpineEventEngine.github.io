@@ -1,7 +1,8 @@
 /**
- * This is a JavaScript file which loads `license-report` md-files from the external repositories.
+ * This is a JavaScript file which loads Markdown content from the dependency report files
+ * via Spine public repositories.
  *
- * Please see `/oss-licenses/index.html` for usage.
+ * See `/oss-licenses/index.html` for usage.
  */
 'use strict';
 
@@ -12,8 +13,25 @@ $(
         const repoAttr = 'repo';
         const repoName = 'repo-name';
 
+        // Spine repositories are migrated being migrated to listing their deps in this file.
+        const reportFilePath = '/master/dependencies.md';
+
+        // Previously used report file path, as a fallback for non-migrated repos.
+        const legacyFilePath = '/master/license-report.md';
+
         /**
-         * Loads `license-report` file from the repository.
+         * Loads the dependency report file from the repository.
+         *
+         * <p>There may be one of two report files present in the repo:
+         * `license-report.md` or `dependencies.md`.
+         * The latter is a newer version of the report, so it is loaded
+         * as a priority. In case it is missing, `license-report.md` is loaded, as a fallback.
+         * Eventually, all Spine repositories will migrate to having `dependencies.md`.
+         *
+         * <p>The report sections describing the terms of use for dual-licensed dependencies,
+         * and another one with the credits paid to the author of Gradle plugin
+         * we use for reporting, are removed from DOM, as they are now moved
+         * to the static part of the page (see `/oss-licenses.index.html`).
          *
          * <p>Executes by clicking on the corresponding link. The destination `div` element
          * should have the `id` like `md-destination-REPO_NAME`.
@@ -26,20 +44,25 @@ $(
 
             if (loaded === 'false') {
                 const repositoryUrl = clickedElement.attr(repoAttr);
-                $.get(
-                    repositoryUrl + '/master/license-report.md',
-                    function (data) {
-                        const html = converter.makeHtml(data);
-                        mdDestinationEl.html(html);
-                        clickedElement.attr(loadedAttr, 'true');
-                        makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
-                    }
-                );
+                let processLoadedContent = function (data) {
+                    const html = converter.makeHtml(data);
+                    mdDestinationEl.html(html);
+                    clickedElement.attr(loadedAttr, 'true');
+                    makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
+                };
+
+                let reportUrl = repositoryUrl + reportFilePath;
+                let legacyReportUrl = repositoryUrl + legacyFilePath;
+                
+                $.get(reportUrl, processLoadedContent)
+                    .fail(function () {
+                        $.get(legacyReportUrl, processLoadedContent)
+                    });
             }
         });
 
         /**
-         * Makes a `license-report` content collapsible.
+         * Makes the report content collapsible.
          *
          * @param mdDestinationEl `div` with the markdown content
          * @param clickedElRepoName repository name from the link attribute
@@ -68,7 +91,7 @@ $(
             });
 
             /**
-             * Makes all markdown links external.
+             * Makes all Markdown links external.
              */
             linkElements.addClass('external');
             linkElements.attr('target', '_blank');
@@ -81,6 +104,7 @@ $(
                 const titleID =  clickedElRepoName + '-' + this.id + '-md';
                 const collapsibleContent = $(element).next('ol');
                 const reportInfoContent = collapsibleContent.next('p');
+                const whenGeneratedContent = reportInfoContent.next('p');
 
                 $(element).addClass('collapse-link collapsed');
                 $(element).attr('href', '#' + titleID);
@@ -89,35 +113,8 @@ $(
                 collapsibleContent.addClass('dependencies-container collapse');
                 collapsibleContent.attr('id', titleID);
 
-                reportInfoContent.addClass('report-info collapse');
-                reportInfoContent.attr('id', titleID + '-p');
-            });
-
-            makeReportInfoCollapsible(mdDestinationEl);
-        }
-
-        /**
-         * Makes report information content collapsible.
-         *
-         * <p>Report information contains a generation date and the name of the plugin.
-         *
-         * @param mdDestinationEl it is a `div` with a markdown content
-         */
-        function makeReportInfoCollapsible(mdDestinationEl) {
-            const reportInfoContent = mdDestinationEl.find('.report-info');
-
-            /**
-             * Inserts a new collapsible title for the paragraph with a report information.
-             */
-            const reportInfoTitleEl = "<h2 class='report-info-title collapse-link collapsed'>Report info</h2>";
-            $(reportInfoTitleEl).insertBefore(reportInfoContent);
-
-            reportInfoContent.each(function (index, element) {
-                const reportInfoID = this.id;
-                const reportInfoTitle = $(element).prev('.report-info-title');
-
-                reportInfoTitle.attr('href', '#' + reportInfoID);
-                reportInfoTitle.attr('data-toggle', 'collapse');
+                reportInfoContent.remove();
+                whenGeneratedContent.remove();
             });
         }
     }
