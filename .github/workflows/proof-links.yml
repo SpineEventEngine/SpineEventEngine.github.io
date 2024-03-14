@@ -21,9 +21,15 @@ jobs:
         with:
           ruby-version: '2.7.4'
 
+      # Bundler version is restricted to `2.4.22`,
+      # as we want to use Ruby `2.7.4` to match GH Pages environment.
+      #
+      # Any newer versions of Bundler require Ruby 3.x,
+      # which are much newer than what's GH Pages has at the moment.
+      #
       - name: Run Jekyll build
         run: |
-          gem install bundler
+          gem install bundler -v 2.4.22
           bundle install
           bundle exec jekyll build
 
