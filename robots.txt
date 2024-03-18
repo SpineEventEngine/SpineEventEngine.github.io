@@ -3,7 +3,8 @@ layout: null
 ---
 
 User-agent: *
+Disallow: /dart/
 {% for node in site.pages %}{% if node.noindex %}{% assign isset = true %}Disallow: {{ node.url }}
 {% endif %}{% endfor %}
-Disallow: /dart/
+
 Sitemap: {{site.url}}{{ site.baseurl }}/sitemap.xml
