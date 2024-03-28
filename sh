@@ -47,7 +47,7 @@ else
 			# ...
 			if [ $GIT_IS_AVAILABLE -eq 0 ];
 			then
-				printf "$BLUE Cloning$BOLD 'Spine-examples/hello'$BLUE into './hello'...                                        $NC\n"
+				printf "$BLUE Cloning$BOLD 'spine-examples/hello'$BLUE into './hello'...                                        $NC\n"
 				git clone https://github.com/spine-examples/hello.git
 		    else
 		    	printf "$BLUE $BOLD 'git'$BLUE is not available in your PATH. Please install it, and repeat the action.         $NC\n"
