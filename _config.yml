@@ -18,8 +18,8 @@ twitter_username: SpineEngine
 github_username: SpineEventEngine
 stackoverflow_username: Spine-Event-Engine
 
-base_api_doc: https://spine.io/base/dokka-reference
-core_api_doc: https://spine.io/core-java/dokka-reference
+base_api_doc: https://spine.io/base-libraries/dokka-reference
+core_api_doc: https://spine.io/core-jvm/dokka-reference
 web_api_doc: https://spine.io/web/dokka-reference
 js_api_doc: https://spine.io/web/reference/client-js
 dart_api_doc: https://spine.io/dart/reference
