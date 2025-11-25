@@ -24,21 +24,19 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $currentPage := . }}
-{{ $currentRootSection := partial "functions/get-root-section.html" . }}
-{{ $navItems := site.Data.navbar }}
+<!--
+Returns the root section of the page.
 
-<div class="navigation-holder">
-    <div class="block-above-scroll-nav"></div>
-    <nav class="navigation">
-        <ul class="nav-list-wrapper">
-            {{ range $navItems }}
-                {{ partial "components/navbar/nav-item.html" (dict
-                    "item_context" .
-                    "current_page" $currentPage
-                    "current_root_section" $currentRootSection
-                ) }}
-            {{ end }}
-        </ul>
-    </nav>
-</div>
+For example:
+* `docs/1/guides/installation/zip/` -> `docs`.
+* `release-notes/2025/2025/v3-3-3/` -> `release-notes`.
+-->
+
+{{ $currentPage := . }}
+{{ $pagePathSegments := slice }}
+{{ if .File }}
+    {{ $pagePathSegments = split $currentPage.File.Path "/" }}
+{{ end }}
+{{ $currentRootSection := index $pagePathSegments 0 }}
+
+{{ return $currentRootSection }}

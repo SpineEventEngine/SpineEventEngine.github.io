@@ -43,6 +43,7 @@
         {{ partial "components/navbar/mobile-subnav.html" (dict
             "current_page" $currentPage
             "items" .
+            "is_active" $isActive
         ) }}
     {{ end }}
 </li>
