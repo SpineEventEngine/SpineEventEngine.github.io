@@ -7,6 +7,7 @@
 <body class="{{ $bodyClass }}">
     <div class="wrapper">
         <div class="content">
+            {{ partial "components/navbar/navbar.html" . }}
             {{ block "main" . }}{{ end }}
         </div>
         <div class="footer"></div>

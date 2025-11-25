@@ -1,0 +1,25 @@
+- name: About
+  url: "about/"
+- name: Docs
+  url: "docs/"
+  mobile_subnav:
+    - name: Home
+      url: "docs/"
+    - name: Introduction
+      url: "docs/introduction/"
+    - name: Quick Start
+      url: "docs/quick-start/"
+    - name: Guides
+      url: "docs/guides/validation/"
+    - name: API Reference
+      url: "docs/reference/"
+    - name: Examples
+      url: "docs/examples/"
+    - name: DDD Resources
+      url: "docs/resources/"
+- name: Release Notes
+  url: "release-notes/"
+- name: FAQ
+  url: "faq/"
+- name: Getting Help
+  url: "getting-help/"
