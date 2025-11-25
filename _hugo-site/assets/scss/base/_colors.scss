@@ -24,22 +24,44 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+// Brand Colors
+$mainBrandColor: #1a96de;
+$secondBrandColor: #116db4;
+$inverseBrandColor: #ffffff;
+$body-light-gray-color: #f6f8fA;
+$warningColor: #deba32;
+$nav-blue-gradient: linear-gradient(152deg, #1378DA 0%, #0B64CC 100%);
+$light-blue-bg-color: #edf8ff;
+$note-bg-color: #e0f2ff;
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+// Dividers
+$dividerColor: rgba(0, 0, 0, .08);
+$divider: 1px solid $dividerColor;
+$article-border-color: #e6ecf1;
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-main";
+// General Colors
+$black: #2e2e2e;
+$white: #ffffff;
+$light-gray-blue: #eef1f3;
+$textColor: #3a3a3a;
+$errorColor: #c40003;
 
-@import "base/reset";
-@import "base/mixins";
-@import "base/config";
-@import "base/colors";
-@import "base/override";
-@import "base/layout";
-@import "base/common";
-@import "base/text";
+// Links
+$linkColor: $mainBrandColor;
+$linkHoverColor: darken($linkColor, 10%);
+$lightBlueColor: #5dc4ff;
 
-@import "modules/navbar";
-@import "modules/nav-search";
+// Footer
+$footerColor: #232526;
+$footerText: #eaeaea;
+
+// Grays
+$gray-100: rgba(black, .12);
+$gray-200: rgba(black, .26);
+$gray-300: rgba(black, .38);
+$gray-500: rgba(black, .54);
+$gray-600: rgba(black, .6);
+$gray-700: rgba(black, .7);
+
+// Shadows
+$feature-card-shadow: 0 1px 3px 0 rgba($footerColor, .08);
