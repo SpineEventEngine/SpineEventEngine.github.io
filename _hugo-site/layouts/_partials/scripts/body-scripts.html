@@ -24,4 +24,15 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
+{{ $params := dict }}
+
+{{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
+{{ $jsMain := resources.Get "js/main.js" }}
+{{ $js := (slice
+    $jsBootstrap $jsMain
+) }}
+
+{{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
+{{ partial "scripts/script.html" (dict "js" $js) }}
+
 {{ partial "scripts/body/docsearch.html" . }}

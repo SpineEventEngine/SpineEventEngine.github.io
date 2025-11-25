@@ -24,20 +24,21 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<header id="header" class="{{ .Params.header_type }}">
-    <div class="nav-open-close">
-        <div id="nav-icon-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <div class="container-fluid content-holder">
-        <div class="nav-main-container">
-            {{ partial "components/navbar/logo.html" . }}
-            {{ partial "components/navbar/navigation.html" . }}
-            {{ partial "components/navbar/nav-search.html" . }}
-        </div>
-    </div>
-</header>
+<!--
+Returns the minified JS with fingerprint and integrity support
+for production mode.
+-->
+
+{{ $js := .js }}
+{{ $attributes := .attributes }}
+
+{{ if hugo.IsProduction }}
+    {{ $js = $js | minify | fingerprint }}
+    <script src="{{ $js.RelPermalink }}"
+            integrity="{{ $js.Data.Integrity }}"
+            crossorigin="anonymous"
+            {{ $attributes | safeHTMLAttr }}></script>
+{{ else }}
+    <script src="{{ $js.RelPermalink }}"
+            {{ $attributes | safeHTMLAttr }}></script>
+{{ end }}
