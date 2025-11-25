@@ -83,6 +83,10 @@ mark {
 .DocSearch-Container {
   z-index: map_get($z-index, 'search-mobile') !important;
 
+  @media (max-width: $docsearch-algolia-mobile) {
+    position: fixed;
+  }
+
   .DocSearch-SearchBar {
     border-bottom: 1px solid $docsearch-border-color;
     padding: 8px;
