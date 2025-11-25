@@ -24,30 +24,10 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $item := .item_context }}
-{{ $currentPage := .current_page }}
-{{ $currentRootSection := .current_root_section }}
-
-{{ $itemURL := partial "functions/parse-shortcode.html" $item.url }}
-{{ $itemURL = $itemURL | relURL }}
-{{ $itemName := $item.name }}
-{{ $isActive := and (ne $itemURL "/") (in $itemURL (printf "/%s/" $currentRootSection)) }}
-
-<li class="nav-item">
-    {{ if eq $item.type "github-icon" }}
-        {{ partial "components/navbar/github-icon.html" $item }}
-    {{ else }}
-        {{ partial "components/navbar/item-link.html" (dict
-            "url" $itemURL
-            "name" $itemName
-            "is_active" $isActive
-        ) }}
-    {{ end }}
-    {{ with $item.mobile_subnav }}
-        {{ partial "components/navbar/mobile-subnav.html" (dict
-            "current_page" $currentPage
-            "items" .
-            "is_active" $isActive
-        ) }}
-    {{ end }}
-</li>
+<a class="nav-item-link github-icon"
+   href="{{ .url }}"
+   rel="nofollow noopener"
+   target="_blank"
+   aria-label="GitHub icon">
+    <i class="fab fa-github fa-lg"></i>
+</a>

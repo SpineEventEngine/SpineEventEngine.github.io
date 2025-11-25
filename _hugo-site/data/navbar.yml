@@ -23,3 +23,6 @@
   url: "faq/"
 - name: Getting Help
   url: "getting-help/"
+- name: GitHub
+  type: github-icon
+  url: "https://github.com/SpineEventEngine"
