@@ -24,10 +24,19 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "head/stylesheet.html" . }}
-    {{ partial "scripts/head/docsearch.html" . }}
-</head>
+<!--
+Initializes Algolia DocSearch for the navigation bar.
+-->
+
+{{ $config := site.Params.libs.docsearch }}
+{{ with $config }}
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script type="text/javascript">
+        docsearch({
+            container: '#docsearch',
+            appId: '{{ .appId }}',
+            indexName: '{{ .index }}',
+            apiKey: '{{ .apiKey }}',
+        });
+    </script>
+{{ end }}

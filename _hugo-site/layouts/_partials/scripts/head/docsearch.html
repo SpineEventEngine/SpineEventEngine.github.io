@@ -24,10 +24,10 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "head/stylesheet.html" . }}
-    {{ partial "scripts/head/docsearch.html" . }}
-</head>
+<!--
+Preconnects for Algolia DocSearch. Needed to speed up DNS.
+Should be added in the `<head>` section.
+-->
+
+{{ $appId := site.Params.libs.docsearch.appId }}
+<link rel="preconnect" href="https://{{ $appId }}-dsn.algolia.net" crossorigin />

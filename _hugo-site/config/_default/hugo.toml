@@ -8,6 +8,11 @@ title = 'Spine Event Engine'
   [[module.imports]]
     path = 'github.com/SpineEventEngine/documentation/_hugo-theme'
 
+[params.libs.docsearch]
+  appId = 'DUYV0WFHKV'
+  apiKey = '50ce4ead490484f1436ae042c0a1a4dd'
+  index = 'spine'
+
 [security]
   [security.exec]
     osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$']

@@ -25,7 +25,8 @@
   -->
 
 <!-- The Font Awesome icon-font from the `SpineEventEngine/documentation`. -->
-{{ partial "head/styles/icon-font.html" }}
+{{ partial "head/styles/icon-font.html" . }}
+{{ partial "head/styles/docsearch.html" . }}
 
 {{ $options := (dict
     "targetPath" "main.css"
