@@ -2,7 +2,8 @@
 <html lang="en"
       itemscope itemtype="https://schema.org/WebPage"
       prefix="og: http://ogp.me/ns#">
-<body>
+{{ $bodyClass := partial "functions/get-body-class.html" . }}
+<body class="{{ $bodyClass }}">
     <div class="wrapper">
         <div class="content">
             {{ block "main" . }}{{ end }}
