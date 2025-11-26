@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>caret</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="caret" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M25.2928932,16.2928932 C25.6834175,15.9023689 26.3165825,15.9023689 26.7071068,16.2928932 C27.0976311,16.6834175 27.0976311,17.3165825 26.7071068,17.7071068 L20.7071068,23.7071068 C20.3165825,24.0976311 19.6834175,24.0976311 19.2928932,23.7071068 L13.2928932,17.7071068 C12.9023689,17.3165825 12.9023689,16.6834175 13.2928932,16.2928932 C13.6834175,15.9023689 14.3165825,15.9023689 14.7071068,16.2928932 L20,21.5857864 L25.2928932,16.2928932 Z" id="Path-3" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

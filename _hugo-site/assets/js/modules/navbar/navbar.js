@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,22 +24,13 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+import {toggleMobileNavbar} from './mobile-navbar';
+import {initStickyNavbar} from './sticky-navbar';
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
-
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-main";
-
-@import "base/reset";
-@import "base/mixins";
-@import "base/config";
-@import "base/colors";
-@import "base/override";
-@import "base/layout";
-@import "base/common";
-@import "base/text";
-
-@import "modules/navbar";
-@import "modules/nav-search";
+/**
+ * Initializes all the required functions to enable the navbar.
+ */
+$(function() {
+    initStickyNavbar();
+    toggleMobileNavbar();
+});

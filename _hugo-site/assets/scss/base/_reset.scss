@@ -24,22 +24,73 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, figure,
+a, abbr, acronym, address, big, cite,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+:focus {
+  outline: 0;
+}
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-main";
+body {
+  background: #FFF;
+  line-height: 1;
+}
 
-@import "base/reset";
-@import "base/mixins";
-@import "base/config";
-@import "base/colors";
-@import "base/override";
-@import "base/layout";
-@import "base/common";
-@import "base/text";
+ol,
+ul {
+  list-style: none;
+}
 
-@import "modules/navbar";
-@import "modules/nav-search";
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+blockquote,
+q {
+   quotes: "" "";
+}
+
+a img {
+  border: 0;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}

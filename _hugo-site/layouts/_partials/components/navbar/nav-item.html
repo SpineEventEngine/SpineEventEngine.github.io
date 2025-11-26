@@ -24,22 +24,30 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!-- The Font Awesome icon-font from the `SpineEventEngine/documentation`. -->
-{{ partial "head/styles/icon-font.html" . }}
-{{ partial "head/styles/docsearch.html" . }}
+{{ $item := .item_context }}
+{{ $currentPage := .current_page }}
+{{ $currentRootSection := .current_root_section }}
 
-{{ $options := (dict
-    "targetPath" "main.css"
-    "outputStyle" "compressed"
-    "includePaths" (slice "node_modules")
-) }}
+{{ $itemURL := partial "functions/parse-shortcode.html" $item.url }}
+{{ $itemURL = $itemURL | relURL }}
+{{ $itemName := $item.name }}
+{{ $isActive := and (ne $itemURL "/") (in $itemURL (printf "/%s/" $currentRootSection)) }}
 
-{{ $postCSSConfig := dict "config" "postcss.config.js" }}
-{{ $scssPath := "scss/main.scss" }}
-{{ $style := resources.Get $scssPath | toCSS $options | postCSS $postCSSConfig }}
-
-{{ if ne hugo.Environment "development" }}
-    {{ $style = $style | resources.Minify | fingerprint }}
-{{ end }}
-
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">
+<li class="nav-item">
+    {{ if eq $item.type "github-icon" }}
+        {{ partial "components/navbar/github-icon.html" $item }}
+    {{ else }}
+        {{ partial "components/navbar/item-link.html" (dict
+            "url" $itemURL
+            "name" $itemName
+            "is_active" $isActive
+        ) }}
+    {{ end }}
+    {{ with $item.mobile_subnav }}
+        {{ partial "components/navbar/mobile-subnav.html" (dict
+            "current_page" $currentPage
+            "items" .
+            "is_active" $isActive
+        ) }}
+    {{ end }}
+</li>

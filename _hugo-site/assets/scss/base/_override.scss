@@ -1,0 +1,101 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+body {
+  color: $textColor;
+  font-family: $main-font;
+  -webkit-font-smoothing: antialiased;
+}
+
+// By default Bootstrap v5 has display:flex. It breaks TOC navigation.
+.nav {
+  display: block;
+}
+
+a {
+  color: $mainBrandColor;
+  font-weight: 400;
+  transition: all .3s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: $linkHoverColor;
+  text-decoration: underline;
+}
+
+a:focus {text-decoration: none;}
+
+a.external {
+  white-space: nowrap;
+  &:after {
+    content: '\2192';
+    font-weight: 300;
+    width: 8px;
+    height: 8px;
+    overflow: hidden;
+    text-align: right;
+    line-height: 6px;
+    text-indent: -11px;
+    opacity: .6;
+    transform: rotate(-45deg);
+    transition: opacity .16s ease-in;
+    vertical-align: super;
+    font-size: smaller;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  &:hover {
+    &:after {
+      color: $secondBrandColor;
+    }
+  }
+}
+
+.nofloat {
+  float: none;
+}
+
+.icon-copy-code {
+  background: url('img/copy-code.svg') no-repeat center/cover;
+  position: absolute;
+  cursor: pointer;
+  right: 16px;
+  top: 12px;
+  width: 32px;
+  height: 32px;
+  opacity: .26;
+  transition: all .24s ease-in-out;
+
+  &:hover,
+  &:focus {
+    opacity: .4;
+    background-color: fade-out($black, .87);
+    border-radius: 50%;
+    outline: none;
+  }
+}

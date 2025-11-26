@@ -24,22 +24,15 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!-- The Font Awesome icon-font from the `SpineEventEngine/documentation`. -->
-{{ partial "head/styles/icon-font.html" . }}
-{{ partial "head/styles/docsearch.html" . }}
+{{ $params := dict }}
 
-{{ $options := (dict
-    "targetPath" "main.css"
-    "outputStyle" "compressed"
-    "includePaths" (slice "node_modules")
+{{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
+{{ $jsMain := resources.Get "js/main.js" }}
+{{ $js := (slice
+    $jsBootstrap $jsMain
 ) }}
 
-{{ $postCSSConfig := dict "config" "postcss.config.js" }}
-{{ $scssPath := "scss/main.scss" }}
-{{ $style := resources.Get $scssPath | toCSS $options | postCSS $postCSSConfig }}
+{{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
+{{ partial "scripts/script.html" (dict "js" $js) }}
 
-{{ if ne hugo.Environment "development" }}
-    {{ $style = $style | resources.Minify | fingerprint }}
-{{ end }}
-
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">
+{{ partial "scripts/body/docsearch.html" . }}

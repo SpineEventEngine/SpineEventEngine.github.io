@@ -24,22 +24,22 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!-- The Font Awesome icon-font from the `SpineEventEngine/documentation`. -->
-{{ partial "head/styles/icon-font.html" . }}
-{{ partial "head/styles/docsearch.html" . }}
+{{ $url := .url }}
+{{ $name := .name }}
+{{ $isActive := .is_active }}
+{{ $isExternalLink := partial "functions/is-external-link.html" $url }}
+{{ $skipNofollow := partial "functions/whitelist-checker.html" $url }}
 
-{{ $options := (dict
-    "targetPath" "main.css"
-    "outputStyle" "compressed"
-    "includePaths" (slice "node_modules")
-) }}
-
-{{ $postCSSConfig := dict "config" "postcss.config.js" }}
-{{ $scssPath := "scss/main.scss" }}
-{{ $style := resources.Get $scssPath | toCSS $options | postCSS $postCSSConfig }}
-
-{{ if ne hugo.Environment "development" }}
-    {{ $style = $style | resources.Minify | fingerprint }}
+{{ if $isExternalLink }}
+    <a class="nav-item-link external-link"
+       target="_blank"
+       rel="noopener{{ if not $skipNofollow }} nofollow{{ end }}"
+       href="{{ $url }}">
+        <span>{{ $name }}</span>
+    </a>
+{{ else }}
+    <a class="nav-item-link {{ if $isActive }}current{{ end }}"
+       href="{{ $url | relURL }}">
+        <span>{{ $name }}</span>
+    </a>
 {{ end }}
-
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">

@@ -24,22 +24,21 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!-- The Font Awesome icon-font from the `SpineEventEngine/documentation`. -->
-{{ partial "head/styles/icon-font.html" . }}
-{{ partial "head/styles/docsearch.html" . }}
+<!--
+Returns the minified JS with fingerprint and integrity support
+for production mode.
+-->
 
-{{ $options := (dict
-    "targetPath" "main.css"
-    "outputStyle" "compressed"
-    "includePaths" (slice "node_modules")
-) }}
+{{ $js := .js }}
+{{ $attributes := .attributes }}
 
-{{ $postCSSConfig := dict "config" "postcss.config.js" }}
-{{ $scssPath := "scss/main.scss" }}
-{{ $style := resources.Get $scssPath | toCSS $options | postCSS $postCSSConfig }}
-
-{{ if ne hugo.Environment "development" }}
-    {{ $style = $style | resources.Minify | fingerprint }}
+{{ if hugo.IsProduction }}
+    {{ $js = $js | minify | fingerprint }}
+    <script src="{{ $js.RelPermalink }}"
+            integrity="{{ $js.Data.Integrity }}"
+            crossorigin="anonymous"
+            {{ $attributes | safeHTMLAttr }}></script>
+{{ else }}
+    <script src="{{ $js.RelPermalink }}"
+            {{ $attributes | safeHTMLAttr }}></script>
 {{ end }}
-
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">

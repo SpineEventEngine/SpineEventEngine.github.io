@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,22 +24,45 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+'use strict';
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+const $body = $('body');
+const $navbarToggle = $('#nav-icon-menu');
+const openedClass = 'open';
+const navbarOpenedClass = 'navigation-opened';
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-main";
+/**
+ * Toggles the mobile navbar.
+ */
+export function toggleMobileNavbar() {
+    $navbarToggle.on('click', function () {
+        toggleNavbar();
+    });
 
-@import "base/reset";
-@import "base/mixins";
-@import "base/config";
-@import "base/colors";
-@import "base/override";
-@import "base/layout";
-@import "base/common";
-@import "base/text";
+    $(window).resize(function () {
+        if (!isMobile()) hideNavbar();
+    });
+}
 
-@import "modules/navbar";
-@import "modules/nav-search";
+function toggleNavbar() {
+    $navbarToggle.toggleClass(openedClass);
+    $body.toggleClass(navbarOpenedClass);
+}
+
+function hideNavbar() {
+    $navbarToggle.removeClass(openedClass);
+    $body.removeClass(navbarOpenedClass);
+}
+
+/**
+ * Checks whether the current window width matches the "mobile" layout.
+ *
+ * Uses the same breakpoint (800px) that is defined in the CSS
+ * `assets/scss/modules/_navbar.scss`.
+ *
+ * @return {boolean}
+ */
+function isMobile() {
+    const maxWidth = 800;
+    return $(window).width() <= maxWidth;
+}

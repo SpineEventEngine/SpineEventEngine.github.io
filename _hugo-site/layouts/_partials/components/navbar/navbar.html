@@ -24,22 +24,20 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!-- The Font Awesome icon-font from the `SpineEventEngine/documentation`. -->
-{{ partial "head/styles/icon-font.html" . }}
-{{ partial "head/styles/docsearch.html" . }}
-
-{{ $options := (dict
-    "targetPath" "main.css"
-    "outputStyle" "compressed"
-    "includePaths" (slice "node_modules")
-) }}
-
-{{ $postCSSConfig := dict "config" "postcss.config.js" }}
-{{ $scssPath := "scss/main.scss" }}
-{{ $style := resources.Get $scssPath | toCSS $options | postCSS $postCSSConfig }}
-
-{{ if ne hugo.Environment "development" }}
-    {{ $style = $style | resources.Minify | fingerprint }}
-{{ end }}
-
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">
+<header id="header" class="{{ .Params.header_type }}">
+    <div class="nav-open-close">
+        <div id="nav-icon-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="container-fluid content-holder">
+        <div class="nav-main-container">
+            {{ partial "components/navbar/logo.html" . }}
+            {{ partial "components/navbar/navigation.html" . }}
+            {{ partial "components/navbar/nav-search.html" . }}
+        </div>
+    </div>
+</header>

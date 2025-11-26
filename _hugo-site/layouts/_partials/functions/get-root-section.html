@@ -24,22 +24,19 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!-- The Font Awesome icon-font from the `SpineEventEngine/documentation`. -->
-{{ partial "head/styles/icon-font.html" . }}
-{{ partial "head/styles/docsearch.html" . }}
+<!--
+Returns the root section of the page.
 
-{{ $options := (dict
-    "targetPath" "main.css"
-    "outputStyle" "compressed"
-    "includePaths" (slice "node_modules")
-) }}
+For example:
+* `docs/1/guides/installation/zip/` -> `docs`.
+* `release-notes/2025/2025/v3-3-3/` -> `release-notes`.
+-->
 
-{{ $postCSSConfig := dict "config" "postcss.config.js" }}
-{{ $scssPath := "scss/main.scss" }}
-{{ $style := resources.Get $scssPath | toCSS $options | postCSS $postCSSConfig }}
-
-{{ if ne hugo.Environment "development" }}
-    {{ $style = $style | resources.Minify | fingerprint }}
+{{ $currentPage := . }}
+{{ $pagePathSegments := slice }}
+{{ if .File }}
+    {{ $pagePathSegments = split $currentPage.File.Path "/" }}
 {{ end }}
+{{ $currentRootSection := index $pagePathSegments 0 }}
 
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">
+{{ return $currentRootSection }}

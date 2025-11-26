@@ -1,0 +1,170 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/* TODO:2025-11-25:julia.evseeva: Clean up mixins as soon as all styles are migrated.
+   Delete all the mixins that add browser prefixes. */
+
+// Usage: @include transition(all .3s ease-in-out);
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
+@mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode, $iteration-count: 1) {
+  -webkit-animation-name: $animation-name;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-delay: $delay;
+  -webkit-animation-timing-function: $timing-function;
+  -webkit-animation-fill-mode: $fill-mode;
+  -webkit-animation-iteration-count: $iteration-count;
+
+  -moz-animation-name: $animation-name;
+  -moz-animation-duration: $duration;
+  -moz-animation-delay: $delay;
+  -moz-animation-timing-function: $timing-function;
+  -moz-animation-fill-mode: $fill-mode;
+  -moz-animation-iteration-count: $iteration-count;
+
+  -o-animation-name: $animation-name;
+  -o-animation-duration: $duration;
+  -o-animation-delay: $delay;
+  -o-animation-timing-function: $timing-function;
+  -o-animation-fill-mode: $fill-mode;
+  -o-animation-iteration-count: $iteration-count;
+
+  animation-name: $animation-name;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: $fill-mode;
+  animation-iteration-count: $iteration-count;
+}
+
+// Transform
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+// TranslateY
+// Usage @include translateY(0%);
+@mixin translateY($y) {
+  @include transform(translateY($y));
+}
+
+// Keyframes
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+// Usage: @include box-shadow(0 10px 20px 0 rgba(black, .12));
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -o-box-shadow: $args;
+  box-shadow: $args;
+}
+
+@mixin close-icon {
+  display: inline-block;
+  width: $icon-size--s;
+  height: $icon-size--s;
+  background: url('img/icons/close.svg') no-repeat center/cover;
+  opacity: .26;
+  transition: all .3s ease-in-out;
+}
+
+// Ordered and unordered list styles.
+// Usage: `@include list();`
+@mixin list($item-line-height: 1.6) {
+  ol, ul {
+    margin: 0 0 32px 0;
+    line-height: $item-line-height;
+
+    @media (max-width: $tablet) {
+      margin-bottom: 24px;
+    }
+
+    li {
+      margin-left: 18px;
+      margin-top: .6em;
+      padding-left: 6px; // Adds additional space between bullet and text.
+
+      ol, ul {
+        margin-bottom: 32px;
+
+        li {
+          margin-top: .45em;
+        }
+      }
+    }
+  }
+
+  ul {
+    list-style: disc;
+
+    li {
+      ul {
+        list-style: circle;
+      }
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
+}
+
+// Arrow icon
+// By default this is a left icon: @include arrow-icon();
+// To use the icon to the right, add the angle property: @include arrow-icon($rotate-angle: -45deg);
+@mixin arrow-icon($line-width: 2px, $icon-size: 3px, $rotate-angle: 135deg, $color: $mainBrandColor) {
+  border: solid $color;
+  border-width: 0 $line-width $line-width 0;
+  display: inline-block;
+  padding: $icon-size;
+  vertical-align: middle;
+  margin-top: -2px;
+  transform: rotate($rotate-angle);
+}

@@ -1,0 +1,301 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.intro-section {
+  padding-top: 40px;
+  padding-bottom: 48px;
+  @media (max-width: $tablet) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+// Collapsible caret-icon in the mobile navigation and footer.
+.mobile-caret-icon {
+  background: fade-out($white, .97) url('img/icons/caret.svg') no-repeat center/cover;
+  opacity: 1;
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  transition: all .3s ease-in-out;
+}
+
+.nobr {
+  white-space: nowrap;
+}
+
+.section {
+  padding: 50px 0;
+  position: relative;
+}
+
+.section-divider {
+  border-bottom: 2px solid #e3e3e3;
+  margin: 0;
+  width: 100%;
+}
+
+.content-with-fixed-header {
+  margin-top: $page-top-offset;
+
+  @media(max-width: $desktop-small) {
+    margin-top: $page-top-offset-mobile;
+  }
+}
+
+.toc-col,
+.side-nav-col {
+  -ms-flex: 0 0 $custom-side-col-width;
+  flex: 0 0 $custom-side-col-width;
+}
+
+.toc-col {
+  // Custom width is used here to have the central content column more readable.
+  @media (max-width: 1140px) {
+    display: none;
+  }
+}
+
+.sticky-element {
+  @media (min-width: $tablet-large) {
+    padding: 0;
+    position: relative;
+    overflow: auto;
+    max-height: 80%;
+    -webkit-transform: translateZ(0); // Fixes jumping while scrolling
+
+    &.sticky {
+      position: fixed;
+    }
+  }
+}
+
+.toc {
+  width: $sticky-el-width;
+  padding-top: 12px;
+
+  &.blog-toc {
+    margin: 40px 0 24px;
+  }
+
+  &.initially-fixed {
+    position: fixed;
+  }
+
+  &.hide-block {
+    display: none !important;
+  }
+
+  @media (max-width: 1024px) {
+    display: none !important;
+  }
+
+  .blog-toc-header {
+    margin-bottom: 16px;
+    padding-left: 12px;
+    font-size: 12px;
+    color: $gray-300;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  >ul>li>a {
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 18px;
+  }
+
+  ul {
+    list-style-type: none !important;
+    padding-left: 12px;
+    font-size: 12px;
+
+    li {
+      line-height: 1.4;
+      margin-bottom: 18px;
+
+      // Overrides Bootstrap v5 default value.
+      &.active {
+         a,
+         a:not([href]):not([tabindex]) {
+           color: $mainBrandColor;
+         }
+       }
+    }
+
+    // Overrides Bootstrap v5 default value
+    a,
+    a:not([href]):not([tabindex]) {
+      color: $gray-500;
+      font-weight: 500;
+      padding: 0;
+      letter-spacing: 0.2px;
+      &:hover {
+        color:$black;
+        background: none;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+table,
+th,
+td {
+  border: 1px solid lighten($textColor, 20%);
+  padding: 6px
+}
+
+table {
+  border-collapse: collapse;
+}
+
+// Expandable title with caret icon before.
+%expandable-title {
+  font-size: $font-size--primary;
+  line-height: 1.5;
+  color: $black;
+  font-weight: 500;
+  transition: all .25s ease-in-out;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: url('img/icons/icon-caret-right.svg') no-repeat center/cover;
+    width: $icon-size--s;
+    height: $icon-size--s;
+    margin-left: -40px;
+    margin-top: -2px;
+    opacity: .54;
+    transform: rotate(90deg);
+    transition: all .3s ease-in-out;
+  }
+
+  // Initial state of the title
+  &.collapsed {
+    color: $textColor;
+    font-weight: 400;
+
+    &:before {
+      opacity: .2;
+      transform: rotate(0);
+    }
+  }
+}
+
+$tooltip-color: $footerColor;
+$tooltip-padding: .5rem .7rem;
+
+// Overrides Bootstrap tooltip styles.
+.tooltip {
+  font-size: 12px;
+  line-height: 1.4;
+
+  &.show {
+    opacity: .87;
+  }
+
+  .tooltip-inner {
+    background-color: $tooltip-color;
+    padding: $tooltip-padding;
+  }
+
+  &.bs-tooltip-left .arrow:before {
+    border-left-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-right .arrow:before {
+    border-right-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-top .arrow:before {
+    border-top-color: $tooltip-color;
+  }
+
+  &.bs-tooltip-bottom .arrow:before {
+    border-bottom-color: $tooltip-color;
+  }
+}
+
+.anchorjs-link {
+  &:hover {
+    text-decoration: none !important;
+  }
+
+  &:after {
+    vertical-align: -2px;
+  }
+}
+
+/* Custom checkbox styles. */
+$checkbox-size: 18px;
+.checkbox-container {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin-top: 12px;
+  padding-left: $checkbox-size + 12px;
+  line-height: 1.4;
+  user-select: none;
+
+  &:hover input ~ .checkmark {
+    border-color: $mainBrandColor;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  /* Hide the browser's default checkbox. */
+  input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background: url('img/icons/checkbox.svg') no-repeat center/cover;
+      border: none;
+    }
+  }
+
+  /* Custom checkbox. */
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: $checkbox-size;
+    width: $checkbox-size;
+    border: 1px solid $gray-300;
+    border-radius: $border-radius-s;
+  }
+}

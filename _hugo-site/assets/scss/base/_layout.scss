@@ -24,22 +24,44 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+html,
+body {
+  height: 100%;
+}
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-main";
+.main {
+  flex-grow: 1;
+}
 
-@import "base/reset";
-@import "base/mixins";
-@import "base/config";
-@import "base/colors";
-@import "base/override";
-@import "base/layout";
-@import "base/common";
-@import "base/text";
+.footer {
+  flex-shrink: 0;
+}
 
-@import "modules/navbar";
-@import "modules/nav-search";
+$layout-padding-medium: 40px;
+$layout-padding-tablet: 32px;
+$layout-padding-phone: 20px;
+
+.content-holder {
+  max-width: $layout-max-width;
+  @media(max-width: $desktop-medium) {
+    padding-right: $layout-padding-medium;
+    padding-left: $layout-padding-medium;
+  }
+
+  @media(max-width: $tablet) {
+    padding-right: $layout-padding-tablet;
+    padding-left: $layout-padding-tablet;
+  }
+
+  @media(max-width: $phone-medium) {
+    padding-right: $layout-padding-phone;
+    padding-left: $layout-padding-phone;
+  }
+}

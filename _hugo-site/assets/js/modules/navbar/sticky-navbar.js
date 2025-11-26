@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,22 +24,29 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+'use strict';
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+const $header = $('#header');
+const headerHeight = $header.innerHeight();
+const stickyClasses = 'not-top pinned';
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-main";
+export function initStickyNavbar() {
+    stickNavbar();
 
-@import "base/reset";
-@import "base/mixins";
-@import "base/config";
-@import "base/colors";
-@import "base/override";
-@import "base/layout";
-@import "base/common";
-@import "base/text";
+    $(window).on('scroll', function() {
+        stickNavbar();
+    });
+}
 
-@import "modules/navbar";
-@import "modules/nav-search";
+/**
+ * Makes the navbar sticky on window scroll.
+ */
+function stickNavbar() {
+    if (!$header) return;
+
+    if (window.scrollY > headerHeight) {
+        $header.addClass(stickyClasses);
+    } else {
+        $header.removeClass(stickyClasses);
+    }
+}

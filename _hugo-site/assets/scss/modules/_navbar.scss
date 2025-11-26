@@ -1,0 +1,347 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+// `$mobile-nav-max-width` is a screen size on which the mobile navigation will be shown.
+// The variable is used in the `_nav-search.scss` file.
+$mobile-nav-max-width: 800px;
+$mobile-nav-min-width: $mobile-nav-max-width + 1;
+
+.navigation-opened {
+  @media (max-width: $mobile-nav-max-width) {
+    overflow: hidden;
+  }
+
+  #header {
+    .navigation-holder {
+      right: 0;
+    }
+  }
+}
+
+#header {
+  width: 100%;
+  min-height: 64px;
+  z-index: map_get($z-index, 'header');
+  position: absolute;
+
+  // Fixes the header on the page.
+  // Usage: add the `header_type: fixed-header` attribute to the page front matter.
+  &.fixed-header {
+    background-image: $nav-blue-gradient;
+    position: fixed;
+    height: $header-height;
+
+    &.not-top {
+      &.pinned {
+        transform: translateY(0%);
+        animation: none;
+      }
+
+      &.unpinned {
+        transform: translateY(0%);
+        animation: none;
+      }
+    }
+  }
+
+  .nav-main-container {
+    display: flex;
+  }
+
+  .logo {
+    a {
+      img {
+        height: 36px;
+        margin-top: 15px;
+        margin-left: -2px;
+        transition: all .3s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          opacity: .7;
+        }
+      }
+    }
+  }
+
+  .navigation-holder {
+    margin-left: auto; // Makes float:right; for the Bootstrap v5.
+
+    @media (max-width: $mobile-nav-max-width) {
+      background-color: $footerColor;
+      box-shadow: -1px 0px 8px 0px rgba(black, .25);
+      z-index: map_get($z-index, 'nav-mobile');
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -316px;
+      width: 300px;
+      height: 100vh;
+      padding: 48px 24px;
+      overflow-x: auto;
+      transition: right .4s ease-in-out;
+
+      .block-above-scroll-nav {
+        position: fixed;
+        width: 100%;
+        height: 56px;
+        background-color: rgba($footerColor, .95);
+        z-index: map_get($z-index, 'header');
+        margin: -48px -24px;
+      }
+    }
+  }
+
+  .navigation {
+    margin: 0 -24px 48px;
+
+    @media (min-width: $mobile-nav-min-width) {
+      float: right;
+      margin: 5px 0;
+    }
+
+    .nav-item {
+      position:relative;
+      display: block;
+      -webkit-transform: translateZ(0);
+      line-height: 22px;
+
+      @media (min-width: $mobile-nav-min-width) {
+        display: inline-block;
+      }
+
+      .nav-item-link {
+        text-decoration: none;
+        display: inline-block;
+        padding: 16px 24px;
+        font-size: 16px;
+        color: rgba($white, 0.64);
+        transition: all .2s ease-in-out;
+        -webkit-transform: translateZ(0);
+
+        @media (min-width: $mobile-nav-min-width) {
+          padding: 16px;
+          font-size: 15px;
+          letter-spacing: 0.5px;
+        }
+
+        span {
+          transition: all .2s ease-in-out;
+        }
+
+        &:hover,
+        &.current {
+          color: rgba($white, 1);
+          text-decoration: none;
+
+          span {
+            padding-bottom: 4px;
+            border-bottom: 1px solid $lightBlueColor;
+          }
+        }
+
+        &.current {
+          font-weight: 500;
+        }
+      }
+
+      &.doc {
+        .nav-item-link {
+          font-size: 13px;
+          letter-spacing: 1px;
+          padding: 10px 0 10px 40px;
+        }
+      }
+
+      &.home-item {
+        @media (min-width: $mobile-nav-min-width) {
+          display: none;
+        }
+      }
+
+      .mobile-caret-icon {
+        @media (min-width: $mobile-nav-min-width) {
+          display: none;
+        }
+
+        // Initial icon-caret state
+        &.collapsed {
+          opacity: .54;
+          transform: rotate(0);
+          background-color: transparent;
+
+          &:hover {
+            opacity: 1;
+            background-size: contain;
+            background-color: fade-out($white, .97);
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .github-icon {
+        width: 54px; // To avoid jumping while the icon is loading
+        height: 54px;
+
+        &.external {
+          &:after {
+            display: none;
+          }
+        }
+
+        i {
+          vertical-align: middle;
+          margin-top: -3px;
+        }
+      }
+    }
+
+    .doc-list-inside {
+      margin-bottom: 8px;
+
+      @media (min-width: $mobile-nav-min-width) {
+        display: none;
+      }
+    }
+  }
+
+  &.not-top {
+    display: block;
+    position: fixed;
+    height: $header-height;
+    background-image: $nav-blue-gradient;
+
+    &.pinned {
+      transform: translateY(-100%);
+      animation: slideDownNav .4s .2s ease-in-out forwards;
+    }
+
+    &.unpinned {
+      transform: translateY(0%);
+      animation: slideUpNav .2s .2s ease-in-out forwards;
+    }
+  }
+
+  @keyframes slideDownNav {
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes slideUpNav {
+    0% {
+      transform: translateY(0%);
+    }
+
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+}
+
+.nav-open-close {
+  display: none;
+  right: 0;
+  margin-top: 16px;
+  margin-right: 16px;
+  position: absolute;
+
+  @media (max-width: $mobile-nav-max-width) {
+    display: block;
+  }
+
+  #nav-icon-menu {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    z-index: map_get($z-index, 'hamburger-menu');
+    cursor: pointer;
+  }
+
+  #nav-icon-menu span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 24px;
+    background: $white;
+    border-radius: $border-radius-s;
+    opacity: 1;
+    left: 4px;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+
+  #nav-icon-menu span:nth-child(1) {
+    top: 8px;
+  }
+
+  #nav-icon-menu span:nth-child(2),#nav-icon-menu span:nth-child(3) {
+    top: 15px;
+  }
+
+  #nav-icon-menu span:nth-child(4) {
+    top: 22px;
+  }
+
+  #nav-icon-menu.open span:nth-child(1) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+  }
+
+  #nav-icon-menu.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  #nav-icon-menu.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  #nav-icon-menu.open span:nth-child(4) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+  }
+}
+
+// Page headline and description.
+.page-headline-container {
+  padding-top: 64px;
+}
+
+.page-headline {
+  font-family: $main-mono-font;
+  color: $white;
+  font-size: 32px;
+  font-weight: 400;
+}

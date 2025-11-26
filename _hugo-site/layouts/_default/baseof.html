@@ -6,10 +6,12 @@
 {{ $bodyClass := partial "functions/get-body-class.html" . }}
 <body class="{{ $bodyClass }}">
     <div class="wrapper">
-        <div class="content">
+        <div class="main">
+            {{ partial "components/navbar/navbar.html" . }}
             {{ block "main" . }}{{ end }}
         </div>
         <div class="footer"></div>
     </div>
+    {{ partial "scripts/body-scripts.html" . }}
 </body>
 </html>
