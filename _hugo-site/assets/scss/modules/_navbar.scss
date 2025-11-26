@@ -56,18 +56,12 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
 
     &.not-top {
       &.pinned {
-        @include translateY(0%);
-        -webkit-animation: none;
-        -moz-animation: none;
-        -o-animation: none;
+        transform: translateY(0%);
         animation: none;
       }
 
       &.unpinned {
-        @include translateY(0%);
-        -webkit-animation: none;
-        -moz-animation: none;
-        -o-animation: none;
+        transform: translateY(0%);
         animation: none;
       }
     }
@@ -83,7 +77,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
         height: 36px;
         margin-top: 15px;
         margin-left: -2px;
-        @include transition(all .3s ease-in-out);
+        transition: all .3s ease-in-out;
       }
 
       &:hover {
@@ -95,7 +89,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
   }
 
   .navigation-holder {
-    margin-left: auto; // Makes float:right; for the Bootstrap v4
+    margin-left: auto; // Makes float:right; for the Bootstrap v5.
 
     @media (max-width: $mobile-nav-max-width) {
       background-color: $footerColor;

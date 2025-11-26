@@ -112,7 +112,7 @@
   height: $icon-size--s;
   background: url('img/icons/close.svg') no-repeat center/cover;
   opacity: .26;
-  @include transition(all .3s ease-in-out);
+  transition: all .3s ease-in-out;
 }
 
 // Ordered and unordered list styles.
@@ -166,5 +166,5 @@
   padding: $icon-size;
   vertical-align: middle;
   margin-top: -2px;
-  @include transform(rotate($rotate-angle));
+  transform: rotate($rotate-angle);
 }

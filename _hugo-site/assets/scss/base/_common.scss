@@ -24,7 +24,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Sections
 .intro-section {
   padding-top: 40px;
   padding-bottom: 48px;
@@ -34,24 +33,23 @@
   }
 }
 
-// Collapsible caret-icon in the mobile navigation and footer
+// Collapsible caret-icon in the mobile navigation and footer.
 .mobile-caret-icon {
   background: fade-out($white, .97) url('img/icons/caret.svg') no-repeat center/cover;
   opacity: 1;
   cursor: pointer;
   position: absolute;
   top: 6px;
-  right: 12px; // Make icon align with hamburger menu
+  right: 12px;
   width: 40px;
   height: 40px;
-  @include transform(rotate(180deg));
   border-radius: 50%;
-  @include transition(all .3s ease-in-out);
+  transform: rotate(180deg);
+  transition: all .3s ease-in-out;
 }
 
-// Shared
 .nobr {
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
 .section {
@@ -144,16 +142,18 @@
       line-height: 1.4;
       margin-bottom: 18px;
 
+      // Overrides Bootstrap v5 default value.
       &.active {
          a,
-         a:not([href]):not([tabindex]) { // Override Bootstrap v4 default value
+         a:not([href]):not([tabindex]) {
            color: $mainBrandColor;
          }
        }
     }
 
+    // Overrides Bootstrap v5 default value
     a,
-    a:not([href]):not([tabindex]) { // Override Bootstrap v4 default value
+    a:not([href]):not([tabindex]) {
       color: $gray-500;
       font-weight: 500;
       padding: 0;
@@ -167,7 +167,6 @@
   }
 }
 
-// Tables are table-y
 table,
 th,
 td {
@@ -179,13 +178,13 @@ table {
   border-collapse: collapse;
 }
 
-// Expandable title with caret icon before
+// Expandable title with caret icon before.
 %expandable-title {
   font-size: $font-size--primary;
   line-height: 1.5;
   color: $black;
   font-weight: 500;
-  @include transition(all .25s ease-in-out);
+  transition: all .25s ease-in-out;
 
   &:before {
     content: '';
@@ -197,7 +196,7 @@ table {
     margin-top: -2px;
     opacity: .54;
     transform: rotate(90deg);
-    @include transition(all .3s ease-in-out);
+    transition: all .3s ease-in-out;
   }
 
   // Initial state of the title
@@ -207,7 +206,7 @@ table {
 
     &:before {
       opacity: .2;
-      @include transform(rotate(0));
+      transform: rotate(0);
     }
   }
 }
@@ -215,7 +214,7 @@ table {
 $tooltip-color: $footerColor;
 $tooltip-padding: .5rem .7rem;
 
-// Overrides Bootstrap tooltip styles
+// Overrides Bootstrap tooltip styles.
 .tooltip {
   font-size: 12px;
   line-height: 1.4;
@@ -256,7 +255,7 @@ $tooltip-padding: .5rem .7rem;
   }
 }
 
-/* Custom checkbox styles */
+/* Custom checkbox styles. */
 $checkbox-size: 18px;
 .checkbox-container {
   position: relative;
@@ -265,9 +264,6 @@ $checkbox-size: 18px;
   margin-top: 12px;
   padding-left: $checkbox-size + 12px;
   line-height: 1.4;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 
   &:hover input ~ .checkmark {
@@ -278,7 +274,7 @@ $checkbox-size: 18px;
     font-size: 14px;
   }
 
-  /* Hide the browser's default checkbox */
+  /* Hide the browser's default checkbox. */
   input {
     position: absolute;
     cursor: pointer;
@@ -292,7 +288,7 @@ $checkbox-size: 18px;
     }
   }
 
-  /* Custom checkbox */
+  /* Custom checkbox. */
   .checkmark {
     position: absolute;
     top: 2px;

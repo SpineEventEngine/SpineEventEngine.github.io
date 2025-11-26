@@ -24,14 +24,13 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Overrides Bootstrap defaults.
 body {
   color: $textColor;
   font-family: $main-font;
   -webkit-font-smoothing: antialiased;
 }
 
-// By default Bootstrap v4 has display:flex. It breaks TOC navigation.
+// By default Bootstrap v5 has display:flex. It breaks TOC navigation.
 .nav {
   display: block;
 }
@@ -39,7 +38,7 @@ body {
 a {
   color: $mainBrandColor;
   font-weight: 400;
-  @include transition(all .3s ease-in-out);
+  transition: all .3s ease-in-out;
 }
 
 a:hover,
@@ -62,10 +61,8 @@ a.external {
     line-height: 6px;
     text-indent: -11px;
     opacity: .6;
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    @include transition(opacity .16s ease-in);
+    transition: opacity .16s ease-in;
     vertical-align: super;
     font-size: smaller;
     text-decoration: none;
@@ -92,7 +89,7 @@ a.external {
   width: 32px;
   height: 32px;
   opacity: .26;
-  @include transition(all .24s ease-in-out);
+  transition: all .24s ease-in-out;
 
   &:hover,
   &:focus {
