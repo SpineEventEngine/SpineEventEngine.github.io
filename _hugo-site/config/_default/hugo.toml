@@ -1,0 +1,21 @@
+baseURL = 'https://spine.io/'
+languageCode = 'en-us'
+title = 'Spine Event Engine'
+
+[module]
+  [[module.imports]]
+    path = 'github.com/TeamDev-Ltd/site-commons'
+  [[module.imports]]
+    path = 'github.com/SpineEventEngine/documentation/_hugo-theme'
+
+[security]
+  [security.exec]
+    osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$']
+
+# Enables HTML rendering in markdown files.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
