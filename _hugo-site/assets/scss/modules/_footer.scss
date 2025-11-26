@@ -33,9 +33,6 @@ $footer-icon-size: 34px;
 
 footer {
   background-color: $footerColor;
-  -webkit-box-shadow: 0 500px 0 500px $footerColor;
-  -moz-box-shadow: 0 500px 0 500px $footerColor;
-  -o-box-shadow: 0 500px 0 500px $footerColor;
   box-shadow: 0 500px 0 500px $footerColor;
   color: $white;
   overflow: hidden;
@@ -323,8 +320,5 @@ footer {
 }
 
 .top-shadow {
-  -webkit-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
-  -moz-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
-  -o-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
-  box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
+  box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, .16);
 }
