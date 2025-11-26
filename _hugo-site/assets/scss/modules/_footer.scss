@@ -57,7 +57,7 @@ footer {
     letter-spacing: .6px;
     line-height: 38px;
     color: $footer-link-color;
-    @include transition(all .3s ease-in-out);
+    transition: all .3s ease-in-out;
     border-bottom: 1px solid transparent;
 
     @media (max-width: $tablet) {
@@ -211,7 +211,7 @@ footer {
 
   .footer-community p {
     padding: 6px 0;
-    @include transition(all .3s ease-in-out);
+    transition: all .3s ease-in-out;
 
     &.community-links {
       display: flex;
@@ -255,24 +255,24 @@ footer {
       margin: 0 12px 0 0;
       border-radius: 50%;
       border: 2px solid rgba($icon-border-color, .2);
-      @include transition(all .3s ease-in-out);
+      transition: all .3s ease-in-out;
     }
   }
 
   .icon-github {
-    @include social-icon('../img/icons/icon-github.svg');
+    @include social-icon('img/icons/icon-github.svg');
   }
 
   .icon-xtwitter {
-    @include social-icon('../img/icons/icon-xtwitter.svg');
+    @include social-icon('img/icons/icon-xtwitter.svg');
   }
 
   .icon-stack-overflow {
-    @include social-icon('../img/icons/icon-stack-overflow.svg');
+    @include social-icon('img/icons/icon-stack-overflow.svg');
   }
 
   .icon-youtube {
-    @include social-icon('../img/icons/icon-youtube.svg');
+    @include social-icon('img/icons/icon-youtube.svg');
   }
 
   .copyright {
