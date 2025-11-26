@@ -24,11 +24,13 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
+{{ $currentYear := now.Year }}
+
 <div class="copyright">
     <a class="privacy-link" href="{{ `privacy-statement/` | relURL }}">Privacy Statement</a>
     <a class="privacy-link terms" href="{{ `terms-of-use/` | relURL }}">Terms of Use</a>
     <span class="description">
-        <span id="copyright"></span>
+        <span>&copy; 2015 – {{ $currentYear }}</span>
         <a class="company-site-link" href="https://teamdev.com">TeamDev</a>.
         All rights reserved.
     </span>
