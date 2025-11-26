@@ -1,0 +1,32 @@
+columns:
+  - key: documentation
+    heading: Documentation
+    links:
+      - name: Introduction
+        url: docs/introduction/
+      - name: Quick Start
+        url: docs/quick-start/
+      - name: Guides
+        url: docs/guides/validation/
+      - name: API Reference
+        url: docs/reference/
+  - key: resources
+    heading: Resources
+    links:
+      - name: About
+        url: about/
+      - name: Release Notes
+        url: release-notes/
+      - name: FAQ
+        url: faq/
+      - name: Getting Help
+        url: getting-help/
+  - key: community
+    heading: Community
+    links:
+      - name: GitHub
+        icon_name: icon-github
+        url: https://github.com/orgs/SpineEventEngine/discussions
+      - name: X
+        icon_name: icon-xtwitter
+        url: https://x.com/SpineEngine
