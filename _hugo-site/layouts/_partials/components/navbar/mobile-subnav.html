@@ -46,7 +46,7 @@
             {{ $name := .name }}
             {{ $isExternalLink := partial "functions/is-external-link.html" $url }}
             {{ $skipNofollow := partial "functions/whitelist-checker.html" $url }}
-            {{ $isActive := strings.Contains $currentURL $url }}
+            {{ $isActive := eq $currentURL (print "/" $url) }}
             <li class="nav-item doc">
                 {{ if $isExternalLink }}
                     <a class="nav-item-link external-link"
