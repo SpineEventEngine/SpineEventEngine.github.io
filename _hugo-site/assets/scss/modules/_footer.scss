@@ -1,0 +1,330 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$footer-header-color: #54595c;
+$footer-link-color: #b4bcbf;
+$copyright-bg-color: #1e2021;
+$copyright-text-color: #7e8183;
+$icon-border-color: #7e8183;
+$footer-icon-size: 34px;
+
+footer {
+  background-color: $footerColor;
+  -webkit-box-shadow: 0 500px 0 500px $footerColor;
+  -moz-box-shadow: 0 500px 0 500px $footerColor;
+  -o-box-shadow: 0 500px 0 500px $footerColor;
+  box-shadow: 0 500px 0 500px $footerColor;
+  color: $white;
+  overflow: hidden;
+  padding: 40px 0 0;
+  position: relative;
+
+  @media (max-width: 767px) {
+    padding: 35px 0 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    font-weight: 400;
+    font-size: 14px;
+    padding: 6px 0;
+    letter-spacing: .6px;
+    line-height: 38px;
+    color: $footer-link-color;
+    @include transition(all .3s ease-in-out);
+    border-bottom: 1px solid transparent;
+
+    @media (max-width: $tablet) {
+      line-height: 46px;
+    }
+
+    &:hover {
+      color: $white;
+      padding-bottom: 2px;
+      border-bottom-color: $lightBlueColor;
+      text-decoration: none;
+    }
+
+    &:focus {
+      color: fade-out($white, .1);
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  a.external:after {
+    display: none;
+  }
+
+  .active {
+    display: initial;
+  }
+
+  .footer-logo {
+    width: 120px;
+    margin-left: -4px;
+    padding: 22px 0 10px 0;
+    opacity: .62;
+  }
+
+  .left-links {
+    color: $footerText;
+    display: block;
+    text-align: left;
+    width: 88%;
+
+    @media (min-width: $tablet) {
+      position: relative;
+      margin: 0 auto;
+      text-align: left;
+      display: inline-block;
+      width: 24%;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: .8em;
+      color: rgba($white, .54);
+      line-height: 1.4rem;
+    }
+  }
+
+  .right-links {
+    width: 100%;
+    margin: 0 0 32px 0;
+    float: right;
+
+    @media (min-width: $tablet) {
+      padding: 0;
+      display: inline-block;
+      vertical-align: top;
+      width: 76%;
+      margin: 0 0 8px 0;
+    }
+
+    @media (max-width: 960px) {
+      width: 100%;
+    }
+
+    & > div {
+      padding-bottom: 10px;
+    }
+
+    .footer-list-header {
+      .mobile-caret-icon {
+        top: 14px;
+
+        @media (min-width: $tablet) {
+          display: none;
+        }
+      }
+
+      // Initial caret-icon state
+      &.collapsed {
+        .mobile-caret-icon {
+          opacity: .54;
+          transform: rotate(0);
+          background-color: transparent;
+        }
+
+        &:hover {
+          .mobile-caret-icon {
+            opacity: 1;
+            background-size: contain;
+            background-color: fade-out($white, .97);
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    .footer-nav-list {
+      @media (min-width: $tablet) {
+        display: block !important;
+        height: auto !important;
+        visibility: visible;
+      }
+
+      li:last-child {
+        p {
+          padding-bottom: 12px;
+        }
+      }
+    }
+
+    .right-link-headers {
+      position: relative;
+      font-weight: 300;
+      font-size: 28px;
+      color: $footer-header-color;
+      letter-spacing: .5px;
+      padding: 16px 0;
+
+      @media (max-width: $tablet) {
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .footer-sections {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    background-color: rgba(234, 234, 234, .16);
+    border: none;
+    height: 1px;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .footer-community p {
+    padding: 6px 0;
+    @include transition(all .3s ease-in-out);
+
+    &.community-links {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: .6px;
+      line-height: 46px;
+      color: $footer-link-color;
+    }
+
+    &:hover {
+      &::before {
+        border-color: rgba($icon-border-color, .54);
+      }
+
+      &.community-links {
+        color: $white;
+        border-bottom: 0 solid $white;
+      }
+    }
+
+    @media(min-width: 768px) {
+      padding: 0;
+    }
+  }
+
+  @mixin social-icon($image-url) {
+    &::before {
+      background: url($image-url) no-repeat center/cover;
+    }
+  }
+
+  [class^="icon-"] {
+    &::before {
+      content: '';
+      display: inline-block;
+      width: $footer-icon-size;
+      height: $footer-icon-size;
+      vertical-align: middle;
+      margin: 0 12px 0 0;
+      border-radius: 50%;
+      border: 2px solid rgba($icon-border-color, .2);
+      @include transition(all .3s ease-in-out);
+    }
+  }
+
+  .icon-github {
+    @include social-icon('../img/icons/icon-github.svg');
+  }
+
+  .icon-xtwitter {
+    @include social-icon('../img/icons/icon-xtwitter.svg');
+  }
+
+  .icon-stack-overflow {
+    @include social-icon('../img/icons/icon-stack-overflow.svg');
+  }
+
+  .icon-youtube {
+    @include social-icon('../img/icons/icon-youtube.svg');
+  }
+
+  .copyright {
+    margin-top: 40px;
+    background-color: $copyright-bg-color;
+    color: $copyright-text-color;
+    font-size: 12px;
+    text-align: center;
+    padding: 24px;
+
+    a {
+      color: $copyright-text-color;
+      font-size: 12px;
+      line-height: 2;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    .privacy-link {
+      margin-right: 20px;
+
+      @media (max-width: $tablet) {
+        padding-bottom: 2px;
+        border-bottom-color: rgba($white, .26);
+      }
+
+      @media (max-width: $phone-xlarge) {
+        &.terms {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .description {
+      letter-spacing: .6px;
+      
+      @media (max-width: $phone-xlarge) {
+        display: block;
+      }
+
+      .company-site-link {
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+.top-shadow {
+  -webkit-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
+  -o-box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
+  box-shadow: inset 0 7px 30px -7px rgba(0, 0, 0, 0.16);
+}

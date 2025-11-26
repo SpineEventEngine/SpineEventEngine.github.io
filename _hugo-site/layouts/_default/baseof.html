@@ -10,7 +10,9 @@
             {{ partial "components/navbar/navbar.html" . }}
             {{ block "main" . }}{{ end }}
         </div>
-        <div class="footer"></div>
+        <div class="footer">
+            {{ partial "components/footer/footer.html" . }}
+        </div>
     </div>
     {{ partial "scripts/body-scripts.html" . }}
 </body>
