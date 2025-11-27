@@ -1,0 +1,179 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$btn-font-size: 14px;
+
+.btn {
+  display: inline-block;
+  font-size: $btn-font-size;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 32px;
+  border-radius: $border-radius-m;
+  text-transform: uppercase;
+  cursor: pointer;
+  @include transition(all .34s ease-in-out);
+
+  &:hover {
+    outline: none;
+    text-decoration: none;
+  }
+
+  &:focus {
+    @include box-shadow(none);
+    outline: 1px dotted;
+    outline-offset: -5px;
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: .4;
+    pointer-events: none;
+  }
+}
+
+.btn-link {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.icon-caret {
+  background: url('img/icons/caret.svg') no-repeat center/cover;
+  height: 20px;
+  margin: 3px auto 0;
+  width: 24px;
+
+  @media (min-width: $tablet) {
+    height: 45px;
+    width: 45px;
+  }
+}
+
+.external-link-icon {
+  background: url('img/icons/external-link.svg') no-repeat center/cover;
+  width: 15px;
+  height: 15px;
+}
+
+.btn-doc-call-white {
+  color: $white;
+  border: 1px solid $white;
+  background-color: transparent;
+  border-radius: $border-radius-s;
+  padding: 12px 56px;
+
+  &:hover, &:focus {
+    color: white;
+    background-color: rgba($lightBlueColor, .2);
+    border: 1px solid $lightBlueColor;
+    box-shadow: 0 5px 20px 0 rgba($footerColor, .28);
+  }
+}
+
+.btn-bordered-blue {
+  letter-spacing: 1px;
+  color: $mainBrandColor;
+  border: 2px solid $mainBrandColor;
+
+  &:hover {
+    background-color: rgba($mainBrandColor, .12);
+    color: $mainBrandColor;
+  }
+
+  &:focus {
+    color: $mainBrandColor;
+  }
+}
+
+#go-top-btn {
+  display: none;
+  position: fixed;
+  text-indent: -9999px;
+  z-index: map_get($z-index, 'go-top-button');
+  bottom: 10px;
+  right: 16px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  padding: 4px;
+  -webkit-transform: translate3d(0, 0, 0); /* Prevents jumping on scroll in Chrome */
+  transform : translate3d(0, 0, 0);
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    background: rgba($secondBrandColor, .26) url('img/icons/caret.svg') no-repeat;
+    border-radius: $border-radius-l;
+    width: $icon-size--l;
+    height: $icon-size--l;
+    transform-style: rotate(-180deg);
+    transition: all .3s ease-in-out;
+
+    @media (max-width: $tablet) {
+      background-color: rgba($secondBrandColor, .54);
+    }
+  }
+
+  &:hover {
+    &:after {
+      background-color: rgba($mainBrandColor, .87);
+    }
+  }
+}
+
+.link-back,
+.link-next {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    span {
+      padding-bottom: 2px;
+      border-bottom: 1px solid $mainBrandColor;
+      color: $mainBrandColor;
+    }
+  }
+}
+
+.link-back {
+  &:before {
+    content: '';
+    @include arrow-icon();
+    margin-right: 6px;
+  }
+}
+
+.link-next {
+  &:after {
+    content: '';
+    @include arrow-icon($rotate-angle: -45deg);
+    margin-left: 6px;
+  }
+}

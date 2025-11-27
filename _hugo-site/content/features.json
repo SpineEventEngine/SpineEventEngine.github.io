@@ -40,7 +40,7 @@
         {
           "icon": "far fa-hexagon",
           "title": "Multiple Storage and Deployment Platforms",
-          "description": "The framework promotes development of storage- and platform-agnostic code. You can start with [JDBC](https://github.com/SpineEventEngine/jdbc-storage) and later switch to Google Cloud Platform [Datastore](https://github.com/SpineEventEngine/gcloud-java) simply changing a few lines of&nbsp;code."
+          "description": "The framework promotes development of storage- and platform-agnostic code. You can start with [JDBC]({{% get-site-data \"spine.jdbc_storage_repo\" %}}) and later switch to Google Cloud Platform [Datastore]({{% get-site-data \"spine.gcloud_java_repo\" %}}) simply changing a few lines of&nbsp;code."
         },
         {
           "icon": "fas fa-feather-alt",
