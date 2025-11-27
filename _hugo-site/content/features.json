@@ -30,7 +30,7 @@
         {
           "icon": "fas fa-lightbulb-on",
           "title": "Clear API",
-          "description": "Concepts from the DDD books, such as [`Aggregate`]({{% get-site-data \"spine.core_api_doc\" %}}/server/io/spine/server/aggregate/Aggregate.html), [`Projection`]({{% get-site-data \"spine.core_api_doc\" %}}/server/io/spine/server/projection/Projection.html), [`ProcessManager`]({{% get-site-data \"spine.core_api_doc\" %}}/server/io/spine/server/procman/ProcessManager.html), [`Repository`]({{% get-site-data \"spine.core_api_doc\" %}}/server/io/spine/server/entity/Repository.html) are right in the code. Ever guessed how to cook a [`BoundedContext`]({{% get-site-data \"spine.core_api_doc\" %}}/server/io/spine/server/BoundedContext.html)? Guess no&nbsp;more!"
+          "description": "Concepts from the DDD books, such as [`Aggregate`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.aggregate/-aggregate/index.html), [`Projection`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.projection/-projection/index.html), [`ProcessManager`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.procman/-process-manager/index.html), [`Repository`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.entity/-repository/index.html) are right in the code. Ever guessed how to cook a [`BoundedContext`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server/-bounded-context/index.html)? Guess no&nbsp;more!"
         },
         {
           "icon": "fas fa-clipboard-check",
