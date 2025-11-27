@@ -30,14 +30,11 @@
 // TBD.
 
 // Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-main";
+@import "docs-common";
 
-@import "base/reset";
 @import "base/mixins";
-@import "base/config";
 @import "base/colors";
 @import "base/override";
-@import "base/layout";
 @import "base/common";
 @import "base/text";
 
@@ -50,3 +47,6 @@
 @import "modules/call-to-action";
 
 @import "pages/landing";
+
+// Page styles from the `SpineEventEngine/documentation`.
+@import "docs";
