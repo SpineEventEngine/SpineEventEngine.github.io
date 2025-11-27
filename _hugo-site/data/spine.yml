@@ -1,2 +1,8 @@
 name: Spine
 full_name: Spine Event Engine
+
+base_api_doc: https://spine.io/base-libraries/dokka-reference
+core_api_doc: https://spine.io/core-jvm/dokka-reference
+web_api_doc: https://spine.io/web/dokka-reference
+js_api_doc: https://spine.io/web/reference/client-js
+dart_api_doc: https://spine.io/dart/reference
