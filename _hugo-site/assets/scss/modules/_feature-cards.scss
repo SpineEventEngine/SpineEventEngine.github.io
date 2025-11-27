@@ -24,79 +24,73 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-body {
-  color: $textColor;
-  font-family: $main-font;
-  -webkit-font-smoothing: antialiased;
-}
+.feature-section {
+  background-color: $light-gray-blue;
+  padding: 64px 0 72px;
 
-// By default Bootstrap v5 has display:flex. It breaks TOC navigation.
-.nav {
-  display: block;
-}
-
-a {
-  color: $mainBrandColor;
-  font-weight: 400;
-  transition: all .3s ease-in-out;
-}
-
-a:hover,
-a:focus {
-  color: $linkHoverColor;
-  text-decoration: underline;
-}
-
-a:focus {text-decoration: none;}
-
-a.external-link {
-  white-space: nowrap;
-
-  &:after {
-    content: '\2192';
-    font-weight: 300;
-    width: 8px;
-    height: 8px;
-    overflow: hidden;
-    text-align: right;
-    line-height: 6px;
-    text-indent: -11px;
-    opacity: .6;
-    transform: rotate(-45deg);
-    transition: opacity .16s ease-in;
-    vertical-align: super;
-    font-size: smaller;
-    text-decoration: none;
-    display: inline-block;
+  @media(max-width: $phone-xlarge) {
+    padding: 40px 0 24px;
   }
 
-  &:hover {
-    &:after {
-      color: $secondBrandColor;
+  .section-title {
+    font-size: $font-size--xl;
+    text-align: center;
+    margin-bottom: 32px;
+
+    @media(max-width: $phone-xlarge){
+      margin-bottom: 24px;
     }
   }
 }
 
-.nofloat {
-  float: none;
-}
+.feature-card {
+  position: relative;
+  background-color: white;
+  margin: 0 0 30px;
+  border-radius: $border-radius-m;
+  box-shadow: $feature-card-shadow;
 
-.icon-copy-code {
-  background: url('img/copy-code.svg') no-repeat center/cover;
-  position: absolute;
-  cursor: pointer;
-  right: 16px;
-  top: 12px;
-  width: 32px;
-  height: 32px;
-  opacity: .26;
-  transition: all .24s ease-in-out;
+  @media(max-width: $phone-medium) {
+    margin-bottom: 16px;
+  }
 
-  &:hover,
-  &:focus {
-    opacity: .4;
-    background-color: fade-out($black, .87);
-    border-radius: 50%;
-    outline: none;
+  [class*="card-icon"] {
+    position: absolute;
+    display: inline-block;
+    width: $icon-size--m;
+    height: $icon-size--m;
+    margin: 20px 24px;
+
+    @media (max-width: $desktop-small) {
+      margin: 16px;
+    }
+  }
+
+  .card-icon-font {
+    line-height: $icon-size--m;
+    font-size: 22px;
+    color: $mainBrandColor;
+    text-align: center;
+  }
+
+  .card-content-text {
+    padding: 24px 24px 24px 72px;
+
+    @media (max-width: $desktop-small) {
+      padding: 20px 20px 20px 64px;
+    }
+
+    .feature-card-title {
+      color: $textColor;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 }

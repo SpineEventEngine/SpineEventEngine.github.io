@@ -1,6 +1,4 @@
 ---
 title: Spine Event Engine
-description:
+description: Open-source CQRS/ES framework for modern cloud applications
 ---
-
-## Homepage

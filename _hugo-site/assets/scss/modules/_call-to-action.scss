@@ -24,29 +24,54 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+.call-to-action {
+  background-image: $nav-blue-gradient;
+  padding: 80px 0 84px;
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+  @media(max-width: $phone-xlarge) {
+    padding: 64px 0 72px;
+  }
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-main";
+  .doc-call-title {
+    margin: 0 auto;
+    font-family: $main-mono-font;
+    font-weight: 400;
+    color: $white;
+  }
 
-@import "base/reset";
-@import "base/mixins";
-@import "base/config";
-@import "base/colors";
-@import "base/override";
-@import "base/layout";
-@import "base/common";
-@import "base/text";
+  .doc-call-text {
+    margin: 0 auto;
+    padding-top: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba($white, .64);
+  }
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
+  .btn-doc-call-white {
+    color: $white;
+    background-color: transparent;
+    text-transform: uppercase;
+    border: 1px solid $white;
+    border-radius: $border-radius-s;
+    padding: 12px 56px;
+    margin: 40px auto 0;
 
-@import "pages/landing";
+    &:hover, &:focus {
+      color: white;
+      background-color: rgba($lightBlueColor, .2);
+      border: 1px solid $lightBlueColor;
+      box-shadow: 0 5px 20px 0 rgba($footerColor, .28);
+    }
+  }
+
+  .lang-select-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .lang-selector-text {
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 75%;
+  }
+}

@@ -1,3 +1,6 @@
 {{ define "main" }}
-    {{ .Content }}
+    {{ partial "landing/hero.html" . }}
+    {{ partial "landing/steps/steps.html" . }}
+    {{ partial "landing/features.html" . }}
+    {{ partial "components/call-to-action.html" . }}
 {{ end }}
