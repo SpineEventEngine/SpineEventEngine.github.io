@@ -28,8 +28,9 @@
 
 {{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
 {{ $jsMain := resources.Get "js/main.js" }}
+{{ $jsDocsMain := resources.Get "js/docs-main.js" }}
 {{ $js := (slice
-    $jsBootstrap $jsMain
+    $jsBootstrap $jsMain $jsDocsMain
 ) }}
 
 {{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
