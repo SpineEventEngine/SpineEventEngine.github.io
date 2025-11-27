@@ -1,0 +1,71 @@
+<!--
+  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Redistribution and use in source and/or binary forms, with or without
+  ~ modification, must retain the above copyright notice and the following
+  ~ disclaimer.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ~ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ~ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ~ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+{{ $id := "step-one" }}
+
+<div class="row row-with-btn">
+    <div class="col-text">
+        <p class="step-title">Step 1.</p>
+        <h2 class="landing-row-title">Define rich, type&#8209;safe domain&nbsp;model</h2>
+        <p>Describe commands, events, and state of entities using
+            <a href="https://developers.google.com/protocol-buffers/">Protobuf</a>.
+        </p>
+    </div>
+    <div class="col-btn">
+        {{ partial "landing/steps/code-toggle.html" $id }}
+    </div>
+</div>
+<div class="row justify-content-center collapse" id="{{ $id }}">
+    <div class="col-md-8">
+        <figure class="highlight"><pre><code class="language-proto" data-lang="proto"><span class="c1">// Create a new task.</span>
+<span class="kd">message</span> <span class="nc">CreateTask</span> <span class="p">{</span>
+    <span class="n">TaskId</span> <span class="na">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// assumed `required`</span>
+    <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
+    <span class="kt">string</span> <span class="na">description</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+    </div>
+    <div class="col-md-8">
+        <figure class="highlight"><pre><code class="language-proto" data-lang="proto"><span class="c1">// A new task has been created.</span>
+<span class="kd">message</span> <span class="nc">TaskCreated</span> <span class="p">{</span>
+    <span class="n">TaskId</span> <span class="na">task</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
+    <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
+    <span class="kt">string</span> <span class="na">description</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">spine.core.UserId</span> <span class="na">owner</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
+<span class="p">}</span></code></pre></figure>
+    </div>
+    <div class="col-md-8">
+        <figure class="highlight"><pre><code class="language-proto" data-lang="proto"><span class="c1">// A task which can be assigned to a user.</span>
+<span class="kd">message</span> <span class="nc">Task</span> <span class="p">{</span>
+    <span class="k">option</span> <span class="p">(</span><span class="n">entity</span><span class="p">)</span><span class="o">.</span><span class="na">kind</span> <span class="o">=</span> <span class="n">AGGREGATE</span><span class="p">;</span>
+    <span class="n">TaskId</span> <span class="na">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// assumed `required`</span>
+    <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
+    <span class="kt">string</span> <span class="na">description</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">spine.core.UserId</span> <span class="na">owner</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
+    <span class="n">spine.core.UserId</span> <span class="na">assignee</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+        {{ partial "landing/steps/hide-code-link.html" $id }}
+    </div>
+</div>

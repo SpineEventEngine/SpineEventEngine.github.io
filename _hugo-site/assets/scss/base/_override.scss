@@ -49,8 +49,9 @@ a:focus {
 
 a:focus {text-decoration: none;}
 
-a.external {
+a.external-link {
   white-space: nowrap;
+
   &:after {
     content: '\2192';
     font-weight: 300;

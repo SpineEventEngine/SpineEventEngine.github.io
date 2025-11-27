@@ -101,6 +101,7 @@ $btn-font-size: 14px;
   &:hover {
     background-color: rgba($mainBrandColor, .12);
     color: $mainBrandColor;
+    border: 2px solid $mainBrandColor;
   }
 
   &:focus {
