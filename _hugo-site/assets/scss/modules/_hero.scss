@@ -1,0 +1,116 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.nav-hero-container {
+  background-image: $nav-blue-gradient;
+  position: relative;
+  padding-bottom: 12px;
+
+  &.home-hero {
+    @media(max-width: $phone-medium) {
+      height: 100vh;
+      padding-bottom: 0;
+    }
+  }
+}
+
+// Landing page hero.
+.hero {
+  padding: 96px 0;
+  position: relative;
+  text-align: center;
+
+  @media(max-width: $phone-medium) {
+    padding-bottom: 0;
+    position: absolute;
+    top: 41%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo {
+    margin-top: 25px;
+    margin-bottom: 0;
+    padding: 15px 20px;
+    width: 195px;
+  }
+
+  .hero-lead {
+    @media (max-width: $tablet){
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    p {
+      font-family: $main-mono-font;
+      color: $white;
+      display: block;
+      font-size: 21px;
+      line-height: 1.4;
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-weight: 400;
+      opacity: 0;
+      animation: animateLead .8s .6s ease forwards;
+    }
+
+    p:nth-child(2) {
+      animation-delay: .8s;
+    }
+  }
+
+  .hero-title {
+    font-family: $main-mono-font;
+    font-weight: 700;
+    color: white;
+    font-size: 56px;
+    letter-spacing: -0.6px;
+    margin-bottom: 22px;
+    opacity: 0;
+    animation: animateTitle 1.3s .2s forwards;
+
+    span {
+      opacity: .54;
+    }
+  }
+}
+
+@include keyframes(animateTitle) {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@include keyframes(animateLead) {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: .8;
+    transform: translateY(0px);
+  }
+}
