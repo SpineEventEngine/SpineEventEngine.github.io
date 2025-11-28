@@ -26,6 +26,8 @@
 
 {{ $params := dict }}
 
+{{ partial "scripts/body/baseurl.html" . }}
+
 {{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
 {{ $jsMain := resources.Get "js/main.js" }}
 {{ $jsDocsMain := resources.Get "js/docs-main.js" }}
@@ -37,3 +39,18 @@
 {{ partial "scripts/script.html" (dict "js" $js) }}
 
 {{ partial "scripts/body/docsearch.html" . }}
+
+{{ with .Page.Params.customjs }}
+    {{ $jsCustom := . }}
+    {{ if reflect.IsSlice $jsCustom }}
+        {{ range $jsCustom }}
+            {{ $path := strings.TrimPrefix "/" . }}
+            {{ $js := resources.Get $path | js.Build (dict "params" $params) }}
+            {{ partial "scripts/script.html" (dict "js" $js) }}
+        {{ end }}
+    {{ else }}
+        {{ $path := strings.TrimPrefix "/" $jsCustom }}
+        {{ $js := resources.Get $path | js.Build (dict "params" $params) }}
+        {{ partial "scripts/script.html" (dict "js" $js) }}
+    {{ end }}
+{{ end }}
