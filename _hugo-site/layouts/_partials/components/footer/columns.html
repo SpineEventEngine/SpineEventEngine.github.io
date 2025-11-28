@@ -27,21 +27,25 @@
 {{ $columns := site.Data.footer.columns }}
 
 <div class="row justify-content-lg-end">
-    {{ range $columns }}
-        {{ $columnId := printf "footer-%s-column" .key }}
-        <div class="col-sm-12 col-md-4 col-xl-4 footer-{{ .key }}">
+    {{ range $index, $column := $columns }}
+        {{ $columnClass := "col-xl-3" }}
+        {{ if eq $index 0 }}
+            {{ $columnClass = "col-xl-4" }}
+        {{ end }}
+        {{ $columnId := printf "footer-%s-column" $column.key }}
+        <div class="col-sm-12 col-md-4 {{ $columnClass }} footer-{{ .key }}">
             <div class="footer-list-header collapsed"
                  data-bs-toggle="collapse"
                  data-bs-target="#{{ $columnId }}"
                  aria-expanded="false"
                  aria-controls="{{ $columnId }}">
                 <p class="right-link-headers">
-                    {{ .heading }}
+                    {{ $column.heading }}
                     <i class="mobile-caret-icon"></i>
                 </p>
             </div>
             <ul class="footer-nav-list collapse" id="{{ $columnId }}">
-                {{ range .links }}
+                {{ range $column.links }}
                     {{ if .icon_name }}
                         <li>
                             <a href="{{ .url }}"
