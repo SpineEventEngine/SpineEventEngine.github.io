@@ -24,9 +24,18 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $params := dict }}
+<!-- Common libs from `TeamDev-Ltd/site-commons`. -->
+{{ partial "scripts/libs.html" . }}
 
 {{ partial "scripts/body/baseurl.html" . }}
+
+{{ $environment := hugo.Environment }}
+{{ $defaultCodeTheme := site.Params.defaultCodeTheme }}
+
+{{ $params := (dict
+    "environment" $environment
+    "defaultCodeTheme" $defaultCodeTheme
+)}}
 
 {{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
 {{ $jsMain := resources.Get "js/main.js" }}
