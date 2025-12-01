@@ -40,27 +40,12 @@
     </div>
 </div>
 <div class="row justify-content-center collapse" id="{{ $id }}">
-    <!--Environment configuration code -->
     <div class="col-md-8">
-        <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">static</span> <span class="kt">void</span> <span class="nf">configureEnvironment</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nc">StorageFactory</span> <span class="n">rdbms</span> <span class="o">=</span> <span class="nc">JdbcStorageFactory</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">setDataSource</span><span class="o">(</span><span class="n">dataSource</span><span class="o">())</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-    <span class="nc">StorageFactory</span> <span class="n">datastore</span> <span class="o">=</span> <span class="nc">DatastoreStorageFactory</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">setDatastore</span><span class="o">(</span><span class="n">datastoreService</span><span class="o">())</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-
-    <span class="nc">ServerEnvironment</span>
-        <span class="o">.</span><span class="na">when</span><span class="o">(</span><span class="nc">Production</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">use</span><span class="o">(</span><span class="n">datastore</span><span class="o">);</span>
-    <span class="nc">ServerEnvironment</span>
-        <span class="o">.</span><span class="na">when</span><span class="o">(</span><span class="nc">Tests</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">use</span><span class="o">(</span><span class="n">rdbms</span><span class="o">);</span> <span class="c1">// use RDBMS instead of default In-Memory storage for tests.</span>
-<span class="o">}</span></code></pre></figure>
+        {{ with .Page.GetPage "step-4.md" }}
+            {{ .Content}}
+        {{ end }}
     </div>
-    <!--Deploy command line -->
     <div class="col-md-8">
-        <figure class="highlight"><pre><code class="language-bash" data-lang="bash">./gradlew build deploy</code></pre></figure>
         {{ partial "landing/steps/hide-code-link.html" $id }}
     </div>
 </div>

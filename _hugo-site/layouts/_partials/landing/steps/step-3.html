@@ -42,62 +42,12 @@
     </div>
 </div>
 <div class="row justify-content-center collapse" id="{{ $id }}">
-    <!--Aggregate code -->
     <div class="col-md-8">
-        <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">TaskAggregate</span> <span class="kd">extends</span> <span class="nc">Aggregate</span><span class="o">&lt;</span><span class="nc">TaskId</span><span class="o">,</span> <span class="nc">Task</span><span class="o">,</span> <span class="nc">Task</span><span class="o">.</span><span class="na">Builder</span><span class="o">&gt;</span> <span class="o">{</span>
-
-    <span class="nd">@Assign</span>
-    <span class="nc">TaskCreated</span> <span class="nf">handle</span><span class="o">(</span><span class="nc">CreateTask</span> <span class="n">cmd</span><span class="o">,</span> <span class="nc">CommandContext</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">TaskCreated</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
-                    <span class="o">.</span><span class="na">setTask</span><span class="o">(</span><span class="n">cmd</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span>
-                    <span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">cmd</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>
-                    <span class="o">.</span><span class="na">setDescription</span><span class="o">(</span><span class="n">cmd</span><span class="o">.</span><span class="na">getDescription</span><span class="o">())</span>
-                    <span class="o">.</span><span class="na">setOwner</span><span class="o">(</span><span class="n">ctx</span><span class="o">.</span><span class="na">getActorContext</span><span class="o">().</span><span class="na">getActor</span><span class="o">())</span>
-                    <span class="o">.</span><span class="na">vBuild</span><span class="o">();</span> <span class="c1">// validate the event</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Apply</span>
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">event</span><span class="o">(</span><span class="nc">TaskCreated</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">builder</span><span class="o">().</span><span class="na">setName</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>
-                 <span class="o">.</span><span class="na">setDescription</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getDescription</span><span class="o">())</span>
-                 <span class="o">.</span><span class="na">setOwner</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getOwner</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></figure>
+        {{ with .Page.GetPage "step-3.md" }}
+            {{ .Content}}
+        {{ end }}
     </div>
-    <!--Testing code -->
     <div class="col-md-8">
-        <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"Handling `CreateTask` command should"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TaskCreationTest</span> <span class="kd">extends</span> <span class="nc">ContextAwareTest</span> <span class="o">{</span>
-
-    <span class="kd">private</span> <span class="nc">TaskId</span> <span class="n">task</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">description</span><span class="o">;</span>
-    <span class="o">...</span>
-    <span class="nd">@BeforeEach</span>
-    <span class="kt">void</span> <span class="nf">postCommand</span><span class="o">()</span> <span class="o">{</span>
-        <span class="nc">CreateTask</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">generateCommand</span><span class="o">();</span>
-        <span class="n">context</span><span class="o">().</span><span class="na">receivesCommand</span><span class="o">(</span><span class="n">cmd</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"generate `TaskCreated` event"</span><span class="o">)</span>
-    <span class="kt">void</span> <span class="nf">eventGenerated</span><span class="o">()</span> <span class="o">{</span>
-        <span class="nc">TaskCreated</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">expectedEvent</span><span class="o">();</span>
-        <span class="n">context</span><span class="o">().</span><span class="na">assertEvent</span><span class="o">(</span><span class="nc">TaskCreated</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-                 <span class="o">.</span><span class="na">comparingExpectedFieldsOnly</span><span class="o">()</span>
-                 <span class="o">.</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">expected</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"create a `Task`"</span><span class="o">)</span>
-    <span class="kt">void</span> <span class="nf">aggregateCreation</span><span class="o">()</span> <span class="o">{</span>
-        <span class="nc">Task</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">expectedAggregateState</span><span class="o">();</span>
-        <span class="n">context</span><span class="o">().</span><span class="na">assertEntityWithState</span><span class="o">(</span><span class="n">task</span><span class="o">,</span> <span class="nc">Task</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-                 <span class="o">.</span><span class="na">hasStateThat</span><span class="o">()</span>
-                 <span class="o">.</span><span class="na">comparingExpectedFieldsOnly</span><span class="o">()</span>
-                 <span class="o">.</span><span class="na">isEqualTo</span><span class="o">(</span><span class="n">expected</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></figure>
         {{ partial "landing/steps/hide-code-link.html" $id }}
     </div>
 </div>
