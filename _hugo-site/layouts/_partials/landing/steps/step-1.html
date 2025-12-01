@@ -40,32 +40,11 @@
 </div>
 <div class="row justify-content-center collapse" id="{{ $id }}">
     <div class="col-md-8">
-        <figure class="highlight"><pre><code class="language-proto" data-lang="proto"><span class="c1">// Create a new task.</span>
-<span class="kd">message</span> <span class="nc">CreateTask</span> <span class="p">{</span>
-    <span class="n">TaskId</span> <span class="na">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// assumed `required`</span>
-    <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
-    <span class="kt">string</span> <span class="na">description</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
+        {{ with .Page.GetPage "step-1.md" }}
+            {{ .Content}}
+        {{ end }}
     </div>
     <div class="col-md-8">
-        <figure class="highlight"><pre><code class="language-proto" data-lang="proto"><span class="c1">// A new task has been created.</span>
-<span class="kd">message</span> <span class="nc">TaskCreated</span> <span class="p">{</span>
-    <span class="n">TaskId</span> <span class="na">task</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
-    <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
-    <span class="kt">string</span> <span class="na">description</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="n">spine.core.UserId</span> <span class="na">owner</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
-<span class="p">}</span></code></pre></figure>
-    </div>
-    <div class="col-md-8">
-        <figure class="highlight"><pre><code class="language-proto" data-lang="proto"><span class="c1">// A task which can be assigned to a user.</span>
-<span class="kd">message</span> <span class="nc">Task</span> <span class="p">{</span>
-    <span class="k">option</span> <span class="p">(</span><span class="n">entity</span><span class="p">)</span><span class="o">.</span><span class="na">kind</span> <span class="o">=</span> <span class="n">AGGREGATE</span><span class="p">;</span>
-    <span class="n">TaskId</span> <span class="na">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// assumed `required`</span>
-    <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
-    <span class="kt">string</span> <span class="na">description</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="n">spine.core.UserId</span> <span class="na">owner</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">[(</span><span class="k">required</span><span class="p">)</span> <span class="o">=</span> <span class="kc">true</span><span class="p">];</span>
-    <span class="n">spine.core.UserId</span> <span class="na">assignee</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
         {{ partial "landing/steps/hide-code-link.html" $id }}
     </div>
 </div>
