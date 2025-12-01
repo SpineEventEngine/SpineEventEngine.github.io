@@ -1,4 +1,4 @@
-/*
+/*!
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,5 +24,46 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import './modules/navbar/navbar';
-import './modules/go-top-button';
+#go-top-button {
+  $top-button-size: 60px;
+  $top-button-icon-size: $icon-size--l;
+  $icon-position: $top-button-size - $top-button-icon-size;
+
+  display: none;
+  position: fixed;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  text-indent: -9999px;
+  bottom: 10px;
+  right: 16px;
+  width: $top-button-size;
+  height: $top-button-size;
+  cursor: pointer;
+  -webkit-transform: translate3d(0, 0, 0); /* Prevents jumping on scroll in Chrome. */
+  z-index: map_get($z-index, 'go-top-button');
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -$icon-position;
+    margin-top: -$icon-position;
+    background: rgba($secondBrandColor, .26) url('img/icons/caret-top.svg') no-repeat;
+    border-radius: $border-radius-l;
+    width: $top-button-icon-size;
+    height: $top-button-icon-size;
+    transition: all .3s ease-in-out;
+
+    @media (max-width: $tablet) {
+      background-color: rgba($secondBrandColor, .54);
+    }
+  }
+
+  &:hover {
+    &:after {
+      background-color: rgba($mainBrandColor, .87);
+    }
+  }
+}

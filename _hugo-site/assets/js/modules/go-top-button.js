@@ -24,5 +24,35 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import './modules/navbar/navbar';
-import './modules/go-top-button';
+'use strict';
+
+/**
+ * Scrolls the content to the top of the page on the “Go to top” button click.
+ *
+ * <p>The button will be shown if the content will be too long.
+ */
+$(function () {
+    const $goTopButton = $('#go-top-button');
+    if (!$goTopButton || !$goTopButton.length) return;
+
+    /**
+     * Shows the button when the user scrolls down more than 300 pixels.
+     */
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 300) {
+            $goTopButton.fadeIn();
+        } else {
+            $goTopButton.fadeOut();
+        }
+    });
+
+    /**
+     * Scrolls the content to top with the animation effect on the button click.
+     */
+    $goTopButton.on('click', function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 300);
+        return false;
+    });
+});
