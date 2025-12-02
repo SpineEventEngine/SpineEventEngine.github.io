@@ -3,10 +3,11 @@ languageCode = 'en-us'
 title = 'Spine Event Engine'
 
 [module]
-  [[module.imports]]
-    path = 'github.com/TeamDev-Ltd/site-commons'
+  # First theme has higher priority than later ones.
   [[module.imports]]
     path = 'github.com/SpineEventEngine/documentation/_hugo-theme'
+  [[module.imports]]
+    path = 'github.com/TeamDev-Ltd/site-commons'
 
 [params.libs.docsearch]
   appId = 'DUYV0WFHKV'
