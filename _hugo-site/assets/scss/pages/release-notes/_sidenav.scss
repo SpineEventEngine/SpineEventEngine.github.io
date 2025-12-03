@@ -46,6 +46,12 @@ $sidenav-second-level-left-padding: calc(#{$sidenav-first-level-left-padding} + 
   .tree-title {
     font-size: 15px;
     font-weight: 500;
+
+    @media (max-width: $tablet-large) {
+      &:hover {
+        background-color: transparent;
+      }
+    }
   }
 
   .subnav {
