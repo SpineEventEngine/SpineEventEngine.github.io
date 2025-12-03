@@ -24,33 +24,14 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="page-content">
-    <div class="content-holder">
-        <div class="content-columns three-column">
-            {{ partial "docs/components/sidenav/mobile-toggle.html" }}
-            <div class="doc-sidenav-col sticky-col mobile-sidenav-holder">
-                {{ partial "release-notes/sidenav.html" . }}
-            </div>
-            <div class="content-col markdown">
-                <div class="article-container article-text">
-                    {{ with .Params.date }}
-                        {{ partial "components/iso-date.html" (dict
-                            "date" .
-                            "label" "Posted on"
-                        ) }}
-                    {{ end }}
-                    {{ .Content }}
-                </div>
-                {{ partial "components/subscribe-container.html" . }}
-            </div>
-            <div class="toc-col sticky-col">
-                <div class="set-max-height">
-                    <div class="interactive-toc">
-                        <div class="toc-indicator"></div>
-                        {{ .TableOfContents }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{ $date := .date }}
+{{ $label := .label }}
+
+{{ $formattedDate := $date | time.Format ":date_long" }}
+{{ $isoDate := $date | time.Format "2006-01-02" }}
+<p class="date">
+    {{ with $label }}
+        {{ .}}
+    {{ end }}
+    <time datetime="{{ $isoDate }}">{{ $formattedDate }}</time>
+</p>
