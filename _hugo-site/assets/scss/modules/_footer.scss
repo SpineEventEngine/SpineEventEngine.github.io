@@ -216,6 +216,7 @@ footer {
     &.community-links {
       display: flex;
       align-items: center;
+      font-family: $main-font !important;
       font-weight: 400;
       font-size: 14px;
       letter-spacing: .6px;
