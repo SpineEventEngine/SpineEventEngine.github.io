@@ -24,34 +24,30 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+.subscribe-container {
+  $icon-size: 32px;
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+  display: flex;
+  background-color: $light-blue-bg-color;
+  border: 1px solid $article-border-color;
+  border-radius: $border-radius;
+  padding: 24px;
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+  .follow-icon {
+    width: $icon-size;
+    height: $icon-size;
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
+    svg {
+      width: $icon-size;
+      height: $icon-size;
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
+      path {
+        fill: $textColor;
+      }
+    }
+  }
 
-@import "pages/landing";
-
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
-
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
+  .follow-text {
+    margin: 4px 0 0 4px;
+  }
+}

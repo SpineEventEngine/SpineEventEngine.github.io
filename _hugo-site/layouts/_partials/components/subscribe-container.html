@@ -24,27 +24,15 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="page-content">
-    <div class="content-holder">
-        <div class="content-columns three-column">
-            {{ partial "docs/components/sidenav/mobile-toggle.html" }}
-            <div class="doc-sidenav-col sticky-col mobile-sidenav-holder">
-                {{ partial "release-notes/sidenav.html" . }}
-            </div>
-            <div class="content-col markdown">
-                <div class="article-container article-text">
-                    {{ .Content }}
-                </div>
-                {{ partial "components/subscribe-container.html" . }}
-            </div>
-            <div class="toc-col sticky-col">
-                <div class="set-max-height">
-                    <div class="interactive-toc">
-                        <div class="toc-indicator"></div>
-                        {{ .TableOfContents }}
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="subscribe-container">
+    <div class="follow-icon">
+        {{ readFile "static/img/icons/icon-xtwitter.svg" | safeHTML }}
     </div>
+    <p class="follow-text">
+        Follow
+        <a class="external-link"
+           href="https://x.com/SpineEngine"
+           target="_blank"
+           rel="nofollow noopener">@SpineEngine</a>
+        to&nbsp;get notified of the framework&nbsp;updates.</p>
 </div>

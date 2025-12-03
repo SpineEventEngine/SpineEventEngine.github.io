@@ -24,34 +24,23 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+.release-notes {
+  .article-container {
+    min-height: 350px;
+    margin-bottom: 16px;
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+    @media (max-width: $phone-xlarge) {
+      min-height: auto;
+    }
+  }
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+  .article-text {
+    p, ol, ul {
+      text-align: left;
+    }
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
-
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-
-@import "pages/landing";
-
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
-
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
+    hr {
+      margin: 40px 0;
+    }
+  }
+}
