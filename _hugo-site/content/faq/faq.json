@@ -1,0 +1,34 @@
+{
+  "faq": [
+    {
+      "id": "why-spine",
+      "question": "Why is the framework called Spine?",
+      "answer": "We want to give our users a framework that provides an infrastructure and connects the “service” parts of applications with their “brains”, or in other words, business&nbsp;logic."
+    },
+    {
+      "id": "why-use-protobuf-and-not-json",
+      "question": "Why use Protobuf and not JSON?",
+      "answer": "As Protocol Buffers are already implemented in a variety of languages, they make interoperability between polyglot applications in your architecture much simpler. If you’re introducing a new service with one in Ruby or Go, or even communicating with a backend written in Node or Clojure, you simply have to hand the proto file to the code generator written in the target language, and you have some nice guarantees about safety and interoperability between those&nbsp;architectures.\n\nThe finer points of platform-specific data types should be handled for you in the target language implementation, and you can get back to focusing on your tasks instead of matching up fields and data types in your ad hoc JSON encoding and decoding&nbsp;schemes."
+    },
+    {
+      "id": "why-protobuf-instead-of-proto",
+      "question": "Why Protobuf instead of Cap'n Proto, or SBE, or FlatBuffers?",
+      "answer": "{why-protobuf.md}"
+    },
+    {
+      "id": "which-version-of-protobuf-can-use",
+      "question": "Which version of Protobuf can I use?",
+      "answer": "The framework is based on and supports only [proto3 dialect](https://developers.google.com/protocol-buffers/docs/proto3)."
+    },
+    {
+      "id": "what-is-the-product-roadmap",
+      "question": "What is the product Roadmap?",
+      "answer": "{spine-roadmap.md}"
+    },
+    {
+      "id": "do-you-support-maven",
+      "question": "Do you support Maven?",
+      "answer": "No, and we don't have plans to support it.\n\nIf you are going to add Spine to an existing Maven-based projects, most likely it would be implemented as a [Bubble Context](https://domainlanguage.com/wp-content/uploads/2016/04/GettingStartedWithDDDWhenSurroundedByLegacySystemsV1.pdf).\n\nIf so, you can have a Gradle-based sub-project with which the outer Maven-based project integrates."
+    }
+  ]
+}
