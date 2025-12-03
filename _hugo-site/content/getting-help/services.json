@@ -1,0 +1,100 @@
+{
+  "title": "Services",
+  "services": {
+    "header_cols": [
+      {
+        "icon": "fas fa-brackets-curly",
+        "title": "Development Support",
+        "subtitle": "Get ongoing guidance when implementing your&nbsp;project with Spine."
+      },
+      {
+        "icon": "fas fa-crown",
+        "title": "Premium Support",
+        "subtitle": "We become closer for some extra money."
+      }
+    ],
+    "rows": [
+      {
+        "row": [
+          {
+            "icon": "bullet",
+            "item": "Help with the use of the framework"
+          },
+          {
+            "icon": "bullet",
+            "item": "Help with the use of the framework"
+          }
+        ]
+      },
+      {
+        "row": [
+          {
+            "icon": "bullet",
+            "item": "Priority issue resolution"
+          },
+          {
+            "icon": "bullet",
+            "item": "Priority issue resolution"
+          }
+        ]
+      },
+      {
+        "row": [
+          {
+            "item": "{empty-item}"
+          },
+          {
+            "icon": "bullet",
+            "item": "Priority enhancements of the framework and&nbsp;libraries"
+          }
+        ]
+      },
+      {
+        "is_empty": true,
+        "row": [
+          {
+            "item": "empty-line-m"
+          },
+          {
+            "item": "empty-line-m"
+          }
+        ]
+      },
+      {
+        "row": [
+          {
+            "icon": "fal fa-watch",
+            "item": "Responses within one business day"
+          },
+          {
+            "icon": "fal fa-watch",
+            "item": "Responses within 4 business hours"
+          }
+        ]
+      },
+      {
+        "row": [
+          {
+            "icon": "fal fa-envelope",
+            "item": "Provided by email"
+          },
+          {
+            "icon": "fal fa-envelope",
+            "item": "Provided by email"
+          }
+        ]
+      },
+      {
+        "row": [
+          {
+            "item": "{empty-item}"
+          },
+          {
+            "icon": "fal fa-headset",
+            "item": "Phone, chat, and remote desktop on&nbsp;request"
+          }
+        ]
+      }
+    ]
+  }
+}
