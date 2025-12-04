@@ -1,3 +1,8 @@
+---
+_build:
+  render: false
+---
+
 ```proto
 static void configureEnvironment() {
     StorageFactory rdbms = JdbcStorageFactory.newBuilder()

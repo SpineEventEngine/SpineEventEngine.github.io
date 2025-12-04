@@ -1,3 +1,8 @@
+---
+_build:
+  render: false
+---
+
 ```proto
 final class TaskAggregate extends Aggregate<TaskId, Task, Task.Builder> {
 
