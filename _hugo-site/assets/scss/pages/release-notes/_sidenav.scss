@@ -24,32 +24,43 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+/* Extends styles from `scss/docs/modules/_sidenav.scss`. */
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+$sidenav-first-level-left-padding: 24px;
+$sidenav-second-level-left-padding: calc(#{$sidenav-first-level-left-padding} + 16px);
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
+.doc-sidenav.release-notes-sidenav {
+  > li {
+    position: relative;
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(0, 0, 0, .08);
+      margin: 12px 0;
+    }
+  }
 
-@import "pages/landing";
+  .tree-title {
+    font-size: 15px;
+    font-weight: 500;
 
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
+    @media (max-width: $tablet-large) {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
 
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
+  .subnav {
+    .sidenav-link {
+      padding: 6px $sidenav-first-level-left-padding;
+
+      @media (max-width: $tablet-large) {
+        padding: 12px $sidenav-second-level-left-padding;
+      }
+    }
+  }
+}
