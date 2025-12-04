@@ -69,13 +69,14 @@ $(
         const $errorContainer = $redirectScreen.find('.redirect-error');
         const $linkBack = $redirectScreen.find('#linkBack');
         const $consentCheckboxes = $("input[type='checkbox'].consent");
-        const disabledBtnTitle = 'Read and agree to the terms to\xA0continue';
+        const disabledBtnTitle = 'Read and agree to the terms to\xA0continue.';
 
         const reCaptchaSiteKey = params.payment.recaptchakey;
         const orderUrl = params.payment.orderurl;
         const apiUrl = params.payment.apiurl;
 
         $orderButtonHolder.attr('data-bs-title', disabledBtnTitle);
+        $orderButtonHolder.tooltip();
 
         $consentCheckboxes.change(() => {
             changeElementState($orderButtonHolder, isConsentObtained());
@@ -105,19 +106,18 @@ $(
          * Changes element's disabled/enabled state.
          *
          * @param {jQuery} element the element to change the state for
-         * @param {boolean} enable denotes whether the element should be enabled.
-         * If `true` — enables the element, otherwise — disables
+         * @param {boolean} enable denotes whether the element should be enabled
          */
         function changeElementState(element, enable) {
             const button = element.find($orderButton);
             if (enable) {
                 button.removeAttr('disabled');
                 button.removeClass('disabled');
-                element.removeAttr('data-bs-title');
+                $orderButtonHolder.tooltip('disable');
             } else {
                 button.attr('disabled', true);
                 button.addClass('disabled');
-                element.attr('data-bs-title', disabledBtnTitle);
+                $orderButtonHolder.tooltip('enable');
             }
         }
 
