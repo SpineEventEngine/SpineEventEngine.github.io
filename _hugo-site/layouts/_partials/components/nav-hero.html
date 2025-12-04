@@ -28,8 +28,15 @@
     <div class="container-fluid content-holder">
         <div class="row">
             <div class="col-md-12 page-headline-container">
-                <!-- TODO:2025-11-27:julia.evseeva: Make the <h1> configurable. -->
-                <h1 class="page-headline">{{ .Params.headline }}</h1>
+                {{ $headline := .Params.title }}
+                {{ with .Params.headline }}
+                    {{ $headline = . }}
+                {{ end }}
+                {{ if .Params.headline_as_h1 }}
+                    <h1 class="page-headline">{{ $headline }}</h1>
+                {{ else }}
+                    <p class="page-headline">{{ $headline }}</p>
+                {{ end }}
             </div>
         </div>
     </div>
