@@ -54,7 +54,15 @@ function hideNavbar() {
     $body.removeClass(navbarOpenedClass);
 }
 
+/**
+ * Checks whether the current window width matches the "mobile" layout.
+ *
+ * Uses the same breakpoint (800px) that is defined in the CSS
+ * `assets/scss/modules/_navbar.scss`.
+ *
+ * @return {boolean}
+ */
 function isMobile() {
-    const maxWidth = 890;
+    const maxWidth = 800;
     return $(window).width() <= maxWidth;
 }

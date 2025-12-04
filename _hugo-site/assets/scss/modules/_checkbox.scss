@@ -24,32 +24,46 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+$checkbox-size: 18px;
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+.checkbox-container {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin-top: 12px;
+  padding-left: $checkbox-size + 12px;
+  line-height: 1.4;
+  user-select: none;
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
+  &:hover input ~ .checkmark {
+    border-color: $mainBrandColor;
+  }
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
+  .text {
+    font-size: 14px;
+  }
 
-@import "pages/landing";
+  // Hides the browser's default checkbox.
+  input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 0;
+    width: 0;
 
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
+    &:checked ~ .checkmark {
+      background: url('img/icons/checkbox.svg') no-repeat center/cover;
+      border: none;
+    }
+  }
 
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: $checkbox-size;
+    width: $checkbox-size;
+    border: 1px solid $gray-300;
+    border-radius: $border-radius-s;
+  }
+}
