@@ -71,13 +71,13 @@
   .service-section {
     padding-top: 40px;
     padding-bottom: 24px;
-
-    @media (max-width: $tablet-large) {
-      padding-top: 20px;
-    }
   }
 
   .support-section {
+    @media (max-width: $tablet-large) {
+      padding-bottom: 40px;
+    }
+
     .row {
       row-gap: 24px;
     }
@@ -122,7 +122,7 @@
   $card-border: 1px solid $article-border-color;
   $empty-line-height-s: 8px;
   $empty-line-height-m: 24px;
-  $icon-size: 26px;
+  $icon-size: 22px;
   $icon-size-mobile: 20px;
   $text-left-padding: $icon-size + 24px;
   $text-left-padding-mobile: $icon-size-mobile + 16px;
@@ -157,9 +157,13 @@
           transform-origin: 0 0;
         }
 
+        &.fa-cog {
+          transform: scale(1.1);
+        }
+
         &.fa-presentation {
           margin-top: 1px;
-          transform: scale(.85);
+          transform: scale(.95);
         }
       }
 

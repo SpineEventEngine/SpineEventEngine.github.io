@@ -24,8 +24,16 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!-- Component that shows two comparable service cards side by side,
-plus a full-width “Proof of Concept” card. -->
+<!--
+Component that shows two comparable service cards side by side,
+plus a full-width “Proof of Concept” card.
+
+The Google reCaptcha is used for the payment option.
+-->
+
+<!--TODO:2025-12-04:julia.evseeva: Update the price in 2Checkout before the release. -->
+
+{{ partial "scripts/body/recaptcha.html" . }}
 
 {{ with .Resources.GetMatch "services.json" }}
     {{ $data := .Content | unmarshal }}
@@ -74,4 +82,5 @@ plus a full-width “Proof of Concept” card. -->
             {{ end }}
         </div>
     </section>
+    {{ partial "components/redirect-screen.html" . }}
 {{ end }}

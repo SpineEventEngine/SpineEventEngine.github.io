@@ -24,37 +24,54 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+.redirect-screen {
+  // The section will be hidden until the order request button is pressed.
+  display: none;
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
+  .redirect-screen-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: map_get($z-index, 'redirect-screen');
+    background-color: rgba(255, 255, 255, .9);
+    animation: fadeIn .23s linear forwards;
+  }
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+  @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 100;}
+  }
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
+  .redirect-screen-holder {
+    position: relative;
+    margin: -20px auto 0;
+    padding: 20px;
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/redirect-screen";
+    .redirect-loader {
+      .animated-spinner {
+        display: block;
+        margin: 0 auto 16px;
+      }
 
-@import "pages/landing";
+      p {
+        text-align: center;
+        font-size: 15px;
+      }
+    }
 
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
+    .redirect-error {
+      display: none;
+      text-align: center;
 
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
-@import "pages/faq";
-@import "pages/getting-help";
+      h2 {
+        font-size: $font-size--xl;
+      }
+
+      .btn-back {
+        margin-top: 40px;
+      }
+    }
+  }
+}
