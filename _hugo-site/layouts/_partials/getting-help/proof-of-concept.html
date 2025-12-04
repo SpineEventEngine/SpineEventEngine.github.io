@@ -24,22 +24,33 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ with .Resources.GetMatch "support-section.json" }}
-    {{ $data := .Content | unmarshal }}
-    <section class="support-section">
-        <div class="container-fluid content-holder">
-            <div class="row">
-                {{ range $data.items }}
-                    <div class="col-lg-4">
-                        <div class="support-container {{ .title | anchorize }}">
-                            <h4>{{ .title | markdownify }}</h4>
-                            {{ range .content }}
-                                <p>{{ . | markdownify }}</p>
-                            {{ end }}
-                        </div>
+{{ $data := . }}
+
+<div class="support-card not-compare-support">
+    <div class="header">
+        <i class="header-icon {{ $data.icon }}"></i>
+        <div class="text-container">
+            <h4>{{ $data.title | markdownify }}</h4>
+            <p class="header-subtitle">{{ $data.subtitle | markdownify }}</p>
+        </div>
+    </div>
+    <div class="card-cell empty-line-s"></div>
+    <div class="content-row">
+        {{ range $data.columns }}
+            <div class="card-cell">
+                {{ range .items }}
+                    <div class="item-with-icon">
+                        <i class="{{ .icon }}"></i>
+                        <p>{{ .item | markdownify }}</p>
                     </div>
                 {{ end }}
             </div>
+        {{ end }}
+    </div>
+    <div class="card-cell footer-cell">
+        <div class="action-block">
+            <a class="btn btn-bordered-blue pricing-btn"
+               href="">Contact Us</a>
         </div>
-    </section>
-{{ end }}
+    </div>
+</div>

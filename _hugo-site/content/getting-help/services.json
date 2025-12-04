@@ -1,16 +1,16 @@
 {
   "title": "Services",
-  "services": {
+  "comparable_services": {
     "header_cols": [
       {
         "icon": "fas fa-brackets-curly",
-        "title": "Development Support",
-        "subtitle": "Get ongoing guidance when implementing your&nbsp;project with Spine."
+        "title": "Standard Support Pack",
+        "subtitle": "Get ongoing guidance when implementing your&nbsp;project with Spine"
       },
       {
-        "icon": "fas fa-crown",
-        "title": "Premium Support",
-        "subtitle": "We become closer for some extra money."
+        "icon": "far fa-cog",
+        "title": "Custom Support",
+        "subtitle": "We become closer for some extra money"
       }
     ],
     "rows": [
@@ -23,18 +23,6 @@
           {
             "icon": "bullet",
             "item": "Help with the use of the framework"
-          }
-        ]
-      },
-      {
-        "row": [
-          {
-            "icon": "bullet",
-            "item": "Priority issue resolution"
-          },
-          {
-            "icon": "bullet",
-            "item": "Priority issue resolution"
           }
         ]
       },
@@ -92,6 +80,49 @@
           {
             "icon": "fal fa-headset",
             "item": "Phone, chat, and remote desktop on&nbsp;request"
+          }
+        ]
+      }
+    ]
+  },
+  "proof_of_concept": {
+    "icon": "fas fa-presentation",
+    "title": "Proof of Concept",
+    "subtitle": "Let us help you start your project with our framework",
+    "columns": [
+      {
+        "items": [
+          {
+            "icon": "bullet",
+            "item": "Guidance on applying DDD, CQRS, and Event Sourcing with Spine Event&nbsp;Engine"
+          },
+          {
+            "icon": "bullet",
+            "item": "Domain discovery with #EventStorming session"
+          },
+          {
+            "icon": "bullet",
+            "item": "Development roadmap and a plan for your solution"
+          },
+          {
+            "icon": "bullet",
+            "item": "Suggestions on further implementation"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "icon": "fal fa-search",
+            "item": "Preliminary remote research"
+          },
+          {
+            "icon": "fal fa-users-class",
+            "item": "A 3-5 days joint session with your team on-site or online"
+          },
+          {
+            "icon": "fal fa-headset",
+            "item": "Further project guidance and support on request"
           }
         ]
       }

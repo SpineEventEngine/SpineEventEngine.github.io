@@ -24,13 +24,17 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
+<!-- Component that shows two comparable service cards side by side,
+plus a full-width “Proof of Concept” card. -->
+
 {{ with .Resources.GetMatch "services.json" }}
     {{ $data := .Content | unmarshal }}
     <section class="service-section">
         <div class="container-fluid content-holder">
-            <h1>{{ $data.title | markdownify }}</h1>
+            <h1 class="section-title light">{{ $data.title | markdownify }}</h1>
             <div class="support-card compare-support">
-                {{ range $data.services.header_cols }}
+                {{ $comparableServices := $data.comparable_services }}
+                {{ range $comparableServices.header_cols }}
                     <div class="header">
                         <i class="header-icon {{ .icon }}"></i>
                         <div class="text-container">
@@ -41,7 +45,7 @@
                 {{ end }}
                 <div class="card-cell empty-line-s"></div>
                 <div class="card-cell empty-line-s"></div>
-                {{ range $data.services.rows }}
+                {{ range $comparableServices.rows }}
                     {{ if not .is_empty }}
                         {{ range .row }}
                             <div class="card-cell">
@@ -52,7 +56,7 @@
                                     {{ if eq .item "{empty-item}" }}
                                         <p class="empty-item"></p>
                                     {{ else }}
-                                        <p>{{ .item }}</p>
+                                        <p>{{ .item | markdownify }}</p>
                                     {{ end }}
                                 </div>
                             </div>
@@ -63,8 +67,11 @@
                         {{ end }}
                     {{ end }}
                 {{ end }}
-                {{ partial "getting-help/services-footer.html" . }}
+                {{ partial "getting-help/comparable-services-footer.html" . }}
             </div>
+            {{ with $data.proof_of_concept }}
+                {{ partial "getting-help/proof-of-concept.html" . }}
+            {{ end }}
         </div>
     </section>
 {{ end }}

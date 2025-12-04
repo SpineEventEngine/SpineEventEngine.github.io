@@ -78,6 +78,10 @@
   }
 
   .support-section {
+    .row {
+      row-gap: 24px;
+    }
+
     h4 {
       margin: 0 0 16px;
       font-size: 20px;
@@ -87,23 +91,15 @@
       padding: 32px;
       background-color: white;
       border-radius: $card-border-radius;
-      @include box-shadow($card-shadow);
       height: 100%;
+      box-shadow: $card-shadow;
 
       p {
         margin-bottom: 12px;
       }
     }
 
-    .support-get-started,
-    .support-resources,
-    .support-community {
-      @media (max-width: $tablet-large) {
-        margin-bottom: 24px;
-      }
-    }
-
-    .support-resources {
+    .explore-solutions {
       p {
         margin-bottom: 8px;
       }
@@ -112,6 +108,7 @@
 
   .service-section {
     padding-bottom: 40px;
+
     @media (max-width: $tablet-large) {
       padding-top: 0;
     }
@@ -125,9 +122,9 @@
   $card-border: 1px solid $article-border-color;
   $empty-line-height-s: 8px;
   $empty-line-height-m: 24px;
-  $icon-size: 22px;
-  $icon-size-mobile: 16px;
-  $text-left-padding: $icon-size + 26px;
+  $icon-size: 26px;
+  $icon-size-mobile: 20px;
+  $text-left-padding: $icon-size + 24px;
   $text-left-padding-mobile: $icon-size-mobile + 16px;
 
   .support-card {
@@ -154,17 +151,15 @@
         // TODO:2020-09-03:juliaevseeva: Remove styles for the `&.fa-brackets-curly` when the
         //  Font Awesome is updated to version `5.7.0` or higher.
         &.fa-brackets-curly {
-          background: url('/img/icons/getting-help/brackets-curly.svg');
-          height: $icon-size;
+          background: url('img/icons/getting-help/brackets-curly.svg');
+          height: 22px;
           width: 28px;
-          -webkit-transform-origin: 0 0;
-          -moz-transform-origin: 0 0;
-          -o-transform-origin: 0 0;
           transform-origin: 0 0;
         }
 
         &.fa-presentation {
-          margin-top: 3px;
+          margin-top: 1px;
+          transform: scale(.85);
         }
       }
 
@@ -196,7 +191,7 @@
           // TODO:2020-09-03:juliaevseeva: Remove styles for the `&.fa-brackets-curly` when the
           //  Font Awesome is updated to version `5.7.0` or higher.
           &.fa-brackets-curly {
-            @include transform(scale(.74));
+            transform: scale(.74);
           }
         }
 
@@ -232,6 +227,7 @@
     }
 
     $icon-left-offset: 2px;
+
     .item-with-icon {
       position: relative;
       margin: 0 var(--pricing-card-side-padding);
@@ -249,7 +245,7 @@
           background-color: $icon-color;
           border-radius: 50%;
           top: 18px;
-          margin-left: 9px;
+          margin-left: 10px;
         }
 
         &.fa-watch,
