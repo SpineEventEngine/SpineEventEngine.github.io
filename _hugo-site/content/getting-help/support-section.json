@@ -4,14 +4,14 @@
       "title": "Get Started",
       "content": [
         "Learn by doing with the [Quick Start Guide](docs/quick-start/).",
-        "Set your own [development flow](docs/guides/start-new-project)."
+        "Set your own [development flow](docs/guides/start-new-project/)."
       ]
     },
     {
       "title": "Explore Solutions",
       "content": [
         "[Documentation](docs/)",
-        "[Example Applications](docs/examples)",
+        "[Example Applications](docs/examples/)",
         "[API Reference](docs/reference/)",
         "[FAQ](faq/)"
       ]
