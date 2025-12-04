@@ -57,8 +57,8 @@
         </div>
         <!-- The tooltip is managing in the `js/pricing.js`. -->
         <div class="pricing-btn-holder"
-             data-toggle="tooltip"
-             data-placement="bottom">
+             data-bs-toggle="tooltip"
+             data-bs-placement="bottom">
             <button class="btn btn-bordered-blue pricing-btn order-btn disabled"
                     id="order-now-btn"
                     disabled>Order Now</button>
@@ -67,6 +67,6 @@
 </div>
 <div class="card-cell footer-cell">
     <div class="action-block">
-        <a class="btn btn-bordered-blue pricing-btn" href="">Contact Us</a>
+        {{ partial "getting-help/mailto-button.html" . }}
     </div>
 </div>

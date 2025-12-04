@@ -17,3 +17,8 @@ core_api_doc: https://spine.io/core-jvm/dokka-reference
 dart_api_doc: https://spine.io/dart/reference
 js_api_doc: https://spine.io/web/reference/client-js
 web_api_doc: https://spine.io/web/dokka-reference
+
+spine_dev_email: spine-developers@teamdev.com
+dev_email: developers@spine.io
+sales_email: sales@spine.io
+privacy_email: privacy@teamdev.com

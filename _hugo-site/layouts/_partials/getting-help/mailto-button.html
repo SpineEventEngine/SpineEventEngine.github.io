@@ -24,29 +24,11 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div id="redirectScreen" class="redirect-screen">
-    <div class="redirect-screen-container d-flex align-items-center">
-        <div class="redirect-screen-holder">
-            <div class="redirect-loader">
-                <img class="animated-spinner"
-                     src="{{ `img/icons/animated-spinner.svg` | relURL }}"
-                     width="48"
-                     height="48"
-                     alt="Spinner">
-                <p>We are redirecting you<br> to the order page</p>
-            </div>
-            <div class="redirect-error">
-                {{ $email := site.Data.spine.dev_email }}
-                {{ $cloakedEmail := printf "{{< cloakemail address=\"%s\" >}}" $email }}
-                <h2>Sorry, the redirection was interrupted</h2>
-                <p>Please try again. If the issue persists, contact us at
-                    {{ $cloakedEmail | markdownify }}.</p>
-                <div class="btn-back">
-                    <a href="{{ `getting-help/` | relURL }}" id="linkBack" class="link-back">
-                        <span>Go back</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Renders the mailto button using the `cloakemail` script that protects from spamming bots. -->
+
+{{ $email := site.Data.spine.sales_email }}
+{{ $class := "btn btn-bordered-blue pricing-btn" }}
+{{ $label := "Contact Us" }}
+
+{{ $cloakedEmail := printf "{{< cloakemail address=\"%s\" class=\"%s\" display=\"%s\" >}}" $email $class $label }}
+{{ $cloakedEmail | markdownify }}

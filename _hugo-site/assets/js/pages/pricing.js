@@ -75,7 +75,7 @@ $(
         const orderUrl = params.payment.orderurl;
         const apiUrl = params.payment.apiurl;
 
-        $orderButtonHolder.attr('data-original-title', disabledBtnTitle);
+        $orderButtonHolder.attr('data-bs-title', disabledBtnTitle);
 
         $consentCheckboxes.change(() => {
             changeElementState($orderButtonHolder, isConsentObtained());
@@ -113,11 +113,11 @@ $(
             if (enable) {
                 button.removeAttr('disabled');
                 button.removeClass('disabled');
-                element.removeAttr('data-original-title');
+                element.removeAttr('data-bs-title');
             } else {
                 button.attr('disabled', true);
                 button.addClass('disabled');
-                element.attr('data-original-title', disabledBtnTitle);
+                element.attr('data-bs-title', disabledBtnTitle);
             }
         }
 
