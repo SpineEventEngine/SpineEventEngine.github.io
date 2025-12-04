@@ -24,44 +24,46 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-html,
-body {
-  height: 100%;
-}
+$checkbox-size: 18px;
 
-.wrapper {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
+.checkbox-container {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin-top: 12px;
+  padding-left: $checkbox-size + 12px;
+  line-height: 1.4;
+  user-select: none;
 
-.main {
-  flex-grow: 1;
-}
-
-.footer {
-  flex-shrink: 0;
-}
-
-$layout-padding-medium: 40px;
-$layout-padding-tablet: 32px;
-$layout-padding-phone: 20px;
-
-.content-holder {
-  max-width: $layout-max-width;
-  @media(max-width: $desktop-medium) {
-    padding-right: $layout-padding-medium;
-    padding-left: $layout-padding-medium;
+  &:hover input ~ .checkmark {
+    border-color: $mainBrandColor;
   }
 
-  @media(max-width: $tablet) {
-    padding-right: $layout-padding-tablet;
-    padding-left: $layout-padding-tablet;
+  .text {
+    font-size: 14px;
   }
 
-  @media(max-width: $phone-medium) {
-    padding-right: $layout-padding-phone;
-    padding-left: $layout-padding-phone;
+  // Hides the browser's default checkbox.
+  input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background: url('img/icons/checkbox.svg') no-repeat center/cover;
+      border: none;
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: $checkbox-size;
+    width: $checkbox-size;
+    border: 1px solid $gray-300;
+    border-radius: $border-radius-s;
   }
 }

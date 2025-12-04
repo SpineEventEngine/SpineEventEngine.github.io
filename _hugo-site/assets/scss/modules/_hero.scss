@@ -35,6 +35,20 @@
       padding-bottom: 0;
     }
   }
+
+  .page-headline-container {
+    padding-top: 64px;
+
+    .page-headline {
+      font-family: $main-mono-font;
+      color: $white;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 400;
+      padding-top: 16px;
+      margin-bottom: 24px;
+    }
+  }
 }
 
 // Landing page hero.

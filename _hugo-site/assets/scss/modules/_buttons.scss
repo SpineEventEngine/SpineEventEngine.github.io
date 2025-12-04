@@ -109,46 +109,6 @@ $btn-font-size: 14px;
   }
 }
 
-#go-top-btn {
-  display: none;
-  position: fixed;
-  text-indent: -9999px;
-  z-index: map_get($z-index, 'go-top-button');
-  bottom: 10px;
-  right: 16px;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  padding: 4px;
-  -webkit-transform: translate3d(0, 0, 0); /* Prevents jumping on scroll in Chrome */
-  transform : translate3d(0, 0, 0);
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -20px;
-    margin-top: -20px;
-    background: rgba($secondBrandColor, .26) url('img/icons/caret.svg') no-repeat;
-    border-radius: $border-radius-l;
-    width: $icon-size--l;
-    height: $icon-size--l;
-    transform-style: rotate(-180deg);
-    transition: all .3s ease-in-out;
-
-    @media (max-width: $tablet) {
-      background-color: rgba($secondBrandColor, .54);
-    }
-  }
-
-  &:hover {
-    &:after {
-      background-color: rgba($mainBrandColor, .87);
-    }
-  }
-}
-
 .link-back,
 .link-next {
   &:hover,

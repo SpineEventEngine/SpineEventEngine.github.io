@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,73 +24,35 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, figure,
-a, abbr, acronym, address, big, cite,
-del, dfn, em, font, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-  border: 0;
-  font-family: inherit;
-  font-size: 100%;
-  font-style: inherit;
-  font-weight: inherit;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  vertical-align: baseline;
-}
+'use strict';
 
-:focus {
-  outline: 0;
-}
+/**
+ * Scrolls the content to the top of the page on the “Go to top” button click.
+ *
+ * <p>The button will be shown if the content will be too long.
+ */
+$(function () {
+    const $goTopButton = $('#go-top-button');
+    if (!$goTopButton || !$goTopButton.length) return;
 
-body {
-  background: #FFF;
-  line-height: 1;
-}
+    /**
+     * Shows the button when the user scrolls down more than 300 pixels.
+     */
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 300) {
+            $goTopButton.fadeIn();
+        } else {
+            $goTopButton.fadeOut();
+        }
+    });
 
-ol,
-ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-caption,
-th,
-td {
-  font-weight: normal;
-  text-align: left;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-}
-
-blockquote,
-q {
-   quotes: "" "";
-}
-
-a img {
-  border: 0;
-}
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-a,
-a:hover {
-  text-decoration: none;
-}
+    /**
+     * Scrolls the content to top with the animation effect on the button click.
+     */
+    $goTopButton.on('click', function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 300);
+        return false;
+    });
+});

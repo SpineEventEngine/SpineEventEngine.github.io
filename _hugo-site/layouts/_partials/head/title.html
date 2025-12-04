@@ -24,12 +24,26 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "head/title.html" . }}
-    {{ partial "docs/head/code-theme.html" . }}
-    {{ partial "head/stylesheet.html" . }}
-    {{ partial "scripts/head-scripts.html" . }}
-</head>
+<!--
+Basically all pages will have the prefix "Spine /" added.
+The not main documentation version will have the suffix "— version <version>".
+-->
+
+{{ $title := .Title | default site.Params.title }}
+{{ $title = replace $title "&nbsp;" " " }}
+{{ $pageURL := .RelPermalink }}
+{{ $productPrefix := site.Data.spine.name }}
+{{ $currentVersion := partial "functions/get-doc-version.html" . }}
+
+{{ if not $currentVersion.is_main }}
+    {{ $versionLabel := "version" }}
+    {{ $title = printf "%s — %s %s" $title $versionLabel $currentVersion.short }}
+{{ end }}
+
+{{ if not .IsHome }}
+    {{ if not (in $title $productPrefix) }}
+        {{ $title = printf "%s / %s" $productPrefix $title }}
+    {{ end }}
+{{ end }}
+
+<title>{{ $title }}</title>

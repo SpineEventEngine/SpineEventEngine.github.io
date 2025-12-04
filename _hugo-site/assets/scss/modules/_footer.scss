@@ -48,6 +48,7 @@ footer {
   }
 
   a {
+    text-decoration: none;
     font-weight: 400;
     font-size: 14px;
     padding: 6px 0;
@@ -164,6 +165,8 @@ footer {
     }
 
     .footer-nav-list {
+      list-style: none;
+
       @media (min-width: $tablet) {
         display: block !important;
         height: auto !important;
@@ -213,6 +216,7 @@ footer {
     &.community-links {
       display: flex;
       align-items: center;
+      font-family: $main-font !important;
       font-weight: 400;
       font-size: 14px;
       letter-spacing: .6px;

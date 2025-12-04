@@ -24,24 +24,20 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<!--
-Returns the body class based on the page kind.
--->
-
-{{ if eq .Kind "home" }}
-    {{ .Scratch.Set "bodyClass" "home" }}
-{{ else if eq .Kind "404" }}
-    {{ .Scratch.Set "bodyClass" "error-pages" }}
-{{ else if eq .Kind "page" }}
-    {{ if in .Type "/" }}
-        {{ $type := replace .Type "/" " " }}
-        {{ .Scratch.Set "bodyClass" (print " " $type) }}
-    {{ else }}
-        {{ .Scratch.Set "bodyClass" (print " " .Type) }}
-    {{ end }}
-{{ else }}
-    {{ $type := replace .Type "/" " " }}
-    {{ .Scratch.Set "bodyClass" $type }}
-{{ end }}
-{{ $bodyClass := .Scratch.Get "bodyClass" }}
-{{ return $bodyClass }}
+<div class="nav-hero-container">
+    <div class="container-fluid content-holder">
+        <div class="row">
+            <div class="col-md-12 page-headline-container">
+                {{ $headline := .Params.title }}
+                {{ with .Params.headline }}
+                    {{ $headline = . }}
+                {{ end }}
+                {{ if .Params.headline_as_h1 }}
+                    <h1 class="page-headline">{{ $headline }}</h1>
+                {{ else }}
+                    <p class="page-headline">{{ $headline }}</p>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
