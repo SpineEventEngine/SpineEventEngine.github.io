@@ -1,22 +1,7 @@
+# This YAML file will be merged with the `data/spine.yml` from `SpineEventEngine/documentation`.
+
 name: Spine
 full_name: Spine Event Engine
-
-githuburl: https://github.com/SpineEventEngine/SpineEventEngine.github.io/
-core_java_repo: https://github.com/SpineEventEngine/core-java
-base_repo: https://github.com/SpineEventEngine/base
-web_repo: https://github.com/SpineEventEngine/web
-gcloud_java_repo: https://github.com/SpineEventEngine/gcloud-java
-money_repo: https://github.com/SpineEventEngine/money
-dart_repo: https://github.com/SpineEventEngine/dart
-bootstrap_repo: https://github.com/SpineEventEngine/bootstrap
-jdbc_storage_repo: https://github.com/SpineEventEngine/jdbc-storage
-time_repo: https://github.com/SpineEventEngine/time
-
-base_api_doc: https://spine.io/base-libraries/dokka-reference
-core_api_doc: https://spine.io/core-jvm/dokka-reference
-dart_api_doc: https://spine.io/dart/reference
-js_api_doc: https://spine.io/web/reference/client-js
-web_api_doc: https://spine.io/web/dokka-reference
 
 spine_dev_email: spine-developers@teamdev.com
 dev_email: developers@spine.io

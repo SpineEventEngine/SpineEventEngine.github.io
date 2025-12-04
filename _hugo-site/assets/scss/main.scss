@@ -26,9 +26,6 @@
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
-// Common theme styles from the `TeamDev-Ltd/site-commons`.
-// TBD.
-
 // Common docs styles from the `SpineEventEngine/documentation`.
 @import "docs-common";
 
@@ -47,6 +44,7 @@
 @import "modules/call-to-action";
 @import "modules/go-top-button";
 @import "modules/subscribe-container";
+@import "modules/checkbox";
 @import "modules/redirect-screen";
 
 @import "pages/landing";

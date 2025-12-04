@@ -1,4 +1,4 @@
-/*
+/*!
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,45 +24,46 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-'use strict';
+$checkbox-size: 18px;
 
-const $body = $('body');
-const $navbarToggle = $('#nav-icon-menu');
-const openedClass = 'open';
-const navbarOpenedClass = 'navigation-opened';
+.checkbox-container {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin-top: 12px;
+  padding-left: $checkbox-size + 12px;
+  line-height: 1.4;
+  user-select: none;
 
-/**
- * Toggles the mobile navbar.
- */
-export function toggleMobileNavbar() {
-    $navbarToggle.on('click', function () {
-        toggleNavbar();
-    });
+  &:hover input ~ .checkmark {
+    border-color: $mainBrandColor;
+  }
 
-    $(window).resize(function () {
-        if (!isMobile()) hideNavbar();
-    });
-}
+  .text {
+    font-size: 14px;
+  }
 
-function toggleNavbar() {
-    $navbarToggle.toggleClass(openedClass);
-    $body.toggleClass(navbarOpenedClass);
-}
+  // Hides the browser's default checkbox.
+  input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 0;
+    width: 0;
 
-function hideNavbar() {
-    $navbarToggle.removeClass(openedClass);
-    $body.removeClass(navbarOpenedClass);
-}
+    &:checked ~ .checkmark {
+      background: url('img/icons/checkbox.svg') no-repeat center/cover;
+      border: none;
+    }
+  }
 
-/**
- * Checks whether the current window width matches the "mobile" layout.
- *
- * Uses the same breakpoint (800px) that is defined in the CSS
- * `assets/scss/modules/_navbar.scss`.
- *
- * @return {boolean}
- */
-function isMobile() {
-    const maxWidth = 800;
-    return $(window).width() <= maxWidth;
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: $checkbox-size;
+    width: $checkbox-size;
+    border: 1px solid $gray-300;
+    border-radius: $border-radius-s;
+  }
 }

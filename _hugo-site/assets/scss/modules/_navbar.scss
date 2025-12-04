@@ -333,15 +333,3 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
     left: 50%;
   }
 }
-
-// Page headline and description.
-.page-headline-container {
-  padding-top: 64px;
-}
-
-.page-headline {
-  font-family: $main-mono-font;
-  color: $white;
-  font-size: 32px;
-  font-weight: 400;
-}

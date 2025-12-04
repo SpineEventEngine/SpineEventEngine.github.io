@@ -40,7 +40,7 @@
   width: $top-button-size;
   height: $top-button-size;
   cursor: pointer;
-  -webkit-transform: translate3d(0, 0, 0); /* Prevents jumping on scroll in Chrome. */
+  -webkit-transform: translate3d(0, 0, 0); // Prevents jumping on scroll in Chrome.
   z-index: map_get($z-index, 'go-top-button');
 
   &:after {
