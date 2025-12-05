@@ -1,0 +1,13 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" . }}
+    <section>
+        <div class="container-fluid content-holder content-with-fixed-header">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 article-container article-text">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ partial "components/go-top-button.html" . }}
+{{ end }}

@@ -1,0 +1,12 @@
+{{- /*
+Renders the page `lastmod` date.
+
+Usage:
+{{< date label="Last updated:" >}}
+*/ -}}
+
+{{ $label := .Get "label" }}
+{{ partial "components/iso-date.html" (dict
+    "date" .Page.Lastmod
+    "label" $label
+) }}
