@@ -1,3 +1,8 @@
+---
+_build:
+  render: false
+---
+
 ```proto
 // Create a new task.
 message CreateTask {
