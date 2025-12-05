@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "title": "Get Started",
+      "content": [
+        "Learn by doing with the [Quick Start Guide](docs/quick-start/).",
+        "Set your own [development flow](docs/guides/start-new-project/)."
+      ]
+    },
+    {
+      "title": "Explore Solutions",
+      "content": [
+        "[Documentation](docs/)",
+        "[Example Applications](docs/examples/)",
+        "[API Reference](docs/reference/)",
+        "[FAQ](faq/)"
+      ]
+    },
+    {
+      "title": "Ask Community",
+      "content": [
+        "Look up for answers or post your questions under [Spine-Event-Engine](https://stackoverflow.com/tags/Spine-Event-Engine) tag on Stack&nbsp;Overflow.",
+        "Discuss your issues in the [mailing list]({{% get-site-data \"spine.discussion_group\" %}})."
+      ]
+    }
+  ]
+}

@@ -31,10 +31,12 @@
 
 {{ $environment := hugo.Environment }}
 {{ $defaultCodeTheme := site.Params.defaultCodeTheme }}
+{{ $payment := site.Params.payment }}
 
 {{ $params := (dict
     "environment" $environment
     "defaultCodeTheme" $defaultCodeTheme
+    "payment" $payment
 )}}
 
 {{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
