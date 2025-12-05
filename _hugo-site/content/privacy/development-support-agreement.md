@@ -3,6 +3,7 @@ title: Development Support Agreement
 bodyclass: privacy development-support-agreement
 header_type: fixed-header
 url: /development-support-agreement
+customjs: js/pages/privacy.js
 lastmod: 2020-09-07
 ---
 
@@ -77,11 +78,13 @@ related to TeamDev Ltd. software worldwide.
     your email to submit requests to us.
 
 1. ## Results, Acceptance
+
     1. The Development Support activities may result in provision of a Modified Framework.
     1. The Modified Framework is deemed to be accepted when it is released as one of the official 
     versions, whose descriptions are available at [https://spine.io/versioning/](versioning/).
       
 1. ## Costs and Payments
+
     1. The Development Support Pack is available based on the prepayment. The fees for the 
     Development Support Pack shall be reflected on the official Spine Event Engine website and 
     are subject to change without notice from TDM and with no liability to us.
@@ -91,6 +94,7 @@ related to TeamDev Ltd. software worldwide.
     1. You agree to pay all payments and taxes in relation to the payment transactions.
 
 1. ## Ownership
+
     1. The Framework is owned by TeamDev Ltd., copyrighted and protected by copyright laws and 
     international treaty provisions. By using the Development Support you will not acquire any 
     rights to the Framework. All rights not expressly granted herein are reserved by TeamDev Ltd.
@@ -99,6 +103,7 @@ related to TeamDev Ltd. software worldwide.
     considered part of the Framework and are subject to the terms and conditions of this Agreement.
 
 1. ## NO WARRANTY
+
     You acknowledge that TDM will do its best effort, but will not be obliged to fix all the 
     issues reported.
     
@@ -111,6 +116,7 @@ related to TeamDev Ltd. software worldwide.
     costs arising of any data loss as the result of using the Development Support.
 
 1. ## Indemnification
+
     1. TDM will defend Customer against, and pay the amount of any adverse final judgment 
     (or settlement to which TDM consents) resulting from an unaffiliated third party claim(s) 
     that the Framework or Modified Framework as provided by TDM under this Agreement: (i) 
@@ -147,6 +153,7 @@ related to TeamDev Ltd. software worldwide.
     actual or alleged intellectual property or proprietary right infringement.
 
 1. ## Limitation of Liability
+
     TDM shall not be responsible for any error or nonconformities attributable to any 
     modification to the Framework made by the Customer or third parties.
     
@@ -167,6 +174,7 @@ related to TeamDev Ltd. software worldwide.
     court action.
     
 1. ## Confidentiality
+
     1. In the performance of this Agreement, each party may have access to confidential, 
     proprietary or trade secret information owned or provided by the other party relating to 
     the Development Support Services, Framework development and Customer Project: technology, 
@@ -201,16 +209,19 @@ related to TeamDev Ltd. software worldwide.
         {class="lower-alpha-type"}
         
 1. ## Personal Information
+
     TDM will collect and process your personal information in accordance with our 
     [privacy policy](privacy-statement/).
     
 1. ## Trademarks
+
     This Agreement does not grant any rights to use the trademarks or trade names: “TeamDev”, 
     “Spine Event Engine”, or any other trademarks, service marks, logos or trade names belonging 
     to TeamDev Ltd or TDM. Licensee agrees not to use any marks belonging to TeamDev Ltd. ot TDM 
     in or as part of the name of products based on the Framework.
 
 1. ## Term and Termination
+
     1. You may terminate this Agreement at any time by stopping using the Development Support.
     
     1. We have the right to terminate this agreement without penalty to us in case of your abuse 
@@ -225,6 +236,7 @@ related to TeamDev Ltd. software worldwide.
     “Trademarks” shall remain effective after the termination of this&nbsp;Agreement.
     
 1. ## General Provisions
+
     1. **Law**. The parties agree that this Agreement is governed by the laws of Republic of 
     Estonia and mutually consent to the exclusive jurisdiction and venue in the courts of 
     Tallinn, Estonia, and expressly disclaim the applicability of the laws of any other state 

@@ -3,6 +3,7 @@ title: Contributor License Agreement
 bodyclass: privacy contributor-agreement
 header_type: fixed-header
 url: /contributor-agreement
+customjs: js/pages/privacy.js
 lastmod: 2020-09-04
 ---
 
@@ -118,10 +119,11 @@ Contributions.
     
 1. ## Signing this Agreement.
 
-    **To sign the Contributor agreement as an individual developer, please fill out the 
-    following [form][individual-license-form].** 
+    To sign the Contributor agreement as an individual developer, please fill out the 
+    following [form][individual-license-form].
     
-    **To sign the Contributor agreement as a Company, please fill out the following [form][company-license-form].**
+    To sign the Contributor agreement as a Company, please fill out the following 
+    [form][company-license-form].
 
 [individual-license-form]: https://docs.google.com/forms/d/e/1FAIpQLSeE45wkS5mfehTfeo85EU1457PnuDpgrj10CyhJOwbgZyxQew/viewform
 [company-license-form]: https://docs.google.com/forms/d/e/1FAIpQLScpjZjJ_suMOFa7JdJwirizuGDErMbABjYAzEZjgy7br3etuQ/viewform
