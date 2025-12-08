@@ -8,4 +8,8 @@ dev_email: developers@spine.io
 sales_email: sales@spine.io
 privacy_email: privacy@teamdev.com
 
-discussion_group: https://groups.google.com/a/spine.io/g/discussion
+socials:
+  xtwitter: https://x.com/SpineEngine
+  stackoverflow: https://stackoverflow.com/tags/Spine-Event-Engine
+  github_discussions: https://github.com/orgs/SpineEventEngine/discussions
+  google_group_discussion: https://groups.google.com/a/spine.io/g/discussion
