@@ -1,7 +1,8 @@
 ---
 title: Spine Event Engine 1.0 is Out!
-description: >-
-  We are glad to announce the release of the first production-ready version of Spine Event Engine!<br><br>
+description: |
+  We are glad to announce the release of the first production-ready version of Spine Event Engine!
+
   What started as a dream tool concept to help us build event-driven applications, grew and evolved
   into a full-fledged CQRS/ES framework for cloud and enterprise.
 publishdate: 2019-08-21

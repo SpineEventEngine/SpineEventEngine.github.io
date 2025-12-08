@@ -65,6 +65,12 @@
       font-family: $main-serif-font;
       font-size: $article-font-size;
       line-height: $article-line-height;
+
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
 
     .read-more-btn {

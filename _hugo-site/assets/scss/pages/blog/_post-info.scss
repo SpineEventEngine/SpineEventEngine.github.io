@@ -25,10 +25,10 @@
  */
 
 .post-info {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 
   @media (max-width: $phone-xlarge) {
-    margin: 16px 0 8px;
+    margin-bottom: 16px;
   }
 
   .post-author,
@@ -36,6 +36,7 @@
     display: inline-block;
     font-size: 14px;
     line-height: 1.6;
+    margin: 0;
   }
 
   .date {

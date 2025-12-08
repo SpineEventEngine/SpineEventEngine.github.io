@@ -1,7 +1,8 @@
 ---
 title: Learning at DDD Europe 2020
-description: >-
-  What a great inspiration mixing in with the global DDD-crowd is!<br><br>
+description: |
+  What a great inspiration mixing in with the global DDD-crowd is!
+
   We have just come back from DDD Europe, having shared some experience of ours and full
   of new ideas for&nbsp;Spine.
 publishdate: 2020-02-08
