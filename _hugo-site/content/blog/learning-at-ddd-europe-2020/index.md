@@ -15,7 +15,7 @@ We have just come back from DDD Europe, having shared some experience of ours an
 of new ideas for Spine.
 
 ![Dmitry and Eric Evans](dmitry-and-eric-evans.webp)
-<p class="image-caption">Dmitriy Dashenkov learning some DDD wisdom at first hand from Eric Evans.</p>
+<p class="image-caption">Dmitriy Dashenkov learning some DDD wisdom at first hand from Eric&nbsp;Evans.</p>
 
 ![Context Mapping](yurii-doing-context-mapping.webp)
 <p class="image-caption">Yurii Serhiychuk doing Context Mapping with Michael Plöd at his workshop.</p>

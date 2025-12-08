@@ -24,8 +24,69 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "blog-container";
-@import "blog";
-@import "post-navigation";
-@import "post-info";
-@import "post";
+.post {
+  background-color: $body-light-gray-color;
+
+  @media (max-width: $phone-xlarge) {
+    background-color: white;
+  }
+
+  .post-wrapper {
+    padding-bottom: 56px;
+
+    h1 {
+      margin-bottom: 12px;
+    }
+
+    img {
+      margin-top: 16px;
+    }
+  }
+
+  .content-attribution {
+    color: $textColor;
+    font-size: 15px;
+    font-style: italic;
+    margin: 50px 0 30px;
+  }
+
+  .post-info {
+    margin-bottom: 16px;
+  }
+
+  .btn-back {
+    margin-top: 40px;
+
+    .link-back {
+      text-decoration: none !important;
+    }
+  }
+
+  .image-caption {
+    $caption-color: rgba(0, 0, 0, .54);
+    $caption-size: 15px;
+
+    text-align: center;
+    font-size: $caption-size !important;
+    line-height: 1.5 !important;
+    color: $caption-color;
+    margin-top: -8px;
+
+    @include breakpoint-min(lg-phone) {
+      margin-bottom: 32px;
+    }
+
+    &.left-aligned {
+      text-align: left;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $caption-color;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}

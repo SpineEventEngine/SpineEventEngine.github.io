@@ -86,7 +86,7 @@
           position: absolute;
           width: 11px;
           height: 12px;
-          background-image: url('../../../../../img/icons/small-blue-arrow.svg');
+          background-image: url('img/icons/small-blue-arrow.svg');
           top: 3px;
           margin-left: 6px;
         }
@@ -98,69 +98,6 @@
             top: 4px;
           }
         }
-      }
-    }
-  }
-}
-
-.post {
-  background-color: $body-light-gray-color;
-
-  @media (max-width: $phone-xlarge) {
-    background-color: white;
-  }
-
-  .post-wrapper {
-    padding-bottom: 56px;
-  }
-
-  .content-attribution {
-    color: $textColor;
-    font-size: 15px;
-    font-style: italic;
-    margin: 50px 0 30px;
-  }
-
-  h1 {
-    margin-bottom: 12px;
-  }
-
-  .post-info {
-    margin-bottom: 16px;
-  }
-
-  .btn-back {
-    margin-top: 40px;
-
-    .link-back {
-      text-decoration: none !important;
-    }
-  }
-
-  .image-caption {
-    $caption-color: rgba(0, 0, 0, .54);
-    $caption-size: 15px;
-
-    text-align: center;
-    font-size: $caption-size !important;
-    line-height: 1.5 !important;
-    color: $caption-color;
-    margin-top: -8px;
-
-    @include breakpoint-min(lg-phone) {
-      margin-bottom: 32px;
-    }
-
-    &.left-aligned {
-      text-align: left;
-    }
-
-    a {
-      text-decoration: underline;
-      color: $caption-color;
-
-      &:hover {
-        color: $text-color;
       }
     }
   }
