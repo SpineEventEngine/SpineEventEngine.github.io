@@ -24,17 +24,18 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "head/robots.html" . }}
-    {{ partial "head/title.html" . }}
-    {{ partial "head/seo.html" . }}
-    {{ partial "docs/head/code-theme.html" . }}
-    {{ partial "docs/head/favicon.html" . }}
-    {{ partial "head/stylesheet.html" . }}
-    {{ partial "scripts/head-scripts.html" . }}
-    {{ partial "head/opengraph.html" . }}
-    {{ partial "head/canonical.html" . }}
-</head>
+{{ $title := .Title | default site.Title }}
+{{ $description := .Description | default site.Params.description }}
+{{ $pageURL := cond (hugo.IsProduction) .Permalink .RelPermalink }}
+{{ $image := "img/spine-og.jpg" | absURL }}
+
+<meta name="twitter:card" content="summary"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="{{ $title }}"/>
+<meta property="og:description" content="{{ $description }}"/>
+<meta property="og:site_name" content="{{ site.Title }}"/>
+<meta property="og:url" content="{{ $pageURL }}"/>
+<meta property="og:image" content="{{ $image }}"/>
+<meta property="og:image:width" content="600"/>
+<meta property="og:image:height" content="300"/>
