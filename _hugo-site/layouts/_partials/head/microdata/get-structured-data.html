@@ -24,18 +24,43 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "head/robots.html" . }}
-    {{ partial "head/title.html" . }}
-    {{ partial "head/seo.html" . }}
-    {{ partial "docs/head/code-theme.html" . }}
-    {{ partial "docs/head/favicon.html" . }}
-    {{ partial "head/stylesheet.html" . }}
-    {{ partial "scripts/head-scripts.html" . }}
-    {{ partial "head/opengraph.html" . }}
-    {{ partial "head/microdata/structured-data.html" . }}
-    {{ partial "head/canonical.html" . }}
-</head>
+<!--
+Prepares the Structured Data about the page according to the Schema.org.
+Adds reviews and FAQs if they are present on the page.
+-->
+
+{{ $logoUrl := print site.BaseURL "img/spine-logo.svg" }}
+
+{{ $type := "Organization" }}
+{{ $images := slice $logoUrl }}
+{{ $name := site.Data.spine.full_name }}
+{{ $url := site.BaseURL }}
+{{ $logo := $logoUrl }}
+{{ $emails := partial "head/microdata/get-emails.html" . }}
+{{ $addresses := partial "head/microdata/get-address.html" . }}
+{{ $socials := partial "head/microdata/get-socials.html" . }}
+{{ $faqs := partial "head/microdata/get-faqs.html" . }}
+
+{{ $result := (dict
+    "@context" "https://schema.org/"
+    "@type" $type
+    "image" $images
+    "name" $name
+    "url" $url
+    "logo" $logo
+    "email" $emails
+    "address" $addresses
+    "sameAs" $socials
+) }}
+
+{{ with $faqs }}
+    {{ $faqEntity := (dict
+        "mainEntity" (dict
+            "@type" "FAQPage"
+            "mainEntity" $faqs
+        )
+    ) }}
+    {{ $result = merge $result $faqEntity }}
+{{ end }}
+
+{{ return $result }}

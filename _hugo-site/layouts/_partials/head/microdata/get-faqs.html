@@ -24,18 +24,40 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "head/robots.html" . }}
-    {{ partial "head/title.html" . }}
-    {{ partial "head/seo.html" . }}
-    {{ partial "docs/head/code-theme.html" . }}
-    {{ partial "docs/head/favicon.html" . }}
-    {{ partial "head/stylesheet.html" . }}
-    {{ partial "scripts/head-scripts.html" . }}
-    {{ partial "head/opengraph.html" . }}
-    {{ partial "head/microdata/structured-data.html" . }}
-    {{ partial "head/canonical.html" . }}
-</head>
+<!--
+Returns an array of FAQs for pages that has `faq.json` resource file
+according to the Schema.org requirements.
+-->
+
+{{ $context := . }}
+{{ $faqs := slice }}
+{{ $data := .Resources.GetMatch "faq.json" }}
+{{ with $data }}
+    {{ $data = .Content | unmarshal }}
+    {{ range $data.faq }}
+        {{ $name := replace .question "&nbsp;" " " }}
+        {{ $answer := "" }}
+
+        {{ if hasPrefix .answer "{" }}
+            {{ $answerFile := .answer | strings.TrimPrefix "{" | strings.TrimSuffix "}" }}
+            {{ $answerFile = print "faq/" $answerFile }}
+            {{ with $context.Page.GetPage $answerFile }}
+                {{ $answer = replace .RawContent "&nbsp;" " " }}
+            {{ end }}
+        {{ else }}
+            {{ $answer = replace .answer "&nbsp;" " " }}
+        {{ end }}
+
+        {{ $faq := (dict
+            "@type" "Question"
+            "name" $name
+            "acceptedAnswer" (dict
+                "@type" "Answer"
+                "text" $answer
+            )
+        ) }}
+        {{ $faqs = $faqs | append $faq }}
+    {{ end }}
+{{ end }}
+
+{{ return $faqs }}
