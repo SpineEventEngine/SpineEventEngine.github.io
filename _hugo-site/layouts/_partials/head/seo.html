@@ -24,14 +24,5 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "head/robots.html" . }}
-    {{ partial "head/title.html" . }}
-    {{ partial "head/seo.html" . }}
-    {{ partial "docs/head/code-theme.html" . }}
-    {{ partial "head/stylesheet.html" . }}
-    {{ partial "scripts/head-scripts.html" . }}
-</head>
+{{ $pageDescription := .Description | default site.Params.description }}
+<meta name="description" content="{{ $pageDescription }}"/>
