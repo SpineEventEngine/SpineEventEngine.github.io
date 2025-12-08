@@ -24,20 +24,16 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $postUrl := .RelPermalink }}
-{{ $postId := path.Base .File.Dir }}
+{{ $posts := partial "blog/functions/filter-posts.html" . }}
 
-<article class="article-container post-tile" id="{{ $postId }}">
-    <h2 class="post-title">
-        <a href="{{ $postUrl }}">{{ .Title }}</a>
-    </h2>
-    {{ partial "blog/post-info.html" (dict
-        "context" .
-    ) }}
-    <div class="post-excerpt">
-        {{ .Params.description | markdownify }}
-    </div>
-    <div class="read-more-btn">
-        <a href="{{ $postUrl }}">Read more</a>
-    </div>
-</article>
+<nav class="post-navigation">
+    <ul>
+        <li class="post-nav-header">Blog posts</li>
+        {{ range $posts }}
+            {{ $postId := path.Base .File.Dir }}
+            <li>
+                <a href="#{{ $postId }}">{{ .Title | markdownify }}</a>
+            </li>
+        {{ end }}
+    </ul>
+</nav>

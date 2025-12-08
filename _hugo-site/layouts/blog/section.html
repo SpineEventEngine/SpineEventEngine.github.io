@@ -2,15 +2,13 @@
     {{ partial "components/navbar/navbar.html" . }}
     {{ partial "components/nav-hero.html" . }}
     <div class="container-fluid content-holder blog-container">
-        <div class="row">
-            <div class="col-lg">
+        <div class="content-columns two-column">
+            <div class="content-col">
                 {{ partial "blog/post-board.html" . }}
             </div>
-            <div class="col-lg toc-col sticky-col">
+            <div class="sticky-col">
                 <div class="set-max-height">
-                    <div class="interactive-toc">
-                        {{ .TableOfContents }}
-                    </div>
+                    {{ partial "blog/post-nav.html" . }}
                 </div>
             </div>
         </div>

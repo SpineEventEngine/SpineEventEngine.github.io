@@ -1,0 +1,37 @@
+{{- /*
+Renders the image based on the provided image path.
+
+The path can be provided in different ways:
+
+- From the `static` folder:
+  ![Image alt](images/case-studies/challenge.svg)
+
+- From any folder inside the `content` directory:
+  ![Image alt](/dotnetbrowser/case-studies/mirabyte/museum-touch-screen.webp)
+
+- From the current page folder:
+  ![Image alt](museum-touch-screen.webp)
+
+By default, each image will be rendered with `lazy` loading.
+To change this, add `"loading=eager"` as follows:
+![Image alt](museum-touch-screen.webp "loading=eager")
+*/ -}}
+
+{{ $link := .Destination }}
+{{ $loading := "lazy" }}
+
+{{ if not (strings.HasPrefix $link "/") }}
+    {{ $cleanedLink := replaceRE "#.*$" "" $link }}
+    {{ with .Page.Resources.GetMatch $cleanedLink }}
+        {{ $link = .RelPermalink }}
+    {{ else }}
+        {{ $link = $link | relURL }}
+    {{ end }}
+{{ end }}
+
+{{ if (eq .Title "loading=eager") }}
+    {{ $loading = "eager" }}
+{{ end }}
+
+<img src="{{ $link }}" alt="{{ .Text }}" loading="{{ $loading }}"/>
+{{- /* Strip trailing newline. */ -}}
