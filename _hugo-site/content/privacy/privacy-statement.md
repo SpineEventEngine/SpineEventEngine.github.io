@@ -89,32 +89,32 @@ business functions like billing, emailing, business process organization, etc.
 Here is our vendor list
 
 <div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Company</th>
-<th>Type of Service</th>
-<th>Privacy Policy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2Checkout</td>
-<td>Payment processing</td>
-<td><a href="https://www.2checkout.com/legal/privacy/" target="_blank">https://www.2checkout.com/legal/privacy/</a></td>
-</tr>
-<tr>
-<td>Copper</td>
-<td>Client Management</td>
-<td><a href="https://www.copper.com/privacy" target="_blank">https://www.copper.com/privacy</a></td>
-</tr>
-<tr>
-<td>G Suite</td>
-<td>Business processes organization</td>
-<td><a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></td>
-</tr>
-</tbody>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Type of Service</th>
+                <th>Privacy Policy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2Checkout</td>
+                <td>Payment processing</td>
+                <td><a href="https://www.2checkout.com/legal/privacy/" target="_blank" class="external-link">https://www.2checkout.com/legal/privacy/</a></td>
+            </tr>
+            <tr>
+                <td>Copper</td>
+                <td>Client Management</td>
+                <td><a href="https://www.copper.com/privacy" target="_blank" class="external-link">https://www.copper.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>G Suite</td>
+                <td>Business processes organization</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" class="external-link">https://policies.google.com/privacy</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 We do not sell or rent your personal information to other companies.

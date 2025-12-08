@@ -251,4 +251,4 @@ related to TeamDev Ltd. software worldwide.
     
     1. **Notices**. By providing us your email address you consent to our using the email address 
     to send you notices related to the services provided under this Agreement, including any 
-    notices required by law, in lieu of communication by postal mail.
+    notices required by law, in lieu of communication by postal&nbsp;mail.

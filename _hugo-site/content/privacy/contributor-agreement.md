@@ -67,7 +67,7 @@ Contributions.
     patent infringement, then any patent licenses granted to that entity under this Agreement for 
     that Contribution or Framework shall terminate as of the date such litigation is filed.
 
-1. ## Representations of Legibility to Grant the License.
+1. ## Representations of Legibility to Grant the&nbsp;License.
 
     You represent that you are legally entitled to grant the above license. If your employer(s) 
     has rights to intellectual property that you create that includes your Contributions, you 
