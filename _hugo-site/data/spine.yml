@@ -6,6 +6,7 @@ github_organization: SpineEventEngine
 
 dev_email: developers@spine.io
 sales_email: sales@spine.io
+# TODO:2025-12-09:julia.evseeva: Change the email to `privacy@spine.io` once it is created.
 privacy_email: privacy@teamdev.com
 
 discussion_group: https://groups.google.com/a/spine.io/g/discussion
