@@ -26,13 +26,11 @@
 
 {{ $data := site.Data.spine }}
 
-{{ $spineDevEmail := $data.spine_dev_email }}
 {{ $devEmail := $data.dev_email }}
 {{ $salesEmail := $data.sales_email }}
 {{ $privacyEmail := $data.privacy_email }}
 
 {{ $emails := slice
-    $spineDevEmail
     $devEmail
     $salesEmail
     $privacyEmail
