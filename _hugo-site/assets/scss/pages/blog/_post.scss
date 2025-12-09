@@ -24,40 +24,69 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+.post {
+  background-color: $body-light-gray-color;
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+  @media (max-width: $phone-xlarge) {
+    background-color: white;
+  }
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
+  .post-wrapper {
+    padding-bottom: 56px;
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
-@import "modules/redirect-screen";
-@import "modules/loader";
+    h1 {
+      margin-bottom: 12px;
+    }
 
-@import "pages/landing";
+    img {
+      margin-top: 16px;
+    }
+  }
 
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
+  .content-attribution {
+    color: $textColor;
+    font-size: 15px;
+    font-style: italic;
+    margin: 50px 0 30px;
+  }
 
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
-@import "pages/faq";
-@import "pages/getting-help";
-@import "pages/about";
-@import "pages/licenses";
-@import "pages/privacy";
-@import "pages/blog";
+  .post-info {
+    margin-bottom: 16px;
+  }
+
+  .btn-back {
+    margin-top: 40px;
+
+    .link-back {
+      text-decoration: none !important;
+    }
+  }
+
+  .image-caption {
+    $caption-color: rgba(0, 0, 0, .54);
+    $caption-size: 15px;
+
+    text-align: center;
+    font-size: $caption-size !important;
+    line-height: 1.5 !important;
+    color: $caption-color;
+    margin-top: -8px;
+
+    @include breakpoint-min(lg-phone) {
+      margin-bottom: 32px;
+    }
+
+    &.left-aligned {
+      text-align: left;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $caption-color;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}

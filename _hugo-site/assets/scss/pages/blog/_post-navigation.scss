@@ -24,40 +24,47 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+.post-navigation {
+  $nav-item-font-size: 12px;
+  $nav-item-color: $gray-700;
+  $nav-item-active-color: $main-brand-color;
+  $nav-item-line-height: 1.5;
+  $nav-item-bottom-space: 12px;
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+  margin-left: 24px;
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
+  .post-nav-header {
+    font-size: $nav-item-font-size;
+    color: rgba(0, 0, 0, .38);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 24px 0 16px;
+  }
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
-@import "modules/redirect-screen";
-@import "modules/loader";
+  ul {
+    list-style: none;
+    margin-bottom: $nav-item-bottom-space;
 
-@import "pages/landing";
+    li {
+      font-size: $nav-item-font-size;
+      margin-bottom: $nav-item-bottom-space;
+      line-height: $nav-item-line-height;
 
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
+      a {
+        text-decoration: none;
+        color: $nav-item-color;
+        font-weight: 400;
+        padding-right: 6px;
 
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
-@import "pages/faq";
-@import "pages/getting-help";
-@import "pages/about";
-@import "pages/licenses";
-@import "pages/privacy";
-@import "pages/blog";
+        &:hover {
+          color: $nav-item-active-color;
+        }
+
+        &.current {
+          color: $nav-item-active-color;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" . }}
+    <section>
+        <div class="container-fluid content-holder content-with-fixed-header">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <article class="article-container article-text post-wrapper">
+                        <h1>{{ .Title }}</h1>
+                        {{ partial "blog/post-info.html" (dict
+                            "context" .
+                            "has_label" true
+                        ) }}
+                        {{ .Content }}
+                        {{ $postId := path.Base .File.Dir }}
+                        {{ $backUrl := print "blog/#" $postId }}
+                        <div class="btn-back">
+                            <a class="link-back"
+                               href="{{ $backUrl | relURL }}">
+                                <span>Back to Blog</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ partial "components/go-top-button.html" . }}
+{{ end }}

@@ -24,40 +24,26 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+.post-info {
+  margin-bottom: 20px;
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+  @media (max-width: $phone-xlarge) {
+    margin-bottom: 16px;
+  }
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
+  .post-author,
+  .date {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
-@import "modules/redirect-screen";
-@import "modules/loader";
+  .date {
+    color: $gray-300;
+  }
 
-@import "pages/landing";
-
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
-
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
-@import "pages/faq";
-@import "pages/getting-help";
-@import "pages/about";
-@import "pages/licenses";
-@import "pages/privacy";
-@import "pages/blog";
+  .post-author {
+    color: $textColor;
+  }
+}
