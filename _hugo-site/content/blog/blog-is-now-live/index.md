@@ -14,6 +14,6 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
 The plan is to do this on a regular basis, so stay tuned.
 
 Your feedback and questions are welcome at
-[@SpineEngine][xtwitter] or {{< cloakemail address_variable="spine.spine_dev_email" >}}.
+[@SpineEngine][xtwitter] or {{< cloakemail address_variable="spine.dev_email" >}}.
 
 [xtwitter]: https://x.com/SpineEngine
