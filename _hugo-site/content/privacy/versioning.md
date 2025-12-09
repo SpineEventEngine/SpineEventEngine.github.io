@@ -1,7 +1,7 @@
 ---
 title: Versioning Policy
-headline: Versioning Policy
 header_type: fixed-header
+url: /versioning
 ---
 
 # Versioning Policy

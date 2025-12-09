@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,39 +24,20 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+'use strict';
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
+$(function () {
+    const isPrivacy = $('body').hasClass('privacy');
+    if (!isPrivacy) return;
 
-@import "base/mixins";
-@import "base/colors";
-@import "base/override";
-@import "base/common";
-@import "base/text";
+    markTitleListItems();
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
-@import "modules/redirect-screen";
-@import "modules/loader";
-
-@import "pages/landing";
-
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
-
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
-@import "pages/faq";
-@import "pages/getting-help";
-@import "pages/about";
-@import "pages/licenses";
-@import "pages/privacy";
+    /**
+     * Marks a numbered `<li>` item that contains an `<h2>`.
+     *
+     * <p>This helps to style the number before the title.
+     */
+    function markTitleListItems() {
+        $('ol li:has(h2)').addClass('title-list-item');
+    }
+});
