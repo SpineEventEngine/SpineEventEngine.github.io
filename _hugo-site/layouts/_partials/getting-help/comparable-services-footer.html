@@ -24,6 +24,15 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
+<!--
+The component renders two columns of actions.
+
+The first column includes the price, agreement checkboxes, and a button to 2Checkout.
+The second includes the mailto button.
+
+Each column will be displayed inside its own comparable card.
+-->
+
 <div class="card-cell footer-cell">
     <div class="action-block">
         <div class="pricing-block">
@@ -55,10 +64,11 @@
                 <span class="checkmark"></span>
             </label>
         </div>
-        <!-- The tooltip is managing in the `js/pages/pricing.js`. -->
+        <!-- The tooltip visibility is managed in the `js/pages/pricing.js`. -->
         <div class="pricing-btn-holder"
              data-bs-toggle="tooltip"
-             data-bs-placement="bottom">
+             data-bs-placement="bottom"
+             data-bs-title="Read and agree to the terms to&nbsp;continue.">
             <button class="btn btn-bordered-blue pricing-btn order-btn disabled"
                     id="order-now-btn"
                     disabled>Order Now</button>

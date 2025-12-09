@@ -69,14 +69,12 @@ $(
         const $errorContainer = $redirectScreen.find('.redirect-error');
         const $linkBack = $redirectScreen.find('#linkBack');
         const $consentCheckboxes = $("input[type='checkbox'].consent");
-        const disabledBtnTitle = 'Read and agree to the terms to\xA0continue.';
 
         const reCaptchaSiteKey = params.payment.recaptchakey;
         const orderUrl = params.payment.orderurl;
         const apiUrl = params.payment.apiurl;
 
-        $orderButtonHolder.attr('data-bs-title', disabledBtnTitle);
-        $orderButtonHolder.tooltip();
+        $orderButtonHolder.tooltip('enable');
 
         $consentCheckboxes.change(() => {
             changeElementState($orderButtonHolder, isConsentObtained());
