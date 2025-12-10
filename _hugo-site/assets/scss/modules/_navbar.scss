@@ -27,7 +27,6 @@
 // `$navbar-mobile-breakpoint` is a screen size on which the mobile navigation will be shown.
 // The variable is used in the `_nav-search.scss` file.
 $navbar-mobile-breakpoint: 800px;
-$navbar-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
 
 .navigation-opened {
   @include breakpoint($navbar-mobile-breakpoint) {
@@ -53,7 +52,7 @@ $navbar-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
     position: fixed;
     height: $header-height;
     background-image: $nav-blue-gradient;
-    box-shadow: $navbar-box-shadow;
+    box-shadow: $navbar-shadow;
 
     &.not-top {
       &.pinned {
@@ -238,7 +237,7 @@ $navbar-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
 
     &.pinned {
       transform: translateY(-100%);
-      box-shadow: $navbar-box-shadow;
+      box-shadow: $navbar-shadow;
       animation: slideDownNav .4s .2s ease-in-out forwards;
     }
 

@@ -83,7 +83,7 @@ export function initStickyNavbar() {
      */
     function getPinnedNavbarPosition() {
         const heroHeight = $('#hero').innerHeight();
-        const baseOffset = heroHeight || navbarHeight || 64;
+        const baseOffset = heroHeight || navbarHeight || 68;
 
         return baseOffset;
     }

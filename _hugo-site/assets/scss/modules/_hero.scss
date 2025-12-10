@@ -29,6 +29,10 @@
   position: relative;
   padding-bottom: 12px;
 
+  &:not(.home-hero) {
+    box-shadow: $navbar-shadow;
+  }
+
   &.home-hero {
     @media(max-width: $phone-medium) {
       height: 100vh;
