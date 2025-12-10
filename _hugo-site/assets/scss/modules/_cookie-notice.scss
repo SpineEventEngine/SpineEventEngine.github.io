@@ -1,0 +1,129 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$cookie-bg-color: rgba($dark-color, .97);
+$cookie-height: 200px; // Approximate height for maximum text content.
+$cookie-padding: 12px;
+$cookie-text-color: rgba(white, .7);
+$cookie-link-color: #5dc4ff;
+$cookie-font-size: 13px;
+$cookie-btn-border-radius: 2px;
+$cookie-btn-min-width: 130px;
+$cookie-box-shadow:
+    0 -1px 14px 0 rgba(black, .06),
+    0 -1px 2px 0 rgba(black, .04),
+    0 -5px 15px 0 rgba(black, .04);
+
+#cookie-notice {
+  display: none;
+  position: fixed;
+  background-color: $cookie-bg-color;
+  left: 0;
+  right: 0;
+  bottom: -$cookie-height;
+  transition: background .16s ease-in;
+  box-shadow: $cookie-box-shadow;
+  transform: translateZ(0);
+  animation: slideUpCookieNotice .6s 1s ease-in forwards;
+  z-index: map-get($z-index, 'cookie-notice');
+
+  &.active {
+    display: block;
+  }
+
+  .cookie-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $cookie-padding 24px;
+  }
+
+  .cookie-text {
+    color: $cookie-text-color;
+    font-size: $cookie-font-size;
+    line-height: 1.5;
+    letter-spacing: .6px;
+    cursor: default;
+
+    a {
+      text-decoration: none;
+      color: $cookie-link-color;
+      border-bottom: 1px solid rgba($cookie-link-color, .7);
+
+      &:hover {
+        color: $mainBrandColor;
+        border-bottom-color: $mainBrandColor;
+      }
+    }
+
+    @include breakpoint(tablet) {
+      br {
+        content: "";
+
+        &:after {
+          content: " ";
+        }
+      }
+    }
+
+    @include breakpoint(xmd-phone) {
+      padding-right: $cookie-btn-min-width + 16px;
+    }
+  }
+
+  .agree-btn {
+    background-color: $mainBrandColor;
+    color: white;
+    font-weight: 500;
+    border-radius: $cookie-btn-border-radius;
+    letter-spacing: 1px;
+    margin: 0 0 0 24px;
+    padding: 10px 24px;
+
+    @include breakpoint(xmd-phone) {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 16px;
+      border-radius: 0;
+    }
+
+    .btn-label {
+      white-space: nowrap;
+    }
+  }
+
+  @keyframes slideUpCookieNotice {
+    100% {
+      bottom: 0;
+    }
+  }
+}
