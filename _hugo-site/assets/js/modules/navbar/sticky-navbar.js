@@ -26,27 +26,90 @@
 
 'use strict';
 
-const $header = $('#header');
-const headerHeight = $header.innerHeight();
-const stickyClasses = 'not-top pinned';
-
-export function initStickyNavbar() {
-    stickNavbar();
-
-    $(window).on('scroll', function() {
-        stickNavbar();
-    });
-}
-
 /**
- * Makes the navbar sticky on window scroll.
+ * Makes the navbar sticky when the user scrolls the page.
  */
-function stickNavbar() {
-    if (!$header) return;
+export function initStickyNavbar() {
+    const $navbar = $('#header');
+    const isFixedNavbar = $navbar.hasClass('fixed-navbar');
 
-    if (window.scrollY > headerHeight) {
-        $header.addClass(stickyClasses);
-    } else {
-        $header.removeClass(stickyClasses);
+    if (!$navbar && isFixedNavbar) return;
+
+    const navbarHeight = $navbar.innerHeight();
+    const pinnedNavbarPosition = getPinnedNavbarPosition();
+
+    // When scroll position not at the top of the page.
+    const notTopClass = 'not-top';
+
+    // When the navbar is pinned.
+    const pinnedClass = 'pinned';
+
+    // When the navbar is unpinned.
+    const unpinnedClass = 'unpinned';
+
+    configureNavbarClasses();
+
+    $(window).on('scroll resize', function() {
+        configureNavbarClasses();
+    });
+
+    /**
+     * Configures the navbar classes depending on the scroll position.
+     *
+     * <li>If the scroll is at the top, no additional classes are added.</li>
+     * <li>If the scroll is at the `pinnedNavbarPosition`, the navbar
+     * will be pinned.</li>
+     * <li>If it is not at the top and before the `pinnedNavbarPosition`,
+     * the navbar will be unpinned.</li>
+     *
+     * <p>Classes are managed in the `assets/scss/modules/_navbar.scss` file.
+     */
+    function configureNavbarClasses() {
+        const scrollPosition = window.scrollY;
+        const isPinned = scrollPosition > pinnedNavbarPosition;
+        const isAtTop = scrollPosition < navbarHeight;
+        
+        if (isAtTop) {
+            resetNavbar();
+        } else if (isPinned) {
+            pinNavbar();
+        } else {
+            unpinNavbar();
+        }
+    }
+
+    /**
+     * Calculates the scroll position at which the navbar becomes pinned (sticky).
+     */
+    function getPinnedNavbarPosition() {
+        const heroHeight = $('#hero').innerHeight();
+        const baseOffset = heroHeight || navbarHeight || 64;
+
+        return baseOffset;
+    }
+
+    /**
+     * Adds corresponding classes that pins the navbar.
+     */
+    function pinNavbar() {
+        $navbar.addClass(notTopClass);
+        $navbar.addClass(pinnedClass);
+        $navbar.removeClass(unpinnedClass);
+    }
+
+    /**
+     * Adds corresponding classes that unpins the navbar.
+     */
+    function unpinNavbar() {
+        $navbar.removeClass(pinnedClass);
+        $navbar.addClass(unpinnedClass);
+    }
+
+    /**
+     * Resets navbar classes to the initial state.
+     */
+    function resetNavbar() {
+        $navbar.removeClass(notTopClass);
+        $navbar.removeClass(unpinnedClass);
     }
 }
