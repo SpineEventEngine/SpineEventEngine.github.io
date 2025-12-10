@@ -19,8 +19,8 @@
     {
       "title": "Ask Community",
       "content": [
-        "Look up for answers or post your questions under [Spine-Event-Engine](https://stackoverflow.com/tags/Spine-Event-Engine) tag on Stack&nbsp;Overflow.",
-        "Discuss your issues in the [mailing list]({{% get-site-data \"spine.discussion_group\" %}})."
+        "Look up for answers or post your questions under [Spine-Event-Engine]({{% get-site-data \"spine.socials.stackoverflow\" %}}) tag on Stack&nbsp;Overflow.",
+        "Discuss your issues in the [mailing list]({{% get-site-data \"spine.socials.google_group_discussion\" %}})."
       ]
     }
   ]

@@ -24,15 +24,43 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="subscribe-container">
-    <div class="follow-icon">
-        {{ readFile "static/img/icons/icon-xtwitter.svg" | safeHTML }}
-    </div>
-    <p class="follow-text">
-        Follow
-        <a class="external-link"
-           href="{{ site.Data.spine.socials.xtwitter }}"
-           target="_blank"
-           rel="nofollow noopener">@SpineEngine</a>
-        to&nbsp;get notified of the framework&nbsp;updates.</p>
-</div>
+<!--
+Prepares the Structured Data about the page according to the Schema.org.
+Adds reviews and FAQs if they are present on the page.
+-->
+
+{{ $logoUrl := print site.BaseURL "img/spine-logo.svg" }}
+
+{{ $type := "Organization" }}
+{{ $images := slice $logoUrl }}
+{{ $name := site.Data.spine.full_name }}
+{{ $url := site.BaseURL }}
+{{ $logo := $logoUrl }}
+{{ $emails := partial "head/microdata/get-emails.html" . }}
+{{ $addresses := partial "head/microdata/get-address.html" . }}
+{{ $socials := partial "head/microdata/get-socials.html" . }}
+{{ $faqs := partial "head/microdata/get-faqs.html" . }}
+
+{{ $result := (dict
+    "@context" "https://schema.org/"
+    "@type" $type
+    "image" $images
+    "name" $name
+    "url" $url
+    "logo" $logo
+    "email" $emails
+    "address" $addresses
+    "sameAs" $socials
+) }}
+
+{{ with $faqs }}
+    {{ $faqEntity := (dict
+        "mainEntity" (dict
+            "@type" "FAQPage"
+            "mainEntity" $faqs
+        )
+    ) }}
+    {{ $result = merge $result $faqEntity }}
+{{ end }}
+
+{{ return $result }}

@@ -24,15 +24,40 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="subscribe-container">
-    <div class="follow-icon">
-        {{ readFile "static/img/icons/icon-xtwitter.svg" | safeHTML }}
-    </div>
-    <p class="follow-text">
-        Follow
-        <a class="external-link"
-           href="{{ site.Data.spine.socials.xtwitter }}"
-           target="_blank"
-           rel="nofollow noopener">@SpineEngine</a>
-        to&nbsp;get notified of the framework&nbsp;updates.</p>
-</div>
+<!--
+Returns an array of FAQs for pages that has `faq.json` resource file
+according to the Schema.org requirements.
+-->
+
+{{ $context := . }}
+{{ $faqs := slice }}
+{{ $data := .Resources.GetMatch "faq.json" }}
+{{ with $data }}
+    {{ $data = .Content | unmarshal }}
+    {{ range $data.faq }}
+        {{ $name := replace .question "&nbsp;" " " }}
+        {{ $answer := "" }}
+
+        {{ if hasPrefix .answer "{" }}
+            {{ $answerFile := .answer | strings.TrimPrefix "{" | strings.TrimSuffix "}" }}
+            {{ $answerFile = print "faq/" $answerFile }}
+            {{ with $context.Page.GetPage $answerFile }}
+                {{ $answer = replace .RawContent "&nbsp;" " " }}
+            {{ end }}
+        {{ else }}
+            {{ $answer = replace .answer "&nbsp;" " " }}
+        {{ end }}
+
+        {{ $faq := (dict
+            "@type" "Question"
+            "name" $name
+            "acceptedAnswer" (dict
+                "@type" "Answer"
+                "text" $answer
+            )
+        ) }}
+        {{ $faqs = $faqs | append $faq }}
+    {{ end }}
+{{ end }}
+
+{{ return $faqs }}

@@ -24,15 +24,11 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<div class="subscribe-container">
-    <div class="follow-icon">
-        {{ readFile "static/img/icons/icon-xtwitter.svg" | safeHTML }}
-    </div>
-    <p class="follow-text">
-        Follow
-        <a class="external-link"
-           href="{{ site.Data.spine.socials.xtwitter }}"
-           target="_blank"
-           rel="nofollow noopener">@SpineEngine</a>
-        to&nbsp;get notified of the framework&nbsp;updates.</p>
-</div>
+{{ $data := site.Data.spine.socials }}
+
+{{ $socials := slice
+    $data.github_discussions
+    $data.xtwitter
+}}
+
+{{ return $socials }}

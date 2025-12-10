@@ -46,16 +46,17 @@
             </div>
             <ul class="footer-nav-list collapse" id="{{ $columnId }}">
                 {{ range $column.links }}
+                    {{ $url := partial "functions/parse-shortcode.html" .url }}
                     {{ if .icon_name }}
                         <li>
-                            <a href="{{ .url }}"
+                            <a href="{{ $url }}"
                                target="_blank"
                                rel="nofollow noopener">
                                 <p class="{{ .icon_name }} community-links">{{ .name }}</p>
                             </a>
                         </li>
                     {{ else }}
-                        <li><p><a href="{{ .url | relURL }}">{{ .name }}</a></p></li>
+                        <li><p><a href="{{ $url | relURL }}">{{ .name }}</a></p></li>
                     {{ end }}
                 {{ end }}
             </ul>

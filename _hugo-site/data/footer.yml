@@ -26,7 +26,7 @@ columns:
     links:
       - name: GitHub
         icon_name: icon-github
-        url: https://github.com/orgs/SpineEventEngine/discussions
+        url: '{{< get-site-data "spine.socials.github_discussions" >}}'
       - name: X
         icon_name: icon-xtwitter
-        url: https://x.com/SpineEngine
+        url: '{{< get-site-data "spine.socials.xtwitter" >}}'

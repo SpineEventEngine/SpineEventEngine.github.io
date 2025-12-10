@@ -16,4 +16,4 @@ The plan is to do this on a regular basis, so stay tuned.
 Your feedback and questions are welcome at
 [@SpineEngine][xtwitter] or {{< cloakemail address_variable="spine.dev_email" >}}.
 
-[xtwitter]: https://x.com/SpineEngine
+[xtwitter]: {{% get-site-data "spine.socials.xtwitter" %}}

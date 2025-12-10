@@ -9,6 +9,9 @@ title = 'Spine Event Engine'
   [[module.imports]]
     path = 'github.com/TeamDev-Ltd/site-commons'
 
+[params]
+  description = 'Open-source CQRS/ES framework for modern cloud applications'
+
 [params.payment]
   apiURL = 'https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction'
   orderURL = 'https://secure.2checkout.com/checkout/buy?merchant=999999999589&currency=EUR&tpl=default&prod=4HJME1JJDF&qty=1'
