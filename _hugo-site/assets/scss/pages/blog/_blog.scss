@@ -55,7 +55,7 @@
 
         &:hover {
           text-decoration: none;
-          color: $mainBrandColor;
+          color: $main-brand-color;
         }
       }
     }
@@ -84,7 +84,7 @@
         position: relative;
         font-size: 14px;
         font-weight: 700;
-        color: $mainBrandColor;
+        color: $main-brand-color;
 
         &:after {
           content: '';

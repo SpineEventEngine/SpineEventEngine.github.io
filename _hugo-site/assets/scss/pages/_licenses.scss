@@ -30,8 +30,8 @@ $open-panel-padding-mobile: 0 0 24px;
 $inner-content-offset: 56px;
 $inner-content-offset-mobile: 40px;
 $panel-border-radius: $border-radius-m;
-$panel-active-color: rgba($mainBrandColor, .09);
-$panel-hover-color: rgba($mainBrandColor, .04);
+$panel-active-color: rgba($main-brand-color, .09);
+$panel-hover-color: rgba($main-brand-color, .04);
 
 .licenses-list {
   margin: 40px 0 64px;
@@ -61,7 +61,7 @@ $panel-hover-color: rgba($mainBrandColor, .04);
   .collapsible-panel-title {
     display: block;
     padding: $panel-padding;
-    border-bottom-color: $dividerColor; // Fixes border blinking.
+    border-bottom-color: $divider-color; // Fixes border blinking.
     border-style: none;
     border-radius: $panel-border-radius $panel-border-radius 0 0;
     background-color: $panel-active-color;

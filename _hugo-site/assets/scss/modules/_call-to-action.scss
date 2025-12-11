@@ -58,9 +58,9 @@
 
     &:hover, &:focus {
       color: white;
-      background-color: rgba($lightBlueColor, .2);
-      border: 1px solid $lightBlueColor;
-      box-shadow: 0 5px 20px 0 rgba($footerColor, .28);
+      background-color: rgba($link-blue-color, .2);
+      border: 1px solid $link-blue-color;
+      box-shadow: 0 5px 20px 0 rgba($footer-color, .28);
     }
   }
 

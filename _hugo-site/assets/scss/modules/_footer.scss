@@ -32,8 +32,8 @@ $icon-border-color: #7e8183;
 $footer-icon-size: 34px;
 
 footer {
-  background-color: $footerColor;
-  box-shadow: 0 500px 0 500px $footerColor;
+  background-color: $footer-color;
+  box-shadow: 0 500px 0 500px $footer-color;
   color: $white;
   overflow: hidden;
   padding: 40px 0 0;
@@ -65,7 +65,7 @@ footer {
     &:hover {
       color: $white;
       padding-bottom: 2px;
-      border-bottom-color: $lightBlueColor;
+      border-bottom-color: $link-blue-color;
       text-decoration: none;
     }
 
@@ -94,7 +94,7 @@ footer {
   }
 
   .left-links {
-    color: $footerText;
+    color: $footer-text;
     display: block;
     text-align: left;
     width: 88%;

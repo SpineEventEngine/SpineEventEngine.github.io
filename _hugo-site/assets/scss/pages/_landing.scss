@@ -95,7 +95,7 @@
     object-fit: contain;
     object-position: top;
     border-radius: 6px;
-    @include box-shadow(0 12px 20px 0 rgba($footerColor, .12));
+    @include box-shadow(0 12px 20px 0 rgba($footer-color, .12));
 
     @media (max-width: $desktop-small) {
       display: block;

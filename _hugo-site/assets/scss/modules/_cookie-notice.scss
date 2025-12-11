@@ -75,8 +75,8 @@ $cookie-box-shadow:
       border-bottom: 1px solid rgba($cookie-link-color, .7);
 
       &:hover {
-        color: $mainBrandColor;
-        border-bottom-color: $mainBrandColor;
+        color: $main-brand-color;
+        border-bottom-color: $main-brand-color;
       }
     }
 
@@ -96,7 +96,7 @@ $cookie-box-shadow:
   }
 
   .agree-btn {
-    background-color: $mainBrandColor;
+    background-color: $main-brand-color;
     color: white;
     font-weight: 500;
     border-radius: $cookie-btn-border-radius;

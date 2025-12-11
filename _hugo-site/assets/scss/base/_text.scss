@@ -83,14 +83,14 @@ h6 {
 
 p {
   font-size: $font-size--xs;
-  color: $textColor;
+  color: $text-color;
   font-weight: 400;
   line-height: 1.6;
   margin-bottom: 16px;
 
   &.lead {
     font-size: 1.5rem;
-    color: $textColor;
+    color: $text-color;
     line-height: 1.5;
     padding-top: 8px;
     margin-bottom: 32px;
@@ -98,7 +98,7 @@ p {
 
   &.note {
     background-color: $note-bg-color;
-    border-left: 4px solid $mainBrandColor;
+    border-left: 4px solid $main-brand-color;
     padding: 12px 24px 13px;
     color: $black;
     font-size: 15px;
@@ -114,7 +114,7 @@ p {
 
   &.warning {
     background-color: #fffde6;
-    border-left: 4px solid $warningColor;
+    border-left: 4px solid $warning-color;
     padding: 12px 24px 13px;
     color: $black;
     font-size: 15px;
@@ -149,7 +149,7 @@ blockquote {
     line-height: 32px;
     font-style: italic;
     font-weight: 300;
-    color: rgba($textColor, .64);
+    color: rgba($text-color, .64);
 
     &:before {
       content: '';

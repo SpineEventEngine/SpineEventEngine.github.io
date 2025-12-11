@@ -87,25 +87,25 @@ $btn-font-size: 14px;
 
   &:hover, &:focus {
     color: white;
-    background-color: rgba($lightBlueColor, .2);
-    border: 1px solid $lightBlueColor;
-    box-shadow: 0 5px 20px 0 rgba($footerColor, .28);
+    background-color: rgba($link-blue-color, .2);
+    border: 1px solid $link-blue-color;
+    box-shadow: 0 5px 20px 0 rgba($footer-color, .28);
   }
 }
 
 .btn-bordered-blue {
   letter-spacing: 1px;
-  color: $mainBrandColor;
-  border: 2px solid $mainBrandColor;
+  color: $main-brand-color;
+  border: 2px solid $main-brand-color;
 
   &:hover {
-    background-color: rgba($mainBrandColor, .12);
-    color: $mainBrandColor;
-    border: 2px solid $mainBrandColor;
+    background-color: rgba($main-brand-color, .12);
+    color: $main-brand-color;
+    border: 2px solid $main-brand-color;
   }
 
   &:focus {
-    color: $mainBrandColor;
+    color: $main-brand-color;
   }
 }
 
@@ -117,8 +117,8 @@ $btn-font-size: 14px;
 
     span {
       padding-bottom: 2px;
-      border-bottom: 1px solid $mainBrandColor;
-      color: $mainBrandColor;
+      border-bottom: 1px solid $main-brand-color;
+      color: $main-brand-color;
     }
   }
 }

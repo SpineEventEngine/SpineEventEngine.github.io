@@ -35,7 +35,7 @@
     &.lead {
       p {
         font-size: 1.5rem;
-        color: $textColor;
+        color: $text-color;
         line-height: 1.5;
         padding-top: 8px;
         margin-bottom: 32px;
@@ -137,7 +137,7 @@
       transition: all .2s ease-in-out;
 
       &:hover {
-        border-bottom: 1px solid $mainBrandColor;
+        border-bottom: 1px solid $main-brand-color;
       }
     }
   }

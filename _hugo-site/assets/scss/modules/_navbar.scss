@@ -92,7 +92,7 @@ $navbar-mobile-breakpoint: 800px;
     margin-left: auto; // Makes float:right; for the Bootstrap v5.
 
     @include breakpoint($navbar-mobile-breakpoint) {
-      background-color: $footerColor;
+      background-color: $footer-color;
       box-shadow: -1px 0px 8px 0px rgba(black, .25);
       z-index: map_get($z-index, 'nav-mobile');
       display: block;
@@ -109,7 +109,7 @@ $navbar-mobile-breakpoint: 800px;
         position: fixed;
         width: 100%;
         height: 56px;
-        background-color: rgba($footerColor, .95);
+        background-color: rgba($footer-color, .95);
         z-index: map_get($z-index, 'header');
         margin: -48px -24px;
       }
@@ -160,7 +160,7 @@ $navbar-mobile-breakpoint: 800px;
 
           span {
             padding-bottom: 4px;
-            border-bottom: 1px solid $lightBlueColor;
+            border-bottom: 1px solid $link-blue-color;
           }
         }
 
