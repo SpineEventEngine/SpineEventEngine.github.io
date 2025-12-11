@@ -47,7 +47,7 @@ $sidenav-second-level-left-padding: calc(#{$sidenav-first-level-left-padding} + 
     font-size: 15px;
     font-weight: 500;
 
-    @media (max-width: $tablet-large) {
+    @include breakpoint(sm-desktop) {
       &:hover {
         background-color: transparent;
       }
@@ -58,7 +58,7 @@ $sidenav-second-level-left-padding: calc(#{$sidenav-first-level-left-padding} + 
     .sidenav-link {
       padding: 6px $sidenav-first-level-left-padding;
 
-      @media (max-width: $tablet-large) {
+      @include breakpoint(sm-desktop) {
         padding: 12px $sidenav-second-level-left-padding;
       }
     }

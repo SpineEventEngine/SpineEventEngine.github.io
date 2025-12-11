@@ -33,7 +33,7 @@ $docsearch-border-color: #ebedf5;
   padding-top: 13px;
   margin-left: 5px;
 
-  @media (max-width: $docsearch-mobile-breakpoint) {
+  @include breakpoint($docsearch-mobile-breakpoint) {
     margin: 1px 32px 0 auto;
   }
 }
@@ -66,7 +66,7 @@ mark {
   .DocSearch-Search-Icon {
     color: $docsearch-icon-color;
 
-    @media (max-width: $docsearch-mobile-breakpoint) {
+    @include breakpoint($docsearch-mobile-breakpoint) {
       color: white;
     }
   }
@@ -83,7 +83,7 @@ mark {
 .DocSearch-Container {
   z-index: map_get($z-index, 'search-mobile') !important;
 
-  @media (max-width: $docsearch-algolia-mobile) {
+  @include breakpoint($docsearch-algolia-mobile) {
     position: fixed;
   }
 
@@ -91,12 +91,12 @@ mark {
     border-bottom: 1px solid $docsearch-border-color;
     padding: 8px;
 
-    @media (max-width: $docsearch-algolia-mobile) {
+    @include breakpoint($docsearch-algolia-mobile) {
       border: none;
     }
 
     .DocSearch-Form {
-      @media (max-width: $docsearch-algolia-mobile) {
+      @include breakpoint($docsearch-algolia-mobile) {
         border: 1px solid $docsearch-border-color;
       }
     }

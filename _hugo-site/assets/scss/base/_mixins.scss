@@ -33,7 +33,7 @@
     margin: 0 0 32px 0;
     line-height: $item-line-height;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       margin-bottom: 24px;
     }
 

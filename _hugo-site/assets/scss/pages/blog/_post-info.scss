@@ -27,7 +27,7 @@
 .post-info {
   margin-bottom: 20px;
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     margin-bottom: 16px;
   }
 
