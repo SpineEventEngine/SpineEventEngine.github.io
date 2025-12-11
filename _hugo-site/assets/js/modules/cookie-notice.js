@@ -42,9 +42,11 @@ $(function() {
     const cookieActiveClass = 'active';
 
     initCookieNotice();
+    adjustLayout();
 
     $(window).on('resize', function() {
         addSpaceForCookies();
+        adjustLayout();
     });
 
     /**
@@ -76,6 +78,7 @@ $(function() {
         $cookieContainer.removeClass(cookieActiveClass);
         Cookies.set(cookieName, 'Yes');
         setInitialElementPosition();
+        adjustLayout();
     });
 
     /**
@@ -84,5 +87,20 @@ $(function() {
      */
     function setInitialElementPosition() {
         $copyright.css('padding-bottom', copyrightPaddingBottom);
+    }
+
+    /**
+     * Adjusts the position of elements that depend on the cookie notification.
+     */
+    function adjustLayout() {
+        const $goTopButton = $('#go-top-button');
+        const goTopButtonOffset = 10;
+
+        if ($cookieContainer.hasClass(cookieActiveClass)) {
+            const cookieHeight = $cookieContainer.innerHeight();
+            $goTopButton.css('bottom', cookieHeight + goTopButtonOffset);
+        } else {
+            $goTopButton.css('bottom', goTopButtonOffset);
+        }
     }
 });
