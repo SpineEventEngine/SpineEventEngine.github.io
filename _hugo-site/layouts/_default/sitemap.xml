@@ -5,7 +5,7 @@
     {{- if .Permalink }}
       {{- if not .Params.canonical_page_url }}
   <url>
-    <loc>{{ .Permalink | absLangURL }}</loc>
+    <loc>{{ .Permalink }}</loc>
   </url>
       {{- end }}
     {{- end }}
