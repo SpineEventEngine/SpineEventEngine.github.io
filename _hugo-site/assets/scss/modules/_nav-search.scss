@@ -51,7 +51,7 @@ mark {
   .DocSearch-Button {
     background: none;
     margin-left: 0;
-    @include transition(all .25s ease-in-out);
+    transition: all .25s ease-in-out;
 
     &:hover {
       background: rgba(black, .12);
