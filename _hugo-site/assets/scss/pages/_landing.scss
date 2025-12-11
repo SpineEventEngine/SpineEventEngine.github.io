@@ -152,7 +152,7 @@
     letter-spacing: 0;
     font-weight: 500;
 
-    @include breakpoint-min-and-max(tablet, 900px) {
+    @include breakpoint-min-and-max(768px, 900px) {
       padding: 9px 16px;
       min-width: 115px;
     }
