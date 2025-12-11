@@ -24,6 +24,12 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ partial "scripts/head/gtm.html" . }}
-{{ partial "scripts/head/jquery.html" . }}
-{{ partial "scripts/head/docsearch.html" . }}
+<!-- Google Tag Manager (body). -->
+
+{{ $id := site.Params.gtm.id }}
+{{ if and (hugo.IsProduction) ($id) }}
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id={{ $id }}"
+                height="0" width="0" style="display:none; visibility:hidden"></iframe>
+    </noscript>
+{{ end }}
