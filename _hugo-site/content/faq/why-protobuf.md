@@ -1,6 +1,6 @@
 ---
-_build:
-  render: false
+build:
+  render: never
 ---
 
 Have a look at the [comparison matrix](https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html) 
