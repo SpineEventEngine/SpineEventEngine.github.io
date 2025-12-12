@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, TeamDev. All rights reserved.
+ * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,14 +28,14 @@
  * Builds and runs the site locally.
  */
 task<Exec>("runSite") {
-    commandLine("./_script/jekyll-serve")
+    commandLine("./_script/hugo-serve")
 }
 
 /**
  * Builds the site without starting the server.
  */
 task<Exec>("buildSite") {
-    commandLine("./_script/jekyll-build")
+    commandLine("./_script/hugo-build")
 }
 
 /**
