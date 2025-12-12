@@ -75,7 +75,7 @@
 table,
 th,
 td {
-  border: 1px solid lighten($textColor, 20%);
+  border: 1px solid lighten($text-color, 20%);
   padding: 6px
 }
 
@@ -106,7 +106,7 @@ table {
 
   // Initial state of the title
   &.collapsed {
-    color: $textColor;
+    color: $text-color;
     font-weight: 400;
 
     &:before {
@@ -116,7 +116,7 @@ table {
   }
 }
 
-$tooltip-color: $footerColor;
+$tooltip-color: $footer-color;
 $tooltip-padding: .5rem .7rem;
 
 // Overrides Bootstrap tooltip styles.

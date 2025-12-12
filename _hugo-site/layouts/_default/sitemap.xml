@@ -1,13 +1,13 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {{ range where .Pages "Sitemap.Disable" "ne" true }}
-  {{- if .Permalink -}}
-    {{- if not .Params.canonical_page_url -}}
-      <url>
-        <loc>{{ .Permalink }}</loc>
-      </url>
-    {{- end -}}
-  {{- end -}}
-  {{ end }}
+  {{- range where .Pages "Sitemap.Disable" "ne" true }}
+    {{- if .Permalink }}
+      {{- if not .Params.canonical_page_url }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+  </url>
+      {{- end }}
+    {{- end }}
+  {{- end }}
 </urlset>

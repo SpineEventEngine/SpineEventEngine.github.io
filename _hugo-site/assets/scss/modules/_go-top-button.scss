@@ -50,20 +50,20 @@
     left: 50%;
     margin-left: -$icon-position;
     margin-top: -$icon-position;
-    background: rgba($secondBrandColor, .26) url('img/icons/caret-top.svg') no-repeat;
+    background: rgba($second-brand-color, .26) url('img/icons/caret-top.svg') no-repeat;
     border-radius: $border-radius-l;
     width: $top-button-icon-size;
     height: $top-button-icon-size;
     transition: all .3s ease-in-out;
 
     @media (max-width: $tablet) {
-      background-color: rgba($secondBrandColor, .54);
+      background-color: rgba($second-brand-color, .54);
     }
   }
 
   &:hover {
     &:after {
-      background-color: rgba($mainBrandColor, .87);
+      background-color: rgba($main-brand-color, .87);
     }
   }
 }

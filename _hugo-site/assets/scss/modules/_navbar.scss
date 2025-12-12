@@ -24,13 +24,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// `$mobile-nav-max-width` is a screen size on which the mobile navigation will be shown.
+// `$navbar-mobile-breakpoint` is a screen size on which the mobile navigation will be shown.
 // The variable is used in the `_nav-search.scss` file.
-$mobile-nav-max-width: 800px;
-$mobile-nav-min-width: $mobile-nav-max-width + 1;
+$navbar-mobile-breakpoint: 800px;
 
 .navigation-opened {
-  @media (max-width: $mobile-nav-max-width) {
+  @include breakpoint($navbar-mobile-breakpoint) {
     overflow: hidden;
   }
 
@@ -50,9 +49,10 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
   // Fixes the header on the page.
   // Usage: add the `header_type: fixed-header` attribute to the page front matter.
   &.fixed-header {
-    background-image: $nav-blue-gradient;
     position: fixed;
     height: $header-height;
+    background-image: $nav-blue-gradient;
+    box-shadow: $navbar-shadow;
 
     &.not-top {
       &.pinned {
@@ -91,8 +91,8 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
   .navigation-holder {
     margin-left: auto; // Makes float:right; for the Bootstrap v5.
 
-    @media (max-width: $mobile-nav-max-width) {
-      background-color: $footerColor;
+    @include breakpoint($navbar-mobile-breakpoint) {
+      background-color: $footer-color;
       box-shadow: -1px 0px 8px 0px rgba(black, .25);
       z-index: map_get($z-index, 'nav-mobile');
       display: block;
@@ -109,7 +109,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
         position: fixed;
         width: 100%;
         height: 56px;
-        background-color: rgba($footerColor, .95);
+        background-color: rgba($footer-color, .95);
         z-index: map_get($z-index, 'header');
         margin: -48px -24px;
       }
@@ -119,7 +119,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
   .navigation {
     margin: 0 -24px 48px;
 
-    @media (min-width: $mobile-nav-min-width) {
+    @include breakpoint-min($navbar-mobile-breakpoint) {
       float: right;
       margin: 5px 0;
     }
@@ -130,7 +130,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
       -webkit-transform: translateZ(0);
       line-height: 22px;
 
-      @media (min-width: $mobile-nav-min-width) {
+      @include breakpoint-min($navbar-mobile-breakpoint) {
         display: inline-block;
       }
 
@@ -143,7 +143,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
         transition: all .2s ease-in-out;
         -webkit-transform: translateZ(0);
 
-        @media (min-width: $mobile-nav-min-width) {
+        @include breakpoint-min($navbar-mobile-breakpoint) {
           padding: 16px;
           font-size: 15px;
           letter-spacing: 0.5px;
@@ -160,7 +160,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
 
           span {
             padding-bottom: 4px;
-            border-bottom: 1px solid $lightBlueColor;
+            border-bottom: 1px solid $link-blue-color;
           }
         }
 
@@ -178,13 +178,13 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
       }
 
       &.home-item {
-        @media (min-width: $mobile-nav-min-width) {
+        @include breakpoint-min($navbar-mobile-breakpoint) {
           display: none;
         }
       }
 
       .mobile-caret-icon {
-        @media (min-width: $mobile-nav-min-width) {
+        @include breakpoint-min($navbar-mobile-breakpoint) {
           display: none;
         }
 
@@ -223,7 +223,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
     .doc-list-inside {
       margin-bottom: 8px;
 
-      @media (min-width: $mobile-nav-min-width) {
+      @include breakpoint-min($navbar-mobile-breakpoint) {
         display: none;
       }
     }
@@ -237,11 +237,13 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
 
     &.pinned {
       transform: translateY(-100%);
+      box-shadow: $navbar-shadow;
       animation: slideDownNav .4s .2s ease-in-out forwards;
     }
 
     &.unpinned {
       transform: translateY(0%);
+      box-shadow: none;
       animation: slideUpNav .2s .2s ease-in-out forwards;
     }
   }
@@ -274,7 +276,7 @@ $mobile-nav-min-width: $mobile-nav-max-width + 1;
   margin-right: 16px;
   position: absolute;
 
-  @media (max-width: $mobile-nav-max-width) {
+  @include breakpoint($navbar-mobile-breakpoint) {
     display: block;
   }
 

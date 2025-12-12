@@ -35,7 +35,7 @@
     &.lead {
       p {
         font-size: 1.5rem;
-        color: $textColor;
+        color: $text-color;
         line-height: 1.5;
         padding-top: 8px;
         margin-bottom: 32px;
@@ -61,8 +61,15 @@
     @include list();
   }
 
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
   .logo-card {
-    margin: 16px 24px 0 0;
     padding: 0 24px;
     border-radius: $border-radius-m;
     text-align: center;
@@ -70,13 +77,11 @@
 
     @media (max-width: $phone-xlarge) {
       width: 46%;
-      margin-right: 8px;
       box-shadow: 0 2px 6px rgba(black, .08);
     }
 
     @media(max-width: $phone-large) {
       width: 100%;
-      margin-right: 0;
     }
 
     &:hover {
@@ -132,7 +137,7 @@
       transition: all .2s ease-in-out;
 
       &:hover {
-        border-bottom: 1px solid $mainBrandColor;
+        border-bottom: 1px solid $main-brand-color;
       }
     }
   }

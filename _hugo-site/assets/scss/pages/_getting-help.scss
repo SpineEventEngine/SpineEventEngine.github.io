@@ -146,7 +146,7 @@
       .header-icon {
         position: absolute;
         font-size: $icon-size;
-        color: $mainBrandColor;
+        color: $main-brand-color;
 
         // TODO:2020-09-03:juliaevseeva: Remove styles for the `&.fa-brackets-curly` when the
         //  Font Awesome is updated to version `5.7.0` or higher.
@@ -344,8 +344,8 @@
 
         $light-blue-btn-hover: #5fabdd;
         &.order-btn {
-          background: $mainBrandColor;
-          border-color: $mainBrandColor;
+          background: $main-brand-color;
+          border-color: $main-brand-color;
           color: white;
 
           &:after {
