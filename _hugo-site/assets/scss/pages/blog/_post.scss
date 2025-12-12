@@ -27,7 +27,7 @@
 .post {
   background-color: $body-light-gray-color;
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     background-color: white;
   }
 

@@ -36,11 +36,11 @@ $panel-hover-color: rgba($main-brand-color, .04);
 .licenses-list {
   margin: 40px 0 64px;
 
-  @media (max-width: $tablet) {
+  @include breakpoint(tablet) {
     margin: 24px 0 40px;
   }
 
-  @media (max-width: $phone-medium) {
+  @include breakpoint(md-phone) {
     padding-left: 0;
     padding-right: 0;
   }
@@ -52,7 +52,7 @@ $panel-hover-color: rgba($main-brand-color, .04);
   .page-description {
     margin-bottom: 24px;
 
-    @media (max-width: $phone-medium) {
+    @include breakpoint(md-phone) {
       padding-left: 15px;
       padding-right: 15px;
     }
@@ -71,6 +71,7 @@ $panel-hover-color: rgba($main-brand-color, .04);
     &.collapsed {
       border-bottom: $divider;
       background-color: transparent;
+
       &:hover {
         background-color: $panel-hover-color;
       }
@@ -78,6 +79,7 @@ $panel-hover-color: rgba($main-brand-color, .04);
 
     &:hover {
       color: $black;
+
       &:before {
         opacity: .54;
       }
@@ -91,7 +93,7 @@ $panel-hover-color: rgba($main-brand-color, .04);
     padding: $open-panel-padding;
     border-bottom: $divider;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       padding: $open-panel-padding-mobile;
     }
   }
@@ -104,7 +106,7 @@ $panel-hover-color: rgba($main-brand-color, .04);
     color: $black;
     line-height: 1.5;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       padding-left: 20px;
       margin-bottom: 16px;
     }
@@ -142,7 +144,7 @@ $panel-hover-color: rgba($main-brand-color, .04);
     padding: 16px $inner-content-offset 8px;
     margin: 0 0 8px;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       padding: 0 20px;
 
       li {

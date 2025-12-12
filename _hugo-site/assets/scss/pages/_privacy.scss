@@ -27,7 +27,7 @@
 .privacy {
   background-color: $body-light-gray-color;
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     background-color: white;
 
     a {
@@ -79,7 +79,7 @@
   .date {
     margin: -20px 0 32px;
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       margin-top: 0;
     }
   }
@@ -90,14 +90,14 @@
     font-size: 27px;
     font-weight: bold;
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       font-size: $title-size-mobile - 2px;
     }
   }
 
   &.development-support-agreement {
     .article-container {
-      @media (max-width: $phone-xlarge) {
+      @include breakpoint(lg-phone) {
         h2 {
           font-size: $title-size-mobile;
         }
@@ -119,7 +119,7 @@
             display: table-cell;
             padding-right: .6em;
 
-            @media (max-width: $phone-xlarge) {
+            @include breakpoint(lg-phone) {
               padding-right: .36em;
             }
           }

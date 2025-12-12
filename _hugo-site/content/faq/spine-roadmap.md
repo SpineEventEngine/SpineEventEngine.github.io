@@ -1,6 +1,6 @@
 ---
-_build:
-  render: false
+build:
+  render: never
 ---
 
 Here are our plans for the future versions of Spine:

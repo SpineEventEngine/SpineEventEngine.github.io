@@ -1,9 +1,9 @@
 ---
-_build:
-  render: false
+build:
+  render: never
 ---
 
-```proto
+```java
 final class TaskAggregate extends Aggregate<TaskId, Task, Task.Builder> {
 
     @Assign
@@ -25,7 +25,7 @@ final class TaskAggregate extends Aggregate<TaskId, Task, Task.Builder> {
 }
 ```
 
-```proto
+```java
 @DisplayName("Handling `CreateTask` command should")
 public class TaskCreationTest extends ContextAwareTest {
 

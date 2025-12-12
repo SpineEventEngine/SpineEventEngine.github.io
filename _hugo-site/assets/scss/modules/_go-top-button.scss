@@ -56,7 +56,7 @@
     height: $top-button-icon-size;
     transition: all .3s ease-in-out;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       background-color: rgba($second-brand-color, .54);
     }
   }

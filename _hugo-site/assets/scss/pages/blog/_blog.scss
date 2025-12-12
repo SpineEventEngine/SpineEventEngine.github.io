@@ -27,7 +27,7 @@
 .blog {
   background-color: $body-light-gray-color;
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     background-color: white;
   }
 
@@ -36,7 +36,7 @@
     padding: 48px 80px 40px;
     margin-bottom: 16px;
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       padding: 0 0 24px;
       border-bottom: 1px dotted rgba(black, .2);
       margin-bottom: 40px;
@@ -51,7 +51,7 @@
         font-size: $font-size--xl;
         font-weight: 300;
         line-height: 1.3;
-        @include transition(all .2s ease-in-out);
+        transition: all .2s ease-in-out;
 
         &:hover {
           text-decoration: none;
@@ -76,7 +76,7 @@
     .read-more-btn {
       margin: 40px 0 16px;
 
-      @media (max-width: $phone-xlarge) {
+      @include breakpoint(lg-phone) {
         margin-top: 24px;
       }
 
@@ -97,7 +97,7 @@
           margin-left: 6px;
         }
 
-        @media (max-width: $phone-xlarge) {
+        @include breakpoint(lg-phone) {
           font-size: $font-size--xs;
 
           &:after {

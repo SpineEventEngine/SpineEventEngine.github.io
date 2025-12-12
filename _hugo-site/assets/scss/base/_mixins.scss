@@ -24,105 +24,16 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* TODO:2025-11-25:julia.evseeva: Clean up mixins as soon as all styles are migrated.
-   Delete all the mixins that add browser prefixes. */
-
-// Usage: @include transition(all .3s ease-in-out);
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-
-// Usage: @include animation(animation-name, .2s, 1s, ease-in-out, forwards);
-@mixin animation($animation-name, $duration, $delay, $timing-function, $fill-mode, $iteration-count: 1) {
-  -webkit-animation-name: $animation-name;
-  -webkit-animation-duration: $duration;
-  -webkit-animation-delay: $delay;
-  -webkit-animation-timing-function: $timing-function;
-  -webkit-animation-fill-mode: $fill-mode;
-  -webkit-animation-iteration-count: $iteration-count;
-
-  -moz-animation-name: $animation-name;
-  -moz-animation-duration: $duration;
-  -moz-animation-delay: $delay;
-  -moz-animation-timing-function: $timing-function;
-  -moz-animation-fill-mode: $fill-mode;
-  -moz-animation-iteration-count: $iteration-count;
-
-  -o-animation-name: $animation-name;
-  -o-animation-duration: $duration;
-  -o-animation-delay: $delay;
-  -o-animation-timing-function: $timing-function;
-  -o-animation-fill-mode: $fill-mode;
-  -o-animation-iteration-count: $iteration-count;
-
-  animation-name: $animation-name;
-  animation-duration: $duration;
-  animation-delay: $delay;
-  animation-timing-function: $timing-function;
-  animation-fill-mode: $fill-mode;
-  animation-iteration-count: $iteration-count;
-}
-
-// Transform
-@mixin transform($transforms) {
-  -webkit-transform: $transforms;
-  -moz-transform: $transforms;
-  -o-transform: $transforms;
-  -ms-transform: $transforms;
-  transform: $transforms;
-}
-
-// TranslateY
-// Usage @include translateY(0%);
-@mixin translateY($y) {
-  @include transform(translateY($y));
-}
-
-// Keyframes
-@mixin keyframes($animationName) {
-  @-webkit-keyframes #{$animationName} {
-    @content;
-  }
-  @-moz-keyframes #{$animationName} {
-    @content;
-  }
-  @-o-keyframes #{$animationName} {
-    @content;
-  }
-  @keyframes #{$animationName} {
-    @content;
-  }
-}
-
-// Usage: @include box-shadow(0 10px 20px 0 rgba(black, .12));
-@mixin box-shadow($args...) {
-  -webkit-box-shadow: $args;
-  -moz-box-shadow: $args;
-  -o-box-shadow: $args;
-  box-shadow: $args;
-}
-
-@mixin close-icon {
-  display: inline-block;
-  width: $icon-size--s;
-  height: $icon-size--s;
-  background: url('img/icons/close.svg') no-repeat center/cover;
-  opacity: .26;
-  transition: all .3s ease-in-out;
-}
-
-// Ordered and unordered list styles.
-// Usage: `@include list();`
+/*
+  Ordered and unordered list styles.
+  Usage: `@include list();`
+ */
 @mixin list($item-line-height: 1.6) {
   ol, ul {
     margin: 0 0 32px 0;
     line-height: $item-line-height;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       margin-bottom: 24px;
     }
 
@@ -156,9 +67,13 @@
   }
 }
 
-// Arrow icon
-// By default this is a left icon: @include arrow-icon();
-// To use the icon to the right, add the angle property: @include arrow-icon($rotate-angle: -45deg);
+/*
+  Adds an arrow icon.
+
+  By default, the arrow points to left: `@include arrow-icon();`
+  To place the arrow on the right, set the rotation angle:
+  `@include arrow-icon($rotate-angle: -45deg);`
+*/
 @mixin arrow-icon($line-width: 2px, $icon-size: 3px, $rotate-angle: 135deg, $color: $main-brand-color) {
   border: solid $color;
   border-width: 0 $line-width $line-width 0;

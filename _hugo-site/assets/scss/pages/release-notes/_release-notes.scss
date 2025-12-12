@@ -29,7 +29,7 @@
     min-height: 350px;
     margin-bottom: 16px;
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       min-height: auto;
     }
   }

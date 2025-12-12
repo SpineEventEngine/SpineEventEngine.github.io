@@ -1,6 +1,7 @@
 baseURL = 'https://spine.io/'
 languageCode = 'en-us'
 title = 'Spine Event Engine'
+disableKinds = ['taxonomy', 'term']
 
 [module]
   # First theme has higher priority than later ones.
