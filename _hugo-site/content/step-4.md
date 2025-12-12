@@ -3,7 +3,7 @@ _build:
   render: false
 ---
 
-```proto
+```java
 static void configureEnvironment() {
     StorageFactory rdbms = JdbcStorageFactory.newBuilder()
         .setDataSource(dataSource())
@@ -21,6 +21,6 @@ static void configureEnvironment() {
 }
 ```
 
-```bash
+```shell
 ./gradlew build deploy
 ```
