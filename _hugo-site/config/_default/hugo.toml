@@ -23,6 +23,9 @@ disableKinds = ['taxonomy', 'term']
   apiKey = '50ce4ead490484f1436ae042c0a1a4dd'
   index = 'spine'
 
+[params.gtm]
+  id = 'GTM-T6NZS3S'
+
 [security]
   [security.exec]
     osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$']
