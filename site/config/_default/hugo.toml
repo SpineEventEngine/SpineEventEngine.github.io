@@ -1,6 +1,7 @@
 baseURL = 'https://spine.io/'
 languageCode = 'en-us'
 title = 'Spine Event Engine'
+enableRobotsTXT = true
 disableKinds = ['taxonomy', 'term']
 
 [module]
