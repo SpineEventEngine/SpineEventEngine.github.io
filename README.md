@@ -17,7 +17,8 @@ please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
 
 ## Prerequisites
 
-1. Install [Go][go] at least version `1.12`.
+1. Install [Java JDK] version `11` to build the site.
+2. Install [Go][go] at least version `1.12`.
 2. Install [Node.js][nodejs]. Its version should be `18+`.
 3. Install [Hugo Extended][hugo-quick-start] at least version `v0.145` or higher.
 4. Get access to the [`site-commons`][site-commons] repository from the admins
