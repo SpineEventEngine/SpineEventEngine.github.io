@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2020, TeamDev. All rights reserved.
+# Copyright 2025, TeamDev. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -37,9 +37,5 @@ elif [ -f ${BASH_RC} ]; then
   . ${BASH_RC}
 fi
 
-# Check the links used by the site.
-bundle exec htmlproofer \
-  --assume-extension ./_site \
-  --only_4xx \
-  --http-status-ignore "429" \
-  --url-ignore "/twitter.com/"
+cd site
+lychee --config ../lychee.toml --base http://localhost:1313 "public/**/*.html"

@@ -91,30 +91,31 @@ Please see [this document](_code/EMBEDDING.md) for the instructions.
 
 # Testing broken links
 
-We use the [html-proofer](https://github.com/gjtorikian/html-proofer) tool to test broken links.
-To start test locally you may be required to install the Gem of the tool first:
+We use the [Lychee](https://github.com/lycheeverse/lychee) tool to test broken links.
+To start test locally you may be required to install the tool first from the `site` directory:
 
 ```bash
-bundle install
+npm install
 ```
-... and then build the site:
+... and then run the site:
  
 ```bash
-jekyll build
+hugo server
 ``` 
 
-After that, please use the following command:
+Make sure it runs on port `1313`. 
+After that, please use the following command from the root of the project:
 
 ```bash
 ./_script/proof-links
 ```
 
 > We only log errors falling within the 4xx status code range. 
-> Please note that links to GitHub are ignored by --http-status-ignore "429" command, because GitHub rejects the check
-> coming from htmlproofer. Details of this are described in [this issue](https://github.com/gjtorikian/html-proofer/issues/226). 
+> Please note that some of the links are added to excludes in the [`lychee.toml`](lychee.toml) file.
 
-Also, we have a GitHub Action which tests the links when the pull request is created to the `master`. 
-Please see the [`.github/workflows/proof-links.yml`](.github/workflows/proof-links.yml) file for details.
+Also, we have a GitHub Action which tests the links when a pull request is created. 
+Please see the [`.github/workflows/check-links.yml`](.github/workflows/check-links.yml) 
+file for details.
 
 # Cloak email
 
