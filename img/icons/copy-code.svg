@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>copy-code</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="copy-code" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M12,13.0027601 C12,11.8966663 12.9001762,11 13.992017,11 L21.007983,11 C22.1081436,11 23,11.8935426 23,13.0027601 L23,21.9972399 C23,23.1033337 22.0998238,24 21.007983,24 L13.992017,24 C12.8918564,24 12,23.1064574 12,21.9972399 L12,13.0027601 Z M14,13 L14,22 L21,22 L21,13 L14,13 Z M10,7 L17,7 C18.1045695,7 19,7.8954305 19,9 L10,9 L10,20 C8.8954305,20 8,19.1045695 8,18 L8,9 C8,7.8954305 8.8954305,7 10,7 Z" id="Combined-Shape" fill="#000000"></path>
-    </g>
-</svg>

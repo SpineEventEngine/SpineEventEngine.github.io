@@ -1,0 +1,71 @@
+baseURL = 'https://spine.io/'
+languageCode = 'en-us'
+title = 'Spine Event Engine'
+disableKinds = ['taxonomy', 'term']
+
+[module]
+  # First theme has higher priority than later ones.
+  [[module.imports]]
+    path = 'github.com/SpineEventEngine/documentation/docs'
+  [[module.imports]]
+    path = 'github.com/TeamDev-Ltd/site-commons'
+
+[params]
+  description = 'Open-source CQRS/ES framework for modern cloud applications'
+
+[params.payment]
+  apiURL = 'https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction'
+  orderURL = 'https://secure.2checkout.com/checkout/buy?merchant=999999999589&currency=EUR&tpl=default&prod=4HJME1JJDF&qty=1'
+  reCaptchaKey = '6Lef7b0ZAAAAAHPIbf6XQIzzeyCoSzS56GTej1c0'
+
+[params.libs.docsearch]
+  appId = 'DUYV0WFHKV'
+  apiKey = '50ce4ead490484f1436ae042c0a1a4dd'
+  index = 'spine'
+
+[params.gtm]
+  id = 'GTM-T6NZS3S'
+
+[security]
+  [security.exec]
+    osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$']
+
+# Enables HTML rendering in markdown files.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+  [markup.highlight]
+    noClasses = false
+
+# Version control config.
+# To change the current main version, update only the `path` parameter.
+# Read more in the `SPINE_RELEASE.md` guide.
+#
+# The configuration is duplicated now due to the known issue with cascade arrays:
+# https://github.com/gohugoio/hugo/issues/13869
+[[cascade]]
+  [cascade.params]
+    url = 'docs/'
+  [cascade.target]
+    # The path to the `_index.md` of the current main version.
+    path = '{/docs/1}'
+    kind = 'section'
+[[cascade]]
+  [cascade.params]
+    url = 'docs/:sections[2:]/'
+  [cascade.target]
+    # The path to the current main version.
+    path = '{/docs/1/**}'
+    kind = 'section'
+[[cascade]]
+  [cascade.params]
+    url = 'docs/:sections[2:]/:contentbasename/'
+  [cascade.target]
+    # The path to the current main version.
+    path = '{/docs/1/**}'
+    kind = 'page'
