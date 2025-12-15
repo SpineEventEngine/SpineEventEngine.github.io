@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FAQ on Spine Event Engine</title><link>https://spine.io/faq/</link><description>Recent content in FAQ on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://spine.io/faq/index.xml" rel="self" type="application/rss+xml"/><item><title/><link/><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid/><description>&lt;p>Here are our plans for the future versions of Spine:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>PostgreSQL&lt;/strong> storage implementation;&lt;/li>
+&lt;li>Migrate to &lt;strong>Java 11&lt;/strong>;&lt;/li>
+&lt;li>&lt;strong>Scaffold&lt;/strong> entity classes from Protobuf;&lt;/li>
+&lt;li>&lt;strong>Generate Bounded Contexts&lt;/strong> using existing Java model definitions.&lt;/li>
+&lt;/ul>
+&lt;p>We shall also concentrate on coverage of popular programming languages
+and technologies:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Node.js&lt;/strong> to enable &lt;a href="https://spine.io/docs/introduction/concepts#projection"
+ 
+ >Projections&lt;/a>
+development by our users creating UI.&lt;/li>
+&lt;li>&lt;strong>Dart&lt;/strong> client library.&lt;/li>
+&lt;/ul></description></item><item><title/><link/><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid/><description>&lt;p>Have a look at the &lt;a href="https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ >comparison matrix&lt;/a>
+created by Kenton Varda, the author of Protobuf v2 and Cap&amp;rsquo;n Proto. Here are the main features
+that make Protobuf the best choice for our framework:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Schema evolution&lt;/strong> — business models should evolve as the business grows.&lt;/li>
+&lt;li>&lt;strong>Usable as mutable state&lt;/strong> — for transforming Aggregate States and Stream Projections.&lt;/li>
+&lt;li>&lt;strong>Other languages&lt;/strong> — for supporting client applications written in JavaScript, JavaNano, Swift,
+Objective-C, and other programming languages.&lt;/li>
+&lt;/ul>
+&lt;p>Also, proven success of Protobuf technology which Google gained over the years of its successful
+usage is a major factor for choosing Protobuf rather than other alternatives.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spine Blog on Spine Event Engine</title><link>https://spine.io/blog/</link><description>Recent content in Spine Blog on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 02 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>A New Guide on Integrating With a Third Party</title><link>https://spine.io/blog/new-guide-on-integrating-with-third-party/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://spine.io/blog/new-guide-on-integrating-with-third-party/</guid><description>&lt;p>Integrating an Event-based system with third-party software or a legacy system can be tricky.
+We have created a &lt;a href="https://spine.io/docs/guides/integration/"
+ 
+ >detailed guide&lt;/a>, exploring possible
+strategies for this task.&lt;/p>
+&lt;p>Have a look!&lt;/p></description></item><item><title>Learning at DDD Europe 2020</title><link>https://spine.io/blog/learning-at-ddd-europe-2020/</link><pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate><guid>https://spine.io/blog/learning-at-ddd-europe-2020/</guid><description>&lt;p>What a great inspiration mixing in with the global DDD-crowd is!&lt;/p>
+&lt;p>We have just come back from DDD Europe, having shared some experience of ours and full
+of new ideas for Spine.&lt;/p>
+&lt;p>
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+&lt;img src="https://spine.io/blog/learning-at-ddd-europe-2020/dmitry-and-eric-evans.webp" alt="Dmitry and Eric Evans" loading="lazy"/>&lt;/p>
+&lt;p class="image-caption">Dmitriy Dashenkov learning some DDD wisdom at first hand from Eric&amp;nbsp;Evans.&lt;/p>
+&lt;p>
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+&lt;img src="https://spine.io/blog/learning-at-ddd-europe-2020/yurii-doing-context-mapping.webp" alt="Context Mapping" loading="lazy"/>&lt;/p>
+&lt;p class="image-caption">Yurii Serhiychuk doing Context Mapping with Michael Plöd at his workshop.&lt;/p>
+&lt;p>
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+&lt;img src="https://spine.io/blog/learning-at-ddd-europe-2020/dmitry-conference.webp" alt="Value Objects" loading="lazy"/>&lt;/p>
+&lt;p class="image-caption">Dmitriy Dashenkov sharing his experience in Value Objects.&lt;/p></description></item><item><title>Spine Event Engine 1.0 is Out!</title><link>https://spine.io/blog/spine-event-engine-1-0-is-out/</link><pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate><guid>https://spine.io/blog/spine-event-engine-1-0-is-out/</guid><description>&lt;p>We are glad to announce the release of the first production-ready version of Spine Event Engine!&lt;/p>
+&lt;p>What started as a dream tool concept to help us build event-driven applications, grew and evolved
+into a full-fledged CQRS/ES framework for cloud and enterprise.&lt;/p>
+&lt;p>&lt;strong>In a nutshell:&lt;/strong> Spine Event Engine is a framework for building cloud applications and
+transforming #EventStorming artifacts into a working domain model code.&lt;/p>
+&lt;p>&lt;strong>What&amp;rsquo;s in Spine for businesses:&lt;/strong>
+The framework helps build modern event-driven applications, closely reflecting business reality, in
+days not months. It is free for use, however professional consultancy and support are available if
+necessary.&lt;/p></description></item><item><title>Migrating to Java 8</title><link>https://spine.io/blog/migrating-to-java-8/</link><pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate><guid>https://spine.io/blog/migrating-to-java-8/</guid><description>&lt;p>Starting the upcoming &lt;code>0.11.0&lt;/code> release the minimal version of Java for Spine-based application will
+become Java 8. Early adopters can already see the first sights of Java 8 migration in core framework
+modules.&lt;/p>
+&lt;p>The reason behind this (in addition to the fact that Java 10 has been released already, hello!) is
+that Google is phasing out JDK 7 in their products (namely, Google AppEngine, Guava are already JDK
+8-based).&lt;/p>
+&lt;p>In addition to changing the compilation target we’ll be migrating from Guava’s JDK 7 polyfills (such
+as &lt;code>com.google.common.base.Optional&lt;/code>) to native Java 8 API. The fresh versions of Guava, JUnit are
+introduced as well. We are also thinking towards Java 9 and modularity, so some internal stuff is
+being repackaged.&lt;/p></description></item><item><title>Blog is now live</title><link>https://spine.io/blog/blog-is-now-live/</link><pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate><guid>https://spine.io/blog/blog-is-now-live/</guid><description>&lt;p>As we are getting closer to &lt;code>1.0-GA&lt;/code> release of the framework we thought that it would be nice to
+start blogging about the framework development, the ES/CQRS-based projects, our insights etc.&lt;/p>
+&lt;p>The plan is to do this on a regular basis, so stay tuned.&lt;/p>
+&lt;p>Your feedback and questions are welcome at
+&lt;a href="https://x.com/SpineEngine"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ >@SpineEngine&lt;/a> or 
+
+
+
+&lt;style>
+#span-e084a99e.cloaked-e-mail:before {
+ content:attr(data-domain) "\0040" attr(data-user);
+ unicode-bidi:bidi-override;
+ direction:rtl;
+}
+&lt;/style>
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-e084a99e">&lt;/span>&lt;script id="script-e084a99e">
+ var scriptTag = document.getElementById("script-e084a99e");
+ var link = document.createElement("a");
+ var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
+ link.href = "mailto" + ":" + address;
+ link.innerText = address.split('?')[0];
+ scriptTag.parentElement.insertBefore(link, scriptTag.previousElementSibling);
+ scriptTag.parentElement.removeChild(scriptTag.previousElementSibling);
+&lt;/script>.&lt;/p></description></item></channel></rss>

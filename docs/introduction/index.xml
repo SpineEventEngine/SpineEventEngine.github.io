@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development Process on Spine Event Engine</title><link>https://spine.io/docs/introduction/</link><description>Recent content in Development Process on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://spine.io/docs/introduction/index.xml" rel="self" type="application/rss+xml"/><item><title>Architecture</title><link>https://spine.io/docs/introduction/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/architecture/</guid><description>&lt;h1 id="application-architecture" data-title>
+Application Architecture&lt;/h1>
+&lt;p>A Spine-based application consists of several Bounded Contexts. Client applications interact
+with the server-side via &lt;code>CommandService&lt;/code>, &lt;code>QueryService&lt;/code>, and &lt;code>SubscriptionService&lt;/code>.&lt;/p>
+&lt;p>The diagram below shows &lt;span id="display-all-components">all server-side components&lt;/span>
+of a cloud application. When developing with Spine, you will be interacting
+with only &lt;em>&lt;span id="display-user-facing-components">some of them&lt;/span>&lt;/em>, which
+are not shaded on the diagram. The rest is handled by the framework.&lt;/p>
+&lt;p>Click on a component to navigate to its definition from the
+&lt;a href="https://spine.io/docs/introduction/concepts/"
+ 
+ >Concepts&lt;/a> page.&lt;/p></description></item><item><title>Concepts</title><link>https://spine.io/docs/introduction/concepts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/concepts/</guid><description>&lt;h1 id="concepts" data-title>
+Concepts&lt;/h1>
+&lt;div class="note-block lead">
+&lt;p>This document provides terminology used in the framework and its documentation.
+You&amp;rsquo;ll find most of the terms familiar from Domain-Driven Design, CQRS, Event Sourcing or Enterprise
+Integration patterns.
+&lt;br>&lt;br>
+We give brief descriptions for those who are new to these concepts and to tell
+how they are implemented in our framework.
+Terms extending the industry-set terminology are designated as such.&lt;/p>
+&lt;/div>
+&lt;h2 id="messaging" data-title>
+Messaging&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#messaging
+ aria-label="Copy heading anchor">&lt;/a>
+&lt;/span>&lt;/h2>
+&lt;h3 id="command" data-title>
+Command&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#command
+ aria-label="Copy heading anchor">&lt;/a>
+&lt;/span>&lt;/h3>
+&lt;p>Commands are messages that instruct an entity within Spine framework to perform a certain action.
+Compared with events, a command is not a statement of fact. They are a request, and, thus, can be
+refused. A typical way to convey refusal is to throw an error or rejection.&lt;/p></description></item><item><title>Naming Conventions</title><link>https://spine.io/docs/introduction/naming-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/naming-conventions/</guid><description>&lt;h1 id="naming-conventions" data-title>
+Naming Conventions&lt;/h1>
+&lt;div class="note-block lead">
+&lt;p>This document covers naming conventions for the code. Some of these conventions are
+used by the framework and code generation, and as such are required. Others are our recommendations
+that we find useful for making the code easier to understand.&lt;/p>
+&lt;/div>
+&lt;h2 id="proto-files" data-title>
+Proto files&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#proto-files
+ aria-label="Copy heading anchor">&lt;/a>
+&lt;/span>&lt;/h2>
+&lt;p>Proto files are named using the &lt;code>snake_case&lt;/code>, as defined by Protobuf. There are several special
+kinds of files.&lt;/p></description></item><item><title>Prior Art</title><link>https://spine.io/docs/introduction/prior-art/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/prior-art/</guid><description>&lt;h1 id="prior-art" data-title>
+Prior Art&lt;/h1>
+&lt;p>The demands for software projects increase rapidly as time progresses.
+So does the scope of architecture approaches to meet these needs.
+This section will give you an overview of the concepts and implementations Spine has inherited,
+while bringing some important differences into play.&lt;/p>
+&lt;p>Spine is created for applications that follow the &lt;a href="http://martinfowler.com/bliki/CQRS.html"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ >CQRS&lt;/a>
+and &lt;a href="http://martinfowler.com/eaaDev/EventSourcing.html"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ >Event Sourcing&lt;/a> architectural patterns.&lt;/p>
+&lt;p>Spine didn’t appear out of the blue. While working on our own CQRS/ES based projects we were
+alarmed at how much manual effort is spent on creating events and commands, delivering events and data
+to the web and mobile clients. It takes time, does not require much creativity from a developer,
+whilst this energy could have been spent on productive
+&lt;a href="http://ziobrando.blogspot.com/2013/11/introducing-event-storming.html"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ >Event Storming&lt;/a>,
+detailing the Domain model and so on. Attempts to address this issue led to the Spine vision.&lt;/p></description></item><item><title>Project Structure</title><link>https://spine.io/docs/introduction/project-structure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/project-structure/</guid><description>&lt;h1 id="project-structure" data-title>
+Project Structure&lt;/h1>
+&lt;div class="note-block lead">
+&lt;p>This document describes standard structure of a Spine-based project.
+It assumes that you are familiar with &lt;a href="https://gradle.org"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ >Gradle&lt;/a>.&lt;/p>
+&lt;/div>
+&lt;p>Spine uses Gradle for project model definition and as the build tool.
+It follows the standard structure of the Gradle project with extensions related to
+the code generation done by Protobuf Compiler and Spine Model Compiler.&lt;/p>
+&lt;h2 id="handcrafted-code" data-title>
+Handcrafted code&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#handcrafted-code
+ aria-label="Copy heading anchor">&lt;/a>
+&lt;/span>&lt;/h2>
+&lt;p>Following standard Gradle conventions a manually written code is created under the
+&lt;code>src/main/&lt;/code> directory with subdirectories &lt;code>proto&lt;/code>, &lt;code>java&lt;/code>, etc. for corresponding languages.&lt;/p></description></item><item><title>Rules</title><link>https://spine.io/docs/introduction/rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/rules/</guid><description>&lt;h1 id="rules" data-title>
+Rules&lt;/h1>
+&lt;p>Here are the ground rules the framework is built upon:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>An update to a business model &lt;em>is&lt;/em> an event.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Entities are changed in response to events.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>A command has one and &lt;em>only one&lt;/em> handler.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>A command &lt;em>must&lt;/em> result in an event, a rejection, or other commands.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Events are &lt;em>always&lt;/em> appended. Never deleted or edited.&lt;/p>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>

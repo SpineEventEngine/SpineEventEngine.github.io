@@ -1,0 +1,33 @@
+/*
+ * Copyright 2025, TeamDev. All rights reserved.
+ * TeamDev PROPRIETARY and CONFIDENTIAL.
+ * Use is subject to license terms.
+ */
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #fafafa;
+    border: 1px solid #dfdfdf
+}
+
+*:hover::-webkit-scrollbar-thumb {
+    background: #ababab;
+    border-radius: 4.5px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+*:hover::-webkit-scrollbar-thumb:hover {
+    border: none;
+}

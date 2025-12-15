@@ -1,0 +1,576 @@
+<svg  viewBox="0 0 1463 1263" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>diagram-content</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="443" height="182" rx="4"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="443" height="182" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="17" y="826" width="443" height="191"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="443" height="191" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="12" y="12" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-6.6%" width="105.2%" height="116.4%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-7" x="6" y="6" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-6.6%" width="105.2%" height="116.4%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-9" x="0" y="0" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-7.4%" width="105.2%" height="117.2%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-11" x="12" y="12" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-12">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-13" x="6" y="6" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-14">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-15" x="0" y="0" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-16">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-17" x="12" y="12" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-6.6%" width="105.2%" height="116.4%" filterUnits="objectBoundingBox" id="filter-18">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-19" x="6" y="6" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-6.6%" width="105.2%" height="116.4%" filterUnits="objectBoundingBox" id="filter-20">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-21" x="0" y="0" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-7.4%" width="105.2%" height="117.2%" filterUnits="objectBoundingBox" id="filter-22">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-23" x="12" y="12" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-24">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-25" x="6" y="6" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-26">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-27" x="0" y="0" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-28">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-29" x="12" y="12" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-6.6%" width="105.2%" height="116.4%" filterUnits="objectBoundingBox" id="filter-30">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-31" x="6" y="6" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-6.6%" width="105.2%" height="116.4%" filterUnits="objectBoundingBox" id="filter-32">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-33" x="0" y="0" width="382" height="122" rx="4"></rect>
+        <filter x="-2.4%" y="-7.4%" width="105.2%" height="117.2%" filterUnits="objectBoundingBox" id="filter-34">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-35" x="12" y="12" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-36">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-37" x="6" y="6" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-38">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-39" x="0" y="0" width="106" height="62" rx="4"></rect>
+        <filter x="-8.5%" y="-12.9%" width="118.9%" height="132.3%" filterUnits="objectBoundingBox" id="filter-40">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0923295455 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Spine-Architecture-Diagram" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g class="" id="spine-architecture-diagram" transform="translate(-29.000000, -53.000000)">
+            <g class="diagram-content" id="" transform="translate(29.000000, 53.000000)">
+                <g class="g-caption-bounded-context bounded-context" id="" transform="translate(364.000000, 76.000000)">
+                    <rect class="bounded-context rect layer-3 end-user" id="" stroke="#D8DCE7" fill="#F5F7FC" fill-rule="nonzero" x="24.5" y="29.5" width="1017" height="1157" rx="6"></rect>
+                    <rect class="bounded-context rect layer-2 end-user" id="" stroke="#D8DCE7" fill="#F5F7FC" fill-rule="nonzero" x="12.5" y="14.5" width="1017" height="1160" rx="6"></rect>
+                    <rect class="bounded-context rect layer-1 end-user" id="" stroke="#D8DCE7" fill="#F5F7FC" fill-rule="nonzero" x="0.5" y="0.5" width="1017" height="1162" rx="6"></rect>
+                    <text class="box-caption bounded-context end-user" id="" font-family="Roboto-Regular, Roboto" font-size="26" font-weight="normal" fill="#666666">
+                        <tspan x="408" y="58">Bounded Context</tspan>
+                    </text>
+                </g>
+                <g class="bounded-context-bg" id="" transform="translate(512.000000, 182.000000)">
+                    <text class="box-caption system-context-top" id="" font-family="Roboto-Regular, Roboto" font-size="18" font-weight="normal" fill="#9CAAC9">
+                        <tspan x="164" y="44">System Context</tspan>
+                    </text>
+                    <text class="box-caption system-context-bottom" id="" font-family="Roboto-Regular, Roboto" font-size="18" font-weight="normal" fill="#9CAAC9">
+                        <tspan x="175" y="867">System Context</tspan>
+                    </text>
+                    <use class="system-context rect" id="" stroke="#CED4E1" mask="url(#mask-2)" stroke-width="4" stroke-dasharray="8" xlink:href="#path-1"></use>
+                    <use class="rect system-context-bottom" id="" stroke="#CED4E1" mask="url(#mask-4)" stroke-width="4" stroke-dasharray="8" xlink:href="#path-3"></use>
+                </g>
+                <g class="g-caption aggregate-repo" id="" transform="translate(574.000000, 396.000000)">
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-5"></use>
+                    </g>
+                    <rect class="rect aggregate-repo layer-3 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="12" y="12" width="382" height="122" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-7"></use>
+                    </g>
+                    <rect class="rect aggregate-repo layer-2 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="6" y="6" width="382" height="122" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-9"></use>
+                    </g>
+                    <rect class="rect aggregate-repo layer-1 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="382" height="122" rx="4"></rect>
+                    <text class="box-caption aggregate-repo end-user" id="" fill="#808080" font-family="Roboto-Regular, Roboto" font-size="16" font-weight="normal" line-spacing="19">
+                        <tspan x="33" y="54">Aggregate </tspan>
+                        <tspan x="33" y="73">Repository</tspan>
+                    </text>
+                </g>
+                <g class="g-caption aggregate" id="" transform="translate(798.000000, 423.000000)">
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-11"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-11"></use>
+                    </g>
+                    <rect class="rect aggregate layer-3 end-user" id="" fill="#FFEF8D" fill-rule="nonzero" x="12" y="12" width="106" height="62" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-14)" xlink:href="#path-13"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-13"></use>
+                    </g>
+                    <rect class="rect aggregate layer-2 end-user" id="" fill="#FFEF8D" fill-rule="nonzero" x="6" y="6" width="106" height="62" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-16)" xlink:href="#path-15"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-15"></use>
+                    </g>
+                    <rect class="rect aggregate layer-1 end-user" id="" fill="#FFEF8D" fill-rule="nonzero" x="0" y="0" width="106" height="62" rx="4"></rect>
+                    <text class="box-caption aggregate end-user" id="" font-family="Roboto-Bold, Roboto" font-size="15" font-weight="bold" line-spacing="19" fill="#4B4B4B">
+                        <tspan x="18.7119141" y="35">Aggregate</tspan>
+                    </text>
+                </g>
+                <g class="g-arrow event-bus-aggregate-repo" id="" transform="translate(969.000000, 455.000000)">
+                    <text class="arrow-caption event-bus-aggregate-repo" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#FF7600">
+                        <tspan x="53" y="28">Events</tspan>
+                    </text>
+                    <path class="arrow event-bus-aggregate-repo" id="" d="M14,7 L-4.54747351e-13,0 L14,-7 L13.999,-1 L27,-1 C31.8818027,-1 35.8557914,2.88681368 35.9961629,7.73463775 L36,8 L36,268 L34,268 L34,8 C34,4.21454828 30.9952166,1.13090132 27.2406498,1.00405902 L27,1 L13.999,1 L14,7 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                </g>
+                <g class="g-caption projection-repo" id="" transform="translate(574.000000, 824.000000)">
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-18)" xlink:href="#path-17"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-17"></use>
+                    </g>
+                    <rect class="rect projection-repo layer-3 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="12" y="12" width="382" height="122" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-20)" xlink:href="#path-19"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-19"></use>
+                    </g>
+                    <rect class="rect projection-repo layer-2 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="6" y="6" width="382" height="122" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-22)" xlink:href="#path-21"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-21"></use>
+                    </g>
+                    <rect class="rect projection-repo layer-1 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="382" height="122" rx="4"></rect>
+                    <text class="box-caption projection-repo end-user" id="" fill="#808080" font-family="Roboto-Regular, Roboto" font-size="16" font-weight="normal" line-spacing="19">
+                        <tspan x="33" y="56">Projection</tspan>
+                        <tspan x="33" y="75">Repository</tspan>
+                    </text>
+                </g>
+                <g class="g-caption projection" id="" transform="translate(798.000000, 851.000000)" fill-rule="nonzero">
+                    <g class="shadow-layer" id="">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-24)" xlink:href="#path-23"></use>
+                        <use fill="#D4EFC5" xlink:href="#path-23"></use>
+                    </g>
+                    <rect class="rect projection layer-3 end-user" id="" fill="#89C767" x="12" y="12" width="106" height="62" rx="4"></rect>
+                    <g class="shadow-layer" id="">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-26)" xlink:href="#path-25"></use>
+                        <use fill="#D4EFC5" xlink:href="#path-25"></use>
+                    </g>
+                    <rect class="rect projection layer-2 end-user" id="" fill="#89C767" x="6" y="6" width="106" height="62" rx="4"></rect>
+                    <g class="shadow-layer" id="">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-28)" xlink:href="#path-27"></use>
+                        <use fill="#D4EFC5" xlink:href="#path-27"></use>
+                    </g>
+                    <rect class="rect projection layer-1 end-user" id="" fill="#89C767" x="0" y="0" width="106" height="62" rx="4"></rect>
+                    <text class="box-caption projection end-user" id="" fill="#FFFFFF" font-family="Roboto-Black, Roboto" font-size="15" font-weight="700" line-spacing="19">
+                        <tspan x="20.5" y="36">Projection</tspan>
+                    </text>
+                </g>
+                <g class="g-caption pm-repo" id="" transform="translate(574.000000, 547.000000)">
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-30)" xlink:href="#path-29"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-29"></use>
+                    </g>
+                    <rect class="rect pm-repo layer-3 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="12" y="12" width="382" height="122" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-32)" xlink:href="#path-31"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-31"></use>
+                    </g>
+                    <rect class="rect pm-repo layer-2 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="6" y="6" width="382" height="122" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-34)" xlink:href="#path-33"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-33"></use>
+                    </g>
+                    <rect class="rect pm-repo layer-1 end-user" id="" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="382" height="122" rx="4"></rect>
+                    <text class="box-caption pm-repo end-user" id="" fill="#808080" font-family="Roboto-Regular, Roboto" font-size="16" font-weight="normal" line-spacing="19">
+                        <tspan x="33" y="47">Process</tspan>
+                        <tspan x="33" y="66">Manager</tspan>
+                        <tspan x="33" y="85">Repository</tspan>
+                    </text>
+                </g>
+                <g class="g-caption pm" id="" transform="translate(798.000000, 574.000000)">
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-36)" xlink:href="#path-35"></use>
+                        <use fill="#CCCCFF" xlink:href="#path-35"></use>
+                    </g>
+                    <rect class="rect pm layer-3 end-user" id="" fill="#CCCCFF" fill-rule="nonzero" x="12" y="12" width="106" height="62" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-38)" xlink:href="#path-37"></use>
+                        <use fill="#CCCCFF" xlink:href="#path-37"></use>
+                    </g>
+                    <rect class="rect pm layer-2 end-user" id="" fill="#CCCCFF" fill-rule="nonzero" x="6" y="6" width="106" height="62" rx="4"></rect>
+                    <g class="shadow-layer" id="" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-40)" xlink:href="#path-39"></use>
+                        <use fill="#CCCCFF" xlink:href="#path-39"></use>
+                    </g>
+                    <rect class="rect pm layer-1 end-user" id="" fill="#CCCCFF" fill-rule="nonzero" x="0" y="0" width="106" height="62" rx="4"></rect>
+                    <text class="box-caption pm end-user" id="" font-family="Roboto-Bold, Roboto" font-size="15" font-weight="bold" line-spacing="18" fill="#4B4B4B">
+                        <tspan x="28.5085449" y="28">Process</tspan>
+                        <tspan x="26.1171875" y="46">Manager</tspan>
+                    </text>
+                </g>
+                <g class="g-caption event-bus" id="" transform="translate(574.000000, 722.000000)">
+                    <rect class="rect event-bus" id="" fill="#FFB460" fill-rule="nonzero" x="0" y="0" width="454" height="54" rx="4"></rect>
+                    <text class="box-caption event-bus" id="" fill="#FFFFFF" font-family="Roboto-Bold, Roboto" font-size="24" font-weight="bold">
+                        <tspan x="174.621094" y="35">Event Bus</tspan>
+                    </text>
+                </g>
+                <g class="g-caption command-service" id="" transform="translate(303.000000, 297.000000) rotate(-90.000000) translate(-303.000000, -297.000000) translate(188.000000, 270.000000)">
+                    <rect class="command-service rect" id="" fill="#3399FF" fill-rule="nonzero" transform="translate(115.000000, 27.000000) rotate(90.000000) translate(-115.000000, -27.000000) " x="88" y="-88" width="54" height="230" rx="4"></rect>
+                    <text class="box-caption command-service" id="" fill="#FFFFFF" font-family="Roboto-Bold, Roboto" font-size="16" font-weight="bold" letter-spacing="0.200000003">
+                        <tspan x="44.3304687" y="32">Command Servic</tspan>
+                        <tspan x="170.021094" y="32">e</tspan>
+                    </text>
+                </g>
+                <g class="g-caption query-service" id="" transform="translate(275.000000, 777.000000)">
+                    <rect class="query-service rect" id="" fill="#89C767" fill-rule="nonzero" x="0" y="0" width="54" height="155" rx="4"></rect>
+                    <text class="box-caption query-service" id="" fill="#FFFFFF" transform="translate(27.000000, 77.500000) rotate(-90.000000) translate(-27.000000, -77.500000) " font-family="Roboto-Bold, Roboto" font-size="16" font-weight="bold" letter-spacing="0.200000003">
+                        <tspan x="-21.271875" y="83">Query Sevic</tspan>
+                        <tspan x="66.6234375" y="83">e</tspan>
+                    </text>
+                </g>
+                <g class="g-caption subscription-service" id="" transform="translate(275.000000, 997.000000)">
+                    <rect class="subscription-service rect" id="" fill="#89C767" fill-rule="nonzero" x="0" y="0" width="54" height="206" rx="4"></rect>
+                    <text class="box-caption subscription-service" id="" fill="#FFFFFF" transform="translate(27.000000, 102.500000) rotate(-90.000000) translate(-27.000000, -102.500000) " font-family="Roboto-Bold, Roboto" font-size="16" font-weight="bold" letter-spacing="0.200000003">
+                        <tspan x="-49.3375" y="108">Subscription Servic</tspan>
+                        <tspan x="94.6890625" y="108">e</tspan>
+                    </text>
+                </g>
+                <g class="g-caption stand" id="" transform="translate(437.000000, 990.500000) rotate(-90.000000) translate(-437.000000, -990.500000) translate(224.000000, 963.000000)">
+                    <rect class="stand rect" id="" fill="#89C767" fill-rule="nonzero" transform="translate(213.000000, 27.500000) rotate(90.000000) translate(-213.000000, -27.500000) " x="186" y="-185" width="54" height="425" rx="4"></rect>
+                    <text class="box-caption stand" id="" fill="#FFFFFF" font-family="Roboto-Bold, Roboto" font-size="24" font-weight="bold">
+                        <tspan x="181.152344" y="36">Stand</tspan>
+                    </text>
+                </g>
+                <g class="g-caption command-dispatcher" id="" transform="translate(560.000000, 262.000000)">
+                    <rect class="command-dispatcher rect" id="" fill="#3399FF" fill-rule="nonzero" x="0" y="0" width="160" height="70" rx="4"></rect>
+                    <text class="box-caption command-dispatcher" id="" fill="#FFFFFF" font-family="Roboto-Bold, Roboto" font-size="16" font-weight="bold" letter-spacing="0.200000003">
+                        <tspan x="42.4132812" y="31">Command </tspan>
+                        <tspan x="40.2796875" y="50">Dispatche</tspan>
+                        <tspan x="113.884375" y="50">r</tspan>
+                    </text>
+                </g>
+                <g class="g-caption aggregate-mirror" id="" transform="translate(578.000000, 1071.000000)">
+                    <rect class="rect aggregate-mirror" id="" fill="#89C767" fill-rule="nonzero" x="0" y="0" width="347" height="91" rx="4"></rect>
+                    <text class="box-caption aggregate-mirror" id="" fill="#FFFFFF" font-family="Roboto-Bold, Roboto" font-size="18" font-weight="bold" letter-spacing="0.200000003">
+                        <tspan x="102.947754" y="51">Aggregate Mirro</tspan>
+                        <tspan x="238.486816" y="51">r</tspan>
+                    </text>
+                </g>
+                <g class="g-caption event-store" id="" transform="translate(1106.000000, 694.000000)">
+                    <path d="M0,20.0014999 C0,-6.66716664 110,-6.66716664 110,20.0014999 L110,79.9985001 C110,106.667167 0,106.667167 0,79.9985001 L0,20.0014999 Z" class="event-store path" id="" stroke="#FFFFFF" stroke-width="2" fill="#FFB460" fill-rule="nonzero"></path>
+                    <path d="M0,20 C0,40 110,40 110,20" class="event-store path path-only" id="" stroke="#FFFFFF" stroke-width="2"></path>
+                    <text class="box-caption event-store" id="" fill="#FFFFFF" font-family="Roboto-Bold, Roboto" font-size="16" font-weight="bold" letter-spacing="0.200000003">
+                        <tspan x="35.6015625" y="59">Event</tspan>
+                        <tspan x="36.3304687" y="78">Stor</tspan>
+                        <tspan x="67.0210938" y="78">e</tspan>
+                    </text>
+                </g>
+                <g class="g-caption command-store" id="" transform="translate(796.000000, 243.000000)">
+                    <path d="M0,20.0014999 C0,-6.66716664 110,-6.66716664 110,20.0014999 L110,79.9985001 C110,106.667167 0,106.667167 0,79.9985001 L0,20.0014999 Z" class="path command-store" id="" stroke="#FFFFFF" stroke-width="2" fill="#3399FF" fill-rule="nonzero"></path>
+                    <path d="M0,20 C0,40 110,40 110,20" class="path command-store path-only" id="" stroke="#FFFFFF" stroke-width="2"></path>
+                    <text class="box-caption command-store" id="" fill="#FFFFFF" font-family="Roboto-Bold, Roboto" font-size="16" font-weight="bold" letter-spacing="0.200000003">
+                        <tspan x="18.4132812" y="61">Command</tspan>
+                        <tspan x="36.3304687" y="80">Stor</tspan>
+                        <tspan x="67.0210938" y="80">e</tspan>
+                    </text>
+                </g>
+                <g class="g-arrow aggregate-states" id="" transform="translate(918.000000, 412.000000)">
+                    <text class="arrow-caption aggregate-states" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#009900">
+                        <tspan x="216" y="13">Aggregate States</tspan>
+                    </text>
+                    <path class="arrow aggregate-states" id="" d="M20.7941176,699 L20.794,705 L24.9746433,705 L24.9746433,707 L20.794,707 L20.7941176,713 L6.79411765,706 L20.7941176,699 Z M40.9746433,705 L40.9746433,707 L32.9746433,707 L32.9746433,705 L40.9746433,705 Z M56.9746433,705 L56.9746433,707 L48.9746433,707 L48.9746433,705 L56.9746433,705 Z M72.9746433,705 L72.9746433,707 L64.9746433,707 L64.9746433,705 L72.9746433,705 Z M88.9746433,705 L88.9746433,707 L80.9746433,707 L80.9746433,705 L88.9746433,705 Z M104.974643,705 L104.974643,707 L96.9746433,707 L96.9746433,705 L104.974643,705 Z M120.974643,705 L120.974643,707 L112.974643,707 L112.974643,705 L120.974643,705 Z M136.974643,705 L136.974643,707 L128.974643,707 L128.974643,705 L136.974643,705 Z M152.974643,705 L152.974643,707 L144.974643,707 L144.974643,705 L152.974643,705 Z M168.974643,705 L168.974643,707 L160.974643,707 L160.974643,705 L168.974643,705 Z M184.974643,705 L184.974643,707 L176.974643,707 L176.974643,705 L184.974643,705 Z M200.974643,705 L200.974643,707 L192.974643,707 L192.974643,705 L200.974643,705 Z M216.974643,705 L216.974643,707 L208.974643,707 L208.974643,705 L216.974643,705 Z M232.974643,705 L232.974643,707 L224.974643,707 L224.974643,705 L232.974643,705 Z M248.974643,705 L248.974643,707 L240.974643,707 L240.974643,705 L248.974643,705 Z M264.974643,705 L264.974643,707 L256.974643,707 L256.974643,705 L264.974643,705 Z M280.974643,705 L280.974643,707 L272.974643,707 L272.974643,705 L280.974643,705 Z M296.974643,705 L296.974643,707 L288.974643,707 L288.974643,705 L296.974643,705 Z M312.974643,705 L312.974643,707 L304.974643,707 L304.974643,705 L312.974643,705 Z M328.974643,705 L328.974643,707 L320.974643,707 L320.974643,705 L328.974643,705 Z M344.318193,704.165329 L345.267806,705.92551 C344.067138,706.573267 342.732679,706.940707 341.347345,706.993403 L341,707 L336.974643,707 L336.974643,705 L341,705 C342.175754,705 343.307463,704.710615 344.318193,704.165329 Z M350,690.512678 L350,698 L349.995457,698.288409 L349.995457,698.288409 L349.98185,698.575687 L347.985837,698.449472 L347.996454,698.225265 L347.996454,698.225265 L348,698 L348,690.512678 L350,690.512678 Z M350,674.512678 L350,682.512678 L348,682.512678 L348,674.512678 L350,674.512678 Z M350,658.512678 L350,666.512678 L348,666.512678 L348,658.512678 L350,658.512678 Z M350,642.512678 L350,650.512678 L348,650.512678 L348,642.512678 L350,642.512678 Z M350,626.512678 L350,634.512678 L348,634.512678 L348,626.512678 L350,626.512678 Z M350,610.512678 L350,618.512678 L348,618.512678 L348,610.512678 L350,610.512678 Z M350,594.512678 L350,602.512678 L348,602.512678 L348,594.512678 L350,594.512678 Z M350,578.512678 L350,586.512678 L348,586.512678 L348,578.512678 L350,578.512678 Z M350,562.512678 L350,570.512678 L348,570.512678 L348,562.512678 L350,562.512678 Z M350,546.512678 L350,554.512678 L348,554.512678 L348,546.512678 L350,546.512678 Z M350,530.512678 L350,538.512678 L348,538.512678 L348,530.512678 L350,530.512678 Z M350,514.512678 L350,522.512678 L348,522.512678 L348,514.512678 L350,514.512678 Z M350,498.512678 L350,506.512678 L348,506.512678 L348,498.512678 L350,498.512678 Z M350,482.512678 L350,490.512678 L348,490.512678 L348,482.512678 L350,482.512678 Z M350,466.512678 L350,474.512678 L348,474.512678 L348,466.512678 L350,466.512678 Z M350,450.512678 L350,458.512678 L348,458.512678 L348,450.512678 L350,450.512678 Z M350,434.512678 L350,442.512678 L348,442.512678 L348,434.512678 L350,434.512678 Z M350,418.512678 L350,426.512678 L348,426.512678 L348,418.512678 L350,418.512678 Z M350,402.512678 L350,410.512678 L348,410.512678 L348,402.512678 L350,402.512678 Z M350,386.512678 L350,394.512678 L348,394.512678 L348,386.512678 L350,386.512678 Z M350,370.512678 L350,378.512678 L348,378.512678 L348,370.512678 L350,370.512678 Z M350,354.512678 L350,362.512678 L348,362.512678 L348,354.512678 L350,354.512678 Z M350,338.512678 L350,346.512678 L348,346.512678 L348,338.512678 L350,338.512678 Z M350,322.512678 L350,330.512678 L348,330.512678 L348,322.512678 L350,322.512678 Z M350,306.512678 L350,314.512678 L348,314.512678 L348,306.512678 L350,306.512678 Z M350,290.512678 L350,298.512678 L348,298.512678 L348,290.512678 L350,290.512678 Z M350,274.512678 L350,282.512678 L348,282.512678 L348,274.512678 L350,274.512678 Z M350,258.512678 L350,266.512678 L348,266.512678 L348,258.512678 L350,258.512678 Z M350,242.512678 L350,250.512678 L348,250.512678 L348,242.512678 L350,242.512678 Z M350,226.512678 L350,234.512678 L348,234.512678 L348,226.512678 L350,226.512678 Z M350,210.512678 L350,218.512678 L348,218.512678 L348,210.512678 L350,210.512678 Z M350,194.512678 L350,202.512678 L348,202.512678 L348,194.512678 L350,194.512678 Z M350,178.512678 L350,186.512678 L348,186.512678 L348,178.512678 L350,178.512678 Z M350,162.512678 L350,170.512678 L348,170.512678 L348,162.512678 L350,162.512678 Z M350,146.512678 L350,154.512678 L348,154.512678 L348,146.512678 L350,146.512678 Z M350,130.512678 L350,138.512678 L348,138.512678 L348,130.512678 L350,130.512678 Z M350,114.512678 L350,122.512678 L348,122.512678 L348,114.512678 L350,114.512678 Z M350,98.5126783 L350,106.512678 L348,106.512678 L348,98.5126783 L350,98.5126783 Z M350,82.5126783 L350,90.5126783 L348,90.5126783 L348,82.5126783 L350,82.5126783 Z M350,66.5126783 L350,74.5126783 L348,74.5126783 L348,66.5126783 L350,66.5126783 Z M350,50.5126783 L350,58.5126783 L348,58.5126783 L348,50.5126783 L350,50.5126783 Z M349.841213,34.3090471 C349.919008,34.717995 349.968498,35.1333018 349.989064,35.5540234 L349.999966,35.976515 L350,42.5126732 L348,42.5126835 L347.99997,35.9793931 C347.999024,35.6500565 347.975397,35.3239496 347.929607,35.0025648 L347.876448,34.6828093 L349.841213,34.3090471 Z M341,27 C342.021075,27 343.019805,27.1704989 343.964245,27.4998478 L344.315803,27.6307769 L343.578656,29.489974 C342.867289,29.2079261 342.111969,29.0443257 341.334496,29.0078326 L341,29 L336,29 L336,27 L341,27 Z M328,27 L328,29 L320,29 L320,27 L328,27 Z M312,27 L312,29 L304,29 L304,27 L312,27 Z M296,27 L296,29 L288,29 L288,27 L296,27 Z M280,27 L280,29 L272,29 L272,27 L280,27 Z M264,27 L264,29 L256,29 L256,27 L264,27 Z M248,27 L248,29 L240,29 L240,27 L248,27 Z M232,27 L232,29 L224,29 L224,27 L232,27 Z M216,27 L216,29 L208,29 L208,27 L216,27 Z M200,27 L200,29 L192,29 L192,27 L200,27 Z M184,27 L184,29 L176,29 L176,27 L184,27 Z M168,27 L168,29 L160,29 L160,27 L168,27 Z M152,27 L152,29 L144,29 L144,27 L152,27 Z M136,27 L136,29 L128,29 L128,27 L136,27 Z M120,27 L120,29 L112,29 L112,27 L120,27 Z M104,27 L104,29 L96,29 L96,27 L104,27 Z M88,27 L88,29 L80,29 L80,27 L88,27 Z M72,27 L72,29 L64,29 L64,27 L72,27 Z M56,27 L56,29 L48,29 L48,27 L56,27 Z M40,27 L40,29 L32,29 L32,27 L40,27 Z M24,27 L24,29 L16,29 L16,27 L24,27 Z M8,27 L8,29 L0,29 L0,27 L8,27 Z" fill="#82B366" fill-rule="nonzero"></path>
+                </g>
+                <g class="g-arrow integration-events" id="" transform="translate(1353.000000, 18.000000)">
+                    <text class="arrow-caption integration-events" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" line-spacing="19" fill="#0061C2">
+                        <tspan x="26.4321289" y="47">Integration</tspan>
+                        <tspan x="39.2973633" y="66">Events</tspan>
+                    </text>
+                    <path class="arrow integration-events" id="" d="M110,55.5 C110,80.9490681 92.730788,102.922895 68.5052347,109.217647 L69.2243643,115.309717 L54.5,110 L67.5823923,101.406339 L68.2685777,107.21199 C91.4790054,101.05319 108,79.938371 108,55.5 C108,23.7687521 86.9797398,1.07241552 54.5285598,1.99959209 C26.9488296,2.78758438 7.83984044,18.5357502 2.48025477,42.6749949 L8.32287203,43.2436883 L0,56.5 L-5.61132618,41.8879153 L0.475603962,42.4787726 C5.96017636,17.3129839 25.8842329,0.817185265 54.4714402,0.000407913539 C88.0993051,-0.960388225 110,22.6865856 110,55.5 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                </g>
+                <g class="g-arrow ui-query-service" id="" transform="translate(179.000000, 804.000000)">
+                    <text class="arrow-caption ui-query-service end-user" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#009900">
+                        <tspan x="24" y="13">Queries</tspan>
+                    </text>
+                    <path class="arrow ui-query-service end-user" id="" d="M82,16 L96,23 L82,30 L82,24 L0,24 L0,22 L82,22 L82,16 Z" fill="#82B366" fill-rule="nonzero"></path>
+                </g>
+                <g class="g-arrow query-service-ui" id="" transform="translate(178.000000, 858.000000)">
+                    <text class="arrow-caption query-service-ui end-user" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#009900">
+                        <tspan x="26" y="13">Results</tspan>
+                    </text>
+                    <path class="arrow query-service-ui end-user" id="" d="M14.8290598,18 L14.829,24 L97,24 L97,26 L14.829,26 L14.8290598,32 L0.829059829,25 L14.8290598,18 Z" fill="#82B366" fill-rule="nonzero"></path>
+                </g>
+                <g class="g-arrow ui-subscription-service" id="" transform="translate(179.000000, 1043.000000)">
+                    <text class="arrow-caption ui-subscription-service end-user" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#009900">
+                        <tspan x="16" y="13">Subscribe</tspan>
+                    </text>
+                    <path class="arrow ui-subscription-service end-user" id="" d="M82,19 L96,26 L82,33 L82,27 L0,27 L0,25 L82,25 L82,19 Z" fill="#82B366" fill-rule="nonzero"></path>
+                </g>
+                <g class="g-arrow subscription-service-ui" id="" transform="translate(179.000000, 1105.000000)">
+                    <text class="arrow-caption subscription-service-ui end-user" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#009900">
+                        <tspan x="22" y="13">Updates</tspan>
+                    </text>
+                    <path class="arrow subscription-service-ui end-user" id="" d="M14,19 L14,25 L21,25 L21,27 L14,27 L14,33 L0,26 L14,19 Z M37,25 L37,27 L29,27 L29,25 L37,25 Z M53,25 L53,27 L45,27 L45,25 L53,25 Z M69,25 L69,27 L61,27 L61,25 L69,25 Z M85,25 L85,27 L77,27 L77,25 L85,25 Z M96,25 L96,27 L93,27 L93,25 L96,25 Z" fill="#82B366" fill-rule="nonzero"></path>
+                </g>
+                <g class="g-arrow command-service-ui" id="" transform="translate(178.000000, 297.000000)">
+                    <text class="arrow-caption command-service-ui end-user" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#0061C2">
+                        <tspan x="33" y="13">Acks</tspan>
+                    </text>
+                    <path class="arrow command-service-ui end-user" id="" d="M14.8290598,19 L14.829,25 L98,25 L98,27 L14.829,27 L14.8290598,33 L0.829059829,26 L14.8290598,19 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                </g>
+                <text class="arrow-caption aggregate-states" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#009900">
+                    <tspan x="986" y="1103">Aggregate States</tspan>
+                </text>
+                <g class="g-caption user-interface" id="" transform="translate(125.000000, 182.000000)">
+                    <rect class="user-interface rect end-user" id="" fill="#CDA2BE" fill-rule="nonzero" x="0" y="0" width="54" height="1021" rx="4"></rect>
+                    <text class="box-caption user-interface end-user" id="" fill="#FFFFFF" transform="translate(27.000000, 511.000000) rotate(-90.000000) translate(-27.000000, -511.000000) " font-family="Roboto-Bold, Roboto" font-size="24" font-weight="bold">
+                        <tspan x="-26.7773438" y="519">Client API</tspan>
+                    </text>
+                </g>
+                <g class="g-caption command-bus" id="" transform="translate(410.000000, 182.000000)">
+                    <rect class="command-bus rect" id="" fill="#3399FF" fill-rule="nonzero" x="0" y="0" width="54" height="516" rx="4"></rect>
+                    <text class="box-caption command-bus" id="" fill="#FFFFFF" transform="translate(27.000000, 258.000000) rotate(-90.000000) translate(-27.000000, -258.000000) " font-family="Roboto-Bold, Roboto" font-size="24" font-weight="bold">
+                        <tspan x="-51.8613281" y="266">Command Bus</tspan>
+                    </text>
+                </g>
+                <g class="icons end-user" id="" transform="translate(0.000000, 484.000000)" fill="#B2BDD7" fill-rule="nonzero">
+                    <path d="M88,412 L88,356 C88,353.790861 86.209139,352 84,352 L12,352 C9.790861,352 8,353.790861 8,356 L8,412 L8,412 L0,412 L0,416 C2.705415e-16,418.209139 1.790861,420 4,420 L92,420 C94.209139,420 96,418.209139 96,416 L96,412 L96,412 L88,412 Z M56,412 L40,412 L40,408 L56,408 L56,412 Z M82,400 L14,400 L14,358 L82,358 L82,400 Z" class="icon-laptop end-user" id=""></path>
+                    <path d="M67.9942816,166.04 L27.9656898,166 C23.5625447,166 20,169.6 20,174 L20,246 C20,250.4 23.5625447,254 27.9656898,254 L67.9942816,254 C72.3974267,254 76,250.4 76,246 L76,174 C76,169.6 72.3974267,166.04 67.9942816,166.04 Z M70,239 L26,239 L26,176 L70,176 L70,239 Z" class="icon-phone end-user" id=""></path>
+                    <path d="M80,0 C84.4,0 88,3.6 88,8 L88,8 L88,56 C88,60.4 84.4,64 80,64 L80,64 L16,64 C11.6,64 8,60.4 8,56 L8,56 L8.04,8 C8.04,3.6 11.6,0 16,0 L16,0 Z M82,26 L14,26 L14,58 L82,58 L82,26 Z M82,15 L14,15 L14,21 L82,21 L82,15 Z M17.5,4 C15.5670034,4 14,5.56700338 14,7.5 C14,9.43299662 15.5670034,11 17.5,11 C19.4329966,11 21,9.43299662 21,7.5 C21,5.56700338 19.4329966,4 17.5,4 Z M29.5,4 C27.5670034,4 26,5.56700338 26,7.5 C26,9.43299662 27.5670034,11 29.5,11 C31.4329966,11 33,9.43299662 33,7.5 C33,5.56700338 31.4329966,4 29.5,4 Z M41.5,4 C39.5670034,4 38,5.56700338 38,7.5 C38,9.43299662 39.5670034,11 41.5,11 C43.4329966,11 45,9.43299662 45,7.5 C45,5.56700338 43.4329966,4 41.5,4 Z" class="icon-browser end-user" id=""></path>
+                </g>
+                <path class="arrow command-dispatcher-aggregate-repo" id="" d="M597,332 L597,376.462366 C597,381.344168 593.113186,385.318157 588.265362,385.458528 L588,385.462366 L522,385.462366 C518.214548,385.462366 515.130901,388.467149 515.004059,392.221716 L515,392.462366 L515,447 C515,450.785452 518.004783,453.869099 521.75935,453.995941 L522,454 L558,454 L558,448 L572,455 L558,462 L558,456 L522,456 C517.118197,456 513.144209,452.113186 513.003837,447.265362 L513,447 L513,392.462366 C513,387.580563 516.886814,383.606574 521.734638,383.466203 L522,383.462366 L588,383.462366 C591.785452,383.462366 594.869099,380.457582 594.995941,376.703015 L595,376.462366 L595,332 L597,332 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <path class="arrow command-dispatcher-pm-repo" id="" d="M515,446 L515,581 C515,584.785452 518.004783,587.869099 521.75935,587.995941 L522,588 L557,588 L557,582 L571,589 L557,596 L557,590 L522,590 C517.118197,590 513.144209,586.113186 513.003837,581.265362 L513,581 L513,446 L515,446 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <path class="arrow stand-aggregate-mirror" id="" d="M478,943 L464,936 L478,929 L478,935 L492.762018,935 C497.643821,935 501.61781,938.886814 501.758181,943.734638 L501.762018,944 L501.762018,1096 C501.762018,1099.78545 504.766802,1102.8691 508.521369,1102.99594 L508.762018,1103 L564,1103 L564,1097 L578,1104 L564,1111 L564,1105 L508.762018,1105 C503.880216,1105 499.906227,1101.11319 499.765855,1096.26536 L499.762018,1096 L499.762018,944 C499.762018,940.214548 496.757235,937.130901 493.002668,937.004059 L492.762018,937 L478,937 L478,943 Z" fill="#82B366" fill-rule="nonzero"></path>
+                <path class="arrow aggregate-mirror-stand" id="" d="M478.030836,1123.56201 L478.003,1129.561 L484.996778,1129.5929 L484.987928,1131.59288 L477.995,1131.561 L477.96889,1137.56188 L464,1130.5 L478.030836,1123.56201 Z M572.995916,1129.98227 L577.004425,1130.00001 L576.995575,1131.99999 L572.987067,1131.98225 L572.995916,1129.98227 Z M556.996073,1129.91148 L564.995995,1129.94688 L564.987145,1131.94686 L556.987224,1131.91146 L556.996073,1129.91148 Z M540.99623,1129.84068 L548.996151,1129.87608 L548.987302,1131.87606 L540.98738,1131.84066 L540.99623,1129.84068 Z M524.996386,1129.76989 L532.996308,1129.80528 L532.987459,1131.80526 L524.987537,1131.76987 L524.996386,1129.76989 Z M508.996543,1129.69909 L516.996465,1129.73449 L516.987615,1131.73447 L508.987693,1131.69907 L508.996543,1129.69909 Z M492.9967,1129.62829 L500.996621,1129.66369 L500.987772,1131.66367 L492.98785,1131.62827 L492.9967,1129.62829 Z" fill="#82B366" fill-rule="nonzero"></path>
+                <path class="arrow pm-event-bus" id="" d="M856.506863,646.993183 L858.506817,647.006863 L858.499977,648.00684 L858.095,707.104 L864.095596,707.145769 L857,721.097561 L850.095924,707.050008 L856.095,707.091 L856.500023,647.99316 L856.506863,646.993183 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                <path class="arrow aggregate-event-bus" id="" d="M978,472 C982.881803,472 986.855791,475.886814 986.996163,480.734638 L987,481 L987,708 L993,708 L986,722 L979,708 L985,708 L985,481 C985,477.214548 981.995217,474.130901 978.24065,474.004059 L978,474 L917,474 L917,472 L978,472 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                <path class="arrow stand-projection-repo" id="" d="M556,614 L570,621 L556,628 L556,622 L521.743524,622 C517.958072,622 514.874425,625.004783 514.747583,628.75935 L514.743524,629 L514.743524,822 C514.743524,826.881803 510.85671,830.855791 506.008886,830.996163 L505.743524,831 L478,831 L478,837 L464,830 L478,823 L478,829 L505.743524,829 C509.528976,829 512.612623,825.995217 512.739465,822.24065 L512.743524,822 L512.743524,629 C512.743524,624.118197 516.630338,620.144209 521.478162,620.003837 L521.743524,620 L556,620 L556,614 Z" fill="#82B366" fill-rule="nonzero"></path>
+                <g class="g-arrow ui-command-service" id="" transform="translate(179.000000, 243.000000)">
+                    <text class="arrow-caption ui-command-service end-user" id="" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" fill="#0061C2">
+                        <tspan x="12" y="13">Commands</tspan>
+                    </text>
+                    <path class="arrow ui-command-service end-user" id="" d="M83,19 L97,26 L83,33 L83,27 L-0.170940171,27 L-0.170940171,25 L83,25 L83,19 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                </g>
+                <path d="M1293,182 L1311,182 C1315.66667,183.333333 1318,186.333333 1318,191 C1318,195.666667 1318,282.707642 1318,452.122925 C1319.99984,456.040975 1322.99976,458 1326.99976,458 C1320.99976,458 1318,464.040527 1318,464.040527 C1318,464.040527 1318,550.360352 1318,723 C1316.99573,728.112814 1314.43932,730.669221 1310.33078,730.669221 C1306.22224,730.669221 1300.44531,730.669221 1293,730.669221" class="path write-side brace end-user" id="" stroke="#CED4E1" stroke-width="2"></path>
+                <path d="M1293,765 L1311,765 C1315.66667,766.040092 1318,768.3803 1318,772.020623 C1318,775.660947 1318,843.558937 1318,975.714593 C1319.99984,978.770944 1322.99976,980.299119 1326.99976,980.299119 C1320.99976,980.299119 1318,985.011149 1318,985.011149 C1318,985.011149 1318,1052.34659 1318,1187.01748 C1316.99573,1191.00583 1314.43932,1193 1310.33078,1193 C1306.22224,1193 1300.44531,1193 1293,1193" class="path read-side brace end-user" id="" stroke="#CED4E1" stroke-width="2"></path>
+                <path class="arrow pm-command-bus" id="" d="M836,648 L836,656 C836,660.881803 832.113186,664.855791 827.265362,664.996163 L827,665 L478,665 L478,671 L464,664 L478,657 L478,663 L827,663 C830.785452,663 833.869099,659.995217 833.995941,656.24065 L834,656 L834,648 L836,648 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <text class="arrow-caption write-side end-user" id="" transform="translate(1350.500000, 460.500000) rotate(-90.000000) translate(-1350.500000, -460.500000) " font-family="Roboto-Regular, Roboto" font-size="20" font-weight="normal" fill="#B2BDD7">
+                    <tspan x="1306" y="467.5">Write-side</tspan>
+                </text>
+                <text class="arrow-caption read-side end-user" id="" transform="translate(1353.000000, 982.000000) rotate(-90.000000) translate(-1353.000000, -982.000000) " font-family="Roboto-Regular, Roboto" font-size="20" font-weight="normal" fill="#B2BDD7">
+                    <tspan x="1309" y="989">Read-side</tspan>
+                </text>
+                <text class="title-caption" id="" font-family="Roboto-Regular, Roboto" font-size="28" font-weight="normal" fill="#B6B6B6">
+                    <tspan x="761" y="26">Cloud Application</tspan>
+                </text>
+                <text class="title-caption" id="" font-family="Roboto-Regular, Roboto" font-size="28" font-weight="normal" fill="#B6B6B6">
+                    <tspan x="35" y="26">Client Applications</tspan>
+                </text>
+                <path class="arrow event-bus-projection-repo" id="" d="M641.5,775 L641.5,810 L647.5,810 L640.5,824 L633.5,810 L639.5,810 L639.5,775 L641.5,775 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                <path class="arrow aggregate-repo-aggregate-commands end-user" id="" d="M786.724138,438.96875 L795.724138,443.46875 L786.724138,447.96875 L786.724,443.968 L711.248362,443.969074 C710.999492,446.218893 709.092028,447.96875 706.775862,447.96875 C704.290581,447.96875 702.275862,445.954031 702.275862,443.46875 C702.275862,440.983469 704.290581,438.96875 706.775862,438.96875 C709.091896,438.96875 710.999276,440.718408 711.248319,442.968043 L786.724,442.968 L786.724138,438.96875 Z M706.775862,439.96875 C704.842865,439.96875 703.275862,441.535753 703.275862,443.46875 C703.275862,445.401747 704.842865,446.96875 706.775862,446.96875 C708.708859,446.96875 710.275862,445.401747 710.275862,443.46875 C710.275862,441.535753 708.708859,439.96875 706.775862,439.96875 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <path class="arrow pm-repo-pm-commands end-user" id="" d="M786.724138,589.96875 L795.724138,594.46875 L786.724138,598.96875 L786.724,594.968 L711.248362,594.969074 C710.999492,597.218893 709.092028,598.96875 706.775862,598.96875 C704.290581,598.96875 702.275862,596.954031 702.275862,594.46875 C702.275862,591.983469 704.290581,589.96875 706.775862,589.96875 C709.091896,589.96875 710.999276,591.718408 711.248319,593.968043 L786.724,593.968 L786.724138,589.96875 Z M706.775862,590.96875 C704.842865,590.96875 703.275862,592.535753 703.275862,594.46875 C703.275862,596.401747 704.842865,597.96875 706.775862,597.96875 C708.708859,597.96875 710.275862,596.401747 710.275862,594.46875 C710.275862,592.535753 708.708859,590.96875 706.775862,590.96875 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <path class="arrow aggregate-repo-aggregate-events end-user" id="" d="M786.724138,461.96875 L795.724138,466.46875 L786.724138,470.96875 L786.724,466.968 L711.248362,466.969074 C710.999492,469.218893 709.092028,470.96875 706.775862,470.96875 C704.290581,470.96875 702.275862,468.954031 702.275862,466.46875 C702.275862,463.983469 704.290581,461.96875 706.775862,461.96875 C709.091896,461.96875 710.999276,463.718408 711.248319,465.968043 L786.724,465.968 L786.724138,461.96875 Z M706.775862,462.96875 C704.842865,462.96875 703.275862,464.535753 703.275862,466.46875 C703.275862,468.401747 704.842865,469.96875 706.775862,469.96875 C708.708859,469.96875 710.275862,468.401747 710.275862,466.46875 C710.275862,464.535753 708.708859,462.96875 706.775862,462.96875 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                <path class="arrow pm-repo-pm-events end-user" id="" d="M786.724138,612.96875 L795.724138,617.46875 L786.724138,621.96875 L786.724,617.968 L711.248362,617.969074 C710.999492,620.218893 709.092028,621.96875 706.775862,621.96875 C704.290581,621.96875 702.275862,619.954031 702.275862,617.46875 C702.275862,614.983469 704.290581,612.96875 706.775862,612.96875 C709.091896,612.96875 710.999276,614.718408 711.248319,616.968043 L786.724,616.968 L786.724138,612.96875 Z M706.775862,613.96875 C704.842865,613.96875 703.275862,615.535753 703.275862,617.46875 C703.275862,619.401747 704.842865,620.96875 706.775862,620.96875 C708.708859,620.96875 710.275862,619.401747 710.275862,617.46875 C710.275862,615.535753 708.708859,613.96875 706.775862,613.96875 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                <path class="arrow projection-repo-projection-events end-user" id="" d="M786.724138,879.96875 L795.724138,884.46875 L786.724138,888.96875 L786.724,884.968 L711.248362,884.969074 C710.999492,887.218893 709.092028,888.96875 706.775862,888.96875 C704.290581,888.96875 702.275862,886.954031 702.275862,884.46875 C702.275862,881.983469 704.290581,879.96875 706.775862,879.96875 C709.091896,879.96875 710.999276,881.718408 711.248319,883.968043 L786.724,883.968 L786.724138,879.96875 Z M706.775862,880.96875 C704.842865,880.96875 703.275862,882.535753 703.275862,884.46875 C703.275862,886.401747 704.842865,887.96875 706.775862,887.96875 C708.708859,887.96875 710.275862,886.401747 710.275862,884.46875 C710.275862,882.535753 708.708859,880.96875 706.775862,880.96875 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                <path class="arrow event-bus-event-store" id="" d="M1092,741.46875 L1106,748.46875 L1092,755.46875 L1092,749.468 L1027,749.46875 L1027,747.46875 L1092,747.468 L1092,741.46875 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                <path class="arrow stand-projection-repo" id="" d="M559.595588,877.75 L573.595588,884.75 L559.595588,891.75 L559.595,885.75 L478.404,885.75 L478.404412,891.75 L464.404412,884.75 L478.404412,877.75 L478.404,883.75 L559.595,883.75 L559.595588,877.75 Z" fill="#82B366" fill-rule="nonzero"></path>
+                <path class="arrow event-bus-pm-repo" id="" d="M884.5,681 L891.5,695 L885.5,695 L885.5,722 L883.5,722 L883.5,695 L877.5,695 L884.5,681 Z" fill="#FF8000" fill-rule="nonzero"></path>
+                <path class="arrow command-bus-command-dispatcher" id="" d="M546,288 L560,295 L546,302 L546,296 L463.5,296 L463.5,294 L546,294 L546,288 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <path class="arrow command-dispatcher-command-store" id="" d="M782,288 L796,295 L782,302 L782,296 L719,296 L719,294 L782,294 L782,288 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <path class="arrow command-service-command-bus" id="" d="M395.555556,263 L409.555556,270 L395.555556,277 L395.555,271 L329.888889,271 L329.888889,269 L395.555,269 L395.555556,263 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <path class="arrow command-bus-command-service" id="" d="M344,316 L344,322 L410.555556,322 L410.555556,324 L344,324 L344,330 L330,323 L344,316 Z" fill="#0066CC" fill-rule="nonzero"></path>
+                <path class="arrow query-service-stand" id="" d="M396,822 L410,829 L396,836 L396,830 L328.891304,830 L328.891304,828 L396,828 L396,822 Z" fill="#82B366" fill-rule="nonzero"></path>
+                <path class="arrow stand-query-service" id="" d="M342.891304,876 L342.891,882 L410,882 L410,884 L342.891,884 L342.891304,890 L328.891304,883 L342.891304,876 Z" fill="#82B366" fill-rule="nonzero"></path>
+                <path class="arrow stand-subscription-service" id="" d="M343,1124 L343,1130 L350,1130 L350,1132 L343,1132 L343,1138 L329,1131 L343,1124 Z M366,1130 L366,1132 L358,1132 L358,1130 L366,1130 Z M382,1130 L382,1132 L374,1132 L374,1130 L382,1130 Z M398,1130 L398,1132 L390,1132 L390,1130 L398,1130 Z M410.108696,1130 L410.108696,1132 L406,1132 L406,1130 L410.108696,1130 Z" fill="#82B366" fill-rule="nonzero"></path>
+                <path class="arrow subscription-service-stand" id="" d="M396,1062 L410,1069 L396,1076 L396,1070 L329,1070 L329,1068 L396,1068 L396,1062 Z" fill="#82B366" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
