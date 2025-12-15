@@ -5,6 +5,7 @@
 {{ partial "head/head.html" . }}
 {{ $bodyClass := partial "functions/get-body-class.html" . }}
 <body class="{{ $bodyClass }}">
+    {{ partial "scripts/body/gtm.html" . }}
     <div class="wrapper">
         <div class="main">
             {{ block "main" . }}{{ end }}
