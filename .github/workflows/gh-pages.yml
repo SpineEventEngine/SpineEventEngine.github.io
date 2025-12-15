@@ -1,9 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
 
 env:
   HUGO_VERSION: 0.147.8
@@ -60,8 +58,7 @@ jobs:
         run: hugo --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
