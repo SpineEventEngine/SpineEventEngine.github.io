@@ -1,4 +1,4 @@
-name: Broken links check
+name: Check links
 on: [pull_request, workflow_dispatch]
 
 env:

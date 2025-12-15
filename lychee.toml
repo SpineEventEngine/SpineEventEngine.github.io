@@ -10,12 +10,10 @@ exclude = [
     "googletagmanager.com/*",
     "x.com/*",
 
-    "https://x/",
     "stackoverflow.com/questions/*",
     "openjdk.org/*",
     "npmjs.com/*",
-
-    # Temporarily broken links.
+    "raw.githubusercontent.com/SpineEventEngine/*"
 ]
 
 # Exclude these filesystem paths from getting checked.
