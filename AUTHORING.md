@@ -2,83 +2,88 @@ Content Author Guide
 ========
 This document is a guide for adding content to the [spine.io](https://spine.io) site.
 
-**Table of Contents** 
-- [Using URLs in Markdown](#using-urls-in-markdown)
-    + [Links to Blog Posts](#links-to-blog-posts)
-      - [Rule 1 -- Always concatenate Jekyll and Liquid tags](#rule-1----always-concatenate-jekyll-and-liquid-tags)
-      - [Rule 2 -- *(Almost)* Always start links with `{{ site.baseurl }}`](#rule-2----almost-always-start-links-with--sitebaseurl-)
-      - [Rule 3 -- Always use a trailing slash after `{{ site.baseurl }}`](#rule-3----always-use-a-trailing-slash-after--sitebaseurl-)
-- [Adding collapsible list for sidebar navigation](#adding-collapsible-list-for-sidebar-navigation)
-- [Adding code samples to the site](#adding-code-samples-to-the-site)
-- [Testing broken links](#testing-broken-links)
-- [Adding email links](#adding-email-links)
-- [Managing the “Prev”/“Next” buttons in the documentation](#managing-the-prevnext-buttons-in-the-documentation)
-- [Using a language switcher for source code samples](#using-a-language-switcher-for-source-code-samples)
+**Table of Contents**
+* [Using URLs](#using-urls)
+    * [URLs in markdown](#urls-in-markdown)
+      * [Rule 1](#rule-1----all-internal-links-must-not-start-with-a-slash)
+      * [Rule 2](#rule-2----each-link-should-end-with-a-slash-to-prevent-unnecessary-redirects)
+    * [Images](#images)
+    * [URLs in HTML](#urls-in-html)
+* [Navigation](#navigation)
+    * [Main navigation](#main-navigation)
+    * [Documentation side navigation](#documentation-side-navigation)
+    * [Documentation “Next/Prev” buttons](#documentation-nextprev-buttons)
+  * [Adding code samples to the site](#adding-code-samples-to-the-site)
+* [Testing broken links](#testing-broken-links)
+  * [Cloak email](#cloak-email)
+  * [Note blocks](#note-blocks)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-# Using URLs in Markdown
+# Using URLs
 
-### Links to Blog Posts
+To refer to another page, image, or asset in the Spine documentation,
+use relative URLs. The site domain and product prefix are added automatically.
 
-There are thee rules to follow:
+### URLs in markdown
 
-#### Rule 1 -- Always concatenate Jekyll and Liquid tags
+There are two rules to follow:
 
-| Good                                      | Bad                                        |
-|-------------------------------------------|--------------------------------------------|
-| `href="{{ site.baseurl }}{{ post.url }}"` | `href="{{ site.baseurl }}/{{ post.url }}"` |
+#### Rule 1 -- All internal links **must not** start with a slash.
 
-This removes the double-slash from your site's URLs.
+| Good                                 | Bad                                  |
+|--------------------------------------|--------------------------------------|
+| `[Introduction](docs/introduction/)` | `[Introduction](/docs/introduction/)`|
 
-#### Rule 2 -- *(Almost)* Always start links with `{{ site.baseurl }}`
-
-| Good                                      | Bad                     |
-|-------------------------------------------|-------------------------|
-| `href="{{ site.baseurl }}{{ post.url }}"` | `href="{{ post.url }}"` |
-
-This fixes almost all of the in-site links. The next rule covers the remainder.
-
-**Exception**: Start hyperlinks with `{{ site.url }}{{ site.baseurl }}` in feed pages, like `atom.xml`.
-
-#### Rule 3 -- Always use a trailing slash after `{{ site.baseurl }}`
-
-| Good                                      | Bad                                      |
-|-------------------------------------------|------------------------------------------|
-| `href="{{ site.baseurl }}/" title="Home"` | `href="{{ site.baseurl }}" title="Home"` |
-
-| Good                                           | Bad                                           |
-|------------------------------------------------|-----------------------------------------------|
-| `href="{{ site.baseurl }}/public/favicon.ico"` | `href="{{ site.baseurl }}public/favicon.ico"` |
+#### Rule 2 -- Each link should **end with a slash** to prevent unnecessary redirects.
 
 
-Visit [Configuring Jekyll for Project GitHub Pages and for User GitHub Pages](http://downtothewire.io/2015/08/15/configuring-jekyll-for-user-and-project-github-pages/) if you want to know why these rules should be followed.
+| Good                                 | Bad                                 |
+|--------------------------------------|-------------------------------------|
+| `[Introduction](docs/introduction/)` | `[Introduction](/docs/introduction)`|
 
-### URL rules
+### Images
 
-All these URLs lead to the same page: `/docs`, `/docs/`, `/docs/index`, `/docs/index.html`.
-But if you use them all throughout the site, it will create problems for search crawlers.
+To render an image in markdown use:
 
-Please stick to these rules for using links on the site.
+```markdown
+![Image alt](img/articles/test.webp)
+```
 
-#### Use a trailing slash to refer to the directory containing the `index.html` file
+Use anchors to specify image size: `#medium`, `#small`:
 
-| Good                                          | Bad                                                |
-|-----------------------------------------------|----------------------------------------------------|
-|`{{ site.baseurl }}/docs/introduction/`        | `{{ site.baseurl }}/docs/introduction/index`       |
+```markdown
+![Image alt](img/articles/test.webp#medium)`
+```
 
-#### Drop the `.html` suffix. This will simplify the URL
+### URLs in HTML
 
-| Good                                          | Bad                                                |
-|-----------------------------------------------|----------------------------------------------------|
-|`{{ site.baseurl }}/docs/introduction/rules`   | `{{ site.baseurl }}/docs/introduction/rules.html`  |
+When working with layout partials, URLs should be specified using the following syntax:
 
+```html
+<a href="{{ `docs/guides/requirements` | relURL }}">Requirements</a>
+```
 
-# Adding collapsible list for sidebar navigation
+```html
+<img class="logo" src="{{ `img/spine-logo.svg` | relURL }}" alt="Spine logo">
+```
 
-For collapsible categories we use the Bootstrap [Collapse](https://getbootstrap.com/docs/4.5/components/collapse/) component.
+# Navigation
 
-For instructions on adding or changing sidebar navigation, please see the [Navigation Author Guide](_data/navigation/NAVIGATION.md).
+### Main navigation
+
+To edit navigation items, modify `site/data/navbar.yml`. 
+The navigation template is located at `site/layouts/_partials/components/navbar/navigation.html`.
+
+### Documentation side navigation
+
+The documentation side navigation can be edited in the [SpineEventEngine/documentation](https://github.com/SpineEventEngine/documentation)
+repository in the `docs/data/docs/<version>/sidenav.yml` file.
+
+### Documentation “Next/Prev” buttons
+
+The “Prev”/“Next” buttons are generated automatically for all document pages.
+The implementation is inside the [SpineEventEngine/documentation](https://github.com/SpineEventEngine/documentation).
 
 # Adding code samples to the site
 
@@ -111,147 +116,45 @@ After that, please use the following command:
 Also, we have a GitHub Action which tests the links when the pull request is created to the `master`. 
 Please see the [`.github/workflows/proof-links.yml`](.github/workflows/proof-links.yml) file for details.
 
-# Adding email links
+# Cloak email
 
-We use the [Jekyll Email Protect](https://github.com/vwochnik/jekyll-email-protect) to protect our 
-email addresses from spam bots. We store all email variables in the `_data/support.yml` file.
+The `cloakemail` shortcode is used to cloak emails or phone numbers from
+spamming bots. We store all email variables in the `site/data/spine.yml` file.
 
-### In HTML
-```
-<a href="mailto:{{ 'example@example.com' | encode_email }}">{{ 'example@example.com' | html_encode_email }}</a>
-```
+In markdown files, use the shortcode with a provided variable from a data file, for example:
 
-Or through a variable:
-```
-<a href="mailto:{{ site.data.support.email | encode_email }}">{{ site.data.support.email | html_encode_email }}</a>
+```markdown
+{{< cloakemail address_variable="spine.sales_email" >}}
 ```
 
-The above code will yield:
-```
-<a href="%65%78%61%6D%70%6C%65@%65%78%61%6D%70%6C%65.%63%6F%6D">%65%78%61%6D%70%6C%65@%65%78%61%6D%70%6C%65.%63%6F%6D</a>
+or with the display text:
+
+```markdown
+{{< cloakemail address_variable="spine.sales_email" display="Contact us" >}}
 ```
 
-### In Markdown
-In markdown files we cannot obfuscate the link text, so it would be safer to use something like `Contact us`.
-```
-[{{ Contact us }}](mailto:{{ site.data.support.email | encode_email }})
+# Note blocks
+
+To add a note block with additional styles in markdown files,
+use the predefined `note-block` shortcode.
+
+```markdown
+{{% note-block class="note" %}}
+This is some dummy text to show how a note block can look. Check this 
+[example link to guides][test-url] to see how links appear inside the block.
+
+You can add more lines or even lists:
+- First item.
+- Second item.
+{{% /note-block %}}
+
+[test-url]: docs/guides/
 ```
 
-The above code will yield: 
-```
-<a href="%65%78%61%6D%70%6C%65@%65%78%61%6D%70%6C%65.%63%6F%6D">Contact us</a>
-```
+You can use only predefined classes such as: `note`, `warning`, or `lead`.
 
-# Managing the “Prev”/“Next” buttons in the documentation
-
-The “Prev”/“Next” buttons are generated automatically for all document pages. The generation is 
-based on the [`doc_side_nav.yml`](_data/navigation/doc_side_nav.yml) navigation.
-
-To customize the automatically added “Prev”/“Next” buttons, add the appropriate variables to 
-the **front matter** block of the document page.
-
-### To hide the “Previous” or “Next” button:
-
+```markdown
+{{% note-block class="lead" %}}
+The test lead block.
+{{% /note-block %}}
 ```
-prev_btn: false
-```
-
-```
-next_btn: false
-```
-
-### To customize the “Previous” or “Next” button name:
-```
-prev_btn: 
-  page: Development Process Overview
-```
-
-```
-next_btn: 
-  page: Development Process Overview
-```
-
-### To customize the “Previous” or “Next” button name and URL:
-```
-prev_btn: 
-  page: Development Process Overview
-  url: /docs/introduction/
-```
-
-```
-next_btn: 
-  page: Architecture Overview
-  url: /docs/introduction/architecture.html
-```
-
-**Related files:**
-- `_includes/doc-next-prev-nav.html` - the navigation template with the automatic button generation;
-- `_sass/modules/_doc-next-prev-nav.scss` - navigation styles;
-- `_layouts/docs.html` - the documentation layout where the `doc-next-prev-nav` is included.
-
-# Using a language switcher for source code samples
-
-The switch state will be saved globally so that the user can navigate between pages.
-
-### Usage
-
-To show language tabs use the structure below.
-Add a `lang` attribute with `Java`, `Kotlin`, `JavaScript` or any other language value 
-for `div`s with content. If no language is provided, the content will not be displayed.
-```
-<div class="code-tabs">
-    <div class="code-tab-content" lang="Java">
-         Any Java content here
-    </div>
-    <div class="code-tab-content" lang="Kotlin">
-         Any Kotlin content here
-    </div>
-    <div class="code-tab-content" lang="JavaScript">
-         Any JavaScript content here
-    </div>
-</div>
-```
-
-In **markdown**, all tags should be left-aligned. This way, the blocks 
-of code will not be broken:
-
-```
-<div class="code-tabs">
-<div class="code-tab-content" lang="Java">
-Any Java content here
-</div>
-<div class="code-tab-content" lang="Kotlin">
-Any Kotlin content here
-</div>
-<div class="code-tab-content" lang="JavaScript">
-Any JavaScript content here
-</div>
-</div>
-```
-
-If you don't need to display the tabs, but only need to show a specific paragraph of text 
-or change the title depending on the language, just use this:
-```
-<div class="code-tab-content" lang="Java">
-# Getting started with Spine in Java
-</div>
-
-<div class="code-tab-content" lang="Kotlin">
-# Getting started with Spine in Kotlin
-</div>
-```
-
-To change only some of the words in a sentence, use the `<span>` tag with the `.inline` class:
-```
-A minimal client-server application in
-<span class="code-tab-content inline" lang="Java">Java</span>
-<span class="code-tab-content inline" lang="Kotlin">Kotlin</span>
-which handles one command to print some text...
-```
-
-**Related files**
-
-The files are stored in the [`documentation`](https://github.com/SpineEventEngine/documentation) 
-repository.
-- `_sass/base/_code-tabs.scss` - styles for the code tabs;
-- `tools/code-tabs.js` - code tab implementation.

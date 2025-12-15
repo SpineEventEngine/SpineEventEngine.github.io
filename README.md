@@ -41,6 +41,14 @@ To build the site without running the server:
 If you experience issues with this step, please check out
 the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
+Another way to run the site locally is to follow these steps:
+1. Navigate to the `site` folder.
+2. Start the local server with this command:
+
+   ```shell
+   hugo server
+   ```
+
 ## Documentation
 
 The documentation is located in a [separate repository](https://github.com/SpineEventEngine/documentation.git).
