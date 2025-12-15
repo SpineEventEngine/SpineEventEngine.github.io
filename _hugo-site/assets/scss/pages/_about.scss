@@ -49,7 +49,7 @@
     padding-bottom: 40px;
     position: relative;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       padding-top: 32px;
     }
 
@@ -75,12 +75,12 @@
     text-align: center;
     transition: all .25s ease-in-out;
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       width: 46%;
       box-shadow: 0 2px 6px rgba(black, .08);
     }
 
-    @media(max-width: $phone-large) {
+    @include breakpoint(xmd-phone) {
       width: 100%;
     }
 
@@ -105,7 +105,7 @@
     padding-bottom: 64px;
     text-align: center;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       padding-top: 24px;
       padding-bottom: 64px;
     }
@@ -115,7 +115,7 @@
       color: $black;
       cursor: default;
 
-      @media (max-width: $tablet) {
+      @include breakpoint(tablet) {
         margin-top: 64px;
       }
     }

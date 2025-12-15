@@ -28,24 +28,24 @@
   padding: 32px 0 56px;
   position: relative;
 
-  @media (max-width: $tablet) {
+  @include breakpoint(tablet) {
     padding-bottom: 32px;
   }
 
   &.steps {
     .highlight {
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
   }
 
   .step-row {
     margin-top: 40px;
 
-    @media (max-width: $desktop-small) {
+    @include breakpoint(desktop) {
       margin-top: 24px;
     }
 
-    @media(max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       margin-top: 16px;
     }
   }
@@ -95,18 +95,18 @@
     object-fit: contain;
     object-position: top;
     border-radius: 6px;
-    @include box-shadow(0 12px 20px 0 rgba($footer-color, .12));
+    box-shadow: 0 12px 20px 0 rgba($footer-color, .12);
 
-    @media (max-width: $desktop-small) {
+    @include breakpoint(desktop) {
       display: block;
     }
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       margin-bottom: 24px;
     }
 
     &.no-shadow {
-      @include box-shadow(none);
+      box-shadow: none;
     }
   }
 
@@ -125,21 +125,21 @@
     }
 
     .col-text {
-      @media (min-width: $tablet) {
-        padding-right: 48px;
+      @include breakpoint-min(tablet) {
         flex: 0 0 80.66%;
         max-width: 80.66%;
+        padding-right: 48px;
       }
     }
 
     .col-btn {
       display: flex;
 
-      @media (min-width: $tablet) {
+      @include breakpoint-min(tablet) {
         display: block;
-        padding-top: 32px;
         flex: 0 0 19.34%;
         max-width: 19.34%;
+        padding-top: 32px;
       }
     }
   }
@@ -152,12 +152,12 @@
     letter-spacing: 0;
     font-weight: 500;
 
-    @media (max-width: 900px) and (min-width: $tablet) {
+    @include breakpoint-min-and-max(768px, 900px) {
       padding: 9px 16px;
       min-width: 115px;
     }
 
-    @media (max-width: 767px) {
+    @include breakpoint(tablet) {
       margin: 0 0 40px auto;
     }
 

@@ -35,12 +35,12 @@ $anchor-icon-size: 24px;
 .faq-container {
   margin: $content-top-offset 0 56px;
 
-  @media (max-width: $tablet) {
+  @include breakpoint(tablet) {
     margin-left: -$layout-padding-tablet;
     margin-right: -$layout-padding-tablet;
   }
 
-  @media(max-width: $phone-medium) {
+  @include breakpoint(md-phone) {
     margin-left: -$layout-padding-phone;
     margin-right: -$layout-padding-phone;
   }
@@ -81,7 +81,7 @@ $anchor-icon-size: 24px;
           top: 15px;
           transform: rotate(90deg);
           opacity: .16;
-          @include transition(all .3s ease-in-out);
+          transition: all .3s ease-in-out;
         }
 
         &.collapsed {
@@ -89,7 +89,7 @@ $anchor-icon-size: 24px;
 
           &:before {
             opacity: .2;
-            @include transform(rotate(0));
+            transform: rotate(0);
           }
 
           & + span {
@@ -148,7 +148,7 @@ $anchor-icon-size: 24px;
       }
     }
 
-    @media (max-width: $phone-xlarge) {
+    @include breakpoint(lg-phone) {
       &:after {
         visibility: visible;
       }

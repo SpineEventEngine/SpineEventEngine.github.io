@@ -28,7 +28,7 @@
   background-image: $nav-blue-gradient;
   padding: 80px 0 84px;
 
-  @media(max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     padding: 64px 0 72px;
   }
 

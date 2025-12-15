@@ -29,20 +29,20 @@
   --pricing-card-header-side-padding: 32px;
   --pricing-card-gap-between: 24px;
 
-  @media (max-width: $desktop-small) {
+  @include breakpoint(desktop) {
     --pricing-card-gap-between: 16px;
   }
 
-  @media (max-width: $tablet-large) {
+  @include breakpoint(sm-desktop) {
     --pricing-card-side-padding: 24px;
     --pricing-card-header-side-padding: 24px;
   }
 
-  @media (max-width: $phone-xlarge) {
+  @include breakpoint(lg-phone) {
     --pricing-card-gap-between: 8px;
   }
 
-  @media (max-width: $phone-small) {
+  @include breakpoint(sm-phone) {
     --pricing-card-side-padding: 16px;
     --pricing-card-header-side-padding: 16px;
   }
@@ -74,7 +74,7 @@
   }
 
   .support-section {
-    @media (max-width: $tablet-large) {
+    @include breakpoint(sm-desktop) {
       padding-bottom: 40px;
     }
 
@@ -109,7 +109,7 @@
   .service-section {
     padding-bottom: 40px;
 
-    @media (max-width: $tablet-large) {
+    @include breakpoint(sm-desktop) {
       padding-top: 0;
     }
 
@@ -138,7 +138,7 @@
       border-right: $card-border;
       border-left: $card-border;
 
-      @media (max-width: $tablet) {
+      @include breakpoint(tablet) {
         padding-top: 24px;
         padding-bottom: 16px;
       }
@@ -187,7 +187,7 @@
         line-height: 1.5;
       }
 
-      @media (max-width: $phone-medium) {
+      @include breakpoint(md-phone) {
         .header-icon {
           font-size: $icon-size-mobile;
           margin-top: 2px;
@@ -267,7 +267,7 @@
         padding-left: $text-left-padding;
       }
 
-      @media (max-width: $phone-medium) {
+      @include breakpoint(md-phone) {
         i {
           font-size: $icon-size-mobile;
           margin-left: 4px;
@@ -305,7 +305,7 @@
           line-height: 1.6;
         }
 
-        @media (max-width: $phone-xlarge) {
+        @include breakpoint(lg-phone) {
           .description {
             display: block;
             margin-top: 3px;
@@ -316,7 +316,7 @@
           }
         }
 
-        @media (max-width: $phone-medium) {
+        @include breakpoint(md-phone) {
           margin-left: 0;
         }
       }
@@ -324,7 +324,7 @@
       .checkboxes-list {
         margin: 32px 0 0 $icon-left-offset;
 
-        @media (max-width: $phone-medium) {
+        @include breakpoint(md-phone) {
           margin-left: 0;
         }
       }
@@ -378,7 +378,7 @@
     gap: 0 var(--pricing-card-gap-between);
     margin: 32px 0;
 
-    @media (max-width: $mobile-card-screen-size) {
+    @include breakpoint($mobile-card-screen-size) {
       .header,
       .card-cell,
       .footer-cell {
@@ -410,14 +410,14 @@
 
     .action-block {
       .pricing-btn-holder {
-        @media (max-width: $tablet-large) {
+        @include breakpoint(sm-desktop) {
           float: none;
           width: 100%;
         }
       }
 
       .pricing-btn {
-        @media (max-width: $tablet-large) {
+        @include breakpoint(sm-desktop) {
           float: none;
           width: 100%;
         }
@@ -442,7 +442,7 @@
       grid-auto-rows: min-content;
       margin-bottom: 32px;
 
-      @media (max-width: $tablet) {
+      @include breakpoint(tablet) {
         grid-template-columns: repeat(1, 1fr);
 
         .card-cell {
@@ -466,7 +466,7 @@
 
     .action-block {
       .pricing-btn {
-        @media (max-width: $mobile-card-screen-size) {
+        @include breakpoint($mobile-card-screen-size) {
           float: none;
           width: 100%;
         }

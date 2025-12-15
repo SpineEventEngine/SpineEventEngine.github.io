@@ -39,7 +39,7 @@ footer {
   padding: 40px 0 0;
   position: relative;
 
-  @media (max-width: 767px) {
+  @include breakpoint(tablet) {
     padding: 35px 0 0;
   }
 
@@ -58,7 +58,7 @@ footer {
     transition: all .3s ease-in-out;
     border-bottom: 1px solid transparent;
 
-    @media (max-width: $tablet) {
+    @include breakpoint(tablet) {
       line-height: 46px;
     }
 
@@ -99,7 +99,7 @@ footer {
     text-align: left;
     width: 88%;
 
-    @media (min-width: $tablet) {
+    @include breakpoint-min(tablet) {
       position: relative;
       margin: 0 auto;
       text-align: left;
@@ -120,7 +120,7 @@ footer {
     margin: 0 0 32px 0;
     float: right;
 
-    @media (min-width: $tablet) {
+    @include breakpoint-min(tablet) {
       padding: 0;
       display: inline-block;
       vertical-align: top;
@@ -128,7 +128,7 @@ footer {
       margin: 0 0 8px 0;
     }
 
-    @media (max-width: 960px) {
+    @include breakpoint(lg-tablet) {
       width: 100%;
     }
 
@@ -140,7 +140,7 @@ footer {
       .mobile-caret-icon {
         top: 14px;
 
-        @media (min-width: $tablet) {
+        @include breakpoint-min(tablet) {
           display: none;
         }
       }
@@ -167,7 +167,7 @@ footer {
     .footer-nav-list {
       list-style: none;
 
-      @media (min-width: $tablet) {
+      @include breakpoint-min(tablet) {
         display: block !important;
         height: auto !important;
         visibility: visible;
@@ -188,7 +188,7 @@ footer {
       letter-spacing: .5px;
       padding: 16px 0;
 
-      @media (max-width: $tablet) {
+      @include breakpoint(tablet) {
         font-size: 20px;
         font-weight: 400;
         cursor: pointer;
@@ -204,7 +204,7 @@ footer {
     border: none;
     height: 1px;
 
-    @media (min-width: 768px) {
+    @include breakpoint-min(tablet) {
       display: none;
     }
   }
@@ -235,7 +235,7 @@ footer {
       }
     }
 
-    @media(min-width: 768px) {
+    @include breakpoint-min(tablet) {
       padding: 0;
     }
   }
@@ -297,12 +297,12 @@ footer {
     .privacy-link {
       margin-right: 20px;
 
-      @media (max-width: $tablet) {
+      @include breakpoint(tablet) {
         padding-bottom: 2px;
         border-bottom-color: rgba($white, .26);
       }
 
-      @media (max-width: $phone-xlarge) {
+      @include breakpoint(lg-phone) {
         &.terms {
           margin-right: 0;
         }
@@ -312,7 +312,7 @@ footer {
     .description {
       letter-spacing: .6px;
       
-      @media (max-width: $phone-xlarge) {
+      @include breakpoint(lg-phone) {
         display: block;
       }
 

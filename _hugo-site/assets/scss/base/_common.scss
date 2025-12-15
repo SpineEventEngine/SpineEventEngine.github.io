@@ -28,7 +28,7 @@
   padding-top: 40px;
   padding-bottom: 48px;
 
-  @media (max-width: $tablet) {
+  @include breakpoint(tablet) {
     padding-top: 32px;
     padding-bottom: 32px;
   }
@@ -67,7 +67,7 @@
 .content-with-fixed-header {
   margin-top: $header-height + 32px;;
 
-  @media(max-width: $desktop-small) {
+  @include breakpoint(desktop) {
     margin-top: $header-height + 16px;;
   }
 }
@@ -113,39 +113,5 @@ table {
       opacity: .2;
       transform: rotate(0);
     }
-  }
-}
-
-$tooltip-color: $footer-color;
-$tooltip-padding: .5rem .7rem;
-
-// Overrides Bootstrap tooltip styles.
-.tooltip {
-  font-size: 12px;
-  line-height: 1.4;
-
-  &.show {
-    opacity: .87;
-  }
-
-  .tooltip-inner {
-    background-color: $tooltip-color;
-    padding: $tooltip-padding;
-  }
-
-  &.bs-tooltip-left .arrow:before {
-    border-left-color: $tooltip-color;
-  }
-
-  &.bs-tooltip-right .arrow:before {
-    border-right-color: $tooltip-color;
-  }
-
-  &.bs-tooltip-top .arrow:before {
-    border-top-color: $tooltip-color;
-  }
-
-  &.bs-tooltip-bottom .arrow:before {
-    border-bottom-color: $tooltip-color;
   }
 }
