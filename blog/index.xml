@@ -79,14 +79,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
 
 
 &lt;style>
-#span-f9a83e2c.cloaked-e-mail:before {
+#span-631a61a8.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style>
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-f9a83e2c">&lt;/span>&lt;script id="script-f9a83e2c">
- var scriptTag = document.getElementById("script-f9a83e2c");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-631a61a8">&lt;/span>&lt;script id="script-631a61a8">
+ var scriptTag = document.getElementById("script-631a61a8");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
