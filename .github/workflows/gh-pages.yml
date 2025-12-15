@@ -1,7 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  pull_request:
+  push:
+    branches:
+      - master
 
 env:
   HUGO_VERSION: 0.147.8
