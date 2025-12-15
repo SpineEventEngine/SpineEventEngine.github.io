@@ -37,5 +37,5 @@ elif [ -f ${BASH_RC} ]; then
   . ${BASH_RC}
 fi
 
-cd _hugo-site
+cd site
 hugo server

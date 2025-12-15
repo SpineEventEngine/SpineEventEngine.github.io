@@ -50,11 +50,11 @@ jobs:
         run: git config --global url."https://${{ env.GH_USER }}:${{ secrets.GH_PAT }}@github.com".insteadOf "https://github.com"
 
       - name: Install Dependencies
-        working-directory: _hugo-site
+        working-directory: site
         run: npm ci
 
       - name: Build Spine
-        working-directory: _hugo-site
+        working-directory: site
         run: hugo --minify
 
       - name: Deploy
@@ -62,4 +62,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./_hugo-site/public
+          publish_dir: ./site/public

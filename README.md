@@ -24,7 +24,7 @@ please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
 4. Get access to the [`site-commons`][site-commons] repository from the admins
    to be able to download the theme.
 5. Make sure SSH is configured correctly and the passphrase is stored in the keychain.
-6. Install project dependencies from the `_hugo-site` directory by running `npm install`.
+6. Install project dependencies from the `site` directory by running `npm install`.
 
 ## Running the site locally
 
@@ -54,9 +54,9 @@ Hugo site has been set up for it. All the contents and links in it are working a
 It allows making changes to it more convenient for authors.
 
 In terms of building the “main” site, the [Hugo Modules][hugo-modules]
-are used to embed the contents.
+are used to embed the content.
 
-### Steps to get updates
+### Steps to get documentation updates
 
 1. Clean the module cache:
 
@@ -67,7 +67,7 @@ are used to embed the contents.
 2. Get the documentation Hugo Module:
 
    ```shell
-   hugo mod get -u github.com/SpineEventEngine/documentation/_hugo-theme
+   hugo mod get -u github.com/SpineEventEngine/documentation/docs
    ```
 
 3. Commit and push changes from `go.mod` and `go.sum` files.
@@ -75,9 +75,10 @@ are used to embed the contents.
 
 ## Common theme
 
-This project uses the [`site-commons`][site-commons] Hugo theme.
+This project uses the [`site-commons`][site-commons] Hugo theme for general components such 
+as anchor icons, snackbars, etc.
 
-1. To get theme updates:
+1. To get theme updates, run:
 
    ```shell
    hugo mod get -u github.com/TeamDev-Ltd/site-commons
