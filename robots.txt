@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://spine.io/sitemap.xml
