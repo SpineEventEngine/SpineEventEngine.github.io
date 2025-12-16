@@ -26,15 +26,22 @@
 
 {{ $page := . }}
 {{ $sidenavData := partial "release-notes/functions/get-releases.html" . }}
+{{ $yearNow := "nil" }}
+
+{{ if eq $.File.Path "release-notes/_index.md" }}
+    {{ $yearNow = now.Format "2006" }}
+{{ end }}
 
 {{ if $sidenavData }}
     {{ partial "docs/components/sidenav/mobile-header.html" . }}
     <ul class="doc-sidenav release-notes-sidenav set-max-height">
         {{ range $sidenavData }}
             {{ if .children }}
+                {{ $isActive := eq .key $yearNow }}
                 {{ partial "docs/components/sidenav/category.html" (dict
                     "page_context" $page
                     "item_context" .
+                    "is_active" $isActive
                 ) }}
             {{ else }}
                 {{ partial "docs/components/sidenav/page.html" (dict
