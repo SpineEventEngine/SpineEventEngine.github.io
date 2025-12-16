@@ -103,7 +103,7 @@ npm install
 hugo server
 ``` 
 
-Make sure it runs on port `1313`. 
+Make sure it runs on port `1313`.
 After that, please use the following command from the root of the project:
 
 ```bash
@@ -114,7 +114,7 @@ After that, please use the following command from the root of the project:
 > Please note that some of the links are added to excludes in the [`lychee.toml`](lychee.toml) file.
 
 Also, we have a GitHub Action which tests the links when a pull request is created. 
-Please see the [`.github/workflows/check-links.yml`](.github/workflows/check-links.yml) 
+Please see the [`.github/workflows/proof-links.yml`](.github/workflows/proof-links.yml) 
 file for details.
 
 # Cloak email

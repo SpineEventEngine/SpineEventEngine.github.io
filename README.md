@@ -23,7 +23,7 @@ please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
 3. Install [Hugo Extended][hugo-quick-start] at least version `v0.145` or higher.
 4. Get access to the [`site-commons`][site-commons] repository from the admins
    to be able to download the theme.
-5. Make sure SSH is configured correctly and the passphrase is stored in the keychain.
+5. Make sure [SSH][site-commons-ssh] is configured correctly and the passphrase is stored in the keychain.
 6. Install project dependencies from the `site` directory by running `npm install`.
 
 ## Running the site locally
@@ -51,11 +51,11 @@ Another way to run the site locally is to follow these steps:
 
 ## Documentation
 
-The documentation is located in a [separate repository](https://github.com/SpineEventEngine/documentation.git).
+The documentation is located in a [separate repository][documentation-repo].
 It is added to this site as a Hugo Module.
 
 Any changes to the documentation must be made in its own 
-[repository](https://github.com/SpineEventEngine/documentation.git).
+[repository][documentation-repo].
 
 The `documentation` repository is made to be self-sustainable in terms of editing. A fully-fledged 
 Hugo site has been set up for it. All the contents and links in it are working as intended. 
@@ -104,5 +104,7 @@ the [`AUTHORING.md`](AUTHORING.md) file.
 [nodejs]: https://nodejs.org/en/download/current
 [hugo-quick-start]: https://gohugo.io/getting-started/quick-start/#step-1-install-hugo
 [site-commons]: https://github.com/TeamDev-Ltd/site-commons
+[site-commons-ssh]: https://github.com/TeamDev-Ltd/site-commons/tree/master?tab=readme-ov-file#configure-go-to-use-ssh-for-github
 [hugo-modules]: https://gohugo.io/hugo-modules/introduction
 [embed-code]: https://github.com/SpineEventEngine/embed-code/tree/embed-code-go
+[documentation-repo]: https://github.com/SpineEventEngine/documentation.git
