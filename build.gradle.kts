@@ -39,24 +39,10 @@ task<Exec>("buildSite") {
 }
 
 /**
- * Embeds the code sames into pages of the site.
- */
-task<Exec>("embedCode") {
-    commandLine("./_script/embed-code")
-}
-
-/**
  * Verifies that the external links used by the site are available.
  */
 task<Exec>("checkLinks") {
     commandLine("./_script/proof-links")
-}
-
-/**
- * Verifies that the source code samples embedded into the pages are up-to-date.
- */
-task<Exec>("checkSamples") {
-    commandLine("./_script/check-samples")
 }
 
 /**
