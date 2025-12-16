@@ -7,7 +7,7 @@ on:
 
 env:
   HUGO_VERSION: 0.147.8
-  GH_USER: cloud-cannon-teamdev-integration
+  GH_USER: site-commons-machine-user
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GH_SITE_COMMONS_PAT }}
           submodules: true
           fetch-depth: 0
 
@@ -49,7 +49,7 @@ jobs:
             ${{ runner.os }}-hugomod-
 
       - name: Prepare Environment
-        run: git config --global url."https://${{ env.GH_USER }}:${{ secrets.GH_PAT }}@github.com".insteadOf "https://github.com"
+        run: git config --global url."https://${{ env.GH_USER }}:${{ secrets.GH_SITE_COMMONS_PAT }}@github.com".insteadOf "https://github.com"
 
       - name: Install Dependencies
         working-directory: site
