@@ -52,8 +52,7 @@ Another way to run the site locally is to follow these steps:
 The documentation is located in a [separate repository][documentation-repo].
 It is added to this site as a Hugo Module.
 
-Any changes to the documentation must be made in its own 
-[repository][documentation-repo].
+Any changes to the documentation must be made in its own [repository][documentation-repo].
 
 The `documentation` repository is made to be self-sustainable in terms of editing. A fully-fledged 
 Hugo site has been set up for it. All the contents and links in it are working as intended. 

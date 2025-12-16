@@ -23,7 +23,7 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 # Using URLs
 
 To refer to another page, image, or asset in the Spine documentation,
-use relative URLs. The site domain and product prefix are added automatically.
+use relative URLs. The site domain and documentation version are added automatically.
 
 ### URLs in markdown
 
@@ -36,7 +36,6 @@ There are two rules to follow:
 | `[Introduction](docs/introduction/)` | `[Introduction](/docs/introduction/)`|
 
 #### Rule 2 -- Each link should **end with a slash** to prevent unnecessary redirects.
-
 
 | Good                                 | Bad                                 |
 |--------------------------------------|-------------------------------------|
