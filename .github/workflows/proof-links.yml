@@ -8,7 +8,7 @@ env:
   LYCHEE_VERSION_TAG: "v0.15.1"
 
 jobs:
-  check-links:
+  proof-links:
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
