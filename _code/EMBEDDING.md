@@ -1,11 +1,12 @@
 Embedding code
 ======
 
-Your actions for adding a code sample to the documentation may vary depending on the scenarios
-described in this document.
+We use the [embed-code][embed-code-repo] tool (Go version) to embed code snippets
+to markdown pages. Take a look on its [README][embed-code-readme] file to know
+how it works.
 
 - [The `_code` directory](#the---code--directory)
-- [The Jekyll sub-command for embedding the code](#the-jekyll-sub-command-for-embedding-the-code)
+- [The Go sub-command for embedding the code](#the-go-sub-command-for-embedding-the-code)
 - [Referencing existing code](#referencing-existing-code)
 - [Adding a new small piece](#adding-a-new-small-piece)
 - [Adding a new example project](#adding-a-new-example-project)
@@ -20,24 +21,24 @@ There are two sub-directories under the `_code`:
     organization. These repositories added to this project as Git submodules.
  * `samples` — smaller pieces of code embedded to the site.
 
-# The Jekyll sub-command for embedding the code 
+# The Go sub-command for embedding the code
 
-We use the [`embed-code`](https://github.com/SpineEventEngine/embed-code) Jekyll subcommand for
+We use the [`embed-code`](https://github.com/SpineEventEngine/embed-code) Go subcommand for
 adding the source code to Markdown pages. The tool allows inserting or updating a source code
 snippet using the specific instructions added to a Markdown page.
 
-Please read the [`embed-code` documentation](https://github.com/SpineEventEngine/embed-code) to
+Please read the [`embed-code` documentation][embed-code-readme] to
 familiarise with the syntax. 
 
-# Referencing existing code 
+# Referencing existing code
 
-Just follow instructions from the [`embed-code` guide](https://github.com/SpineEventEngine/embed-code).
+Just follow instructions from the [`embed-code` guide][embed-code-readme].
 
 # Adding a new small piece
 
  1. Add the code under `_code/samples/src` directory.
  2. Make sure tests for the new code pass.
- 3. Add the new piece using the [`embed-code` guide](https://github.com/SpineEventEngine/embed-code).
+ 3. Add the new piece using the [`embed-code` guide][embed-code-readme].
  
 # Adding a new example project
  
@@ -63,3 +64,6 @@ Just follow instructions from the [`embed-code` guide](https://github.com/SpineE
     file.
 
 After these steps you can embed the code into the pages of the site.
+
+[embed-code-repo]: https://github.com/SpineEventEngine/embed-code
+[embed-code-readme]: https://github.com/SpineEventEngine/embed-code/blob/embed-code-go/embed-code-go/README.md
