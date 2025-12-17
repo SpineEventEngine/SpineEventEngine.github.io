@@ -1031,14 +1031,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
 
 
 &lt;style>
-#span-1cb0c023.cloaked-e-mail:before {
+#span-034a2513.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style>
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-1cb0c023">&lt;/span>&lt;script id="script-1cb0c023">
- var scriptTag = document.getElementById("script-1cb0c023");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-034a2513">&lt;/span>&lt;script id="script-034a2513">
+ var scriptTag = document.getElementById("script-034a2513");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;

@@ -33,7 +33,7 @@ section for how to name things in the proto code.</p></div><p>While writing the 
 your technical writing skills and lay the project&rsquo;s ground-standing foundation.
 Here you may want to introduce some domain-level validation logic. Check out the
 <a href=/docs/guides/validation/ title="Learn more about the Validation">Validation guide</a> for details.</p><h3 id=identifiers data-title>Identifiers<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#identifiers aria-label="Copy heading anchor"></a></span></h3><p>We put this step aside because in <a href=https://www.infoq.com/presentations/reactive-ddd/ title="Check out the Reactive DDD presentation" class=external-link target=_blank rel="noopener nofollow">Reactive DDD</a> entities reference each other using
-the typed <a href=/docs/introduction/concepts#identifier title="Learn more about Identifiers">identifiers</a>.</p><div class="note-block note"><p>Consider following the <a href=https://vaughnvernon.co/ class=external-link target=_blank rel="noopener nofollow">Vaughn Vernon</a>’s rule on Aggregates from
+the typed <a href=/docs/introduction/concepts#identifier title="Learn more about Identifiers">identifiers</a>.</p><div class="note-block note"><p>Consider following the <a href=https://vaughnvernon.com/ class=external-link target=_blank rel="noopener nofollow">Vaughn Vernon</a>’s rule on Aggregates from
 the “Effective Aggregate Design Part II” that is applicable to <strong>any</strong> entity:
 <i>“Reference other Aggregates by Identity”</i></p></div><p>We recommend using message-based identifiers over simple types to make the API strongly pronounced
 and type-safe. To make things obvious, consider putting the IDs of the context into the file named
