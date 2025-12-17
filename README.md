@@ -10,10 +10,10 @@ This project is two-headed:
   * It is a Gradle project to for checking the source code embedded to the site.   
 
 The code samples used on the site and in the framework documentation are added using
-the [`embed-code`][embed-code] Hugo subcommand.
+the [`embed-code`][embed-code] tool (Go version).
 
-The code resides under the `_code` directory. For instructions on embedding the code into the pages, 
-please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file. 
+The code resides under the `_code` directory. For instructions on embedding the code
+into the pages, please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file. 
 
 ## Prerequisites
 
