@@ -1,0 +1,45 @@
+# Exclude URLs and mail addresses from checking (supports regex).
+exclude = [
+    # Links that return errors during checks, but work for the user.
+    "fonts.googleapis.com/*",
+    "fonts.gstatic.com/*",
+    "chromium.googlesource.com/*",
+    "chromereleases.googleblog.com/*",
+    "clients4.google.com/",
+    "ssl.gstatic.com/",
+    "googletagmanager.com/*",
+    "x.com/*",
+
+    "stackoverflow.com/questions/*",
+    "openjdk.org/*",
+    "npmjs.com/*",
+    "raw.githubusercontent.com/SpineEventEngine/*"
+]
+
+# Exclude these filesystem paths from getting checked.
+exclude_path = []
+
+# Check links inside `<code>` and `<pre>` blocks as well
+# as Markdown code blocks.
+include_verbatim = false
+
+# Verbose program output
+verbose = "error"
+
+# Don't show interactive progress bar while checking links.
+no_progress = false
+
+# Comma-separated list of accepted status codes for valid links.
+accept = ["200..=204", "429"]
+
+# Link caching to avoid checking the same links on multiple runs.
+cache = true
+
+# Discard all cached requests older than this duration.
+max_cache_age = "3d"
+
+# Maximum number of allowed retries before a link is declared dead.
+max_retries = 3
+
+# Minimum wait time in seconds between retries of failed requests.
+retry_wait_time = 2

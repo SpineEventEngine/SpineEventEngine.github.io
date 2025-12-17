@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, TeamDev. All rights reserved.
+ * Copyright 2025, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,21 +28,14 @@
  * Builds and runs the site locally.
  */
 task<Exec>("runSite") {
-    commandLine("./_script/jekyll-serve")
+    commandLine("./_script/hugo-serve")
 }
 
 /**
  * Builds the site without starting the server.
  */
 task<Exec>("buildSite") {
-    commandLine("./_script/jekyll-build")
-}
-
-/**
- * Embeds the code sames into pages of the site.
- */
-task<Exec>("embedCode") {
-    commandLine("./_script/embed-code")
+    commandLine("./_script/hugo-build")
 }
 
 /**
@@ -50,13 +43,6 @@ task<Exec>("embedCode") {
  */
 task<Exec>("checkLinks") {
     commandLine("./_script/proof-links")
-}
-
-/**
- * Verifies that the source code samples embedded into the pages are up-to-date.
- */
-task<Exec>("checkSamples") {
-    commandLine("./_script/check-samples")
 }
 
 /**

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2020, TeamDev. All rights reserved.
+# Copyright 2025, TeamDev. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -37,8 +37,5 @@ elif [ -f ${BASH_RC} ]; then
   . ${BASH_RC}
 fi
 
-# Ensure `_code` files are fetched.
-git submodule update --remote --merge --recursive
-
-# Update code samples.
-bundle exec jekyll embedCodeSamples
+cd site
+hugo
