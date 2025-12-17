@@ -91,19 +91,17 @@ Please see [this document](_code/EMBEDDING.md) for the instructions.
 # Testing broken links
 
 We use the [Lychee](https://github.com/lycheeverse/lychee) tool to test broken links.
-To start test locally you may be required to install the tool first from the `site` directory:
+To start test locally you may be required to [install the tool](https://github.com/lycheeverse/lychee?tab=readme-ov-file#installation).
 
-```bash
-npm install
-```
-... and then run the site:
+Then navigate to the `site` directory and run the site locally
  
 ```bash
 hugo server
 ``` 
 
 Make sure it runs on port `1313`.
-After that, please use the following command from the root of the project:
+
+To test broken links, run following command from the root of the project:
 
 ```bash
 ./_script/proof-links

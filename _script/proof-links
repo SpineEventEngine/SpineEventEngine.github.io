@@ -37,5 +37,4 @@ elif [ -f ${BASH_RC} ]; then
   . ${BASH_RC}
 fi
 
-cd site
-lychee --config ../lychee.toml --base http://localhost:1313 "public/**/*.html"
+lychee --config lychee.toml --base http://localhost:1313 "site/public/**/*.html"
