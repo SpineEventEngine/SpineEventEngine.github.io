@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - staging
 
 env:
   HUGO_VERSION: 0.147.8
