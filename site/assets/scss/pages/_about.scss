@@ -1,0 +1,150 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.about {
+  section {
+    h2 {
+      font-size: $font-size--xl;
+    }
+  }
+
+  .note-block {
+    &.lead {
+      p {
+        font-size: 1.5rem;
+        color: $text-color;
+        line-height: 1.5;
+        padding-top: 8px;
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  .principles-section {
+    background-color: $light-gray-blue;
+    padding-top: 56px;
+    padding-bottom: 40px;
+    position: relative;
+
+    @include breakpoint(tablet) {
+      padding-top: 32px;
+    }
+
+    .link {
+      display: inline-block;
+      margin-top: 16px;
+    }
+
+    @include list();
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .logo-card {
+    padding: 0 24px;
+    border-radius: $border-radius-m;
+    text-align: center;
+    transition: all .25s ease-in-out;
+
+    @include breakpoint(lg-phone) {
+      width: 46%;
+      box-shadow: 0 2px 6px rgba(black, .08);
+    }
+
+    @include breakpoint(xmd-phone) {
+      width: 100%;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px $gray-100;
+    }
+
+    &.external {
+      &:after {
+        display: none;
+      }
+    }
+
+    img {
+      height: 64px;
+    }
+  }
+  
+  .tools-section {
+    padding-top: 56px;
+    padding-bottom: 64px;
+    text-align: center;
+
+    @include breakpoint(tablet) {
+      padding-top: 24px;
+      padding-bottom: 64px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: $black;
+      cursor: default;
+
+      @include breakpoint(tablet) {
+        margin-top: 64px;
+      }
+    }
+  }
+
+  .libraries-section {
+    padding-top: 56px;
+    padding-bottom: 64px;
+    text-align: center;
+    background-color: $light-blue-bg-color;
+    
+    p {
+      margin: 16px 24px 0 16px;
+    }
+
+    .software-link {
+      text-decoration: none;
+      padding-bottom: 2px;
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        border-bottom: 1px solid $main-brand-color;
+      }
+    }
+  }
+
+  .clients-section {
+    padding-top: 56px;
+    padding-bottom: 64px;
+    text-align: center;
+  }
+}

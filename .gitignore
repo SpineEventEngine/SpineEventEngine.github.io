@@ -1,20 +1,21 @@
-# The result of Jekyll build
-_site/
+# Hugo cache files
+/site/resources
+public
 
-# Intermediate directory used by `embed-code` Jekyll subcommand
-.fragments
+# Cache folder for Hugo Modules
+/site/_vendor
 
-.sass-cache
-.jekyll-metadata
-.DS_Store
+# Node modules
+node_modules
 
-*/build/
+# Used to control concurrency between multiple Hugo instances
+/site/.hugo_build.lock
 
-**/*.jar
+# Needed for navigation help inside code editors
+jsconfig.json
 
-# Do not ignore the Gradle Wrapper at the top level and in the sub-projects that are
-# added as included builds. See `settings.gradle.kts` for details.
-!**/gradle/wrapper/*
+# The temporary Lychee cache obtained from local check
+.lycheecache
 
 # IntelliJ IDEA modules and interim config files
 *.iml
@@ -28,6 +29,8 @@ _site/
 !.idea/misc.xml
 !.idea/codeStyles/
 !.idea/copyright/
+
+.DS_Store
 
 # Gradle interim configs
 .gradle/

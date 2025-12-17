@@ -1,0 +1,17 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" . }}
+    {{ partial "components/nav-hero.html" . }}
+    <div class="container-fluid content-holder blog-container">
+        <div class="content-columns two-column">
+            <div class="content-col">
+                {{ partial "blog/post-board.html" . }}
+            </div>
+            <div class="sticky-col">
+                <div class="set-max-height">
+                    {{ partial "blog/post-nav.html" . }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ partial "components/go-top-button.html" . }}
+{{ end }}

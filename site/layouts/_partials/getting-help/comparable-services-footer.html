@@ -1,0 +1,82 @@
+<!--
+  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Redistribution and use in source and/or binary forms, with or without
+  ~ modification, must retain the above copyright notice and the following
+  ~ disclaimer.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ~ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ~ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ~ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+<!--
+The component renders two columns of actions.
+
+The first column includes the price, agreement checkboxes, and a button to 2Checkout.
+The second includes the mailto button.
+
+Each column will be displayed inside its own comparable card.
+-->
+
+<div class="card-cell footer-cell">
+    <div class="action-block">
+        <div class="pricing-block">
+            <span class="price">€ 5,690</span>
+            <span class="slash">/</span>
+            <span class="description">1 support pack (100&nbsp;hours)</span>
+        </div>
+        <div class="checkboxes-list">
+            <label class="checkbox-container" for="privacyConsent">
+                <span class="text">I agree to processing of my personal information as per the
+                    <a href="{{ `privacy-statement/`| relURL }}"
+                       class="external-link"
+                       target="_blank">Privacy&nbsp;Statement</a>.</span>
+                <input type="checkbox"
+                       class="consent"
+                       id="privacyConsent"
+                       autocomplete='off'>
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox-container" for="supportAgreementConsent">
+                <span class="text">I agree to the terms of the
+                    <a href="{{ `development-support-agreement/` | relURL }}"
+                       class="external-link"
+                       target="_blank">Development Support Agreement</a>.</span>
+                <input type="checkbox"
+                       class="consent"
+                       id="supportAgreementConsent"
+                       autocomplete='off'>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <!-- The tooltip visibility is managed in the `js/pages/pricing.js`. -->
+        <div class="pricing-btn-holder"
+             data-bs-toggle="tooltip"
+             data-bs-placement="bottom"
+             data-bs-title="Read and agree to the terms to&nbsp;continue.">
+            <button class="btn btn-bordered-blue pricing-btn order-btn disabled"
+                    id="order-now-btn"
+                    disabled>Order Now</button>
+        </div>
+    </div>
+</div>
+<div class="card-cell footer-cell">
+    <div class="action-block">
+        {{ partial "getting-help/mailto-button.html" . }}
+    </div>
+</div>

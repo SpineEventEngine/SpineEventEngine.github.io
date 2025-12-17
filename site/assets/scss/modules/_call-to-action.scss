@@ -1,0 +1,77 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.call-to-action {
+  background-image: $nav-blue-gradient;
+  padding: 80px 0 84px;
+
+  @include breakpoint(lg-phone) {
+    padding: 64px 0 72px;
+  }
+
+  .doc-call-title {
+    margin: 0 auto;
+    font-family: $main-mono-font;
+    font-weight: 400;
+    color: $white;
+  }
+
+  .doc-call-text {
+    margin: 0 auto;
+    padding-top: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba($white, .64);
+  }
+
+  .btn-doc-call-white {
+    color: $white;
+    background-color: transparent;
+    text-transform: uppercase;
+    border: 1px solid $white;
+    border-radius: $border-radius-s;
+    padding: 12px 56px;
+    margin: 40px auto 0;
+
+    &:hover, &:focus {
+      color: white;
+      background-color: rgba($link-blue-color, .2);
+      border: 1px solid $link-blue-color;
+      box-shadow: 0 5px 20px 0 rgba($footer-color, .28);
+    }
+  }
+
+  .lang-select-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .lang-selector-text {
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 75%;
+  }
+}

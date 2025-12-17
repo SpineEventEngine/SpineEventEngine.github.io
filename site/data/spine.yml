@@ -1,0 +1,16 @@
+# This YAML file will be merged with the `data/spine.yml` from `SpineEventEngine/documentation`.
+
+name: Spine
+full_name: Spine Event Engine
+github_organization: SpineEventEngine
+
+dev_email: developers@spine.io
+sales_email: sales@spine.io
+# TODO:2025-12-09:julia.evseeva: https://github.com/SpineEventEngine/SpineEventEngine.github.io/issues/514
+privacy_email: privacy@teamdev.com
+
+socials:
+  xtwitter: https://x.com/SpineEngine
+  stackoverflow: https://stackoverflow.com/tags/Spine-Event-Engine
+  github_discussions: https://github.com/orgs/SpineEventEngine/discussions
+  google_group_discussion: https://groups.google.com/a/spine.io/g/discussion

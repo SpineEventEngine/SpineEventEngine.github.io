@@ -1,0 +1,85 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+  Ordered and unordered list styles.
+  Usage: `@include list();`
+ */
+@mixin list($item-line-height: 1.6) {
+  ol, ul {
+    margin: 0 0 32px 0;
+    line-height: $item-line-height;
+
+    @include breakpoint(tablet) {
+      margin-bottom: 24px;
+    }
+
+    li {
+      margin-left: 18px;
+      margin-top: .6em;
+      padding-left: 6px; // Adds additional space between bullet and text.
+
+      ol, ul {
+        margin-bottom: 32px;
+
+        li {
+          margin-top: .45em;
+        }
+      }
+    }
+  }
+
+  ul {
+    list-style: disc;
+
+    li {
+      ul {
+        list-style: circle;
+      }
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
+}
+
+/*
+  Adds an arrow icon.
+
+  By default, the arrow points to left: `@include arrow-icon();`
+  To place the arrow on the right, set the rotation angle:
+  `@include arrow-icon($rotate-angle: -45deg);`
+*/
+@mixin arrow-icon($line-width: 2px, $icon-size: 3px, $rotate-angle: 135deg, $color: $main-brand-color) {
+  border: solid $color;
+  border-width: 0 $line-width $line-width 0;
+  display: inline-block;
+  padding: $icon-size;
+  vertical-align: middle;
+  margin-top: -2px;
+  transform: rotate($rotate-angle);
+}

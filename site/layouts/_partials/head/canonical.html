@@ -1,0 +1,63 @@
+<!--
+  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Redistribution and use in source and/or binary forms, with or without
+  ~ modification, must retain the above copyright notice and the following
+  ~ disclaimer.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ~ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ~ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ~ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+<!--
+Generates the canonical URL for a page. It helps search engines
+understand the preferred version of a page.
+
+If the page exists in the main version of Docs, its URL will be displayed.
+
+The custom canonical URL can be provided via page front-matter, for example:
+```
+canonical_page_url: docs/tutorials/
+```
+Note that the link must not start with a slash. It makes sense to use the custom
+URL if it should navigate to a completely different page.
+-->
+
+{{ $page := .Page }}
+
+{{ $currentPath := "" }}
+{{ with $.Page.File }}
+    {{ $currentPath = .Path }}
+{{ end }}
+{{ $versions := site.Data.versions }}
+{{ $mainVersion := index (where $versions "is_main" true) 0 }}
+{{ $mainVersionDocsFolder := printf "docs/%s/" $mainVersion.short }}
+{{ $mainVersionPath := replaceRE "^docs/[0-9]+/" $mainVersionDocsFolder $currentPath }}
+
+{{ with site.GetPage $mainVersionPath }}
+    {{ $page = . }}
+{{ end }}
+
+{{ with .Params.canonical_page_url }}
+    {{ $page = partial "head/functions/get-canonical-custom-page.html" (dict
+        "default_page" $page
+        "custom_canonical_url" .
+    ) }}
+{{ end }}
+
+<link rel="canonical" href="{{ $page.Permalink }}">
