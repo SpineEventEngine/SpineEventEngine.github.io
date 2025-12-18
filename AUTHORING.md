@@ -166,7 +166,8 @@ There are two ways to add code blocks with syntax highlighting.
 
 ### 1. With triple backticks
 
-Please always specify the code language to avoid problems with the layout.
+Please always specify the [language syntax][syntax-highlighting-languages]
+to avoid problems with the layout.
 
 ````markdown
 ```bash
