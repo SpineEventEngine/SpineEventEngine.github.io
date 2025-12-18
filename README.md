@@ -47,6 +47,14 @@ Another way to run the site locally is to follow these steps:
    hugo server
    ```
 
+If you receive a `permission denied` message, but you are sure that you have
+all the rights to the [required repositories](#prerequisites), try clearing
+the cache and run the `hugo serve` again:
+
+```shell
+hugo mod clean --all
+```
+
 ## Documentation
 
 The documentation is located in a [separate repository][documentation-repo].
