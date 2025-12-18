@@ -1,0 +1,51 @@
+<!--
+  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Redistribution and use in source and/or binary forms, with or without
+  ~ modification, must retain the above copyright notice and the following
+  ~ disclaimer.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ~ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ~ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ~ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+{{ $id := "step-four" }}
+
+<div class="row step-row row-with-btn">
+    <div class="col-text">
+        <p class="step-title">Step 4.</p>
+        <h2>Easily deploy to Google Cloud or a custom environment</h2>
+        <p>In-memory and JDBC-based storage implementations allow to implement and test
+            the core logic quickly. Adopt your application to&nbsp;selected deployment
+            environment(s) with a few lines of code.
+        </p>
+    </div>
+    <div class="col-btn">
+        {{ partial "landing/steps/code-toggle.html" $id }}
+    </div>
+</div>
+<div class="row justify-content-center collapse" id="{{ $id }}">
+    <div class="col-md-8">
+        {{ with .Page.GetPage "step-4.md" }}
+            {{ .Content}}
+        {{ end }}
+    </div>
+    <div class="col-md-8">
+        {{ partial "landing/steps/hide-code-link.html" $id }}
+    </div>
+</div>

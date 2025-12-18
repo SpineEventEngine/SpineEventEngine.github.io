@@ -1,0 +1,20 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" . }}
+    {{ partial "components/nav-hero.html" . }}
+    {{ $context := . }}
+    {{ with .Resources.GetMatch "faq.json" }}
+        {{ $data := .Content | unmarshal }}
+        <div class="container-fluid content-holder">
+            <div class="faq-container">
+                <ul class="faq-list">
+                    {{ range $data.faq }}
+                        {{ partial "faq/item.html" (dict
+                            "context" $context
+                            "item" .
+                        ) }}
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    {{ end }}
+{{ end }}

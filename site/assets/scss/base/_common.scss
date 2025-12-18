@@ -1,0 +1,117 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.intro-section {
+  padding-top: 40px;
+  padding-bottom: 48px;
+
+  @include breakpoint(tablet) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+// Collapsible caret-icon in the mobile navigation and footer.
+.mobile-caret-icon {
+  background: fade-out($white, .97) url('img/icons/caret.svg') no-repeat center/cover;
+  opacity: 1;
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  transition: all .3s ease-in-out;
+}
+
+.nobr {
+  white-space: nowrap;
+}
+
+.section {
+  padding: 50px 0;
+  position: relative;
+}
+
+.section-divider {
+  border-bottom: 2px solid #e3e3e3;
+  margin: 0;
+  width: 100%;
+}
+
+.content-with-fixed-header {
+  margin-top: $header-height + 32px;;
+
+  @include breakpoint(desktop) {
+    margin-top: $header-height + 16px;;
+  }
+}
+
+table,
+th,
+td {
+  border: 1px solid lighten($text-color, 20%);
+  padding: 6px
+}
+
+table {
+  border-collapse: collapse;
+}
+
+// Expandable title with caret icon before.
+%expandable-title {
+  font-size: $font-size--primary;
+  line-height: 1.5;
+  color: $black;
+  font-weight: 500;
+  transition: all .25s ease-in-out;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: url('img/icons/icon-caret-right.svg') no-repeat center/cover;
+    width: $icon-size--s;
+    height: $icon-size--s;
+    margin-left: -40px;
+    margin-top: -2px;
+    opacity: .54;
+    transform: rotate(90deg);
+    transition: all .3s ease-in-out;
+  }
+
+  // Initial state of the title
+  &.collapsed {
+    color: $text-color;
+    font-weight: 400;
+
+    &:before {
+      opacity: .2;
+      transform: rotate(0);
+    }
+  }
+}

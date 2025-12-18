@@ -1,0 +1,166 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$panel-padding: 16px 56px;
+$open-panel-padding: 8px 56px 24px;
+$open-panel-padding-mobile: 0 0 24px;
+$inner-content-offset: 56px;
+$inner-content-offset-mobile: 40px;
+$panel-border-radius: $border-radius-m;
+$panel-active-color: rgba($main-brand-color, .09);
+$panel-hover-color: rgba($main-brand-color, .04);
+
+.licenses-list {
+  margin: 40px 0 64px;
+
+  @include breakpoint(tablet) {
+    margin: 24px 0 40px;
+  }
+
+  @include breakpoint(md-phone) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include list();
+}
+
+.licenses {
+  .page-description {
+    margin-bottom: 24px;
+
+    @include breakpoint(md-phone) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  .collapsible-panel-title {
+    display: block;
+    padding: $panel-padding;
+    border-bottom-color: $divider-color; // Fixes border blinking.
+    border-style: none;
+    border-radius: $panel-border-radius $panel-border-radius 0 0;
+    background-color: $panel-active-color;
+    transition: all .25s ease-in-out;
+    text-decoration: none;
+
+    &.collapsed {
+      border-bottom: $divider;
+      background-color: transparent;
+
+      &:hover {
+        background-color: $panel-hover-color;
+      }
+    }
+
+    &:hover {
+      color: $black;
+
+      &:before {
+        opacity: .54;
+      }
+    }
+
+    @extend %expandable-title;
+  }
+
+  .license-content {
+    min-height: 164px;
+    padding: $open-panel-padding;
+    border-bottom: $divider;
+
+    @include breakpoint(tablet) {
+      padding: $open-panel-padding-mobile;
+    }
+  }
+
+  .dependencies-title {
+    font-family: $main-mono-font;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding-top: 24px;
+    color: $black;
+    line-height: 1.5;
+
+    @include breakpoint(tablet) {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .collapse-link {
+    margin: 0;
+    padding: 8px $inner-content-offset;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: $panel-border-radius;
+    background-color: $panel-active-color;
+    transition: all .25s ease-in-out;
+    @extend %expandable-title;
+
+    &.collapsed {
+      background-color: transparent;
+
+      &:hover {
+        background-color: $panel-hover-color;
+      }
+    }
+
+    &:hover {
+      color: $black;
+      &:before {
+        opacity: .54;
+      }
+    }
+  }
+
+  .dependencies-container,
+  .report-info {
+    // Top and bottom paddings prevent content jumping.
+    padding: 16px $inner-content-offset 8px;
+    margin: 0 0 8px;
+
+    @include breakpoint(tablet) {
+      padding: 0 20px;
+
+      li {
+        ul {
+          margin-left: 0;
+        }
+      }
+
+      a {
+        white-space: normal;
+        word-break: break-word;
+      }
+    }
+  }
+
+  .loader-container {
+    margin-top: 32px;
+  }
+}

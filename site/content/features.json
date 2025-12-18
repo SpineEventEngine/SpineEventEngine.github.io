@@ -1,0 +1,72 @@
+{
+  "title": "Why Spine?",
+  "columns": [
+    {
+      "features": [
+        {
+          "icon": "fas fa-magic",
+          "title": "Code Generation",
+          "description": "The code is automatically generated for all the languages of your project, as you update the model. Forget about missed `hashCode()` or `equals()`."
+        },
+        {
+          "icon": "fas fa-code-branch",
+          "title": "Model Extensibility",
+          "description": "With [Protobuf support](https://developers.google.com/protocol-buffers/docs/proto3#updating), a model can be extended preserving backward and future compatibility with client- and server nodes of your&nbsp;application."
+        },
+        {
+          "icon": "fas fa-boxes",
+          "title": "Multitenancy Support",
+          "description": "Transforming a single-tenant application into a&nbsp;multi-tenant one requires a few lines of code. You don't have to introduce `tenantId` parameters for all the calls."
+        },
+        {
+          "icon": "fas fa-chart-line",
+          "title": "Open for Business Changes",
+          "description": "Add and remove fields while keeping binary compatibility with older code; handle new opportunities with `oneof`, natively provided by Protobuf. Build new `Projections` based on the whole event history of the system."
+        }
+      ]
+    },
+    {
+      "features": [
+        {
+          "icon": "fas fa-lightbulb-on",
+          "title": "Clear API",
+          "description": "Concepts from the DDD books, such as [`Aggregate`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.aggregate/-aggregate/index.html), [`Projection`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.projection/-projection/index.html), [`ProcessManager`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.procman/-process-manager/index.html), [`Repository`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.entity/-repository/index.html) are right in the code. Ever guessed how to cook a [`BoundedContext`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server/-bounded-context/index.html)? Guess no&nbsp;more!"
+        },
+        {
+          "icon": "fas fa-clipboard-check",
+          "title": "Built-in Validation",
+          "description": "Constraints defined in a business model are automatically checked for commands, events, and entity states. [Learn more](docs/guides/validation/)."
+        },
+        {
+          "icon": "far fa-hexagon",
+          "title": "Multiple Storage and Deployment Platforms",
+          "description": "The framework promotes development of storage- and platform-agnostic code. You can start with [JDBC]({{% get-site-data \"spine.jdbc_storage_repo\" %}}) and later switch to Google Cloud Platform [Datastore]({{% get-site-data \"spine.gcloud_java_repo\" %}}) simply changing a few lines of&nbsp;code."
+        },
+        {
+          "icon": "fas fa-feather-alt",
+          "title": "Permissive Apache License",
+          "description": "Use freely in closed-source projects. You are also welcome to contribute to improving our framework."
+        }
+      ]
+    },
+    {
+      "features": [
+        {
+          "icon": "fas fa-gem",
+          "title": "Promoted Immutability",
+          "description": "All the data types are immutable, which makes it easy to cache and share. Mutations are performed _only_ in response to incoming messages using clearly defined cycles."
+        },
+        {
+          "icon": "fas fa-shield-alt",
+          "title": "Type Safety",
+          "description": "Should you need `CustomerId` or `WorkEstimate` value, you get it within seconds, for multiple languages. You can also have binary storage format and automatic JSON&nbsp;support."
+        },
+        {
+          "icon": "fas fa-fighter-jet",
+          "title": "Develop faster, with better results",
+          "description": "With CQRS and Event-Driven Architecture you can separate development workflows. More experienced team members can concentrate on the core domain and the write-side tasks while the&nbsp;read–side and UI are created by the rest of the&nbsp;team."
+        }
+      ]
+    }
+  ]
+}

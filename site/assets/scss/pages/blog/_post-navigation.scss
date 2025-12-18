@@ -1,0 +1,70 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.post-navigation {
+  $nav-item-font-size: 12px;
+  $nav-item-color: $gray-700;
+  $nav-item-active-color: $main-brand-color;
+  $nav-item-line-height: 1.5;
+  $nav-item-bottom-space: 12px;
+
+  margin-left: 24px;
+
+  .post-nav-header {
+    font-size: $nav-item-font-size;
+    color: rgba(0, 0, 0, .38);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 24px 0 16px;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: $nav-item-bottom-space;
+
+    li {
+      font-size: $nav-item-font-size;
+      margin-bottom: $nav-item-bottom-space;
+      line-height: $nav-item-line-height;
+
+      a {
+        text-decoration: none;
+        color: $nav-item-color;
+        font-weight: 400;
+        padding-right: 6px;
+
+        &:hover {
+          color: $nav-item-active-color;
+        }
+
+        &.current {
+          color: $nav-item-active-color;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$icon-right-offset: 48px;
+$content-top-offset: 48px;
+$faq-title-padding: 16px $icon-right-offset;
+$faq-title-background: #f7f8f8;
+$faq-item-divider: 1px dotted #d7d7d7;
+$faq-content-padding: 24px $icon-right-offset;
+$anchor-icon-size: 24px;
+
+.faq-container {
+  margin: $content-top-offset 0 56px;
+
+  @include breakpoint(tablet) {
+    margin-left: -$layout-padding-tablet;
+    margin-right: -$layout-padding-tablet;
+  }
+
+  @include breakpoint(md-phone) {
+    margin-left: -$layout-padding-phone;
+    margin-right: -$layout-padding-phone;
+  }
+
+  .faq-item {
+    border-bottom: $faq-item-divider;
+
+    .faq-heading {
+      position: relative;
+      display: block;
+      font-size: 16px;
+      padding: $faq-title-padding;
+      cursor: pointer;
+
+      &:hover {
+        .anchor-link-icon {
+          &:after {
+            visibility: visible;
+          }
+        }
+      }
+
+      .toggle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: $faq-title-background;
+
+        &:before {
+          content: '';
+          position: absolute;
+          background: url('img/icons/icon-caret-right.svg') no-repeat center/cover;
+          width: $icon-size--s;
+          height: $icon-size--s;
+          left: 12px;
+          top: 15px;
+          transform: rotate(90deg);
+          opacity: .16;
+          transition: all .3s ease-in-out;
+        }
+
+        &.collapsed {
+          background: none;
+
+          &:before {
+            opacity: .2;
+            transform: rotate(0);
+          }
+
+          & + span {
+            font-weight: 400;
+          }
+        }
+      }
+
+      span {
+        position: relative;
+        font-weight: 500;
+        line-height: 1.5;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+  }
+
+  .faq-content {
+    .faq-content-wrapper {
+      padding: $faq-content-padding;
+
+      &.article-text {
+        font-family: $main-serif-font;
+        font-size: $article-font-size;
+        line-height: $article-line-height;
+
+        p, ul, ol {
+          text-align: left;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .anchor-link-icon {
+    &:after {
+      visibility: hidden;
+      content: '';
+      display: inline-block;
+      background: url('img/icons/link.svg') no-repeat center/cover;
+      width: $anchor-icon-size;
+      height: $anchor-icon-size;
+      opacity: .38;
+      vertical-align: middle;
+      margin-top: -4px;
+      transition: opacity .25s ease-in-out;
+    }
+
+    &:hover {
+      &:after {
+        opacity: .54;
+      }
+    }
+
+    @include breakpoint(lg-phone) {
+      &:after {
+        visibility: visible;
+      }
+    }
+  }
+}

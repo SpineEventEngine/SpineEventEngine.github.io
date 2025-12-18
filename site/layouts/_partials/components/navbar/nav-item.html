@@ -1,0 +1,53 @@
+<!--
+  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Redistribution and use in source and/or binary forms, with or without
+  ~ modification, must retain the above copyright notice and the following
+  ~ disclaimer.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ~ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ~ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ~ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+{{ $item := .item_context }}
+{{ $currentPage := .current_page }}
+{{ $currentRootSection := .current_root_section }}
+
+{{ $itemURL := partial "functions/parse-shortcode.html" $item.url }}
+{{ $itemURL = $itemURL | relURL }}
+{{ $itemName := $item.name }}
+{{ $isActive := and (ne $itemURL "/") (in $itemURL (printf "/%s/" $currentRootSection)) }}
+
+<li class="nav-item">
+    {{ if eq $item.type "github-icon" }}
+        {{ partial "components/navbar/github-icon.html" $item }}
+    {{ else }}
+        {{ partial "components/navbar/item-link.html" (dict
+            "url" $itemURL
+            "name" $itemName
+            "is_active" $isActive
+        ) }}
+    {{ end }}
+    {{ with $item.mobile_subnav }}
+        {{ partial "components/navbar/mobile-subnav.html" (dict
+            "current_page" $currentPage
+            "items" .
+            "is_active" $isActive
+        ) }}
+    {{ end }}
+</li>

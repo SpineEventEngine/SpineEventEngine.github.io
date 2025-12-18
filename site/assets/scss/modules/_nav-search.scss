@@ -1,0 +1,118 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+$docsearch-icon-color: rgba(white, .54);
+$docsearch-mobile-breakpoint: 800px;
+$docsearch-algolia-mobile: 750px;
+$docsearch-border-color: #ebedf5;
+
+.nav-search-container {
+  padding-top: 13px;
+  margin-left: 5px;
+
+  @include breakpoint($docsearch-mobile-breakpoint) {
+    margin: 1px 32px 0 auto;
+  }
+}
+
+button {
+  line-height: normal;
+}
+
+mark {
+  padding: 0;
+  background-color: transparent;
+}
+
+#docsearch {
+  .DocSearch-Button {
+    background: none;
+    margin-left: 0;
+    transition: all .25s ease-in-out;
+
+    &:hover {
+      background: rgba(black, .12);
+      box-shadow: none;
+
+      .DocSearch-Search-Icon {
+        color: white;
+      }
+    }
+  }
+
+  .DocSearch-Search-Icon {
+    color: $docsearch-icon-color;
+
+    @include breakpoint($docsearch-mobile-breakpoint) {
+      color: white;
+    }
+  }
+
+  .DocSearch-Button-Placeholder {
+    display: none;
+  }
+
+  .DocSearch-Button-Keys {
+    display: none;
+  }
+}
+
+.DocSearch-Container {
+  z-index: map_get($z-index, 'search-mobile') !important;
+
+  @include breakpoint($docsearch-algolia-mobile) {
+    position: fixed;
+  }
+
+  .DocSearch-SearchBar {
+    border-bottom: 1px solid $docsearch-border-color;
+    padding: 8px;
+
+    @include breakpoint($docsearch-algolia-mobile) {
+      border: none;
+    }
+
+    .DocSearch-Form {
+      @include breakpoint($docsearch-algolia-mobile) {
+        border: 1px solid $docsearch-border-color;
+      }
+    }
+
+    .DocSearch-Search-Icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .DocSearch-Input {
+      padding-left: 12px;
+    }
+  }
+
+  // Hides the shortcuts.
+  .DocSearch-Commands {
+    display: none;
+  }
+}

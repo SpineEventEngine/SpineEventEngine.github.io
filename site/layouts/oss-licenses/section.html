@@ -1,0 +1,13 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" . }}
+    {{ partial "components/nav-hero.html" . }}
+    <div class="container-fluid content-holder">
+        <div class="row">
+            <div class="col-md licenses-list">
+                {{ partial "oss-licenses/intro.html" . }}
+                {{ partial "oss-licenses/licenses.html" . }}
+            </div>
+        </div>
+    </div>
+    {{ partial "components/go-top-button.html" . }}
+{{ end }}

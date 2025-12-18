@@ -1,0 +1,36 @@
+{
+  "repositories": [
+    {
+      "name": "Spine Base Libraries",
+      "repo_name": "base-libraries"
+    },
+    {
+      "name": "Spine CoreJvm Library",
+      "repo_name": "core-jvm"
+    },
+    {
+      "name": "Spine Time",
+      "repo_name": "time"
+    },
+    {
+      "name": "Spine Web",
+      "repo_name": "web"
+    },
+    {
+      "name": "Spine Bootstrap",
+      "repo_name": "bootstrap"
+    },
+    {
+      "name": "Spine Google Cloud Java",
+      "repo_name": "gcloud-java"
+    },
+    {
+      "name": "Spine JDBC Storage",
+      "repo_name": "jdbc-storage"
+    },
+    {
+      "name": "Spine Money",
+      "repo_name": "money"
+    }
+  ]
+}

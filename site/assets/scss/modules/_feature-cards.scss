@@ -1,0 +1,96 @@
+/*!
+ * Copyright 2025, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.feature-section {
+  background-color: $light-gray-blue;
+  padding: 64px 0 72px;
+
+  @include breakpoint(lg-phone) {
+    padding: 40px 0 24px;
+  }
+
+  .section-title {
+    font-size: $font-size--xl;
+    text-align: center;
+    margin-bottom: 32px;
+
+    @include breakpoint(lg-phone) {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.feature-card {
+  position: relative;
+  background-color: white;
+  margin: 0 0 30px;
+  border-radius: $border-radius-m;
+  box-shadow: $feature-card-shadow;
+
+  @include breakpoint(md-phone) {
+    margin-bottom: 16px;
+  }
+
+  [class*="card-icon"] {
+    position: absolute;
+    display: inline-block;
+    width: $icon-size--m;
+    height: $icon-size--m;
+    margin: 20px 24px;
+
+    @include breakpoint(desktop) {
+      margin: 16px;
+    }
+  }
+
+  .card-icon-font {
+    line-height: $icon-size--m;
+    font-size: 22px;
+    color: $main-brand-color;
+    text-align: center;
+  }
+
+  .card-content-text {
+    padding: 24px 24px 24px 72px;
+
+    @include breakpoint(desktop) {
+      padding: 20px 20px 20px 64px;
+    }
+
+    .feature-card-title {
+      color: $text-color;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+}

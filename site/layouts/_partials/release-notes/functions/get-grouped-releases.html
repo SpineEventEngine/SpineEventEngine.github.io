@@ -1,0 +1,80 @@
+<!--
+  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Redistribution and use in source and/or binary forms, with or without
+  ~ modification, must retain the above copyright notice and the following
+  ~ disclaimer.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ~ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ~ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ~ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+<!-- Returns releases grouped by major version for the provided year.
+
+The example of the returned array:
+```
+[
+  {"version": "2", "pages": [...]},
+  {"version": "1", "pages": [...]}
+]
+```
+ -->
+
+{{ $releases := .releases }}
+{{ $year := .year }}
+
+{{ $currentYearReleases := slice }}
+{{ $releasesByVersion := slice }}
+
+<!--
+Returns releases corresponding the provided year.
+If a release has the `is_hidden_in_sidenav` parameter, it will not be added to the list.
+-->
+{{ range $releases }}
+    {{ $fileDir := .File.Dir }}
+    {{ $isExcluded := .Params.is_hidden_in_sidenav | default false }}
+    {{ if and (in $fileDir (printf "/%s/" $year)) (not $isExcluded) }}
+        {{ $currentYearReleases = $currentYearReleases | append . }}
+    {{ end }}
+{{ end }}
+
+<!-- Groups releases by the major version. -->
+{{ range $currentYearReleases }}
+    {{ $page := . }}
+    {{ $version := .Params.version }}
+    {{ $major := index (split $version ".") 0 }}
+    {{ $isSameVersion := false }}
+    {{ $tempGroup := slice }}
+    {{ range $releasesByVersion }}
+        {{ if eq .version $major }}
+            {{ $pages := .pages | append $page }}
+            {{ $tempGroup = $tempGroup | append (dict "version" $major "pages" $pages) }}
+            {{ $isSameVersion = true }}
+        {{ else }}
+            {{ $tempGroup = $tempGroup | append . }}
+        {{ end }}
+    {{ end }}
+    {{ if not $isSameVersion }}
+        {{ $tempGroup = $tempGroup | append (dict "version" $major "pages" (slice $page)) }}
+    {{ end }}
+    {{ $releasesByVersion = $tempGroup }}
+{{ end }}
+
+{{ $releasesByVersion = sort $releasesByVersion "version" "desc" }}
+
+{{ return $releasesByVersion }}
