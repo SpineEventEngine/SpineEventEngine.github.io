@@ -20,7 +20,7 @@ into the pages, please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
 1. Install [Java JDK] version `11` to build the site.
 2. Install [Go][go] at least version `1.12`.
 2. Install [Node.js][nodejs]. Its version should be `18+`.
-3. Install [Hugo Extended][hugo-quick-start] at least version `v0.145` or higher.
+3. Install [Hugo Extended][hugo-quick-start] at least version `v0.150.0` or higher.
 4. Get access to the [`site-commons`][site-commons] repository from the admins
    to be able to download the theme.
 5. Make sure [SSH][site-commons-ssh] is configured correctly and the passphrase is stored in the keychain.
