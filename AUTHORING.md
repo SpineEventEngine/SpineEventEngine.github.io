@@ -13,10 +13,13 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
     * [Main navigation](#main-navigation)
     * [Documentation side navigation](#documentation-side-navigation)
     * [Documentation “Next/Prev” buttons](#documentation-nextprev-buttons)
-  * [Adding code samples to the site](#adding-code-samples-to-the-site)
+* [Adding code samples to the site](#adding-code-samples-to-the-site)
 * [Testing broken links](#testing-broken-links)
-  * [Cloak email](#cloak-email)
-  * [Note blocks](#note-blocks)
+* [Cloak email](#cloak-email)
+* [Note blocks](#note-blocks)
+* [Code blocks](#code-blocs)
+  * [Code blocks using triple backticks](#1-code-blocks-using-triple-backticks)
+  * [Code blocks using the `highlight` shortcode](#2-code-blocks-using-the-highlight-shortcode)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -156,3 +159,57 @@ You can use only predefined classes such as: `note`, `warning`, or `lead`.
 The test lead block.
 {{% /note-block %}}
 ```
+
+# Code blocs
+
+There are two ways to add code blocks with syntax highlighting.
+
+### 1. Code blocks using triple backticks
+
+Please always specify the code language to avoid problems with the layout.
+
+````markdown
+```bash
+git clone git@github.com:spine-examples/hello.git
+```
+````
+
+You can configure the appearance of Hugo code blocks using parameters,
+as described in the official [documentation][code-fences-doc]:
+
+* `linenos=table` – configure line numbers and renders them in a table view.
+  The table view is necessary for correct copying of code.
+* `hl_lines=[8,"15-17"]` – lists a set of line numbers or line number ranges
+  to be additionally highlighted.
+* `linenostart=199` – starts the line number count from 199.
+
+````markdown
+```java {linenos=table,hl_lines=[8,"15-17"],linenostart=199}
+// ... code
+```
+````
+
+### 2. Code blocks using the `highlight` shortcode
+
+The `highlight` shortcode allows to set custom visibility options related to this project, 
+such as custom CSS classes, the text highlighting on the selected line, a file name bar, etc.
+
+```markdown
+{{< highlight lang="java" params="hl_lines=10 19, linenos=table" class="hl-text-only" >}}
+@BeforeEach
+void sendCommand() {
+...
+}
+{{< /highlight >}}
+```
+
+Where:
+* `lang`. The language of the code block.
+* `params`. Optional standard Hugo highlighting parameters as a string.
+* `file`. An optional name of the code file to display on the code header panel.
+* `class`. An optional class name that the code block will be wrapped in.
+
+The class `hl-text-only` is predefined and used to highlight only the text without highlighting 
+the entire line with background.
+
+[code-fences-doc]: https://gohugo.io/content-management/syntax-highlighting/#highlighting-in-code-fences
