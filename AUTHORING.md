@@ -17,7 +17,7 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 * [Testing broken links](#testing-broken-links)
 * [Cloak email](#cloak-email)
 * [Note blocks](#note-blocks)
-* [Code blocks](#code-blocs)
+* [Code blocks](#code-blocks)
   * [With triple backticks](#1-with-triple-backticks)
   * [Using `highlight` shortcode](#2-using-highlight-shortcode)
 
