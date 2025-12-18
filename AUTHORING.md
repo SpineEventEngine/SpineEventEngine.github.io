@@ -177,7 +177,7 @@ git clone git@github.com:spine-examples/hello.git
 You can configure the appearance of Hugo code blocks using parameters,
 as described in the official [documentation][code-fences-doc]:
 
-* `linenos=table` – configure line numbers and renders them in a table view.
+* `linenos=table` – configures line numbers and renders them in a table view.
   The table view is necessary for correct copying of code.
 * `hl_lines=[8,"15-17"]` – lists a set of line numbers or line number ranges
   to be additionally highlighted.
@@ -204,10 +204,11 @@ void sendCommand() {
 ```
 
 Where:
-* `lang`. The language of the code block.
-* `params`. Optional standard Hugo highlighting parameters as a string.
-* `file`. An optional name of the code file to display on the code header panel.
-* `class`. An optional class name that the code block will be wrapped in.
+
+* `lang` – the language of the code block.
+* `params` – optional standard Hugo highlighting parameters as a string.
+* `file` – an optional name of the code file to display on the code header panel.
+* `class` – an optional class name that the code block will be wrapped in.
 
 The class `hl-text-only` is predefined and used to highlight only the text without highlighting 
 the entire line with background.
