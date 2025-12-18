@@ -18,8 +18,8 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 * [Cloak email](#cloak-email)
 * [Note blocks](#note-blocks)
 * [Code blocks](#code-blocs)
-  * [Code blocks using triple backticks](#1-code-blocks-using-triple-backticks)
-  * [Code blocks using the `highlight` shortcode](#2-code-blocks-using-the-highlight-shortcode)
+  * [With triple backticks](#1-with-triple-backticks)
+  * [Using `highlight` shortcode](#2-using-highlight-shortcode)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -160,11 +160,11 @@ The test lead block.
 {{% /note-block %}}
 ```
 
-# Code blocs
+# Code blocks
 
 There are two ways to add code blocks with syntax highlighting.
 
-### 1. Code blocks using triple backticks
+### 1. With triple backticks
 
 Please always specify the code language to avoid problems with the layout.
 
@@ -189,7 +189,7 @@ as described in the official [documentation][code-fences-doc]:
 ```
 ````
 
-### 2. Code blocks using the `highlight` shortcode
+### 2. Using `highlight` shortcode"
 
 The `highlight` shortcode allows to set custom visibility options related to this project, 
 such as custom CSS classes, the text highlighting on the selected line, a file name bar, etc.
@@ -205,7 +205,7 @@ void sendCommand() {
 
 Where:
 
-* `lang` – the language of the code block.
+* `lang` – the language syntax. See the [supported languages][syntax-highlighting-languages].
 * `params` – optional standard Hugo highlighting parameters as a string.
 * `file` – an optional name of the code file to display on the code header panel.
 * `class` – an optional class name that the code block will be wrapped in.
@@ -214,3 +214,4 @@ The class `hl-text-only` is predefined and used to highlight only the text witho
 the entire line with background.
 
 [code-fences-doc]: https://gohugo.io/content-management/syntax-highlighting/#highlighting-in-code-fences
+[syntax-highlighting-languages]: https://gohugo.io/content-management/syntax-highlighting/#languages
