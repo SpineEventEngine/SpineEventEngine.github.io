@@ -1,73 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Spine Event Engine</title><link>https://spine.io/docs/</link><description>Recent content in Documentation on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://spine.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>API Reference</title><link>https://spine.io/docs/reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/reference/</guid><description>&lt;h1 id="api-reference" data-title>
-API Reference&lt;/h1>
-&lt;h2 id="java" data-title>
-Java&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#java
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;a href="https://spine.io/core-jvm/dokka-reference/server/"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Spine Event Engine</title><link>https://spine.io/docs/</link><description>Recent content in Documentation on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://spine.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>API Reference</title><link>https://spine.io/docs/reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/reference/</guid><description>&lt;h1 id="api-reference" data-title&gt;
+API Reference&lt;/h1&gt;
+&lt;h2 id="java" data-title&gt;
+Java&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#java
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spine.io/core-jvm/dokka-reference/server/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener"
- >Server&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://spine.io/core-jvm/dokka-reference/client/"
+ &gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spine.io/core-jvm/dokka-reference/client/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener"
- >Client&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://spine.io/web/dokka-reference/web/"
+ &gt;Client&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spine.io/web/dokka-reference/web/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener"
- >Spine Web API&lt;/a>.
-This reference defines the API for communicating with a Spine-based backend using web requests.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://spine.io/web/dokka-reference/firebase-web/"
+ &gt;Spine Web API&lt;/a&gt;.
+This reference defines the API for communicating with a Spine-based backend using web requests.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spine.io/web/dokka-reference/firebase-web/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener"
- >Web API implementation on Firebase&lt;/a>.
+ &gt;Web API implementation on Firebase&lt;/a&gt;.
 This reference is on the implementation of the Spine Web API using the Firebase Realtime Database
-to deliver data to web clients.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="javascript" data-title>
-JavaScript&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#javascript
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://spine.io/web/reference/client-js"
+to deliver data to web clients.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="javascript" data-title&gt;
+JavaScript&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#javascript
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://spine.io/web/reference/client-js"
  
  
  class="external-link"
  target="_blank"
  rel="noopener"
- >JavaScript Client&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="dart" data-title>
-Dart&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#dart
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://spine.io/dart/reference/client/"
+ &gt;JavaScript Client&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="dart" data-title&gt;
+Dart&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#dart
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://spine.io/dart/reference/client/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener"
- >Dart Client&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+ &gt;Dart Client&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

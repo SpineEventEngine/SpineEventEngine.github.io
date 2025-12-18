@@ -1,1138 +1,1138 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Release Notes on Spine Event Engine</title><link>https://spine.io/release-notes/</link><description>Recent content in Release Notes on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 24 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/release-notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Release Notes v1.9.0</title><link>https://spine.io/release-notes/2023/v1.9.0/</link><pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2023/v1.9.0/</guid><description>&lt;h1 id="spine-190" data-title>
-Spine 1.9.0&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>Several significant changes have been made in this release to &lt;code>base&lt;/code> modules.&lt;/p>
-&lt;h3 id="breaking-changes" data-title>
-Breaking changes&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#breaking-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>
-&lt;p>Environment-related types were moved under &lt;code>io.spine.environment&lt;/code> package.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>Production&lt;/code> environment type was renamed to &lt;code>DefaultMode&lt;/code>.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="other-changes" data-title>
-Other changes&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#other-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>
-&lt;p>It is now possible to check whether the environment is enabled; see &lt;code>EnvironmentType.enabled()&lt;/code>.&lt;/p></description></item><item><title>Release Notes v1.8.2</title><link>https://spine.io/release-notes/2022/v1.8.2/</link><pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2022/v1.8.2/</guid><description>&lt;h1 id="spine-182" data-title>
-Spine 1.8.2&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This is a maintenance release of Spine core libraries. It extends the existing API,
-primarily focusing on adding new configuration knobs.&lt;/p>
-&lt;p>In particular, these changes were made since the last release:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1443"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Release Notes on Spine Event Engine</title><link>https://spine.io/release-notes/</link><description>Recent content in Release Notes on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 24 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/release-notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Release Notes v1.9.0</title><link>https://spine.io/release-notes/2023/v1.9.0/</link><pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2023/v1.9.0/</guid><description>&lt;h1 id="spine-190" data-title&gt;
+Spine 1.9.0&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Several significant changes have been made in this release to &lt;code&gt;base&lt;/code&gt; modules.&lt;/p&gt;
+&lt;h3 id="breaking-changes" data-title&gt;
+Breaking changes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#breaking-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Environment-related types were moved under &lt;code&gt;io.spine.environment&lt;/code&gt; package.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Production&lt;/code&gt; environment type was renamed to &lt;code&gt;DefaultMode&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="other-changes" data-title&gt;
+Other changes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#other-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It is now possible to check whether the environment is enabled; see &lt;code&gt;EnvironmentType.enabled()&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Release Notes v1.8.2</title><link>https://spine.io/release-notes/2022/v1.8.2/</link><pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2022/v1.8.2/</guid><description>&lt;h1 id="spine-182" data-title&gt;
+Spine 1.8.2&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This is a maintenance release of Spine core libraries. It extends the existing API,
+primarily focusing on adding new configuration knobs.&lt;/p&gt;
+&lt;p&gt;In particular, these changes were made since the last release:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1443"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1443&lt;/a>:
-Expand the &lt;code>io.spine.server.Server&lt;/code> API to allow to:&lt;/p>
-&lt;ul>
-&lt;li>obtain the Query, Subscription, and Command services after the &lt;code>Server&lt;/code> is built;&lt;/li>
-&lt;li>add extra gRPC services to the same server.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1448"
+ &gt;#1443&lt;/a&gt;:
+Expand the &lt;code&gt;io.spine.server.Server&lt;/code&gt; API to allow to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;obtain the Query, Subscription, and Command services after the &lt;code&gt;Server&lt;/code&gt; is built;&lt;/li&gt;
+&lt;li&gt;add extra gRPC services to the same server.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1448"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1448&lt;/a>:
-Allow supplying &lt;code>Executor&lt;/code> for &lt;code>SystemWriteSide&lt;/code>.&lt;/p></description></item><item><title>Release Notes v1.8.0</title><link>https://spine.io/release-notes/2021/v1.8.0/</link><pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2021/v1.8.0/</guid><description>&lt;h1 id="spine-180" data-title>
-Spine 1.8.0&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This is a release of Spine &lt;code>base&lt;/code> modules, which supports the new features in the upcoming 1.8.0
-release of Spine&amp;rsquo;s &lt;code>core-java&lt;/code> modules.&lt;/p>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release brings numerous fixes, updates to API and performance improvements.&lt;/p>
-&lt;h4 id="breaking-changes" data-title>
-Breaking Changes&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#breaking-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>
-&lt;p>Instead of &lt;code>NodeId&lt;/code>, &lt;code>ShardSessionRecord&lt;/code> now uses &lt;code>WorkerId&lt;/code> to indicate
-who is currently processing which shard.&lt;/p></description></item><item><title>Release Notes v1.7.5</title><link>https://spine.io/release-notes/2021/v1.7.5/</link><pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2021/v1.7.5/</guid><description>&lt;h1 id="spine-175" data-title>
-Spine 1.7.5&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This is a patch release of Spine 1.x. It follows up on the production use of Spine libraries
-and brings a few requested improvements.&lt;/p>
-&lt;ul>
-&lt;li>The integration with gRPC server has been improved for better results in dealing with heavy-duty
-subscriptions.&lt;/li>
-&lt;li>&lt;code>BlackBoxContext&lt;/code> API has been extended with a few endpoints to test for the positive outcomes.&lt;/li>
-&lt;/ul>
-&lt;p>Additionally, several improvements of &lt;code>config&lt;/code> scripts were brought to this version.&lt;/p></description></item><item><title>Release Notes v1.7.0</title><link>https://spine.io/release-notes/2020/v1.7.0/</link><pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.7.0/</guid><description>&lt;h1 id="spine-170" data-title>
-Spine 1.7.0&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release brings internal API improvements, better support for the tooling and Dart as well as
-improvements to the &lt;code>Environment&lt;/code> and tests APIs.&lt;/p>
-&lt;h3 id="breaking-changes" data-title>
-Breaking Changes&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#breaking-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ol>
-&lt;li>
-&lt;p>Removed deprecated APIs in the &lt;code>UtilityClassTest&lt;/code> class.&lt;/p>
-&lt;p>Please use &lt;code>subject()&lt;/code> over removed &lt;code>getUtilityClass()&lt;/code>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Removed deprecated methods in the &lt;code>Validate&lt;/code> utility.&lt;/p>
-&lt;p>Please consider migrating to mirrored methods in &lt;code>Preconditions2&lt;/code> and check out the
+ &gt;#1448&lt;/a&gt;:
+Allow supplying &lt;code&gt;Executor&lt;/code&gt; for &lt;code&gt;SystemWriteSide&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Release Notes v1.8.0</title><link>https://spine.io/release-notes/2021/v1.8.0/</link><pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2021/v1.8.0/</guid><description>&lt;h1 id="spine-180" data-title&gt;
+Spine 1.8.0&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This is a release of Spine &lt;code&gt;base&lt;/code&gt; modules, which supports the new features in the upcoming 1.8.0
+release of Spine&amp;rsquo;s &lt;code&gt;core-java&lt;/code&gt; modules.&lt;/p&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release brings numerous fixes, updates to API and performance improvements.&lt;/p&gt;
+&lt;h4 id="breaking-changes" data-title&gt;
+Breaking Changes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#breaking-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Instead of &lt;code&gt;NodeId&lt;/code&gt;, &lt;code&gt;ShardSessionRecord&lt;/code&gt; now uses &lt;code&gt;WorkerId&lt;/code&gt; to indicate
+who is currently processing which shard.&lt;/p&gt;</description></item><item><title>Release Notes v1.7.5</title><link>https://spine.io/release-notes/2021/v1.7.5/</link><pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2021/v1.7.5/</guid><description>&lt;h1 id="spine-175" data-title&gt;
+Spine 1.7.5&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This is a patch release of Spine 1.x. It follows up on the production use of Spine libraries
+and brings a few requested improvements.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The integration with gRPC server has been improved for better results in dealing with heavy-duty
+subscriptions.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;BlackBoxContext&lt;/code&gt; API has been extended with a few endpoints to test for the positive outcomes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additionally, several improvements of &lt;code&gt;config&lt;/code&gt; scripts were brought to this version.&lt;/p&gt;</description></item><item><title>Release Notes v1.7.0</title><link>https://spine.io/release-notes/2020/v1.7.0/</link><pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.7.0/</guid><description>&lt;h1 id="spine-170" data-title&gt;
+Spine 1.7.0&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release brings internal API improvements, better support for the tooling and Dart as well as
+improvements to the &lt;code&gt;Environment&lt;/code&gt; and tests APIs.&lt;/p&gt;
+&lt;h3 id="breaking-changes" data-title&gt;
+Breaking Changes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#breaking-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Removed deprecated APIs in the &lt;code&gt;UtilityClassTest&lt;/code&gt; class.&lt;/p&gt;
+&lt;p&gt;Please use &lt;code&gt;subject()&lt;/code&gt; over removed &lt;code&gt;getUtilityClass()&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Removed deprecated methods in the &lt;code&gt;Validate&lt;/code&gt; utility.&lt;/p&gt;
+&lt;p&gt;Please consider migrating to mirrored methods in &lt;code&gt;Preconditions2&lt;/code&gt; and check out the
 related PR &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/596"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#596&lt;/a>.&lt;/p></description></item><item><title>Release Notes v1.6.0</title><link>https://spine.io/release-notes/2020/v1.6.0/</link><pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.6.0/</guid><description>&lt;h1 id="spine-160" data-title>
-Spine 1.6.0&lt;/h1>
-&lt;p>This release brings numerous API improvements, as well as fixes and infrastructure updates
-to the framework.&lt;/p>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;h3 id="api-changes" data-title>
-API changes&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#api-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;h4 id="execution-environment" data-title>
-Execution environment&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#execution-environment
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ol>
-&lt;li>
-&lt;p>Custom environments support is introduced [&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/539"
+ &gt;#596&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Release Notes v1.6.0</title><link>https://spine.io/release-notes/2020/v1.6.0/</link><pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.6.0/</guid><description>&lt;h1 id="spine-160" data-title&gt;
+Spine 1.6.0&lt;/h1&gt;
+&lt;p&gt;This release brings numerous API improvements, as well as fixes and infrastructure updates
+to the framework.&lt;/p&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id="api-changes" data-title&gt;
+API changes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#api-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;h4 id="execution-environment" data-title&gt;
+Execution environment&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#execution-environment
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Custom environments support is introduced [&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/539"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#539&lt;/a>,
+ &gt;#539&lt;/a&gt;,
 &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/542"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#542&lt;/a>, &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/545"
+ &gt;#542&lt;/a&gt;, &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/545"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#545&lt;/a>].&lt;/p>
-&lt;p>The &lt;code>Environment&lt;/code> now exposes API to register user-defined environment types.
-This can be done by extending the &lt;code>EnvironmentType&lt;/code> class:&lt;/p></description></item><item><title>Release Notes v1.5.0</title><link>https://spine.io/release-notes/2020/v1.5.0/</link><pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.5.0/</guid><description>&lt;h1 id="spine-150" data-title>
-Spine 1.5.0&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release includes numerous API updates and performance improvements.&lt;/p>
-&lt;p>The most noticeable are listed below.&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>Time.currentTime()&lt;/code> now returns the time with microsecond precision. The values are emulated,
+ &gt;#545&lt;/a&gt;].&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Environment&lt;/code&gt; now exposes API to register user-defined environment types.
+This can be done by extending the &lt;code&gt;EnvironmentType&lt;/code&gt; class:&lt;/p&gt;</description></item><item><title>Release Notes v1.5.0</title><link>https://spine.io/release-notes/2020/v1.5.0/</link><pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.5.0/</guid><description>&lt;h1 id="spine-150" data-title&gt;
+Spine 1.5.0&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release includes numerous API updates and performance improvements.&lt;/p&gt;
+&lt;p&gt;The most noticeable are listed below.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Time.currentTime()&lt;/code&gt; now returns the time with microsecond precision. The values are emulated,
 increasing for each consequent call (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/504"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#504&lt;/a>, &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/512"
+ &gt;#504&lt;/a&gt;, &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/512"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#512&lt;/a>).&lt;/li>
-&lt;li>&lt;code>(constraint_for)&lt;/code> is now supported by the Spine compiler (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/505"
+ &gt;#512&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(constraint_for)&lt;/code&gt; is now supported by the Spine compiler (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/505"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#505&lt;/a>).&lt;/li>
-&lt;li>Support for the new Column API has been added to the Spine compiler (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/508"
+ &gt;#505&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Support for the new Column API has been added to the Spine compiler (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/508"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#508&lt;/a>).&lt;/li>
-&lt;li>Logging API has been extended (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/513"
+ &gt;#508&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Logging API has been extended (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/513"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#513&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;p>For more details please navigate to the list of the closed pull requests and their descriptions.&lt;/p></description></item><item><title>Release Notes v1.4.0</title><link>https://spine.io/release-notes/2020/v1.4.0/</link><pubDate>Wed, 08 Jan 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.4.0/</guid><description>&lt;h1 id="spine-140" data-title>
-Spine 1.4.0&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release concentrates mainly on performance improvements.&lt;/p>
-&lt;ul>
-&lt;li>The new &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/497"
+ &gt;#513&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For more details please navigate to the list of the closed pull requests and their descriptions.&lt;/p&gt;</description></item><item><title>Release Notes v1.4.0</title><link>https://spine.io/release-notes/2020/v1.4.0/</link><pubDate>Wed, 08 Jan 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.4.0/</guid><description>&lt;h1 id="spine-140" data-title&gt;
+Spine 1.4.0&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release concentrates mainly on performance improvements.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The new &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/497"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >generated validation API&lt;/a> is now
-available with the &lt;strong>beta&lt;/strong> status.&lt;/li>
-&lt;li>&lt;code>(pattern)&lt;/code> option now only applies to non-empty string values.&lt;/li>
-&lt;li>The bug preventing users from declaring enum-type columns is &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1215"
+ &gt;generated validation API&lt;/a&gt; is now
+available with the &lt;strong&gt;beta&lt;/strong&gt; status.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(pattern)&lt;/code&gt; option now only applies to non-empty string values.&lt;/li&gt;
+&lt;li&gt;The bug preventing users from declaring enum-type columns is &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1215"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >fixed&lt;/a>.&lt;/li>
-&lt;li>API of code libraries is &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1216"
+ &gt;fixed&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;API of code libraries is &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1216"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >extended&lt;/a>.&lt;/li>
-&lt;/ul></description></item><item><title>Release Notes v1.3.0</title><link>https://spine.io/release-notes/2019/v1.3.0/</link><pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.3.0/</guid><description>&lt;h1 id="spine-130" data-title>
-Spine 1.3.0&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This PR brings several API improvements to the library.&lt;/p>
-&lt;h4 id="notable-changes" data-title>
-Notable changes:&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#notable-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>A &lt;code>KnownMessage&lt;/code> interface is introduced. It marks the messages that are generated with Spine
-Model Compiler and can provide their &lt;code>typeUrl()&lt;/code> (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/495"
+ &gt;extended&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Release Notes v1.3.0</title><link>https://spine.io/release-notes/2019/v1.3.0/</link><pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.3.0/</guid><description>&lt;h1 id="spine-130" data-title&gt;
+Spine 1.3.0&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This PR brings several API improvements to the library.&lt;/p&gt;
+&lt;h4 id="notable-changes" data-title&gt;
+Notable changes:&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#notable-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;code&gt;KnownMessage&lt;/code&gt; interface is introduced. It marks the messages that are generated with Spine
+Model Compiler and can provide their &lt;code&gt;typeUrl()&lt;/code&gt; (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/495"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#495&lt;/a>).&lt;/li>
-&lt;li>The deprecated &lt;code>FieldPaths&lt;/code> utility is now removed (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/495"
+ &gt;#495&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;The deprecated &lt;code&gt;FieldPaths&lt;/code&gt; utility is now removed (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/495"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#495&lt;/a>).&lt;/li>
-&lt;li>A lot of third-party dependencies are updated to the newer version (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/496"
+ &gt;#495&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;A lot of third-party dependencies are updated to the newer version (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/496"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#496&lt;/a>).&lt;/li>
-&lt;li>The conversion routines in &lt;code>TypeConverter&lt;/code> will now support the number-based &lt;code>EnumValue&lt;/code>
+ &gt;#496&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;The conversion routines in &lt;code&gt;TypeConverter&lt;/code&gt; will now support the number-based &lt;code&gt;EnumValue&lt;/code&gt;
 instances (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/501"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#501&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release includes several API improvements for the library, as well as some new features.&lt;/p></description></item><item><title>Release Notes v1.2.0</title><link>https://spine.io/release-notes/2019/v1.2.0/</link><pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.2.0/</guid><description>&lt;h1 id="spine-120" data-title>
-Spine 1.2.0&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release includes several new features and some existing feature improvements for the library.&lt;/p>
-&lt;h4 id="notable-changes" data-title>
-Notable changes:&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#notable-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>The &lt;a href="https://github.com/SpineEventEngine/dart"
+ &gt;#501&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release includes several API improvements for the library, as well as some new features.&lt;/p&gt;</description></item><item><title>Release Notes v1.2.0</title><link>https://spine.io/release-notes/2019/v1.2.0/</link><pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.2.0/</guid><description>&lt;h1 id="spine-120" data-title&gt;
+Spine 1.2.0&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release includes several new features and some existing feature improvements for the library.&lt;/p&gt;
+&lt;h4 id="notable-changes" data-title&gt;
+Notable changes:&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#notable-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href="https://github.com/SpineEventEngine/dart"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >client&lt;/a> based on &lt;a href="https://dart.dev/"
+ &gt;client&lt;/a&gt; based on &lt;a href="https://dart.dev/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Dart&lt;/a>
-programming language is now available. The &lt;code>base&lt;/code> is extended with Dart-related
+ &gt;Dart&lt;/a&gt;
+programming language is now available. The &lt;code&gt;base&lt;/code&gt; is extended with Dart-related
 &lt;a href="https://github.com/SpineEventEngine/base-libraries/tree/v1.2.0/tools/proto-dart-plugin"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >tools&lt;/a>.&lt;/li>
-&lt;li>Several API improvements for precondition checks (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/486"
+ &gt;tools&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Several API improvements for precondition checks (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/486"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#486&lt;/a>,
+ &gt;#486&lt;/a&gt;,
 &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/487"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#487&lt;/a>).&lt;/li>
-&lt;li>It is now allowed to disable the validating builders generation when using Spine Model
+ &gt;#487&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;It is now allowed to disable the validating builders generation when using Spine Model
 Compiler (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/493"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#493&lt;/a>).&lt;/li>
-&lt;li>A new &lt;code>EntityState&lt;/code> marker interface is introduced for proto messages that represent a state
+ &gt;#493&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;A new &lt;code&gt;EntityState&lt;/code&gt; marker interface is introduced for proto messages that represent a state
 of an entity (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/494"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#494&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release includes several new features and some API improvements for the library.&lt;/p></description></item><item><title>Release Notes v1.1.2</title><link>https://spine.io/release-notes/2019/v1.1.2/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.1.2/</guid><description>&lt;h1 id="spine-112" data-title>
-Spine 1.1.2&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release brings several improvements and bug fixes to the library.&lt;/p>
-&lt;h4 id="notable-changes" data-title>
-Notable changes:&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#notable-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>A new &lt;code>Field&lt;/code> utility is introduced for working with Protobuf field paths. The new functionality
-mirrors and extends the existing &lt;code>FieldPaths&lt;/code> utility which is now deprecated (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/467"
+ &gt;#494&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release includes several new features and some API improvements for the library.&lt;/p&gt;</description></item><item><title>Release Notes v1.1.2</title><link>https://spine.io/release-notes/2019/v1.1.2/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.1.2/</guid><description>&lt;h1 id="spine-112" data-title&gt;
+Spine 1.1.2&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release brings several improvements and bug fixes to the library.&lt;/p&gt;
+&lt;h4 id="notable-changes" data-title&gt;
+Notable changes:&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#notable-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;A new &lt;code&gt;Field&lt;/code&gt; utility is introduced for working with Protobuf field paths. The new functionality
+mirrors and extends the existing &lt;code&gt;FieldPaths&lt;/code&gt; utility which is now deprecated (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/467"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#467&lt;/a>).&lt;/li>
-&lt;li>&lt;code>Tests&lt;/code> utility is extended with method &lt;code>halt()&lt;/code> for failing on unexpected method calls (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/464"
+ &gt;#467&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Tests&lt;/code&gt; utility is extended with method &lt;code&gt;halt()&lt;/code&gt; for failing on unexpected method calls (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/464"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#464&lt;/a>).&lt;/li>
-&lt;li>&lt;code>Stringifiers.toString(...)&lt;/code> now correctly processes the &lt;code>enum&lt;/code> values (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/462"
+ &gt;#464&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Stringifiers.toString(...)&lt;/code&gt; now correctly processes the &lt;code&gt;enum&lt;/code&gt; values (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/462"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#462&lt;/a>).&lt;/li>
-&lt;li>Test utilities now use the latest release version of Google Truth. Minor backward compatibility
+ &gt;#462&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Test utilities now use the latest release version of Google Truth. Minor backward compatibility
 issues may be expected at the users&amp;rsquo; end (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/463"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#463&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release of Spine &lt;code>core&lt;/code> libraries includes:&lt;/p></description></item><item><title>Release Notes v1.1.0</title><link>https://spine.io/release-notes/2019/v1.1.0/</link><pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.1.0/</guid><description>&lt;h1 id="spine-110" data-title>
-Spine 1.1.0&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release brings several API enhancements as well as performance and
-stability improvements.&lt;/p>
-&lt;h4 id="api-changes" data-title>
-API changes&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#api-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>New API for importing events from third-party systems (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1152"
+ &gt;#463&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release of Spine &lt;code&gt;core&lt;/code&gt; libraries includes:&lt;/p&gt;</description></item><item><title>Release Notes v1.1.0</title><link>https://spine.io/release-notes/2019/v1.1.0/</link><pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.1.0/</guid><description>&lt;h1 id="spine-110" data-title&gt;
+Spine 1.1.0&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release brings several API enhancements as well as performance and
+stability improvements.&lt;/p&gt;
+&lt;h4 id="api-changes" data-title&gt;
+API changes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#api-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;New API for importing events from third-party systems (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1152"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1152&lt;/a>).
-For that, users may represent a third-party system as a Bounded Context. A &lt;code>ThirdPartyContext&lt;/code>
+ &gt;#1152&lt;/a&gt;).
+For that, users may represent a third-party system as a Bounded Context. A &lt;code&gt;ThirdPartyContext&lt;/code&gt;
 publishes events submitted by the user as external events so that Spine-based Contexts may
-subscribe/react on them. Example:&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">ThirdPartyContext&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">context&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ThirdPartyContext&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">multitenant&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;GitHub Issues&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">ActorContext&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">actor&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// ...&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">EventMessage&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">event&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">IssueClosed&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">newBuilder&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">// ...&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">vBuild&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">emittedEvent&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">event&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">actor&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>Deprecation of &lt;code>@ByField&lt;/code> filtering in event subscribers. Now, the subscriber parameter itself
-should be annotated with &lt;code>@Where&lt;/code> (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1159"
+subscribe/react on them. Example:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;ThirdPartyContext&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ThirdPartyContext&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;multitenant&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;GitHub Issues&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="n"&gt;ActorContext&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;actor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// ...&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="n"&gt;EventMessage&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;IssueClosed&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;newBuilder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// ...&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;vBuild&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;emittedEvent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;actor&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Deprecation of &lt;code&gt;@ByField&lt;/code&gt; filtering in event subscribers. Now, the subscriber parameter itself
+should be annotated with &lt;code&gt;@Where&lt;/code&gt; (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1159"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1159&lt;/a>).&lt;/li>
-&lt;li>New extension points in the &lt;code>Delivery&lt;/code> mechanism allow for fine-tuning (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1153"
+ &gt;#1159&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;New extension points in the &lt;code&gt;Delivery&lt;/code&gt; mechanism allow for fine-tuning (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1153"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1153&lt;/a>).&lt;/li>
-&lt;li>&lt;code>IntegrationBus&lt;/code> seized to exist. Instead, we introduce new internal components which perform
+ &gt;#1153&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;IntegrationBus&lt;/code&gt; seized to exist. Instead, we introduce new internal components which perform
 the same job. Public API for SPI users was NOT changed (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1156"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1156&lt;/a>).&lt;/li>
-&lt;li>Test utilities now use the latest release version of Google Truth. Minor backward compatibility
+ &gt;#1156&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Test utilities now use the latest release version of Google Truth. Minor backward compatibility
 issues may be expected at the users&amp;rsquo; end (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1146"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1146&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h4 id="other-changes" data-title>
-Other changes&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#other-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;p>This release brings a number of performance improvements, most notably in the System Context
+ &gt;#1146&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="other-changes" data-title&gt;
+Other changes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#other-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;This release brings a number of performance improvements, most notably in the System Context
 (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1140"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1140&lt;/a>) and in the handler method scan process
+ &gt;#1140&lt;/a&gt;) and in the handler method scan process
 (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1147"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1147&lt;/a>, &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1148"
+ &gt;#1147&lt;/a&gt;, &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1148"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1148&lt;/a>).&lt;/p></description></item><item><title>Release Notes v1.0.1</title><link>https://spine.io/release-notes/2019/v1.0.1/</link><pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.1/</guid><description>&lt;h1 id="spine-101" data-title>
-Spine 1.0.1&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This is a performance and maintenance release of Spine &lt;code>core&lt;/code> libraries.&lt;/p>
-&lt;h4 id="changes" data-title>
-Changes:&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>The performance of &lt;code>AggregateRepository.index()&lt;/code> was improved by delegating to an Aggregate
+ &gt;#1148&lt;/a&gt;).&lt;/p&gt;</description></item><item><title>Release Notes v1.0.1</title><link>https://spine.io/release-notes/2019/v1.0.1/</link><pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.1/</guid><description>&lt;h1 id="spine-101" data-title&gt;
+Spine 1.0.1&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This is a performance and maintenance release of Spine &lt;code&gt;core&lt;/code&gt; libraries.&lt;/p&gt;
+&lt;h4 id="changes" data-title&gt;
+Changes:&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The performance of &lt;code&gt;AggregateRepository.index()&lt;/code&gt; was improved by delegating to an Aggregate
 mirror — &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1138"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1138&lt;/a>.&lt;/li>
-&lt;li>The subscription registry synchronization was improved. Now the creation of the repetitive
-subscriptions to the same &lt;code>Target&lt;/code> behaves as expected — &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1139"
+ &gt;#1138&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The subscription registry synchronization was improved. Now the creation of the repetitive
+subscriptions to the same &lt;code&gt;Target&lt;/code&gt; behaves as expected — &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/1139"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#1139&lt;/a>.&lt;/li>
-&lt;/ul></description></item><item><title>Release Notes v1.0.0</title><link>https://spine.io/release-notes/2019/v1.0.0/</link><pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.0/</guid><description>&lt;h1 id="spine-100" data-title>
-Spine 1.0.0&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This is the first public release of &lt;code>base&lt;/code> modules.&lt;/p>
-&lt;h4 id="notable-api-changes" data-title>
-Notable API changes:&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#notable-api-changes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>SLF4J logging is replaced by Flogger (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/451"
+ &gt;#1139&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Release Notes v1.0.0</title><link>https://spine.io/release-notes/2019/v1.0.0/</link><pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.0/</guid><description>&lt;h1 id="spine-100" data-title&gt;
+Spine 1.0.0&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This is the first public release of &lt;code&gt;base&lt;/code&gt; modules.&lt;/p&gt;
+&lt;h4 id="notable-api-changes" data-title&gt;
+Notable API changes:&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#notable-api-changes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;SLF4J logging is replaced by Flogger (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/451"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#451&lt;/a>).&lt;/li>
-&lt;li>Protobuf messages generated with Spine plugins may now be built with validation by
-calling &lt;code>.vBuild()&lt;/code> (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/409"
+ &gt;#451&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Protobuf messages generated with Spine plugins may now be built with validation by
+calling &lt;code&gt;.vBuild()&lt;/code&gt; (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/409"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#409&lt;/a>). The generation of separate &lt;code>...VBuilder&lt;/code>
-classes was removed.&lt;/li>
-&lt;li>External libraries may now register custom validation options (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/408"
+ &gt;#409&lt;/a&gt;). The generation of separate &lt;code&gt;...VBuilder&lt;/code&gt;
+classes was removed.&lt;/li&gt;
+&lt;li&gt;External libraries may now register custom validation options (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/408"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#408&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This is the first public release of Spine core modules.&lt;/p></description></item><item><title>Release Notes v1.0.0-pre7</title><link>https://spine.io/release-notes/2019/v1.0.0-pre7/</link><pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.0-pre7/</guid><description>&lt;h1 id="spine-100-pre7" data-title>
-Spine 1.0.0-pre7&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;h4 id="api-changes-in-core-modules" data-title>
-API Changes in Core Modules&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#api-changes-in-core-modules
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>&lt;code>@Subscribe&lt;/code> methods now should be package-private, not &lt;code>public&lt;/code>;&lt;/li>
-&lt;li>&lt;code>@Apply&lt;/code> methods now should be &lt;code>private&lt;/code>, not package-private;&lt;/li>
-&lt;li>&lt;code>@Assign&lt;/code> methods cannot return &lt;code>Nothing&lt;/code> anymore. This feature was kept in Process Managers
+ &gt;#408&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This is the first public release of Spine core modules.&lt;/p&gt;</description></item><item><title>Release Notes v1.0.0-pre7</title><link>https://spine.io/release-notes/2019/v1.0.0-pre7/</link><pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.0-pre7/</guid><description>&lt;h1 id="spine-100-pre7" data-title&gt;
+Spine 1.0.0-pre7&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;h4 id="api-changes-in-core-modules" data-title&gt;
+API Changes in Core Modules&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#api-changes-in-core-modules
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@Subscribe&lt;/code&gt; methods now should be package-private, not &lt;code&gt;public&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@Apply&lt;/code&gt; methods now should be &lt;code&gt;private&lt;/code&gt;, not package-private;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@Assign&lt;/code&gt; methods cannot return &lt;code&gt;Nothing&lt;/code&gt; anymore. This feature was kept in Process Managers
 for backward compatibility. Now, we recommend that clients create domain-specific events even
-if they are not to be handled;&lt;/li>
-&lt;li>many getter methods are renamed in order to remove the &lt;code>get&lt;/code> and &lt;code>is&lt;/code> prefixes. This code style
-will be propagated to the components which are not yet affected in the nearest future;&lt;/li>
-&lt;li>&lt;code>DefaultRepository&lt;/code> is introduced in order to avoid creating empty repository classes;&lt;/li>
-&lt;li>Javadoc is revised and fixed.&lt;/li>
-&lt;/ul>
-&lt;h4 id="api-changes-in-non-core-modules" data-title>
-API Changes in Non-Core Modules&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#api-changes-in-non-core-modules
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>the new &lt;code>ValidatingOptionFactory&lt;/code> SPI allows users to configure custom Protobuf validating options;&lt;/li>
-&lt;li>&lt;code>(when)&lt;/code> option is moved to &lt;code>spine/time/time_options.proto&lt;/code>. It is now applicable to all &lt;code>time&lt;/code>
-options which capture time, not only &lt;code>google.protobuf.Timestamp&lt;/code>;&lt;/li>
-&lt;li>&lt;code>MethodFactory&lt;/code> allows to generate methods into specific Protobuf definitions. Generated methods
-are configured via the &lt;code>modelCompiler.methods&lt;/code> Gradle config;&lt;/li>
-&lt;li>&lt;code>modelCompiler.interfaces&lt;/code> config allows to mark certain Protobuf definitions with a certain
-Java interface.&lt;/li>
-&lt;/ul>
-&lt;p>This version updates nearly all the dependency versions. &lt;br>
-See &lt;code>config/gradle/dependencies.gradle&lt;/code> for the details.&lt;/p></description></item><item><title>Release Notes v1.0.0-pre4</title><link>https://spine.io/release-notes/2019/v1.0.0-pre4/</link><pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.0-pre4/</guid><description>&lt;h1 id="spine-100-pre4" data-title>
-Spine 1.0.0-pre4&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>Since &lt;code>1.0.0-pre3&lt;/code> there were several improvements to the library. Notable changes are listed below.&lt;/p>
-&lt;ul>
-&lt;li>Spine JavaScript plugin for Gradle sets proper &lt;code>require&lt;/code>s for the Protobuf-generated
+if they are not to be handled;&lt;/li&gt;
+&lt;li&gt;many getter methods are renamed in order to remove the &lt;code&gt;get&lt;/code&gt; and &lt;code&gt;is&lt;/code&gt; prefixes. This code style
+will be propagated to the components which are not yet affected in the nearest future;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DefaultRepository&lt;/code&gt; is introduced in order to avoid creating empty repository classes;&lt;/li&gt;
+&lt;li&gt;Javadoc is revised and fixed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="api-changes-in-non-core-modules" data-title&gt;
+API Changes in Non-Core Modules&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#api-changes-in-non-core-modules
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;the new &lt;code&gt;ValidatingOptionFactory&lt;/code&gt; SPI allows users to configure custom Protobuf validating options;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(when)&lt;/code&gt; option is moved to &lt;code&gt;spine/time/time_options.proto&lt;/code&gt;. It is now applicable to all &lt;code&gt;time&lt;/code&gt;
+options which capture time, not only &lt;code&gt;google.protobuf.Timestamp&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MethodFactory&lt;/code&gt; allows to generate methods into specific Protobuf definitions. Generated methods
+are configured via the &lt;code&gt;modelCompiler.methods&lt;/code&gt; Gradle config;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;modelCompiler.interfaces&lt;/code&gt; config allows to mark certain Protobuf definitions with a certain
+Java interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This version updates nearly all the dependency versions. &lt;br&gt;
+See &lt;code&gt;config/gradle/dependencies.gradle&lt;/code&gt; for the details.&lt;/p&gt;</description></item><item><title>Release Notes v1.0.0-pre4</title><link>https://spine.io/release-notes/2019/v1.0.0-pre4/</link><pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.0-pre4/</guid><description>&lt;h1 id="spine-100-pre4" data-title&gt;
+Spine 1.0.0-pre4&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Since &lt;code&gt;1.0.0-pre3&lt;/code&gt; there were several improvements to the library. Notable changes are listed below.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Spine JavaScript plugin for Gradle sets proper &lt;code&gt;require&lt;/code&gt;s for the Protobuf-generated
 files (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/298"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#298&lt;/a>).&lt;/li>
-&lt;li>Duplicated rejections are no longer generated for the libraries in the
+ &gt;#298&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Duplicated rejections are no longer generated for the libraries in the
 classpath (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/299"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#299&lt;/a>).&lt;/li>
-&lt;li>&lt;code>enrichment&lt;/code> option was removed (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/312"
+ &gt;#299&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;enrichment&lt;/code&gt; option was removed (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/312"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#312&lt;/a>).&lt;/li>
-&lt;li>Proto descriptors are no longer merged into one file by default (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/307"
+ &gt;#312&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Proto descriptors are no longer merged into one file by default (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/307"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#307&lt;/a>).&lt;/li>
-&lt;li>Marker interfaces are now generated for enrichments as well (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/314"
+ &gt;#307&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Marker interfaces are now generated for enrichments as well (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/314"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#314&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>Moving closer to the public release, this pre-release brings a few improvements to
-the library users.&lt;/p></description></item><item><title>Release Notes v1.0.0-pre3</title><link>https://spine.io/release-notes/2019/v1.0.0-pre3/</link><pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.0-pre3/</guid><description>&lt;h1 id="spine-100-pre3" data-title>
-Spine 1.0.0-pre3&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This pre-release brings several fixes and API improvements to the &lt;code>base&lt;/code> library.&lt;/p>
-&lt;h4 id="fixes" data-title>
-Fixes&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#fixes
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>&lt;code>required&lt;/code> option now works for &lt;code>oneof&lt;/code> fields (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/240"
+ &gt;#314&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Moving closer to the public release, this pre-release brings a few improvements to
+the library users.&lt;/p&gt;</description></item><item><title>Release Notes v1.0.0-pre3</title><link>https://spine.io/release-notes/2019/v1.0.0-pre3/</link><pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2019/v1.0.0-pre3/</guid><description>&lt;h1 id="spine-100-pre3" data-title&gt;
+Spine 1.0.0-pre3&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This pre-release brings several fixes and API improvements to the &lt;code&gt;base&lt;/code&gt; library.&lt;/p&gt;
+&lt;h4 id="fixes" data-title&gt;
+Fixes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#fixes
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;required&lt;/code&gt; option now works for &lt;code&gt;oneof&lt;/code&gt; fields (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/240"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#240&lt;/a>);&lt;/li>
-&lt;li>&lt;code>repeated&lt;/code> fields now may be included in &lt;code>FieldMasks&lt;/code> (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/250"
+ &gt;#240&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;repeated&lt;/code&gt; fields now may be included in &lt;code&gt;FieldMasks&lt;/code&gt; (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/250"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#250&lt;/a>);&lt;/li>
-&lt;li>removed &lt;code>ValidatingBuilder&lt;/code>s for standard types (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/252"
+ &gt;#250&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;removed &lt;code&gt;ValidatingBuilder&lt;/code&gt;s for standard types (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/252"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#252&lt;/a>);&lt;/li>
-&lt;li>removed &lt;code>modelCompiler. generateBuildersFromClasspath&lt;/code> (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/252"
+ &gt;#252&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;removed &lt;code&gt;modelCompiler. generateBuildersFromClasspath&lt;/code&gt; (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/252"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#252&lt;/a>);&lt;/li>
-&lt;li>&lt;code>ValidatingBuilder&lt;/code>s generation attempts are dropped and warnings are not logged any
+ &gt;#252&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ValidatingBuilder&lt;/code&gt;s generation attempts are dropped and warnings are not logged any
 more (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/268"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#268&lt;/a>).&lt;/li>
-&lt;li>generated field annotation lookup bug is fixed (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/269"
+ &gt;#268&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;generated field annotation lookup bug is fixed (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/269"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#269&lt;/a>);&lt;/li>
-&lt;li>&lt;code>ValidatingBuilder&lt;/code>s for nested types are now generated (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/272"
+ &gt;#269&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ValidatingBuilder&lt;/code&gt;s for nested types are now generated (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/272"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#272&lt;/a>);&lt;/li>
-&lt;li>constraint validation error messages are now more readable (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/279"
+ &gt;#272&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;constraint validation error messages are now more readable (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/279"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#279&lt;/a>);&lt;/li>
-&lt;/ul>
-&lt;h4 id="api-improvements" data-title>
-API improvements&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#api-improvements
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>&lt;code>(is)&lt;/code> and &lt;code>(every_is)&lt;/code> options now allow implementing existing Java interfaces (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/248"
+ &gt;#279&lt;/a&gt;);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="api-improvements" data-title&gt;
+API improvements&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#api-improvements
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;(is)&lt;/code&gt; and &lt;code&gt;(every_is)&lt;/code&gt; options now allow implementing existing Java interfaces (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/248"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#248&lt;/a>);&lt;/li>
-&lt;li>introduced &lt;code>(set_once)&lt;/code> field option, which does not allow to change the value of a field after
+ &gt;#248&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;introduced &lt;code&gt;(set_once)&lt;/code&gt; field option, which does not allow to change the value of a field after
 it was once set (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/257"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#257&lt;/a>, &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/275"
+ &gt;#257&lt;/a&gt;, &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/275"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#275&lt;/a>);&lt;/li>
-&lt;li>numeric and boolean Protobuf types do not support &lt;code>(required)&lt;/code>; a message is logged on the
+ &gt;#275&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;numeric and boolean Protobuf types do not support &lt;code&gt;(required)&lt;/code&gt;; a message is logged on the
 option misuse; (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/266"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#266&lt;/a>);&lt;/li>
-&lt;li>generated identifier types now support factory methods for convenience (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/267"
+ &gt;#266&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;generated identifier types now support factory methods for convenience (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/267"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#267&lt;/a>);&lt;/li>
-&lt;li>generated code is now marked with Java annotation types which can be specified (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/280"
+ &gt;#267&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;generated code is now marked with Java annotation types which can be specified (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/280"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#280&lt;/a>);&lt;/li>
-&lt;li>selected generated methods and classes now can be marked as &lt;code>@Internal&lt;/code> (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/284"
+ &gt;#280&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;selected generated methods and classes now can be marked as &lt;code&gt;@Internal&lt;/code&gt; (&lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/284"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#284&lt;/a>, &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/287"
+ &gt;#284&lt;/a&gt;, &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/287"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#287&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This pre-release brings many internal changes, simplifications, and development
-infrastructure refactoring.&lt;/p></description></item><item><title>Release Notes v1.0.0-pre2</title><link>https://spine.io/release-notes/2018/v1.0.0-pre2/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2018/v1.0.0-pre2/</guid><description>&lt;h1 id="spine-100-pre2" data-title>
-Spine 1.0.0-pre2&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This version brings test API updates, bug fixes and performance optimizations.&lt;/p>
-&lt;h4 id="improvements-in-the-test-framework" data-title>
-Improvements in the test framework&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#improvements-in-the-test-framework
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>&lt;code>TestClient&lt;/code> utility (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/884"
+ &gt;#287&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This pre-release brings many internal changes, simplifications, and development
+infrastructure refactoring.&lt;/p&gt;</description></item><item><title>Release Notes v1.0.0-pre2</title><link>https://spine.io/release-notes/2018/v1.0.0-pre2/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2018/v1.0.0-pre2/</guid><description>&lt;h1 id="spine-100-pre2" data-title&gt;
+Spine 1.0.0-pre2&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This version brings test API updates, bug fixes and performance optimizations.&lt;/p&gt;
+&lt;h4 id="improvements-in-the-test-framework" data-title&gt;
+Improvements in the test framework&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#improvements-in-the-test-framework
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TestClient&lt;/code&gt; utility (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/884"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#884&lt;/a>).&lt;/li>
-&lt;li>Several features in &lt;code>BlackBoxBoundedContext&lt;/code> (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/897"
+ &gt;#884&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Several features in &lt;code&gt;BlackBoxBoundedContext&lt;/code&gt; (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/897"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#897&lt;/a>, &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/903"
+ &gt;#897&lt;/a&gt;, &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/903"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#903&lt;/a>, &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/904"
+ &gt;#903&lt;/a&gt;, &lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/904"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#904&lt;/a>).&lt;/li>
-&lt;li>New factory methods in &lt;code>GivenUserId&lt;/code> (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/891"
+ &gt;#904&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;New factory methods in &lt;code&gt;GivenUserId&lt;/code&gt; (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/891"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#891&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h4 id="optimizations" data-title>
-Optimizations&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#optimizations
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>Read less data upon each Aggregate load (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/892"
+ &gt;#891&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="optimizations" data-title&gt;
+Optimizations&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#optimizations
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Read less data upon each Aggregate load (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/892"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#892&lt;/a>).&lt;/li>
-&lt;li>Add forceful &lt;code>GrpcContainer. shutdownNowAndWait ()&lt;/code> to reduce waiting time (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/883"
+ &gt;#892&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Add forceful &lt;code&gt;GrpcContainer. shutdownNowAndWait ()&lt;/code&gt; to reduce waiting time (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/883"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#883&lt;/a>).&lt;/li>
-&lt;/ul>
-&lt;h4 id="resolved-issues" data-title>
-Resolved issues&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#resolved-issues
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;ul>
-&lt;li>Make &lt;code>ProcessManager&lt;/code> versioned properly (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/893"
+ &gt;#883&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="resolved-issues" data-title&gt;
+Resolved issues&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#resolved-issues
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Make &lt;code&gt;ProcessManager&lt;/code&gt; versioned properly (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/893"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#893&lt;/a>).&lt;/li>
-&lt;li>Ignore &lt;code>Empty&lt;/code> and &lt;code>Nothing&lt;/code> returning values from &lt;code>@Command&lt;/code>-er handlers (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/895"
+ &gt;#893&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Ignore &lt;code&gt;Empty&lt;/code&gt; and &lt;code&gt;Nothing&lt;/code&gt; returning values from &lt;code&gt;@Command&lt;/code&gt;-er handlers (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/895"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#895&lt;/a>).&lt;/li>
-&lt;li>Do not detect entity columns if no &lt;code>@Column&lt;/code> annotation was explicitly set (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/917"
+ &gt;#895&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Do not detect entity columns if no &lt;code&gt;@Column&lt;/code&gt; annotation was explicitly set (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/917"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#917&lt;/a>).&lt;/li>
-&lt;li>When creating actor requests, do not require both zone offset and zone ID from clients;
+ &gt;#917&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;When creating actor requests, do not require both zone offset and zone ID from clients;
 calculate zone offset automatically (&lt;a href="https://github.com/SpineEventEngine/core-jvm/pull/915"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >#915&lt;/a>).&lt;/li>
-&lt;/ul></description></item><item><title>Release Notes v1.0.0-pre1</title><link>https://spine.io/release-notes/2018/v1.0.0-pre1/</link><pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2018/v1.0.0-pre1/</guid><description>&lt;h1 id="spine-100-pre1" data-title>
-Spine 1.0.0-pre1&lt;/h1>
-&lt;h2 id="base-libraries" data-title>
-Base Libraries&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This is a pre-release of the &lt;code>base&lt;/code> library.&lt;/p>
-&lt;h4 id="changes-since-version-0110" data-title>
-Changes since version &lt;code>0.11.0&lt;/code>&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#changes-since-version-0110
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;p>This release contains numerous small improvements in the code base, such as:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>Color&lt;/code> model is improved, as the transparency channel is added to the basic RGB color definition;&lt;/li>
-&lt;li>&lt;code>Money&lt;/code> and utilities for working with money were moved into a separate &lt;a href="https://github.com/SpineEventEngine/money"
+ &gt;#915&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Release Notes v1.0.0-pre1</title><link>https://spine.io/release-notes/2018/v1.0.0-pre1/</link><pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2018/v1.0.0-pre1/</guid><description>&lt;h1 id="spine-100-pre1" data-title&gt;
+Spine 1.0.0-pre1&lt;/h1&gt;
+&lt;h2 id="base-libraries" data-title&gt;
+Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This is a pre-release of the &lt;code&gt;base&lt;/code&gt; library.&lt;/p&gt;
+&lt;h4 id="changes-since-version-0110" data-title&gt;
+Changes since version &lt;code&gt;0.11.0&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#changes-since-version-0110
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;This release contains numerous small improvements in the code base, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Color&lt;/code&gt; model is improved, as the transparency channel is added to the basic RGB color definition;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Money&lt;/code&gt; and utilities for working with money were moved into a separate &lt;a href="https://github.com/SpineEventEngine/money"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >repository&lt;/a>;&lt;/li>
-&lt;li>build-time and test-time logging was improved by removing unnecessary build warnings and
-introducing a JUnit extension for muting redundant test output;&lt;/li>
-&lt;li>several new convenient APIs added (see &lt;code>Identifier.generate(Class)&lt;/code>);&lt;/li>
-&lt;li>entity IDs are now always validated as if &lt;code>(required) = true&lt;/code>.&lt;/li>
-&lt;/ul>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This is a preview release of the Spine 1.0 version.&lt;/p></description></item><item><title>Release Notes v0.10.0</title><link>https://spine.io/release-notes/2017/v0.10.0/</link><pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2017/v0.10.0/</guid><description>&lt;h1 id="spine-0100" data-title>
-Spine 0.10.0&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This release brings even more features to the framework, making it very close to &lt;code>1.0&lt;/code> release.&lt;/p>
-&lt;p>IMPORTANT. The framework package names were renamed from &lt;code>org.spine3.*&lt;/code> to &lt;code>io.spine.*&lt;/code>.&lt;/p>
-&lt;p>Here is a quick summary of changes. For more details please refer to the
+ &gt;repository&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;build-time and test-time logging was improved by removing unnecessary build warnings and
+introducing a JUnit extension for muting redundant test output;&lt;/li&gt;
+&lt;li&gt;several new convenient APIs added (see &lt;code&gt;Identifier.generate(Class)&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;entity IDs are now always validated as if &lt;code&gt;(required) = true&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This is a preview release of the Spine 1.0 version.&lt;/p&gt;</description></item><item><title>Release Notes v0.10.0</title><link>https://spine.io/release-notes/2017/v0.10.0/</link><pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2017/v0.10.0/</guid><description>&lt;h1 id="spine-0100" data-title&gt;
+Spine 0.10.0&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This release brings even more features to the framework, making it very close to &lt;code&gt;1.0&lt;/code&gt; release.&lt;/p&gt;
+&lt;p&gt;IMPORTANT. The framework package names were renamed from &lt;code&gt;org.spine3.*&lt;/code&gt; to &lt;code&gt;io.spine.*&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here is a quick summary of changes. For more details please refer to the
 &lt;a href="https://github.com/SpineEventEngine/core-jvm/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr%20is%3Aclosed%20merged%3A2017-05-03T16%3A00%3A00%2B03%3A00..2017-10-17"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >list of pull requests&lt;/a> and Javadocs.&lt;/p>
-&lt;h4 id="reacting-upon-events-and-rejections" data-title>
-Reacting upon &lt;code>Events&lt;/code> and &lt;code>Rejection&lt;/code>s&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#reacting-upon-events-and-rejections
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h4>
-&lt;p>It is now possible to emit events in reaction to other events. This is particularly useful
-for &lt;code>AggregatePart&lt;/code>s:&lt;/p></description></item><item><title>Release Notes v0.9.0</title><link>https://spine.io/release-notes/2017/v0.9.0/</link><pubDate>Fri, 03 Mar 2017 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2017/v0.9.0/</guid><description>&lt;h1 id="spine-090" data-title>
-Spine 0.9.0&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>This version is a finalization of the framework API and most of the core features, that are
-scheduled for 1.0 release.&lt;/p>
-&lt;p>It also includes a lot of API polishing. Some of the changes are breaking, some are not.&lt;/p>
-&lt;p>The inner code structure (packaging, visibility of classes etc) has been modified significantly
-in order to follow the Onion architecture and become easier for understanding.&lt;/p></description></item><item><title>Release Notes v0.8.0</title><link>https://spine.io/release-notes/2017/v0.8.0/</link><pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2017/v0.8.0/</guid><description>&lt;h1 id="spine-080" data-title>
-Spine 0.8.0&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>The update 0.8.0 is aimed to extend and polish the existing framework API, making the code less
+ &gt;list of pull requests&lt;/a&gt; and Javadocs.&lt;/p&gt;
+&lt;h4 id="reacting-upon-events-and-rejections" data-title&gt;
+Reacting upon &lt;code&gt;Events&lt;/code&gt; and &lt;code&gt;Rejection&lt;/code&gt;s&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#reacting-upon-events-and-rejections
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;It is now possible to emit events in reaction to other events. This is particularly useful
+for &lt;code&gt;AggregatePart&lt;/code&gt;s:&lt;/p&gt;</description></item><item><title>Release Notes v0.9.0</title><link>https://spine.io/release-notes/2017/v0.9.0/</link><pubDate>Fri, 03 Mar 2017 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2017/v0.9.0/</guid><description>&lt;h1 id="spine-090" data-title&gt;
+Spine 0.9.0&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This version is a finalization of the framework API and most of the core features, that are
+scheduled for 1.0 release.&lt;/p&gt;
+&lt;p&gt;It also includes a lot of API polishing. Some of the changes are breaking, some are not.&lt;/p&gt;
+&lt;p&gt;The inner code structure (packaging, visibility of classes etc) has been modified significantly
+in order to follow the Onion architecture and become easier for understanding.&lt;/p&gt;</description></item><item><title>Release Notes v0.8.0</title><link>https://spine.io/release-notes/2017/v0.8.0/</link><pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2017/v0.8.0/</guid><description>&lt;h1 id="spine-080" data-title&gt;
+Spine 0.8.0&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;The update 0.8.0 is aimed to extend and polish the existing framework API, making the code less
 repetitive and more testable. We also tried to handle the most common scenarios to reduce the
-number of boilerplate code in applications built on top of Spine.&lt;/p>
-&lt;h3 id="aggregate-api-is-extended" data-title>
-&lt;code>Aggregate&lt;/code> API is extended&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#aggregate-api-is-extended
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;p>As learned from the real-world examples, sometimes the domain rules expressed within an &lt;code>Aggregate&lt;/code>
-can become an overwhelming responsibility for a single class. That’s why &lt;code>AggregatePart&lt;/code> and
-&lt;code>AggregateRoot&lt;/code> abstractions are introduced to represent a large &lt;code>Aggregate&lt;/code> as a set of smaller
-objects.&lt;/p></description></item><item><title>Release Notes v0.7.0</title><link>https://spine.io/release-notes/2016/v0.7.0/</link><pubDate>Fri, 30 Dec 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.7.0/</guid><description>&lt;h1 id="spine-070" data-title>
-Spine 0.7.0&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;h3 id="new-artifact-ids-for-corejvm-modules" data-title>
-New artifact IDs for CoreJvm modules&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#new-artifact-ids-for-corejvm-modules
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;p>Gradle:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-proto" data-lang="proto">&lt;span class="line">&lt;span class="cl">&lt;span class="n">repositories&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> &lt;span class="c1">// Spine releases repository.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">maven&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">url&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#39;http://maven.teamdev.com/repository/spine&amp;#39;&lt;/span> &lt;span class="p">}&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="n">dependencies&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> &lt;span class="n">compile&lt;/span> &lt;span class="s">&amp;#39;org.spine3:spine-server-core:0.7.0&amp;#39;&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> &lt;span class="n">compile&lt;/span> &lt;span class="s">&amp;#39;org.spine3:spine-client-core:0.7.0&amp;#39;&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> &lt;span class="n">compile&lt;/span> &lt;span class="s">&amp;#39;org.spine3:spine-users:0.7.0&amp;#39;&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> &lt;span class="n">compile&lt;/span> &lt;span class="s">&amp;#39;org.spine3:spine-values:0.7.0&amp;#39;&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> &lt;span class="n">testCompile&lt;/span> &lt;span class="s">&amp;#39;org.spine3:spine-testutil-core:0.7.0&amp;#39;&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="handling-changes-and-mismatches-of-values" data-title>
-Handling changes and mismatches of values&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#handling-changes-and-mismatches-of-values
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;p>This version introduces Protobuf types for describing field changes. Examples are &lt;code>StringChange&lt;/code>,
-&lt;code>TimestampChange&lt;/code>, &lt;code>Int64Change&lt;/code>, etc. For more types, please see the &lt;code>spine/change/change.proto&lt;/code>
-file.&lt;/p></description></item><item><title>Release Notes v0.6.0</title><link>https://spine.io/release-notes/2016/v0.6.0/</link><pubDate>Fri, 14 Oct 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.6.0/</guid><description>&lt;h1 id="spine-060" data-title>
-Spine 0.6.0&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;h3 id="features--improvements" data-title>
-Features &amp;amp; Improvements&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#features--improvements
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;p>Version 0.6.0 introduces a main read-side concept — Stand.&lt;/p>
-&lt;p>It provides query and subscription API on per-&lt;code>BoundedContext&lt;/code> basis, acting as a facade for data
+number of boilerplate code in applications built on top of Spine.&lt;/p&gt;
+&lt;h3 id="aggregate-api-is-extended" data-title&gt;
+&lt;code&gt;Aggregate&lt;/code&gt; API is extended&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#aggregate-api-is-extended
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;As learned from the real-world examples, sometimes the domain rules expressed within an &lt;code&gt;Aggregate&lt;/code&gt;
+can become an overwhelming responsibility for a single class. That’s why &lt;code&gt;AggregatePart&lt;/code&gt; and
+&lt;code&gt;AggregateRoot&lt;/code&gt; abstractions are introduced to represent a large &lt;code&gt;Aggregate&lt;/code&gt; as a set of smaller
+objects.&lt;/p&gt;</description></item><item><title>Release Notes v0.7.0</title><link>https://spine.io/release-notes/2016/v0.7.0/</link><pubDate>Fri, 30 Dec 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.7.0/</guid><description>&lt;h1 id="spine-070" data-title&gt;
+Spine 0.7.0&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id="new-artifact-ids-for-corejvm-modules" data-title&gt;
+New artifact IDs for CoreJvm modules&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#new-artifact-ids-for-corejvm-modules
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Gradle:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-proto" data-lang="proto"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;repositories&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; &lt;span class="c1"&gt;// Spine releases repository.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="n"&gt;maven&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://maven.teamdev.com/repository/spine&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; &lt;span class="n"&gt;compile&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;org.spine3:spine-server-core:0.7.0&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; &lt;span class="n"&gt;compile&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;org.spine3:spine-client-core:0.7.0&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; &lt;span class="n"&gt;compile&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;org.spine3:spine-users:0.7.0&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; &lt;span class="n"&gt;compile&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;org.spine3:spine-values:0.7.0&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; &lt;span class="n"&gt;testCompile&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;org.spine3:spine-testutil-core:0.7.0&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="handling-changes-and-mismatches-of-values" data-title&gt;
+Handling changes and mismatches of values&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#handling-changes-and-mismatches-of-values
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;This version introduces Protobuf types for describing field changes. Examples are &lt;code&gt;StringChange&lt;/code&gt;,
+&lt;code&gt;TimestampChange&lt;/code&gt;, &lt;code&gt;Int64Change&lt;/code&gt;, etc. For more types, please see the &lt;code&gt;spine/change/change.proto&lt;/code&gt;
+file.&lt;/p&gt;</description></item><item><title>Release Notes v0.6.0</title><link>https://spine.io/release-notes/2016/v0.6.0/</link><pubDate>Fri, 14 Oct 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.6.0/</guid><description>&lt;h1 id="spine-060" data-title&gt;
+Spine 0.6.0&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id="features--improvements" data-title&gt;
+Features &amp;amp; Improvements&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#features--improvements
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Version 0.6.0 introduces a main read-side concept — Stand.&lt;/p&gt;
+&lt;p&gt;It provides query and subscription API on per-&lt;code&gt;BoundedContext&lt;/code&gt; basis, acting as a facade for data
 retrieval. Being downstream with the Repositories, Stand also stores the latest Aggregate states,
-making the state fetch much more efficient.&lt;/p>
-&lt;p>Application interface has been extended with a couple of read-side oriented gRPC services:&lt;/p></description></item><item><title>Release Notes v0.5</title><link>https://spine.io/release-notes/2016/v0.5/</link><pubDate>Mon, 08 Aug 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.5/</guid><description>&lt;h1 id="spine-05" data-title>
-Spine 0.5&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>Spine Version 0.5 is all about event enrichments.&lt;/p>
-&lt;h3 id="features--improvements" data-title>
-Features &amp;amp; Improvements&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#features--improvements
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>
-&lt;p>In this release we introduced Event enrichments - extra information of an event based on its
-type and content. The mechanism for enriching messages is based on &lt;code>FieldOptions&lt;/code> of Protobuf
-message definitions. Just mark an enrichment message with &lt;code>enrichment_for&lt;/code> annotation, its
+making the state fetch much more efficient.&lt;/p&gt;
+&lt;p&gt;Application interface has been extended with a couple of read-side oriented gRPC services:&lt;/p&gt;</description></item><item><title>Release Notes v0.5</title><link>https://spine.io/release-notes/2016/v0.5/</link><pubDate>Mon, 08 Aug 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.5/</guid><description>&lt;h1 id="spine-05" data-title&gt;
+Spine 0.5&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Spine Version 0.5 is all about event enrichments.&lt;/p&gt;
+&lt;h3 id="features--improvements" data-title&gt;
+Features &amp;amp; Improvements&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#features--improvements
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In this release we introduced Event enrichments - extra information of an event based on its
+type and content. The mechanism for enriching messages is based on &lt;code&gt;FieldOptions&lt;/code&gt; of Protobuf
+message definitions. Just mark an enrichment message with &lt;code&gt;enrichment_for&lt;/code&gt; annotation, its
 fields - with by annotation, and register functions which would transform corresponding
 event (or context) fields to enrichment fields. There can be multiple enrichments for an
-event, and one enrichment can be used for multiple events.&lt;/p></description></item><item><title>Release Notes v0.4.4</title><link>https://spine.io/release-notes/2016/v0.4.4/</link><pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.4.4/</guid><description>&lt;h1 id="spine-044" data-title>
-Spine 0.4.4&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;ul>
-&lt;li>Extended &lt;code>MessageOptions&lt;/code> for annotating commands with &lt;code>events&lt;/code> and &lt;code>failures&lt;/code>.&lt;/li>
-&lt;li>Added &lt;code>ValueMistatch&lt;/code> message type for easier declaration of failures related to data mutation.&lt;/li>
-&lt;/ul></description></item><item><title>Release Notes v0.4.2</title><link>https://spine.io/release-notes/2016/v0.4.2/</link><pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.4.2/</guid><description>&lt;h1 id="spine-042" data-title>
-Spine 0.4.2&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;h3 id="features--improvements" data-title>
-Features &amp;amp; Improvements&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#features--improvements
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>Starting from this version we added an ability to import events via special command.
+event, and one enrichment can be used for multiple events.&lt;/p&gt;</description></item><item><title>Release Notes v0.4.4</title><link>https://spine.io/release-notes/2016/v0.4.4/</link><pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.4.4/</guid><description>&lt;h1 id="spine-044" data-title&gt;
+Spine 0.4.4&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Extended &lt;code&gt;MessageOptions&lt;/code&gt; for annotating commands with &lt;code&gt;events&lt;/code&gt; and &lt;code&gt;failures&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Added &lt;code&gt;ValueMistatch&lt;/code&gt; message type for easier declaration of failures related to data mutation.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Release Notes v0.4.2</title><link>https://spine.io/release-notes/2016/v0.4.2/</link><pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.4.2/</guid><description>&lt;h1 id="spine-042" data-title&gt;
+Spine 0.4.2&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id="features--improvements" data-title&gt;
+Features &amp;amp; Improvements&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#features--improvements
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Starting from this version we added an ability to import events via special command.
 This may be useful for:
-&lt;ul>
-&lt;li>importing data via transforming it to aggregate events (as facts in the past);&lt;/li>
-&lt;li>integrating with external data sources.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Following the best practices, now we use &lt;code>StreamObserver.onError()&lt;/code> instead of returning responses
-while posting integration events. The same approach is used in &lt;code>CommandBus&lt;/code>.&lt;/li>
-&lt;li>New custom Protobuf options were introduced: &lt;code>internal&lt;/code>, &lt;code>SPI&lt;/code>, &lt;code>experimental&lt;/code> and &lt;code>beta&lt;/code>.
-They are to be used as the similar Java annotations.&lt;/li>
-&lt;/ul>
-&lt;p>Improvements always come together with some new wisdom and old issues correction. Here is the
-one for release 0.4.2.&lt;/p></description></item><item><title>Release Notes v0.4.1</title><link>https://spine.io/release-notes/2016/v0.4.1/</link><pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.4.1/</guid><description>&lt;h1 id="spine-041" data-title>
-Spine 0.4.1&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;h3 id="features--improvements" data-title>
-Features &amp;amp; Improvements&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#features--improvements
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>
-&lt;p>Starting from 0.4.1 version Spine supports integration events. An integration event is sent
-between loosely coupled parts of a system. &lt;code>BoundedContext&lt;/code> now is &lt;code>IntegrationEventSubscriber&lt;/code>
-and it is possible to post integration events using &lt;code>BoundedContext&lt;/code>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>As events may have multiple subscribers that register and “listen” them, in the new release
-we renamed event handlers to event subscribers.&lt;/p></description></item><item><title>Release Notes v0.3</title><link>https://spine.io/release-notes/2016/v0.3/</link><pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.3/</guid><description>&lt;h1 id="spine-03" data-title>
-Spine 0.3&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;ul>
-&lt;li>Added SPI annotation to enable framework extension and replaceable components
-(implement a new storage, etc.).&lt;/li>
-&lt;li>Added a requirement to mark entity protobuf state definitions with the &lt;code>state_of&lt;/code> annotation.&lt;/li>
-&lt;li>Added business Failures to distinguish from technical errors.&lt;/li>
-&lt;li>Added Target ID as first required field in commands for entities.&lt;/li>
-&lt;li>Removed file system storage implementation since JDBC storage can be used instead.&lt;/li>
-&lt;li>Changed event and command IDs to be based on string UUID — previously they were composed of
-several fields, now they are part of Context.&lt;/li>
-&lt;li>Added ClientService definition for establishing client connection, posting commands and receiving
-stream of events.&lt;/li>
-&lt;li>Changed project module structure to: &lt;code>client&lt;/code>, &lt;code>server&lt;/code> and &lt;code>values&lt;/code>.&lt;/li>
-&lt;li>Added the default implementation of the &lt;code>getDefaultState()&lt;/code> method to Entity.&lt;/li>
-&lt;li>Added &lt;code>CommandRouter&lt;/code> to Process Manager which allows creating and posting one or more commands in
-response to a command received by the ProcessManager.&lt;/li>
-&lt;li>Added protobuf custom options for message validation ( for commands on posting).&lt;/li>
-&lt;li>Added storage tests that can be used in different storage implementations.&lt;/li>
-&lt;li>Added the ability to store the status of command processing to Command Store.&lt;/li>
-&lt;li>Added the ability for Process Manager Repository to retrieve Process Manager ID from handled
-events and commands.&lt;/li>
-&lt;li>Added integration with Java Code Coverage (JaCoCo).&lt;/li>
-&lt;li>Added integration with Travis CI.&lt;/li>
-&lt;li>Improved code coverage to 83%.&lt;/li>
-&lt;li>Added the &lt;code>getBuilder()&lt;/code> method for convenient updating of the Aggregate state in Event Appliers.&lt;/li>
-&lt;li>Added the ability to schedule command delivery.&lt;/li>
-&lt;/ul>
-&lt;h3 id="dependency-updates" data-title>
-Dependency Updates&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#dependency-updates
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>Updated to gRPC 2.11.&lt;/li>
-&lt;li>Updated to protobuf 3.0.0 beta-2.&lt;/li>
-&lt;li>Updated gradle to version 2.11.&lt;/li>
-&lt;/ul>
-&lt;h3 id="documentation" data-title>
-Documentation&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#documentation
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>Added the first version of the Framework documentation on docs/spine3.org.&lt;/li>
-&lt;/ul>
-&lt;h3 id="plugins" data-title>
-Plugins:&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#plugins
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>Updated to 1.3.2 version.&lt;/li>
-&lt;li>Fixed Proto Lookup Plugin.&lt;/li>
-&lt;li>Added Entity Lookup Plugin that searches commands for entities based on entity states marked
-with &lt;code>state_of&lt;/code> annotation.&lt;/li>
-&lt;li>Added Failures generation plugin.&lt;/li>
-&lt;/ul>
-&lt;h3 id="storages-implementation" data-title>
-Storages Implementation&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#storages-implementation
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h3>
-&lt;ul>
-&lt;li>Added jdbc storages implementation.&lt;/li>
-&lt;/ul></description></item><item><title>Release Notes v0.2</title><link>https://spine.io/release-notes/2015/v0.2/</link><pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2015/v0.2/</guid><description>&lt;h1 id="spine-02" data-title>
-Spine 0.2&lt;/h1>
-&lt;h2 id="corejvm" data-title>
-CoreJvm&lt;span class="nowrap-icon">&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
- aria-label="Copy heading anchor">&lt;/a>
-&lt;/span>&lt;/h2>
-&lt;p>Basic types and code structure defined.&lt;/p></description></item></channel></rss>
+&lt;ul&gt;
+&lt;li&gt;importing data via transforming it to aggregate events (as facts in the past);&lt;/li&gt;
+&lt;li&gt;integrating with external data sources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Following the best practices, now we use &lt;code&gt;StreamObserver.onError()&lt;/code&gt; instead of returning responses
+while posting integration events. The same approach is used in &lt;code&gt;CommandBus&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;New custom Protobuf options were introduced: &lt;code&gt;internal&lt;/code&gt;, &lt;code&gt;SPI&lt;/code&gt;, &lt;code&gt;experimental&lt;/code&gt; and &lt;code&gt;beta&lt;/code&gt;.
+They are to be used as the similar Java annotations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Improvements always come together with some new wisdom and old issues correction. Here is the
+one for release 0.4.2.&lt;/p&gt;</description></item><item><title>Release Notes v0.4.1</title><link>https://spine.io/release-notes/2016/v0.4.1/</link><pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.4.1/</guid><description>&lt;h1 id="spine-041" data-title&gt;
+Spine 0.4.1&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id="features--improvements" data-title&gt;
+Features &amp;amp; Improvements&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#features--improvements
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Starting from 0.4.1 version Spine supports integration events. An integration event is sent
+between loosely coupled parts of a system. &lt;code&gt;BoundedContext&lt;/code&gt; now is &lt;code&gt;IntegrationEventSubscriber&lt;/code&gt;
+and it is possible to post integration events using &lt;code&gt;BoundedContext&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As events may have multiple subscribers that register and “listen” them, in the new release
+we renamed event handlers to event subscribers.&lt;/p&gt;</description></item><item><title>Release Notes v0.3</title><link>https://spine.io/release-notes/2016/v0.3/</link><pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2016/v0.3/</guid><description>&lt;h1 id="spine-03" data-title&gt;
+Spine 0.3&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Added SPI annotation to enable framework extension and replaceable components
+(implement a new storage, etc.).&lt;/li&gt;
+&lt;li&gt;Added a requirement to mark entity protobuf state definitions with the &lt;code&gt;state_of&lt;/code&gt; annotation.&lt;/li&gt;
+&lt;li&gt;Added business Failures to distinguish from technical errors.&lt;/li&gt;
+&lt;li&gt;Added Target ID as first required field in commands for entities.&lt;/li&gt;
+&lt;li&gt;Removed file system storage implementation since JDBC storage can be used instead.&lt;/li&gt;
+&lt;li&gt;Changed event and command IDs to be based on string UUID — previously they were composed of
+several fields, now they are part of Context.&lt;/li&gt;
+&lt;li&gt;Added ClientService definition for establishing client connection, posting commands and receiving
+stream of events.&lt;/li&gt;
+&lt;li&gt;Changed project module structure to: &lt;code&gt;client&lt;/code&gt;, &lt;code&gt;server&lt;/code&gt; and &lt;code&gt;values&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Added the default implementation of the &lt;code&gt;getDefaultState()&lt;/code&gt; method to Entity.&lt;/li&gt;
+&lt;li&gt;Added &lt;code&gt;CommandRouter&lt;/code&gt; to Process Manager which allows creating and posting one or more commands in
+response to a command received by the ProcessManager.&lt;/li&gt;
+&lt;li&gt;Added protobuf custom options for message validation ( for commands on posting).&lt;/li&gt;
+&lt;li&gt;Added storage tests that can be used in different storage implementations.&lt;/li&gt;
+&lt;li&gt;Added the ability to store the status of command processing to Command Store.&lt;/li&gt;
+&lt;li&gt;Added the ability for Process Manager Repository to retrieve Process Manager ID from handled
+events and commands.&lt;/li&gt;
+&lt;li&gt;Added integration with Java Code Coverage (JaCoCo).&lt;/li&gt;
+&lt;li&gt;Added integration with Travis CI.&lt;/li&gt;
+&lt;li&gt;Improved code coverage to 83%.&lt;/li&gt;
+&lt;li&gt;Added the &lt;code&gt;getBuilder()&lt;/code&gt; method for convenient updating of the Aggregate state in Event Appliers.&lt;/li&gt;
+&lt;li&gt;Added the ability to schedule command delivery.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="dependency-updates" data-title&gt;
+Dependency Updates&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#dependency-updates
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Updated to gRPC 2.11.&lt;/li&gt;
+&lt;li&gt;Updated to protobuf 3.0.0 beta-2.&lt;/li&gt;
+&lt;li&gt;Updated gradle to version 2.11.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="documentation" data-title&gt;
+Documentation&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#documentation
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Added the first version of the Framework documentation on docs/spine3.org.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="plugins" data-title&gt;
+Plugins:&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#plugins
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Updated to 1.3.2 version.&lt;/li&gt;
+&lt;li&gt;Fixed Proto Lookup Plugin.&lt;/li&gt;
+&lt;li&gt;Added Entity Lookup Plugin that searches commands for entities based on entity states marked
+with &lt;code&gt;state_of&lt;/code&gt; annotation.&lt;/li&gt;
+&lt;li&gt;Added Failures generation plugin.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="storages-implementation" data-title&gt;
+Storages Implementation&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#storages-implementation
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Added jdbc storages implementation.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Release Notes v0.2</title><link>https://spine.io/release-notes/2015/v0.2/</link><pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2015/v0.2/</guid><description>&lt;h1 id="spine-02" data-title&gt;
+Spine 0.2&lt;/h1&gt;
+&lt;h2 id="corejvm" data-title&gt;
+CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Basic types and code structure defined.&lt;/p&gt;</description></item></channel></rss>

@@ -1,43 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Resources on Spine Event Engine</title><link>https://spine.io/docs/resources/</link><description>Recent content in Resources on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://spine.io/docs/resources/index.xml" rel="self" type="application/rss+xml"/><item><title>Blogs</title><link>https://spine.io/docs/resources/blogs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/blogs/</guid><description>&lt;h1 id="blogs" data-title>
-Blogs&lt;/h1>
-&lt;div class="note-block lead">
-&lt;p>The ideas unfolding in real time&lt;/p>
-&lt;/div>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;a href="http://dddweekly.com/"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Resources on Spine Event Engine</title><link>https://spine.io/docs/resources/</link><description>Recent content in Resources on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://spine.io/docs/resources/index.xml" rel="self" type="application/rss+xml"/><item><title>Blogs</title><link>https://spine.io/docs/resources/blogs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/blogs/</guid><description>&lt;h1 id="blogs" data-title&gt;
+Blogs&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;The ideas unfolding in real time&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://dddweekly.com/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Domain Driven Design Weekly&lt;/a>.
-The periodical digest of articles and materials on DDD by Nick Chamberlain.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://martinfowler.com/tags/domain%20driven%20design.html"
+ &gt;Domain Driven Design Weekly&lt;/a&gt;.
+The periodical digest of articles and materials on DDD by Nick Chamberlain.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://martinfowler.com/tags/domain%20driven%20design.html"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Martin Fowler on Domain-Driven Design&lt;/a>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://blog.avanscoperta.it/it/"
+ &gt;Martin Fowler on Domain-Driven Design&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://blog.avanscoperta.it/it/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Avanscoperta blog&lt;/a>.
-The blog by Alberto Brandolini and his colleagues.&lt;/p>
-&lt;/li>
-&lt;/ul></description></item><item><title>Books</title><link>https://spine.io/docs/resources/books/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/books/</guid><description>&lt;h1 id="books" data-title>
-Books&lt;/h1>
-&lt;div class="note-block lead">
-&lt;p>Key works to get familiar with the approach.&lt;/p>
-&lt;/div>
+ &gt;Avanscoperta blog&lt;/a&gt;.
+The blog by Alberto Brandolini and his colleagues.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Books</title><link>https://spine.io/docs/resources/books/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/books/</guid><description>&lt;h1 id="books" data-title&gt;
+Books&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Key works to get familiar with the approach.&lt;/p&gt;
+&lt;/div&gt;
 
 
 
@@ -46,31 +46,31 @@ Books&lt;/h1>
 
 
 
-&lt;div class="book-card">
+&lt;div class="book-card"&gt;
  &lt;a class="book"
  href="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215"
  target="_blank"
- rel="nofollow noopener">
+ rel="nofollow noopener"&gt;
  &lt;img src="https://spine.io/img/docs/resources/books/ddd-design.png"
  class="book-cover"
- alt="Domain-Driven Design book">
- &lt;/a>
- &lt;div class="book-info">
+ alt="Domain-Driven Design book"&gt;
+ &lt;/a&gt;
+ &lt;div class="book-info"&gt;
  &lt;a class="book-title"
  href="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215"
  target="_blank"
- rel="nofollow noopener">
- &lt;h3>Domain-Driven Design&lt;/h3>
+ rel="nofollow noopener"&gt;
+ &lt;h3&gt;Domain-Driven Design&lt;/h3&gt;
  
- &lt;p class="book-subtitle">Tackling Complexity in the Heart of Software&lt;/p>
+ &lt;p class="book-subtitle"&gt;Tackling Complexity in the Heart of Software&lt;/p&gt;
  
- &lt;/a>
- &lt;p class="author">by Eric Evans&lt;/p>
- &lt;p class="description">The Big Blue Book which lay the basics of Domain-Driven Design methodology.
+ &lt;/a&gt;
+ &lt;p class="author"&gt;by Eric Evans&lt;/p&gt;
+ &lt;p class="description"&gt;The Big Blue Book which lay the basics of Domain-Driven Design methodology.
 It provides a broad framework for making design decisions and a vocabulary for
-discussing domain design.&lt;/p>
- &lt;/div>
-&lt;/div>
+discussing domain design.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
 
 
 
@@ -79,60 +79,60 @@ discussing domain design.&lt;/p>
 
 
 
-&lt;div class="book-card">
+&lt;div class="book-card"&gt;
  &lt;a class="book"
  href="https://www.amazon.com/Domain-Driven-Design-Reference-Definitions-Summaries/dp/1457501198"
  target="_blank"
- rel="nofollow noopener">
+ rel="nofollow noopener"&gt;
  &lt;img src="https://spine.io/img/docs/resources/books/ddd-design-reference.png"
  class="book-cover"
- alt="Domain-Driven Design Reference book">
- &lt;/a>
- &lt;div class="book-info">
+ alt="Domain-Driven Design Reference book"&gt;
+ &lt;/a&gt;
+ &lt;div class="book-info"&gt;
  &lt;a class="book-title"
  href="https://www.amazon.com/Domain-Driven-Design-Reference-Definitions-Summaries/dp/1457501198"
  target="_blank"
- rel="nofollow noopener">
- &lt;h3>Domain-Driven Design Reference&lt;/h3>
+ rel="nofollow noopener"&gt;
+ &lt;h3&gt;Domain-Driven Design Reference&lt;/h3&gt;
  
- &lt;/a>
- &lt;p class="author">by Eric Evans&lt;/p>
- &lt;p class="description">This book provides a brief overview of the DDD methodology.
-It also defines the terms, which were coined in this topic since 2004.&lt;/p></description></item><item><title>Communities</title><link>https://spine.io/docs/resources/communities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/communities/</guid><description>&lt;h1 id="communities" data-title>
-Communities&lt;/h1>
-&lt;div class="note-block lead">
-&lt;p>Places to discuss DDD with other practitioners&lt;/p>
-&lt;/div>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;a href="https://virtualddd.com/"
+ &lt;/a&gt;
+ &lt;p class="author"&gt;by Eric Evans&lt;/p&gt;
+ &lt;p class="description"&gt;This book provides a brief overview of the DDD methodology.
+It also defines the terms, which were coined in this topic since 2004.&lt;/p&gt;</description></item><item><title>Communities</title><link>https://spine.io/docs/resources/communities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/communities/</guid><description>&lt;h1 id="communities" data-title&gt;
+Communities&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Places to discuss DDD with other practitioners&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://virtualddd.com/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Virtual DDD&lt;/a> &lt;span class="lang">(EN)&lt;/span> &lt;br>
+ &gt;Virtual DDD&lt;/a&gt; &lt;span class="lang"&gt;(EN)&lt;/span&gt; &lt;br&gt;
 A community-driven online meetup for people who want to get more in-depth knowledge of DDD
-from anywhere at anytime.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://groups.google.com/g/dddcqrs?pli=1"
+from anywhere at anytime.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://groups.google.com/g/dddcqrs?pli=1"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >DDD/CQRS Google Group&lt;/a> &lt;span class="lang">(EN)&lt;/span> &lt;br>
-A mailing list with practical discussions on DDD, CQRS and Event Sourcing.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://dddi.dev/"
+ &gt;DDD/CQRS Google Group&lt;/a&gt; &lt;span class="lang"&gt;(EN)&lt;/span&gt; &lt;br&gt;
+A mailing list with practical discussions on DDD, CQRS and Event Sourcing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://dddi.dev/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Domain-Driven Design Injection&lt;/a> &lt;span class="lang">(RU)&lt;/span> &lt;br>
+ &gt;Domain-Driven Design Injection&lt;/a&gt; &lt;span class="lang"&gt;(RU)&lt;/span&gt; &lt;br&gt;
 Our own community for developers and engineers who look for the new ways of solving non-trivial software design tasks.
 &lt;a href="https://dddi.dev/logbook"
  
@@ -140,187 +140,187 @@ Our own community for developers and engineers who look for the new ways of solv
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Regular meetups&lt;/a> are held online. The discussion in between the meetups continues in the
+ &gt;Regular meetups&lt;/a&gt; are held online. The discussion in between the meetups continues in the
 &lt;a href="https://messroom.dddi.dev/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >DDDi Messroom&lt;/a>.&lt;/p></description></item><item><title>Libraries and Frameworks</title><link>https://spine.io/docs/resources/libraries/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/libraries/</guid><description>&lt;h1 id="libraries-and-frameworks" data-title>
-Libraries and Frameworks&lt;/h1>
-&lt;div class="note-block lead">
-&lt;p>Other tools that help with DDD in code&lt;/p>
-&lt;/div>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;a href="https://axoniq.io/"
+ &gt;DDDi Messroom&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Libraries and Frameworks</title><link>https://spine.io/docs/resources/libraries/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/libraries/</guid><description>&lt;h1 id="libraries-and-frameworks" data-title&gt;
+Libraries and Frameworks&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Other tools that help with DDD in code&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://axoniq.io/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Axon&lt;/a>.
-Open source framework for event-driven microservices and domain-driven design.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://vlingo.io/"
+ &gt;Axon&lt;/a&gt;.
+Open source framework for event-driven microservices and domain-driven design.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://vlingo.io/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Vlingo&lt;/a>.
+ &gt;Vlingo&lt;/a&gt;.
 The open source toolkit by Vaughn Vernon for fluent reactive, event-driven,
-and microservices architectures.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://eventstore.com/"
+and microservices architectures.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://eventstore.com/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >EventStore&lt;/a>.
-The stream database by Greg Young built for Event Sourcing.&lt;/p>
-&lt;/li>
-&lt;/ul></description></item><item><title>People</title><link>https://spine.io/docs/resources/people/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/people/</guid><description>&lt;h1 id="people" data-title>
-People&lt;/h1>
-&lt;div class="note-block lead">
-&lt;p>The creators and drivers of the DDD ideas.&lt;/p>
-&lt;/div>
+ &gt;EventStore&lt;/a&gt;.
+The stream database by Greg Young built for Event Sourcing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>People</title><link>https://spine.io/docs/resources/people/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/people/</guid><description>&lt;h1 id="people" data-title&gt;
+People&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;The creators and drivers of the DDD ideas.&lt;/p&gt;
+&lt;/div&gt;
 
 
 
 
 
 
-&lt;div class="person-card">
+&lt;div class="person-card"&gt;
  &lt;img class="avatar"
  src="https://spine.io/img/docs/resources/people/eric-evans.png"
- alt="Eric Evans photo">
- &lt;div class="person-info">
- &lt;h3>Eric Evans&lt;/h3>
- &lt;div class="social-networks">
+ alt="Eric Evans photo"&gt;
+ &lt;div class="person-info"&gt;
+ &lt;h3&gt;Eric Evans&lt;/h3&gt;
+ &lt;div class="social-networks"&gt;
  
- &lt;a href="https://domainlanguage.com/" target="_blank" rel="nofollow noopener">
- &lt;i class="far fa-globe">&lt;/i>
- &lt;/a>
+ &lt;a href="https://domainlanguage.com/" target="_blank" rel="nofollow noopener"&gt;
+ &lt;i class="far fa-globe"&gt;&lt;/i&gt;
+ &lt;/a&gt;
  
- &lt;a href="https://x.com/ericevans0" target="_blank" rel="nofollow noopener">
- &lt;i class="fab fa-twitter">&lt;/i>
- &lt;/a>
+ &lt;a href="https://x.com/ericevans0" target="_blank" rel="nofollow noopener"&gt;
+ &lt;i class="fab fa-twitter"&gt;&lt;/i&gt;
+ &lt;/a&gt;
  
- &lt;/div>
- &lt;p>The author of the DDD methodology. Domain linguist. The author
-of “Domain-Driven Design: Tackling Complexity in Software”.&lt;/p>
- &lt;/div>
-&lt;/div>
+ &lt;/div&gt;
+ &lt;p&gt;The author of the DDD methodology. Domain linguist. The author
+of “Domain-Driven Design: Tackling Complexity in Software”.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
 
 
 
 
 
 
-&lt;div class="person-card">
+&lt;div class="person-card"&gt;
  &lt;img class="avatar"
  src="https://spine.io/img/docs/resources/people/vaughn-vernon.png"
- alt="Vaughn Vernon photo">
- &lt;div class="person-info">
- &lt;h3>Vaughn Vernon&lt;/h3>
- &lt;div class="social-networks">
+ alt="Vaughn Vernon photo"&gt;
+ &lt;div class="person-info"&gt;
+ &lt;h3&gt;Vaughn Vernon&lt;/h3&gt;
+ &lt;div class="social-networks"&gt;
  
- &lt;a href="https://github.com/VaughnVernon" target="_blank" rel="nofollow noopener">
- &lt;i class="fab fa-github">&lt;/i>
- &lt;/a>
+ &lt;a href="https://github.com/VaughnVernon" target="_blank" rel="nofollow noopener"&gt;
+ &lt;i class="fab fa-github"&gt;&lt;/i&gt;
+ &lt;/a&gt;
  
- &lt;a href="https://x.com/VaughnVernon" target="_blank" rel="nofollow noopener">
- &lt;i class="fab fa-twitter">&lt;/i>
- &lt;/a>
+ &lt;a href="https://x.com/VaughnVernon" target="_blank" rel="nofollow noopener"&gt;
+ &lt;i class="fab fa-twitter"&gt;&lt;/i&gt;
+ &lt;/a&gt;
  
- &lt;/div>
- &lt;p>Domain Model Whisperer. The author of “Implementing Domain-Driven Design”
+ &lt;/div&gt;
+ &lt;p&gt;Domain Model Whisperer. The author of “Implementing Domain-Driven Design”
 and “Domain-Driven Design Distilled”. Founder of &lt;a href="https://vlingo.io/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Vlingo Platform&lt;/a>.&lt;/p>
- &lt;/div>
-&lt;/div>
+ &gt;Vlingo Platform&lt;/a&gt;.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
 
 
 
 
 
 
-&lt;div class="person-card">
+&lt;div class="person-card"&gt;
  &lt;img class="avatar"
  src="https://spine.io/img/docs/resources/people/greg-young.png"
- alt="Greg Young photo">
- &lt;div class="person-info">
- &lt;h3>Greg Young&lt;/h3>
- &lt;div class="social-networks">
+ alt="Greg Young photo"&gt;
+ &lt;div class="person-info"&gt;
+ &lt;h3&gt;Greg Young&lt;/h3&gt;
+ &lt;div class="social-networks"&gt;
  
- &lt;a href="https://github.com/gregoryyoung" target="_blank" rel="nofollow noopener">
- &lt;i class="fab fa-github">&lt;/i>
- &lt;/a>
+ &lt;a href="https://github.com/gregoryyoung" target="_blank" rel="nofollow noopener"&gt;
+ &lt;i class="fab fa-github"&gt;&lt;/i&gt;
+ &lt;/a&gt;
  
- &lt;a href="https://x.com/gregyoung" target="_blank" rel="nofollow noopener">
- &lt;i class="fab fa-twitter">&lt;/i>
- &lt;/a>
+ &lt;a href="https://x.com/gregyoung" target="_blank" rel="nofollow noopener"&gt;
+ &lt;i class="fab fa-twitter"&gt;&lt;/i&gt;
+ &lt;/a&gt;
  
- &lt;/div>
- &lt;p>Creator of CQRS and the driver of Event Sourcing.
+ &lt;/div&gt;
+ &lt;p&gt;Creator of CQRS and the driver of Event Sourcing.
 Founder of the &lt;a href="https://eventstore.com/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Event Store&lt;/a>.&lt;/p></description></item><item><title>Sites</title><link>https://spine.io/docs/resources/sites/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/sites/</guid><description>&lt;h1 id="sites" data-title>
-Sites&lt;/h1>
-&lt;div class="note-block lead">
-&lt;p>Learning hubs&lt;/p>
-&lt;/div>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;a href="https://dddcommunity.org/"
+ &gt;Event Store&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Sites</title><link>https://spine.io/docs/resources/sites/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/sites/</guid><description>&lt;h1 id="sites" data-title&gt;
+Sites&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Learning hubs&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://dddcommunity.org/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >DDD Community&lt;/a>.
-A collection of resources by Eric Evans and his colleagues.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://www.infoq.com/domain-driven-design/"
+ &gt;DDD Community&lt;/a&gt;.
+A collection of resources by Eric Evans and his colleagues.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.infoq.com/domain-driven-design/"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Domain Driven Design On InfoQ&lt;/a>.
-DDD section on one of the leading media on software development.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://github.com/heynickc/awesome-ddd"
+ &gt;Domain Driven Design On InfoQ&lt;/a&gt;.
+DDD section on one of the leading media on software development.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://github.com/heynickc/awesome-ddd"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Awesome Domain-Driven Design&lt;/a>.
-An extensive curated list of DDD, CQRS, Event Sourcing, and EventStorming resources.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://emacsway.github.io/ru/self-learning-for-software-engineer/#ddd"
+ &gt;Awesome Domain-Driven Design&lt;/a&gt;.
+An extensive curated list of DDD, CQRS, Event Sourcing, and EventStorming resources.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://emacsway.github.io/ru/self-learning-for-software-engineer/#ddd"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Learning DDD&lt;/a>.
-A selection of learning materials for gradual immersion into the topic: from the basics to the specific design cases.&lt;/p></description></item></channel></rss>
+ &gt;Learning DDD&lt;/a&gt;.
+A selection of learning materials for gradual immersion into the topic: from the basics to the specific design cases.&lt;/p&gt;</description></item></channel></rss>

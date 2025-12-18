@@ -1,59 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Guides on Spine Event Engine</title><link>https://spine.io/docs/guides/</link><description>Recent content in Guides on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://spine.io/docs/guides/index.xml" rel="self" type="application/rss+xml"/><item><title>Gradle configuration</title><link>https://spine.io/docs/guides/gradle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/gradle/</guid><description>&lt;p>This guide will lead you through setting up a simple Spine-based project with a Java backend and
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Guides on Spine Event Engine</title><link>https://spine.io/docs/guides/</link><description>Recent content in Guides on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://spine.io/docs/guides/index.xml" rel="self" type="application/rss+xml"/><item><title>Gradle configuration</title><link>https://spine.io/docs/guides/gradle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/gradle/</guid><description>&lt;p&gt;This guide will lead you through setting up a simple Spine-based project with a Java backend and
 a JavaScript frontend. The project defines a domain model using Protobuf, which is then converted
-into Java for server usage and JavaScript for client usage.&lt;/p>
-&lt;h1 id="configuring-a-project-with-gradle" data-title>
-Configuring a project with Gradle&lt;/h1>
-&lt;p>Spine provides build-time tools for code generation and analysis. These tools are implemented
+into Java for server usage and JavaScript for client usage.&lt;/p&gt;
+&lt;h1 id="configuring-a-project-with-gradle" data-title&gt;
+Configuring a project with Gradle&lt;/h1&gt;
+&lt;p&gt;Spine provides build-time tools for code generation and analysis. These tools are implemented
 as &lt;a href="https://docs.gradle.org/current/userguide/plugins.html"
  
  
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- >Gradle plugins&lt;/a> — an extendable, uniform
-way to tap into a project build process.&lt;/p></description></item><item><title>Integrating with a third party</title><link>https://spine.io/docs/guides/integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/integration/</guid><description>&lt;h1 id="integration-with-a-third-party" data-title>
-Integration with a third party&lt;/h1>
-&lt;p>When developing an &lt;a href="https://spine.io/docs/introduction/concepts#event"
+ &gt;Gradle plugins&lt;/a&gt; — an extendable, uniform
+way to tap into a project build process.&lt;/p&gt;</description></item><item><title>Integrating with a third party</title><link>https://spine.io/docs/guides/integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/integration/</guid><description>&lt;h1 id="integration-with-a-third-party" data-title&gt;
+Integration with a third party&lt;/h1&gt;
+&lt;p&gt;When developing an &lt;a href="https://spine.io/docs/introduction/concepts#event"
  
- >Event-based&lt;/a> system, it
-is often tricky to integrate it with other software, be it a third party or a legacy system.&lt;/p>
-&lt;p>In this article, we will explore the strategies of integrating third-party systems with your
+ &gt;Event-based&lt;/a&gt; system, it
+is often tricky to integrate it with other software, be it a third party or a legacy system.&lt;/p&gt;
+&lt;p&gt;In this article, we will explore the strategies of integrating third-party systems with your
 Spine-based &lt;a href="https://spine.io/docs/introduction/concepts#bounded-context"
  
- >Bounded Context&lt;/a>.&lt;/p>
-&lt;p>Note that we think of a third-party system like of yet another Bounded Context with its own
-language. The terms “Bounded Context” and “System” are used interchangeably throughout the article.&lt;/p></description></item><item><title>Starting a new project</title><link>https://spine.io/docs/guides/start-new-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/start-new-project/</guid><description>&lt;h1 id="starting-a-new-project" data-title>
-Starting a new project&lt;/h1>
-&lt;div class="note-block lead">
-&lt;p>Starting off a new project goes smoother when you have an efficient
+ &gt;Bounded Context&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note that we think of a third-party system like of yet another Bounded Context with its own
+language. The terms “Bounded Context” and “System” are used interchangeably throughout the article.&lt;/p&gt;</description></item><item><title>Starting a new project</title><link>https://spine.io/docs/guides/start-new-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/start-new-project/</guid><description>&lt;h1 id="starting-a-new-project" data-title&gt;
+Starting a new project&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Starting off a new project goes smoother when you have an efficient
 and straightforward development flow to rely on. In this guide, we describe how we usually start
-and develop new projects.&lt;/p>
-&lt;/div>
-&lt;p>While the key stages of the development process are described in the &lt;a href="https://spine.io/docs/introduction/"
+and develop new projects.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;While the key stages of the development process are described in the &lt;a href="https://spine.io/docs/introduction/"
  title="Check the Introduction"
- >Introduction&lt;/a>
+ &gt;Introduction&lt;/a&gt;
 section, this guide provides more hands-on details on the steps that we follow while working
-on a project.&lt;/p></description></item><item><title>Validation User Guide</title><link>https://spine.io/docs/guides/validation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/validation/</guid><description>&lt;h1 id="validation-user-guide" data-title>
-Validation User Guide&lt;/h1>
-&lt;div class="note-block lead">
-&lt;p>Building a good domain model requires more than just defining data structures.
+on a project.&lt;/p&gt;</description></item><item><title>Validation User Guide</title><link>https://spine.io/docs/guides/validation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/validation/</guid><description>&lt;h1 id="validation-user-guide" data-title&gt;
+Validation User Guide&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Building a good domain model requires more than just defining data structures.
 One of the commodities required for describing domain specifics is making sure that the data
 is correct. This guide will walk you through the API the Validation Library which helps achieving
-this goal.&lt;/p>
-&lt;/div>
-&lt;p>All of the validation features described here are currently supported in the Java environment.
+this goal.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;All of the validation features described here are currently supported in the Java environment.
 Many are supported in Dart as well. For more info, see the description of individual features
-given in the sections below.&lt;/p></description></item><item><title>Working with Rejections</title><link>https://spine.io/docs/guides/rejections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/rejections/</guid><description>&lt;h1 id="working-with-rejections" data-title>
-Working with Rejections&lt;/h1>
-&lt;p>Compared with regular Events, &lt;a href="https://spine.io/docs/introduction/concepts#rejection"
+given in the sections below.&lt;/p&gt;</description></item><item><title>Working with Rejections</title><link>https://spine.io/docs/guides/rejections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/rejections/</guid><description>&lt;h1 id="working-with-rejections" data-title&gt;
+Working with Rejections&lt;/h1&gt;
+&lt;p&gt;Compared with regular Events, &lt;a href="https://spine.io/docs/introduction/concepts#rejection"
  
- >Rejections&lt;/a>
-are defined differently. Here is the summary of the differences:&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;code>java_multiple_files&lt;/code> file option must be set to &lt;code>false&lt;/code>&lt;/p>
-&lt;p>By doing this we instruct Protobuf Compiler to put all the rejection classes in a single
+ &gt;Rejections&lt;/a&gt;
+are defined differently. Here is the summary of the differences:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;java_multiple_files&lt;/code&gt; file option must be set to &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;By doing this we instruct Protobuf Compiler to put all the rejection classes in a single
 outer class.
-Spine Model Compiler for Java generates &lt;code>ThrowableMessage&lt;/code> classes for all these messages.
+Spine Model Compiler for Java generates &lt;code&gt;ThrowableMessage&lt;/code&gt; classes for all these messages.
 These classes will be named after the classes of rejection messages.
-Putting rejection message classes under an outer class avoids name clash inside the package.&lt;/p></description></item></channel></rss>
+Putting rejection message classes under an outer class avoids name clash inside the package.&lt;/p&gt;</description></item></channel></rss>
