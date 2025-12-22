@@ -24,7 +24,15 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ partial "scripts/head/gtm.html" . }}
-{{ partial "scripts/head/jquery.html" . }}
-{{ partial "scripts/head/docsearch.html" . }}
-{{ partial "scripts/head/cookie-notice.html" . }}
+<!--
+Integrates the CookieScript tool to manage cookie consent.
+
+Displays a cookie popup notification, and processes user
+cookie consent preferences.
+-->
+
+{{ $id := site.Params.cookieScript.id }}
+
+{{ if $id }}
+    {{ partial "scripts/cookie-script.html" (dict "cookie_script_id" $id) }}
+{{ end }}

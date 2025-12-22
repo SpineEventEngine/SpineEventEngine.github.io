@@ -26,4 +26,3 @@
 
 import './modules/navbar/navbar';
 import './modules/go-top-button';
-import './modules/cookie-notice';
