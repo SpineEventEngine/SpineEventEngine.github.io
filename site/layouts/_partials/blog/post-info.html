@@ -28,19 +28,21 @@
 {{ $hasLabel := .has_label | default false }}
 
 {{ $label := "" }}
-{{ if and (not $context.Params.author) $hasLabel }}
+{{ $postAuthor := $context.Params.author }}
+
+{{ if and (not $postAuthor) $hasLabel }}
     {{ $label = "Posted on" }}
 {{ end }}
 
 <div class="post-info">
-    {{ with $context.Params.author }}
-        <span class="post-author">{{ . }}</span>
-        <span>on</span>
-    {{ end }}
-    {{ with $context.Params.publishdate }}
-        {{ partial "components/iso-date.html" (dict
+    {{- with $postAuthor -}}
+        {{- $author := printf "%s %s&nbsp;" . "on" -}}
+        <span class="post-author">{{ $author | safeHTML }}</span>
+    {{- end -}}
+    {{- with $context.Params.publishdate -}}
+        {{- partial "components/iso-date.html" (dict
             "date" .
             "label" $label
-        ) }}
-    {{ end }}
+        ) -}}
+    {{- end -}}
 </div>

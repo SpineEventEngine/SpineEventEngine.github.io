@@ -24,14 +24,14 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $date := .date }}
-{{ $label := .label }}
+{{- $date := .date -}}
+{{- $label := .label -}}
 
-{{ $formattedDate := $date | time.Format ":date_long" }}
-{{ $isoDate := $date | time.Format "2006-01-02" }}
+{{- $formattedDate := $date | time.Format ":date_long" -}}
+{{- $isoDate := $date | time.Format "2006-01-02" -}}
 <p class="date">
-    {{ with $label }}
-        {{ .}}
-    {{ end }}
+    {{- with $label -}}
+        <span>{{ . }}&nbsp;</span>
+    {{- end -}}
     <time datetime="{{ $isoDate }}">{{ $formattedDate }}</time>
 </p>
