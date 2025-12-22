@@ -89,7 +89,7 @@ are used to embed the content.
    ```
 
 4. Commit and push changes from `go.mod` and `go.sum` files.
-   In the `go.sum` file keep only two last records to avoid file cluttering.
+   In the `go.sum` file, keep only the two required entries for each theme to avoid file clutter.
 
 ## Common theme
 
