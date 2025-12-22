@@ -27,6 +27,9 @@ disableKinds = ['taxonomy', 'term']
 [params.gtm]
   id = 'GTM-T6NZS3S'
 
+[params.cookieScript]
+  id = '38b1283993fe8d87c0678be39b07ada2'
+
 [security]
   [security.exec]
     osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$']
