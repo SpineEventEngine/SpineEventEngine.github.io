@@ -165,25 +165,19 @@ This can be done by extending the &lt;code&gt;EnvironmentType&lt;/code&gt; class
  &lt;span data-title&gt;Spine Event Engine Development Support Agreement&lt;/span&gt;
 &lt;/h1&gt;
 
-
-
-
-
-
-
-
-&lt;p class="date"&gt;
- 
- Last updated:
- 
- &lt;time datetime="2020-09-07"&gt;September 7, 2020&lt;/time&gt;
+&lt;p class="date"&gt;&lt;span&gt;Last updated:&amp;nbsp;&lt;/span&gt;&lt;time datetime="2020-09-07"&gt;September 7, 2020&lt;/time&gt;
 &lt;/p&gt;
 
 
 &lt;p&gt;This Development Support Agreement (Agreement) is made and entered by and between TeamDev
 Management OÜ. (TDM, also we or us) and you, either a person or an entity (Customer, also you).
 In case you enter this agreement on behalf of any entity, you represent that you have the necessary
-authority to bind this entity to this Agreement.&lt;/p&gt;</description></item><item><title>Contributor License Agreement</title><link>https://spine.io/contributor-agreement/</link><pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/contributor-agreement/</guid><description>&lt;h1 id="spine-event-engine-contributor-license-agreement" data-anchor&gt;
+authority to bind this entity to this Agreement.&lt;/p&gt;
+&lt;p&gt;This Agreement may be modified unilaterally by TDM. TDM will make an effort to notify you about
+important changes, however will not be obliged to keep you updated. It is your responsibility to
+keep current on the terms of this Agreement. The Agreement modification date will be reflected as
+“Last updated” on the top of the page. By continuing to use the Development Support, you agree to
+be bound by such changes.&lt;/p&gt;</description></item><item><title>Contributor License Agreement</title><link>https://spine.io/contributor-agreement/</link><pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/contributor-agreement/</guid><description>&lt;h1 id="spine-event-engine-contributor-license-agreement" data-anchor&gt;
  &lt;span data-title&gt;Spine Event Engine Contributor License Agreement&lt;/span&gt;
 &lt;/h1&gt;
 &lt;p&gt;This agreement is between You (as defined further below) and TeamDev Ltd. (TeamDev), the owner
@@ -1031,14 +1025,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
 
 
 &lt;style&gt;
-#span-4da06d7a.cloaked-e-mail:before {
+#span-4f3072c8.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-4da06d7a"&gt;&lt;/span&gt;&lt;script id="script-4da06d7a"&gt;
- var scriptTag = document.getElementById("script-4da06d7a");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-4f3072c8"&gt;&lt;/span&gt;&lt;script id="script-4f3072c8"&gt;
+ var scriptTag = document.getElementById("script-4f3072c8");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
