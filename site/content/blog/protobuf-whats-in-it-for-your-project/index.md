@@ -1,6 +1,6 @@
 ---
-title: Protobuf — Serialization and Beyond. 
-  Part 1. What’s in It for Your Project
+title: Protobuf — serialization and beyond. 
+  Part 1. What’s in it for your project
 description: >-
   In  this article we look at the key Google Protocol Buffers (aka Protobuf) features which make working with data in software development projects more convenient and effective.
 author: Alexander Yevsyukov and Dmytro Dashenkov
@@ -9,7 +9,7 @@ type: blog/post
 header_type: fixed-header
 ---
 
-*This six-part series covers using Google Protocol Buffers (aka [Protobuf](https://developers.google.com/protocol-buffers)) to build software Domain-Driven Design way and to cut on the manual effort when migrating data and syncing interaction protocols in complex systems.*
+*This series covers using Google Protocol Buffers (aka [Protobuf](https://developers.google.com/protocol-buffers)) to build software Domain-Driven Design way and to cut on the manual effort when migrating data and syncing interaction protocols in complex systems.*
 
 *In the first part, we look at the key Protobuf features which make working with data in software development projects more convenient and effective.*
 

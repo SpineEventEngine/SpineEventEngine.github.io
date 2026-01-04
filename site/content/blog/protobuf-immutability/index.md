@@ -1,5 +1,5 @@
 ---
-title: Protobuf — Serialization and Beyond. 
+title: Protobuf — serialization and bbeyond. 
   Part 2. Immutability
 description: >-
   In this chapter, we are going to address the elephant in the room which comes with Protobuf in Java in particular — immutable data types.
