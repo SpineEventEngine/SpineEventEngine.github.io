@@ -11,7 +11,7 @@ header_type: fixed-header
 *In this series, we explore the features and advantages of using Protocol Buffers as a model-building tool. In this part, we take a look at how to validate data with Protobuf and what can be learned from the mechanisms behind data validation.*
 
 ## What is Validation?
-When developing a domain model, one often faces a need to enforce certain rules upon the data objects. Strongly-typed languages, such as Java, help us order up data into neat structures and then build [Value Objects](https://medium.com/teamdev-engineering/protobuf-serialization-and-beyond-part-3-value-objects-e3dc7b935ac) upon those structures. However, none of the programming languages is expressive enough to form the whole model and enforce all the known rules. This is not a failure of the language designers, but a required tradeoff for creating any sort of a general-purpose programming language.
+When developing a domain model, one often faces a need to enforce certain rules upon the data objects. Strongly-typed languages, such as Java, help us order up data into neat structures and then build [Value Objects](blog/protobuf-value-objects/) upon those structures. However, none of the programming languages is expressive enough to form the whole model and enforce all the known rules. This is not a failure of the language designers, but a required tradeoff for creating any sort of a general-purpose programming language.
 
 If not solved in a general way, the need to check if the data fits the domain rules leads to conditional statements and exceptions scattered across the codebase. Such a chaotic approach allows errors to pop up once in a while, rendering the system unreliable.
 
@@ -249,10 +249,10 @@ final class When extends FieldValidatingOption<TimeOption> {
 }
 ```
 
-The class `WhenFactory` has to be exposed to the Java `ServiceLoader` mechanism as an implementation of [ValidatingOptionFactory](https://spine.io/base/reference/base/io/spine/validate/option/ValidatingOptionFactory.html) either manually or via an automatic tool, such as [AutoService](https://github.com/google/auto/tree/master/service).
+The class `WhenFactory` has to be exposed to the Java `ServiceLoader` mechanism as an implementation of [ValidatingOptionFactory](https://spine.io/base-libraries/dokka-reference/base/base/io.spine.validate.option/-validating-option-factory/index.html) either manually or via an automatic tool, such as [AutoService](https://github.com/google/auto/tree/master/service).
 
 Here is the diagram of the classes we’ve just described.
-![The diagram of the classes](site/content/blog/protobbuf-data-validation/the-diagram-of-the-classes.webp)
+![The diagram of the classes](site/content/blog/protobuf-data-validation/the-diagram-of-the-classes.webp)
 
 We expose the `WhenFactory`, which implements `theValidatingOptionFactory`, via the `ServiceLoader` API. `WhenFactory` registers the `When` option, which, when necessary, creates a `WhenConstraint` based on a field definition.
 
