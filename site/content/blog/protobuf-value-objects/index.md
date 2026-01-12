@@ -40,7 +40,7 @@ Note that the `(required)` and `(pattern)` options are extensions to Protobuf pr
 
 In addition, in some target languages, such as Java, generated Protobuf types are immutable by default. Unfortunately, some other languages, such as JavaScript and Dart, only support [mutable types](https://github.com/dart-lang/protobuf/issues/413). For Dart, however, a community-driven solution seems to be on the way. The [immutable_proto](https://pub.dev/packages/immutable_proto) package implements code generation for immutable types from Protobuf. We have not tried it out yet, as the library is still in its earliest form, but the notion that other engineers feel our pain and try to do something about it as well warms our hearts.
 
-For further reading on immutability with regards to Protobuf, see our [previous article](blog/immutability/).
+For further reading on immutability with regards to Protobuf, see our [previous article](blog/protobuf-immutability/).
 
 ## Validation
 The `EmailAddress` type as declared above has one string field with naive validation via a regular expression. Also, the value field should be filled. This validation API is a part of our efforts on improving the code generation with Protobuf. Right now, we generate validation code for Java and Dart, in order to cover both backend and frontend. Later, other target languages might join the club.

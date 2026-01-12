@@ -252,7 +252,7 @@ final class When extends FieldValidatingOption<TimeOption> {
 The class `WhenFactory` has to be exposed to the Java `ServiceLoader` mechanism as an implementation of [ValidatingOptionFactory](https://spine.io/base-libraries/dokka-reference/base/base/io.spine.validate.option/-validating-option-factory/index.html) either manually or via an automatic tool, such as [AutoService](https://github.com/google/auto/tree/master/service).
 
 Here is the diagram of the classes we’ve just described.
-![The diagram of the classes](site/content/blog/protobuf-data-validation/the-diagram-of-the-classes.webp)
+![The diagram of the classes](the-diagram-of-the-classes.webp)
 
 We expose the `WhenFactory`, which implements `theValidatingOptionFactory`, via the `ServiceLoader` API. `WhenFactory` registers the `When` option, which, when necessary, creates a `WhenConstraint` based on a field definition.
 
