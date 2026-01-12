@@ -1,8 +1,9 @@
 ---
-title: Protobuf — serialization and beyond. 
-  Part 1. What’s in it for your project
+title: Protobuf — serialization and beyond. Part 1. What’s in it for your project
 description: >-
-  In  this article we look at the key Google Protocol Buffers (aka Protobuf) features which make working with data in software development projects more convenient and effective.
+  In  this article we look at the key Google Protocol Buffers (aka Protobuf) 
+  features which make working with data in software development projects more 
+  convenient and effective.
 author: Alexander Yevsyukov and Dmytro Dashenkov
 publishdate: 2020-11-16
 type: blog/post
@@ -24,6 +25,7 @@ We use the [Protobuf v3](https://developers.google.com/protocol-buffers/docs/pro
 ## Starting Off with Protobuf
 
 ### Lost in Transition
+
 Our Protobuf story started at a SaaS project. The system was built based on the event-oriented, or, as it is called lately, reactive Domain-Driven Design. Events and data to display were transferred to the JavaScript browser application as JSON objects. Then the customer decided to add Android and iOS clients. By the time the work on the client applications started, the event model was already formed as a hierarchy of Java classes. And there were quite a few of those.
 
 So we faced the following questions:
@@ -33,6 +35,7 @@ So we faced the following questions:
    Abandoning data types and only using JSON for all tasks was not an option. It would turn working with the domain model, which is “the heart and the brain” of the business, into operations with strings and primitive types! We set off searching.
 
 ### Looking for Solution
+
 One of the first options we came into was the Wire library by Square. Back then, it was versioned 1.x, supporting Protobuf v2, while Protobuf v3 was in alpha-3 version. The Wire did not solve all our issues with the platforms’ support, as it was intended only for Android and Java, but it got us aware of the Protobuf technology and of the applied code generation. [Compared to others](https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html), Protobuf looked like the best option.
 
 Yet another issue arose. In Java we had a hierarchy of classes for events and other types of data. As most of them are transferred between client and server, we were looking for the means to define the similar structure of data in all languages involved. But inheritance in Java works differently from what was available in languages, such as JavaScript. A significant amount of hand-written code was needed to implement and then to maintain the hierarchies of the same types for all platforms.
@@ -47,16 +50,19 @@ We came up with the following solutions:
 Bringing these solutions to life we:
 
 * Created Spine Event Engine — the framework for the projects, developed using the Domain-Driven Design methodology, where Protobuf makes working with the data way easier. It speeds up the development and reduces the labor costs of the software.
-* Cut down the amount of the code written manually in our integration libraries, [JxBrowser](https://www.teamdev.com/jxbrowser) and [DotNetBrowser](https://www.teamdev.com/dotnetbrowser), where C++ code of Chromium couples with Java and C#.
+* Cut down the amount of the code written manually in our integration libraries, [JxBrowser](https://teamdev.com/jxbrowser/) and [DotNetBrowser](https://teamdev.com/dotnetbrowser/), where C++ code of Chromium couples with Java and C#.
   We will talk in detail about these in the next articles of this series. Meanwhile, let’s take a look at the Protobuf features, which make it useful for many projects, regardless of their nature.
 
 ## What Makes Protobuf So Handy
+
 ### Support of Many Languages
+
 The latest versions of Protobuf [support](https://developers.google.com/protocol-buffers/docs/reference/overview) C#, C++, Dart, Go, Java, JavaScript, Objective-C, Python, PHP, Ruby. There is a Swift implementation [by Apple itself](https://github.com/apple/swift-protobuf/). If you need one for Closure, Erlang или Haskell, the list of the [third-party libraries for different languages](https://github.com/protocolbuffers/protobuf/blob/master/docs/third_party.md) is extensive.
 
 As the name of the article implies, the Protobuf-based code can be used for all the operations with data, not only serialization. And this is the approach we recommend. However, serialization is also worth discussing. It is where it all usually starts.
 
 ### Binary Serialization
+
 Protobuf employs the binary serialization mechanism to transfer data between the nodes effectively, to write and to read from the different languages without additional efforts, and to introduce format changes without breaking compatibility.
 
 Let’s assume we have a data type `Task` defined as follows:
@@ -67,6 +73,7 @@ message Task {
     string description = 2;
 }
 ```
+
 Then in Java, you can get such object in binary form this way:
 
 ```java
@@ -92,6 +99,7 @@ As a result, we get an array of 8-bit numbers. For reverse transformation, the `
 ```java
 const task = myprotos.Task.deserializeBinary(bytes);
 ```
+
 The situation is alike for Dart. The `writeToBuffer()` method with the common ancestor of the generated classes returns a list of unsigned 8-bit integers:
 
 ```dart
@@ -102,7 +110,9 @@ And the `fromBuffer()` constructor performs the reverse transformation:
 ```dart
 var task = Task.fromBuffer(bytes);
 ```
+
 ### Resilience to Type Change
+
 Writing code in modern IDEs makes it much easier to modify existing data structures. For example, for Java, there are many types of automatic code refactoring available. However, instances of domain types are often persisted to some storage and then read back over and over. Again, with Java, it takes quite an effort — in terms of both time and cost — to craft a fine-grained serialization mechanism to keep the data from years back alive today.
 
 Protobuf is designed to ensure the backward compatibility of the serialized data. It is flexible enough when it is necessary to change an existing data type. We will not describe [all the possibilities](https://developers.google.com/protocol-buffers/docs/proto3#updating) but only focus on the most interesting.
@@ -129,6 +139,7 @@ message MyMessage {
    int32 old_field = 6 [deprecated = true];
 }
 ```
+
 **Step 2.** Generate the code for the updated type.
 
 **Step 3.** Update the calling code, getting rid of the `@Deprecated` method calls.
@@ -140,8 +151,9 @@ message MyMessage {
     ...
     reserved 6;
     reserved “old_field”;
- }
- ```
+}
+```
+
 By doing this we insure ourselves from accidental usage of the old index or name and do not have to keep the outdated code. Renaming fields is not much harder.
 
 #### Renaming Fields
@@ -170,6 +182,7 @@ Obviously, it is less convenient compared to ordinary renaming in the environmen
 Also note, that if you use serialization in JSON, it is better not to rename a lot because updating the clients to the new version requires additional effort.
 
 ### Output to JSON
+
 As we’ve mentioned earlier, JSON is not the most effective way to exchange data. This string-based protocol doesn’t have an official schema format, and the techniques for supporting any kind of data types with JSON vary immensely.
 
 In most cases when you need serialization, Protobuf will do well. Being a serialization protocol on its own, it converts into a concise binary representation, which is supported by all the platforms which support Protobuf.
@@ -206,7 +219,7 @@ var printer = JsonFormat.printer()
         .usingTypeRegistry(registry);
 ```
 
-By default the `Printer` output is easy-to-read. However, you can create a version, which will print in the compact format:
+By default, the `Printer` output is easy-to-read. However, you can create a version, which will print in the compact format:
 
 ```java
 var compactPrinter = printer.omittingInsignificantWhitespace();
@@ -237,6 +250,7 @@ Serialization:
 ```dart
 var jsonStr = task.toProto3Json();
 ```
+
 Deserialization:
 
 ```dart
@@ -257,6 +271,7 @@ task.mergeFromProto3Json(jsonStr, typeRegistry: registry);
 ```
 
 ### Immutability
+
 Immutable types make the developer’s life way better. For instance, have a look at [this talk](https://www.youtube.com/watch?v=pLvrZPSzHxo&feature=youtu.be) on how immutability helps to build great UIs.
 
 Protobuf objects in Java are immutable. And this is convenient. It is also convenient to create a new object based on the previous one:

@@ -1,13 +1,15 @@
 ---
-title: Protobuf — serialization and beyond. 
-  Part 3. Value objects
+title: Protobuf — serialization and beyond. Part 3. Value objects
 description: >-
-  In the following few chapters, we will explore the specifics of using Protobuf in systems based on Domain-Driven Design. This one describes a simple yet powerful concept of Value Objects.
+  In the following few chapters, we will explore the specifics of using Protobuf 
+  in systems based on Domain-Driven Design. This one describes a simple yet powerful 
+  concept of Value Objects.
 author: Alexander Yevsyukov and Dmytro Dashenkov
 publishdate: 2021-03-17
 type: blog/post
 header_type: fixed-header
 ---
+
 *This article continues the series on the practical aspects of using Google Protocol Buffers. In the following few chapters, we will explore the specifics of using Protobuf in systems based on Domain-Driven Design. This one describes a simple yet powerful concept of Value Objects.*
 
 We have been using Protobuf as more than just a serialization mechanism from the very beginning. It provides a language to model the domain. This ability is especially useful in projects based on the [Domain-Driven Design](https://martinfowler.com/bliki/DomainDrivenDesign.html) methodology, aka DDD.
@@ -15,11 +17,13 @@ We have been using Protobuf as more than just a serialization mechanism from the
 The defining feature of a Domain Model is the [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html) — a language that is used and agreed upon throughout the domain: by the domain experts, programmers, and in the code. A Domain Model consists of many components, but the language lays the base for all of them. Value Objects help up transform the language into code.
 
 ## What are Value Objects?
+
 A Value Object is a simple type that represents any kind of logically indivisible domain information, such as `EmailAddress`, `PhoneNumber`, `LocalDateTime`, `Money`, etc. Unlike Entities, Value Objects are only identified by the value itself, i.e. they do not have a designated ID. These objects are immutable and, typically, not too big. Apart from the encapsulation of the data itself, such types can hold the validation logic, basic operations on the data, the string representation, etc. For example, the type `LocalDateTime` may provide methods such as `add(Duration)` which calculates the local date and time after a given duration passes. The result is another instance of `LocalDateTime`, while the original object is unchanged.
 
 As mentioned earlier, the Value Objects are primarily used to integrate the language of the domain into the application’s system of types. It is a common misconception to treat Value Objects as dummy data structures. In practice, a Value Object is the way to escape all the problems related to the data structures, such as data inconsistencies and [anemic models](https://www.martinfowler.com/bliki/AnemicDomainModel.html).
 
 ## Why Protobuf?
+
 Creating Value Objects in Protobuf is convenient because:
 
 1. The domain types are created fast and for the many target languages, officially [supported by Google](https://developers.google.com/protocol-buffers/docs/tutorials) and [third-party](https://chromium.googlesource.com/chromium/src/+/master/third_party/protobuf/docs/third_party.md).
@@ -36,13 +40,14 @@ string value = 1 [
 
 Out of this declaration, the Protobuf compiler will generate a type, instances of which are compared by the value field. For example, in Java, the class would have a generated `equals()` method.
 
-Note that the `(required)` and `(pattern)` options are extensions to Protobuf provided by the [Validation library](https://spine.io/docs/guides/validation) (which is a part of the Spine Event Engine framework).
+Note that the `(required)` and `(pattern)` options are extensions to Protobuf provided by the [Validation library](docs/guides/validation/) (which is a part of the Spine Event Engine framework).
 
 In addition, in some target languages, such as Java, generated Protobuf types are immutable by default. Unfortunately, some other languages, such as JavaScript and Dart, only support [mutable types](https://github.com/dart-lang/protobuf/issues/413). For Dart, however, a community-driven solution seems to be on the way. The [immutable_proto](https://pub.dev/packages/immutable_proto) package implements code generation for immutable types from Protobuf. We have not tried it out yet, as the library is still in its earliest form, but the notion that other engineers feel our pain and try to do something about it as well warms our hearts.
 
 For further reading on immutability with regards to Protobuf, see our [previous article](blog/protobuf-immutability/).
 
 ## Validation
+
 The `EmailAddress` type as declared above has one string field with naive validation via a regular expression. Also, the value field should be filled. This validation API is a part of our efforts on improving the code generation with Protobuf. Right now, we generate validation code for Java and Dart, in order to cover both backend and frontend. Later, other target languages might join the club.
 
 The validation rules are determined based on the options, such as `(required)` and `(pattern)`. At build time, we add the extra code which validates the message values based on those rules. The code is triggered automatically when a message is constructed. No more extra easy-to-forget steps for validation!
@@ -50,6 +55,7 @@ The validation rules are determined based on the options, such as `(required)` a
 We will discuss the capabilities and the internals of our validation mechanism in more detail in the next articles of this series.
 
 ## Adding Behavior with the (is) Option
+
 An important part of the Value Object is its behavior. OOP greatly influences the mindset of a programmer, and the need to create utility classes and methods for every little thing at the same time annoys and complicates writing and understanding the code. The ability to create domain types quickly is nice, but we also want them to be convenient to “talk” about in the code. Instead of `user.getAddress().getCountry()`, we would like to be able to write `user.country()`.
 
 In Java, Protobuf generates non-extensible classes, which makes it hard to add behavior to them. We have solved this problem by defining the option (is). It takes the names of Java interfaces with which we want to mark the Protobuf message. Such interfaces may include default methods, adding behavior to the Value Object. Our custom Protobuf compiler plugin modifies the generated code so that the Proto-types implement the assigned interfaces. Here is how this works.
@@ -65,7 +71,6 @@ Address address = 2 [(required) = true];
 ```
 
 And here is the `UserMixin` declaration:
-
 
 ```java
 public interface UserMixin extends UserOrBuilder {
@@ -127,6 +132,7 @@ string phone = 3;
 Since Protobuf is specifically designed to allow additive changes to types without any migration hustle, changing ID structure might just be as easy as adding extra fields to the ID type.
 
 ## Conclusion
+
 Value Objects as a whole is a great concept. It helps the developers bring the ubiquitous language into the code and avoid errors by forming a strongly typed model, instead of one based on primitives.
 
 Protobuf helps make the creation and maintenance of Value Objects easier. Simple Value Objects which introduce domain clarity into the code are a great improvement already. Coupled with typed identifiers, they bring extra benefits. Thanks to Protobuf, such types can be declared once and distributed all around the system, bridging the language barriers between different components.
