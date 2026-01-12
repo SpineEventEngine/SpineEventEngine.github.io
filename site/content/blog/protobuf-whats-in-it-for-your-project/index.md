@@ -61,7 +61,7 @@ Protobuf employs the binary serialization mechanism to transfer data between the
 
 Let’s assume we have a data type `Task` defined as follows:
 
-```.proto
+```proto
 message Task {
     string name = 1;
     string description = 2;
@@ -123,7 +123,7 @@ To avoid unpleasant surprises we recommend the following cycle to process the de
 
 **Step 1.** Mark the field with the `deprecated` option:
 
-```.proto
+```proto
 message MyMessage {
    ...
    int32 old_field = 6 [deprecated = true];
@@ -135,8 +135,8 @@ message MyMessage {
 
 **Step 4.** Delete the field, marking its index and name as `reserved`:
 
- ```.proto
- message MyMessage {
+```proto
+message MyMessage {
     ...
     reserved 6;
     reserved “old_field”;

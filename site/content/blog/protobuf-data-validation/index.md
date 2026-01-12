@@ -22,7 +22,7 @@ A well-integrated validation mechanism sieves off corrupted (or, often, mistyped
 When talking about validation, we mean the integrity of the individual objects, rather than the whole system. Consider a user account model:
 {{% /note-block %}}
 
-```.proto
+```proto
 message User {
 
     // ...
@@ -80,7 +80,7 @@ Protobuf provides options as a native way to declare the meta-data for each file
 
 Consider the following message:
 
-```.proto
+```proto
 message LocalDate {
     int32 year = 1;
     Month month = 2;
@@ -90,7 +90,7 @@ message LocalDate {
 
 It’s up to users to define their custom options and then provide some mechanism to deal with them. On top of this feature, we have built an infrastructure for validating Protobuf messages. Validation rules are defined using custom options for fields and messages:
 
-```.proto
+```proto
 message LocalDate {
     int32 year = 1;
     Month month = 2 [(required) = true];
@@ -141,7 +141,7 @@ Users of our Validation library can also extend the standard set of options with
 
 Consider the following message:
 
-```.proto
+```proto
 message Project {
     // ...
     ZonedDateTime when_created = 4 [(required) = true];
@@ -150,7 +150,7 @@ message Project {
 
 The `when_created` field stores the info about the timestamp of the project creation. It is true that the field must be set, i.e. it always exists in the domain, hence an absence of this value is a technical error. And there’s more to it. We’ll assume that the described project already exists in real life. So, its creation time has to be in the past from now. Let’s introduce an option to signify that. To do so, we extend the standard set of field options with a new one:
 
-```.proto
+```proto
 import “google/protobuf/descriptor.proto”;
 
 extend google.protobuf.FieldOptions {
@@ -178,7 +178,7 @@ The field number for the `when` option is 73819. It is due to how Protobuf distr
 
 Now, we just use the option in the domain:
 
-```.proto
+```proto
 
 import “example/validation_options.proto”;
 

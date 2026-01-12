@@ -25,7 +25,7 @@ Creating Value Objects in Protobuf is convenient because:
 1. The domain types are created fast and for the many target languages, officially [supported by Google](https://developers.google.com/protocol-buffers/docs/tutorials) and [third-party](https://chromium.googlesource.com/chromium/src/+/master/third_party/protobuf/docs/third_party.md).
    Let’s see how the Value Object can be implemented in Protobuf.
 
-```.proto
+```proto
 message EmailAddress {
 string value = 1 [
 (required) = true,
@@ -54,7 +54,7 @@ An important part of the Value Object is its behavior. OOP greatly influences th
 
 In Java, Protobuf generates non-extensible classes, which makes it hard to add behavior to them. We have solved this problem by defining the option (is). It takes the names of Java interfaces with which we want to mark the Protobuf message. Such interfaces may include default methods, adding behavior to the Value Object. Our custom Protobuf compiler plugin modifies the generated code so that the Proto-types implement the assigned interfaces. Here is how this works.
 
-``` .proto
+```proto
 message User {
 option (is).java_type = "UserMixin";
 UserId id = 1 [(required) = true];
@@ -106,7 +106,7 @@ completeOrder(UserId u, CustomerId c, OrderId o);
 
 Another benefit to type-safe identifiers lies in their structure. In the basic case, an ID type for an entity looks as follows:
 
-```.proto
+```proto
 message CustomerId {
 string uuid = 1;
 }
@@ -114,7 +114,7 @@ string uuid = 1;
 
 However, by hiding the type of identifier implementation, we gain the ability to expand it if necessary. For example, to integrate the data of different vendors. We can do it with `oneof` construction:
 
-```.proto
+```proto
 message CustomerId {
 oneof kind {
 uint64 code = 1;
