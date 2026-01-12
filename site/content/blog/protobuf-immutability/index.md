@@ -76,7 +76,7 @@ Such a difference between Java and client-side languages can be explained by a d
 
 Nevertheless, in Dart, there are a few tools, as well as language structures, which can help you with immutability. For instance, `built_value` and `freezed` are two libraries that allow their users to create immutable data types with [almost no extra effort](https://levelup.gitconnected.com/flutter-dart-immutable-objects-and-values-5e321c4c654e). But in order to achieve immutability for data types that originate in Protobuf, we’d have to arrange the conversion from mutable to immutable types, which is a lot of manual work. And in the end, we’d get two classes for one Protobuf type. This is a suboptimal solution, to say the least.
 
-We have tried creating a symbiosis between `built_value` and Protobuf to achieve immutable “front-facing” types, which would rely on standard Protobuf Dart code for serialization. This attempt has failed as we have found ourselves juggling too many noncoherent abstractions. At the time of writing, we [plan](https://github.com/SpineEventEngine/core-java/issues/1334) to implement custom code generation to support Dart, JavaScript, and Java, which addresses the limitations we face and provides immutability.
+We have tried creating a symbiosis between `built_value` and Protobuf to achieve immutable “front-facing” types, which would rely on standard Protobuf Dart code for serialization. This attempt has failed as we have found ourselves juggling too many noncoherent abstractions. At the time of writing, we [plan]({{% get-site-data "spine.core_jvm_repo" %}}/issues/1334) to implement custom code generation to support Dart, JavaScript, and Java, which addresses the limitations we face and provides immutability.
 
 ## What’s Next?
 
