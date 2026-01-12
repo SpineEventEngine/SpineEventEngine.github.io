@@ -51,17 +51,17 @@ In Java, generated Protobuf classes are always immutable. Each class has a neste
 
 ```java
 Task task = Task.newBuilder()
-.setName(“…”)
-.setDescription(“…”)
-.build();
+                .setName(“…”)
+                .setDescription(“…”)
+                .build();
 ```
 
 In order to change a value, we create a new message based on an existing one.
 
 ```java
 Task updated = task.toBuilder()
-.setDescription(“…”)
-.build();
+                   .setDescription(“…”)
+                   .build();
 ```
 
 The way Protobuf generates code represents a typical immutable API in Java, excluding some Protobuf-specific extras, such as reflection, etc.

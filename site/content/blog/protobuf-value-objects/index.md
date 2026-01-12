@@ -31,10 +31,10 @@ Creating Value Objects in Protobuf is convenient because:
 
 ```proto
 message EmailAddress {
-string value = 1 [
-(required) = true,
-(pattern).regex = ".+@.+\..+"
-];
+    string value = 1 [
+        (required) = true,
+        (pattern).regex = ".+@.+\..+"
+    ];
 }
 ```
 
@@ -62,11 +62,11 @@ In Java, Protobuf generates non-extensible classes, which makes it hard to add b
 
 ```proto
 message User {
-option (is).java_type = "UserMixin";
-UserId id = 1 [(required) = true];
-// The primary billing address.
-Address address = 2 [(required) = true];
-...
+    option (is).java_type = "UserMixin";
+    UserId id = 1 [(required) = true];
+    // The primary billing address.
+    Address address = 2 [(required) = true];
+    ...
 }
 ```
 
@@ -74,13 +74,13 @@ And here is the `UserMixin` declaration:
 
 ```java
 public interface UserMixin extends UserOrBuilder {
-/**
-* Obtains the residence country of this user.
-*/
-default Country country() {
-return getAddress().getCountry();
-}
-...
+    /**
+     * Obtains the residence country of this user.
+     */
+    default Country country() {
+        return getAddress().getCountry();
+    }
+    ...
 }
 ```
 
@@ -113,7 +113,7 @@ Another benefit to type-safe identifiers lies in their structure. In the basic c
 
 ```proto
 message CustomerId {
-string uuid = 1;
+    string uuid = 1;
 }
 ```
 
@@ -121,11 +121,11 @@ However, by hiding the type of identifier implementation, we gain the ability to
 
 ```proto
 message CustomerId {
-oneof kind {
-uint64 code = 1;
-EmailAddress email = 2;
-string phone = 3;
-}
+    oneof kind {
+        uint64 code = 1;
+        EmailAddress email = 2;
+        string phone = 3;
+    }
 }
 ```
 
