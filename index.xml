@@ -75,7 +75,14 @@ Breaking Changes&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-ic
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Instead of &lt;code&gt;NodeId&lt;/code&gt;, &lt;code&gt;ShardSessionRecord&lt;/code&gt; now uses &lt;code&gt;WorkerId&lt;/code&gt; to indicate
-who is currently processing which shard.&lt;/p&gt;</description></item><item><title>Release Notes v1.7.5</title><link>https://spine.io/release-notes/2021/v1.7.5/</link><pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2021/v1.7.5/</guid><description>&lt;h1 id="spine-175" data-title&gt;
+who is currently processing which shard.&lt;/p&gt;</description></item><item><title>Protobuf — serialization and beyond. Part 4. Data validation</title><link>https://spine.io/blog/protobuf-data-validation/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://spine.io/blog/protobuf-data-validation/</guid><description>&lt;p&gt;&lt;em&gt;In this series, we explore the features and advantages of using Protocol Buffers as a model-building tool. In this part, we take a look at how to validate data with Protobuf and what can be learned from the mechanisms behind data validation.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="what-is-validation" data-title&gt;
+What is Validation?&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#what-is-validation
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;When developing a domain model, one often faces a need to enforce certain rules upon the data objects. Strongly-typed languages, such as Java, help us order up data into neat structures and then build &lt;a href="https://spine.io/blog/protobuf-value-objects/"
+ 
+ &gt;Value Objects&lt;/a&gt; upon those structures. However, none of the programming languages is expressive enough to form the whole model and enforce all the known rules. This is not a failure of the language designers, but a required tradeoff for creating any sort of general-purpose programming language.&lt;/p&gt;</description></item><item><title>Release Notes v1.7.5</title><link>https://spine.io/release-notes/2021/v1.7.5/</link><pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2021/v1.7.5/</guid><description>&lt;h1 id="spine-175" data-title&gt;
 Spine 1.7.5&lt;/h1&gt;
 &lt;h2 id="corejvm" data-title&gt;
 CoreJvm&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#corejvm
@@ -88,7 +95,14 @@ and brings a few requested improvements.&lt;/p&gt;
 subscriptions.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;BlackBoxContext&lt;/code&gt; API has been extended with a few endpoints to test for the positive outcomes.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Additionally, several improvements of &lt;code&gt;config&lt;/code&gt; scripts were brought to this version.&lt;/p&gt;</description></item><item><title>Release Notes v1.7.0</title><link>https://spine.io/release-notes/2020/v1.7.0/</link><pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.7.0/</guid><description>&lt;h1 id="spine-170" data-title&gt;
+&lt;p&gt;Additionally, several improvements of &lt;code&gt;config&lt;/code&gt; scripts were brought to this version.&lt;/p&gt;</description></item><item><title>Protobuf — serialization and beyond. Part 3. Value objects</title><link>https://spine.io/blog/protobuf-value-objects/</link><pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate><guid>https://spine.io/blog/protobuf-value-objects/</guid><description>&lt;p&gt;&lt;em&gt;This article continues the series on the practical aspects of using Google Protocol Buffers. In the following few chapters, we will explore the specifics of using Protobuf in systems based on Domain-Driven Design. This one describes a simple yet powerful concept of Value Objects.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We have been using Protobuf as more than just a serialization mechanism from the very beginning. It provides a language to model the domain. This ability is especially useful in projects based on the &lt;a href="https://martinfowler.com/bliki/DomainDrivenDesign.html"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;Domain-Driven Design&lt;/a&gt; methodology, aka DDD.&lt;/p&gt;</description></item><item><title>Release Notes v1.7.0</title><link>https://spine.io/release-notes/2020/v1.7.0/</link><pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.7.0/</guid><description>&lt;h1 id="spine-170" data-title&gt;
 Spine 1.7.0&lt;/h1&gt;
 &lt;h2 id="base-libraries" data-title&gt;
 Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
@@ -122,7 +136,22 @@ use this site depends upon your consent to the terms stated herein, and if you d
 these terms in full, you should leave this site immediately and cease to use any information that
 you may have obtained from this site.&lt;/p&gt;
 &lt;p&gt;These terms also apply to the information posted on our official information channels on social
-networks, support forums owned and under control of TeamDev.&lt;/p&gt;</description></item><item><title>Release Notes v1.6.0</title><link>https://spine.io/release-notes/2020/v1.6.0/</link><pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.6.0/</guid><description>&lt;h1 id="spine-160" data-title&gt;
+networks, support forums owned and under control of TeamDev.&lt;/p&gt;</description></item><item><title>Protobuf — serialization and beyond. Part 2. Immutability</title><link>https://spine.io/blog/protobuf-immutability/</link><pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate><guid>https://spine.io/blog/protobuf-immutability/</guid><description>&lt;p&gt;&lt;em&gt;In &lt;a href="https://spine.io/blog/protobuf-whats-in-it-for-your-project/"
+ 
+ &gt;part 1&lt;/a&gt; of this series, we have shared how we discovered Protobuf, discussed its advantages over the prior art, and described what it takes to standardize data types in a complex multi-platform software system. In this chapter, we are going to address the elephant in the room which comes with Protobuf in Java in particular — immutable data types.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="to-change-or-not-to-change" data-title&gt;
+To Change or Not to Change&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#to-change-or-not-to-change
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;When first facing the idea of immutable types, one might say: “This will never work! Not only is the concept overcomplicated, but it also leads to inferior performance”. We can sympathize with this emotion. When forced to write extra code to copy the value of an object just to introduce a single change, one should seriously question their goals. If you find yourself asking this question, this article is for you.&lt;/p&gt;</description></item><item><title>Protobuf — serialization and beyond. Part 1. What’s in it for your project</title><link>https://spine.io/blog/protobuf-whats-in-it-for-your-project/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>https://spine.io/blog/protobuf-whats-in-it-for-your-project/</guid><description>&lt;p&gt;&lt;em&gt;This series covers using Google Protocol Buffers (aka &lt;a href="https://developers.google.com/protocol-buffers"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;Protobuf&lt;/a&gt;) to build software Domain-Driven Design way and to cut on the manual effort when migrating data and syncing interaction protocols in complex systems.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;In the first part, we look at the key Protobuf features which make working with data in software development projects more convenient and effective.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Like most developers, we at TeamDev first encountered Protobuf, when we needed to transfer the data between different platforms.&lt;/p&gt;</description></item><item><title>Release Notes v1.6.0</title><link>https://spine.io/release-notes/2020/v1.6.0/</link><pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.6.0/</guid><description>&lt;h1 id="spine-160" data-title&gt;
 Spine 1.6.0&lt;/h1&gt;
 &lt;p&gt;This release brings numerous API improvements, as well as fixes and infrastructure updates
 to the framework.&lt;/p&gt;
@@ -1025,14 +1054,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
 
 
 &lt;style&gt;
-#span-4f3072c8.cloaked-e-mail:before {
+#span-05c59c03.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-4f3072c8"&gt;&lt;/span&gt;&lt;script id="script-4f3072c8"&gt;
- var scriptTag = document.getElementById("script-4f3072c8");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-05c59c03"&gt;&lt;/span&gt;&lt;script id="script-05c59c03"&gt;
+ var scriptTag = document.getElementById("script-05c59c03");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;

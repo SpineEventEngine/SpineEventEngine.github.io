@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spine Blog on Spine Event Engine</title><link>https://spine.io/blog/</link><description>Recent content in Spine Blog on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 02 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>A New Guide on Integrating With a Third Party</title><link>https://spine.io/blog/new-guide-on-integrating-with-third-party/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://spine.io/blog/new-guide-on-integrating-with-third-party/</guid><description>&lt;p&gt;Integrating an Event-based system with third-party software or a legacy system can be tricky.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spine Blog on Spine Event Engine</title><link>https://spine.io/blog/</link><description>Recent content in Spine Blog on Spine Event Engine</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 06 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Protobuf — serialization and beyond. Part 4. Data validation</title><link>https://spine.io/blog/protobuf-data-validation/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://spine.io/blog/protobuf-data-validation/</guid><description>&lt;p&gt;&lt;em&gt;In this series, we explore the features and advantages of using Protocol Buffers as a model-building tool. In this part, we take a look at how to validate data with Protobuf and what can be learned from the mechanisms behind data validation.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="what-is-validation" data-title&gt;
+What is Validation?&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#what-is-validation
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;When developing a domain model, one often faces a need to enforce certain rules upon the data objects. Strongly-typed languages, such as Java, help us order up data into neat structures and then build &lt;a href="https://spine.io/blog/protobuf-value-objects/"
+ 
+ &gt;Value Objects&lt;/a&gt; upon those structures. However, none of the programming languages is expressive enough to form the whole model and enforce all the known rules. This is not a failure of the language designers, but a required tradeoff for creating any sort of general-purpose programming language.&lt;/p&gt;</description></item><item><title>Protobuf — serialization and beyond. Part 3. Value objects</title><link>https://spine.io/blog/protobuf-value-objects/</link><pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate><guid>https://spine.io/blog/protobuf-value-objects/</guid><description>&lt;p&gt;&lt;em&gt;This article continues the series on the practical aspects of using Google Protocol Buffers. In the following few chapters, we will explore the specifics of using Protobuf in systems based on Domain-Driven Design. This one describes a simple yet powerful concept of Value Objects.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We have been using Protobuf as more than just a serialization mechanism from the very beginning. It provides a language to model the domain. This ability is especially useful in projects based on the &lt;a href="https://martinfowler.com/bliki/DomainDrivenDesign.html"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;Domain-Driven Design&lt;/a&gt; methodology, aka DDD.&lt;/p&gt;</description></item><item><title>Protobuf — serialization and beyond. Part 2. Immutability</title><link>https://spine.io/blog/protobuf-immutability/</link><pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate><guid>https://spine.io/blog/protobuf-immutability/</guid><description>&lt;p&gt;&lt;em&gt;In &lt;a href="https://spine.io/blog/protobuf-whats-in-it-for-your-project/"
+ 
+ &gt;part 1&lt;/a&gt; of this series, we have shared how we discovered Protobuf, discussed its advantages over the prior art, and described what it takes to standardize data types in a complex multi-platform software system. In this chapter, we are going to address the elephant in the room which comes with Protobuf in Java in particular — immutable data types.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="to-change-or-not-to-change" data-title&gt;
+To Change or Not to Change&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#to-change-or-not-to-change
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;When first facing the idea of immutable types, one might say: “This will never work! Not only is the concept overcomplicated, but it also leads to inferior performance”. We can sympathize with this emotion. When forced to write extra code to copy the value of an object just to introduce a single change, one should seriously question their goals. If you find yourself asking this question, this article is for you.&lt;/p&gt;</description></item><item><title>Protobuf — serialization and beyond. Part 1. What’s in it for your project</title><link>https://spine.io/blog/protobuf-whats-in-it-for-your-project/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>https://spine.io/blog/protobuf-whats-in-it-for-your-project/</guid><description>&lt;p&gt;&lt;em&gt;This series covers using Google Protocol Buffers (aka &lt;a href="https://developers.google.com/protocol-buffers"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;Protobuf&lt;/a&gt;) to build software Domain-Driven Design way and to cut on the manual effort when migrating data and syncing interaction protocols in complex systems.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;In the first part, we look at the key Protobuf features which make working with data in software development projects more convenient and effective.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Like most developers, we at TeamDev first encountered Protobuf, when we needed to transfer the data between different platforms.&lt;/p&gt;</description></item><item><title>A New Guide on Integrating With a Third Party</title><link>https://spine.io/blog/new-guide-on-integrating-with-third-party/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://spine.io/blog/new-guide-on-integrating-with-third-party/</guid><description>&lt;p&gt;Integrating an Event-based system with third-party software or a legacy system can be tricky.
 We have created a &lt;a href="https://spine.io/docs/guides/integration/"
  
  &gt;detailed guide&lt;/a&gt;, exploring possible
@@ -79,14 +108,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
 
 
 &lt;style&gt;
-#span-4f3072c8.cloaked-e-mail:before {
+#span-05c59c03.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-4f3072c8"&gt;&lt;/span&gt;&lt;script id="script-4f3072c8"&gt;
- var scriptTag = document.getElementById("script-4f3072c8");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-05c59c03"&gt;&lt;/span&gt;&lt;script id="script-05c59c03"&gt;
+ var scriptTag = document.getElementById("script-05c59c03");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
