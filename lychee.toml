@@ -13,7 +13,8 @@ exclude = [
     "stackoverflow.com/questions/*",
     "openjdk.org/*",
     "npmjs.com/*",
-    "raw.githubusercontent.com/SpineEventEngine/*"
+    "raw.githubusercontent.com/SpineEventEngine/*",
+    "medium.com/*"
 ]
 
 # Exclude these filesystem paths from getting checked.
