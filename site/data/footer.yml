@@ -21,6 +21,8 @@ columns:
         url: faq/
       - name: Getting Help
         url: getting-help/
+      - name: Blog
+        url: blog/
   - key: community
     heading: Community
     links:
