@@ -6,4 +6,4 @@ It is only used in the [documentation][documentation-repo] repository.
 You can read more in the corresponding [EMBEDDING.md][embedding-readme]. 
 
 [documentation-repo]: https://github.com/SpineEventEngine/documentation
-[embedding-readme]: https://github.com/SpineEventEngine/documentation/tree/master/_code/EMBEDDING.md
+[embedding-readme]: https://github.com/SpineEventEngine/documentation/blob/master/EMBEDDING.md
