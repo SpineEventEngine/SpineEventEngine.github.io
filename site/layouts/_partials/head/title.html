@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~ Copyright 2026, TeamDev. All rights reserved.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ The not main documentation version will have the suffix "— version <version>".
 {{ $title = replace $title "&nbsp;" " " }}
 {{ $pageURL := .RelPermalink }}
 {{ $productPrefix := site.Data.spine.name }}
-{{ $currentVersion := partial "functions/get-doc-version.html" . }}
+{{ $currentVersion := partial "theme/functions/get-doc-version.html" . }}
 
 {{ if not $currentVersion.is_main }}
     {{ $versionLabel := "version" }}
