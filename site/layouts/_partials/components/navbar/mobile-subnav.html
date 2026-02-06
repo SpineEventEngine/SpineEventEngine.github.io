@@ -44,8 +44,8 @@
         {{ range . }}
             {{ $url := .url }}
             {{ $name := .name }}
-            {{ $isExternalLink := partial "functions/is-external-link.html" $url }}
-            {{ $skipNofollow := partial "functions/whitelist-checker.html" $url }}
+            {{ $isExternalLink := partial "theme/functions/is-external-link.html" $url }}
+            {{ $skipNofollow := partial "theme/functions/whitelist-checker.html" $url }}
             {{ $isActive := eq $currentURL (print "/" $url) }}
             <li class="nav-item doc">
                 {{ if $isExternalLink }}

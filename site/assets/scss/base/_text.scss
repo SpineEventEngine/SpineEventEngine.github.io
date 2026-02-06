@@ -155,9 +155,21 @@ blockquote {
       content: '';
       position: absolute;
       left: 0;
-      width: $icon-size--s;
-      height: $icon-size--s;
+      width: $icon-size-s;
+      height: $icon-size-s;
       background: url('img/icons/quote.svg') no-repeat center/cover;
     }
+  }
+}
+
+a {
+  color: $main-brand-color;
+  font-weight: 400;
+  transition: all .3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: underline;
   }
 }

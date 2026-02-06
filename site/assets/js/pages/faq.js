@@ -26,7 +26,7 @@
 
 'use strict';
 
-import {copyToClipboard} from "js/components/copy-to-clipboard";
+import {copyToClipboard} from "js/theme/copy-to-clipboard";
 
 /**
  * Opens the collapsed FAQ item on hash change and handles the anchor icon click.

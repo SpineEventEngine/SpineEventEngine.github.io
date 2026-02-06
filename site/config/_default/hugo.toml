@@ -9,7 +9,7 @@ disableKinds = ['taxonomy', 'term']
   [[module.imports]]
     path = 'github.com/SpineEventEngine/documentation/docs'
   [[module.imports]]
-    path = 'github.com/TeamDev-Ltd/site-commons'
+    path = 'github.com/SpineEventEngine/site-commons'
 
 [params]
   description = 'Open-source CQRS/ES framework for modern cloud applications'

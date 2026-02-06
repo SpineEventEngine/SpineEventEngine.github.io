@@ -24,45 +24,14 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// Brand Colors
-$main-brand-color: #1a96de;
-$second-brand-color: #116db4;
-$inverse-brand-color: #ffffff;
-$body-light-gray-color: #f6f8fA;
-$warning-color: #deba32;
-$nav-blue-gradient: linear-gradient(152deg, #1378DA 0%, #0B64CC 100%);
+/* Extends colors from `site-commons`. */
+
+$nav-blue-gradient: linear-gradient(152deg, #1378da 0%, #0b64cc 100%);
 $light-blue-bg-color: #edf8ff;
-$note-bg-color: #e0f2ff;
-
-// Dividers
-$divider-color: rgba(0, 0, 0, .08);
 $divider: 1px solid $divider-color;
-$article-border-color: #e6ecf1;
-
-// General Colors
-$black: #2e2e2e;
-$white: #ffffff;
 $light-gray-blue: #eef1f3;
-$text-color: #3a3a3a;
-$error-color: #c40003;
 
-// Links
-$link-color: $main-brand-color;
-$link-hover-color: darken($link-color, 10%);
-$link-blue-color: #5dc4ff;
-
-// Footer
 $footer-color: #232526;
-$footer-text: #eaeaea;
+$footer-text-color: #eaeaea;
 
-// Grays
-$gray-100: rgba(black, .12);
-$gray-200: rgba(black, .26);
-$gray-300: rgba(black, .38);
-$gray-500: rgba(black, .54);
-$gray-600: rgba(black, .6);
-$gray-700: rgba(black, .7);
-
-// Shadows
-$feature-card-shadow: 0 1px 3px 0 rgba($footer-color, .08);
 $navbar-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
