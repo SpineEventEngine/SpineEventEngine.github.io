@@ -33,11 +33,11 @@ The not main documentation version will have the suffix "— version <version>".
 {{ $title = replace $title "&nbsp;" " " }}
 {{ $pageURL := .RelPermalink }}
 {{ $productPrefix := site.Data.spine.name }}
-{{ $currentVersion := partial "theme/functions/get-doc-version.html" . }}
+{{ $currentVersion := partial "theme/functions/get-doc-version-data.html" . }}
 
-{{ if not $currentVersion.is_main }}
+{{ if not $currentVersion.version.is_main }}
     {{ $versionLabel := "version" }}
-    {{ $title = printf "%s — %s %s" $title $versionLabel $currentVersion.short }}
+    {{ $title = printf "%s — %s %s" $title $versionLabel $currentVersion.version.short }}
 {{ end }}
 
 {{ if not .IsHome }}
