@@ -1,4 +1,10 @@
-github.com/SpineEventEngine/documentation/docs v0.0.0-20260205111752-62120db9b2d1 h1:/vyN532WobxlG5eCnyWxif2GoNfmHYKrQuV+vg3vqZM=
-github.com/SpineEventEngine/documentation/docs v0.0.0-20260205111752-62120db9b2d1/go.mod h1:0lSB4kPZY9Qk429mepYiraNIEucYDIwiNVhJ3Wn3gKo=
-github.com/TeamDev-Ltd/site-commons v0.0.0-20251202150534-a795438915ff h1:8kjfGJhf6LeS+IlK9NRktxtcv6O/WDneBuQD3QLPGIs=
-github.com/TeamDev-Ltd/site-commons v0.0.0-20251202150534-a795438915ff/go.mod h1:atDeksDWBzsIidpW6Ivz2yYHwp2JPa1i1KXIxkctQ3c=
+github.com/SpineEventEngine/documentation/docs v0.0.0-20260209184542-08dfe0f985f5 h1:CN3wuRA8kpkyymifAslN90YqT22XSy/P71mgn4kcOp8=
+github.com/SpineEventEngine/documentation/docs v0.0.0-20260209184542-08dfe0f985f5/go.mod h1:0lSB4kPZY9Qk429mepYiraNIEucYDIwiNVhJ3Wn3gKo=
+github.com/SpineEventEngine/site-commons v0.0.0-20260210154705-538d1ec89ea4 h1:7maYB9zQhCE+TLOCxa3tcndLmh/yDpl3i5V+0HCVQQ0=
+github.com/SpineEventEngine/site-commons v0.0.0-20260210154705-538d1ec89ea4/go.mod h1:tkAl4StIREKmz9r5PiJtuDhvwMMkFXKWcaTyxhIikho=
+github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107 h1:2DHRIwwLudP6l3Kh7Nd4KR4uXcsDtIAXE9adW68ivME=
+github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107/go.mod h1:STHyjXejVvPmfrxujfDvhofmjg55mMk+fwI3TVL0b4Y=
+github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400 h1:L6+F22i76xmeWWwrtijAhUbf3BiRLmpO5j34bgl1ggU=
+github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400/go.mod h1:uekq1D4ebeXgduLj8VIZy8TgfTjrLdSl6nPtVczso78=
+github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000/go.mod h1:mFberT6ZtcchrsDtfvJM7aAH2bDKLdOnruUHl0hlapI=
+github.com/twbs/bootstrap v5.3.3+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
