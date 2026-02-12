@@ -45,32 +45,3 @@ disableKinds = ['taxonomy', 'term']
         title = true
   [markup.highlight]
     noClasses = false
-
-# Version control config.
-# To change the current main version, update only the `path` parameter.
-# Read more in the `SpineEventEngine/documentation/SPINE_RELEASE.md` guide.
-#
-# The configuration is currently duplicated from the `SpineEventEngine/documentation`
-# repository due to a known issue with cascading arrays:
-# https://github.com/gohugoio/hugo/issues/13869
-[[cascade]]
-  [cascade.params]
-    url = 'docs/'
-  [cascade.target]
-    # The path to the `_index.md` of the current main version.
-    path = '{/docs/1}'
-    kind = 'section'
-[[cascade]]
-  [cascade.params]
-    url = 'docs/:sections[2:]/'
-  [cascade.target]
-    # The path to the current main version.
-    path = '{/docs/1/**}'
-    kind = 'section'
-[[cascade]]
-  [cascade.params]
-    url = 'docs/:sections[2:]/:contentbasename/'
-  [cascade.target]
-    # The path to the current main version.
-    path = '{/docs/1/**}'
-    kind = 'page'
