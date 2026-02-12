@@ -1,10 +1,10 @@
 ---
 title: Contributor License Agreement
-bodyclass: privacy contributor-agreement
-header_type: fixed-header
+lastmod: 2020-09-04
 url: /contributor-agreement
 customjs: js/pages/privacy.js
-lastmod: 2020-09-04
+header_type: fixed-header
+body_class: privacy contributor-agreement
 ---
 
 # Spine Event Engine Contributor License Agreement

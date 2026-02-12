@@ -1,7 +1,7 @@
 ---
 title: Release Notes
 headline: Release Notes
-bodyclass: docs release-notes
+body_class: docs release-notes
 ---
 
 {{% note-block class="lead" %}}

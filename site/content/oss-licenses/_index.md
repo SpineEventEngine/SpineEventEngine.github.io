@@ -1,6 +1,6 @@
 ---
 title: Open-Source Libraries and Licenses
-bodyclass: licenses
+body_class: licenses
 customjs: js/pages/oss-licenses.js
 ---
 
