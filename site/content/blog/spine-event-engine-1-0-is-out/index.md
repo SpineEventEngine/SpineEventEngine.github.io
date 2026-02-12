@@ -51,4 +51,4 @@ integration with web UI. We will announce the updates [@SpineEngine 𝕏][xtwitt
 [examples]: https://github.com/spine-examples/
 [gitter-room]: https://gitter.im/SpineEventEngine/community
 [spine-github]: https://github.com/SpineEventEngine/
-[xtwitter]: {{% get-site-data "spine.socials.xtwitter" %}}
+[xtwitter]: {{% get-site-data "socials.xtwitter" %}}

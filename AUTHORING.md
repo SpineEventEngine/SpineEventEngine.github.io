@@ -125,13 +125,13 @@ spamming bots. We store all email variables in the `site/data/spine.yml` file.
 In markdown files, use the shortcode with a provided variable from a data file, for example:
 
 ```markdown
-{{< cloakemail address_variable="spine.sales_email" >}}
+{{< cloakemail address_variable="emails.sales_email" >}}
 ```
 
 or with the display text:
 
 ```markdown
-{{< cloakemail address_variable="spine.sales_email" display="Contact us" >}}
+{{< cloakemail address_variable="emails.sales_email" display="Contact us" >}}
 ```
 
 # Note blocks
