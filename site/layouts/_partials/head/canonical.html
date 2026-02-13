@@ -47,11 +47,11 @@ URL if it should navigate to a completely different page.
 
 {{ $currentVersionData := partial "theme/functions/get-doc-version-data.html" $page }}
 {{ $currentModule := $currentVersionData.module }}
-{{ $versions := index site.Data.versions $currentModule | default (slice) }}
-{{ $mainVersion := index (where $versions "is_main" true) 0 }}
+{{ $currentVersion := index site.Data.versions $currentModule | default (slice) }}
+{{ $mainVersion := index (where $currentVersion "is_main" true) 0 }}
 {{ $moduleBase := cond (eq $currentModule "docs") "docs" (printf "docs/%s" $currentModule) }}
 {{ $pathPattern := printf `^%s/[0-9]+/` $moduleBase }}
-{{ $mainVersionPath := replaceRE $pathPattern (print $mainVersion.path  "/") $currentPath }}
+{{ $mainVersionPath := replaceRE $pathPattern (print $mainVersion.content_path  "/") $currentPath }}
 
 {{ with site.GetPage $mainVersionPath }}
     {{ $page = . }}
