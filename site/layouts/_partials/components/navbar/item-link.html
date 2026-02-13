@@ -27,8 +27,8 @@
 {{ $url := .url }}
 {{ $name := .name }}
 {{ $isActive := .is_active }}
-{{ $isExternalLink := partial "functions/is-external-link.html" $url }}
-{{ $skipNofollow := partial "functions/whitelist-checker.html" $url }}
+{{ $isExternalLink := partial "theme/functions/is-external-link.html" $url }}
+{{ $skipNofollow := partial "theme/functions/whitelist-checker.html" $url }}
 
 {{ if $isExternalLink }}
     <a class="nav-item-link external-link"

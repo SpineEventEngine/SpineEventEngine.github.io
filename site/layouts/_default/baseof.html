@@ -3,7 +3,7 @@
       itemscope itemtype="https://schema.org/WebPage"
       prefix="og: http://ogp.me/ns#">
 {{ partial "head/head.html" . }}
-{{ $bodyClass := partial "functions/get-body-class.html" . }}
+{{ $bodyClass := partial "theme/functions/get-body-class.html" . }}
 <body class="{{ $bodyClass }}">
     {{ partial "scripts/body/gtm.html" . }}
     <div class="wrapper">

@@ -1,5 +1,5 @@
 /*!
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@
 .nav-hero-container {
   background-image: $nav-blue-gradient;
   position: relative;
-  padding-bottom: 12px;
 
   &:not(.home-hero) {
     box-shadow: $navbar-shadow;
@@ -36,12 +35,11 @@
   &.home-hero {
     @include breakpoint(md-phone) {
       height: 100vh;
-      padding-bottom: 0;
     }
   }
 
   .page-headline-container {
-    padding-top: 64px;
+    padding-top: $header-height;
 
     .page-headline {
       font-family: $main-mono-font;
@@ -49,15 +47,15 @@
       font-size: 32px;
       line-height: 1.2;
       font-weight: 400;
-      padding-top: 16px;
-      margin-bottom: 24px;
+      padding-top: 12px;
+      margin-bottom: 32px;
     }
   }
 }
 
 // Landing page hero.
 .hero {
-  padding: 96px 0;
+  padding: 96px 0 108px;
   position: relative;
   text-align: center;
 

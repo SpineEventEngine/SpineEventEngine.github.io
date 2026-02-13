@@ -30,7 +30,7 @@
         {
           "icon": "fas fa-lightbulb-on",
           "title": "Clear API",
-          "description": "Concepts from the DDD books, such as [`Aggregate`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.aggregate/-aggregate/index.html), [`Projection`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.projection/-projection/index.html), [`ProcessManager`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.procman/-process-manager/index.html), [`Repository`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server.entity/-repository/index.html) are right in the code. Ever guessed how to cook a [`BoundedContext`]({{% get-site-data \"spine.core_api_doc\" %}}/server/server/io.spine.server/-bounded-context/index.html)? Guess no&nbsp;more!"
+          "description": "Concepts from the DDD books, such as [`Aggregate`]({{% get-site-data \"repositories.core_api_doc\" %}}/server/server/io.spine.server.aggregate/-aggregate/index.html), [`Projection`]({{% get-site-data \"repositories.core_api_doc\" %}}/server/server/io.spine.server.projection/-projection/index.html), [`ProcessManager`]({{% get-site-data \"repositories.core_api_doc\" %}}/server/server/io.spine.server.procman/-process-manager/index.html), [`Repository`]({{% get-site-data \"repositories.core_api_doc\" %}}/server/server/io.spine.server.entity/-repository/index.html) are right in the code. Ever guessed how to cook a [`BoundedContext`]({{% get-site-data \"repositories.core_api_doc\" %}}/server/server/io.spine.server/-bounded-context/index.html)? Guess no&nbsp;more!"
         },
         {
           "icon": "fas fa-clipboard-check",
@@ -40,7 +40,7 @@
         {
           "icon": "far fa-hexagon",
           "title": "Multiple Storage and Deployment Platforms",
-          "description": "The framework promotes development of storage- and platform-agnostic code. You can start with [JDBC]({{% get-site-data \"spine.jdbc_storage_repo\" %}}) and later switch to Google Cloud Platform [Datastore]({{% get-site-data \"spine.gcloud_java_repo\" %}}) simply changing a few lines of&nbsp;code."
+          "description": "The framework promotes development of storage- and platform-agnostic code. You can start with [JDBC]({{% get-site-data \"repositories.jdbc_storage_repo\" %}}) and later switch to Google Cloud Platform [Datastore]({{% get-site-data \"repositories.gcloud_java_repo\" %}}) simply changing a few lines of&nbsp;code."
         },
         {
           "icon": "fas fa-feather-alt",

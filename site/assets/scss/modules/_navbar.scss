@@ -1,5 +1,5 @@
 /*!
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// `$navbar-mobile-breakpoint` is a screen size on which the mobile navigation will be shown.
-// The variable is used in the `_nav-search.scss` file.
-$navbar-mobile-breakpoint: 800px;
-
 .navigation-opened {
-  @include breakpoint($navbar-mobile-breakpoint) {
+  @include breakpoint(mobile-navbar) {
     overflow: hidden;
   }
 
@@ -42,7 +38,7 @@ $navbar-mobile-breakpoint: 800px;
 
 #header {
   width: 100%;
-  min-height: 64px;
+  min-height: $header-height;
   z-index: map_get($z-index, 'header');
   position: absolute;
 
@@ -91,7 +87,7 @@ $navbar-mobile-breakpoint: 800px;
   .navigation-holder {
     margin-left: auto; // Makes float:right; for the Bootstrap v5.
 
-    @include breakpoint($navbar-mobile-breakpoint) {
+    @include breakpoint(mobile-navbar) {
       background-color: $footer-color;
       box-shadow: -1px 0px 8px 0px rgba(black, .25);
       z-index: map_get($z-index, 'nav-mobile');
@@ -119,7 +115,7 @@ $navbar-mobile-breakpoint: 800px;
   .navigation {
     margin: 0 -24px 48px;
 
-    @include breakpoint-min($navbar-mobile-breakpoint) {
+    @include breakpoint-min(mobile-navbar) {
       float: right;
       margin: 5px 0;
     }
@@ -130,7 +126,7 @@ $navbar-mobile-breakpoint: 800px;
       -webkit-transform: translateZ(0);
       line-height: 22px;
 
-      @include breakpoint-min($navbar-mobile-breakpoint) {
+      @include breakpoint-min(mobile-navbar) {
         display: inline-block;
       }
 
@@ -143,7 +139,7 @@ $navbar-mobile-breakpoint: 800px;
         transition: all .2s ease-in-out;
         -webkit-transform: translateZ(0);
 
-        @include breakpoint-min($navbar-mobile-breakpoint) {
+        @include breakpoint-min(mobile-navbar) {
           padding: 16px;
           font-size: 15px;
           letter-spacing: 0.5px;
@@ -178,13 +174,13 @@ $navbar-mobile-breakpoint: 800px;
       }
 
       &.home-item {
-        @include breakpoint-min($navbar-mobile-breakpoint) {
+        @include breakpoint-min(mobile-navbar) {
           display: none;
         }
       }
 
       .mobile-caret-icon {
-        @include breakpoint-min($navbar-mobile-breakpoint) {
+        @include breakpoint-min(mobile-navbar) {
           display: none;
         }
 
@@ -223,7 +219,7 @@ $navbar-mobile-breakpoint: 800px;
     .doc-list-inside {
       margin-bottom: 8px;
 
-      @include breakpoint-min($navbar-mobile-breakpoint) {
+      @include breakpoint-min(mobile-navbar) {
         display: none;
       }
     }
@@ -276,7 +272,7 @@ $navbar-mobile-breakpoint: 800px;
   margin-right: 16px;
   position: absolute;
 
-  @include breakpoint($navbar-mobile-breakpoint) {
+  @include breakpoint(mobile-navbar) {
     display: block;
   }
 

@@ -75,17 +75,20 @@ When working with layout partials, URLs should be specified using the following 
 ### Main navigation
 
 To edit navigation items, modify `site/data/navbar.yml`. 
-The navigation template is located at `site/layouts/_partials/components/navbar/navigation.html`.
+The navigation layout template is located at `site/layouts/_partials/components/navbar/navigation.html`.
 
 ### Documentation side navigation
 
-The documentation side navigation can be edited in the [SpineEventEngine/documentation](https://github.com/SpineEventEngine/documentation)
-repository in the `docs/data/docs/<version>/sidenav.yml` file.
+The documentation side navigation can be edited in the [SpineEventEngine/documentation][documentation-repo]
+repository in the `docs/data/docs/<version_id>/sidenav.yml` file.
+
+If it is part of a specific documentation module, it can be found in the corresponding repository 
+at `docs/data/docs/<module>/<version_id>/sidenav.yml`.
 
 ### Documentation “Next/Prev” buttons
 
-The “Prev”/“Next” buttons are generated automatically for all document pages.
-The implementation is inside the [SpineEventEngine/documentation](https://github.com/SpineEventEngine/documentation).
+The “Prev”/“Next” buttons are generated automatically for all document pages based on the `sidenav.yml`.
+The implementation is inside the [SpineEventEngine/site-commons][site-commons].
 
 # Adding code samples to the site
 
@@ -125,13 +128,13 @@ spamming bots. We store all email variables in the `site/data/spine.yml` file.
 In markdown files, use the shortcode with a provided variable from a data file, for example:
 
 ```markdown
-{{< cloakemail address_variable="spine.sales_email" >}}
+{{< cloakemail address_variable="emails.sales_email" >}}
 ```
 
 or with the display text:
 
 ```markdown
-{{< cloakemail address_variable="spine.sales_email" display="Contact us" >}}
+{{< cloakemail address_variable="emails.sales_email" display="Contact us" >}}
 ```
 
 # Note blocks
@@ -216,3 +219,5 @@ the entire line with background.
 
 [code-fences-doc]: https://gohugo.io/content-management/syntax-highlighting/#highlighting-in-code-fences
 [syntax-highlighting-languages]: https://gohugo.io/content-management/syntax-highlighting/#languages
+[documentation-repo]: https://github.com/SpineEventEngine/documentation
+[site-commons]: https://github.com/SpineEventEngine/site-commons

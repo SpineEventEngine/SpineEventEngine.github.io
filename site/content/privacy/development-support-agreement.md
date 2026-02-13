@@ -1,10 +1,10 @@
 ---
 title: Development Support Agreement
-bodyclass: privacy development-support-agreement
-header_type: fixed-header
+lastmod: 2020-09-07
 url: /development-support-agreement
 customjs: js/pages/privacy.js
-lastmod: 2020-09-07
+header_type: fixed-header
+body_class: privacy development-support-agreement
 ---
 
 # Spine Event Engine Development Support Agreement

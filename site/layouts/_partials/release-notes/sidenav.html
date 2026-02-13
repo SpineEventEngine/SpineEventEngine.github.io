@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~ Copyright 2026, TeamDev. All rights reserved.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -33,18 +33,18 @@
 {{ end }}
 
 {{ if $sidenavData }}
-    {{ partial "docs/components/sidenav/mobile-header.html" . }}
+    {{ partial "theme/docs/components/sidenav/mobile-header.html" . }}
     <ul class="doc-sidenav release-notes-sidenav set-max-height">
         {{ range $sidenavData }}
             {{ if .children }}
                 {{ $isActive := eq .key $yearNow }}
-                {{ partial "docs/components/sidenav/category.html" (dict
+                {{ partial "theme/docs/components/sidenav/category.html" (dict
                     "page_context" $page
                     "item_context" .
                     "is_active" $isActive
                 ) }}
             {{ else }}
-                {{ partial "docs/components/sidenav/page.html" (dict
+                {{ partial "theme/docs/components/sidenav/page.html" (dict
                     "page_context" $page
                     "item_context" .
                 ) }}

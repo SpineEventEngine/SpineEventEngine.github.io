@@ -46,7 +46,7 @@
             </div>
             <ul class="footer-nav-list collapse" id="{{ $columnId }}">
                 {{ range $column.links }}
-                    {{ $url := partial "functions/parse-shortcode.html" .url }}
+                    {{ $url := partial "theme/functions/parse-shortcode.html" .url }}
                     {{ if .icon_name }}
                         <li>
                             <a href="{{ $url }}"

@@ -8,7 +8,6 @@ on:
 
 env:
   HUGO_VERSION: 0.150.0
-  GH_USER: site-commons-machine-user
 
 jobs:
   deploy:
@@ -48,9 +47,6 @@ jobs:
           key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-hugomod-
-
-      - name: Prepare Environment
-        run: git config --global url."https://${{ env.GH_USER }}:${{ secrets.GH_SITE_COMMONS_PAT }}@github.com".insteadOf "https://github.com"
 
       - name: Install Dependencies
         working-directory: site

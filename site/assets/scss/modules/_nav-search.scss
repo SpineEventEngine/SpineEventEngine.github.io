@@ -1,5 +1,5 @@
 /*!
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
  */
 
 $docsearch-icon-color: rgba(white, .54);
-$docsearch-mobile-breakpoint: 800px;
+$docsearch-mobile-breakpoint: map-get($breakpoints, mobile-navbar);
 $docsearch-algolia-mobile: 750px;
 $docsearch-border-color: #ebedf5;
 

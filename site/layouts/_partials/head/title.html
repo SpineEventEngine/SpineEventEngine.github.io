@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~ Copyright 2026, TeamDev. All rights reserved.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -29,15 +29,17 @@ Basically all pages will have the prefix "Spine /" added.
 The not main documentation version will have the suffix "— version <version>".
 -->
 
-{{ $title := .Title | default site.Params.title }}
+{{ $title := .Title | default site.Title }}
 {{ $title = replace $title "&nbsp;" " " }}
 {{ $pageURL := .RelPermalink }}
 {{ $productPrefix := site.Data.spine.name }}
-{{ $currentVersion := partial "functions/get-doc-version.html" . }}
+{{ $currentVersionData := partial "theme/functions/get-doc-version-data.html" . }}
 
-{{ if not $currentVersion.is_main }}
-    {{ $versionLabel := "version" }}
-    {{ $title = printf "%s — %s %s" $title $versionLabel $currentVersion.short }}
+{{ with $currentVersionData.version }}
+    {{ if not .is_main }}
+        {{ $versionLabel := .label }}
+        {{ $title = printf "%s — version %s" $title $versionLabel }}
+    {{ end }}
 {{ end }}
 
 {{ if not .IsHome }}

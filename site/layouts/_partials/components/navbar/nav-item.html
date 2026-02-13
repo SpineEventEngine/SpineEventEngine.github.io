@@ -28,7 +28,7 @@
 {{ $currentPage := .current_page }}
 {{ $currentRootSection := .current_root_section }}
 
-{{ $itemURL := partial "functions/parse-shortcode.html" $item.url }}
+{{ $itemURL := partial "theme/functions/parse-shortcode.html" $item.url }}
 {{ $itemURL = $itemURL | relURL }}
 {{ $itemName := $item.name }}
 {{ $isActive := and (ne $itemURL "/") (in $itemURL (printf "/%s/" $currentRootSection)) }}
