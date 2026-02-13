@@ -49,10 +49,6 @@
   transition: all .3s ease-in-out;
 }
 
-.nobr {
-  white-space: nowrap;
-}
-
 .section {
   padding: 50px 0;
   position: relative;
@@ -70,17 +66,6 @@
   @include breakpoint(desktop) {
     margin-top: $header-height + 16px;;
   }
-}
-
-table,
-th,
-td {
-  border: 1px solid lighten($text-color, 20%);
-  padding: 6px
-}
-
-table {
-  border-collapse: collapse;
 }
 
 // Expandable title with caret icon before.
