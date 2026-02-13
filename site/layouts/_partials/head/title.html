@@ -29,15 +29,17 @@ Basically all pages will have the prefix "Spine /" added.
 The not main documentation version will have the suffix "— version <version>".
 -->
 
-{{ $title := .Title | default site.Params.title }}
+{{ $title := .Title | default site.Title }}
 {{ $title = replace $title "&nbsp;" " " }}
 {{ $pageURL := .RelPermalink }}
 {{ $productPrefix := site.Data.spine.name }}
-{{ $currentVersion := partial "theme/functions/get-doc-version-data.html" . }}
+{{ $currentVersionData := partial "theme/functions/get-doc-version-data.html" . }}
 
-{{ if not $currentVersion.version.is_main }}
-    {{ $versionLabel := "version" }}
-    {{ $title = printf "%s — %s %s" $title $versionLabel $currentVersion.version.short }}
+{{ with $currentVersionData.version }}
+    {{ if not .is_main }}
+        {{ $versionLabel := .label }}
+        {{ $title = printf "%s — version %s" $title $versionLabel }}
+    {{ end }}
 {{ end }}
 
 {{ if not .IsHome }}
