@@ -128,9 +128,8 @@ related PR &lt;a href="https://github.com/SpineEventEngine/base-libraries/pull/5
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- &gt;#596&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Terms of Use</title><link>https://spine.io/terms-of-use/</link><pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate><guid>https://spine.io/terms-of-use/</guid><description>&lt;h1 id="terms-of-use" data-anchor&gt;
- &lt;span data-title&gt;Terms of Use&lt;/span&gt;
-&lt;/h1&gt;
+ &gt;#596&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Terms of Use</title><link>https://spine.io/terms-of-use/</link><pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate><guid>https://spine.io/terms-of-use/</guid><description>&lt;h1 id="terms-of-use" data-title&gt;
+Terms of Use&lt;/h1&gt;
 &lt;p&gt;Please do carefully read the statement below before you start using this site. The permission to
 use this site depends upon your consent to the terms stated herein, and if you do not agree with
 these terms in full, you should leave this site immediately and cease to use any information that
@@ -190,9 +189,8 @@ Execution environment&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anch
  rel="noopener nofollow"
  &gt;#545&lt;/a&gt;].&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Environment&lt;/code&gt; now exposes API to register user-defined environment types.
-This can be done by extending the &lt;code&gt;EnvironmentType&lt;/code&gt; class:&lt;/p&gt;</description></item><item><title>Development Support Agreement</title><link>https://spine.io/development-support-agreement/</link><pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/development-support-agreement/</guid><description>&lt;h1 id="spine-event-engine-development-support-agreement" data-anchor&gt;
- &lt;span data-title&gt;Spine Event Engine Development Support Agreement&lt;/span&gt;
-&lt;/h1&gt;
+This can be done by extending the &lt;code&gt;EnvironmentType&lt;/code&gt; class:&lt;/p&gt;</description></item><item><title>Development Support Agreement</title><link>https://spine.io/development-support-agreement/</link><pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/development-support-agreement/</guid><description>&lt;h1 id="spine-event-engine-development-support-agreement" data-title&gt;
+Spine Event Engine Development Support Agreement&lt;/h1&gt;
 
 &lt;p class="date"&gt;&lt;span&gt;Last updated:&amp;nbsp;&lt;/span&gt;&lt;time datetime="2020-09-07"&gt;September 7, 2020&lt;/time&gt;
 &lt;/p&gt;
@@ -206,9 +204,8 @@ authority to bind this entity to this Agreement.&lt;/p&gt;
 important changes, however will not be obliged to keep you updated. It is your responsibility to
 keep current on the terms of this Agreement. The Agreement modification date will be reflected as
 “Last updated” on the top of the page. By continuing to use the Development Support, you agree to
-be bound by such changes.&lt;/p&gt;</description></item><item><title>Contributor License Agreement</title><link>https://spine.io/contributor-agreement/</link><pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/contributor-agreement/</guid><description>&lt;h1 id="spine-event-engine-contributor-license-agreement" data-anchor&gt;
- &lt;span data-title&gt;Spine Event Engine Contributor License Agreement&lt;/span&gt;
-&lt;/h1&gt;
+be bound by such changes.&lt;/p&gt;</description></item><item><title>Contributor License Agreement</title><link>https://spine.io/contributor-agreement/</link><pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate><guid>https://spine.io/contributor-agreement/</guid><description>&lt;h1 id="spine-event-engine-contributor-license-agreement" data-title&gt;
+Spine Event Engine Contributor License Agreement&lt;/h1&gt;
 &lt;p&gt;This agreement is between You (as defined further below) and TeamDev Ltd. (TeamDev), the owner
 and developer of the Spine Event Engine framework (the &amp;ldquo;Framework&amp;rdquo;).&lt;/p&gt;
 &lt;p&gt;This agreement is needed in order to clarify the intellectual property license granted with
@@ -216,16 +213,16 @@ Contributions from any person or entity. If you are a contributor, whether an in
 developer or a company, please sign this agreement via the appropriate form below. By filling
 the form you consent to these license agreement terms. This license is for your protection
 as a contributor as well as the protection of TeamDev, the Framework and its users; it does
-not change your rights to use your own Contributions for any other purpose.&lt;/p&gt;</description></item><item><title>Privacy Statement</title><link>https://spine.io/privacy-statement/</link><pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate><guid>https://spine.io/privacy-statement/</guid><description>&lt;h1 id="spine-event-engine-privacy-statement" data-anchor&gt;
- &lt;span data-title&gt;Spine Event Engine Privacy Statement&lt;/span&gt;
-&lt;/h1&gt;
+not change your rights to use your own Contributions for any other purpose.&lt;/p&gt;</description></item><item><title>Privacy Statement</title><link>https://spine.io/privacy-statement/</link><pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate><guid>https://spine.io/privacy-statement/</guid><description>&lt;h1 id="spine-event-engine-privacy-statement" data-title&gt;
+Spine Event Engine Privacy Statement&lt;/h1&gt;
 &lt;p&gt;This Privacy Statement covers processing of all personal data that we may collect anytime you
 visit our website or purchase our services.&lt;/p&gt;
 &lt;p&gt;This statement does not cover management of the information you make available to the public,
 including sending it to mailing lists or submitting it to the public projects in code control systems.&lt;/p&gt;
-&lt;h2 id="definitions" data-anchor&gt;
- &lt;span data-title&gt;Definitions&lt;/span&gt;
-&lt;/h2&gt;
+&lt;h2 id="definitions" data-title&gt;
+Definitions&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#definitions
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;“We” shall mean the companies, identified in Contact us section below.&lt;/p&gt;</description></item><item><title>Release Notes v1.5.0</title><link>https://spine.io/release-notes/2020/v1.5.0/</link><pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2020/v1.5.0/</guid><description>&lt;h1 id="spine-150" data-title&gt;
 Spine 1.5.0&lt;/h1&gt;
 &lt;h2 id="base-libraries" data-title&gt;
@@ -1051,17 +1048,15 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
  rel="noopener nofollow"
  &gt;@SpineEngine&lt;/a&gt; or 
 
-
-
 &lt;style&gt;
-#span-459b9ce0.cloaked-e-mail:before {
+#span-210cef44.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-459b9ce0"&gt;&lt;/span&gt;&lt;script id="script-459b9ce0"&gt;
- var scriptTag = document.getElementById("script-459b9ce0");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-210cef44"&gt;&lt;/span&gt;&lt;script id="script-210cef44"&gt;
+ var scriptTag = document.getElementById("script-210cef44");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
@@ -1518,9 +1513,9 @@ Dart&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#da
 &lt;/ul&gt;</description></item><item><title>Application Architecture</title><link>https://spine.io/docs/introduction/diagrams/spine-architecture-diagram-full-screen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/diagrams/spine-architecture-diagram-full-screen/</guid><description>&lt;div class="full-screen-preview"&gt;
  &lt;div class="preview-header"&gt;
  &lt;div class="close-btn-wrapper"&gt;
- &lt;a class="close-btn"
+ &lt;a class="close-icon-button"
  href="https://spine.io/docs/introduction/architecture/"&gt;
- &lt;i class="close-icon" aria-hidden="true"&gt;&lt;/i&gt;
+ &lt;i class="close-icon"&gt;&lt;/i&gt;
  &lt;/a&gt;
  &lt;/div&gt;
  &lt;div class="header-wrapper"&gt;
@@ -2646,9 +2641,8 @@ this goal.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;All of the validation features described here are currently supported in the Java environment.
 Many are supported in Dart as well. For more info, see the description of individual features
-given in the sections below.&lt;/p&gt;</description></item><item><title>Versioning Policy</title><link>https://spine.io/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/versioning/</guid><description>&lt;h1 id="versioning-policy" data-anchor&gt;
- &lt;span data-title&gt;Versioning Policy&lt;/span&gt;
-&lt;/h1&gt;
+given in the sections below.&lt;/p&gt;</description></item><item><title>Versioning Policy</title><link>https://spine.io/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/versioning/</guid><description>&lt;h1 id="versioning-policy" data-title&gt;
+Versioning Policy&lt;/h1&gt;
 &lt;p&gt;Spine version format is &lt;code&gt;[MAJOR].[MINOR].[PATCH]&lt;/code&gt;, where:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
