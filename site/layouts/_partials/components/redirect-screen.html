@@ -36,7 +36,7 @@
                 <p>We are redirecting you<br> to the order page</p>
             </div>
             <div class="redirect-error">
-                {{ $email := site.Data.spine.dev_email }}
+                {{ $email := site.Data.emails.dev_email }}
                 {{ $cloakedEmail := printf "{{< cloakemail address=\"%s\" >}}" $email }}
                 <h2>Sorry, the redirection was interrupted</h2>
                 <p>Please try again. If the issue persists, contact us at

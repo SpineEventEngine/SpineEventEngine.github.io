@@ -28,7 +28,7 @@ columns:
     links:
       - name: GitHub
         icon_name: icon-github
-        url: '{{< get-site-data "spine.socials.github_discussions" >}}'
+        url: '{{< get-site-data "socials.github_discussions" >}}'
       - name: X
         icon_name: icon-xtwitter
-        url: '{{< get-site-data "spine.socials.xtwitter" >}}'
+        url: '{{< get-site-data "socials.xtwitter" >}}'

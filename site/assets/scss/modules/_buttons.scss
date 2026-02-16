@@ -43,6 +43,7 @@ $btn-font-size: 14px;
   }
 
   &:focus {
+    text-decoration: none;
     box-shadow: none;
     outline: 1px dotted;
     outline-offset: -5px;
@@ -98,14 +99,11 @@ $btn-font-size: 14px;
   color: $main-brand-color;
   border: 2px solid $main-brand-color;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgba($main-brand-color, .12);
     color: $main-brand-color;
     border: 2px solid $main-brand-color;
-  }
-
-  &:focus {
-    color: $main-brand-color;
   }
 }
 

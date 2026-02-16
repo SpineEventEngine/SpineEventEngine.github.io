@@ -1,5 +1,5 @@
 /*!
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,16 +24,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+/* Styles from `SpineEventEngine/site-commons`. */
+@import "theme-main";
 
-// Common docs styles from the `SpineEventEngine/documentation`.
-@import "docs-common";
-
-@import "base/mixins";
 @import "base/colors";
-@import "base/override";
 @import "base/common";
-@import "base/text";
 
 @import "modules/navbar";
 @import "modules/nav-search";
@@ -49,10 +44,6 @@
 @import "modules/loader";
 
 @import "pages/landing";
-
-// Page styles from the `SpineEventEngine/documentation`.
-@import "docs";
-
 @import "pages/release-notes/release-notes";
 @import "pages/release-notes/sidenav";
 @import "pages/faq";

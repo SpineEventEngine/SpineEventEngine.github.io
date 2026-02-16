@@ -167,4 +167,4 @@ and of the Council of 27 April 2016 (GDPR).
 ### Send Requests
 
 For any requests concerning your Personal Data, please email us at:
-{{< cloakemail address_variable="spine.privacy_email" >}}
+{{< cloakemail address_variable="emails.privacy_email" >}}

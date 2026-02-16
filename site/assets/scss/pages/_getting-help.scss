@@ -58,7 +58,7 @@
   // A custom width is used here to keep the compared items together as long as possible.
   $mobile-card-screen-size: 610px;
 
-  background-color: $body-light-gray-color;
+  background-color: var(--body-bg-color);
 
   .section-title {
     font-size: 34px;

@@ -36,7 +36,8 @@
 
 <div class="post-info">
     {{- with $postAuthor -}}
-        {{- $author := printf "%s %s&nbsp;" . "on" -}}
+        {{- $author := printf "%s&nbsp;" . -}}
+        {{- $label = "on" -}}
         <span class="post-author">{{ $author | safeHTML }}</span>
     {{- end -}}
     {{- with $context.Params.publishdate -}}

@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~ Copyright 2026, TeamDev. All rights reserved.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -29,8 +29,6 @@
 {{ $isActive := .is_active }}
 
 {{ $currentURL := $currentPage.RelPermalink }}
-{{ $currentVersion := partial "functions/get-doc-version.html" . }}
-{{ $currentSection := partial "functions/get-doc-section.html" . }}
 {{ $subnavId := "docListInside" }}
 
 {{ with $navData }}
@@ -44,8 +42,8 @@
         {{ range . }}
             {{ $url := .url }}
             {{ $name := .name }}
-            {{ $isExternalLink := partial "functions/is-external-link.html" $url }}
-            {{ $skipNofollow := partial "functions/whitelist-checker.html" $url }}
+            {{ $isExternalLink := partial "theme/functions/is-external-link.html" $url }}
+            {{ $skipNofollow := partial "theme/functions/whitelist-checker.html" $url }}
             {{ $isActive := eq $currentURL (print "/" $url) }}
             <li class="nav-item doc">
                 {{ if $isExternalLink }}

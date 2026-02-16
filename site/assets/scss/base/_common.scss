@@ -1,5 +1,5 @@
 /*!
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,10 +49,6 @@
   transition: all .3s ease-in-out;
 }
 
-.nobr {
-  white-space: nowrap;
-}
-
 .section {
   padding: 50px 0;
   position: relative;
@@ -72,17 +68,6 @@
   }
 }
 
-table,
-th,
-td {
-  border: 1px solid lighten($text-color, 20%);
-  padding: 6px
-}
-
-table {
-  border-collapse: collapse;
-}
-
 // Expandable title with caret icon before.
 %expandable-title {
   font-size: $font-size--primary;
@@ -95,8 +80,8 @@ table {
     content: '';
     position: absolute;
     background: url('img/icons/icon-caret-right.svg') no-repeat center/cover;
-    width: $icon-size--s;
-    height: $icon-size--s;
+    width: $icon-size-s;
+    height: $icon-size-s;
     margin-left: -40px;
     margin-top: -2px;
     opacity: .54;

@@ -28,14 +28,13 @@
     <div class="container-fluid content-holder">
         <div class="row">
             <div class="col-md-12 page-headline-container">
-                {{ $headline := .Params.title }}
-                {{ with .Params.headline }}
-                    {{ $headline = . }}
-                {{ end }}
-                {{ if .Params.headline_as_h1 }}
-                    <h1 class="page-headline">{{ $headline }}</h1>
-                {{ else }}
-                    <p class="page-headline">{{ $headline }}</p>
+                {{ $headline := .Params.headline | default .Title }}
+                {{ if $headline }}
+                    {{ if .Params.headline_as_h1 }}
+                        <h1 class="page-headline">{{ $headline }}</h1>
+                    {{ else }}
+                        <p class="page-headline">{{ $headline }}</p>
+                    {{ end }}
                 {{ end }}
             </div>
         </div>

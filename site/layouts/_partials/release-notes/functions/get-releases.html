@@ -39,17 +39,12 @@ The returned array has the same structure as `sidenav.yml`.
 {{ $releases := where site.RegularPages "Section" "release-notes" }}
 {{ $years := partial "release-notes/functions/get-release-years.html" $releases }}
 
-{{- /* Uncomment this block to render the Release Notes index page.
-{{ with site.GetPage "release-notes" }}
-    {{ $pageURL := .RelPermalink }}
-    {{ $pageTitle := partial "components/sidenav/functions/get-page-title.html" (dict "page" dict "context" .) }}
-    {{ $data = $data | append (dict "url" $pageURL "page" $pageTitle) }}
-{{ end }}
-*/ -}}
-
 {{ range $years }}
     {{ $pages := slice }}
-    {{ $groupedReleases := partial "components/release-notes/functions/get-grouped-releases.html" (dict "releases" $releases "year" .) }}
+    {{ $groupedReleases := partial "release-notes/functions/get-grouped-releases.html" (dict
+        "releases" $releases
+        "year" .
+    ) }}
     {{ range $groupedReleases }}
          {{ range .pages }}
              {{ $pageURL := .RelPermalink }}
