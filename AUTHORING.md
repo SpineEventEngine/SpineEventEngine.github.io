@@ -7,6 +7,7 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
     * [URLs in markdown](#urls-in-markdown)
       * [Rule 1](#rule-1----all-internal-links-must-not-start-with-a-slash)
       * [Rule 2](#rule-2----each-link-should-end-with-a-slash-to-prevent-unnecessary-redirects)
+      * [Variables](#variables)
     * [Images](#images)
     * [URLs in HTML](#urls-in-html)
 * [Navigation](#navigation)
@@ -44,6 +45,30 @@ There are two rules to follow:
 |--------------------------------------|-------------------------------------|
 | `[Introduction](docs/introduction/)` | `[Introduction](/docs/introduction)`|
 
+#### Variables
+
+This example shows how to use data variables and a version variable in a URL:
+
+```markdown
+[Hello World]({{% get-site-data "repositories.examples" %}}/hello/)
+
+[Introduction](docs/{{% version %}}/)
+```
+
+Will be rendered as:
+
+```html
+<a href="https://github.com/spine-examples/hello/" target="_blank">Hello World</a>
+
+<a href="/docs/1.9.0/">Introduction</a>
+```
+
+Where:
+
+* {{% get-site-data "repositories.core_jvm_repo" %}} will apply the `core_jvm_repo`
+  from the `site-commons` -> `data/repositories.yml` file.
+* {{% version %}} adds the version label of the current page -> `1.9.0`.
+
 ### Images
 
 To render an image in markdown use:
@@ -69,6 +94,38 @@ When working with layout partials, URLs should be specified using the following 
 ```html
 <img class="logo" src="{{ `img/spine-logo.svg` | relURL }}" alt="Spine logo">
 ```
+
+# Markdown pages
+
+It is nice to have the following parameters on every markdown page, especially in documentation:
+
+```markdown
+---
+title: Getting Started in Java
+description: This guide shows how to start working with Spine in Java.
+headline: Documentation
+---
+```
+
+Where:
+* `title` page title.
+* `description` a short summary of what this page is about. Used for SEO.
+* `headline` shown under the main navigation. If omitted, it is not rendered.
+
+Optional parameters:
+
+```markdown
+---
+header_type: fixed-header
+body_class: privacy
+customjs: js/pages/privacy.js
+---
+```
+
+Where:
+* `header_type` controls how the page header behaves (for example, stays fixed while scrolling).
+* `body_class` adds a CSS class to style a specific page. By default, the body class is based on the page type.
+* `customjs` loads page-specific JavaScript.
 
 # Navigation
 
@@ -123,7 +180,7 @@ file for details.
 # Cloak email
 
 The `cloakemail` shortcode is used to cloak emails or phone numbers from
-spamming bots. We store all email variables in the `site/data/spine.yml` file.
+spamming bots. We store all email variables in the `site/data/emails.yml` file in the `site-commons`.
 
 In markdown files, use the shortcode with a provided variable from a data file, for example:
 
