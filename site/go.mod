@@ -10,7 +10,3 @@ require (
 	github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000 // indirect
 	github.com/twbs/bootstrap v5.3.8+incompatible // indirect
 )
-
-replace github.com/SpineEventEngine/documentation/docs => /Users/julia.evseeva/Source-Code/SpineEventEngine/documentation/docs
-
-replace github.com/SpineEventEngine/validation/docs => /Users/julia.evseeva/Source-Code/SpineEventEngine/validation/docs
