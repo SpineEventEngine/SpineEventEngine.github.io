@@ -1,7 +1,7 @@
 github.com/SpineEventEngine/documentation/docs v0.0.0-20260218163235-1e42a01bda43 h1:U8uzukc07jvl1DncjbbTlsIv6UhJ3E8pd+SiTY+nlnM=
 github.com/SpineEventEngine/documentation/docs v0.0.0-20260218163235-1e42a01bda43/go.mod h1:0lSB4kPZY9Qk429mepYiraNIEucYDIwiNVhJ3Wn3gKo=
-github.com/SpineEventEngine/site-commons v0.0.0-20260219111943-78713d6e90c6 h1:1dMCGgFYMHGUVHCqHN4bjl3Xhcvp6Sj99v810jAv72o=
-github.com/SpineEventEngine/site-commons v0.0.0-20260219111943-78713d6e90c6/go.mod h1:tkAl4StIREKmz9r5PiJtuDhvwMMkFXKWcaTyxhIikho=
+github.com/SpineEventEngine/site-commons v0.0.0-20260224180210-e2fd9147c9ef h1:N/OB3UebjenPJ5FACBAmTER6j82PSjG4OgSv4pytFJI=
+github.com/SpineEventEngine/site-commons v0.0.0-20260224180210-e2fd9147c9ef/go.mod h1:tkAl4StIREKmz9r5PiJtuDhvwMMkFXKWcaTyxhIikho=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107 h1:2DHRIwwLudP6l3Kh7Nd4KR4uXcsDtIAXE9adW68ivME=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107/go.mod h1:STHyjXejVvPmfrxujfDvhofmjg55mMk+fwI3TVL0b4Y=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400 h1:L6+F22i76xmeWWwrtijAhUbf3BiRLmpO5j34bgl1ggU=
