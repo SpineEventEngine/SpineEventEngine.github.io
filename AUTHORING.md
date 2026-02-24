@@ -19,8 +19,6 @@ This document is a guide for adding content to the [spine.io](https://spine.io) 
 * [Cloak email](#cloak-email)
 * [Note blocks](#note-blocks)
 * [Code blocks](#code-blocks)
-  * [With triple backticks](#1-with-triple-backticks)
-  * [Using `highlight` shortcode](#2-using-highlight-shortcode)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -71,7 +69,7 @@ Where:
 
 ### Images
 
-To render an image in markdown use:
+To render an image in Markdown, use:
 
 ```markdown
 ![Image alt](img/articles/test.webp)
@@ -97,7 +95,7 @@ When working with layout partials, URLs should be specified using the following 
 
 # Markdown pages
 
-It is nice to have the following parameters on every markdown page, especially in documentation:
+It is nice to have the following parameters on every Markdown page, especially in documentation:
 
 ```markdown
 ---
@@ -108,9 +106,9 @@ headline: Documentation
 ```
 
 Where:
-* `title` page title.
-* `description` a short summary of what this page is about. Used for SEO.
-* `headline` shown under the main navigation. If omitted, it is not rendered.
+* `title` – the page title.
+* `description` – a short summary of what this page is about. Used for SEO.
+* `headline` – shown under the main navigation. If omitted, it is not rendered.
 
 Optional parameters:
 
@@ -123,9 +121,9 @@ customjs: js/pages/privacy.js
 ```
 
 Where:
-* `header_type` controls how the page header behaves (for example, stays fixed while scrolling).
-* `body_class` adds a CSS class to style a specific page. By default, the body class is based on the page type.
-* `customjs` loads page-specific JavaScript.
+* `header_type` – controls how the page header behaves (for example, stays fixed while scrolling).
+* `body_class` – the CSS class to style a specific page. By default, the body class is based on the page type.
+* `customjs` – the path to the page-specific JavaScript.
 
 # Navigation
 
@@ -182,99 +180,17 @@ file for details.
 The `cloakemail` shortcode is used to cloak emails or phone numbers from
 spamming bots. We store all email variables in the `site/data/emails.yml` file in the `site-commons`.
 
-In markdown files, use the shortcode with a provided variable from a data file, for example:
-
-```markdown
-{{< cloakemail address_variable="emails.sales_email" >}}
-```
-
-or with the display text:
-
-```markdown
-{{< cloakemail address_variable="emails.sales_email" display="Contact us" >}}
-```
+See usage examples in [COMPONENTS.md](https://github.com/SpineEventEngine/site-commons/blob/master/COMPONENTS.md#cloak-email).
 
 # Note blocks
 
-To add a note block with additional styles in markdown files,
-use the predefined `note-block` shortcode.
-
-```markdown
-{{% note-block class="note" %}}
-This is some dummy text to show how a note block can look. Check this 
-[example link to guides][test-url] to see how links appear inside the block.
-
-You can add more lines or even lists:
-- First item.
-- Second item.
-{{% /note-block %}}
-
-[test-url]: docs/guides/
-```
-
-You can use only predefined classes such as: `note`, `warning`, or `lead`.
-
-```markdown
-{{% note-block class="lead" %}}
-The test lead block.
-{{% /note-block %}}
-```
+To add a note block with additional styles in Markdown files,
+use the predefined [`note-block`](https://github.com/SpineEventEngine/site-commons/blob/master/COMPONENTS.md#note-block) 
+shortcode.
 
 # Code blocks
 
-There are two ways to add code blocks with syntax highlighting.
+See usage examples in [COMPONENTS.md](https://github.com/SpineEventEngine/site-commons/blob/master/COMPONENTS.md#code-blocks).
 
-### 1. With triple backticks
-
-Please always specify the [language syntax][syntax-highlighting-languages]
-to avoid problems with the layout.
-
-````markdown
-```bash
-git clone git@github.com:spine-examples/hello.git
-```
-````
-
-You can configure the appearance of Hugo code blocks using parameters,
-as described in the official [documentation][code-fences-doc]:
-
-* `linenos=table` – configures line numbers and renders them in a table view.
-  The table view is necessary for correct copying of code.
-* `hl_lines=[8,"15-17"]` – lists a set of line numbers or line number ranges
-  to be additionally highlighted.
-* `linenostart=199` – starts the line number count from 199.
-
-````markdown
-```java {linenos=table,hl_lines=[8,"15-17"],linenostart=199}
-// ... code
-```
-````
-
-### 2. Using `highlight` shortcode"
-
-The `highlight` shortcode allows to set custom visibility options related to this project, 
-such as custom CSS classes, the text highlighting on the selected line, a file name bar, etc.
-
-```markdown
-{{< highlight lang="java" params="hl_lines=10 19, linenos=table" class="hl-text-only" >}}
-@BeforeEach
-void sendCommand() {
-...
-}
-{{< /highlight >}}
-```
-
-Where:
-
-* `lang` – the language syntax. See the [supported languages][syntax-highlighting-languages].
-* `params` – optional standard Hugo highlighting parameters as a string.
-* `file` – an optional name of the code file to display on the code header panel.
-* `class` – an optional class name that the code block will be wrapped in.
-
-The class `hl-text-only` is predefined and used to highlight only the text without highlighting 
-the entire line with background.
-
-[code-fences-doc]: https://gohugo.io/content-management/syntax-highlighting/#highlighting-in-code-fences
-[syntax-highlighting-languages]: https://gohugo.io/content-management/syntax-highlighting/#languages
 [documentation-repo]: https://github.com/SpineEventEngine/documentation
 [site-commons]: https://github.com/SpineEventEngine/site-commons
