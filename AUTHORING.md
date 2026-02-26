@@ -143,7 +143,7 @@ at `docs/data/docs/<module>/<version_id>/sidenav.yml`.
 ### Documentation “Next/Prev” buttons
 
 The “Prev”/“Next” buttons are generated automatically for all document pages based on the `sidenav.yml`.
-The implementation is inside the [SpineEventEngine/site-commons][site-commons].
+The implementation is inside the [SpineEventEngine/site-commons](https://github.com/SpineEventEngine/site-commons/blob/master/_reference/next-prev-bottom-nav.md).
 
 # Adding code samples to the site
 
@@ -152,7 +152,7 @@ Please see [this document](_code/EMBEDDING.md) for the instructions.
 # Testing broken links
 
 We use the [Lychee](https://github.com/lycheeverse/lychee) tool to test broken links.
-To start test locally you may be required to [install the tool](https://github.com/lycheeverse/lychee?tab=readme-ov-file#installation).
+To start test locally, you may be required to [install the tool](https://github.com/lycheeverse/lychee?tab=readme-ov-file#installation).
 
 Then navigate to the `site` directory and run the site locally
  
@@ -180,17 +180,17 @@ file for details.
 The `cloakemail` shortcode is used to cloak emails or phone numbers from
 spamming bots. We store all email variables in the `site/data/emails.yml` file in the `site-commons`.
 
-See usage examples in [COMPONENTS.md](https://github.com/SpineEventEngine/site-commons/blob/master/COMPONENTS.md#cloak-email).
+See usage examples in [components](https://github.com/SpineEventEngine/site-commons/blob/master/_reference/cloakemail.md).
 
 # Note blocks
 
 To add a note block with additional styles in Markdown files,
-use the predefined [`note-block`](https://github.com/SpineEventEngine/site-commons/blob/master/COMPONENTS.md#note-block) 
+use the predefined [`note-block`](https://github.com/SpineEventEngine/site-commons/blob/master/_reference/note-block.md) 
 shortcode.
 
 # Code blocks
 
-See usage examples in [COMPONENTS.md](https://github.com/SpineEventEngine/site-commons/blob/master/COMPONENTS.md#code-blocks).
+See usage examples in [components](https://github.com/SpineEventEngine/site-commons/blob/master/_reference/code-blocks.md).
 
 [documentation-repo]: https://github.com/SpineEventEngine/documentation
 [site-commons]: https://github.com/SpineEventEngine/site-commons
