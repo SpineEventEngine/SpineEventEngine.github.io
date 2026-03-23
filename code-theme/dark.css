@@ -109,8 +109,8 @@
 /* GenericError */ .chroma .gr { color:#ffa198 }
 /* GenericHeading */ .chroma .gh { color:#29a8b4;font-weight:bold }
 /* GenericInserted */ .chroma .gi { color:#56d364;background-color:#0f5323 }
-/* GenericOutput */ .chroma .go { color:#7a7e85 }
-/* GenericPrompt */ .chroma .gp { color:#7a7e85 }
+/* GenericOutput */ .chroma .go {  }
+/* GenericPrompt */ .chroma .gp {  }
 /* GenericStrong */ .chroma .gs { font-weight:bold }
 /* GenericSubheading */ .chroma .gu { color:#29a8b4 }
 /* GenericTraceback */ .chroma .gt { color:#ff7b72 }
