@@ -14,7 +14,8 @@ exclude = [
     "openjdk.org/*",
     "npmjs.com/*",
     "raw.githubusercontent.com/SpineEventEngine/*",
-    "medium.com/*"
+    "medium.com/*",
+    "levelup.gitconnected.com/*"
 ]
 
 # Exclude these filesystem paths from getting checked.
