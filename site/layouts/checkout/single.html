@@ -2,6 +2,7 @@
     {{ $productName := .Params.product_name | default "Product name" }}
     {{ $netPrice := .Params.net_price | default "0.00" }}
     {{ $vatPrice := .Params.vat_price | default "0.00" }}
+    {{ $vatRate := .Params.vat_rate | default "20%" }}
     {{ $currency := .Params.currency | default "EUR" }}
     {{ $totalPrice := add (float $netPrice) (float $vatPrice) }}
     {{ partial "components/navbar/navbar.html" . }}
@@ -19,12 +20,12 @@
                                     {{ $productName }}
                                 </div>
                                 <div class="checkout-summary__row">
-                                    <span class="checkout-summary__label">Net price</span>
+                                    <span class="checkout-summary__label">Subtotal</span>
                                     <span class="checkout-summary__dots" aria-hidden="true"></span>
                                     <span class="checkout-summary__value checkout-summary__value--amount">{{ $netPrice }} {{ $currency }}</span>
                                 </div>
                                 <div class="checkout-summary__row">
-                                    <span class="checkout-summary__label">Tax (VAT)</span>
+                                    <span class="checkout-summary__label">VAT ({{ $vatRate }})</span>
                                     <span class="checkout-summary__dots" aria-hidden="true"></span>
                                     <span class="checkout-summary__value checkout-summary__value--amount">{{ $vatPrice }} {{ $currency }}</span>
                                 </div>
@@ -39,7 +40,7 @@
                             <h2 class="checkout-form__title">Billing details</h2>
                             <div class="checkout-form__grid">
                                 <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label" for="checkout-email">Email</label>
+                                    <label class="checkout-form__label checkout-form__label--required" for="checkout-email">Email</label>
                                     <input class="checkout-form__input"
                                            id="checkout-email"
                                            name="email"
@@ -47,6 +48,15 @@
                                            autocomplete="email"
                                            inputmode="email"
                                            required>
+                                </div>
+                                <div class="checkout-form__field checkout-form__field--full">
+                                    <label class="checkout-form__label" for="checkout-phone">Phone number</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-phone"
+                                           name="phone"
+                                           type="tel"
+                                           autocomplete="tel"
+                                           inputmode="tel">
                                 </div>
                                 <div class="checkout-form__field">
                                     <label class="checkout-form__label" for="checkout-first-name">First name</label>
@@ -67,15 +77,25 @@
                                            required>
                                 </div>
                                 <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label" for="checkout-company">Company name</label>
+                                    <label class="checkout-form__label checkout-form__label--required" for="checkout-company">Company name</label>
                                     <input class="checkout-form__input"
                                            id="checkout-company"
                                            name="company"
                                            type="text"
-                                           autocomplete="organization">
+                                           autocomplete="organization"
+                                           required>
                                 </div>
                                 <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label" for="checkout-country">Country</label>
+                                    <label class="checkout-form__label checkout-form__label--required" for="checkout-vat-id">VAT ID</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-vat-id"
+                                           name="vat_id"
+                                           type="text"
+                                           autocomplete="off"
+                                           required>
+                                </div>
+                                <div class="checkout-form__field checkout-form__field--full">
+                                    <label class="checkout-form__label checkout-form__label--required" for="checkout-country">Country</label>
                                     <select class="checkout-form__input checkout-form__select"
                                             id="checkout-country"
                                             name="country"
@@ -145,14 +165,6 @@
                                            type="text"
                                            autocomplete="postal-code"
                                            required>
-                                </div>
-                                <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label" for="checkout-vat-id">VAT ID</label>
-                                    <input class="checkout-form__input"
-                                           id="checkout-vat-id"
-                                           name="vat_id"
-                                           type="text"
-                                           autocomplete="off">
                                 </div>
                             </div>
                             <div class="checkout-form__actions">
