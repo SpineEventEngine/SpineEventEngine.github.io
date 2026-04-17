@@ -35,6 +35,132 @@
                                 </div>
                             </div>
                         </div>
+                        <form class="checkout-form" action="#" method="post" novalidate>
+                            <h2 class="checkout-form__title">Billing details</h2>
+                            <div class="checkout-form__grid">
+                                <div class="checkout-form__field checkout-form__field--full">
+                                    <label class="checkout-form__label" for="checkout-email">Email</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-email"
+                                           name="email"
+                                           type="email"
+                                           autocomplete="email"
+                                           inputmode="email"
+                                           required>
+                                </div>
+                                <div class="checkout-form__field">
+                                    <label class="checkout-form__label" for="checkout-first-name">First name</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-first-name"
+                                           name="first_name"
+                                           type="text"
+                                           autocomplete="given-name"
+                                           required>
+                                </div>
+                                <div class="checkout-form__field">
+                                    <label class="checkout-form__label" for="checkout-last-name">Last name</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-last-name"
+                                           name="last_name"
+                                           type="text"
+                                           autocomplete="family-name"
+                                           required>
+                                </div>
+                                <div class="checkout-form__field checkout-form__field--full">
+                                    <label class="checkout-form__label" for="checkout-company">Company name</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-company"
+                                           name="company"
+                                           type="text"
+                                           autocomplete="organization">
+                                </div>
+                                <div class="checkout-form__field checkout-form__field--full">
+                                    <label class="checkout-form__label" for="checkout-country">Country</label>
+                                    <select class="checkout-form__input checkout-form__select"
+                                            id="checkout-country"
+                                            name="country"
+                                            autocomplete="country-name"
+                                            required>
+                                        <option value="" selected disabled>Select country</option>
+                                        <option value="AT">🇦🇹 Austria</option>
+                                        <option value="BE">🇧🇪 Belgium</option>
+                                        <option value="BG">🇧🇬 Bulgaria</option>
+                                        <option value="HR">🇭🇷 Croatia</option>
+                                        <option value="CY">🇨🇾 Cyprus</option>
+                                        <option value="CZ">🇨🇿 Czechia</option>
+                                        <option value="DK">🇩🇰 Denmark</option>
+                                        <option value="EE">🇪🇪 Estonia</option>
+                                        <option value="FI">🇫🇮 Finland</option>
+                                        <option value="FR">🇫🇷 France</option>
+                                        <option value="DE">🇩🇪 Germany</option>
+                                        <option value="GR">🇬🇷 Greece</option>
+                                        <option value="HU">🇭🇺 Hungary</option>
+                                        <option value="IE">🇮🇪 Ireland</option>
+                                        <option value="IT">🇮🇹 Italy</option>
+                                        <option value="LV">🇱🇻 Latvia</option>
+                                        <option value="LT">🇱🇹 Lithuania</option>
+                                        <option value="LU">🇱🇺 Luxembourg</option>
+                                        <option value="MT">🇲🇹 Malta</option>
+                                        <option value="NL">🇳🇱 Netherlands</option>
+                                        <option value="PL">🇵🇱 Poland</option>
+                                        <option value="PT">🇵🇹 Portugal</option>
+                                        <option value="RO">🇷🇴 Romania</option>
+                                        <option value="SK">🇸🇰 Slovakia</option>
+                                        <option value="SI">🇸🇮 Slovenia</option>
+                                        <option value="ES">🇪🇸 Spain</option>
+                                        <option value="SE">🇸🇪 Sweden</option>
+                                    </select>
+                                </div>
+                                <div class="checkout-form__field checkout-form__field--full">
+                                    <label class="checkout-form__label" for="checkout-address-line-1">Address line 1</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-address-line-1"
+                                           name="address_line_1"
+                                           type="text"
+                                           autocomplete="address-line1"
+                                           required>
+                                </div>
+                                <div class="checkout-form__field checkout-form__field--full">
+                                    <label class="checkout-form__label" for="checkout-address-line-2">Address line 2</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-address-line-2"
+                                           name="address_line_2"
+                                           type="text"
+                                           autocomplete="address-line2">
+                                </div>
+                                <div class="checkout-form__field">
+                                    <label class="checkout-form__label" for="checkout-city">City</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-city"
+                                           name="city"
+                                           type="text"
+                                           autocomplete="address-level2"
+                                           required>
+                                </div>
+                                <div class="checkout-form__field">
+                                    <label class="checkout-form__label" for="checkout-postal-code">Postal code</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-postal-code"
+                                           name="postal_code"
+                                           type="text"
+                                           autocomplete="postal-code"
+                                           required>
+                                </div>
+                                <div class="checkout-form__field checkout-form__field--full">
+                                    <label class="checkout-form__label" for="checkout-vat-id">VAT ID</label>
+                                    <input class="checkout-form__input"
+                                           id="checkout-vat-id"
+                                           name="vat_id"
+                                           type="text"
+                                           autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="checkout-form__actions">
+                                <button class="btn btn-bordered-blue checkout-form__submit" type="submit">
+                                    Continue to payment
+                                </button>
+                            </div>
+                        </form>
                         {{ .Content }}
                     </div>
                 </div>
