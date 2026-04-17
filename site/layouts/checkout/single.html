@@ -1,10 +1,40 @@
 {{ define "main" }}
+    {{ $productName := .Params.product_name | default "Product name" }}
+    {{ $netPrice := .Params.net_price | default "0.00" }}
+    {{ $vatPrice := .Params.vat_price | default "0.00" }}
+    {{ $currency := .Params.currency | default "EUR" }}
+    {{ $totalPrice := add (float $netPrice) (float $vatPrice) }}
     {{ partial "components/navbar/navbar.html" . }}
-    <section>
+    <section class="checkout">
         <div class="container-fluid content-holder content-with-fixed-header">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="article-container article-text">
+                        <div class="checkout-summary" aria-label="Order summary">
+                            <header class="checkout-summary__header">
+                                <h1 class="checkout-summary__title">{{ .Params.headline | default .Title }}</h1>
+                            </header>
+                            <div class="checkout-summary__details">
+                                <div class="checkout-summary__product">
+                                    {{ $productName }}
+                                </div>
+                                <div class="checkout-summary__row">
+                                    <span class="checkout-summary__label">Net price</span>
+                                    <span class="checkout-summary__dots" aria-hidden="true"></span>
+                                    <span class="checkout-summary__value checkout-summary__value--amount">{{ $netPrice }} {{ $currency }}</span>
+                                </div>
+                                <div class="checkout-summary__row">
+                                    <span class="checkout-summary__label">Tax (VAT)</span>
+                                    <span class="checkout-summary__dots" aria-hidden="true"></span>
+                                    <span class="checkout-summary__value checkout-summary__value--amount">{{ $vatPrice }} {{ $currency }}</span>
+                                </div>
+                                <div class="checkout-summary__row checkout-summary__row--total">
+                                    <span class="checkout-summary__label">Total</span>
+                                    <span class="checkout-summary__dots" aria-hidden="true"></span>
+                                    <span class="checkout-summary__value checkout-summary__value--total">{{ lang.FormatNumber 2 $totalPrice }} {{ $currency }}</span>
+                                </div>
+                            </div>
+                        </div>
                         {{ .Content }}
                     </div>
                 </div>
