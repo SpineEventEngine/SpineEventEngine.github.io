@@ -6,15 +6,13 @@
     {{ $currency := .Params.currency | default "EUR" }}
     {{ $totalPrice := add (float $netPrice) (float $vatPrice) }}
     {{ partial "components/navbar/navbar.html" . }}
+    {{ partial "components/nav-hero.html" . }}
     <section class="checkout">
-        <div class="container-fluid content-holder content-with-fixed-header">
+        <div class="container-fluid content-holder">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="article-container article-text">
                         <div class="checkout-summary" aria-label="Order summary">
-                            <header class="checkout-summary__header">
-                                <h1 class="checkout-summary__title">{{ .Params.headline | default .Title }}</h1>
-                            </header>
                             <div class="checkout-summary__details">
                                 <div class="checkout-summary__product">
                                     {{ $productName }}

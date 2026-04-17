@@ -68,20 +68,6 @@
   max-width: 100%;
   min-width: 0;
 
-  .checkout-summary__header {
-    margin-bottom: 12px;
-  }
-
-  .checkout-summary__title {
-    margin-bottom: 0;
-    font-size: 40px;
-    line-height: 1.05;
-
-    @include breakpoint(tablet) {
-      font-size: 34px;
-    }
-  }
-
   .checkout-summary__details {
     border-top: none;
     padding-top: 8px;
@@ -192,10 +178,6 @@
   @include breakpoint(lg-phone) {
     margin-bottom: 16px;
 
-    .checkout-summary__title {
-      font-size: 32px;
-    }
-
     .checkout-summary__product {
       font-size: 24px;
       padding-bottom: 6px;
@@ -238,14 +220,6 @@
   }
 
   @include breakpoint(sm-phone) {
-    .checkout-summary__header {
-      margin-bottom: 10px;
-    }
-
-    .checkout-summary__title {
-      font-size: 30px;
-    }
-
     .checkout-summary__product {
       font-size: 22px;
     }
