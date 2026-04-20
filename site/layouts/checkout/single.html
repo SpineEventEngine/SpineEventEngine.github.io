@@ -1,5 +1,6 @@
 {{ define "main" }}
     {{ $productName := .Params.product_name | default "Product name" }}
+    {{ $productDescription := .Params.product_description }}
     {{ $netPrice := .Params.net_price | default "0.00" }}
     {{ $vatPrice := .Params.vat_price | default "0.00" }}
     {{ $vatRate := .Params.vat_rate | default "20%" }}
@@ -17,6 +18,11 @@
                                 <div class="checkout-summary__product">
                                     {{ $productName }}
                                 </div>
+                                {{ with $productDescription }}
+                                    <div class="checkout-summary__product-description">
+                                        {{ . }}
+                                    </div>
+                                {{ end }}
                                 <div class="checkout-summary__row">
                                     <span class="checkout-summary__label">Subtotal</span>
                                     <span class="checkout-summary__dots" aria-hidden="true"></span>
@@ -34,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form class="checkout-form" action="#" method="post" novalidate>
+                        <form class="checkout-form" id="checkout-form" action="#" method="post" novalidate>
                             <h2 class="checkout-form__title">Billing details</h2>
                             <div class="checkout-form__grid">
                                 <div class="checkout-form__field checkout-form__field--full">
@@ -62,8 +68,7 @@
                                            id="checkout-first-name"
                                            name="first_name"
                                            type="text"
-                                           autocomplete="given-name"
-                                           required>
+                                           autocomplete="given-name">
                                 </div>
                                 <div class="checkout-form__field">
                                     <label class="checkout-form__label" for="checkout-last-name">Last name</label>
@@ -71,8 +76,7 @@
                                            id="checkout-last-name"
                                            name="last_name"
                                            type="text"
-                                           autocomplete="family-name"
-                                           required>
+                                           autocomplete="family-name">
                                 </div>
                                 <div class="checkout-form__field checkout-form__field--full">
                                     <label class="checkout-form__label checkout-form__label--required" for="checkout-company">Company name</label>
@@ -135,8 +139,7 @@
                                            id="checkout-address-line-1"
                                            name="address_line_1"
                                            type="text"
-                                           autocomplete="address-line1"
-                                           required>
+                                           autocomplete="address-line1">
                                 </div>
                                 <div class="checkout-form__field checkout-form__field--full">
                                     <label class="checkout-form__label" for="checkout-address-line-2">Address line 2</label>
@@ -152,8 +155,7 @@
                                            id="checkout-city"
                                            name="city"
                                            type="text"
-                                           autocomplete="address-level2"
-                                           required>
+                                           autocomplete="address-level2">
                                 </div>
                                 <div class="checkout-form__field">
                                     <label class="checkout-form__label" for="checkout-postal-code">Postal code</label>
@@ -161,12 +163,13 @@
                                            id="checkout-postal-code"
                                            name="postal_code"
                                            type="text"
-                                           autocomplete="postal-code"
-                                           required>
+                                           autocomplete="postal-code">
                                 </div>
                             </div>
                             <div class="checkout-form__actions">
-                                <button class="btn btn-bordered-blue checkout-form__submit" type="submit">
+                                <button class="btn btn-bordered-blue checkout-form__submit"
+                                        id="checkout-submit"
+                                        type="submit">
                                     Continue to payment
                                 </button>
                             </div>
