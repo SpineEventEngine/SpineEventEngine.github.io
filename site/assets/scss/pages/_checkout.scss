@@ -275,7 +275,7 @@
     grid-column: 1 / -1;
   }
 
-  .checkout-form__field--error {
+  .field-error {
     .checkout-form__label {
       color: #d93025;
     }
@@ -290,7 +290,7 @@
     line-height: 1.3;
   }
 
-  .checkout-form__label--required::after {
+  .required-label::after {
     content: ' *';
     color: #d93025;
     font-weight: 700;
@@ -317,12 +317,12 @@
     }
   }
 
-  .checkout-form__field--error .checkout-form__input {
+  .field-error .checkout-form__input {
     border-color: rgba(#d93025, .7);
     box-shadow: 0 0 0 3px rgba(#d93025, .12);
   }
 
-  .checkout-form__error {
+  .error-message {
     display: none;
     margin-top: 6px;
     color: #d93025;
@@ -330,7 +330,7 @@
     line-height: 1.35;
   }
 
-  .checkout-form__field--error .checkout-form__error {
+  .field-error .error-message {
     display: block;
   }
 
