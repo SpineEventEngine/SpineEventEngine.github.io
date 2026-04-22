@@ -102,7 +102,7 @@ $(
         }
 
         keepProductIdInPath(productId);
-        applyDefaultCountry();
+        updatePhoneCountryDisplay();
         placeOrder();
 
         $form.on('input change', requiredSelector, event => {
@@ -453,21 +453,6 @@ $(
             };
         }
 
-        function applyDefaultCountry() {
-            const countryCode = inferCountryCode();
-
-            if (!countryCode) {
-                updatePhoneCountryDisplay();
-                return;
-            }
-
-            if (!$country.val() && hasCountryOption(countryCode)) {
-                $country.val(countryCode);
-            }
-
-            applyPhoneCountryFromBillingCountry();
-        }
-
         function applyBillingCountryFromPhoneCountry() {
             if (countryManuallySelected) {
                 return;
@@ -487,7 +472,7 @@ $(
         }
 
         function applyPhoneCountryFromBillingCountry() {
-            if (phoneCountryManuallySelected) {
+            if (phoneCountryManuallySelected || hasPhoneNumber()) {
                 updatePhoneCountryDisplay();
                 return;
             }
@@ -512,6 +497,10 @@ $(
             validateField($phoneNumber.get(0));
         }
 
+        function hasPhoneNumber() {
+            return Boolean(($phoneNumber.val() || '').trim());
+        }
+
         function updatePhoneCountryDisplay() {
             const selected = $phoneCountryCode.find(':selected');
             const flag = selected.data('flag') || '';
@@ -530,43 +519,6 @@ $(
 
         function focusPhoneCountrySelector() {
             $phoneCountryCode.trigger('focus');
-        }
-
-        function inferCountryCode() {
-            const languages = navigator.languages && navigator.languages.length
-                ? navigator.languages
-                : [navigator.language || navigator.userLanguage || ''];
-
-            for (const language of languages) {
-                const countryCode = countryCodeFromLocale(language);
-
-                if (countryCode && hasCountryOption(countryCode)) {
-                    return countryCode;
-                }
-            }
-
-            return '';
-        }
-
-        function countryCodeFromLocale(locale) {
-            if (!locale) {
-                return '';
-            }
-
-            if (typeof Intl !== 'undefined' && Intl.Locale) {
-                try {
-                    const region = new Intl.Locale(locale).region;
-
-                    if (region) {
-                        return region.toUpperCase();
-                    }
-                } catch (ignored) {
-                    // Fall back to parsing below.
-                }
-            }
-
-            const match = String(locale).match(/[-_]([A-Za-z]{2})\b/);
-            return match ? match[1].toUpperCase() : '';
         }
 
         function hasCountryOption(countryCode) {
