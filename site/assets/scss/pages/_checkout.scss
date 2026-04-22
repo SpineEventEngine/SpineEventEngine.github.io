@@ -612,6 +612,22 @@
   }
 }
 
+.checkout-not-found {
+  .checkout-not-found__mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $main-brand-color;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
 .checkout-modal {
   position: fixed;
   inset: 0;
