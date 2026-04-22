@@ -167,7 +167,7 @@ $(
             requestChargesNow();
         });
 
-        $form.on('submit', event => {
+        $form.on('submit', async event => {
             event.preventDefault();
 
             const hasErrors = !validateRequiredFields();
@@ -183,23 +183,21 @@ $(
 
             const payload = buildSubmitBillingInfoRequest();
 
-            purchaseClient.submitBillingInfo(payload, {
-                success: response => {
-                    const redirectUrl = response.paymentLink || response.redirectUrl || response.url || response.link;
+            try {
+                const response = await purchaseClient.submitBillingInfo(payload);
+                const redirectUrl = response.paymentLink || response.redirectUrl || response.url || response.link;
 
-                    if (redirectUrl) {
-                        window.location = redirectUrl;
-                    } else {
-                        console.log('Billing info response:', response);
-                    }
-                },
-                error: jqXhr => {
-                    if (isServerErrorResponse(jqXhr)) {
-                        showErrorModal();
-                    }
-                    console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
+                if (redirectUrl) {
+                    window.location = redirectUrl;
+                } else {
+                    console.log('Billing info response:', response);
                 }
-            });
+            } catch (error) {
+                if (isServerErrorResponse(error)) {
+                    showErrorModal();
+                }
+                logApiError(error);
+            }
         });
 
         function validateRequiredFields() {
@@ -208,40 +206,39 @@ $(
                 .every(Boolean);
         }
 
-        function placeOrder() {
+        async function placeOrder() {
             setSummaryLoading(true);
 
-            purchaseClient.placeOrder(productId, {
-                success: response => {
-                    if (!response.product) {
-                        showNotFoundPage();
-                        return;
-                    }
+            try {
+                const response = await purchaseClient.placeOrder(productId);
 
-                    orderId = response.orderId;
-                    hydrateProductSummary(response.product);
-                    setSummaryLoading(false);
-                    requestChargesIfReady();
-                },
-                error: jqXhr => {
-                    if (isNotFoundResponse(jqXhr)) {
-                        showNotFoundPage();
-                        return;
-                    }
-
-                    setSummaryLoading(false);
-                    if (isServerErrorResponse(jqXhr)) {
-                        showErrorModal();
-                        showSummaryError('Failed to load checkout details.');
-                    } else {
-                        showSummaryError(responseMessage(jqXhr) || 'Failed to load checkout details.');
-                    }
-                    console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
+                if (!response.product) {
+                    showNotFoundPage();
+                    return;
                 }
-            });
+
+                orderId = response.orderId;
+                hydrateProductSummary(response.product);
+                setSummaryLoading(false);
+                requestChargesIfReady();
+            } catch (error) {
+                if (isNotFoundResponse(error)) {
+                    showNotFoundPage();
+                    return;
+                }
+
+                setSummaryLoading(false);
+                if (isServerErrorResponse(error)) {
+                    showErrorModal();
+                    showSummaryError('Failed to load checkout details.');
+                } else {
+                    showSummaryError(error.message || 'Failed to load checkout details.');
+                }
+                logApiError(error);
+            }
         }
 
-        function requestChargesIfReady() {
+        async function requestChargesIfReady() {
             const buyerCountryCode = $country.val();
             const vatId = ($vatId.val() || '').trim();
 
@@ -264,24 +261,23 @@ $(
                 vatId
             };
 
-            purchaseClient.calculateCharges(payload, {
-                success: response => {
-                    if (requestId !== chargeRequestId) {
-                        return;
-                    }
+            try {
+                const response = await purchaseClient.calculateCharges(payload);
 
-                    updateCharges(response);
-                },
-                error: jqXhr => {
-                    lastChargesRequestKey = '';
-                    if (isVatIdErrorResponse(jqXhr)) {
-                        showVatIdError(jqXhr.responseJSON.reason);
-                    } else if (isServerErrorResponse(jqXhr)) {
-                        showErrorModal();
-                    }
-                    console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
+                if (requestId !== chargeRequestId) {
+                    return;
                 }
-            });
+
+                updateCharges(response);
+            } catch (error) {
+                lastChargesRequestKey = '';
+                if (isVatIdErrorResponse(error)) {
+                    showVatIdError(error.body.reason);
+                } else if (isServerErrorResponse(error)) {
+                    showErrorModal();
+                }
+                logApiError(error);
+            }
         }
 
         function requestChargesNow() {
@@ -600,24 +596,22 @@ $(
             window.history.replaceState(null, '', `/checkout/${encodeURIComponent(currentProductId)}`);
         }
 
-        function isNotFoundResponse(jqXhr) {
-            return jqXhr.status === 404 || /not found/i.test(responseMessage(jqXhr) || '');
+        function isNotFoundResponse(error) {
+            return error.status === 404 || /not found/i.test(error.message || '');
         }
 
-        function isVatIdErrorResponse(jqXhr) {
-            return jqXhr.status === 422 &&
-                jqXhr.responseJSON &&
-                /^VAT_ID_/.test(jqXhr.responseJSON.reason || '');
+        function isVatIdErrorResponse(error) {
+            return error.status === 422 &&
+                error.body &&
+                /^VAT_ID_/.test(error.body.reason || '');
         }
 
-        function isServerErrorResponse(jqXhr) {
-            return jqXhr.status >= 500;
+        function isServerErrorResponse(error) {
+            return error.status >= 500;
         }
 
-        function responseMessage(jqXhr) {
-            return jqXhr.responseJSON && jqXhr.responseJSON.message
-                ? jqXhr.responseJSON.message
-                : jqXhr.responseText;
+        function logApiError(error) {
+            console.error(`${error.status || 'Network error'}: ${error.statusText || error.message || 'Request failed'}`);
         }
 
         function showNotFoundPage() {

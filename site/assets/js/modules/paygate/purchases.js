@@ -30,14 +30,14 @@ export function createPurchaseClient(serverUrl) {
     const baseUrl = normalizeServerUrl(serverUrl);
 
     return {
-        placeOrder(productId, handlers) {
-            return postJson(`${baseUrl}/purchases/place-order`, {productId}, handlers);
+        placeOrder(productId) {
+            return postJson(`${baseUrl}/purchases/place-order`, {productId});
         },
-        calculateCharges(payload, handlers) {
-            return postJson(`${baseUrl}/purchases/calculate-charges`, payload, handlers);
+        calculateCharges(payload) {
+            return postJson(`${baseUrl}/purchases/calculate-charges`, payload);
         },
-        submitBillingInfo(payload, handlers) {
-            return postJson(`${baseUrl}/purchases/submit-billing-info`, payload, handlers);
+        submitBillingInfo(payload) {
+            return postJson(`${baseUrl}/purchases/submit-billing-info`, payload);
         }
     };
 }
@@ -46,11 +46,48 @@ export function normalizeServerUrl(url) {
     return String(url || '').replace(/\/+$/, '');
 }
 
-function postJson(url, payload, handlers) {
-    return $.ajax(url, {
-        type: 'POST',
-        data: JSON.stringify(payload),
-        contentType: 'application/json',
-        ...handlers
+async function postJson(url, payload) {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
     });
+    const body = await readResponseBody(response);
+
+    if (!response.ok) {
+        throw {
+            status: response.status,
+            statusText: response.statusText,
+            body,
+            message: responseMessage(body)
+        };
+    }
+
+    return body;
+}
+
+async function readResponseBody(response) {
+    const contentType = response.headers.get('content-type') || '';
+
+    if (response.status === 204) {
+        return null;
+    }
+
+    try {
+        return contentType.includes('application/json')
+            ? await response.json()
+            : await response.text();
+    } catch (ignored) {
+        return null;
+    }
+}
+
+function responseMessage(body) {
+    if (!body) {
+        return '';
+    }
+
+    return typeof body === 'string' ? body : body.message || '';
 }
