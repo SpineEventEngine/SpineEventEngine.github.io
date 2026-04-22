@@ -26,12 +26,18 @@
 
 'use strict';
 
+import * as params from '@params';
+
 $(
     function () {
-        const serverUrl = "http://localhost:80";
         const $form = $('#checkout-form');
         const $summary = $('.checkout-summary');
         const $country = $('#checkout-country');
+        const $phone = $('.checkout-form__phone');
+        const $phoneCountryCode = $('#checkout-phone-country-code');
+        const $phoneFlag = $('#checkout-phone-flag');
+        const $phoneDialCode = $('#checkout-phone-dial-code');
+        const $phoneNumber = $('#checkout-phone');
         const $vatId = $('#checkout-vat-id');
         const $loading = $('#checkout-summary-loading');
         const $productName = $('#checkout-product-name');
@@ -40,20 +46,53 @@ $(
         const $vatLabel = $('#checkout-vat-label');
         const $vatValue = $('#checkout-vat-value');
         const $totalValue = $('#checkout-total-value');
+        const $errorModal = $('#checkout-error-modal');
 
         if (!$form.length || !$summary.length) {
             return;
         }
 
+        const serverUrl = normalizeServerUrl(params.paygate.serverurl);
         const form = $form.get(0);
         const requiredSelector = 'input[required], select[required], textarea[required]';
         const productId = getProductId();
         const vatIdInputDelay = 2000;
+        const countryPhoneCodes = {
+            AT: '43',
+            BE: '32',
+            BG: '359',
+            HR: '385',
+            CY: '357',
+            CZ: '420',
+            DK: '45',
+            EE: '372',
+            FI: '358',
+            FR: '33',
+            DE: '49',
+            GR: '30',
+            HU: '36',
+            IE: '353',
+            IT: '39',
+            LV: '371',
+            LT: '370',
+            LU: '352',
+            MT: '356',
+            NL: '31',
+            PL: '48',
+            PT: '351',
+            RO: '40',
+            SK: '421',
+            SI: '386',
+            ES: '34',
+            SE: '46'
+        };
         let orderId = null;
         let currency = '';
         let chargesRequestId = 0;
         let chargesRequestTimer = null;
         let lastChargesRequestKey = '';
+        let countryManuallySelected = false;
+        let phoneCountryManuallySelected = false;
 
         if (!productId) {
             showNotFoundPage();
@@ -61,15 +100,62 @@ $(
         }
 
         keepProductIdInPath(productId);
+        applyDefaultCountry();
         placeOrder();
 
         $form.on('input change', requiredSelector, event => {
             validateField(event.target);
         });
 
+        $('[data-checkout-modal-close]').on('click', closeErrorModal);
+
+        $(document).on('keydown', event => {
+            if (event.key === 'Escape') {
+                closeErrorModal();
+            }
+        });
+
         $country.on('change', () => {
+            countryManuallySelected = true;
+            applyPhoneCountryFromBillingCountry();
+            updateVatIdFieldState();
             clearScheduledChargesRequest();
             requestChargesIfReady();
+        });
+
+        $phoneCountryCode.on('change', () => {
+            phoneCountryManuallySelected = true;
+            updatePhoneCountryDisplay();
+            applyBillingCountryFromPhoneCountry();
+        });
+
+        $phone.on('click', () => {
+            if (!$phoneCountryCode.val()) {
+                focusPhoneCountrySelector();
+            }
+        });
+
+        $phoneNumber.on('focus', () => {
+            if (!$phoneCountryCode.val()) {
+                focusPhoneCountrySelector();
+            }
+        });
+
+        $phoneNumber.on('beforeinput', event => {
+            const originalEvent = event.originalEvent;
+
+            if (originalEvent && originalEvent.data && !isValidPhoneNumberInput(originalEvent.data)) {
+                event.preventDefault();
+            }
+        });
+
+        $phoneNumber.on('input', () => {
+            const value = $phoneNumber.val();
+            const sanitized = sanitizePhoneNumberInput(value);
+
+            if (value !== sanitized) {
+                $phoneNumber.val(sanitized);
+            }
         });
 
         $vatId.on('input', () => {
@@ -111,6 +197,9 @@ $(
                     }
                 },
                 error: jqXhr => {
+                    if (isServerErrorResponse(jqXhr)) {
+                        showErrorModal();
+                    }
                     console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
                 }
             });
@@ -155,7 +244,12 @@ $(
                     }
 
                     setSummaryLoading(false);
-                    showSummaryError(jqXhr.responseJSON && jqXhr.responseJSON.message ? jqXhr.responseJSON.message : 'Failed to load checkout details.');
+                    if (isServerErrorResponse(jqXhr)) {
+                        showErrorModal();
+                        showSummaryError('Failed to load checkout details.');
+                    } else {
+                        showSummaryError(jqXhr.responseJSON && jqXhr.responseJSON.message ? jqXhr.responseJSON.message : 'Failed to load checkout details.');
+                    }
                     console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
                 }
             });
@@ -166,6 +260,7 @@ $(
             const vatId = ($vatId.val() || '').trim();
 
             if (!orderId || !buyerCountryCode || !vatId) {
+                lastChargesRequestKey = '';
                 return;
             }
 
@@ -196,6 +291,11 @@ $(
                 },
                 error: jqXhr => {
                     lastChargesRequestKey = '';
+                    if (isVatIdErrorResponse(jqXhr)) {
+                        showVatIdError(jqXhr.responseJSON.reason);
+                    } else if (isServerErrorResponse(jqXhr)) {
+                        showErrorModal();
+                    }
                     console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
                 }
             });
@@ -250,12 +350,67 @@ $(
                 message = 'This field is required.';
             } else if (field.type === 'email' && value && !field.validity.valid) {
                 message = 'Enter a valid email address.';
+            } else if (field.id === 'checkout-phone' && value && !isValidPhoneNumberInput(value)) {
+                message = 'Use digits, spaces, parentheses, or hyphens only.';
+            } else if (field.id === 'checkout-phone' && value && !$phoneCountryCode.val()) {
+                message = 'Choose a phone country code.';
             }
 
             fieldContainer.classList.toggle('field-error', Boolean(message));
             errorElement.textContent = message;
 
             return !message;
+        }
+
+        function isValidPhoneNumberInput(value) {
+            return /^[0-9\s()-]+$/.test(value);
+        }
+
+        function sanitizePhoneNumberInput(value) {
+            return String(value || '').replace(/[^0-9\s()-]/g, '');
+        }
+
+        function showVatIdError(reason) {
+            const message = vatIdErrorMessage(reason);
+
+            setFieldError($vatId.get(0), message);
+        }
+
+        function updateVatIdFieldState() {
+            validateField($vatId.get(0));
+            lastChargesRequestKey = '';
+        }
+
+        function setFieldError(field, message) {
+            if (!field) {
+                return;
+            }
+
+            const fieldContainer = field.closest('.checkout-form__field');
+
+            if (!fieldContainer) {
+                return;
+            }
+
+            const errorElement = getOrCreateError(fieldContainer);
+            fieldContainer.classList.toggle('field-error', Boolean(message));
+            errorElement.textContent = message || '';
+        }
+
+        function vatIdErrorMessage(reason) {
+            switch (reason) {
+                case 'VAT_ID_INVALID_FORMAT':
+                    return 'Enter a valid VAT ID.';
+                case 'VAT_ID_COUNTRY_MISMATCH':
+                    return 'The VAT ID country must match the selected billing country.';
+                case 'VAT_ID_NON_EU_COUNTRY':
+                    return 'VAT ID verification is available for EU countries only.';
+                case 'VAT_ID_NOT_ACTIVE':
+                    return 'This VAT ID is not active.';
+                case 'VAT_ID_INVALID':
+                default:
+                    return 'Enter a valid VAT ID.';
+            }
         }
 
         function getOrCreateError(fieldContainer) {
@@ -278,25 +433,159 @@ $(
             const firstName = (formData.first_name || '').trim();
             const lastName = (formData.last_name || '').trim();
             const fullName = [firstName, lastName].filter(Boolean).join(' ').trim() || companyName;
+            const phoneNumber = normalizePhoneNumber(
+                formData.phone_country_code || '',
+                formData.phone_number || ''
+            );
+            const billingInfo = {
+                name: fullName,
+                email: (formData.email || '').trim(),
+                address: {
+                    countryCode: selectedCountry,
+                    city: (formData.city || '').trim(),
+                    street: joinAddressLines(formData.address_line_1, formData.address_line_2),
+                    postalCode: (formData.postal_code || '').trim()
+                },
+                company: companyName ? {
+                    name: companyName,
+                    vatId
+                } : null
+            };
+
+            if (phoneNumber) {
+                billingInfo.phoneNumber = phoneNumber;
+            }
 
             return {
                 orderId,
-                billingInfo: {
-                    name: fullName,
-                    email: (formData.email || '').trim(),
-                    address: {
-                        countryCode: selectedCountry,
-                        city: (formData.city || '').trim(),
-                        street: joinAddressLines(formData.address_line_1, formData.address_line_2),
-                        postalCode: (formData.postal_code || '').trim()
-                    },
-                    company: companyName ? {
-                        name: companyName,
-                        vatId: vatId || null
-                    } : null,
-                    phoneNumber: normalizePhoneNumber(formData.phone || '')
-                }
+                billingInfo
             };
+        }
+
+        function applyDefaultCountry() {
+            const countryCode = inferCountryCode();
+
+            if (!countryCode) {
+                updatePhoneCountryDisplay();
+                return;
+            }
+
+            if (!$country.val() && hasCountryOption(countryCode)) {
+                $country.val(countryCode);
+            }
+
+            applyPhoneCountryFromBillingCountry();
+        }
+
+        function applyBillingCountryFromPhoneCountry() {
+            if (countryManuallySelected) {
+                return;
+            }
+
+            const phoneCode = $phoneCountryCode.val();
+            const countryCode = countryCodeFromPhoneCode(phoneCode);
+
+            if (!countryCode || !hasCountryOption(countryCode)) {
+                return;
+            }
+
+            $country.val(countryCode);
+            updateVatIdFieldState();
+            clearScheduledChargesRequest();
+            requestChargesIfReady();
+        }
+
+        function applyPhoneCountryFromBillingCountry() {
+            if (phoneCountryManuallySelected) {
+                updatePhoneCountryDisplay();
+                return;
+            }
+
+            const countryCode = $country.val();
+            const phoneCode = countryPhoneCodes[countryCode];
+            const previousPhoneCode = $phoneCountryCode.val();
+
+            if (phoneCode) {
+                $phoneCountryCode.val(phoneCode);
+            }
+
+            if (previousPhoneCode && phoneCode && previousPhoneCode !== phoneCode) {
+                clearPhoneNumber();
+            }
+
+            updatePhoneCountryDisplay();
+        }
+
+        function clearPhoneNumber() {
+            $phoneNumber.val('');
+            validateField($phoneNumber.get(0));
+        }
+
+        function updatePhoneCountryDisplay() {
+            const selected = $phoneCountryCode.find(':selected');
+            const flag = selected.data('flag') || '';
+            const code = selected.data('code') || '';
+            const hasPhoneCountry = Boolean($phoneCountryCode.val());
+
+            $phoneFlag.text(flag);
+            $phoneDialCode.text(code);
+            $phone.attr('data-phone-country-selected', hasPhoneCountry ? 'true' : 'false');
+            $phoneNumber.prop('disabled', !hasPhoneCountry);
+
+            if (!hasPhoneCountry) {
+                clearPhoneNumber();
+            }
+        }
+
+        function focusPhoneCountrySelector() {
+            $phoneCountryCode.trigger('focus');
+        }
+
+        function inferCountryCode() {
+            const languages = navigator.languages && navigator.languages.length
+                ? navigator.languages
+                : [navigator.language || navigator.userLanguage || ''];
+
+            for (const language of languages) {
+                const countryCode = countryCodeFromLocale(language);
+
+                if (countryCode && hasCountryOption(countryCode)) {
+                    return countryCode;
+                }
+            }
+
+            return '';
+        }
+
+        function countryCodeFromLocale(locale) {
+            if (!locale) {
+                return '';
+            }
+
+            if (typeof Intl !== 'undefined' && Intl.Locale) {
+                try {
+                    const region = new Intl.Locale(locale).region;
+
+                    if (region) {
+                        return region.toUpperCase();
+                    }
+                } catch (ignored) {
+                    // Fall back to parsing below.
+                }
+            }
+
+            const match = String(locale).match(/[-_]([A-Za-z]{2})\b/);
+            return match ? match[1].toUpperCase() : '';
+        }
+
+        function hasCountryOption(countryCode) {
+            return $country.find(`option[value="${countryCode}"]`).length > 0;
+        }
+
+        function countryCodeFromPhoneCode(phoneCode) {
+            return Object.keys(countryPhoneCodes).find(
+                countryCode => countryPhoneCodes[countryCode] === phoneCode
+            ) || '';
         }
 
         function hydrateProductSummary(product) {
@@ -335,6 +624,14 @@ $(
             $totalValue.text('—');
         }
 
+        function showErrorModal() {
+            $errorModal.prop('hidden', false);
+        }
+
+        function closeErrorModal() {
+            $errorModal.prop('hidden', true);
+        }
+
         function formatAmount(amount) {
             const numericAmount = Number(amount);
             return Number.isNaN(numericAmount) ? amount : numericAmount.toFixed(2);
@@ -353,8 +650,27 @@ $(
             return [line1, line2].map(value => (value || '').trim()).filter(Boolean).join(', ');
         }
 
-        function normalizePhoneNumber(rawPhone) {
-            return String(rawPhone || '').trim();
+        function normalizePhoneNumber(rawCountryCode, rawNumber) {
+            const countryCode = String(rawCountryCode || '').replace(/\D/g, '');
+            const number = String(rawNumber || '').replace(/\D/g, '');
+
+            if (!countryCode || !number) {
+                return null;
+            }
+
+            const numericCountryCode = Number(countryCode);
+            if (!Number.isInteger(numericCountryCode) || numericCountryCode <= 0) {
+                return null;
+            }
+
+            return {
+                countryCode: numericCountryCode,
+                number
+            };
+        }
+
+        function normalizeServerUrl(url) {
+            return String(url || '').replace(/\/+$/, '');
         }
 
         function getProductId() {
@@ -398,6 +714,16 @@ $(
                 : jqXhr.responseText;
 
             return jqXhr.status === 404 || /not found/i.test(responseMessage || '');
+        }
+
+        function isVatIdErrorResponse(jqXhr) {
+            return jqXhr.status === 422 &&
+                jqXhr.responseJSON &&
+                /^VAT_ID_/.test(jqXhr.responseJSON.reason || '');
+        }
+
+        function isServerErrorResponse(jqXhr) {
+            return jqXhr.status >= 500;
         }
 
         function showNotFoundPage() {

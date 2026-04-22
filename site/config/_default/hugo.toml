@@ -19,6 +19,9 @@ disableKinds = ['taxonomy', 'term']
   orderURL = 'https://secure.2checkout.com/checkout/buy?merchant=999999999589&currency=EUR&tpl=default&prod=4HJME1JJDF&qty=1'
   reCaptchaKey = '6Lef7b0ZAAAAAHPIbf6XQIzzeyCoSzS56GTej1c0'
 
+[params.paygate]
+  serverURL = 'https://stag.paygate.teamdev.com'
+
 [params.libs.docsearch]
   appId = 'DUYV0WFHKV'
   apiKey = '50ce4ead490484f1436ae042c0a1a4dd'

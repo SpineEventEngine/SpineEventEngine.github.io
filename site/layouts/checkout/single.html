@@ -49,12 +49,52 @@
                                 </div>
                                 <div class="checkout-form__field checkout-form__field--full">
                                     <label class="checkout-form__label" for="checkout-phone">Phone number</label>
-                                    <input class="checkout-form__input"
-                                           id="checkout-phone"
-                                           name="phone"
-                                           type="tel"
-                                           autocomplete="tel"
-                                           inputmode="tel">
+                                    <div class="checkout-form__phone" data-phone-country-selected="false">
+                                        <select class="checkout-form__input checkout-form__select checkout-form__phone-code"
+                                                id="checkout-phone-country-code"
+                                                name="phone_country_code"
+                                                autocomplete="tel-country-code"
+                                                aria-label="Phone country code">
+                                            <option value="" data-flag="" data-code="" selected>Country</option>
+                                            <option value="43" data-flag="🇦🇹" data-code="+43">🇦🇹 AT +43</option>
+                                            <option value="32" data-flag="🇧🇪" data-code="+32">🇧🇪 BE +32</option>
+                                            <option value="359" data-flag="🇧🇬" data-code="+359">🇧🇬 BG +359</option>
+                                            <option value="385" data-flag="🇭🇷" data-code="+385">🇭🇷 HR +385</option>
+                                            <option value="357" data-flag="🇨🇾" data-code="+357">🇨🇾 CY +357</option>
+                                            <option value="420" data-flag="🇨🇿" data-code="+420">🇨🇿 CZ +420</option>
+                                            <option value="45" data-flag="🇩🇰" data-code="+45">🇩🇰 DK +45</option>
+                                            <option value="372" data-flag="🇪🇪" data-code="+372">🇪🇪 EE +372</option>
+                                            <option value="358" data-flag="🇫🇮" data-code="+358">🇫🇮 FI +358</option>
+                                            <option value="33" data-flag="🇫🇷" data-code="+33">🇫🇷 FR +33</option>
+                                            <option value="49" data-flag="🇩🇪" data-code="+49">🇩🇪 DE +49</option>
+                                            <option value="30" data-flag="🇬🇷" data-code="+30">🇬🇷 GR +30</option>
+                                            <option value="36" data-flag="🇭🇺" data-code="+36">🇭🇺 HU +36</option>
+                                            <option value="353" data-flag="🇮🇪" data-code="+353">🇮🇪 IE +353</option>
+                                            <option value="39" data-flag="🇮🇹" data-code="+39">🇮🇹 IT +39</option>
+                                            <option value="371" data-flag="🇱🇻" data-code="+371">🇱🇻 LV +371</option>
+                                            <option value="370" data-flag="🇱🇹" data-code="+370">🇱🇹 LT +370</option>
+                                            <option value="352" data-flag="🇱🇺" data-code="+352">🇱🇺 LU +352</option>
+                                            <option value="356" data-flag="🇲🇹" data-code="+356">🇲🇹 MT +356</option>
+                                            <option value="31" data-flag="🇳🇱" data-code="+31">🇳🇱 NL +31</option>
+                                            <option value="48" data-flag="🇵🇱" data-code="+48">🇵🇱 PL +48</option>
+                                            <option value="351" data-flag="🇵🇹" data-code="+351">🇵🇹 PT +351</option>
+                                            <option value="40" data-flag="🇷🇴" data-code="+40">🇷🇴 RO +40</option>
+                                            <option value="421" data-flag="🇸🇰" data-code="+421">🇸🇰 SK +421</option>
+                                            <option value="386" data-flag="🇸🇮" data-code="+386">🇸🇮 SI +386</option>
+                                            <option value="34" data-flag="🇪🇸" data-code="+34">🇪🇸 ES +34</option>
+                                            <option value="46" data-flag="🇸🇪" data-code="+46">🇸🇪 SE +46</option>
+                                        </select>
+                                        <span class="checkout-form__phone-flag" id="checkout-phone-flag" aria-hidden="true"></span>
+                                        <span class="checkout-form__phone-chevron" aria-hidden="true"></span>
+                                        <span class="checkout-form__phone-dial-code" id="checkout-phone-dial-code" aria-hidden="true"></span>
+                                        <input class="checkout-form__input"
+                                               id="checkout-phone"
+                                               name="phone_number"
+                                               type="tel"
+                                               autocomplete="tel-national"
+                                               inputmode="tel"
+                                               disabled>
+                                    </div>
                                 </div>
                                 <div class="checkout-form__field">
                                     <label class="checkout-form__label" for="checkout-first-name">First name</label>
@@ -168,6 +208,27 @@
                                 </button>
                             </div>
                         </form>
+                        <div class="checkout-modal"
+                             id="checkout-error-modal"
+                             role="dialog"
+                             aria-modal="true"
+                             aria-labelledby="checkout-error-modal-title"
+                             aria-describedby="checkout-error-modal-description"
+                             hidden>
+                            <div class="checkout-modal__backdrop" data-checkout-modal-close></div>
+                            <div class="checkout-modal__dialog" role="document">
+                                <button class="checkout-modal__close"
+                                        type="button"
+                                        aria-label="Close"
+                                        data-checkout-modal-close>&times;</button>
+                                <h2 class="checkout-modal__title" id="checkout-error-modal-title">Something went wrong</h2>
+                                {{ $email := site.Data.emails.sales_email }}
+                                {{ $cloakedEmail := printf "{{< cloakemail address=\"%s\" >}}" $email }}
+                                <p class="checkout-modal__text" id="checkout-error-modal-description">
+                                    Something went wrong, please contact {{ $cloakedEmail | markdownify }}.
+                                </p>
+                            </div>
+                        </div>
                         {{ .Content }}
                     </div>
                 </div>
