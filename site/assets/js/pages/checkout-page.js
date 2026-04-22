@@ -90,7 +90,7 @@ $(
         };
         let orderId = null;
         let currency = '';
-        let chargesRequestId = 0;
+        let chargeRequestId = 0;
         let chargesRequestTimer = null;
         let lastChargesRequestKey = '';
         let countryManuallySelected = false;
@@ -121,8 +121,7 @@ $(
             countryManuallySelected = true;
             applyPhoneCountryFromBillingCountry();
             updateVatIdFieldState();
-            clearScheduledChargesRequest();
-            requestChargesIfReady();
+            requestChargesNow();
         });
 
         $phoneCountryCode.on('change', () => {
@@ -165,8 +164,7 @@ $(
         });
 
         $vatId.on('blur change', () => {
-            clearScheduledChargesRequest();
-            requestChargesIfReady();
+            requestChargesNow();
         });
 
         $form.on('submit', event => {
@@ -205,17 +203,9 @@ $(
         });
 
         function validateRequiredFields() {
-            const requiredFields = Array.from(form.querySelectorAll(requiredSelector));
-            let isValid = true;
-
-            requiredFields.forEach(field => {
-                const fieldValid = validateField(field);
-                if (!fieldValid) {
-                    isValid = false;
-                }
-            });
-
-            return isValid;
+            return Array.from(form.querySelectorAll(requiredSelector))
+                .map(validateField)
+                .every(Boolean);
         }
 
         function placeOrder() {
@@ -244,7 +234,7 @@ $(
                         showErrorModal();
                         showSummaryError('Failed to load checkout details.');
                     } else {
-                        showSummaryError(jqXhr.responseJSON && jqXhr.responseJSON.message ? jqXhr.responseJSON.message : 'Failed to load checkout details.');
+                        showSummaryError(responseMessage(jqXhr) || 'Failed to load checkout details.');
                     }
                     console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
                 }
@@ -267,16 +257,16 @@ $(
             }
 
             lastChargesRequestKey = requestKey;
-            const requestId = ++chargesRequestId;
+            const requestId = ++chargeRequestId;
             const payload = {
                 orderId,
                 buyerCountryCode,
-                vatId: vatId || null
+                vatId
             };
 
             purchaseClient.calculateCharges(payload, {
                 success: response => {
-                    if (requestId !== chargesRequestId) {
+                    if (requestId !== chargeRequestId) {
                         return;
                     }
 
@@ -292,6 +282,11 @@ $(
                     console.error(`${jqXhr.status}: ${jqXhr.statusText}`);
                 }
             });
+        }
+
+        function requestChargesNow() {
+            clearScheduledChargesRequest();
+            requestChargesIfReady();
         }
 
         function scheduleChargesRequest() {
@@ -314,12 +309,11 @@ $(
 
         function updateCharges(response) {
             const vatRatePercent = Number(response.vatRate) * 100;
-            const formattedVatRate = `${stripTrailingZeros(vatRatePercent)}%`;
             const responseCurrency = response.currency || currency;
 
             currency = responseCurrency;
 
-            $vatLabel.text(`VAT (${formattedVatRate})`);
+            $vatLabel.text(`VAT (${String(vatRatePercent)}%)`);
             $subtotalValue.text(formatMoney(response.netPrice, responseCurrency));
             $vatValue.text(formatMoney(response.vatAmount, responseCurrency));
             $totalValue.text(formatMoney(response.total, responseCurrency));
@@ -330,12 +324,6 @@ $(
                 return true;
             }
 
-            const fieldContainer = field.closest('.form-field');
-            if (!fieldContainer) {
-                return true;
-            }
-
-            const errorElement = getOrCreateError(fieldContainer);
             const value = field.value ? field.value.trim() : '';
             let message = '';
 
@@ -349,8 +337,7 @@ $(
                 message = 'Choose a phone country code.';
             }
 
-            fieldContainer.classList.toggle('field-error', Boolean(message));
-            errorElement.textContent = message;
+            setFieldError(field, message);
 
             return !message;
         }
@@ -362,13 +349,10 @@ $(
         }
 
         function updateVatIdFieldState() {
+            const field = $vatId.get(0);
             const vatId = ($vatId.val() || '').trim();
 
-            if (vatId) {
-                validateField($vatId.get(0));
-            } else {
-                setFieldError($vatId.get(0), '');
-            }
+            vatId ? validateField(field) : setFieldError(field, '');
             lastChargesRequestKey = '';
         }
 
@@ -418,24 +402,22 @@ $(
 
         function buildSubmitBillingInfoRequest() {
             const formData = Object.fromEntries(new FormData(form).entries());
-            const selectedCountry = (formData.country || '').trim();
-            const companyName = (formData.company || '').trim();
-            const vatId = (formData.vat_id || '').trim();
-            const firstName = (formData.first_name || '').trim();
-            const lastName = (formData.last_name || '').trim();
-            const fullName = [firstName, lastName].filter(Boolean).join(' ').trim() || companyName;
+            const field = name => (formData[name] || '').trim();
+            const companyName = field('company');
+            const vatId = field('vat_id');
+            const fullName = [field('first_name'), field('last_name')].filter(Boolean).join(' ') || companyName;
             const phoneNumber = normalizePhoneNumber(
                 formData.phone_country_code || '',
                 formData.phone_number || ''
             );
             const billingInfo = {
                 name: fullName,
-                email: (formData.email || '').trim(),
+                email: field('email'),
                 address: {
-                    countryCode: selectedCountry,
-                    city: (formData.city || '').trim(),
+                    countryCode: field('country'),
+                    city: field('city'),
                     street: joinAddressLines(formData.address_line_1, formData.address_line_2),
-                    postalCode: (formData.postal_code || '').trim()
+                    postalCode: field('postal_code')
                 },
                 company: companyName ? {
                     name: companyName,
@@ -467,8 +449,7 @@ $(
 
             $country.val(countryCode);
             updateVatIdFieldState();
-            clearScheduledChargesRequest();
-            requestChargesIfReady();
+            requestChargesNow();
         }
 
         function applyPhoneCountryFromBillingCountry() {
@@ -479,14 +460,9 @@ $(
 
             const countryCode = $country.val();
             const phoneCode = countryPhoneCodes[countryCode];
-            const previousPhoneCode = $phoneCountryCode.val();
 
             if (phoneCode) {
                 $phoneCountryCode.val(phoneCode);
-            }
-
-            if (previousPhoneCode && phoneCode && previousPhoneCode !== phoneCode) {
-                clearPhoneNumber();
             }
 
             updatePhoneCountryDisplay();
@@ -585,10 +561,6 @@ $(
             return amountCurrency ? `${formattedAmount} ${amountCurrency}` : formattedAmount;
         }
 
-        function stripTrailingZeros(amount) {
-            return Number.isInteger(amount) ? String(amount) : String(amount);
-        }
-
         function joinAddressLines(line1, line2) {
             return [line1, line2].map(value => (value || '').trim()).filter(Boolean).join(', ');
         }
@@ -629,11 +601,7 @@ $(
         }
 
         function isNotFoundResponse(jqXhr) {
-            const responseMessage = jqXhr.responseJSON && jqXhr.responseJSON.message
-                ? jqXhr.responseJSON.message
-                : jqXhr.responseText;
-
-            return jqXhr.status === 404 || /not found/i.test(responseMessage || '');
+            return jqXhr.status === 404 || /not found/i.test(responseMessage(jqXhr) || '');
         }
 
         function isVatIdErrorResponse(jqXhr) {
@@ -644,6 +612,12 @@ $(
 
         function isServerErrorResponse(jqXhr) {
             return jqXhr.status >= 500;
+        }
+
+        function responseMessage(jqXhr) {
+            return jqXhr.responseJSON && jqXhr.responseJSON.message
+                ? jqXhr.responseJSON.message
+                : jqXhr.responseText;
         }
 
         function showNotFoundPage() {
