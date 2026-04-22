@@ -520,60 +520,94 @@
 }
 
 .checkout-completed {
+  min-height: 420px;
+
   .checkout-completed__panel {
-    max-width: 560px;
+    max-width: 620px;
     margin: 0 auto;
-    padding: 44px 0 20px;
+    padding: 20px 0 30px;
     text-align: center;
   }
 
   .checkout-completed__mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 58px;
-    margin: 0 auto 22px;
-    color: $main-brand-color;
-    font-size: 34px;
-    font-weight: 800;
-    line-height: 1;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 9px;
     background: rgba($main-brand-color, .1);
     border: 1px solid rgba($main-brand-color, .18);
     border-radius: 50%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 18px;
+      height: 30px;
+      border-right: 4px solid $main-brand-color;
+      border-bottom: 4px solid $main-brand-color;
+      transform: translate(-50%, -58%) rotate(42deg);
+      transform-origin: center;
+    }
   }
 
   .checkout-completed__title {
-    margin: 0 0 12px;
+    margin: 0 0 14px;
     color: $black;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
   .checkout-completed__text {
-    max-width: 460px;
-    margin: 0 auto 28px;
+    max-width: 520px;
+    margin: 0 auto 30px;
     color: $gray-500;
     font-size: 17px;
     line-height: 1.55;
+    text-align: center;
+
+    span {
+      display: block;
+      text-align: center;
+    }
   }
 
   .checkout-completed__link {
-    min-width: 156px;
+    min-width: 220px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
   }
 
   @include breakpoint(sm-phone) {
+    min-height: auto;
+
     .checkout-completed__panel {
-      padding-top: 30px;
+      padding: 14px 0 16px;
+    }
+
+    .checkout-completed__mark {
+      width: 58px;
+      height: 58px;
+      margin-bottom: 8px;
     }
 
     .checkout-completed__title {
-      font-size: 26px;
+      font-size: 28px;
     }
 
     .checkout-completed__text {
       font-size: 16px;
+    }
+
+    .checkout-completed__link {
+      width: 100%;
+      min-width: 0;
     }
   }
 }
