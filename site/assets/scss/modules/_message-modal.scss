@@ -10,61 +10,61 @@
   &[hidden] {
     display: none;
   }
-}
 
-.message-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(black, .45);
-}
+  .message-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(black, .45);
+  }
 
-.message-modal-dialog {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 520px;
-  padding: 30px 34px;
-  background: white;
-  border-radius: $border-radius-m;
-  box-shadow: 0 22px 60px rgba(black, .18);
-  overflow: hidden;
-}
+  .message-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    padding: 30px 34px;
+    background: white;
+    border-radius: $border-radius-m;
+    box-shadow: 0 22px 60px rgba(black, .18);
+    overflow: hidden;
+  }
 
-.message-modal-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  padding: 4px 8px;
-  color: $gray-500;
-  font-size: 28px;
-  line-height: 1;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
+  .message-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    padding: 4px 8px;
+    color: $gray-500;
+    font-size: 28px;
+    line-height: 1;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
 
-.message-modal-title {
-  margin: 0 28px 12px 0;
-  padding: 0;
-  color: $black;
-  font-size: 24px;
-  line-height: 1.2;
-}
+  .message-modal-title {
+    margin: 0 28px 12px 0;
+    padding: 0;
+    color: $black;
+    font-size: 24px;
+    line-height: 1.2;
+  }
 
-.message-modal-text {
-  margin: 0;
-  color: $gray-500;
-  font-size: 16px;
-  line-height: 1.55;
+  .message-modal-text {
+    margin: 0;
+    color: $gray-500;
+    font-size: 16px;
+    line-height: 1.55;
 
-  a {
-    color: $main-brand-color;
-    font-weight: 700;
-    text-decoration: none;
+    a {
+      color: $main-brand-color;
+      font-weight: 700;
+      text-decoration: none;
 
-    &:hover,
-    &:focus {
-      text-decoration: underline;
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -74,7 +74,7 @@
     padding: 16px;
   }
 
-  .message-modal-dialog {
+  .message-modal .message-modal-dialog {
     padding: 24px;
   }
 }
