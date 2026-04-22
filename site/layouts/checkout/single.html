@@ -1,11 +1,4 @@
 {{ define "main" }}
-    {{ $productName := .Params.product_name | default "Product name" }}
-    {{ $productDescription := .Params.product_description }}
-    {{ $netPrice := .Params.net_price | default "0.00" }}
-    {{ $vatPrice := .Params.vat_price | default "0.00" }}
-    {{ $vatRate := .Params.vat_rate | default "20%" }}
-    {{ $currency := .Params.currency | default "EUR" }}
-    {{ $totalPrice := add (float $netPrice) (float $vatPrice) }}
     {{ partial "components/navbar/navbar.html" . }}
     {{ partial "components/nav-hero.html" . }}
     <section class="checkout">
@@ -13,30 +6,31 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="article-container article-text">
-                        <div class="checkout-summary" aria-label="Order summary">
+                        <div class="checkout-summary"
+                             data-loading="true"
+                             aria-label="Order summary">
                             <div class="checkout-summary__details">
-                                <div class="checkout-summary__product">
-                                    {{ $productName }}
-                                </div>
-                                {{ with $productDescription }}
-                                    <div class="checkout-summary__product-description">
-                                        {{ . }}
-                                    </div>
-                                {{ end }}
+                                <div class="checkout-summary__loading" id="checkout-summary-loading">Loading checkout details...</div>
+                                <div class="checkout-summary__product" id="checkout-product-name" hidden></div>
+                                <div class="checkout-summary__product-description" id="checkout-product-description" hidden></div>
                                 <div class="checkout-summary__row">
                                     <span class="checkout-summary__label">Subtotal</span>
                                     <span class="checkout-summary__dots" aria-hidden="true"></span>
-                                    <span class="checkout-summary__value checkout-summary__value--amount">{{ $netPrice }} {{ $currency }}</span>
+                                    <span class="checkout-summary__value checkout-summary__value--amount"
+                                          id="checkout-subtotal-value">...</span>
                                 </div>
                                 <div class="checkout-summary__row">
-                                    <span class="checkout-summary__label">VAT ({{ $vatRate }})</span>
+                                    <span class="checkout-summary__label"
+                                          id="checkout-vat-label">VAT</span>
                                     <span class="checkout-summary__dots" aria-hidden="true"></span>
-                                    <span class="checkout-summary__value checkout-summary__value--amount">{{ $vatPrice }} {{ $currency }}</span>
+                                    <span class="checkout-summary__value checkout-summary__value--amount"
+                                          id="checkout-vat-value">...</span>
                                 </div>
                                 <div class="checkout-summary__row checkout-summary__row--total">
                                     <span class="checkout-summary__label">Total</span>
                                     <span class="checkout-summary__dots" aria-hidden="true"></span>
-                                    <span class="checkout-summary__value checkout-summary__value--total">{{ lang.FormatNumber 2 $totalPrice }} {{ $currency }}</span>
+                                    <span class="checkout-summary__value checkout-summary__value--total"
+                                          id="checkout-total-value">...</span>
                                 </div>
                             </div>
                         </div>

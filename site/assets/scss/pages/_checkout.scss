@@ -68,9 +68,23 @@
   max-width: 100%;
   min-width: 0;
 
+  &[data-loading='true'] {
+    .checkout-summary__row {
+      opacity: .72;
+    }
+  }
+
   .checkout-summary__details {
     border-top: none;
     padding-top: 8px;
+  }
+
+  .checkout-summary__loading {
+    margin: 2px 0 12px;
+    color: $gray-500;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
   }
 
   .checkout-summary__row {
