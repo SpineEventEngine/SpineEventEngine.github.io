@@ -6,20 +6,15 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="article-container article-text">
-                        <div class="checkout-completed__panel">
-                            <div class="checkout-completed__mark" aria-hidden="true"></div>
-                            <h2 class="checkout-completed__title">Thank you for your purchase</h2>
-                            <p class="checkout-completed__text">
-                                <span>Your payment was completed successfully.</span>
-                                <span>We will send the order details to your email.</span>
-                            </p>
-                            <form class="checkout-completed__actions" action="/" method="get">
-                                <button class="btn btn-bordered-blue checkout-form__submit checkout-completed__link"
-                                        type="submit">
-                                    Back to home
-                                </button>
-                            </form>
-                        </div>
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Thank you for your purchase"
+                            "lines" (slice
+                                "Your payment was completed successfully."
+                                "We will send the order details to your email."
+                            )
+                            "actionLabel" "Back to home"
+                            "actionUrl" "/"
+                        ) }}
                         {{ .Content }}
                     </div>
                 </div>

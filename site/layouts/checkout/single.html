@@ -9,37 +9,37 @@
                         <div class="checkout-summary"
                              data-loading="true"
                              aria-label="Order summary">
-                            <div class="checkout-summary__details">
-                                <div class="checkout-summary__loading" id="checkout-summary-loading">Loading checkout details...</div>
-                                <div class="checkout-summary__product" id="checkout-product-name" hidden></div>
-                                <div class="checkout-summary__product-description" id="checkout-product-description" hidden></div>
-                                <div class="checkout-summary__row">
-                                    <span class="checkout-summary__label">Subtotal</span>
-                                    <span class="checkout-summary__dots" aria-hidden="true"></span>
-                                    <span class="checkout-summary__value checkout-summary__value--amount"
+                            <div class="checkout-summary-details">
+                                <div class="checkout-summary-loading" id="checkout-summary-loading">Loading checkout details...</div>
+                                <div class="checkout-summary-product" id="checkout-product-name" hidden></div>
+                                <div class="checkout-summary-product-description" id="checkout-product-description" hidden></div>
+                                <div class="checkout-summary-row">
+                                    <span class="checkout-summary-label">Subtotal</span>
+                                    <span class="checkout-summary-dots" aria-hidden="true"></span>
+                                    <span class="checkout-summary-value checkout-summary-value-amount"
                                           id="checkout-subtotal-value">...</span>
                                 </div>
-                                <div class="checkout-summary__row">
-                                    <span class="checkout-summary__label"
+                                <div class="checkout-summary-row">
+                                    <span class="checkout-summary-label"
                                           id="checkout-vat-label">VAT</span>
-                                    <span class="checkout-summary__dots" aria-hidden="true"></span>
-                                    <span class="checkout-summary__value checkout-summary__value--amount"
+                                    <span class="checkout-summary-dots" aria-hidden="true"></span>
+                                    <span class="checkout-summary-value checkout-summary-value-amount"
                                           id="checkout-vat-value">...</span>
                                 </div>
-                                <div class="checkout-summary__row checkout-summary__row--total">
-                                    <span class="checkout-summary__label">Total</span>
-                                    <span class="checkout-summary__dots" aria-hidden="true"></span>
-                                    <span class="checkout-summary__value checkout-summary__value--total"
+                                <div class="checkout-summary-row checkout-summary-row-total">
+                                    <span class="checkout-summary-label">Total</span>
+                                    <span class="checkout-summary-dots" aria-hidden="true"></span>
+                                    <span class="checkout-summary-value checkout-summary-value-total"
                                           id="checkout-total-value">...</span>
                                 </div>
                             </div>
                         </div>
-                        <form class="checkout-form" id="checkout-form" action="#" method="post" novalidate>
-                            <h2 class="checkout-form__title">Billing details</h2>
-                            <div class="checkout-form__grid">
-                                <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label required-label" for="checkout-email">Email</label>
-                                    <input class="checkout-form__input"
+                        <form class="form-section" id="checkout-form" action="#" method="post" novalidate>
+                            <h2 class="form-title">Billing details</h2>
+                            <div class="form-grid">
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-email">Email</label>
+                                    <input class="form-input"
                                            id="checkout-email"
                                            name="email"
                                            type="email"
@@ -47,10 +47,10 @@
                                            inputmode="email"
                                            required>
                                 </div>
-                                <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label" for="checkout-phone">Phone number</label>
-                                    <div class="checkout-form__phone" data-phone-country-selected="false">
-                                        <select class="checkout-form__input checkout-form__select checkout-form__phone-code"
+                                <div class="form-field form-field-full">
+                                    <label class="form-label" for="checkout-phone">Phone number</label>
+                                    <div class="phone-field" data-phone-country-selected="false">
+                                        <select class="form-input form-select phone-country-select"
                                                 id="checkout-phone-country-code"
                                                 name="phone_country_code"
                                                 autocomplete="tel-country-code"
@@ -84,10 +84,10 @@
                                             <option value="34" data-flag="🇪🇸" data-code="+34">🇪🇸 ES +34</option>
                                             <option value="46" data-flag="🇸🇪" data-code="+46">🇸🇪 SE +46</option>
                                         </select>
-                                        <span class="checkout-form__phone-flag" id="checkout-phone-flag" aria-hidden="true"></span>
-                                        <span class="checkout-form__phone-chevron" aria-hidden="true"></span>
-                                        <span class="checkout-form__phone-dial-code" id="checkout-phone-dial-code" aria-hidden="true"></span>
-                                        <input class="checkout-form__input"
+                                        <span class="phone-flag" id="checkout-phone-flag" aria-hidden="true"></span>
+                                        <span class="phone-chevron" aria-hidden="true"></span>
+                                        <span class="phone-dial-code" id="checkout-phone-dial-code" aria-hidden="true"></span>
+                                        <input class="form-input phone-number"
                                                id="checkout-phone"
                                                name="phone_number"
                                                type="tel"
@@ -96,43 +96,43 @@
                                                disabled>
                                     </div>
                                 </div>
-                                <div class="checkout-form__field">
-                                    <label class="checkout-form__label" for="checkout-first-name">First name</label>
-                                    <input class="checkout-form__input"
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-first-name">First name</label>
+                                    <input class="form-input"
                                            id="checkout-first-name"
                                            name="first_name"
                                            type="text"
                                            autocomplete="given-name">
                                 </div>
-                                <div class="checkout-form__field">
-                                    <label class="checkout-form__label" for="checkout-last-name">Last name</label>
-                                    <input class="checkout-form__input"
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-last-name">Last name</label>
+                                    <input class="form-input"
                                            id="checkout-last-name"
                                            name="last_name"
                                            type="text"
                                            autocomplete="family-name">
                                 </div>
-                                <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label required-label" for="checkout-company">Company name</label>
-                                    <input class="checkout-form__input"
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-company">Company name</label>
+                                    <input class="form-input"
                                            id="checkout-company"
                                            name="company"
                                            type="text"
                                            autocomplete="organization"
                                            required>
                                 </div>
-                                <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label required-label" for="checkout-vat-id">VAT ID</label>
-                                    <input class="checkout-form__input"
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-vat-id">VAT ID</label>
+                                    <input class="form-input"
                                            id="checkout-vat-id"
                                            name="vat_id"
                                            type="text"
                                            autocomplete="off"
                                            required>
                                 </div>
-                                <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label required-label" for="checkout-country">Country</label>
-                                    <select class="checkout-form__input checkout-form__select"
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-country">Country</label>
+                                    <select class="form-input form-select"
                                             id="checkout-country"
                                             name="country"
                                             autocomplete="country-name"
@@ -167,64 +167,64 @@
                                         <option value="SE">🇸🇪 Sweden</option>
                                     </select>
                                 </div>
-                                <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label" for="checkout-address-line-1">Address line 1</label>
-                                    <input class="checkout-form__input"
+                                <div class="form-field form-field-full">
+                                    <label class="form-label" for="checkout-address-line-1">Address line 1</label>
+                                    <input class="form-input"
                                            id="checkout-address-line-1"
                                            name="address_line_1"
                                            type="text"
                                            autocomplete="address-line1">
                                 </div>
-                                <div class="checkout-form__field checkout-form__field--full">
-                                    <label class="checkout-form__label" for="checkout-address-line-2">Address line 2</label>
-                                    <input class="checkout-form__input"
+                                <div class="form-field form-field-full">
+                                    <label class="form-label" for="checkout-address-line-2">Address line 2</label>
+                                    <input class="form-input"
                                            id="checkout-address-line-2"
                                            name="address_line_2"
                                            type="text"
                                            autocomplete="address-line2">
                                 </div>
-                                <div class="checkout-form__field">
-                                    <label class="checkout-form__label" for="checkout-city">City</label>
-                                    <input class="checkout-form__input"
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-city">City</label>
+                                    <input class="form-input"
                                            id="checkout-city"
                                            name="city"
                                            type="text"
                                            autocomplete="address-level2">
                                 </div>
-                                <div class="checkout-form__field">
-                                    <label class="checkout-form__label" for="checkout-postal-code">Postal code</label>
-                                    <input class="checkout-form__input"
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-postal-code">Postal code</label>
+                                    <input class="form-input"
                                            id="checkout-postal-code"
                                            name="postal_code"
                                            type="text"
                                            autocomplete="postal-code">
                                 </div>
                             </div>
-                            <div class="checkout-form__actions">
-                                <button class="btn btn-bordered-blue checkout-form__submit"
+                            <div class="form-actions">
+                                <button class="btn btn-bordered-blue form-submit-button"
                                         id="checkout-submit"
                                         type="submit">
                                     Continue to payment
                                 </button>
                             </div>
                         </form>
-                        <div class="checkout-modal"
+                        <div class="message-modal"
                              id="checkout-error-modal"
                              role="dialog"
                              aria-modal="true"
                              aria-labelledby="checkout-error-modal-title"
                              aria-describedby="checkout-error-modal-description"
                              hidden>
-                            <div class="checkout-modal__backdrop" data-checkout-modal-close></div>
-                            <div class="checkout-modal__dialog" role="document">
-                                <button class="checkout-modal__close"
+                            <div class="message-modal-backdrop" data-checkout-modal-close></div>
+                            <div class="message-modal-dialog" role="document">
+                                <button class="message-modal-close"
                                         type="button"
                                         aria-label="Close"
                                         data-checkout-modal-close>&times;</button>
-                                <h2 class="checkout-modal__title" id="checkout-error-modal-title">Something went wrong</h2>
+                                <h2 class="message-modal-title" id="checkout-error-modal-title">Something went wrong</h2>
                                 {{ $email := site.Data.emails.sales_email }}
                                 {{ $cloakedEmail := printf "{{< cloakemail address=\"%s\" >}}" $email }}
-                                <p class="checkout-modal__text" id="checkout-error-modal-description">
+                                <p class="message-modal-text" id="checkout-error-modal-description">
                                     Something went wrong, please contact {{ $cloakedEmail | markdownify }}.
                                 </p>
                             </div>

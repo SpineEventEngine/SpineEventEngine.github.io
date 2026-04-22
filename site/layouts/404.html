@@ -27,20 +27,18 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="article-container article-text">
-                        <div class="checkout-completed__panel">
-                            <div class="checkout-completed__mark checkout-not-found__mark" aria-hidden="true">404</div>
-                            <h1 class="checkout-completed__title">Page not found</h1>
-                            <p class="checkout-completed__text">
-                                <span>The page you are looking for could not be found.</span>
-                                <span>Please check the address or return to the home page.</span>
-                            </p>
-                            <form class="checkout-completed__actions" action="/" method="get">
-                                <button class="btn btn-bordered-blue checkout-form__submit checkout-completed__link"
-                                        type="submit">
-                                    Back to home
-                                </button>
-                            </form>
-                        </div>
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Page not found"
+                            "titleTag" "h1"
+                            "markText" "404"
+                            "markClass" "result-panel-mark-code"
+                            "lines" (slice
+                                "The page you are looking for could not be found."
+                                "Please check the address or return to the home page."
+                            )
+                            "actionLabel" "Back to home"
+                            "actionUrl" "/"
+                        ) }}
                     </div>
                 </div>
             </div>

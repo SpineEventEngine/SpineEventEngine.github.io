@@ -27,13 +27,15 @@
 'use strict';
 
 import * as params from '@params';
+import {isValidPhoneNumberInput, normalizePhoneNumber, sanitizePhoneNumberInput} from '../modules/forms/phone-number';
+import {createPurchaseClient} from '../modules/paygate/purchases';
 
 $(
     function () {
         const $form = $('#checkout-form');
         const $summary = $('.checkout-summary');
         const $country = $('#checkout-country');
-        const $phone = $('.checkout-form__phone');
+        const $phone = $('.phone-field');
         const $phoneCountryCode = $('#checkout-phone-country-code');
         const $phoneFlag = $('#checkout-phone-flag');
         const $phoneDialCode = $('#checkout-phone-dial-code');
@@ -52,7 +54,7 @@ $(
             return;
         }
 
-        const serverUrl = normalizeServerUrl(params.paygate.serverurl);
+        const purchaseClient = createPurchaseClient(params.paygate.serverurl);
         const form = $form.get(0);
         const requiredSelector = 'input[required], select[required], textarea[required]';
         const productId = getProductId();
@@ -183,10 +185,7 @@ $(
 
             const payload = buildSubmitBillingInfoRequest();
 
-            $.ajax(`${serverUrl}/purchases/submit-billing-info`, {
-                type: 'POST',
-                data: JSON.stringify(payload),
-                contentType: 'application/json',
+            purchaseClient.submitBillingInfo(payload, {
                 success: response => {
                     const redirectUrl = response.paymentLink || response.redirectUrl || response.url || response.link;
 
@@ -222,10 +221,7 @@ $(
         function placeOrder() {
             setSummaryLoading(true);
 
-            $.ajax(`${serverUrl}/purchases/place-order`, {
-                type: 'POST',
-                data: JSON.stringify({productId}),
-                contentType: 'application/json',
+            purchaseClient.placeOrder(productId, {
                 success: response => {
                     if (!response.product) {
                         showNotFoundPage();
@@ -278,10 +274,7 @@ $(
                 vatId: vatId || null
             };
 
-            $.ajax(`${serverUrl}/purchases/calculate-charges`, {
-                type: 'POST',
-                data: JSON.stringify(payload),
-                contentType: 'application/json',
+            purchaseClient.calculateCharges(payload, {
                 success: response => {
                     if (requestId !== chargesRequestId) {
                         return;
@@ -337,7 +330,7 @@ $(
                 return true;
             }
 
-            const fieldContainer = field.closest('.checkout-form__field');
+            const fieldContainer = field.closest('.form-field');
             if (!fieldContainer) {
                 return true;
             }
@@ -362,14 +355,6 @@ $(
             return !message;
         }
 
-        function isValidPhoneNumberInput(value) {
-            return /^[0-9\s()-]+$/.test(value);
-        }
-
-        function sanitizePhoneNumberInput(value) {
-            return String(value || '').replace(/[^0-9\s()-]/g, '');
-        }
-
         function showVatIdError(reason) {
             const message = vatIdErrorMessage(reason);
 
@@ -377,7 +362,13 @@ $(
         }
 
         function updateVatIdFieldState() {
-            validateField($vatId.get(0));
+            const vatId = ($vatId.val() || '').trim();
+
+            if (vatId) {
+                validateField($vatId.get(0));
+            } else {
+                setFieldError($vatId.get(0), '');
+            }
             lastChargesRequestKey = '';
         }
 
@@ -386,7 +377,7 @@ $(
                 return;
             }
 
-            const fieldContainer = field.closest('.checkout-form__field');
+            const fieldContainer = field.closest('.form-field');
 
             if (!fieldContainer) {
                 return;
@@ -648,29 +639,6 @@ $(
 
         function joinAddressLines(line1, line2) {
             return [line1, line2].map(value => (value || '').trim()).filter(Boolean).join(', ');
-        }
-
-        function normalizePhoneNumber(rawCountryCode, rawNumber) {
-            const countryCode = String(rawCountryCode || '').replace(/\D/g, '');
-            const number = String(rawNumber || '').replace(/\D/g, '');
-
-            if (!countryCode || !number) {
-                return null;
-            }
-
-            const numericCountryCode = Number(countryCode);
-            if (!Number.isInteger(numericCountryCode) || numericCountryCode <= 0) {
-                return null;
-            }
-
-            return {
-                countryCode: numericCountryCode,
-                number
-            };
-        }
-
-        function normalizeServerUrl(url) {
-            return String(url || '').replace(/\/+$/, '');
         }
 
         function getProductId() {

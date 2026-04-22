@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,35 +24,33 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* Styles from `SpineEventEngine/site-commons`. */
-@import "theme-main";
+'use strict';
 
-@import "base/colors";
-@import "base/common";
+export function createPurchaseClient(serverUrl) {
+    const baseUrl = normalizeServerUrl(serverUrl);
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
-@import "modules/redirect-screen";
-@import "modules/loader";
-@import "modules/forms";
-@import "modules/result-panel";
-@import "modules/message-modal";
+    return {
+        placeOrder(productId, handlers) {
+            return postJson(`${baseUrl}/purchases/place-order`, {productId}, handlers);
+        },
+        calculateCharges(payload, handlers) {
+            return postJson(`${baseUrl}/purchases/calculate-charges`, payload, handlers);
+        },
+        submitBillingInfo(payload, handlers) {
+            return postJson(`${baseUrl}/purchases/submit-billing-info`, payload, handlers);
+        }
+    };
+}
 
-@import "pages/landing";
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
-@import "pages/faq";
-@import "pages/getting-help";
-@import "pages/about";
-@import "pages/licenses";
-@import "pages/privacy";
-@import "pages/checkout";
-@import "pages/blog";
+export function normalizeServerUrl(url) {
+    return String(url || '').replace(/\/+$/, '');
+}
+
+function postJson(url, payload, handlers) {
+    return $.ajax(url, {
+        type: 'POST',
+        data: JSON.stringify(payload),
+        contentType: 'application/json',
+        ...handlers
+    });
+}

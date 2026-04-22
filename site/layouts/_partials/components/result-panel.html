@@ -1,0 +1,31 @@
+{{ $title := .title }}
+{{ $titleTag := .titleTag | default "h2" }}
+{{ $markText := .markText | default "" }}
+{{ $markClass := .markClass | default "result-panel-mark-success" }}
+{{ $lines := .lines | default slice }}
+{{ $actionLabel := .actionLabel | default "" }}
+{{ $actionUrl := .actionUrl | default "/" }}
+
+<div class="result-panel">
+    <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
+    {{ if eq $titleTag "h1" }}
+        <h1 class="result-panel-title">{{ $title }}</h1>
+    {{ else }}
+        <h2 class="result-panel-title">{{ $title }}</h2>
+    {{ end }}
+    {{ if $lines }}
+        <p class="result-panel-text">
+            {{ range $lines }}
+                <span>{{ . }}</span>
+            {{ end }}
+        </p>
+    {{ end }}
+    {{ if $actionLabel }}
+        <form class="form-actions" action="{{ $actionUrl }}" method="get">
+            <button class="btn btn-bordered-blue form-submit-button"
+                    type="submit">
+                {{ $actionLabel }}
+            </button>
+        </form>
+    {{ end }}
+</div>
