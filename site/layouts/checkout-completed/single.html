@@ -1,0 +1,25 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" . }}
+    <section class="checkout checkout-completed">
+        <div class="container-fluid content-holder content-with-fixed-header">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="article-container article-text">
+                        <div class="checkout-completed__panel">
+                            <div class="checkout-completed__mark" aria-hidden="true">✓</div>
+                            <h2 class="checkout-completed__title">Thank you for your purchase</h2>
+                            <p class="checkout-completed__text">
+                                Your payment was completed successfully. We will send the order details to your email.
+                            </p>
+                            <a class="btn btn-bordered-blue checkout-completed__link" href="/">
+                                Back to home
+                            </a>
+                        </div>
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ partial "components/go-top-button.html" . }}
+{{ end }}
