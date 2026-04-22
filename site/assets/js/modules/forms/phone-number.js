@@ -26,14 +26,34 @@
 
 'use strict';
 
+/**
+ * Checks whether the input contains only supported phone-number characters;
+ * digits, parentheses, hyphens, and spaces.
+ *
+ * @param {string} value - Phone-number field value to check.
+ * @return {boolean} True when the value contains only allowed characters.
+ */
 export function isValidPhoneNumberInput(value) {
     return /^[0-9\s()-]+$/.test(value);
 }
 
+/**
+ * Removes characters that are not accepted by the phone-number field.
+ *
+ * @param {string} value - Phone-number field value to sanitize.
+ * @return {string} Sanitized phone-number field value.
+ */
 export function sanitizePhoneNumberInput(value) {
     return String(value || '').replace(/[^0-9\s()-]/g, '');
 }
 
+/**
+ * Builds the phone-number payload with country code and number with digits only.
+ *
+ * @param {string} rawCountryCode - Phone country code selected in the form.
+ * @param {string} rawNumber - Local phone number entered in the form.
+ * @return {{countryCode: number, number: string}|null} Normalized Paygate phone-number payload, or null when incomplete.
+ */
 export function normalizePhoneNumber(rawCountryCode, rawNumber) {
     const countryCode = String(rawCountryCode || '').replace(/\D/g, '');
     const number = String(rawNumber || '').replace(/\D/g, '');

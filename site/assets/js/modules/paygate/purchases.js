@@ -26,6 +26,12 @@
 
 'use strict';
 
+/**
+ * Creates a small client for Paygate purchase endpoints.
+ *
+ * @param {string} serverUrl - Base URL of the Paygate API server.
+ * @return {{placeOrder: function(string): Promise<*>, calculateCharges: function(Object): Promise<*>, submitBillingInfo: function(Object): Promise<*>}} Paygate purchase endpoint methods.
+ */
 export function createPurchaseClient(serverUrl) {
     const baseUrl = normalizeServerUrl(serverUrl);
 
@@ -42,10 +48,23 @@ export function createPurchaseClient(serverUrl) {
     };
 }
 
+/**
+ * Removes trailing slashes from the configured Paygate server URL.
+ *
+ * @param {string} url - Raw configured Paygate server URL.
+ * @return {string} Server URL without trailing slashes.
+ */
 export function normalizeServerUrl(url) {
     return String(url || '').replace(/\/+$/, '');
 }
 
+/**
+ * Sends a JSON POST request and returns the parsed response body.
+ *
+ * @param {string} url - Endpoint URL.
+ * @param {Object} payload - JSON request body.
+ * @return {Promise<*>} Parsed response body when the request succeeds.
+ */
 async function postJson(url, payload) {
     const response = await fetch(url, {
         method: 'POST',
@@ -68,6 +87,12 @@ async function postJson(url, payload) {
     return body;
 }
 
+/**
+ * Parses a fetch response body as JSON when possible, otherwise as text.
+ *
+ * @param {Response} response - Fetch response to parse.
+ * @return {Promise<*>} Parsed JSON, text, or null when there is no readable body.
+ */
 async function readResponseBody(response) {
     const contentType = response.headers.get('content-type') || '';
 
@@ -84,6 +109,12 @@ async function readResponseBody(response) {
     }
 }
 
+/**
+ * Extracts a human-readable error message from a parsed response body.
+ *
+ * @param {*} body - Parsed response body.
+ * @return {string} Message text when present, otherwise an empty string.
+ */
 function responseMessage(body) {
     if (!body) {
         return '';
