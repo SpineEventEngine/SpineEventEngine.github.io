@@ -31,8 +31,8 @@
  *
  * Allowed: digits, parentheses, hyphens, and spaces.
  *
- * @param {string} value - Phone-number value to check.
- * @return {boolean} True when the value contains only allowed characters.
+ * @param {string} value phone-number value to check
+ * @return {boolean} true when the value contains only allowed characters
  */
 export function isValidPhoneNumberInput(value) {
     return /^[0-9\s()-]+$/.test(value);
@@ -43,8 +43,8 @@ export function isValidPhoneNumberInput(value) {
  *
  * Allowed: digits, parentheses, hyphens, and spaces.
  *
- * @param {string} value - Phone-number value to sanitize.
- * @return {string} Sanitized phone-number value.
+ * @param {string} value phone-number value to sanitize
+ * @return {string} sanitized phone-number value
  */
 export function sanitizePhoneNumberInput(value) {
     return String(value || '').replace(/[^0-9\s()-]/g, '');
@@ -53,10 +53,10 @@ export function sanitizePhoneNumberInput(value) {
 /**
  * Builds the phone-number payload with country code and number with digits only.
  *
- * @param {string} rawCountryCode - Phone country code.
- * @param {string} rawNumber - Local phone number.
+ * @param {string} rawCountryCode phone country code
+ * @param {string} rawNumber local phone number
  * @return {{countryCode: number, number: string}|null}
- *   Normalized phone-number payload, or null when incomplete.
+ *   normalized phone-number payload, or null when incomplete
  */
 export function normalizePhoneNumber(rawCountryCode, rawNumber) {
     const countryCode = String(rawCountryCode || '').replace(/\D/g, '');

@@ -30,10 +30,10 @@
  * Paygate product data returned for a checkout order.
  *
  * @typedef {Object} PaygateProduct
- * @property {string} [name] product display name
- * @property {string} [description] product description shown on checkout
- * @property {number|string} [netPrice] product price before VAT
- * @property {string} [currency] product currency code
+ * @property {string} name product display name
+ * @property {string} description product description shown on checkout
+ * @property {number|string} netPrice product price before VAT
+ * @property {string} currency product currency code
  */
 
 /**
@@ -89,7 +89,7 @@
  * @property {string} name full buyer name or company fallback name
  * @property {string} email buyer email address
  * @property {BillingAddress} address billing address details
- * @property {BillingCompany|null} company optional company billing details
+ * @property {BillingCompany} company company billing details
  * @property {string} [phoneNumber] optional normalized phone number including
  *   country code
  */
@@ -106,10 +106,10 @@
  * Paygate response for the billing-info submission step.
  *
  * @typedef {Object} SubmitBillingInfoResponse
- * @property {string} [paymentLink] preferred payment redirect URL
- * @property {string} [redirectUrl] alternative payment redirect URL
- * @property {string} [url] alternative response URL field
- * @property {string} [link] alternative response link field
+ * @property {string} paymentLink preferred payment redirect URL
+ * @property {string} redirectUrl alternative payment redirect URL
+ * @property {string} url alternative response URL field
+ * @property {string} link alternative response link field
  */
 
 /**
@@ -126,14 +126,12 @@
  * Paygate purchase endpoint methods used by checkout.
  *
  * @typedef {Object} PaygatePurchaseClient
- * @property {function(string): Promise<PlaceOrderResponse>} placeOrder creates
- *   a checkout order for the given product ID
- * @property {function(CalculateChargesRequest):
- *   Promise<CalculateChargesResponse>} calculateCharges calculates VAT and
- *   totals for the current order
- * @property {function(SubmitBillingInfoRequest):
- *   Promise<SubmitBillingInfoResponse>} submitBillingInfo sends billing details
- *   and returns payment redirect data
+ * @property {function(string): Promise<PlaceOrderResponse>} placeOrder
+ *   creates a checkout order for the given product ID
+ * @property {function(CalculateChargesRequest): Promise<CalculateChargesResponse>} calculateCharges
+ *   calculates VAT and totals for the current order
+ * @property {function(SubmitBillingInfoRequest): Promise<SubmitBillingInfoResponse>} submitBillingInfo
+ *   sends billing details and returns payment redirect data
  */
 
 /**
@@ -174,6 +172,8 @@ export function normalizeServerUrl(url) {
  * @param {string} url endpoint URL
  * @param {Object} payload json request body
  * @return {Promise<*>} parsed response body when the request succeeds
+ *
+ * @throws {PurchaseApiError} if response status is not OK
  */
 async function postJson(url, payload) {
     const response = await fetch(url, {
@@ -186,7 +186,7 @@ async function postJson(url, payload) {
     const body = await readResponseBody(response);
 
     if (!response.ok) {
-        throw /** @type {PurchaseApiError} */ ({
+        throw ({
             status: response.status,
             statusText: response.statusText,
             body,

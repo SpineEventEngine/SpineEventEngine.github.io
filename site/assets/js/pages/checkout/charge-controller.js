@@ -67,71 +67,18 @@ export function createChargeController({
      */
     async function requestIfReady() {
         const requestKey = getRequestKey();
+        const reusableRequest = getReusableRequest(requestKey);
 
         if (!requestKey) {
             invalidate();
             return;
         }
 
-        if (requestKey === chargesReadyKey) {
-            return Promise.resolve();
+        if (reusableRequest) {
+            return reusableRequest;
         }
 
-        if (requestKey === pendingChargesKey && pendingChargesPromise) {
-            return pendingChargesPromise;
-        }
-
-        const requestId = ++chargeRequestId;
-        const [orderId, buyerCountryCode, vatId] = requestKey.split(':');
-        const payload = {
-            orderId,
-            buyerCountryCode,
-            vatId
-        };
-
-        pendingChargesKey = requestKey;
-        chargesReadyKey = '';
-        updateSubmitState();
-        pendingChargesPromise = purchaseClient.calculateCharges(payload)
-            .then(response => {
-                if (requestId !== chargeRequestId) {
-                    return;
-                }
-
-                chargesReadyKey = requestKey;
-                view.updateCharges(response);
-                updateSubmitState();
-            })
-            .catch(error => {
-                const isCurrentRequest = requestId === chargeRequestId;
-                const isVatError = isVatErrorResponse(error);
-
-                if (!isVatError) {
-                    view.showErrorModal();
-                }
-
-                if (!isCurrentRequest) {
-                    logApiError(error);
-                    return;
-                }
-
-                chargesReadyKey = '';
-                updateSubmitState();
-
-                if (isVatError) {
-                    onVatIdError(error.body.reason);
-                }
-
-                logApiError(error);
-            })
-            .finally(() => {
-                if (requestId === chargeRequestId) {
-                    pendingChargesKey = '';
-                    pendingChargesPromise = null;
-                }
-            });
-
-        return pendingChargesPromise;
+        return startChargesRequest(requestKey);
     }
 
     /**
@@ -187,6 +134,43 @@ export function createChargeController({
     }
 
     /**
+     * Returns a finished or in-flight request promise that can be reused.
+     *
+     * @param {string} requestKey joined order:country:VAT key
+     * @return {Promise<void>|null} reusable promise for the same inputs, if any
+     */
+    function getReusableRequest(requestKey) {
+        if (requestKey === chargesReadyKey) {
+            return Promise.resolve();
+        }
+
+        return requestKey === pendingChargesKey && pendingChargesPromise
+            ? pendingChargesPromise
+            : null;
+    }
+
+    /**
+     * Starts a new charge calculation request for the current checkout inputs.
+     *
+     * @param {string} requestKey joined order:country:VAT key
+     * @return {Promise<void>} resolves when the request lifecycle is finished
+     */
+    function startChargesRequest(requestKey) {
+        const requestId = ++chargeRequestId;
+
+        pendingChargesKey = requestKey;
+        chargesReadyKey = '';
+        updateSubmitState();
+        pendingChargesPromise = purchaseClient
+            .calculateCharges(createRequestPayload(requestKey))
+            .then(response => handleRequestSuccess(requestId, requestKey, response))
+            .catch(error => handleRequestError(requestId, error))
+            .finally(() => finishRequest(requestId));
+
+        return pendingChargesPromise;
+    }
+
+    /**
      * Enables checkout submission only when the current charge calculation is ready.
      */
     function updateSubmitState() {
@@ -194,10 +178,26 @@ export function createChargeController({
     }
 
     /**
+     * Builds the Paygate calculate-charges payload for the current request key.
+     *
+     * @param {string} requestKey joined order:country:VAT key
+     * @return {{orderId: string, buyerCountryCode: string, vatId: string}} request payload
+     */
+    function createRequestPayload(requestKey) {
+        const [orderId, buyerCountryCode, vatId] = requestKey.split(':');
+
+        return {
+            orderId,
+            buyerCountryCode,
+            vatId
+        };
+    }
+
+    /**
      * Builds the cache key for the current charge calculation inputs.
      *
-     * @return {string} joined order/country/VAT key, or empty string when calculation cannot run
-     *   yet
+     * @return {string} joined order:country:VAT key,
+     *   or empty string when calculation cannot run yet
      */
     function getRequestKey() {
         const orderId = getOrderId();
@@ -207,6 +207,66 @@ export function createChargeController({
         return orderId && buyerCountryCode && vatId
             ? [orderId, buyerCountryCode, vatId].join(':')
             : '';
+    }
+
+    /**
+     * Applies a successful charge calculation response if it is still current.
+     *
+     * @param {number} requestId internal request sequence number
+     * @param {string} requestKey joined order:country:VAT key
+     * @param {Object} response paygate charge calculation response
+     */
+    function handleRequestSuccess(requestId, requestKey, response) {
+        if (requestId !== chargeRequestId) {
+            return;
+        }
+
+        chargesReadyKey = requestKey;
+        view.updateCharges(response);
+        updateSubmitState();
+    }
+
+    /**
+     * Handles a failed charge calculation response.
+     *
+     * @param {number} requestId internal request sequence number
+     * @param {Object} error error response
+     */
+    function handleRequestError(requestId, error) {
+        const isCurrentRequest = requestId === chargeRequestId;
+        const isVatError = isVatErrorResponse(error);
+
+        if (!isVatError) {
+            view.showErrorModal();
+        }
+
+        if (!isCurrentRequest) {
+            logApiError(error);
+            return;
+        }
+
+        chargesReadyKey = '';
+        updateSubmitState();
+
+        if (isVatError) {
+            onVatIdError(error.body.reason);
+        }
+
+        logApiError(error);
+    }
+
+    /**
+     * Clears the tracked in-flight request when the current request finishes.
+     *
+     * @param {number} requestId internal request sequence number
+     */
+    function finishRequest(requestId) {
+        if (requestId !== chargeRequestId) {
+            return;
+        }
+
+        pendingChargesKey = '';
+        pendingChargesPromise = null;
     }
 
     /**
@@ -222,10 +282,10 @@ export function createChargeController({
     }
 
     /**
-     * Checks whether a Paygate error should be rendered on the VAT ID field.
+     * Checks whether a calculation error should is related to the VAT ID.
      *
-     * @param {Object} error error object thrown by the Paygate client
-     * @return {boolean} true when the error contains a VAT ID validation reason
+     * @param {Object} error error response
+     * @return {boolean} true when response contains a VAT ID verification failure reason
      */
     function isVatErrorResponse(error) {
         return error.status === 422 &&
