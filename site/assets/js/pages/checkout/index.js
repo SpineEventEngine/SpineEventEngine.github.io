@@ -1,0 +1,217 @@
+'use strict';
+
+import * as params from '@params';
+import {createPurchaseClient} from '../../modules/paygate/purchases';
+import {createChargeController} from './charge-controller';
+import {getCheckoutDom} from './dom';
+import {createCheckoutFormController} from './form-controller';
+import {
+    countryPhoneCodes,
+    getProductId,
+    isNotFoundResponse,
+    isServerErrorResponse,
+    isVatIdErrorResponse,
+    logApiError,
+    requiredSelector,
+    vatIdInputDelay
+} from './helpers';
+import {createCheckoutView} from './view-controller';
+
+$(
+    function () {
+        const dom = getCheckoutDom();
+
+        if (!dom) {
+            return;
+        }
+
+        const purchaseClient = createPurchaseClient(params.paygate.serverurl);
+        const productId = getProductId();
+        const view = createCheckoutView(dom);
+        const formController = createCheckoutFormController({
+            dom,
+            countryPhoneCodes
+        });
+        let orderId = null;
+        let countryManuallySelected = false;
+        let phoneCountryManuallySelected = false;
+        const chargeController = createChargeController({
+            purchaseClient,
+            view,
+            getOrderId: () => orderId,
+            getBuyerCountryCode: () => dom.$country.val(),
+            getVatId: () => (dom.$vatId.val() || '').trim(),
+            onVatIdError: formController.showVatIdError,
+            isVatIdErrorResponse,
+            logApiError,
+            requestDelay: vatIdInputDelay
+        });
+
+        if (!productId) {
+            chargeController.invalidate();
+            view.showNotFoundView();
+            return;
+        }
+
+        dom.$form.prop('hidden', true);
+        formController.updatePhoneCountryDisplay();
+        chargeController.updateSubmitState();
+        placeOrder();
+        bindEvents();
+
+        /**
+         * Registers checkout page event handlers.
+         */
+        function bindEvents() {
+            dom.$form.on('input', requiredSelector, event => {
+                formController.validateField(event.target);
+            });
+
+            dom.$form.on('change', 'select[required]', event => {
+                formController.validateField(event.target);
+            });
+
+            $('[data-checkout-modal-close]').on('click', view.closeErrorModal);
+
+            $(document).on('keydown', event => {
+                if (event.key === 'Escape') {
+                    view.closeErrorModal();
+                }
+            });
+
+            dom.$country.on('change', () => {
+                countryManuallySelected = true;
+                chargeController.invalidate();
+                formController.applyPhoneCountryFromBillingCountry(phoneCountryManuallySelected);
+                formController.updateVatIdFieldState();
+                chargeController.flush();
+            });
+
+            dom.$phoneCountryCode.on('change', () => {
+                phoneCountryManuallySelected = true;
+                formController.updatePhoneCountryDisplay();
+
+                if (formController.applyBillingCountryFromPhoneCountry(countryManuallySelected)) {
+                    chargeController.invalidate();
+                    formController.updateVatIdFieldState();
+                    chargeController.flush();
+                }
+            });
+
+            dom.$phone.on('click', formController.handlePhoneClick);
+            dom.$phoneNumber.on('focus', formController.handlePhoneNumberFocus);
+            dom.$phoneNumber.on('beforeinput', formController.handlePhoneNumberBeforeInput);
+            dom.$phoneNumber.on('input', formController.sanitizePhoneNumberValue);
+
+            dom.$vatId.on('input', () => {
+                chargeController.invalidate();
+                chargeController.schedule();
+            });
+
+            dom.$vatId.on('blur', () => {
+                if (chargeController.hasScheduledRequest()) {
+                    chargeController.flush();
+                }
+            });
+
+            dom.$form.on('submit', handleSubmit);
+        }
+
+        /**
+         * Creates a Paygate order for the product in the current checkout URL.
+         *
+         * @return {Promise<void>} Resolves when the initial order load flow finishes.
+         */
+        async function placeOrder() {
+            view.setSummaryLoading(true);
+
+            try {
+                const response = await purchaseClient.placeOrder(productId);
+
+                if (!response.product) {
+                    chargeController.invalidate();
+                    view.showNotFoundView();
+                    chargeController.updateSubmitState();
+                    return;
+                }
+
+                orderId = response.orderId;
+                view.hydrateProductSummary(response.product);
+                view.setSummaryLoading(false);
+                dom.$form.prop('hidden', false);
+                chargeController.updateSubmitState();
+                chargeController.requestIfReady();
+            } catch (error) {
+                if (isNotFoundResponse(error)) {
+                    chargeController.invalidate();
+                    view.showNotFoundView();
+                    chargeController.updateSubmitState();
+                    return;
+                }
+
+                view.setSummaryLoading(false);
+                showServerErrorModal(error);
+                view.showSummaryError();
+                chargeController.updateSubmitState();
+                logApiError(error);
+            }
+        }
+
+        /**
+         * Submits checkout billing data after the current charge state is valid.
+         *
+         * @param {JQuery.SubmitEvent} event - Checkout form submit event.
+         * @return {Promise<void>} Resolves when submit handling finishes.
+         */
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            if (!formController.validateRequiredFields(requiredSelector)) {
+                dom.form.reportValidity();
+                return;
+            }
+
+            if (!orderId) {
+                console.error('Order ID is not available yet.');
+                return;
+            }
+
+            await chargeController.requestIfReady();
+
+            if (!chargeController.hasCurrentCharges()) {
+                return;
+            }
+
+            try {
+                const response = await purchaseClient.submitBillingInfo(
+                    formController.buildSubmitBillingInfoRequest(orderId)
+                );
+                const redirectUrl = response.paymentLink || response.redirectUrl || response.url || response.link;
+
+                if (redirectUrl) {
+                    window.location = redirectUrl;
+                } else {
+                    console.log('Billing info response:', response);
+                }
+            } catch (error) {
+                showServerErrorModal(error);
+                logApiError(error);
+            }
+        }
+
+        /**
+         * Opens the generic checkout error modal for server-side request failures.
+         *
+         * @param {Object|Error} error - Request error to inspect.
+         * @return {boolean} True when the error represents a server response.
+         */
+        function showServerErrorModal(error) {
+            if (!isServerErrorResponse(error)) {
+                return false;
+            }
+
+            view.showErrorModal();
+            return true;
+        }
+    }
+);
