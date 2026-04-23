@@ -58,6 +58,7 @@ $(
         const $submitButton = $('#checkout-submit');
         const $errorModal = $('#checkout-error-modal');
         const $notFound = $('#checkout-not-found');
+        const $summaryError = $('#checkout-summary-error');
 
         if (!$form.length || !$summary.length) {
             return;
@@ -723,10 +724,13 @@ $(
         function setSummaryLoading(isLoading) {
             $summary.attr('data-loading', isLoading ? 'true' : 'false');
             $summary.attr('data-error', 'false');
+            $summary.prop('hidden', false);
             $loading.prop('hidden', !isLoading);
             $loadingSpinner.prop('hidden', !isLoading);
             $loadingSupport.prop('hidden', true);
             $form.prop('hidden', isLoading);
+            $notFound.prop('hidden', true);
+            $summaryError.prop('hidden', true);
             updateSubmitState();
 
             if (isLoading) {
@@ -739,17 +743,10 @@ $(
          */
         function showSummaryError() {
             $summary.attr('data-error', 'true');
-            $loading.prop('hidden', false);
-            $loadingSpinner.prop('hidden', true);
-            $loadingText.text('Ooops...');
-            $loadingSupport.prop('hidden', false);
+            $summary.prop('hidden', true);
             $form.prop('hidden', true);
-            $productName.prop('hidden', true);
-            $productDescription.prop('hidden', true);
-            $subtotalValue.text('—');
-            $vatLabel.text('VAT');
-            $vatValue.text('—');
-            $totalValue.text('—');
+            $notFound.prop('hidden', true);
+            $summaryError.prop('hidden', false);
             updateSubmitState();
         }
 
@@ -874,6 +871,7 @@ $(
             closeErrorModal();
             $summary.prop('hidden', true);
             $form.prop('hidden', true);
+            $summaryError.prop('hidden', true);
             $notFound.prop('hidden', false);
             updateSubmitState();
         }

@@ -249,6 +249,22 @@
                                 "actionUrl" "/"
                             ) }}
                         </div>
+                        <div id="checkout-summary-error" hidden>
+                            <div class="result-panel">
+                                <div class="result-panel-mark result-panel-mark-code" aria-hidden="true">!</div>
+                                <h1 class="result-panel-title">Ooops...</h1>
+                                <p class="result-panel-text">
+                                    <span>Something went wrong.</span>
+                                    <span>Please contact {{ $cloakedEmail | markdownify }}.</span>
+                                </p>
+                                <form class="form-actions" action="/" method="get">
+                                    <button class="btn btn-bordered-blue form-submit-button"
+                                            type="submit">
+                                        Back to home
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                         {{ .Content }}
                     </div>
                 </div>
