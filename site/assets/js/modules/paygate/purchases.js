@@ -27,7 +27,7 @@
 'use strict';
 
 /**
- * Creates a small client for Paygate purchase endpoints.
+ * Creates a client for Paygate purchase endpoints.
  *
  * @param {string} serverUrl - Base URL of the Paygate API server.
  * @return {{placeOrder: function(string): Promise<*>, calculateCharges: function(Object): Promise<*>, submitBillingInfo: function(Object): Promise<*>}} Paygate purchase endpoint methods.
