@@ -42,6 +42,9 @@ $(
         const $phoneNumber = $('#checkout-phone');
         const $vatId = $('#checkout-vat-id');
         const $loading = $('#checkout-summary-loading');
+        const $loadingSpinner = $('#checkout-summary-loading-spinner');
+        const $loadingText = $('#checkout-summary-loading-text');
+        const $loadingSupport = $('#checkout-summary-support');
         const $productName = $('#checkout-product-name');
         const $productDescription = $('#checkout-product-description');
         const $subtotalValue = $('#checkout-subtotal-value');
@@ -102,7 +105,7 @@ $(
             return;
         }
 
-        keepProductIdInPath(productId);
+        $form.prop('hidden', true);
         updatePhoneCountryDisplay();
         placeOrder();
 
@@ -231,6 +234,7 @@ $(
                 orderId = response.orderId;
                 hydrateProductSummary(response.product);
                 setSummaryLoading(false);
+                $form.prop('hidden', false);
                 requestChargesIfReady();
             } catch (error) {
                 if (isNotFoundResponse(error)) {
@@ -241,9 +245,9 @@ $(
                 setSummaryLoading(false);
                 if (isServerErrorResponse(error)) {
                     showErrorModal();
-                    showSummaryError('Failed to load checkout details.');
+                    showSummaryError();
                 } else {
-                    showSummaryError(error.message || 'Failed to load checkout details.');
+                    showSummaryError();
                 }
                 logApiError(error);
             }
@@ -635,16 +639,27 @@ $(
          */
         function setSummaryLoading(isLoading) {
             $summary.attr('data-loading', isLoading ? 'true' : 'false');
+            $summary.attr('data-error', 'false');
             $loading.prop('hidden', !isLoading);
+            $loadingSpinner.prop('hidden', !isLoading);
+            $loadingSupport.prop('hidden', true);
+            $form.prop('hidden', isLoading);
+
+            if (isLoading) {
+                $loadingText.text('Loading checkout details...');
+            }
         }
 
         /**
-         * Replaces order-summary values with an error message.
-         *
-         * @param {string} message - Error message to show in the order summary.
+         * Replaces order-summary values with a short support-oriented error state.
          */
-        function showSummaryError(message) {
-            $loading.text(message).prop('hidden', false);
+        function showSummaryError() {
+            $summary.attr('data-error', 'true');
+            $loading.prop('hidden', false);
+            $loadingSpinner.prop('hidden', true);
+            $loadingText.text('Ooops...');
+            $loadingSupport.prop('hidden', false);
+            $form.prop('hidden', true);
             $productName.prop('hidden', true);
             $productDescription.prop('hidden', true);
             $subtotalValue.text('—');
@@ -702,58 +717,12 @@ $(
         }
 
         /**
-         * Reads the product ID from the URL or from the 404 redirect handoff.
+         * Reads the product ID from the `product` query parameter.
          *
          * @return {string} Checkout product ID, or empty string when unavailable.
          */
         function getProductId() {
-            const pathProductId = getProductIdFromPath();
-
-            if (pathProductId) {
-                return pathProductId;
-            }
-
-            return consumeStoredProductId();
-        }
-
-        /**
-         * Extracts the checkout product ID from `/checkout/{productId}`.
-         *
-         * @return {string} Product ID from the checkout path, or empty string.
-         */
-        function getProductIdFromPath() {
-            const segments = window.location.pathname.split('/').filter(Boolean);
-            const checkoutIndex = segments.indexOf('checkout');
-
-            if (checkoutIndex === -1 || checkoutIndex === segments.length - 1) {
-                return '';
-            }
-
-            return decodeURIComponent(segments[checkoutIndex + 1]);
-        }
-
-        /**
-         * Reads and clears the product ID temporarily stored during checkout 404 redirects.
-         *
-         * @return {string} Stored product ID, or empty string.
-         */
-        function consumeStoredProductId() {
-            const productId = window.sessionStorage.getItem('checkoutProductId') || '';
-            window.sessionStorage.removeItem('checkoutProductId');
-            return productId.trim();
-        }
-
-        /**
-         * Keeps the checkout URL canonical by adding the product ID when it came from storage.
-         *
-         * @param {string} currentProductId - Product ID that should appear in the checkout URL.
-         */
-        function keepProductIdInPath(currentProductId) {
-            if (getProductIdFromPath()) {
-                return;
-            }
-
-            window.history.replaceState(null, '', `/checkout/${encodeURIComponent(currentProductId)}`);
+            return (new URLSearchParams(window.location.search).get('product') || '').trim();
         }
 
         /**
@@ -801,7 +770,6 @@ $(
          * Shows the not-found result panel inside the checkout page.
          */
         function showNotFoundView() {
-            window.sessionStorage.removeItem('checkoutProductId');
             clearScheduledChargesRequest();
             closeErrorModal();
             $summary.prop('hidden', true);

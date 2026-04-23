@@ -10,7 +10,15 @@
                              data-loading="true"
                              aria-label="Order summary">
                             <div class="checkout-summary-details">
-                                <div class="checkout-summary-loading" id="checkout-summary-loading">Loading checkout details...</div>
+                                <div class="checkout-summary-loading loader-container" id="checkout-summary-loading">
+                                    <div class="loader" id="checkout-summary-loading-spinner" aria-hidden="true"></div>
+                                    <p id="checkout-summary-loading-text">Loading checkout details...</p>
+                                    {{ $email := site.Data.emails.sales_email }}
+                                    {{ $cloakedEmail := printf "{{< cloakemail address=\"%s\" >}}" $email }}
+                                    <p class="checkout-summary-support" id="checkout-summary-support" hidden>
+                                        Something went wrong, please contact {{ $cloakedEmail | markdownify }}.
+                                    </p>
+                                </div>
                                 <div class="checkout-summary-product" id="checkout-product-name" hidden></div>
                                 <div class="checkout-summary-product-description" id="checkout-product-description" hidden></div>
                                 <div class="checkout-summary-row">
@@ -222,8 +230,6 @@
                                         aria-label="Close"
                                         data-checkout-modal-close>&times;</button>
                                 <h2 class="message-modal-title" id="checkout-error-modal-title">Something went wrong</h2>
-                                {{ $email := site.Data.emails.sales_email }}
-                                {{ $cloakedEmail := printf "{{< cloakemail address=\"%s\" >}}" $email }}
                                 <p class="message-modal-text" id="checkout-error-modal-description">
                                     Something went wrong, please contact {{ $cloakedEmail | markdownify }}.
                                 </p>

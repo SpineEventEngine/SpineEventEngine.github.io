@@ -1,3 +1,29 @@
+.result-page {
+  min-height: 420px;
+  background:
+    radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
+    linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
+  overflow-x: hidden;
+
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .row > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  @include breakpoint(lg-phone) {
+    background: white;
+  }
+
+  @include breakpoint(sm-phone) {
+    min-height: auto;
+  }
+}
+
 .result-panel {
   max-width: 620px;
   margin: 0 auto;

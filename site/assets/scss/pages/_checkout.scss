@@ -70,8 +70,34 @@
   margin-bottom: 8px;
 
   &[data-loading='true'] {
-    .checkout-summary-row {
-      opacity: .72;
+    .checkout-summary-details {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .checkout-summary-row,
+    .checkout-summary-product,
+    .checkout-summary-product-description {
+      display: none;
+    }
+  }
+
+  &[data-error='true'] {
+    .checkout-summary-details {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .checkout-summary-row,
+    .checkout-summary-product,
+    .checkout-summary-product-description {
+      display: none;
     }
   }
 
@@ -81,11 +107,75 @@
   }
 
   .checkout-summary-loading {
-    margin: 2px 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
     color: $gray-500;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
     line-height: 1.4;
+    text-align: center;
+
+    .loader {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 14px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: $gray-500;
+      text-align: center;
+    }
+  }
+
+  .checkout-summary-support {
+    max-width: 360px;
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+
+    a {
+      color: $main-brand-color;
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include breakpoint(sm-phone) {
+    &[data-loading='true'],
+    &[data-error='true'] {
+      .checkout-summary-details {
+        min-height: 220px;
+      }
+    }
+
+    .checkout-summary-loading {
+      font-size: 16px;
+
+      .loader {
+        width: 34px;
+        height: 34px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
   }
 
   .checkout-summary-row {
@@ -270,8 +360,7 @@
   padding-top: 4px;
 }
 
-.checkout-completed,
-.checkout-not-found {
+.checkout-completed {
   min-height: 420px;
 
   @include breakpoint(sm-phone) {

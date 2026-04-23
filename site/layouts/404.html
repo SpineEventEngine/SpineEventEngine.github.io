@@ -1,22 +1,7 @@
 {{ define "main" }}
-    <script>
-        (function () {
-            var path = window.location.pathname || '';
-            var match = path.match(/^\/checkout\/([^/?#]+)\/?$/);
-
-            if (!match) {
-                return;
-            }
-
-            var productId = decodeURIComponent(match[1]);
-
-            window.sessionStorage.setItem('checkoutProductId', productId);
-            window.location.replace('/checkout/');
-        })();
-    </script>
     {{ partial "components/navbar/navbar.html" . }}
     {{ partial "components/nav-hero.html" (dict "Params" (dict "hide_page_headline" true) "Title" "") }}
-    <section class="checkout checkout-completed checkout-not-found">
+    <section class="result-page">
         <div class="container-fluid content-holder">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
