@@ -219,9 +219,7 @@ $(
                     console.log('Billing info response:', response);
                 }
             } catch (error) {
-                if (isServerErrorResponse(error)) {
-                    showErrorModal();
-                }
+                showServerErrorModal(error);
                 logApiError(error);
             }
         });
@@ -266,12 +264,8 @@ $(
                 }
 
                 setSummaryLoading(false);
-                if (isServerErrorResponse(error)) {
-                    showErrorModal();
-                    showSummaryError();
-                } else {
-                    showSummaryError();
-                }
+                showServerErrorModal(error);
+                showSummaryError();
                 logApiError(error);
             }
         }
@@ -318,16 +312,22 @@ $(
                     updateSubmitState();
                 })
                 .catch(error => {
-                    if (requestId !== chargeRequestId) {
+                    const isCurrentRequest = requestId === chargeRequestId;
+                    const isVatIdError = isVatIdErrorResponse(error);
+
+                    if (!isVatIdError) {
+                        showErrorModal();
+                    }
+
+                    if (!isCurrentRequest) {
+                        logApiError(error);
                         return;
                     }
 
                     chargesReadyKey = '';
                     updateSubmitState();
-                    if (isVatIdErrorResponse(error)) {
+                    if (isVatIdError) {
                         showVatIdError(error.body.reason);
-                    } else if (isServerErrorResponse(error)) {
-                        showErrorModal();
                     }
                     logApiError(error);
                 })
@@ -765,6 +765,21 @@ $(
          */
         function closeErrorModal() {
             $errorModal.prop('hidden', true);
+        }
+
+        /**
+         * Opens the generic checkout error modal for server-side request failures.
+         *
+         * @param {Object|Error} error - Request error to inspect.
+         * @return {boolean} True when the error represents a server response.
+         */
+        function showServerErrorModal(error) {
+            if (!isServerErrorResponse(error)) {
+                return false;
+            }
+
+            showErrorModal();
+            return true;
         }
 
         /**
