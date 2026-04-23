@@ -27,7 +27,11 @@
 'use strict';
 
 import * as params from '@params';
-import {isValidPhoneNumberInput, normalizePhoneNumber, sanitizePhoneNumberInput} from '../modules/forms/phone-number';
+import {
+    isValidPhoneNumberInput,
+    normalizePhoneNumber,
+    sanitizePhoneNumberInput
+} from '../modules/forms/phone-number';
 import {createPurchaseClient} from '../modules/paygate/purchases';
 
 $(
@@ -63,6 +67,7 @@ $(
         const form = $form.get(0);
         const requiredSelector = 'input[required], select[required], textarea[required]';
         const productId = getProductId();
+        const vatIdInputDelay = 1000;
         const countryPhoneCodes = {
             AT: '43',
             BE: '32',
@@ -95,7 +100,9 @@ $(
         let orderId = null;
         let currency = '';
         let chargeRequestId = 0;
-        let lastChargesRequestKey = '';
+        let chargesRequestTimer = null;
+        let pendingChargesKey = '';
+        let pendingChargesPromise = null;
         let chargesReadyKey = '';
         let countryManuallySelected = false;
         let phoneCountryManuallySelected = false;
@@ -110,7 +117,11 @@ $(
         updateSubmitState();
         placeOrder();
 
-        $form.on('input change', requiredSelector, event => {
+        $form.on('input', requiredSelector, event => {
+            validateField(event.target);
+        });
+
+        $form.on('change', 'select[required]', event => {
             validateField(event.target);
         });
 
@@ -167,11 +178,13 @@ $(
 
         $vatId.on('input', () => {
             invalidateCharges();
-            requestChargesNow();
+            scheduleChargesRequest();
         });
 
-        $vatId.on('blur change', () => {
-            requestChargesNow();
+        $vatId.on('blur', () => {
+            if (chargesRequestTimer) {
+                requestChargesNow();
+            }
         });
 
         $form.on('submit', async event => {
@@ -276,11 +289,14 @@ $(
                 return;
             }
 
-            if (requestKey === lastChargesRequestKey) {
-                return;
+            if (requestKey === chargesReadyKey) {
+                return Promise.resolve();
             }
 
-            lastChargesRequestKey = requestKey;
+            if (requestKey === pendingChargesKey && pendingChargesPromise) {
+                return pendingChargesPromise;
+            }
+
             const requestId = ++chargeRequestId;
             const [requestOrderId, buyerCountryCode, vatId] = requestKey.split(':');
             const payload = {
@@ -288,41 +304,73 @@ $(
                 buyerCountryCode,
                 vatId
             };
+            pendingChargesKey = requestKey;
             chargesReadyKey = '';
             updateSubmitState();
+            pendingChargesPromise = purchaseClient.calculateCharges(payload)
+                .then(response => {
+                    if (requestId !== chargeRequestId) {
+                        return;
+                    }
 
-            try {
-                const response = await purchaseClient.calculateCharges(payload);
+                    chargesReadyKey = requestKey;
+                    updateCharges(response);
+                    updateSubmitState();
+                })
+                .catch(error => {
+                    if (requestId !== chargeRequestId) {
+                        return;
+                    }
 
-                if (requestId !== chargeRequestId) {
-                    return;
-                }
+                    chargesReadyKey = '';
+                    updateSubmitState();
+                    if (isVatIdErrorResponse(error)) {
+                        showVatIdError(error.body.reason);
+                    } else if (isServerErrorResponse(error)) {
+                        showErrorModal();
+                    }
+                    logApiError(error);
+                })
+                .finally(() => {
+                    if (requestId === chargeRequestId) {
+                        pendingChargesKey = '';
+                        pendingChargesPromise = null;
+                    }
+                });
 
-                chargesReadyKey = requestKey;
-                updateCharges(response);
-                updateSubmitState();
-            } catch (error) {
-                if (requestId !== chargeRequestId) {
-                    return;
-                }
-
-                lastChargesRequestKey = '';
-                chargesReadyKey = '';
-                updateSubmitState();
-                if (isVatIdErrorResponse(error)) {
-                    showVatIdError(error.body.reason);
-                } else if (isServerErrorResponse(error)) {
-                    showErrorModal();
-                }
-                logApiError(error);
-            }
+            return pendingChargesPromise;
         }
 
         /**
          * Cancels delayed VAT recalculation and requests charges immediately.
          */
         function requestChargesNow() {
+            clearScheduledChargesRequest();
             requestChargesIfReady();
+        }
+
+        /**
+         * Debounces charge recalculation while the user types a VAT ID.
+         */
+        function scheduleChargesRequest() {
+            clearScheduledChargesRequest();
+
+            chargesRequestTimer = window.setTimeout(() => {
+                chargesRequestTimer = null;
+                requestChargesIfReady();
+            }, vatIdInputDelay);
+        }
+
+        /**
+         * Clears the delayed VAT recalculation timer when one is active.
+         */
+        function clearScheduledChargesRequest() {
+            if (!chargesRequestTimer) {
+                return;
+            }
+
+            window.clearTimeout(chargesRequestTimer);
+            chargesRequestTimer = null;
         }
 
         /**
@@ -423,11 +471,11 @@ $(
         function vatIdErrorMessage(reason) {
             switch (reason) {
                 case 'VAT_ID_INVALID_FORMAT':
-                    return 'Invalid VAT ID format. Example: EE1234567890';
+                    return 'Invalid VAT ID format. Example: EE1234567890.';
                 case 'VAT_ID_COUNTRY_MISMATCH':
                     return 'The VAT ID country must match the selected billing country.';
                 case 'VAT_ID_NON_EU_COUNTRY':
-                    return 'VAT ID verification is available for EU countries only.';
+                    return 'Only European Union VAT ID is acceptable.';
                 case 'VAT_ID_NOT_ACTIVE':
                     return 'This VAT ID is not active.';
                 case 'VAT_ID_INVALID':
@@ -641,8 +689,10 @@ $(
          * Invalidates the current charge calculation state and ignores older responses.
          */
         function invalidateCharges() {
+            clearScheduledChargesRequest();
             chargeRequestId += 1;
-            lastChargesRequestKey = '';
+            pendingChargesKey = '';
+            pendingChargesPromise = null;
             chargesReadyKey = '';
             updateSubmitState();
         }
