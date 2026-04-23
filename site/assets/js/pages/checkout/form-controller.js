@@ -1,21 +1,20 @@
 'use strict';
 
+import {countryPhoneCodes} from './form-constants';
 import {
     isValidPhoneNumberInput,
     normalizePhoneNumber,
     sanitizePhoneNumberInput
 } from '../../modules/forms/phone-number';
-import {joinAddressLines} from './helpers';
 
 /**
  * Creates the checkout form controller.
  *
  * @param {Object} options - Form controller options.
  * @param {Object} options.dom - Checkout DOM references.
- * @param {Object<string, string>} options.countryPhoneCodes - Billing-country to phone-code mapping.
  * @return {Object} Checkout form helpers and event handlers.
  */
-export function createCheckoutFormController({dom, countryPhoneCodes}) {
+export function createCheckoutFormController({dom}) {
     /**
      * Validates all required checkout fields before billing info submission.
      *
@@ -322,6 +321,17 @@ export function createCheckoutFormController({dom, countryPhoneCodes}) {
         return Object.keys(countryPhoneCodes).find(
             countryCode => countryPhoneCodes[countryCode] === phoneCode
         ) || '';
+    }
+
+    /**
+     * Joins non-empty address lines into the single street value expected by Paygate.
+     *
+     * @param {string} line1 - First street address line.
+     * @param {string} line2 - Second street address line.
+     * @return {string} Comma-separated street value.
+     */
+    function joinAddressLines(line1, line2) {
+        return [line1, line2].map(value => (value || '').trim()).filter(Boolean).join(', ');
     }
 
     return {

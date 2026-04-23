@@ -1,6 +1,13 @@
 'use strict';
 
 /**
+ * Delay before sending the 'calculate-charges' request when VAT ID was changed.
+ *
+ * @type {number}
+ */
+const vatIdInputDelay = 1000;
+
+/**
  * Creates the checkout charge-calculation controller.
  *
  * @param {Object} options - Charge controller options.
@@ -10,9 +17,7 @@
  * @param {function(): string} options.getBuyerCountryCode - Returns the selected billing country.
  * @param {function(): string} options.getVatId - Returns the current VAT ID value.
  * @param {function(string): void} options.onVatIdError - Renders the VAT ID API validation error.
- * @param {function(Object): boolean} options.isVatIdErrorResponse - Checks for VAT field errors.
  * @param {function(Object|Error): void} options.logApiError - Logs request failures.
- * @param {number} options.requestDelay - VAT typing debounce in milliseconds.
  * @return {Object} Charge lifecycle helpers for the checkout page.
  */
 export function createChargeController({
@@ -22,9 +27,7 @@ export function createChargeController({
     getBuyerCountryCode,
     getVatId,
     onVatIdError,
-    isVatIdErrorResponse,
-    logApiError,
-    requestDelay
+    logApiError
 }) {
     let chargeRequestId = 0;
     let chargesRequestTimer = null;
@@ -76,7 +79,7 @@ export function createChargeController({
             })
             .catch(error => {
                 const isCurrentRequest = requestId === chargeRequestId;
-                const isVatError = isVatIdErrorResponse(error);
+                const isVatError = isVatErrorResponse(error);
 
                 if (!isVatError) {
                     view.showErrorModal();
@@ -124,7 +127,7 @@ export function createChargeController({
         chargesRequestTimer = window.setTimeout(() => {
             chargesRequestTimer = null;
             requestIfReady();
-        }, requestDelay);
+        }, vatIdInputDelay);
     }
 
     /**
@@ -188,6 +191,18 @@ export function createChargeController({
 
         window.clearTimeout(chargesRequestTimer);
         chargesRequestTimer = null;
+    }
+
+    /**
+     * Checks whether a Paygate error should be rendered on the VAT ID field.
+     *
+     * @param {Object} error - Error object thrown by the Paygate client.
+     * @return {boolean} True when the error contains a VAT ID validation reason.
+     */
+    function isVatErrorResponse(error) {
+        return error.status === 422 &&
+            error.body &&
+            /^VAT_ID_/.test(error.body.reason || '');
     }
 
     return {

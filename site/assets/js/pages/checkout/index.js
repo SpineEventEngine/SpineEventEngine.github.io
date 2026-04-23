@@ -4,17 +4,8 @@ import * as params from '@params';
 import {createPurchaseClient} from '../../modules/paygate/purchases';
 import {createChargeController} from './charge-controller';
 import {getCheckoutDom} from './dom';
+import {requiredSelector} from './form-constants';
 import {createCheckoutFormController} from './form-controller';
-import {
-    countryPhoneCodes,
-    getProductId,
-    isNotFoundResponse,
-    isServerErrorResponse,
-    isVatIdErrorResponse,
-    logApiError,
-    requiredSelector,
-    vatIdInputDelay
-} from './helpers';
 import {createCheckoutView} from './view-controller';
 
 $(
@@ -28,10 +19,7 @@ $(
         const purchaseClient = createPurchaseClient(params.paygate.serverurl);
         const productId = getProductId();
         const view = createCheckoutView(dom);
-        const formController = createCheckoutFormController({
-            dom,
-            countryPhoneCodes
-        });
+        const formController = createCheckoutFormController({dom});
         let orderId = null;
         let countryManuallySelected = false;
         let phoneCountryManuallySelected = false;
@@ -42,9 +30,7 @@ $(
             getBuyerCountryCode: () => dom.$country.val(),
             getVatId: () => (dom.$vatId.val() || '').trim(),
             onVatIdError: formController.showVatIdError,
-            isVatIdErrorResponse,
-            logApiError,
-            requestDelay: vatIdInputDelay
+            logApiError
         });
 
         if (!productId) {
@@ -142,7 +128,7 @@ $(
                 chargeController.updateSubmitState();
                 chargeController.requestIfReady();
             } catch (error) {
-                if (isNotFoundResponse(error)) {
+                if (error.status === 404) {
                     chargeController.invalidate();
                     view.showNotFoundView();
                     chargeController.updateSubmitState();
@@ -206,12 +192,30 @@ $(
          * @return {boolean} True when the error represents a server response.
          */
         function showServerErrorModal(error) {
-            if (!isServerErrorResponse(error)) {
+            if (error.status >= 500) {
                 return false;
             }
 
             view.showErrorModal();
             return true;
+        }
+
+        /**
+         * Reads the product ID from the `product` query parameter.
+         *
+         * @return {string} Checkout product ID, or empty string when unavailable.
+         */
+        function getProductId() {
+            return (new URLSearchParams(window.location.search).get('product') || '').trim();
+        }
+
+        /**
+         * Logs API failures in a compact and consistent format.
+         *
+         * @param {Object|Error} error - Request error to log.
+         */
+        function logApiError(error) {
+            console.error(`${error.status || 'Network error'}: ${error.statusText || error.message || 'Request failed'}`);
         }
     }
 );

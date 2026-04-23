@@ -1,7 +1,5 @@
 'use strict';
 
-import {formatMoney} from './helpers';
-
 /**
  * Creates the checkout view controller.
  *
@@ -124,6 +122,19 @@ export function createCheckoutView(dom) {
         dom.$form.prop('hidden', true);
         dom.$summaryError.prop('hidden', true);
         dom.$notFound.prop('hidden', false);
+    }
+
+    /**
+     * Formats an amount with its currency suffix when currency is known.
+     *
+     * @param {number|string} amount - Amount value returned by Paygate.
+     * @param {string} valueCurrency - Currency code to append.
+     * @return {string} Formatted money value with optional currency suffix.
+     */
+    function formatMoney(amount, valueCurrency) {
+        const numericAmount = Number(amount);
+        const formattedAmount = Number.isNaN(numericAmount) ? amount : numericAmount.toFixed(2);
+        return valueCurrency ? `${formattedAmount} ${valueCurrency}` : formattedAmount;
     }
 
     return {
