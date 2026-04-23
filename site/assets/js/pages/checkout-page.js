@@ -51,6 +51,7 @@ $(
         const $vatLabel = $('#checkout-vat-label');
         const $vatValue = $('#checkout-vat-value');
         const $totalValue = $('#checkout-total-value');
+        const $submitButton = $('#checkout-submit');
         const $errorModal = $('#checkout-error-modal');
         const $notFound = $('#checkout-not-found');
 
@@ -62,7 +63,6 @@ $(
         const form = $form.get(0);
         const requiredSelector = 'input[required], select[required], textarea[required]';
         const productId = getProductId();
-        const vatIdInputDelay = 2000;
         const countryPhoneCodes = {
             AT: '43',
             BE: '32',
@@ -95,8 +95,8 @@ $(
         let orderId = null;
         let currency = '';
         let chargeRequestId = 0;
-        let chargesRequestTimer = null;
         let lastChargesRequestKey = '';
+        let chargesReadyKey = '';
         let countryManuallySelected = false;
         let phoneCountryManuallySelected = false;
 
@@ -107,6 +107,7 @@ $(
 
         $form.prop('hidden', true);
         updatePhoneCountryDisplay();
+        updateSubmitState();
         placeOrder();
 
         $form.on('input change', requiredSelector, event => {
@@ -123,6 +124,7 @@ $(
 
         $country.on('change', () => {
             countryManuallySelected = true;
+            invalidateCharges();
             applyPhoneCountryFromBillingCountry();
             updateVatIdFieldState();
             requestChargesNow();
@@ -164,7 +166,8 @@ $(
         });
 
         $vatId.on('input', () => {
-            scheduleChargesRequest();
+            invalidateCharges();
+            requestChargesNow();
         });
 
         $vatId.on('blur change', () => {
@@ -182,6 +185,12 @@ $(
 
             if (!orderId) {
                 console.error('Order ID is not available yet.');
+                return;
+            }
+
+            await requestChargesIfReady();
+
+            if (!hasCurrentCharges()) {
                 return;
             }
 
@@ -235,6 +244,7 @@ $(
                 hydrateProductSummary(response.product);
                 setSummaryLoading(false);
                 $form.prop('hidden', false);
+                updateSubmitState();
                 requestChargesIfReady();
             } catch (error) {
                 if (isNotFoundResponse(error)) {
@@ -259,15 +269,12 @@ $(
          * @return {Promise<void>} Resolves when charges are updated, skipped, or handled as an error.
          */
         async function requestChargesIfReady() {
-            const buyerCountryCode = $country.val();
-            const vatId = ($vatId.val() || '').trim();
+            const requestKey = getChargesRequestKey();
 
-            if (!orderId || !buyerCountryCode || !vatId) {
-                lastChargesRequestKey = '';
+            if (!requestKey) {
+                invalidateCharges();
                 return;
             }
-
-            const requestKey = [orderId, buyerCountryCode, vatId].join(':');
 
             if (requestKey === lastChargesRequestKey) {
                 return;
@@ -275,11 +282,14 @@ $(
 
             lastChargesRequestKey = requestKey;
             const requestId = ++chargeRequestId;
+            const [requestOrderId, buyerCountryCode, vatId] = requestKey.split(':');
             const payload = {
-                orderId,
+                orderId: requestOrderId,
                 buyerCountryCode,
                 vatId
             };
+            chargesReadyKey = '';
+            updateSubmitState();
 
             try {
                 const response = await purchaseClient.calculateCharges(payload);
@@ -288,9 +298,17 @@ $(
                     return;
                 }
 
+                chargesReadyKey = requestKey;
                 updateCharges(response);
+                updateSubmitState();
             } catch (error) {
+                if (requestId !== chargeRequestId) {
+                    return;
+                }
+
                 lastChargesRequestKey = '';
+                chargesReadyKey = '';
+                updateSubmitState();
                 if (isVatIdErrorResponse(error)) {
                     showVatIdError(error.body.reason);
                 } else if (isServerErrorResponse(error)) {
@@ -304,32 +322,7 @@ $(
          * Cancels delayed VAT recalculation and requests charges immediately.
          */
         function requestChargesNow() {
-            clearScheduledChargesRequest();
             requestChargesIfReady();
-        }
-
-        /**
-         * Debounces VAT-based charge recalculation while the user types.
-         */
-        function scheduleChargesRequest() {
-            clearScheduledChargesRequest();
-
-            chargesRequestTimer = window.setTimeout(() => {
-                chargesRequestTimer = null;
-                requestChargesIfReady();
-            }, vatIdInputDelay);
-        }
-
-        /**
-         * Clears any pending delayed charge recalculation.
-         */
-        function clearScheduledChargesRequest() {
-            if (!chargesRequestTimer) {
-                return;
-            }
-
-            window.clearTimeout(chargesRequestTimer);
-            chargesRequestTimer = null;
         }
 
         /**
@@ -397,7 +390,6 @@ $(
             const vatId = ($vatId.val() || '').trim();
 
             vatId ? validateField(field) : setFieldError(field, '');
-            lastChargesRequestKey = '';
         }
 
         /**
@@ -517,6 +509,7 @@ $(
                 return;
             }
 
+            invalidateCharges();
             $country.val(countryCode);
             updateVatIdFieldState();
             requestChargesNow();
@@ -633,6 +626,46 @@ $(
         }
 
         /**
+         * Builds the cache key for the current charge calculation inputs.
+         *
+         * @return {string} Joined order/country/VAT key, or empty string when calculation cannot run yet.
+         */
+        function getChargesRequestKey() {
+            const buyerCountryCode = $country.val();
+            const vatId = ($vatId.val() || '').trim();
+
+            return orderId && buyerCountryCode && vatId ? [orderId, buyerCountryCode, vatId].join(':') : '';
+        }
+
+        /**
+         * Invalidates the current charge calculation state and ignores older responses.
+         */
+        function invalidateCharges() {
+            chargeRequestId += 1;
+            lastChargesRequestKey = '';
+            chargesReadyKey = '';
+            updateSubmitState();
+        }
+
+        /**
+         * Checks whether charges are calculated for the form's current country and VAT ID.
+         *
+         * @return {boolean} True when the latest charges match the current form state.
+         */
+        function hasCurrentCharges() {
+            const requestKey = getChargesRequestKey();
+            return Boolean(requestKey) && requestKey === chargesReadyKey;
+        }
+
+        /**
+         * Enables checkout submission only when the current charge calculation is ready.
+         */
+        function updateSubmitState() {
+            const isDisabled = $form.prop('hidden') || !hasCurrentCharges();
+            $submitButton.prop('disabled', isDisabled);
+        }
+
+        /**
          * Shows or hides the order-summary loading state.
          *
          * @param {boolean} isLoading - Whether the summary should show the loading state.
@@ -644,6 +677,7 @@ $(
             $loadingSpinner.prop('hidden', !isLoading);
             $loadingSupport.prop('hidden', true);
             $form.prop('hidden', isLoading);
+            updateSubmitState();
 
             if (isLoading) {
                 $loadingText.text('Loading checkout details...');
@@ -666,6 +700,7 @@ $(
             $vatLabel.text('VAT');
             $vatValue.text('—');
             $totalValue.text('—');
+            updateSubmitState();
         }
 
         /**
@@ -770,11 +805,12 @@ $(
          * Shows the not-found result panel inside the checkout page.
          */
         function showNotFoundView() {
-            clearScheduledChargesRequest();
+            invalidateCharges();
             closeErrorModal();
             $summary.prop('hidden', true);
             $form.prop('hidden', true);
             $notFound.prop('hidden', false);
+            updateSubmitState();
         }
     }
 );
