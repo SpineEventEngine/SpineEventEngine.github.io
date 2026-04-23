@@ -1,6 +1,6 @@
 'use strict';
 
-import {countryPhoneCodes} from './form-constants';
+import {euCountryPhoneCodes} from './phone-codes';
 import {
     isValidPhoneNumberInput,
     normalizePhoneNumber,
@@ -8,18 +8,54 @@ import {
 } from '../../modules/forms/phone-number';
 
 /**
+ * @typedef {import('./dom').CheckoutDom} CheckoutDom
+ * @typedef {import('../../modules/paygate/purchases').SubmitBillingInfoRequest}
+ * SubmitBillingInfoRequest
+ */
+
+/**
+ * API exposed by the checkout form controller.
+ *
+ * @typedef {Object} CheckoutFormController
+ * @property {function(boolean): boolean} applyBillingCountryFromPhoneCountry
+ *   syncs billing country from phone country when allowed
+ * @property {function(boolean): void} applyPhoneCountryFromBillingCountry
+ *   syncs phone country from billing country when allowed
+ * @property {function(string): SubmitBillingInfoRequest}
+ *   buildSubmitBillingInfoRequest builds the billing-info payload for Paygate
+ * @property {function(): void} handlePhoneClick focuses the phone-country
+ *   selector when the field wrapper is clicked
+ * @property {function(JQuery.Event): void} handlePhoneNumberBeforeInput blocks
+ *   unsupported phone input characters
+ * @property {function(): void} handlePhoneNumberFocus focuses the phone-country
+ *   selector before number entry
+ * @property {function(): void} sanitizePhoneNumberValue normalizes phone text
+ *   after edits
+ * @property {function(string): void} showVatIdError renders VAT API validation
+ *   errors inline
+ * @property {function(): void} updatePhoneCountryDisplay refreshes visible
+ *   phone-country UI
+ * @property {function(): void} updateVatIdFieldState refreshes VAT field state
+ *   after country changes
+ * @property {function(HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement):
+ *   boolean} validateField validates one form field
+ * @property {function(string): boolean} validateRequiredFields validates all
+ *   required checkout fields
+ */
+
+/**
  * Creates the checkout form controller.
  *
- * @param {Object} options - Form controller options.
- * @param {Object} options.dom - Checkout DOM references.
- * @return {Object} Checkout form helpers and event handlers.
+ * @param {Object} options form controller options
+ * @param {CheckoutDom} options.dom checkout DOM references
+ * @return {CheckoutFormController} checkout form helpers and event handlers
  */
 export function createCheckoutFormController({dom}) {
     /**
      * Validates all required checkout fields before billing info submission.
      *
-     * @param {string} requiredSelector - Selector used to find required form fields.
-     * @return {boolean} True when all required fields are valid.
+     * @param {string} requiredSelector selector used to find required form fields
+     * @return {boolean} true when all required fields are valid
      */
     function validateRequiredFields(requiredSelector) {
         return Array.from(dom.form.querySelectorAll(requiredSelector))
@@ -30,8 +66,9 @@ export function createCheckoutFormController({dom}) {
     /**
      * Validates a single form field and renders its inline error state.
      *
-     * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} field - Field element to validate.
-     * @return {boolean} True when the field has no validation error.
+     * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} field field element to
+     *   validate
+     * @return {boolean} true when the field has no validation error
      */
     function validateField(field) {
         if (!field) {
@@ -58,7 +95,7 @@ export function createCheckoutFormController({dom}) {
     /**
      * Shows the API-provided VAT ID validation error on the VAT ID field.
      *
-     * @param {string} reason - Paygate VAT ID error reason.
+     * @param {string} reason paygate VAT ID error reason
      */
     function showVatIdError(reason) {
         setFieldError(dom.$vatId.get(0), vatIdErrorMessage(reason));
@@ -77,15 +114,17 @@ export function createCheckoutFormController({dom}) {
     /**
      * Builds the Paygate submit-billing-info request from the checkout form.
      *
-     * @param {string} orderId - Paygate order ID.
-     * @return {{orderId: string, billingInfo: Object}} Submit-billing-info request payload.
+     * @param {string} orderId paygate order ID
+     * @return {SubmitBillingInfoRequest} submit-billing-info request payload
      */
     function buildSubmitBillingInfoRequest(orderId) {
         const formData = Object.fromEntries(new FormData(dom.form).entries());
         const field = name => (formData[name] || '').trim();
         const companyName = field('company');
         const vatId = field('vat_id');
-        const fullName = [field('first_name'), field('last_name')].filter(Boolean).join(' ') || companyName;
+        const fullName = [field('first_name'), field('last_name')]
+            .filter(Boolean)
+            .join(' ') || companyName;
         const phoneNumber = normalizePhoneNumber(
             formData.phone_country_code || '',
             formData.phone_number || ''
@@ -118,8 +157,8 @@ export function createCheckoutFormController({dom}) {
     /**
      * Sets billing country from phone country when the user has not chosen country manually.
      *
-     * @param {boolean} countryManuallySelected - Whether billing country was chosen by the user.
-     * @return {boolean} True when billing country was changed by the phone-country selector.
+     * @param {boolean} countryManuallySelected whether billing country was chosen by the user
+     * @return {boolean} true when billing country was changed by the phone-country selector
      */
     function applyBillingCountryFromPhoneCountry(countryManuallySelected) {
         if (countryManuallySelected) {
@@ -140,7 +179,7 @@ export function createCheckoutFormController({dom}) {
     /**
      * Sets phone country from billing country while the phone number is still untouched.
      *
-     * @param {boolean} phoneCountryManuallySelected - Whether phone country was chosen by the user.
+     * @param {boolean} phoneCountryManuallySelected whether phone country was chosen by the user
      */
     function applyPhoneCountryFromBillingCountry(phoneCountryManuallySelected) {
         if (phoneCountryManuallySelected || hasPhoneNumber()) {
@@ -148,7 +187,7 @@ export function createCheckoutFormController({dom}) {
             return;
         }
 
-        const phoneCode = countryPhoneCodes[dom.$country.val()] || '';
+        const phoneCode = euCountryPhoneCodes[dom.$country.val()] || '';
         dom.$phoneCountryCode.val(phoneCode);
         updatePhoneCountryDisplay();
     }
@@ -200,7 +239,7 @@ export function createCheckoutFormController({dom}) {
     /**
      * Prevents unsupported phone symbols from being typed into the phone field.
      *
-     * @param {JQuery.Event} event - Phone number beforeinput event.
+     * @param {JQuery.Event} event phone number beforeinput event
      */
     function handlePhoneNumberBeforeInput(event) {
         const originalEvent = event.originalEvent;
@@ -225,8 +264,8 @@ export function createCheckoutFormController({dom}) {
     /**
      * Applies or clears the visual error state for a form field.
      *
-     * @param {HTMLElement} field - Field whose nearest form-field container should be updated.
-     * @param {string} message - Error message to show, or empty string to clear the error.
+     * @param {HTMLElement} field field whose nearest form-field container should be updated
+     * @param {string} message error message to show, or empty string to clear the error
      */
     function setFieldError(field, message) {
         if (!field) {
@@ -247,8 +286,8 @@ export function createCheckoutFormController({dom}) {
     /**
      * Returns the field error element, creating it when the template has none.
      *
-     * @param {HTMLElement} fieldContainer - Form field container that owns the error element.
-     * @return {HTMLDivElement} Existing or newly created error element.
+     * @param {HTMLElement} fieldContainer form field container that owns the error element
+     * @return {HTMLDivElement} existing or newly created error element
      */
     function getOrCreateError(fieldContainer) {
         let errorElement = fieldContainer.querySelector('.error-message');
@@ -265,8 +304,8 @@ export function createCheckoutFormController({dom}) {
     /**
      * Maps Paygate VAT ID error reasons to user-facing field messages.
      *
-     * @param {string} reason - Paygate VAT ID error reason.
-     * @return {string} User-facing VAT ID field error message.
+     * @param {string} reason paygate VAT ID error reason
+     * @return {string} user-facing VAT ID field error message
      */
     function vatIdErrorMessage(reason) {
         switch (reason) {
@@ -295,7 +334,7 @@ export function createCheckoutFormController({dom}) {
     /**
      * Checks whether the national phone-number input has user-entered text.
      *
-     * @return {boolean} True when the phone number input is not empty.
+     * @return {boolean} true when the phone number input is not empty
      */
     function hasPhoneNumber() {
         return Boolean((dom.$phoneNumber.val() || '').trim());
@@ -304,8 +343,8 @@ export function createCheckoutFormController({dom}) {
     /**
      * Checks whether the billing country select contains the given country code.
      *
-     * @param {string} countryCode - ISO country code to look for in the billing country select.
-     * @return {boolean} True when the select has an option for the country code.
+     * @param {string} countryCode country ISO code to look for in the billing country select
+     * @return {boolean} true when the select has an option for the country code
      */
     function hasCountryOption(countryCode) {
         return dom.$country.find(`option[value="${countryCode}"]`).length > 0;
@@ -314,21 +353,21 @@ export function createCheckoutFormController({dom}) {
     /**
      * Resolves an EU billing country code from a phone country code.
      *
-     * @param {string} phoneCode - Phone calling code without a plus sign.
-     * @return {string} Matching billing country code, or empty string when none matches.
+     * @param {string} phoneCode phone calling code without a plus sign
+     * @return {string} matching billing country code, or empty string when none matches
      */
     function countryCodeFromPhoneCode(phoneCode) {
-        return Object.keys(countryPhoneCodes).find(
-            countryCode => countryPhoneCodes[countryCode] === phoneCode
+        return Object.keys(euCountryPhoneCodes).find(
+            countryCode => euCountryPhoneCodes[countryCode] === phoneCode
         ) || '';
     }
 
     /**
      * Joins non-empty address lines into the single street value expected by Paygate.
      *
-     * @param {string} line1 - First street address line.
-     * @param {string} line2 - Second street address line.
-     * @return {string} Comma-separated street value.
+     * @param {string} line1 first street address line
+     * @param {string} line2 second street address line
+     * @return {string} comma-separated street value
      */
     function joinAddressLines(line1, line2) {
         return [line1, line2].map(value => (value || '').trim()).filter(Boolean).join(', ');

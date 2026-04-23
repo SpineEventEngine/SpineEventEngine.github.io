@@ -1,10 +1,38 @@
 'use strict';
 
 /**
+ * @typedef {import('./dom').CheckoutDom} CheckoutDom
+ */
+
+/**
+ * API exposed by the checkout view controller.
+ *
+ * @typedef {Object} CheckoutViewController
+ * @property {function(): void} closeErrorModal
+ *   closes the generic checkout error modal
+ * @property {function(Object): void} hydrateProductSummary
+ *   fills summary fields with product data
+ * @property {function(): boolean} isFormHidden
+ *   checks whether the checkout form is currently hidden
+ * @property {function(boolean): void} setSubmitDisabled
+ *   enables or disables the checkout submit button
+ * @property {function(boolean): void} setSummaryLoading
+ *   shows or hides the summary loading state
+ * @property {function(): void} showErrorModal
+ *   opens the generic checkout error modal
+ * @property {function(): void} showNotFoundView
+ *   shows the checkout product-not-found panel
+ * @property {function(): void} showSummaryError
+ *   shows the generic checkout summary-error panel
+ * @property {function(Object): void} updateCharges
+ *   refreshes summary totals from charge-calculation response
+ */
+
+/**
  * Creates the checkout view controller.
  *
- * @param {Object} dom - Checkout DOM references.
- * @return {Object} View update helpers for the checkout page.
+ * @param {CheckoutDom} dom checkout DOM references
+ * @return {CheckoutViewController} view update helpers for the checkout page
  */
 export function createCheckoutView(dom) {
     let currency = '';
@@ -12,7 +40,7 @@ export function createCheckoutView(dom) {
     /**
      * Enables or disables the checkout submit button.
      *
-     * @param {boolean} isDisabled - Whether submit should be disabled.
+     * @param {boolean} isDisabled whether submit should be disabled
      */
     function setSubmitDisabled(isDisabled) {
         dom.$submitButton.prop('disabled', isDisabled);
@@ -21,7 +49,7 @@ export function createCheckoutView(dom) {
     /**
      * Checks whether the checkout form is currently hidden.
      *
-     * @return {boolean} True when the form is hidden.
+     * @return {boolean} true when the form is hidden
      */
     function isFormHidden() {
         return dom.$form.prop('hidden');
@@ -30,7 +58,7 @@ export function createCheckoutView(dom) {
     /**
      * Fills the order summary with product details returned by Paygate.
      *
-     * @param {Object} product - Paygate product data for the current order.
+     * @param {Object} product paygate product data for the current order
      */
     function hydrateProductSummary(product) {
         if (!product) {
@@ -55,7 +83,7 @@ export function createCheckoutView(dom) {
     /**
      * Updates the order summary from the Paygate charge calculation response.
      *
-     * @param {Object} response - Paygate charge calculation response.
+     * @param {Object} response paygate charge calculation response
      */
     function updateCharges(response) {
         const vatRatePercent = Number(response.vatRate) * 100;
@@ -70,7 +98,7 @@ export function createCheckoutView(dom) {
     /**
      * Shows or hides the order-summary loading state.
      *
-     * @param {boolean} isLoading - Whether the summary should show the loading state.
+     * @param {boolean} isLoading whether the summary should show the loading state
      */
     function setSummaryLoading(isLoading) {
         dom.$summary.attr('data-loading', isLoading ? 'true' : 'false');
@@ -127,9 +155,9 @@ export function createCheckoutView(dom) {
     /**
      * Formats an amount with its currency suffix when currency is known.
      *
-     * @param {number|string} amount - Amount value returned by Paygate.
-     * @param {string} valueCurrency - Currency code to append.
-     * @return {string} Formatted money value with optional currency suffix.
+     * @param {number|string} amount amount value returned by Paygate
+     * @param {string} valueCurrency currency code to append
+     * @return {string} formatted money value with optional currency suffix
      */
     function formatMoney(amount, valueCurrency) {
         const numericAmount = Number(amount);

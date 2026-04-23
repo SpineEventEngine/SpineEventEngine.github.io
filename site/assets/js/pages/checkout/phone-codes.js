@@ -1,8 +1,9 @@
 'use strict';
 
-export const requiredSelector = 'input[required], select[required], textarea[required]';
-
-export const countryPhoneCodes = {
+/**
+ * Phone codes of the EU countries.
+ */
+export const euCountryPhoneCodes = {
     AT: '43',
     BE: '32',
     BG: '359',

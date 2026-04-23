@@ -1,9 +1,42 @@
 'use strict';
 
 /**
+ * DOM references used across the checkout page controllers.
+ *
+ * @typedef {Object} CheckoutDom
+ * @property {JQuery<HTMLFormElement>} $form checkout billing form wrapper
+ * @property {JQuery<HTMLElement>} $summary order summary container
+ * @property {JQuery<HTMLSelectElement>} $country billing country select
+ * @property {JQuery<HTMLElement>} $phone custom phone field wrapper
+ * @property {JQuery<HTMLSelectElement>} $phoneCountryCode phone country-code
+ *   select
+ * @property {JQuery<HTMLElement>} $phoneFlag visible phone country flag
+ * @property {JQuery<HTMLElement>} $phoneDialCode visible phone dial code label
+ * @property {JQuery<HTMLInputElement>} $phoneNumber national phone number input
+ * @property {JQuery<HTMLInputElement>} $vatId vat ID input
+ * @property {JQuery<HTMLElement>} $loading summary loading container
+ * @property {JQuery<HTMLElement>} $loadingSpinner summary spinner element
+ * @property {JQuery<HTMLElement>} $loadingText summary loading text element
+ * @property {JQuery<HTMLElement>} $loadingSupport summary support text element
+ * @property {JQuery<HTMLElement>} $productName product name element
+ * @property {JQuery<HTMLElement>} $productDescription product description
+ *   element
+ * @property {JQuery<HTMLElement>} $subtotalValue subtotal value element
+ * @property {JQuery<HTMLElement>} $vatLabel vat label element
+ * @property {JQuery<HTMLElement>} $vatValue vat amount element
+ * @property {JQuery<HTMLElement>} $totalValue total amount element
+ * @property {JQuery<HTMLButtonElement>} $submitButton checkout submit button
+ * @property {JQuery<HTMLElement>} $errorModal generic checkout error modal
+ * @property {JQuery<HTMLElement>} $notFound product-not-found result panel
+ * @property {JQuery<HTMLElement>} $summaryError generic checkout summary-error
+ *   panel
+ * @property {HTMLFormElement} form native checkout form element
+ */
+
+/**
  * Collects the checkout page DOM references used by the page controllers.
  *
- * @return {Object|null} Checkout DOM references, or null when the page is not present.
+ * @return {CheckoutDom|null} checkout DOM references, or null when the page is not present
  */
 export function getCheckoutDom() {
     const dom = {

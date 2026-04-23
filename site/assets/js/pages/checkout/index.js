@@ -4,9 +4,10 @@ import * as params from '@params';
 import {createPurchaseClient} from '../../modules/paygate/purchases';
 import {createChargeController} from './charge-controller';
 import {getCheckoutDom} from './dom';
-import {requiredSelector} from './form-constants';
 import {createCheckoutFormController} from './form-controller';
 import {createCheckoutView} from './view-controller';
+
+const requiredSelector = 'input[required], select[required], textarea[required]';
 
 $(
     function () {
@@ -104,9 +105,9 @@ $(
         }
 
         /**
-         * Creates a Paygate order for the product in the current checkout URL.
+         * Creates an order for the product from the current checkout URL.
          *
-         * @return {Promise<void>} Resolves when the initial order load flow finishes.
+         * @return {Promise<void>} resolves when the initial order load flow finishes
          */
         async function placeOrder() {
             view.setSummaryLoading(true);
@@ -146,8 +147,8 @@ $(
         /**
          * Submits checkout billing data after the current charge state is valid.
          *
-         * @param {JQuery.SubmitEvent} event - Checkout form submit event.
-         * @return {Promise<void>} Resolves when submit handling finishes.
+         * @param {JQuery.SubmitEvent} event checkout form submit event
+         * @return {Promise<void>} resolves when submit handling finishes
          */
         async function handleSubmit(event) {
             event.preventDefault();
@@ -172,7 +173,10 @@ $(
                 const response = await purchaseClient.submitBillingInfo(
                     formController.buildSubmitBillingInfoRequest(orderId)
                 );
-                const redirectUrl = response.paymentLink || response.redirectUrl || response.url || response.link;
+                const redirectUrl = response.paymentLink ||
+                    response.redirectUrl ||
+                    response.url ||
+                    response.link;
 
                 if (redirectUrl) {
                     window.location = redirectUrl;
@@ -188,8 +192,8 @@ $(
         /**
          * Opens the generic checkout error modal for server-side request failures.
          *
-         * @param {Object|Error} error - Request error to inspect.
-         * @return {boolean} True when the error represents a server response.
+         * @param {Object|Error} error request error to inspect
+         * @return {boolean} true when the error represents a server response
          */
         function showServerErrorModal(error) {
             if (error.status >= 500) {
@@ -203,7 +207,7 @@ $(
         /**
          * Reads the product ID from the `product` query parameter.
          *
-         * @return {string} Checkout product ID, or empty string when unavailable.
+         * @return {string} checkout product ID, or empty string when unavailable
          */
         function getProductId() {
             return (new URLSearchParams(window.location.search).get('product') || '').trim();
@@ -212,10 +216,13 @@ $(
         /**
          * Logs API failures in a compact and consistent format.
          *
-         * @param {Object|Error} error - Request error to log.
+         * @param {Object|Error} error request error to log
          */
         function logApiError(error) {
-            console.error(`${error.status || 'Network error'}: ${error.statusText || error.message || 'Request failed'}`);
+            console.error(
+                `${error.status || 'Network error'}: ` +
+                `${error.statusText || error.message || 'Request failed'}`
+            );
         }
     }
 );
