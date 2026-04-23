@@ -64,21 +64,26 @@
   letter-spacing: 0;
 }
 
-.result-panel-title {
+.result-panel h1.result-panel-title,
+.result-panel h2.result-panel-title {
   margin: 0 0 14px;
   color: $black;
   font-size: 36px;
   font-weight: 800;
   line-height: 1.15;
+  letter-spacing: 0;
+  text-align: center;
 }
 
-.result-panel-text {
+.result-panel p.result-panel-text {
   max-width: 520px;
   margin: 0 auto 30px;
   color: $gray-500;
   font-size: 17px;
+  font-weight: 400;
   line-height: 1.55;
   text-align: center;
+  letter-spacing: 0;
 
   span {
     display: block;
@@ -97,11 +102,12 @@
     margin-bottom: 8px;
   }
 
-  .result-panel-title {
+  .result-panel h1.result-panel-title,
+  .result-panel h2.result-panel-title {
     font-size: 28px;
   }
 
-  .result-panel-text {
+  .result-panel p.result-panel-text {
     font-size: 16px;
   }
 }
