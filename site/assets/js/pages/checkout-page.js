@@ -49,6 +49,7 @@ $(
         const $vatValue = $('#checkout-vat-value');
         const $totalValue = $('#checkout-total-value');
         const $errorModal = $('#checkout-error-modal');
+        const $notFound = $('#checkout-not-found');
 
         if (!$form.length || !$summary.length) {
             return;
@@ -97,7 +98,7 @@ $(
         let phoneCountryManuallySelected = false;
 
         if (!productId) {
-            showNotFoundPage();
+            showNotFoundView();
             return;
         }
 
@@ -223,7 +224,7 @@ $(
                 const response = await purchaseClient.placeOrder(productId);
 
                 if (!response.product) {
-                    showNotFoundPage();
+                    showNotFoundView();
                     return;
                 }
 
@@ -233,7 +234,7 @@ $(
                 requestChargesIfReady();
             } catch (error) {
                 if (isNotFoundResponse(error)) {
-                    showNotFoundPage();
+                    showNotFoundView();
                     return;
                 }
 
@@ -797,12 +798,15 @@ $(
         }
 
         /**
-         * Redirects to 404 and prevents the checkout product handoff from looping.
+         * Shows the not-found result panel inside the checkout page.
          */
-        function showNotFoundPage() {
+        function showNotFoundView() {
             window.sessionStorage.removeItem('checkoutProductId');
-            window.sessionStorage.setItem('showCheckoutNotFound', 'true');
-            window.location.replace('/404.html');
+            clearScheduledChargesRequest();
+            closeErrorModal();
+            $summary.prop('hidden', true);
+            $form.prop('hidden', true);
+            $notFound.prop('hidden', false);
         }
     }
 );

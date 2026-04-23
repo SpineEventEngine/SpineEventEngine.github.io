@@ -1,12 +1,6 @@
 {{ define "main" }}
     <script>
         (function () {
-            if (window.sessionStorage.getItem('showCheckoutNotFound') === 'true') {
-                window.sessionStorage.removeItem('showCheckoutNotFound');
-                window.sessionStorage.removeItem('checkoutProductId');
-                return;
-            }
-
             var path = window.location.pathname || '';
             var match = path.match(/^\/checkout\/([^/?#]+)\/?$/);
 
