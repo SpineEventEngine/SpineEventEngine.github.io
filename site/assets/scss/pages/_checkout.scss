@@ -252,22 +252,23 @@
   .checkout-summary-product {
     max-width: 100%;
     padding: 2px 0 8px;
-    color: $main-brand-color;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -.02em;
-    line-height: 1.15;
+    color: rgba($black, .4);
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1.12;
     overflow-wrap: anywhere;
 
     @include breakpoint(md-phone) {
-      font-size: 26px;
+      font-size: 32px;
     }
   }
 
   .checkout-summary-product-description {
     margin: -2px 0 10px;
-    color: $gray-500;
-    font-size: 15px;
+    color: rgba($black, .54);
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.5;
 
     @include breakpoint(md-phone) {
@@ -279,9 +280,9 @@
   .checkout-summary-label {
     flex: 0 0 auto;
     min-width: 0;
-    color: $gray-500;
-    font-size: 15px;
-    font-weight: 600;
+    color: $black;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.2;
   }
 
@@ -309,16 +310,16 @@
 
   .checkout-summary-value-amount {
     color: $black;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 1.2;
   }
 
   .checkout-summary-value-total {
     color: $black;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: -.02em;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0;
     line-height: 1.1;
   }
 
@@ -326,7 +327,7 @@
     margin-bottom: 16px;
 
     .checkout-summary-product {
-      font-size: 24px;
+      font-size: 28px;
       padding-bottom: 6px;
     }
 
@@ -353,7 +354,7 @@
 
   @include breakpoint(md-phone) {
     .checkout-summary-label {
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .checkout-summary-value-amount {
@@ -368,7 +369,7 @@
 
   @include breakpoint(sm-phone) {
     .checkout-summary-product {
-      font-size: 22px;
+      font-size: 26px;
     }
 
     .checkout-summary-row {
