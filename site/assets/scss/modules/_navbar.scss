@@ -41,7 +41,6 @@
   min-height: $header-height;
   z-index: map_get($z-index, 'header');
   position: absolute;
-  background-image: $nav-blue-gradient;
 
   // Fixes the header on the page.
   // Usage: add the `header_type: fixed-header` attribute to the page front matter.
