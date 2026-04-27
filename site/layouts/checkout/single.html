@@ -1,8 +1,7 @@
 {{ define "main" }}
     {{ partial "components/navbar/navbar.html" . }}
-    {{ partial "components/nav-hero.html" . }}
     <section class="checkout">
-        <div class="container-fluid content-holder">
+        <div class="container-fluid content-holder content-with-fixed-header">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="article-container article-text">
@@ -26,22 +25,19 @@
                                 </div>
                                 <div class="checkout-summary-product" id="checkout-product-name" hidden></div>
                                 <div class="checkout-summary-product-description" id="checkout-product-description" hidden></div>
-                                <div class="checkout-summary-row">
+                                <div class="checkout-summary-row checkout-summary-row-divider">
                                     <span class="checkout-summary-label">Subtotal</span>
-                                    <span class="checkout-summary-dots" aria-hidden="true"></span>
                                     <span class="checkout-summary-value checkout-summary-value-amount"
                                           id="checkout-subtotal-value">...</span>
                                 </div>
-                                <div class="checkout-summary-row">
+                                <div class="checkout-summary-row checkout-summary-row-divider">
                                     <span class="checkout-summary-label"
                                           id="checkout-vat-label">VAT</span>
-                                    <span class="checkout-summary-dots" aria-hidden="true"></span>
                                     <span class="checkout-summary-value checkout-summary-value-amount"
                                           id="checkout-vat-value">...</span>
                                 </div>
                                 <div class="checkout-summary-row checkout-summary-row-total">
                                     <span class="checkout-summary-label">Total</span>
-                                    <span class="checkout-summary-dots" aria-hidden="true"></span>
                                     <span class="checkout-summary-value checkout-summary-value-total"
                                           id="checkout-total-value">...</span>
                                 </div>

@@ -54,8 +54,7 @@
  * @property {JQuery<HTMLButtonElement>} $submitButton checkout submit button
  * @property {JQuery<HTMLElement>} $errorModal generic checkout error modal
  * @property {JQuery<HTMLElement>} $notFound product-not-found result panel
- * @property {JQuery<HTMLElement>} $summaryError generic checkout summary-error
- *   panel
+ * @property {JQuery<HTMLElement>} $summaryError generic checkout summary-error panel
  * @property {HTMLFormElement} form native checkout form element
  */
 
