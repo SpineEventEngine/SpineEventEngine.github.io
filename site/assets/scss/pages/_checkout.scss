@@ -27,6 +27,22 @@
 .checkout-page {
   overflow-x: hidden;
 
+  .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+    margin-top: auto;
+  }
+
   .wrapper,
   .main,
   .footer,
@@ -36,6 +52,9 @@
 }
 
 .checkout {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
   background:
     radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
     linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
@@ -54,6 +73,7 @@
   }
 
   .row {
+    flex: 1 0 auto;
     margin-right: 0;
     margin-left: 0;
   }
@@ -61,6 +81,17 @@
   .row > [class*='col-'] {
     padding-right: 0;
     padding-left: 0;
+  }
+
+  .content-holder,
+  .article-container {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+  }
+
+  .article-container {
+    height: 100%;
   }
 }
 

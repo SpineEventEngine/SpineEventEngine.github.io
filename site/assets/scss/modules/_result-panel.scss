@@ -1,9 +1,47 @@
+body:has(.result-page) {
+  .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+    margin-top: auto;
+  }
+}
+
 .result-page {
+  flex: 1 0 auto;
   min-height: 420px;
+  display: flex;
+  flex-direction: column;
   background:
     radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
     linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
   overflow-x: hidden;
+
+  .content-holder,
+  .row {
+    flex: 1 0 auto;
+  }
+
+  .content-holder,
+  .row,
+  .article-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-container {
+    flex: 1 0 auto;
+    height: 100%;
+  }
 
   .row {
     margin-right: 0;

@@ -14,9 +14,14 @@
                                     <div class="loader" id="checkout-summary-loading-spinner" aria-hidden="true"></div>
                                     <p id="checkout-summary-loading-text">Loading checkout details...</p>
                                     {{ $email := site.Data.emails.sales_email }}
-                                    {{ $cloakedEmail := printf "{{< cloakemail address=\"%s\" >}}" $email }}
+                                    {{ $emailLink := printf
+                                        "<a href=\"mailto:%s\">%s</a>"
+                                        $email
+                                        $email
+                                        | safeHTML
+                                    }}
                                     <p class="checkout-summary-support" id="checkout-summary-support" hidden>
-                                        Something went wrong, please contact {{ $cloakedEmail | markdownify }}.
+                                        Something went wrong, please contact {{ $emailLink }}.
                                     </p>
                                 </div>
                                 <div class="checkout-summary-product" id="checkout-product-name" hidden></div>
@@ -231,7 +236,7 @@
                                         data-checkout-modal-close>&times;</button>
                                 <h2 class="message-modal-title" id="checkout-error-modal-title">Something went wrong</h2>
                                 <p class="message-modal-text" id="checkout-error-modal-description">
-                                    Something went wrong, please contact {{ $cloakedEmail | markdownify }}.
+                                    Something went wrong, please contact {{ $emailLink }}.
                                 </p>
                             </div>
                         </div>
@@ -251,11 +256,10 @@
                         </div>
                         <div id="checkout-summary-error" hidden>
                             <div class="result-panel">
-                                <div class="result-panel-mark result-panel-mark-code" aria-hidden="true">!</div>
                                 <h1 class="result-panel-title">Ooops...</h1>
                                 <p class="result-panel-text">
                                     <span>Something went wrong.</span>
-                                    <span>Please contact {{ $cloakedEmail | markdownify }}.</span>
+                                    <span>Please contact {{ $emailLink }}.</span>
                                 </p>
                                 <form class="form-actions" action="/" method="get">
                                     <button class="btn btn-bordered-blue form-submit-button"
