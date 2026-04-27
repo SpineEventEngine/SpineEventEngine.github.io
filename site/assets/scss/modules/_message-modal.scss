@@ -1,0 +1,106 @@
+/*!
+ * Copyright 2026, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.message-modal {
+  position: fixed;
+  inset: 0;
+  z-index: map_get($z-index, 'redirect-screen');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  &[hidden] {
+    display: none;
+  }
+
+  .message-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(black, .45);
+  }
+
+  .message-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    padding: 30px 34px;
+    background: white;
+    border-radius: $border-radius-m;
+    box-shadow: 0 22px 60px rgba(black, .18);
+    overflow: hidden;
+  }
+
+  .message-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    padding: 4px 8px;
+    color: $gray-500;
+    font-size: 28px;
+    line-height: 1;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .message-modal-title {
+    margin: 0 28px 12px 0;
+    padding: 0;
+    color: $black;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .message-modal-text {
+    margin: 0;
+    color: $gray-500;
+    font-size: 16px;
+    line-height: 1.55;
+
+    a {
+      color: $main-brand-color;
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@include breakpoint(sm-phone) {
+  .message-modal {
+    padding: 16px;
+  }
+
+  .message-modal .message-modal-dialog {
+    padding: 24px;
+  }
+}

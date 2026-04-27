@@ -1,2 +1,5 @@
 [params.payment]
   apiURL = 'http://localhost:5002/spine-site-server/us-central1/paymentTransaction'
+
+[params.paygate]
+  serverURL = 'https://stag.paygate.teamdev.com'

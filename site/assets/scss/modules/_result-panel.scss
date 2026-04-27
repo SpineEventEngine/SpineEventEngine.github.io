@@ -1,0 +1,183 @@
+/*!
+ * Copyright 2026, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+body:has(.result-page) {
+  .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+    margin-top: auto;
+  }
+}
+
+.result-page {
+  flex: 1 0 auto;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
+  linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
+  overflow-x: hidden;
+
+  .content-holder,
+  .row {
+    flex: 1 0 auto;
+  }
+
+  .content-with-fixed-header {
+    margin-top: $header-height;
+
+    @include breakpoint(desktop) {
+      margin-top: $header-height;
+    }
+  }
+
+  .content-holder,
+  .article-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-container {
+    flex: 1 0 auto;
+    height: 100%;
+  }
+
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .row > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  @include breakpoint(lg-phone) {
+    background: white;
+  }
+
+  @include breakpoint(sm-phone) {
+    min-height: auto;
+  }
+}
+
+.result-panel {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 20px 0 30px;
+  text-align: center;
+}
+
+.result-panel-mark {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 9px;
+  background: rgba($main-brand-color, .1);
+  border: 1px solid rgba($main-brand-color, .18);
+  border-radius: 50%;
+}
+
+.result-panel-mark-success::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 30px;
+  border-right: 4px solid $main-brand-color;
+  border-bottom: 4px solid $main-brand-color;
+  transform: translate(-50%, -58%) rotate(42deg);
+  transform-origin: center;
+}
+
+.result-panel-mark-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $main-brand-color;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.result-panel h1.result-panel-title,
+.result-panel h2.result-panel-title {
+  margin: 0 0 14px;
+  color: $black;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.result-panel p.result-panel-text {
+  max-width: 520px;
+  margin: 0 auto 30px;
+  color: $gray-500;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: center;
+  letter-spacing: 0;
+
+  span {
+    display: block;
+    text-align: center;
+  }
+}
+
+@include breakpoint(sm-phone) {
+  .result-panel {
+    padding: 14px 0 16px;
+  }
+
+  .result-panel-mark {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 8px;
+  }
+
+  .result-panel h1.result-panel-title,
+  .result-panel h2.result-panel-title {
+    font-size: 28px;
+  }
+
+  .result-panel p.result-panel-text {
+    font-size: 16px;
+  }
+}

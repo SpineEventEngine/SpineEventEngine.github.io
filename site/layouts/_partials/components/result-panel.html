@@ -1,0 +1,63 @@
+<!--
+  ~ Copyright 2026, TeamDev. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Redistribution and use in source and/or binary forms, with or without
+  ~ modification, must retain the above copyright notice and the following
+  ~ disclaimer.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ~ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ~ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ~ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ~ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ~ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ~ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+{{ $title := .title }}
+{{ $titleTag := .title_tag | default "h2" }}
+{{ $mark := .mark }}
+{{ $lines := .lines | default slice }}
+{{ $action := .action }}
+
+<div class="result-panel">
+    {{ with $mark }}
+        {{ $markText := .text | default .content | default "" }}
+        {{ $markClass := .icon_class | default "" }}
+        <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
+    {{ end }}
+    {{ if eq $titleTag "h1" }}
+        <h1 class="result-panel-title">{{ $title }}</h1>
+    {{ else }}
+        <h2 class="result-panel-title">{{ $title }}</h2>
+    {{ end }}
+    {{ if $lines }}
+        <p class="result-panel-text">
+            {{ range $lines }}
+                <span>{{ . }}</span>
+            {{ end }}
+        </p>
+    {{ end }}
+    {{ with $action }}
+        {{ $actionLabel := .label | default .text | default "" }}
+        {{ $actionUrl := .url | default site.Home.RelPermalink }}
+        {{ if $actionLabel }}
+        <form class="form-actions" action="{{ $actionUrl }}" method="get">
+            <button class="btn btn-bordered-blue form-submit-button"
+                    type="submit">
+                {{ $actionLabel }}
+            </button>
+        </form>
+        {{ end }}
+    {{ end }}
+</div>
