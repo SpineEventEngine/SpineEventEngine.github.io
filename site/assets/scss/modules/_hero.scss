@@ -24,6 +24,10 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+body:not(:has(.nav-hero-container)) #header {
+  box-shadow: $navbar-shadow;
+}
+
 .nav-hero-container {
   background-image: $nav-blue-gradient;
   position: relative;
