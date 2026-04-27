@@ -26,16 +26,16 @@
 
 'use strict';
 
-import {euCountryPhoneCodes} from './phone-codes';
+import {euCountryPhoneCodes} from 'js/pages/checkout/phone-codes';
 import {
     isValidPhoneNumberInput,
     normalizePhoneNumber,
     sanitizePhoneNumberInput
-} from '../../modules/forms/phone-number';
+} from 'js/modules/forms/phone-number';
 
 /**
- * @typedef {import('./dom').CheckoutDom} CheckoutDom
- * @typedef {import('../../modules/paygate/purchases').SubmitBillingInfoRequest}
+ * @typedef {import('js/pages/checkout/dom').CheckoutDom} CheckoutDom
+ * @typedef {import('js/modules/paygate/purchases').SubmitBillingInfoRequest}
  * SubmitBillingInfoRequest
  */
 
@@ -49,24 +49,24 @@ import {
  *   syncs phone country from billing country when allowed
  * @property {function(string): SubmitBillingInfoRequest}
  *   buildSubmitBillingInfoRequest builds the billing-info payload for Paygate
- * @property {function(): void} handlePhoneClick focuses the phone-country
- *   selector when the field wrapper is clicked
- * @property {function(JQuery.Event): void} handlePhoneNumberBeforeInput blocks
- *   unsupported phone input characters
- * @property {function(): void} handlePhoneNumberFocus focuses the phone-country
- *   selector before number entry
- * @property {function(): void} sanitizePhoneNumberValue normalizes phone text
- *   after edits
- * @property {function(string): void} showVatIdError renders VAT API validation
- *   errors inline
- * @property {function(): void} updatePhoneCountryDisplay refreshes visible
- *   phone-country UI
- * @property {function(): void} updateVatIdFieldState refreshes VAT field state
- *   after country changes
- * @property {function(HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement):
- *   boolean} validateField validates one form field
- * @property {function(string): boolean} validateRequiredFields validates all
- *   required checkout fields
+ * @property {function(): void} handlePhoneClick
+ *   focuses the phone-country selector when the field wrapper is clicked
+ * @property {function(JQuery.Event): void} handlePhoneNumberBeforeInput
+ *   blocks unsupported phone input characters
+ * @property {function(): void} handlePhoneNumberFocus
+ *   focuses the phone-country selector before number entry
+ * @property {function(): void} sanitizePhoneNumberValue
+ *   normalizes phone text after edits
+ * @property {function(string): void} showVatIdError
+ *   renders VAT API validation errors inline
+ * @property {function(): void} updatePhoneCountryDisplay
+ *   refreshes visible phone-country UI
+ * @property {function(): void} updateVatIdFieldState
+ *   refreshes VAT field state after country changes
+ * @property {function(HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement):boolean} validateField
+ *   validates one form field
+ * @property {function(string): boolean} validateRequiredFields
+ *   validates all required checkout fields
  */
 
 /**

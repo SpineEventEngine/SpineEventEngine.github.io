@@ -27,7 +27,7 @@
 'use strict';
 
 /**
- * @typedef {import('./dom').CheckoutDom} CheckoutDom
+ * @typedef {import('js/pages/checkout/dom').CheckoutDom} CheckoutDom
  */
 
 /**

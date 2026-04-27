@@ -27,8 +27,8 @@
 'use strict';
 
 /**
- * @typedef {import('../../modules/paygate/purchases').PaygatePurchaseClient} PaygatePurchaseClient
- * @typedef {import('./view-controller').CheckoutViewController} CheckoutViewController
+ * @typedef {import('js/modules/paygate/purchases').PaygatePurchaseClient} PaygatePurchaseClient
+ * @typedef {import('js/pages/checkout/view-controller').CheckoutViewController} CheckoutViewController
  */
 
 /**

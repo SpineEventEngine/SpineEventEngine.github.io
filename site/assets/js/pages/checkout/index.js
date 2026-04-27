@@ -27,11 +27,11 @@
 'use strict';
 
 import * as params from '@params';
-import {createPurchaseClient} from '../../modules/paygate/purchases';
-import {createChargeController} from './charge-controller';
-import {getCheckoutDom} from './dom';
-import {createCheckoutFormController} from './form-controller';
-import {createCheckoutView} from './view-controller';
+import {createPurchaseClient} from 'js/modules/paygate/purchases';
+import {createChargeController} from 'js/pages/checkout/charge-controller';
+import {getCheckoutDom} from 'js/pages/checkout/dom';
+import {createCheckoutFormController} from 'js/pages/checkout/form-controller';
+import {createCheckoutView} from 'js/pages/checkout/view-controller';
 
 const requiredSelector = 'input[required], select[required], textarea[required]';
 
