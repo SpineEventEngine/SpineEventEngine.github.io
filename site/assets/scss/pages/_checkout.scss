@@ -371,6 +371,15 @@
   border-top: 0;
 }
 
+#checkout-not-found,
+#checkout-summary-error {
+  margin-top: 32px;
+
+  @include breakpoint(desktop) {
+    margin-top: 16px;
+  }
+}
+
 .checkout-completed {
   min-height: 420px;
 

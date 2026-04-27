@@ -1,8 +1,7 @@
 {{ define "main" }}
     {{ partial "components/navbar/navbar.html" . }}
-    {{ partial "components/nav-hero.html" . }}
     <section class="checkout checkout-completed">
-        <div class="container-fluid content-holder">
+        <div class="container-fluid content-holder content-with-fixed-header">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="article-container article-text">
@@ -16,7 +15,6 @@
                             "actionLabel" "Back to home"
                             "actionUrl" "/"
                         ) }}
-                        {{ .Content }}
                     </div>
                 </div>
             </div>

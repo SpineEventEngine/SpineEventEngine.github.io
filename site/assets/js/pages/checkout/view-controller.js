@@ -36,7 +36,7 @@
  * @typedef {Object} CheckoutViewController
  * @property {function(): void} closeErrorModal
  *   closes the generic checkout error modal
- * @property {function(Object): void} hydrateProductSummary
+ * @property {function(Object): void} fillProductSummary
  *   fills summary fields with product data
  * @property {function(): boolean} isFormHidden
  *   checks whether the checkout form is currently hidden
@@ -86,7 +86,7 @@ export function createCheckoutView(dom) {
      *
      * @param {Object} product paygate product data for the current order
      */
-    function hydrateProductSummary(product) {
+    function fillProductSummary(product) {
         if (!product) {
             return;
         }
@@ -193,7 +193,7 @@ export function createCheckoutView(dom) {
 
     return {
         closeErrorModal,
-        hydrateProductSummary,
+        fillProductSummary,
         isFormHidden,
         setSubmitDisabled,
         setSummaryLoading,

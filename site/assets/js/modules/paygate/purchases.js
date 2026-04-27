@@ -162,7 +162,7 @@ export function createPurchaseClient(serverUrl) {
  * @param {string} url raw configured Paygate server URL
  * @return {string} server URL without trailing slashes
  */
-export function normalizeServerUrl(url) {
+function normalizeServerUrl(url) {
     return String(url || '').replace(/\/+$/, '');
 }
 
@@ -190,7 +190,7 @@ async function postJson(url, payload) {
             status: response.status,
             statusText: response.statusText,
             body,
-            message: responseMessage(body)
+            message: errorMessage(body)
         });
     }
 
@@ -225,7 +225,7 @@ async function readResponseBody(response) {
  * @param {*} body parsed response body
  * @return {string} message text when present, otherwise an empty string
  */
-function responseMessage(body) {
+function errorMessage(body) {
     if (!body) {
         return '';
     }

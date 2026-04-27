@@ -149,7 +149,7 @@ $(
                 }
 
                 orderId = response.orderId;
-                view.hydrateProductSummary(response.product);
+                view.fillProductSummary(response.product);
                 view.setSummaryLoading(false);
                 dom.$form.prop('hidden', false);
                 chargeController.updateSubmitState();

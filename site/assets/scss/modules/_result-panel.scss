@@ -56,8 +56,15 @@ body:has(.result-page) {
     flex: 1 0 auto;
   }
 
+  .content-with-fixed-header {
+    margin-top: $header-height;
+
+    @include breakpoint(desktop) {
+      margin-top: $header-height;
+    }
+  }
+
   .content-holder,
-  .row,
   .article-container {
     display: flex;
     flex-direction: column;

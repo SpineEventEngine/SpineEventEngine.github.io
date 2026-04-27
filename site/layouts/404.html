@@ -1,8 +1,7 @@
 {{ define "main" }}
-    {{ partial "components/navbar/navbar.html" . }}
-    {{ partial "components/nav-hero.html" (dict "Params" (dict "hide_page_headline" true) "Title" "") }}
+    {{ partial "components/navbar/navbar.html" (dict "Params" (dict "header_type" "fixed-header")) }}
     <section class="result-page">
-        <div class="container-fluid content-holder">
+        <div class="container-fluid content-holder content-with-fixed-header">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="article-container article-text">
