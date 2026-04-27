@@ -26,14 +26,16 @@
 
 {{ $title := .title }}
 {{ $titleTag := .title_tag | default "h2" }}
-{{ $markText := .mark_text | default "" }}
-{{ $markClass := .mark_class | default "result-panel-mark-success" }}
+{{ $mark := .mark }}
 {{ $lines := .lines | default slice }}
-{{ $actionLabel := .action_label | default "" }}
-{{ $actionUrl := .action_url | default site.Home.RelPermalink }}
+{{ $action := .action }}
 
 <div class="result-panel">
-    <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
+    {{ with $mark }}
+        {{ $markText := .text | default .content | default "" }}
+        {{ $markClass := .icon_class | default "" }}
+        <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
+    {{ end }}
     {{ if eq $titleTag "h1" }}
         <h1 class="result-panel-title">{{ $title }}</h1>
     {{ else }}
@@ -46,12 +48,16 @@
             {{ end }}
         </p>
     {{ end }}
-    {{ if $actionLabel }}
+    {{ with $action }}
+        {{ $actionLabel := .label | default .text | default "" }}
+        {{ $actionUrl := .url | default site.Home.RelPermalink }}
+        {{ if $actionLabel }}
         <form class="form-actions" action="{{ $actionUrl }}" method="get">
             <button class="btn btn-bordered-blue form-submit-button"
                     type="submit">
                 {{ $actionLabel }}
             </button>
         </form>
+        {{ end }}
     {{ end }}
 </div>

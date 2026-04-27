@@ -8,12 +8,17 @@
                         {{ partial "components/result-panel.html" (dict
                             "title" "Thank you for your purchase"
                             "title_tag" "h1"
+                            "mark" (dict
+                                "icon_class" "result-panel-mark-success"
+                            )
                             "lines" (slice
                                 "Your payment was completed successfully."
                                 "We will send the order details to your email."
                             )
-                            "action_label" "Back to home"
-                            "action_url" site.Home.RelPermalink
+                            "action" (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            )
                         ) }}
                     </div>
                 </div>
