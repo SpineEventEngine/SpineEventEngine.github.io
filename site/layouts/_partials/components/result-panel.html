@@ -25,12 +25,12 @@
   -->
 
 {{ $title := .title }}
-{{ $titleTag := .titleTag | default "h2" }}
-{{ $markText := .markText | default "" }}
-{{ $markClass := .markClass | default "result-panel-mark-success" }}
+{{ $titleTag := .title_tag | default "h2" }}
+{{ $markText := .mark_text | default "" }}
+{{ $markClass := .mark_class | default "result-panel-mark-success" }}
 {{ $lines := .lines | default slice }}
-{{ $actionLabel := .actionLabel | default "" }}
-{{ $actionUrl := .actionUrl | default "/" }}
+{{ $actionLabel := .action_label | default "" }}
+{{ $actionUrl := .action_url | default site.Home.RelPermalink }}
 
 <div class="result-panel">
     <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>

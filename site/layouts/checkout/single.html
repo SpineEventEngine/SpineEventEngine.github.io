@@ -239,15 +239,15 @@
                         <div id="checkout-not-found" hidden>
                             {{ partial "components/result-panel.html" (dict
                                 "title" "Product not found"
-                                "titleTag" "h1"
-                                "markText" "404"
-                                "markClass" "result-panel-mark-code"
+                                "title_tag" "h1"
+                                "mark_text" "404"
+                                "mark_class" "result-panel-mark-code"
                                 "lines" (slice
                                     "The checkout product could not be found."
                                     "Please check the address or return to the home page."
                                 )
-                                "actionLabel" "Back to home"
-                                "actionUrl" "/"
+                                "action_label" "Back to home"
+                                "action_url" site.Home.RelPermalink
                             ) }}
                         </div>
                         <div id="checkout-summary-error" hidden>

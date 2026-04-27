@@ -7,15 +7,15 @@
                     <div class="article-container article-text">
                         {{ partial "components/result-panel.html" (dict
                             "title" "Page not found"
-                            "titleTag" "h1"
-                            "markText" "404"
-                            "markClass" "result-panel-mark-code"
+                            "title_tag" "h1"
+                            "mark_text" "404"
+                            "mark_class" "result-panel-mark-code"
                             "lines" (slice
                                 "The page you are looking for could not be found."
                                 "Please check the address or return to the home page."
                             )
-                            "actionLabel" "Back to home"
-                            "actionUrl" "/"
+                            "action_label" "Back to home"
+                            "action_url" site.Home.RelPermalink
                         ) }}
                     </div>
                 </div>
