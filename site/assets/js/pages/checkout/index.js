@@ -48,12 +48,13 @@ $(
         const view = createCheckoutView(dom);
         const formController = createCheckoutFormController({dom});
         let orderId = null;
+        let orderPromise = null;
         let countryManuallySelected = false;
         let phoneCountryManuallySelected = false;
         const chargeController = createChargeController({
             purchaseClient,
             view,
-            getOrderId: () => orderId,
+            ensureOrderId,
             getBuyerCountryCode: () => dom.$country.val(),
             getVatId: () => (dom.$vatId.val() || '').trim(),
             onVatIdError: formController.showVatIdError,
@@ -69,7 +70,7 @@ $(
         dom.$form.prop('hidden', true);
         formController.updatePhoneCountryDisplay();
         chargeController.updateSubmitState();
-        placeOrder();
+        loadProduct();
         bindEvents();
 
         /**
@@ -131,29 +132,19 @@ $(
         }
 
         /**
-         * Creates an order for the product from the current checkout URL.
+         * Loads product details for the checkout page from the current checkout URL.
          *
-         * @return {Promise<void>} resolves when the initial order load flow finishes
+         * @return {Promise<void>} resolves when the initial product load flow finishes
          */
-        async function placeOrder() {
+        async function loadProduct() {
             view.setSummaryLoading(true);
 
             try {
-                const response = await purchaseClient.placeOrder(productId);
-
-                if (!response.product) {
-                    chargeController.invalidate();
-                    view.showNotFoundView();
-                    chargeController.updateSubmitState();
-                    return;
-                }
-
-                orderId = response.orderId;
-                view.fillProductSummary(response.product);
+                const product = await purchaseClient.getProduct(productId);
+                view.fillProductSummary(product);
                 view.setSummaryLoading(false);
                 dom.$form.prop('hidden', false);
                 chargeController.updateSubmitState();
-                chargeController.requestIfReady();
             } catch (error) {
                 if (error.status === 404) {
                     chargeController.invalidate();
@@ -184,14 +175,9 @@ $(
                 return;
             }
 
-            if (!orderId) {
-                console.error('Order ID is not available yet.');
-                return;
-            }
-
             await chargeController.requestIfReady();
 
-            if (!chargeController.hasCurrentCharges()) {
+            if (!chargeController.hasCurrentCharges() || !orderId) {
                 return;
             }
 
@@ -222,7 +208,7 @@ $(
          * @return {boolean} true when the error represents a server response
          */
         function showServerErrorModal(error) {
-            if (error.status >= 500) {
+            if (error.status && error.status < 500) {
                 return false;
             }
 
@@ -249,6 +235,32 @@ $(
                 `${error.status || 'Network error'}: ` +
                 `${error.statusText || error.message || 'Request failed'}`
             );
+        }
+
+        /**
+         * Places the order once and reuses it for all later charge calculations.
+         *
+         * @return {Promise<string>} paygate order ID
+         */
+        async function ensureOrderId() {
+            if (orderId) {
+                return orderId;
+            }
+
+            if (!orderPromise) {
+                orderPromise = purchaseClient
+                    .placeOrder(productId)
+                    .then(response => {
+                        orderId = response.orderId;
+                        return orderId;
+                    })
+                    .catch(error => {
+                        orderPromise = null;
+                        throw error;
+                    });
+            }
+
+            return orderPromise;
         }
     }
 );

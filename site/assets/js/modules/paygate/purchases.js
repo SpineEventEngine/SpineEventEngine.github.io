@@ -27,13 +27,29 @@
 'use strict';
 
 /**
- * Paygate product data returned for a checkout order.
+ * Paygate currency payload returned inside money values.
+ *
+ * @typedef {Object} PaygateCurrency
+ * @property {string} code ISO currency code
+ * @property {string} symbol currency symbol
+ */
+
+/**
+ * Paygate money payload.
+ *
+ * @typedef {Object} PaygateMoney
+ * @property {number|string} value decimal amount value
+ * @property {PaygateCurrency} currency currency metadata
+ */
+
+/**
+ * Paygate product data returned by the product endpoint.
  *
  * @typedef {Object} PaygateProduct
+ * @property {string} id product identifier
  * @property {string} name product display name
  * @property {string} description product description shown on checkout
- * @property {number|string} netPrice product price before VAT
- * @property {string} currency product currency code
+ * @property {PaygateMoney} netAmount product price before VAT
  */
 
 /**
@@ -41,7 +57,6 @@
  *
  * @typedef {Object} PlaceOrderResponse
  * @property {string} orderId created paygate order ID
- * @property {PaygateProduct|null} product product data for the new order
  */
 
 /**
@@ -57,11 +72,10 @@
  * Paygate response for the `calculate-charges` endpoint.
  *
  * @typedef {Object} CalculateChargesResponse
- * @property {number|string} netPrice price before VAT
+ * @property {PaygateMoney} netAmount price before VAT
  * @property {number|string} vatRate vat rate as a decimal fraction
- * @property {number|string} vatAmount VAT amount for the order
- * @property {number|string} total total price including VAT
- * @property {string} currency order currency code
+ * @property {PaygateMoney} vatAmount VAT amount for the order
+ * @property {PaygateMoney} totalAmount total price including VAT
  */
 
 /**
@@ -83,6 +97,14 @@
  */
 
 /**
+ * Phone number submitted to Paygate.
+ *
+ * @typedef {Object} PhoneNumber
+ * @property {number} countryCode dialing country code without a leading plus sign
+ * @property {string} number local phone number digits
+ */
+
+/**
  * Billing information submitted to Paygate before redirecting to payment.
  *
  * @typedef {Object} BillingInfo
@@ -90,8 +112,7 @@
  * @property {string} email buyer email address
  * @property {BillingAddress} address billing address details
  * @property {BillingCompany} company company billing details
- * @property {string} [phoneNumber] optional normalized phone number including
- *   country code
+ * @property {PhoneNumber} [phoneNumber] optional normalized phone number
  */
 
 /**
@@ -126,11 +147,14 @@
  * Paygate purchase endpoint methods used by checkout.
  *
  * @typedef {Object} PaygatePurchaseClient
+ * @property {function(string): Promise<PaygateProduct>} getProduct
+ *   loads checkout product data by product ID
  * @property {function(string): Promise<PlaceOrderResponse>} placeOrder
  *   creates a checkout order for the given product ID
  * @property {function(CalculateChargesRequest): Promise<CalculateChargesResponse>} calculateCharges
  *   calculates VAT and totals for the current order
- * @property {function(SubmitBillingInfoRequest): Promise<SubmitBillingInfoResponse>} submitBillingInfo
+ * @property {function(SubmitBillingInfoRequest): Promise<SubmitBillingInfoResponse>}
+ *   submitBillingInfo
  *   sends billing details and returns payment redirect data
  */
 
@@ -144,6 +168,9 @@ export function createPurchaseClient(serverUrl) {
     const baseUrl = normalizeServerUrl(serverUrl);
 
     return {
+        getProduct(productId) {
+            return getJson(`${baseUrl}/products/${encodeURIComponent(productId)}`);
+        },
         placeOrder(productId) {
             return postJson(`${baseUrl}/purchases/place-order`, {productId});
         },
@@ -151,7 +178,7 @@ export function createPurchaseClient(serverUrl) {
             return postJson(`${baseUrl}/purchases/calculate-charges`, payload);
         },
         submitBillingInfo(payload) {
-            return postJson(`${baseUrl}/purchases/submit-billing-info`, payload);
+            return postJson(`${baseUrl}/purchases/provide-billing-details`, payload);
         }
     };
 }
@@ -164,6 +191,30 @@ export function createPurchaseClient(serverUrl) {
  */
 function normalizeServerUrl(url) {
     return String(url || '').replace(/\/+$/, '');
+}
+
+/**
+ * Sends a JSON GET request and returns the parsed response body.
+ *
+ * @param {string} url endpoint URL
+ * @return {Promise<*>} parsed response body when the request succeeds
+ *
+ * @throws {PurchaseApiError} if response status is not OK
+ */
+async function getJson(url) {
+    const response = await fetch(url);
+    const body = await readResponseBody(response);
+
+    if (!response.ok) {
+        throw ({
+            status: response.status,
+            statusText: response.statusText,
+            body,
+            message: errorMessage(body)
+        });
+    }
+
+    return body;
 }
 
 /**

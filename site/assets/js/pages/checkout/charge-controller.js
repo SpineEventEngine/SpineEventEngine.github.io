@@ -28,7 +28,8 @@
 
 /**
  * @typedef {import('js/modules/paygate/purchases').PaygatePurchaseClient} PaygatePurchaseClient
- * @typedef {import('js/pages/checkout/view-controller').CheckoutViewController} CheckoutViewController
+ * @typedef {import('js/pages/checkout/view-controller').CheckoutViewController}
+ * CheckoutViewController
  */
 
 /**
@@ -64,7 +65,7 @@ const vatIdInputDelay = 1000;
  * @param {Object} options charge controller options
  * @param {PaygatePurchaseClient} options.purchaseClient paygate purchase client
  * @param {CheckoutViewController} options.view checkout view controller
- * @param {function(): string|null} options.getOrderId returns the current Paygate order ID
+ * @param {function(): Promise<string>} options.ensureOrderId creates or reuses the Paygate order
  * @param {function(): string} options.getBuyerCountryCode returns the selected billing country
  * @param {function(): string} options.getVatId returns the current VAT ID value
  * @param {function(string): void} options.onVatIdError renders the VAT ID API validation error
@@ -74,7 +75,7 @@ const vatIdInputDelay = 1000;
 export function createChargeController({
     purchaseClient,
     view,
-    getOrderId,
+    ensureOrderId,
     getBuyerCountryCode,
     getVatId,
     onVatIdError,
@@ -87,7 +88,7 @@ export function createChargeController({
     let chargesReadyKey = '';
 
     /**
-     * Recalculates charges when order, country, and VAT ID are available.
+     * Recalculates charges when country and VAT ID are available.
      *
      * @return {Promise<void>} resolves when charges are updated, skipped, or handled as an error
      */
@@ -162,7 +163,7 @@ export function createChargeController({
     /**
      * Returns a finished or in-flight request promise that can be reused.
      *
-     * @param {string} requestKey joined order:country:VAT key
+     * @param {string} requestKey joined country:VAT key
      * @return {Promise<void>|null} reusable promise for the same inputs, if any
      */
     function getReusableRequest(requestKey) {
@@ -178,7 +179,7 @@ export function createChargeController({
     /**
      * Starts a new charge calculation request for the current checkout inputs.
      *
-     * @param {string} requestKey joined order:country:VAT key
+     * @param {string} requestKey joined country:VAT key
      * @return {Promise<void>} resolves when the request lifecycle is finished
      */
     function startChargesRequest(requestKey) {
@@ -187,8 +188,9 @@ export function createChargeController({
         pendingChargesKey = requestKey;
         chargesReadyKey = '';
         updateSubmitState();
-        pendingChargesPromise = purchaseClient
-            .calculateCharges(createRequestPayload(requestKey))
+        pendingChargesPromise = ensureOrderId()
+            .then(orderId => createRequestPayload(requestId, orderId))
+            .then(payload => payload ? purchaseClient.calculateCharges(payload) : null)
             .then(response => handleRequestSuccess(requestId, requestKey, response))
             .catch(error => handleRequestError(requestId, error))
             .finally(() => finishRequest(requestId));
@@ -204,13 +206,23 @@ export function createChargeController({
     }
 
     /**
-     * Builds the Paygate calculate-charges payload for the current request key.
+     * Builds the Paygate calculate-charges payload for the current request state.
      *
-     * @param {string} requestKey joined order:country:VAT key
-     * @return {{orderId: string, buyerCountryCode: string, vatId: string}} request payload
+     * @param {number} requestId internal request sequence number
+     * @param {string} orderId paygate order ID
+     * @return {{orderId: string, buyerCountryCode: string, vatId: string}|null} request payload
      */
-    function createRequestPayload(requestKey) {
-        const [orderId, buyerCountryCode, vatId] = requestKey.split(':');
+    function createRequestPayload(requestId, orderId) {
+        if (requestId !== chargeRequestId) {
+            return null;
+        }
+
+        const buyerCountryCode = getBuyerCountryCode();
+        const vatId = getVatId();
+
+        if (!orderId || !buyerCountryCode || !vatId) {
+            return null;
+        }
 
         return {
             orderId,
@@ -222,16 +234,15 @@ export function createChargeController({
     /**
      * Builds the cache key for the current charge calculation inputs.
      *
-     * @return {string} joined order:country:VAT key,
+     * @return {string} joined country:VAT key,
      *   or empty string when calculation cannot run yet
      */
     function getRequestKey() {
-        const orderId = getOrderId();
         const buyerCountryCode = getBuyerCountryCode();
         const vatId = getVatId();
 
-        return orderId && buyerCountryCode && vatId
-            ? [orderId, buyerCountryCode, vatId].join(':')
+        return buyerCountryCode && vatId
+            ? [buyerCountryCode, vatId].join(':')
             : '';
     }
 
@@ -243,7 +254,7 @@ export function createChargeController({
      * @param {Object} response paygate charge calculation response
      */
     function handleRequestSuccess(requestId, requestKey, response) {
-        if (requestId !== chargeRequestId) {
+        if (requestId !== chargeRequestId || !response) {
             return;
         }
 

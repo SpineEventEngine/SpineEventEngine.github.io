@@ -61,7 +61,6 @@
  * @return {CheckoutViewController} view update helpers for the checkout page
  */
 export function createCheckoutView(dom) {
-    let currency = '';
 
     /**
      * Enables or disables the checkout submit button.
@@ -91,7 +90,6 @@ export function createCheckoutView(dom) {
             return;
         }
 
-        currency = product.currency || currency;
         dom.$productName.text(product.name || 'Unnamed product').prop('hidden', false);
 
         if (product.description) {
@@ -100,10 +98,10 @@ export function createCheckoutView(dom) {
             dom.$productDescription.text('').prop('hidden', true);
         }
 
-        dom.$subtotalValue.text(formatMoney(product.netPrice, currency));
+        dom.$subtotalValue.text(formatMoney(product.netAmount));
         dom.$vatLabel.text('VAT');
-        dom.$vatValue.text(formatMoney(0, currency));
-        dom.$totalValue.text(formatMoney(product.netPrice, currency));
+        dom.$vatValue.text(formatMoney(zeroMoney(product.netAmount.currency)));
+        dom.$totalValue.text(formatMoney(product.netAmount));
     }
 
     /**
@@ -114,11 +112,10 @@ export function createCheckoutView(dom) {
     function updateCharges(response) {
         const vatRatePercent = Number(response.vatRate) * 100;
 
-        currency = response.currency || currency;
         dom.$vatLabel.text(`VAT (${String(vatRatePercent)}%)`);
-        dom.$subtotalValue.text(formatMoney(response.netPrice, currency));
-        dom.$vatValue.text(formatMoney(response.vatAmount, currency));
-        dom.$totalValue.text(formatMoney(response.total, currency));
+        dom.$subtotalValue.text(formatMoney(response.netAmount));
+        dom.$vatValue.text(formatMoney(response.vatAmount));
+        dom.$totalValue.text(formatMoney(response.totalAmount));
     }
 
     /**
@@ -179,16 +176,32 @@ export function createCheckoutView(dom) {
     }
 
     /**
-     * Formats an amount with its currency suffix when currency is known.
+     * Formats a money value with its currency symbol.
      *
-     * @param {number|string} amount amount value returned by Paygate
-     * @param {string} valueCurrency currency code to append
-     * @return {string} formatted money value with optional currency suffix
+     * @param {Object} amount money value returned by Paygate
+     * @return {string} formatted money value
      */
-    function formatMoney(amount, valueCurrency) {
-        const numericAmount = Number(amount);
-        const formattedAmount = Number.isNaN(numericAmount) ? amount : numericAmount.toFixed(2);
-        return valueCurrency ? `${formattedAmount} ${valueCurrency}` : formattedAmount;
+    function formatMoney(amount) {
+        const numericAmount = Number(amount.value);
+        const formattedAmount = Number.isNaN(numericAmount)
+            ? String(amount.value || '')
+            : numericAmount.toFixed(2);
+        const currency = amount.currency;
+
+        return `${currency.symbol}${formattedAmount}`;
+    }
+
+    /**
+     * Creates a zero-value money payload for the given currency.
+     *
+     * @param {Object} currency money currency
+     * @return {{value: number, currency: Object}} zero money value
+     */
+    function zeroMoney(currency) {
+        return {
+            value: 0,
+            currency
+        };
     }
 
     return {
