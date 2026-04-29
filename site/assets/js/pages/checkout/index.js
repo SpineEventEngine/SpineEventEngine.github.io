@@ -224,7 +224,7 @@ $(
         function logApiError(error) {
             console.error(
                 `${error.status || 'Network error'}: ` +
-                `${error.statusText || error.message || 'Request failed'}`
+                `${error.statusText || 'Request failed'}`
             );
         }
 

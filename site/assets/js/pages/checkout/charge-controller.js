@@ -286,7 +286,7 @@ export function createChargeController({
         updateSubmitState();
 
         if (isVatError) {
-            onVatIdError(error.body.reason);
+            onVatIdError(error.body.vatIdInvalid);
         }
 
         logApiError(error);
@@ -325,9 +325,9 @@ export function createChargeController({
      * @return {boolean} true when response contains a VAT ID verification failure reason
      */
     function isVatErrorResponse(error) {
-        return error.status === 422 &&
-            error.body &&
-            /^VAT_ID_/.test(error.body.reason || '');
+        const reason = error.body && error.body.vatIdInvalid;
+
+        return error.status === 422 && typeof reason === 'string' && reason.length > 0;
     }
 
     return {

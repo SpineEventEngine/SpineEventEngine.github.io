@@ -131,13 +131,27 @@
  */
 
 /**
+ * Generic Paygate error response used for 400, 404, and 500 responses.
+ *
+ * @typedef {Object} PaygateErrorResponse
+ * @property {string} message human-readable error message
+ */
+
+/**
+ * Charge-calculation validation error response returned with status 422.
+ *
+ * @typedef {Object} CalculateChargesFailureResponse
+ * @property {string|null} vatIdInvalid VAT validation failure reason
+ */
+
+/**
  * Error object thrown when a Paygate request fails.
  *
  * @typedef {Object} PurchaseApiError
  * @property {number} status http response status code
  * @property {string} statusText http response status text
- * @property {*|null} body parsed response body, if any
- * @property {string} message human-readable error message
+ * @property {PaygateErrorResponse|CalculateChargesFailureResponse|string|null} body
+ *   parsed response body, if any
  */
 
 /**
@@ -150,8 +164,7 @@
  *   creates a checkout order for the given product ID
  * @property {function(CalculateChargesRequest): Promise<CalculateChargesResponse>} calculateCharges
  *   calculates VAT and totals for the current order
- * @property {function(SubmitBillingInfoRequest): Promise<SubmitBillingInfoResponse>}
- *   submitBillingInfo
+ * @property {function(SubmitBillingInfoRequest): Promise<SubmitBillingInfoResponse>} submitBillingInfo
  *   sends billing details and returns payment redirect data
  */
 
@@ -206,8 +219,7 @@ async function getJson(url) {
         throw ({
             status: response.status,
             statusText: response.statusText,
-            body,
-            message: errorMessage(body)
+            body
         });
     }
 
@@ -237,8 +249,7 @@ async function postJson(url, payload) {
         throw ({
             status: response.status,
             statusText: response.statusText,
-            body,
-            message: errorMessage(body)
+            body
         });
     }
 
@@ -265,18 +276,4 @@ async function readResponseBody(response) {
     } catch (ignored) {
         return null;
     }
-}
-
-/**
- * Extracts a human-readable error message from a parsed response body.
- *
- * @param {*} body parsed response body
- * @return {string} message text when present, otherwise an empty string
- */
-function errorMessage(body) {
-    if (!body) {
-        return '';
-    }
-
-    return typeof body === 'string' ? body : body.message || '';
 }

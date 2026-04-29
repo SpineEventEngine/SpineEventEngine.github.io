@@ -335,17 +335,19 @@ export function createCheckoutFormController({dom}) {
      */
     function vatIdErrorMessage(reason) {
         switch (reason) {
-            case 'VAT_ID_INVALID_FORMAT':
+            case 'INVALID_FORMAT':
                 return 'Invalid VAT ID format. Example: EE1234567890.';
-            case 'VAT_ID_COUNTRY_MISMATCH':
+            case 'COUNTRY_MISMATCH':
                 return 'The VAT ID country must match the selected billing country.';
-            case 'VAT_ID_NON_EU_COUNTRY':
+            case 'NON_EU_COUNTRY':
                 return 'Only European Union VAT ID is acceptable.';
-            case 'VAT_ID_NOT_ACTIVE':
+            case 'NOT_ACTIVE':
                 return 'This VAT ID is not active.';
+            case 'UNSPECIFIED':
+            case 'INVALID':
             case 'VAT_ID_INVALID':
             default:
-                return 'Enter a valid VAT ID.';
+                return 'Invalid VAT ID.';
         }
     }
 
