@@ -27,18 +27,6 @@
 'use strict';
 
 /**
- * Checks whether the input contains only supported phone-number characters.
- *
- * Allowed: digits, parentheses, hyphens, and spaces.
- *
- * @param {string} value phone-number value to check
- * @return {boolean} true when the value contains only allowed characters
- */
-export function isValidPhoneNumberInput(value) {
-    return /^[0-9\s()-]+$/.test(value);
-}
-
-/**
  * Removes characters that are not accepted by the phone-number field.
  *
  * Allowed: digits, parentheses, hyphens, and spaces.

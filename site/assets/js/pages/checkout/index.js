@@ -69,6 +69,7 @@ $(
 
         dom.$form.prop('hidden', true);
         formController.updatePhoneCountryDisplay();
+        formController.bindPhoneEvents();
         chargeController.updateSubmitState();
         loadProduct();
         bindEvents();
@@ -104,6 +105,7 @@ $(
             dom.$phoneCountryCode.on('change', () => {
                 phoneCountryManuallySelected = true;
                 formController.updatePhoneCountryDisplay();
+                formController.focusPhoneNumber();
 
                 if (formController.applyBillingCountryFromPhoneCountry(countryManuallySelected)) {
                     chargeController.invalidate();
@@ -111,11 +113,6 @@ $(
                     chargeController.flush();
                 }
             });
-
-            dom.$phone.on('click', formController.handlePhoneClick);
-            dom.$phoneNumber.on('focus', formController.handlePhoneNumberFocus);
-            dom.$phoneNumber.on('beforeinput', formController.handlePhoneNumberBeforeInput);
-            dom.$phoneNumber.on('input', formController.sanitizePhoneNumberValue);
 
             dom.$vatId.on('input', () => {
                 chargeController.invalidate();

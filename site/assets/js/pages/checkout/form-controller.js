@@ -28,7 +28,6 @@
 
 import {euCountryPhoneCodes} from 'js/pages/checkout/phone-codes';
 import {
-    isValidPhoneNumberInput,
     normalizePhoneNumber,
     sanitizePhoneNumberInput
 } from 'js/modules/forms/phone-number';
@@ -47,16 +46,12 @@ import {
  *   syncs billing country from phone country when allowed
  * @property {function(boolean): void} applyPhoneCountryFromBillingCountry
  *   syncs phone country from billing country when allowed
+ * @property {function(): void} bindPhoneEvents
+ *   attaches phone field event handlers
  * @property {function(string): SubmitBillingInfoRequest}
  *   buildSubmitBillingInfoRequest builds the billing-info payload for Paygate
- * @property {function(): void} handlePhoneClick
- *   focuses the phone-country selector when the field wrapper is clicked
- * @property {function(JQuery.Event): void} handlePhoneNumberBeforeInput
- *   blocks unsupported phone input characters
- * @property {function(): void} handlePhoneNumberFocus
- *   focuses the phone-country selector before number entry
- * @property {function(): void} sanitizePhoneNumberValue
- *   normalizes phone text after edits
+ * @property {function(): void} focusPhoneNumber
+ *   focuses the phone number input when a country is selected
  * @property {function(string): void} showVatIdError
  *   renders VAT API validation errors inline
  * @property {function(): void} updatePhoneCountryDisplay
@@ -77,6 +72,16 @@ import {
  * @return {CheckoutFormController} checkout form helpers and event handlers
  */
 export function createCheckoutFormController({dom}) {
+    /**
+     * Attaches event handlers for the custom phone field.
+     */
+    function bindPhoneEvents() {
+        dom.$phone.on('click', focusPhoneCountrySelectorIfMissing);
+        dom.$phoneNumber.on('focus', focusPhoneCountrySelectorIfMissing);
+        dom.$phoneNumber.on('beforeinput', preventUnsupportedPhoneInput);
+        dom.$phoneNumber.on('input', sanitizePhoneNumberValue);
+    }
+
     /**
      * Validates all required checkout fields before billing info submission.
      *
@@ -108,10 +113,6 @@ export function createCheckoutFormController({dom}) {
             message = 'This field is required.';
         } else if (field.type === 'email' && value && !field.validity.valid) {
             message = 'Enter a valid email address.';
-        } else if (field.id === 'checkout-phone' && value && !isValidPhoneNumberInput(value)) {
-            message = 'Use digits, spaces, parentheses, or hyphens only.';
-        } else if (field.id === 'checkout-phone' && value && !dom.$phoneCountryCode.val()) {
-            message = 'Choose a phone country code.';
         }
 
         setFieldError(field, message);
@@ -191,8 +192,7 @@ export function createCheckoutFormController({dom}) {
             return false;
         }
 
-        const phoneCode = dom.$phoneCountryCode.val();
-        const countryCode = countryCodeFromPhoneCode(phoneCode);
+        const countryCode = countryCodeFromPhoneCode(getPhoneCountryCode());
 
         if (!countryCode || !hasCountryOption(countryCode) || dom.$country.val() === countryCode) {
             return false;
@@ -213,8 +213,7 @@ export function createCheckoutFormController({dom}) {
             return;
         }
 
-        const phoneCode = euCountryPhoneCodes[dom.$country.val()] || '';
-        dom.$phoneCountryCode.val(phoneCode);
+        setPhoneCountryCode(euCountryPhoneCodes[dom.$country.val()] || '');
         updatePhoneCountryDisplay();
     }
 
@@ -222,43 +221,40 @@ export function createCheckoutFormController({dom}) {
      * Mirrors the selected phone country into the custom visible phone field.
      */
     function updatePhoneCountryDisplay() {
-        const selected = dom.$phoneCountryCode.find(':selected');
-        const flag = selected.data('flag') || '';
-        const code = selected.data('code') || '';
-        const hasPhoneCountry = Boolean(dom.$phoneCountryCode.val());
+        const selection = getPhoneCountrySelection();
 
-        dom.$phoneFlag.text(flag);
-        dom.$phoneDialCode.text(code);
-        dom.$phone.attr('data-phone-country-selected', hasPhoneCountry ? 'true' : 'false');
-        dom.$phoneNumber.prop('disabled', !hasPhoneCountry);
+        dom.$phoneFlag.text(selection.flag);
+        dom.$phoneDialCode.text(selection.code);
+        dom.$phone.attr(
+            'data-phone-country-selected',
+            selection.isSelected ? 'true' : 'false'
+        );
+        dom.$phoneNumber.prop('disabled', !selection.isSelected);
 
-        if (!hasPhoneCountry) {
+        if (!selection.isSelected) {
             clearPhoneNumber();
         }
     }
 
     /**
-     * Moves focus to the invisible native select that backs the phone country picker.
+     * Focuses the phone number input when the phone country is selected.
      */
-    function focusPhoneCountrySelector() {
-        dom.$phoneCountryCode.trigger('focus');
-    }
-
-    /**
-     * Handles clicks on the custom phone field wrapper.
-     */
-    function handlePhoneClick() {
-        if (!dom.$phoneCountryCode.val()) {
-            focusPhoneCountrySelector();
+    function focusPhoneNumber() {
+        if (!getPhoneCountryCode()) {
+            return;
         }
+
+        window.requestAnimationFrame(() => {
+            dom.$phoneNumber.trigger('focus');
+        });
     }
 
     /**
-     * Handles focus on the phone number input.
+     * Focuses the phone-country select when the number part cannot be used yet.
      */
-    function handlePhoneNumberFocus() {
-        if (!dom.$phoneCountryCode.val()) {
-            focusPhoneCountrySelector();
+    function focusPhoneCountrySelectorIfMissing() {
+        if (!getPhoneCountryCode()) {
+            dom.$phoneCountryCode.trigger('focus');
         }
     }
 
@@ -267,10 +263,11 @@ export function createCheckoutFormController({dom}) {
      *
      * @param {JQuery.Event} event phone number beforeinput event
      */
-    function handlePhoneNumberBeforeInput(event) {
+    function preventUnsupportedPhoneInput(event) {
         const originalEvent = event.originalEvent;
+        const input = originalEvent && originalEvent.data;
 
-        if (originalEvent && originalEvent.data && !isValidPhoneNumberInput(originalEvent.data)) {
+        if (input && sanitizePhoneNumberInput(input) !== input) {
             event.preventDefault();
         }
     }
@@ -279,12 +276,44 @@ export function createCheckoutFormController({dom}) {
      * Sanitizes the phone number input after user edits.
      */
     function sanitizePhoneNumberValue() {
-        const value = dom.$phoneNumber.val();
-        const sanitized = sanitizePhoneNumberInput(value);
+        const sanitized = sanitizePhoneNumberInput(dom.$phoneNumber.val());
 
-        if (value !== sanitized) {
+        if (dom.$phoneNumber.val() !== sanitized) {
             dom.$phoneNumber.val(sanitized);
         }
+    }
+
+    /**
+     * Returns the current phone-country code.
+     *
+     * @return {string} selected phone-country code, or empty string
+     */
+    function getPhoneCountryCode() {
+        return String(dom.$phoneCountryCode.val() || '');
+    }
+
+    /**
+     * Updates the selected phone-country code.
+     *
+     * @param {string} phoneCode phone-country code without a leading plus sign
+     */
+    function setPhoneCountryCode(phoneCode) {
+        dom.$phoneCountryCode.val(phoneCode);
+    }
+
+    /**
+     * Returns the currently selected phone-country data for the visible field.
+     *
+     * @return {{flag: string, code: string, isSelected: boolean}} selected phone-country data
+     */
+    function getPhoneCountrySelection() {
+        const selected = dom.$phoneCountryCode.find(':selected');
+
+        return {
+            flag: String(selected.data('flag') || ''),
+            code: String(selected.data('code') || ''),
+            isSelected: Boolean(getPhoneCountryCode())
+        };
     }
 
     /**
@@ -404,11 +433,9 @@ export function createCheckoutFormController({dom}) {
     return {
         applyBillingCountryFromPhoneCountry,
         applyPhoneCountryFromBillingCountry,
+        bindPhoneEvents,
         buildSubmitBillingInfoRequest,
-        handlePhoneClick,
-        handlePhoneNumberBeforeInput,
-        handlePhoneNumberFocus,
-        sanitizePhoneNumberValue,
+        focusPhoneNumber,
         showVatIdError,
         updatePhoneCountryDisplay,
         updateVatIdFieldState,
