@@ -151,7 +151,6 @@ $(
                 }
 
                 view.setSummaryLoading(false);
-                showServerErrorModal(error);
                 view.showSummaryError();
                 chargeController.updateSubmitState();
                 logApiError(error);
@@ -184,24 +183,9 @@ $(
                 );
                 window.location = response.paymentLink;
             } catch (error) {
-                showServerErrorModal(error);
+                view.showErrorModal();
                 logApiError(error);
             }
-        }
-
-        /**
-         * Opens the generic checkout error modal for server-side request failures.
-         *
-         * @param {Object|Error} error request error to inspect
-         * @return {boolean} true when the error represents a server response
-         */
-        function showServerErrorModal(error) {
-            if (error.status && error.status < 500) {
-                return false;
-            }
-
-            view.showErrorModal();
-            return true;
         }
 
         /**

@@ -194,6 +194,8 @@ export function createPurchaseClient(serverUrl) {
 /**
  * Sends a JSON GET request and returns the parsed response body.
  *
+ * Body will be parsed as JSON or plain text if possible, otherwise `null` is returned.
+ *
  * @param {string} url endpoint URL
  * @return {Promise<*>} parsed response body when the request succeeds
  *
@@ -216,6 +218,8 @@ async function getJson(url) {
 
 /**
  * Sends a JSON POST request and returns the parsed response body.
+ *
+ * Body will be parsed as JSON or plain text if possible, otherwise `null` is returned.
  *
  * @param {string} url endpoint URL
  * @param {Object} payload json request body
