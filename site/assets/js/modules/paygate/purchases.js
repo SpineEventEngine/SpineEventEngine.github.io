@@ -252,11 +252,6 @@ async function postJson(url, payload) {
  */
 async function readResponseBody(response) {
     const contentType = response.headers.get('content-type') || '';
-
-    if (response.status === 204) {
-        return null;
-    }
-
     try {
         return contentType.includes('application/json')
             ? await response.json()
