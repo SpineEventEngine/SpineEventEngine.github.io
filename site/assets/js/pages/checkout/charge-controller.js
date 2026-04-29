@@ -32,6 +32,9 @@
  * CheckoutViewController
  */
 
+import {createChargeRequestService} from 'js/pages/checkout/charge-request';
+import {createDelayedRequestController} from 'js/pages/checkout/delayed-request-controller';
+
 /**
  * Delay before sending the 'calculate-charges' request when VAT ID was changed.
  *
@@ -72,206 +75,50 @@ const vatIdInputDelay = 1000;
  * @param {function(Object|Error): void} options.logApiError logs request failures
  * @return {CheckoutChargeController} charge lifecycle helpers for the checkout page
  */
-export function createChargeController({
-    purchaseClient,
-    view,
-    ensureOrderId,
-    getBuyerCountryCode,
-    getVatId,
-    onVatIdError,
-    logApiError
-}) {
-    let chargeRequestId = 0;
-    let chargesRequestTimer = null;
-    let pendingChargesKey = '';
-    let pendingChargesPromise = null;
-    let chargesReadyKey = '';
-
-    /**
-     * Recalculates charges when country and VAT ID are available.
-     *
-     * @return {Promise<void>} resolves when charges are updated, skipped, or handled as an error
-     */
-    async function requestIfReady() {
-        const requestKey = getRequestKey();
-        const reusableRequest = getReusableRequest(requestKey);
-
-        if (!requestKey) {
-            invalidate();
-            return;
-        }
-
-        if (reusableRequest) {
-            return reusableRequest;
-        }
-
-        return startChargesRequest(requestKey);
+export function createChargeController(
+    {
+        purchaseClient,
+        view,
+        ensureOrderId,
+        getBuyerCountryCode,
+        getVatId,
+        onVatIdError,
+        logApiError
     }
-
-    /**
-     * Cancels delayed VAT recalculation and requests charges immediately.
-     *
-     * @return {Promise<void>} resolves when the immediate request flow finishes
-     */
-    function flush() {
-        clearScheduledRequest();
-        return requestIfReady();
-    }
-
-    /**
-     * Debounces charge recalculation while the user types a VAT ID.
-     */
-    function schedule() {
-        clearScheduledRequest();
-        chargesRequestTimer = window.setTimeout(() => {
-            chargesRequestTimer = null;
-            requestIfReady();
-        }, vatIdInputDelay);
-    }
-
-    /**
-     * Clears charge state and ignores older responses.
-     */
-    function invalidate() {
-        clearScheduledRequest();
-        chargeRequestId += 1;
-        pendingChargesKey = '';
-        pendingChargesPromise = null;
-        chargesReadyKey = '';
-        updateSubmitState();
-    }
-
-    /**
-     * Checks whether a delayed VAT request is currently scheduled.
-     *
-     * @return {boolean} true when a delayed request timer is active
-     */
-    function hasScheduledRequest() {
-        return Boolean(chargesRequestTimer);
-    }
-
-    /**
-     * Checks whether charges are calculated for the form's current country and VAT ID.
-     *
-     * @return {boolean} true when the latest charges match the current form state
-     */
-    function hasCurrentCharges() {
-        const requestKey = getRequestKey();
-        return Boolean(requestKey) && requestKey === chargesReadyKey;
-    }
-
-    /**
-     * Returns a finished or in-flight request promise that can be reused.
-     *
-     * @param {string} requestKey joined country:VAT key
-     * @return {Promise<void>|null} reusable promise for the same inputs, if any
-     */
-    function getReusableRequest(requestKey) {
-        if (requestKey === chargesReadyKey) {
-            return Promise.resolve();
-        }
-
-        return requestKey === pendingChargesKey && pendingChargesPromise
-            ? pendingChargesPromise
-            : null;
-    }
-
-    /**
-     * Starts a new charge calculation request for the current checkout inputs.
-     *
-     * @param {string} requestKey joined country:VAT key
-     * @return {Promise<void>} resolves when the request lifecycle is finished
-     */
-    function startChargesRequest(requestKey) {
-        const requestId = ++chargeRequestId;
-
-        pendingChargesKey = requestKey;
-        chargesReadyKey = '';
-        updateSubmitState();
-        pendingChargesPromise = ensureOrderId()
-            .then(orderId => createRequestPayload(requestId, orderId))
-            .then(payload => payload ? purchaseClient.calculateCharges(payload) : null)
-            .then(response => handleRequestSuccess(requestId, requestKey, response))
-            .catch(error => handleRequestError(requestId, error))
-            .finally(() => finishRequest(requestId));
-
-        return pendingChargesPromise;
-    }
+) {
+    const requestService = createChargeRequestService({
+        purchaseClient,
+        ensureOrderId,
+        getBuyerCountryCode,
+        getVatId
+    });
+    const delayedRequest = createDelayedRequestController({
+        delay: vatIdInputDelay,
+        getRequestKey: requestService.getRequestKey,
+        request: requestService.requestCharges,
+        onSuccess: response => {
+            view.updateCharges(response);
+        },
+        onError: handleRequestError,
+        onStateChange: updateSubmitState
+    });
 
     /**
      * Enables checkout submission only when the current charge calculation is ready.
      */
     function updateSubmitState() {
-        view.setSubmitDisabled(view.isFormHidden() || !hasCurrentCharges());
+        view.setSubmitDisabled(view.isFormHidden() || !delayedRequest.hasCurrentResult());
     }
 
     /**
-     * Builds the Paygate calculate-charges payload for the current request state.
+     * Handles a failed charge calculation response from the delayed request controller.
      *
-     * @param {number} requestId internal request sequence number
-     * @param {string} orderId paygate order ID
-     * @return {{orderId: string, buyerCountryCode: string, vatId: string}|null} request payload
-     */
-    function createRequestPayload(requestId, orderId) {
-        if (requestId !== chargeRequestId) {
-            return null;
-        }
-
-        const buyerCountryCode = getBuyerCountryCode();
-        const vatId = getVatId();
-
-        if (!orderId || !buyerCountryCode || !vatId) {
-            return null;
-        }
-
-        return {
-            orderId,
-            buyerCountryCode,
-            vatId
-        };
-    }
-
-    /**
-     * Builds the cache key for the current charge calculation inputs.
-     *
-     * @return {string} joined country:VAT key,
-     *   or empty string when calculation cannot run yet
-     */
-    function getRequestKey() {
-        const buyerCountryCode = getBuyerCountryCode();
-        const vatId = getVatId();
-
-        return buyerCountryCode && vatId
-            ? [buyerCountryCode, vatId].join(':')
-            : '';
-    }
-
-    /**
-     * Applies a successful charge calculation response if it is still current.
-     *
-     * @param {number} requestId internal request sequence number
-     * @param {string} requestKey joined country:VAT key
-     * @param {Object} response paygate charge calculation response
-     */
-    function handleRequestSuccess(requestId, requestKey, response) {
-        if (requestId !== chargeRequestId || !response) {
-            return;
-        }
-
-        chargesReadyKey = requestKey;
-        view.updateCharges(response);
-        updateSubmitState();
-    }
-
-    /**
-     * Handles a failed charge calculation response.
-     *
-     * @param {number} requestId internal request sequence number
      * @param {Object} error error response
+     * @param {Object} context delayed request context
+     * @param {boolean} context.isCurrentRequest whether the failed request is still current
      */
-    function handleRequestError(requestId, error) {
-        const isCurrentRequest = requestId === chargeRequestId;
-        const isVatError = isVatErrorResponse(error);
+    function handleRequestError(error, {isCurrentRequest}) {
+        const isVatError = requestService.isVatError(error);
 
         if (!isVatError) {
             view.showErrorModal();
@@ -282,61 +129,20 @@ export function createChargeController({
             return;
         }
 
-        chargesReadyKey = '';
-        updateSubmitState();
-
         if (isVatError) {
-            onVatIdError(error.body.vatIdInvalid);
+            onVatIdError(requestService.getVatErrorReason(error));
         }
 
         logApiError(error);
     }
 
-    /**
-     * Clears the tracked in-flight request when the current request finishes.
-     *
-     * @param {number} requestId internal request sequence number
-     */
-    function finishRequest(requestId) {
-        if (requestId !== chargeRequestId) {
-            return;
-        }
-
-        pendingChargesKey = '';
-        pendingChargesPromise = null;
-    }
-
-    /**
-     * Clears the delayed VAT recalculation timer when one is active.
-     */
-    function clearScheduledRequest() {
-        if (!chargesRequestTimer) {
-            return;
-        }
-
-        window.clearTimeout(chargesRequestTimer);
-        chargesRequestTimer = null;
-    }
-
-    /**
-     * Checks whether a calculation error should is related to the VAT ID.
-     *
-     * @param {Object} error error response
-     * @return {boolean} true when response contains a VAT ID verification failure reason
-     */
-    function isVatErrorResponse(error) {
-        const reason = error.body && error.body.vatIdInvalid;
-
-        return error.status === 422 && typeof reason === 'string' && reason.length > 0;
-    }
-
     return {
-        flush,
-        hasCurrentCharges,
-        hasScheduledRequest,
-        invalidate,
-        requestIfReady,
-        schedule,
+        flush: delayedRequest.flush,
+        hasCurrentCharges: delayedRequest.hasCurrentResult,
+        hasScheduledRequest: delayedRequest.hasScheduledRequest,
+        invalidate: delayedRequest.invalidate,
+        requestIfReady: delayedRequest.requestIfReady,
+        schedule: delayedRequest.schedule,
         updateSubmitState
     };
 }
