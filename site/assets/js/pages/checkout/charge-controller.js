@@ -250,7 +250,7 @@ export function createChargeController({
      * Applies a successful charge calculation response if it is still current.
      *
      * @param {number} requestId internal request sequence number
-     * @param {string} requestKey joined order:country:VAT key
+     * @param {string} requestKey joined country:VAT key
      * @param {Object} response paygate charge calculation response
      */
     function handleRequestSuccess(requestId, requestKey, response) {

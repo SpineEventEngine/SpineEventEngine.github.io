@@ -127,10 +127,7 @@
  * Paygate response for the billing-info submission step.
  *
  * @typedef {Object} SubmitBillingInfoResponse
- * @property {string} paymentLink preferred payment redirect URL
- * @property {string} redirectUrl alternative payment redirect URL
- * @property {string} url alternative response URL field
- * @property {string} link alternative response link field
+ * @property {string} paymentLink hosted payment redirect URL
  */
 
 /**

@@ -185,16 +185,7 @@ $(
                 const response = await purchaseClient.submitBillingInfo(
                     formController.buildSubmitBillingInfoRequest(orderId)
                 );
-                const redirectUrl = response.paymentLink ||
-                    response.redirectUrl ||
-                    response.url ||
-                    response.link;
-
-                if (redirectUrl) {
-                    window.location = redirectUrl;
-                } else {
-                    console.log('Billing info response:', response);
-                }
+                window.location = response.paymentLink;
             } catch (error) {
                 showServerErrorModal(error);
                 logApiError(error);
