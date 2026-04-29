@@ -175,32 +175,20 @@
  * @return {PaygatePurchaseClient} paygate purchase endpoint methods
  */
 export function createPurchaseClient(serverUrl) {
-    const baseUrl = normalizeServerUrl(serverUrl);
-
     return {
         getProduct(productId) {
-            return getJson(`${baseUrl}/products/${encodeURIComponent(productId)}`);
+            return getJson(`${serverUrl}/products/${encodeURIComponent(productId)}`);
         },
         placeOrder(productId) {
-            return postJson(`${baseUrl}/purchases/place-order`, {productId});
+            return postJson(`${serverUrl}/purchases/place-order`, {productId});
         },
         calculateCharges(payload) {
-            return postJson(`${baseUrl}/purchases/calculate-charges`, payload);
+            return postJson(`${serverUrl}/purchases/calculate-charges`, payload);
         },
         submitBillingInfo(payload) {
-            return postJson(`${baseUrl}/purchases/provide-billing-details`, payload);
+            return postJson(`${serverUrl}/purchases/provide-billing-details`, payload);
         }
     };
-}
-
-/**
- * Removes trailing slashes from the configured Paygate server URL.
- *
- * @param {string} url raw configured Paygate server URL
- * @return {string} server URL without trailing slashes
- */
-function normalizeServerUrl(url) {
-    return String(url || '').replace(/\/+$/, '');
 }
 
 /**
