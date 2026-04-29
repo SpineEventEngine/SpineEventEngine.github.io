@@ -25,7 +25,7 @@
   -->
 
 {{ $title := .title }}
-{{ $titleTag := .title_tag | default "h2" }}
+{{ $titleAsH1 := .title_as_h1 }}
 {{ $mark := .mark }}
 {{ $lines := .lines | default slice }}
 {{ $action := .action }}
@@ -36,7 +36,7 @@
         {{ $markClass := .icon_class | default "" }}
         <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
     {{ end }}
-    {{ if eq $titleTag "h1" }}
+    {{ if $titleAsH1 }}
         <h1 class="result-panel-title">{{ $title }}</h1>
     {{ else }}
         <h2 class="result-panel-title">{{ $title }}</h2>
