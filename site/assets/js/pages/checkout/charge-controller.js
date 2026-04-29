@@ -32,7 +32,6 @@
  * CheckoutViewController
  */
 
-import {createChargeRequestService} from 'js/pages/checkout/charge-request';
 import {createDelayedRequestController} from 'js/pages/checkout/delayed-request-controller';
 
 /**
@@ -86,16 +85,10 @@ export function createChargeController(
         logApiError
     }
 ) {
-    const requestService = createChargeRequestService({
-        purchaseClient,
-        ensureOrderId,
-        getBuyerCountryCode,
-        getVatId
-    });
     const delayedRequest = createDelayedRequestController({
         delay: vatIdInputDelay,
-        getRequestKey: requestService.getRequestKey,
-        request: requestService.requestCharges,
+        getRequestKey,
+        request: requestCharges,
         onSuccess: response => {
             view.updateCharges(response);
         },
@@ -111,6 +104,41 @@ export function createChargeController(
     }
 
     /**
+     * Sends the current Paygate `calculate-charges` request.
+     *
+     * @return {Promise<Object|null>} charge response, or `null` when inputs are incomplete
+     */
+    async function requestCharges() {
+        const orderId = await ensureOrderId();
+        const buyerCountryCode = getBuyerCountryCode();
+        const vatId = getVatId();
+
+        if (!orderId || !buyerCountryCode || !vatId) {
+            return null;
+        }
+
+        return purchaseClient.calculateCharges({
+            orderId,
+            buyerCountryCode,
+            vatId
+        });
+    }
+
+    /**
+     * Builds the cache key for the current charge calculation inputs.
+     *
+     * @return {string} joined country:VAT key, or empty string when request cannot run yet
+     */
+    function getRequestKey() {
+        const buyerCountryCode = getBuyerCountryCode();
+        const vatId = getVatId();
+
+        return buyerCountryCode && vatId
+            ? [buyerCountryCode, vatId].join(':')
+            : '';
+    }
+
+    /**
      * Handles a failed charge calculation response from the delayed request controller.
      *
      * @param {Object} error error response
@@ -118,7 +146,7 @@ export function createChargeController(
      * @param {boolean} context.isCurrentRequest whether the failed request is still current
      */
     function handleRequestError(error, {isCurrentRequest}) {
-        const isVatError = requestService.isVatError(error);
+        const isVatError = isVatErrorResponse(error);
 
         if (!isVatError) {
             view.showErrorModal();
@@ -130,10 +158,30 @@ export function createChargeController(
         }
 
         if (isVatError) {
-            onVatIdError(requestService.getVatErrorReason(error));
+            onVatIdError(getVatErrorReason(error));
         }
 
         logApiError(error);
+    }
+
+    /**
+     * Checks whether the Paygate error is a VAT validation failure.
+     *
+     * @param {Object} error request error
+     * @return {boolean} true when the error is a Paygate VAT validation response
+     */
+    function isVatErrorResponse(error) {
+        return error.status === 422 && Boolean(error.body.vatIdInvalid);
+    }
+
+    /**
+     * Returns the Paygate VAT validation reason from the error response.
+     *
+     * @param {Object} error request error
+     * @return {string} VAT validation reason, or empty string
+     */
+    function getVatErrorReason(error) {
+        return String(error.body && error.body.vatIdInvalid || '');
     }
 
     return {
