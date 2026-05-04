@@ -299,11 +299,18 @@ $form-success-color: #2e7d32;
 @include breakpoint(lg-phone) {
   .form-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 24px;
   }
 
   .form-field-full {
     grid-column: auto;
+  }
+}
+
+@include breakpoint(xmd-phone) {
+  .form-submit-button {
+    width: 100%;
+    min-width: 0;
   }
 }
 
@@ -320,10 +327,5 @@ $form-success-color: #2e7d32;
 
   .phone-chevron {
     left: 40px;
-  }
-
-  .form-submit-button {
-    width: 100%;
-    min-width: 0;
   }
 }

@@ -70,6 +70,10 @@
 
   .article-container {
     height: 100%;
+
+    @include breakpoint(lg-phone) {
+      padding-block: 24px 32px;
+    }
   }
 }
 
@@ -240,20 +244,24 @@
     overflow-wrap: anywhere;
 
     @include breakpoint(md-phone) {
-      font-size: 32px;
+      font-size: 32px !important;
     }
   }
 
   .checkout-summary-product-description {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
     color: rgba($black, .54);
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
 
+    @include breakpoint(lg-phone) {
+      margin-bottom: 24px;
+    }
+
     @include breakpoint(md-phone) {
       font-size: 14px;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
   }
 
@@ -347,6 +355,10 @@
 
   .form-title {
     padding-top: 40px;
+
+    @include breakpoint(lg-phone) {
+      padding-top: 8px;
+    }
   }
 }
 
