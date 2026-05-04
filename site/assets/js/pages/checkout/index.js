@@ -97,6 +97,10 @@ $(
                 }
             });
 
+            $(window).on('pageshow', () => {
+                scheduleRestoredVatResume();
+            });
+
             dom.$country.on('change', () => {
                 countryManuallySelected = true;
                 chargeController.invalidate();
@@ -145,6 +149,7 @@ $(
                 view.setSummaryLoading(false);
                 dom.$form.prop('hidden', false);
                 chargeController.updateSubmitState();
+                scheduleRestoredVatResume();
             } catch (error) {
                 if (error.status === 404) {
                     chargeController.invalidate();
@@ -210,6 +215,28 @@ $(
                 `${error.status || 'Network error'}: ` +
                 `${error.statusText || 'Request failed'}`
             );
+        }
+
+        /**
+         * Schedules one pass that resumes charge calculation from browser-restored VAT data.
+         */
+        function scheduleRestoredVatResume() {
+            window.setTimeout(resumeChargesFromRestoredVatId, 0);
+        }
+
+        /**
+         * Restarts charge calculation when the browser already restored VAT ID into the field.
+         */
+        function resumeChargesFromRestoredVatId() {
+            if (view.isFormHidden()) {
+                return;
+            }
+
+            if (!(dom.$vatId.val() || '').trim()) {
+                return;
+            }
+
+            chargeController.requestIfReady();
         }
 
         /**

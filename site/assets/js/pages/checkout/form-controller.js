@@ -242,6 +242,7 @@ export function createCheckoutFormController({dom}) {
      * Mirrors the selected phone country into the custom visible phone field.
      */
     function updatePhoneCountryDisplay() {
+        restorePhoneCountryFromBillingCountry();
         const selection = getPhoneCountrySelection();
 
         dom.$phoneFlag.text(selection.flag);
@@ -252,9 +253,20 @@ export function createCheckoutFormController({dom}) {
         );
         dom.$phoneNumber.prop('disabled', !selection.isSelected);
 
-        if (!selection.isSelected) {
+        if (!selection.isSelected && !hasPhoneNumber()) {
             clearPhoneNumber();
         }
+    }
+
+    /**
+     * Restores phone country from billing country when browser already restored the number.
+     */
+    function restorePhoneCountryFromBillingCountry() {
+        if (getPhoneCountryCode() || !hasPhoneNumber()) {
+            return;
+        }
+
+        setPhoneCountryCode(euCountryPhoneCodes[dom.$country.val()] || '');
     }
 
     /**
