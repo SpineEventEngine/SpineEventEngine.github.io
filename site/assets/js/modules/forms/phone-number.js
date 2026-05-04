@@ -29,7 +29,7 @@
 /**
  * Removes characters that are not accepted by the phone-number field.
  *
- * Allowed: digits, parentheses, hyphens, and spaces.
+ * <p>Allowed: digits, parentheses, hyphens, and spaces.
  *
  * @param {string} value phone-number value to sanitize
  * @return {string} sanitized phone-number value

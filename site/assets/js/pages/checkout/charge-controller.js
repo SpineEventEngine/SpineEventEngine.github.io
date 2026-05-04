@@ -36,7 +36,7 @@ import {createDelayedRequestController} from 'js/pages/checkout/delayed-request-
 import {fieldValidationState} from 'js/pages/checkout/form-controller';
 
 /**
- * Delay before sending the 'calculate-charges' request when VAT ID was changed.
+ * Delay in milliseconds before sending the 'calculate-charges' request when VAT ID was changed.
  *
  * @type {number}
  */
