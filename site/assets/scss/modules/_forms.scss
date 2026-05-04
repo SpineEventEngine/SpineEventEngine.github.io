@@ -27,17 +27,11 @@
 $form-error-color: #d93025;
 $form-success-color: #2e7d32;
 
-.form-section {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(black, .08);
-}
-
 .form-title {
   margin-bottom: 16px;
   padding-top: 0;
   color: $black;
-  font-size: 24px;
+  font-size: 24px !important;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -289,7 +283,7 @@ $form-success-color: #2e7d32;
 }
 
 .form-actions {
-  margin-top: 20px;
+  margin: 40px 0 8px;
 }
 
 .form-submit-button {
@@ -303,10 +297,6 @@ $form-success-color: #2e7d32;
 }
 
 @include breakpoint(lg-phone) {
-  .form-title {
-    font-size: 24px;
-  }
-
   .form-grid {
     grid-template-columns: 1fr;
     gap: 14px;

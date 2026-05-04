@@ -38,7 +38,6 @@
   background:
     radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
     linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
-  overflow-x: hidden;
 
   @include breakpoint(lg-phone) {
     background: white;
@@ -76,9 +75,6 @@
 }
 
 .checkout-summary {
-  max-width: 100%;
-  min-width: 0;
-  margin-bottom: 8px;
 
   &[data-loading='true'] {
     .checkout-summary-details {
@@ -126,7 +122,7 @@
     max-width: 420px;
     margin: 0 auto;
     color: $gray-500;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 1.4;
     text-align: center;
@@ -194,7 +190,7 @@
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
     column-gap: 20px;
-    padding: 12px 0 16px;
+    padding: 12px 0;
     border-bottom: 0;
   }
 
@@ -223,7 +219,7 @@
 
   .checkout-summary-product {
     max-width: 100%;
-    padding: 2px 0 8px;
+    padding-bottom: 8px;
     color: rgba($black, .4);
     font-size: 42px;
     font-weight: 300;
@@ -237,7 +233,7 @@
   }
 
   .checkout-summary-product-description {
-    margin: -2px 0 10px;
+    margin-bottom: 40px;
     color: rgba($black, .54);
     font-size: 16px;
     font-weight: 400;
@@ -346,9 +342,7 @@
 }
 
 .checkout .form-section {
-  margin-top: 12px;
-  padding-top: 4px;
-  border-top: 0;
+  margin-top: 8px;
 }
 
 #checkout-not-found,

@@ -34,32 +34,32 @@
 
 <div class="result-panel">
     {{ with $mark }}
-        {{ $markText := .text | default .content | default "" }}
-        {{ $markClass := .icon_class | default "" }}
-        <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
+    {{ $markText := .text | default .content | default "" }}
+    {{ $markClass := .icon_class | default "" }}
+    <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
     {{ end }}
     {{ if $titleAsH1 }}
-        <h1 class="result-panel-title">{{ $title }}</h1>
+    <h1 class="result-panel-title">{{ $title }}</h1>
     {{ else }}
-        <h2 class="result-panel-title">{{ $title }}</h2>
+    <h2 class="result-panel-title">{{ $title }}</h2>
     {{ end }}
     {{ if $lines }}
-        <p class="result-panel-text">
-            {{ range $lines }}
-                <span>{{ . }}</span>
-            {{ end }}
-        </p>
+    <p class="result-panel-text">
+        {{ range $lines }}
+        <span>{{ . }}</span>
+        {{ end }}
+    </p>
     {{ end }}
     {{ with $action }}
-        {{ $actionLabel := .label | default .text | default "" }}
-        {{ $actionUrl := .url | default site.Home.RelPermalink }}
-        {{ if $actionLabel }}
-        <form class="form-actions" action="{{ $actionUrl }}" method="get">
-            <button class="btn btn-bordered-blue form-submit-button"
-                    type="submit">
-                {{ $actionLabel }}
-            </button>
-        </form>
-        {{ end }}
+    {{ $actionLabel := .label | default .text | default "" }}
+    {{ $actionUrl := .url | default site.Home.RelPermalink }}
+    {{ if $actionLabel }}
+    <form class="form-actions" action="{{ $actionUrl }}" method="get">
+        <button class="btn btn-bordered-blue form-submit-button"
+                type="submit">
+            {{ $actionLabel }}
+        </button>
+    </form>
+    {{ end }}
     {{ end }}
 </div>
