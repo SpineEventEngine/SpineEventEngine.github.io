@@ -24,24 +24,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-body:has(.result-page) {
-  .wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .main {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer {
-    margin-top: auto;
-  }
-}
-
 .result-page {
   flex: 1 0 auto;
   min-height: 420px;
