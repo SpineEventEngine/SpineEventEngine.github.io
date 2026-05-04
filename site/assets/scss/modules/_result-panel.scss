@@ -143,6 +143,24 @@
   }
 }
 
+.result-panel a.result-panel-button,
+.result-panel a.result-panel-button:visited {
+  display: inline-block;
+  margin-top: 20px;
+  min-width: 220px;
+  color: $main-brand-color;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
 @include breakpoint(sm-phone) {
   .result-panel {
     padding: 14px 0 16px;

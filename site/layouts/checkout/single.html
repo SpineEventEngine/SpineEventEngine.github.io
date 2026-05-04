@@ -264,12 +264,10 @@
                                     <span>Something went wrong.</span>
                                     <span>Please contact {{ $emailLink }}.</span>
                                 </p>
-                                <form class="form-actions" action="/" method="get">
-                                    <button class="btn btn-bordered-blue form-submit-button"
-                                            type="submit">
-                                        Back to home
-                                    </button>
-                                </form>
+                                <a class="btn btn-bordered-blue result-panel-button"
+                                   href="{{ site.Home.RelPermalink }}">
+                                    Back to home
+                                </a>
                             </div>
                         </div>
                         {{ .Content }}

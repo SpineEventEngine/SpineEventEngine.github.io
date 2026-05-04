@@ -54,12 +54,9 @@
     {{ $actionLabel := .label | default .text | default "" }}
     {{ $actionUrl := .url | default site.Home.RelPermalink }}
     {{ if $actionLabel }}
-    <form class="form-actions" action="{{ $actionUrl }}" method="get">
-        <button class="btn btn-bordered-blue form-submit-button"
-                type="submit">
-            {{ $actionLabel }}
-        </button>
-    </form>
+    <a class="btn btn-bordered-blue result-panel-button" href="{{ $actionUrl }}">
+        {{ $actionLabel }}
+    </a>
     {{ end }}
     {{ end }}
 </div>
