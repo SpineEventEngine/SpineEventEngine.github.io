@@ -33,6 +33,15 @@ import {
 } from 'js/modules/forms/phone-number';
 
 /**
+ * Generic async field-validation states.
+ */
+export const fieldValidationState = Object.freeze({
+    idle: 'idle',
+    loading: 'loading',
+    success: 'success'
+});
+
+/**
  * @typedef {import('js/pages/checkout/dom').CheckoutDom} CheckoutDom
  * @typedef {import('js/modules/paygate/purchases').SubmitBillingInfoRequest}
  * SubmitBillingInfoRequest
@@ -52,6 +61,8 @@ import {
  *   buildSubmitBillingInfoRequest builds the billing-info payload for Paygate
  * @property {function(): void} focusPhoneNumber
  *   focuses the phone number input when a country is selected
+ * @property {function(HTMLElement, string): void} setFieldValidationState
+ *   updates generic async field validation styling
  * @property {function(string): void} showVatIdError
  *   renders VAT API validation errors inline
  * @property {function(): void} updatePhoneCountryDisplay
@@ -126,6 +137,16 @@ export function createCheckoutFormController({dom}) {
      */
     function showVatIdError(reason) {
         setFieldError(dom.$vatId.get(0), vatIdErrorMessage(reason));
+    }
+
+    /**
+     * Updates generic async field validation styling.
+     *
+     * @param {HTMLElement} field field whose validation styling should be updated
+     * @param {string} state async validation state
+     */
+    function setFieldValidationState(field, state) {
+        applyFieldValidationState(field, state);
     }
 
     /**
@@ -334,8 +355,36 @@ export function createCheckoutFormController({dom}) {
         }
 
         const errorElement = getOrCreateError(fieldContainer);
+
+        if (message) {
+            applyFieldValidationState(field, fieldValidationState.idle);
+        }
+
         fieldContainer.classList.toggle('field-error', Boolean(message));
         errorElement.textContent = message || '';
+    }
+
+    /**
+     * Applies the field state classes used by inline validation styles.
+     *
+     * @param {HTMLElement} field field whose state should be updated
+     * @param {string} state field validation state
+     */
+    function applyFieldValidationState(field, state) {
+        const fieldContainer = field && field.closest('.form-field');
+
+        if (!fieldContainer) {
+            return;
+        }
+
+        fieldContainer.classList.toggle(
+            'field-loading',
+            state === fieldValidationState.loading
+        );
+        fieldContainer.classList.toggle(
+            'field-success',
+            state === fieldValidationState.success
+        );
     }
 
     /**
@@ -436,6 +485,7 @@ export function createCheckoutFormController({dom}) {
         bindPhoneEvents,
         buildSubmitBillingInfoRequest,
         focusPhoneNumber,
+        setFieldValidationState,
         showVatIdError,
         updatePhoneCountryDisplay,
         updateVatIdFieldState,

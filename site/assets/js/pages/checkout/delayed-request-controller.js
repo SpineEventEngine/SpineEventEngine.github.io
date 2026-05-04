@@ -47,13 +47,17 @@
 /**
  * Creates a reusable controller for `input -> delayed request -> latest response` flows.
  *
+ * @typedef {Object} DelayedRequestState
+ * @property {boolean} hasCurrentResult whether current inputs already have a fresh response
+ * @property {boolean} isRequesting whether a request is currently in flight
+ *
  * @param {Object} options delayed request options
  * @param {number} options.delay debounce delay in milliseconds
  * @param {function(): string} options.getRequestKey returns the current request key
  * @param {function(): Promise<*|null>} options.request sends the current request
  * @param {function(*): void} options.onSuccess handles the latest successful response
- * @param {function(Object, Object): void} options.onError handles request failures
- * @param {function(): void} options.onStateChange reacts to pending/ready state changes
+ * @param {function(Object, boolean): void} options.onError handles request failures
+ * @param {function(DelayedRequestState): void} options.onStateChange reacts to state changes
  * @return {DelayedRequestController} delayed request helpers
  */
 export function createDelayedRequestController({
@@ -69,6 +73,7 @@ export function createDelayedRequestController({
     let pendingRequestKey = '';
     let pendingRequestPromise = null;
     let readyRequestKey = '';
+    let isRequesting = false;
 
     /**
      * Runs the request immediately when the current key is present.
@@ -118,10 +123,11 @@ export function createDelayedRequestController({
     function invalidate() {
         clearScheduledRequest();
         requestId += 1;
+        isRequesting = false;
         pendingRequestKey = '';
         pendingRequestPromise = null;
         readyRequestKey = '';
-        onStateChange();
+        emitStateChange();
     }
 
     /**
@@ -168,9 +174,10 @@ export function createDelayedRequestController({
     function startRequest(requestKey) {
         const currentRequestId = ++requestId;
 
+        isRequesting = true;
         pendingRequestKey = requestKey;
         readyRequestKey = '';
-        onStateChange();
+        emitStateChange();
         pendingRequestPromise = Promise.resolve()
             .then(request)
             .then(response => handleSuccess(currentRequestId, requestKey, response))
@@ -194,7 +201,6 @@ export function createDelayedRequestController({
 
         readyRequestKey = requestKey;
         onSuccess(response);
-        onStateChange();
     }
 
     /**
@@ -209,14 +215,9 @@ export function createDelayedRequestController({
 
         if (isCurrentRequest) {
             readyRequestKey = '';
-            onStateChange();
         }
 
-        onError(error, {
-            isCurrentRequest,
-            requestId: currentRequestId,
-            requestKey
-        });
+        onError(error, isCurrentRequest);
     }
 
     /**
@@ -229,8 +230,10 @@ export function createDelayedRequestController({
             return;
         }
 
+        isRequesting = false;
         pendingRequestKey = '';
         pendingRequestPromise = null;
+        emitStateChange();
     }
 
     /**
@@ -243,6 +246,16 @@ export function createDelayedRequestController({
 
         window.clearTimeout(requestTimer);
         requestTimer = null;
+    }
+
+    /**
+     * Emits the current delayed-request state to the consumer.
+     */
+    function emitStateChange() {
+        onStateChange({
+            hasCurrentResult: hasCurrentResult(),
+            isRequesting
+        });
     }
 
     return {

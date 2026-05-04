@@ -25,6 +25,7 @@
  */
 
 $form-error-color: #d93025;
+$form-success-color: #2e7d32;
 
 .form-section {
   margin-top: 24px;
@@ -101,6 +102,51 @@ $form-error-color: #d93025;
     border-color: rgba($main-brand-color, .55);
     box-shadow: 0 0 0 3px rgba($main-brand-color, .12);
   }
+}
+
+.form-input-status {
+  position: relative;
+}
+
+.form-field-vat .form-input {
+  padding-right: 44px;
+}
+
+.form-field-vat .form-input-status::after {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.form-field-vat.field-loading .form-input {
+  border-color: rgba($main-brand-color, .5);
+  box-shadow: 0 0 0 3px rgba($main-brand-color, .1);
+}
+
+.form-field-vat.field-loading .form-input-status::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba($main-brand-color, .16);
+  border-top-color: rgba($main-brand-color, .95);
+  border-radius: 50%;
+  animation: vat-field-spin .75s linear infinite;
+}
+
+.form-field-vat.field-success .form-input {
+  border-color: rgba($form-success-color, .55);
+  box-shadow: 0 0 0 3px rgba($form-success-color, .12);
+}
+
+.form-field-vat.field-success .form-input-status::after {
+  content: '';
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid rgba($form-success-color, .95);
+  border-bottom: 2px solid rgba($form-success-color, .95);
+  transform: translateY(-58%) rotate(-45deg);
 }
 
 .form-select {
@@ -234,6 +280,12 @@ $form-error-color: #d93025;
   color: rgba($form-error-color, .92);
   font-size: 13px;
   line-height: 1.35;
+}
+
+@keyframes vat-field-spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 .form-actions {

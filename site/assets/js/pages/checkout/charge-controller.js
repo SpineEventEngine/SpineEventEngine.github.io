@@ -33,6 +33,7 @@
  */
 
 import {createDelayedRequestController} from 'js/pages/checkout/delayed-request-controller';
+import {fieldValidationState} from 'js/pages/checkout/form-controller';
 
 /**
  * Delay before sending the 'calculate-charges' request when VAT ID was changed.
@@ -70,6 +71,7 @@ const vatIdInputDelay = 1000;
  * @param {function(): Promise<string>} options.ensureOrderId creates or reuses the Paygate order
  * @param {function(): string} options.getBuyerCountryCode returns the selected billing country
  * @param {function(): string} options.getVatId returns the current VAT ID value
+ * @param {function(string): void} options.onFieldValidationStateChange updates field UI state
  * @param {function(string): void} options.onVatIdError renders the VAT ID API validation error
  * @param {function(Object|Error): void} options.logApiError logs request failures
  * @return {CheckoutChargeController} charge lifecycle helpers for the checkout page
@@ -81,6 +83,7 @@ export function createChargeController(
         ensureOrderId,
         getBuyerCountryCode,
         getVatId,
+        onFieldValidationStateChange,
         onVatIdError,
         logApiError
     }
@@ -93,14 +96,53 @@ export function createChargeController(
             view.updateCharges(response);
         },
         onError: handleRequestError,
-        onStateChange: updateSubmitState
+        onStateChange: handleRequestStateChange
     });
 
     /**
-     * Enables checkout submission only when the current charge calculation is ready.
+     * Reacts to delayed-request state changes.
+     *
+     * @param {Object} state delayed-request state snapshot
+     * @param {boolean} state.hasCurrentResult whether charges are ready for current inputs
+     * @param {boolean} state.isRequesting whether a charge request is currently in flight
      */
-    function updateSubmitState() {
-        view.setSubmitDisabled(view.isFormHidden() || !delayedRequest.hasCurrentResult());
+    function handleRequestStateChange(state) {
+        updateSubmitState(state.hasCurrentResult);
+        updateVatIdState(state);
+    }
+
+    /**
+     * Enables checkout submission only when the current charge calculation is ready.
+     *
+     * @param {boolean} [hasCurrentResult] whether current inputs already have fresh charges
+     */
+    function updateSubmitState(hasCurrentResult = delayedRequest.hasCurrentResult()) {
+        view.setSubmitDisabled(view.isFormHidden() || !hasCurrentResult);
+    }
+
+    /**
+     * Updates the VAT field visual validation state.
+     *
+     * @param {Object} state delayed-request state snapshot
+     * @param {boolean} state.hasCurrentResult whether charges are ready for current inputs
+     * @param {boolean} state.isRequesting whether a charge request is currently in flight
+     */
+    function updateVatIdState({hasCurrentResult, isRequesting}) {
+        const hasRequestKey = Boolean(getRequestKey());
+
+        if (!hasRequestKey) {
+            onFieldValidationStateChange(fieldValidationState.idle);
+            return;
+        }
+
+        if (isRequesting) {
+            onFieldValidationStateChange(fieldValidationState.loading);
+            return;
+        }
+
+        onFieldValidationStateChange(
+            hasCurrentResult ? fieldValidationState.success : fieldValidationState.idle
+        );
     }
 
     /**
@@ -142,10 +184,9 @@ export function createChargeController(
      * Handles a failed charge calculation response from the delayed request controller.
      *
      * @param {Object} error error response
-     * @param {Object} context delayed request context
-     * @param {boolean} context.isCurrentRequest whether the failed request is still current
+     * @param {boolean} isCurrentRequest whether the failed request is still current
      */
-    function handleRequestError(error, {isCurrentRequest}) {
+    function handleRequestError(error, isCurrentRequest) {
         const isVatError = isVatErrorResponse(error);
 
         if (!isVatError) {

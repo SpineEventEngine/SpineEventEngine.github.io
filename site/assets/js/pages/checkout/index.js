@@ -57,6 +57,9 @@ $(
             ensureOrderId,
             getBuyerCountryCode: () => dom.$country.val(),
             getVatId: () => (dom.$vatId.val() || '').trim(),
+            onFieldValidationStateChange: state => {
+                formController.setFieldValidationState(dom.$vatId.get(0), state);
+            },
             onVatIdError: formController.showVatIdError,
             logApiError
         });
