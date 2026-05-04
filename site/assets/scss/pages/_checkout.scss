@@ -295,19 +295,8 @@
     }
 
     .checkout-summary-row {
-      display: block;
+      column-gap: 12px;
       padding: 10px 0 12px;
-    }
-
-    .checkout-summary-label {
-      display: block;
-      min-width: 0;
-      margin-bottom: 2px;
-    }
-
-    .checkout-summary-value {
-      display: block;
-      text-align: left;
     }
   }
 
