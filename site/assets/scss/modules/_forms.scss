@@ -152,11 +152,11 @@ $form-success-color: #2e7d32;
 .form-select {
   appearance: none;
   background-image:
-    linear-gradient(45deg, transparent 50%, rgba($gray-500, .9) 50%),
-    linear-gradient(135deg, rgba($gray-500, .9) 50%, transparent 50%);
+    linear-gradient(45deg, transparent 50%, $gray-500 50%),
+    linear-gradient(135deg, $gray-500 50%, transparent 50%);
   background-position:
-    calc(100% - 18px) calc(50% - 2px),
-    calc(100% - 12px) calc(50% - 2px);
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
   background-repeat: no-repeat;
   background-size: 6px 6px, 6px 6px;
   padding-right: 40px;
@@ -260,9 +260,9 @@ $form-success-color: #2e7d32;
   z-index: 1;
   width: 9px;
   height: 9px;
-  border-right: 2px solid rgba($gray-500, .9);
-  border-bottom: 2px solid rgba($gray-500, .9);
-  transform: translateY(-64%) rotate(45deg);
+  border-right: 2px solid $gray-500;
+  border-bottom: 2px solid $gray-500;
+  transform: translateY(-50%) rotate(45deg);
   pointer-events: none;
 }
 
