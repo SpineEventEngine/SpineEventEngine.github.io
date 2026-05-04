@@ -34,6 +34,7 @@ import {createCheckoutFormController} from 'js/pages/checkout/form-controller';
 import {createCheckoutView} from 'js/pages/checkout/view-controller';
 
 const requiredSelector = 'input[required], select[required], textarea[required]';
+const consentSelector = "input[type='checkbox'].consent";
 
 $(
     function () {
@@ -57,6 +58,7 @@ $(
             ensureOrderId,
             getBuyerCountryCode: () => dom.$country.val(),
             getVatId: () => (dom.$vatId.val() || '').trim(),
+            canSubmit: hasConsent,
             onFieldValidationStateChange: state => {
                 formController.setFieldValidationState(dom.$vatId.get(0), state);
             },
@@ -87,6 +89,11 @@ $(
 
             dom.$form.on('change', 'select[required]', event => {
                 formController.validateField(event.target);
+            });
+
+            dom.$form.on('change', consentSelector, event => {
+                formController.validateField(event.target);
+                chargeController.updateSubmitState();
             });
 
             $('[data-checkout-modal-close]').on('click', view.closeErrorModal);
@@ -215,6 +222,17 @@ $(
                 `${error.status || 'Network error'}: ` +
                 `${error.statusText || 'Request failed'}`
             );
+        }
+
+        /**
+         * Checks whether all required checkout consent checkboxes are checked.
+         *
+         * @return {boolean} true when every consent checkbox is checked
+         */
+        function hasConsent() {
+            const $consents = dom.$form.find(consentSelector);
+
+            return $consents.length === $consents.filter(':checked').length;
         }
 
         /**

@@ -35,9 +35,8 @@
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  background:
-    radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
-    linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
+  background: radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
+  linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
 
   @include breakpoint(lg-phone) {
     background: white;
@@ -72,6 +71,12 @@
   .article-container {
     height: 100%;
   }
+}
+
+.checkout-consents .text {
+  color: rgba($black, .7);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .checkout-summary {
