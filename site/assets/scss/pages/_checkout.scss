@@ -73,10 +73,18 @@
   }
 }
 
-.checkout-consents .text {
-  color: rgba($black, .7);
-  font-size: 14px;
-  line-height: 1.5;
+.checkout-consents {
+  margin-top: 32px;
+
+  .text {
+    color: rgba($black, .7);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .checkbox-container + .error-message {
+    margin-left: 30px;
+  }
 }
 
 .checkout-summary {
@@ -204,7 +212,7 @@
   }
 
   .checkout-summary-row-total {
-    padding-top: 16px;
+    padding-top: 12px;
     padding-bottom: 0;
     border-bottom: 0;
 
@@ -337,6 +345,10 @@
 
 .checkout .form-section {
   margin-top: 8px;
+
+  .form-title {
+    padding-top: 40px;
+  }
 }
 
 #checkout-not-found,
