@@ -47,6 +47,78 @@
                             <h2 class="form-title">Billing details</h2>
                             <div class="form-grid">
                                 <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-country">Country</label>
+                                    <select class="form-input form-select"
+                                            id="checkout-country"
+                                            name="country"
+                                            autocomplete="country-name"
+                                            required>
+                                        <option value="" selected disabled>Select country</option>
+                                        <option value="AT">🇦🇹 Austria</option>
+                                        <option value="BE">🇧🇪 Belgium</option>
+                                        <option value="BG">🇧🇬 Bulgaria</option>
+                                        <option value="HR">🇭🇷 Croatia</option>
+                                        <option value="CY">🇨🇾 Cyprus</option>
+                                        <option value="CZ">🇨🇿 Czechia</option>
+                                        <option value="DK">🇩🇰 Denmark</option>
+                                        <option value="EE">🇪🇪 Estonia</option>
+                                        <option value="FI">🇫🇮 Finland</option>
+                                        <option value="FR">🇫🇷 France</option>
+                                        <option value="DE">🇩🇪 Germany</option>
+                                        <option value="GR">🇬🇷 Greece</option>
+                                        <option value="HU">🇭🇺 Hungary</option>
+                                        <option value="IE">🇮🇪 Ireland</option>
+                                        <option value="IT">🇮🇹 Italy</option>
+                                        <option value="LV">🇱🇻 Latvia</option>
+                                        <option value="LT">🇱🇹 Lithuania</option>
+                                        <option value="LU">🇱🇺 Luxembourg</option>
+                                        <option value="MT">🇲🇹 Malta</option>
+                                        <option value="NL">🇳🇱 Netherlands</option>
+                                        <option value="PL">🇵🇱 Poland</option>
+                                        <option value="PT">🇵🇹 Portugal</option>
+                                        <option value="RO">🇷🇴 Romania</option>
+                                        <option value="SK">🇸🇰 Slovakia</option>
+                                        <option value="SI">🇸🇮 Slovenia</option>
+                                        <option value="ES">🇪🇸 Spain</option>
+                                        <option value="SE">🇸🇪 Sweden</option>
+                                    </select>
+                                </div>
+                                <div class="form-field form-field-full form-field-vat">
+                                    <label class="form-label required-label" for="checkout-vat-id">VAT ID</label>
+                                    <div class="form-input-status">
+                                        <input class="form-input"
+                                               id="checkout-vat-id"
+                                               name="vat_id"
+                                               type="text"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-company">Company Name</label>
+                                    <input class="form-input"
+                                           id="checkout-company"
+                                           name="company"
+                                           type="text"
+                                           autocomplete="organization"
+                                           required>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-first-name">First Name</label>
+                                    <input class="form-input"
+                                           id="checkout-first-name"
+                                           name="first_name"
+                                           type="text"
+                                           autocomplete="given-name">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-last-name">Last Name</label>
+                                    <input class="form-input"
+                                           id="checkout-last-name"
+                                           name="last_name"
+                                           type="text"
+                                           autocomplete="family-name">
+                                </div>
+                                <div class="form-field form-field-full">
                                     <label class="form-label required-label" for="checkout-email">Email</label>
                                     <input class="form-input"
                                            id="checkout-email"
@@ -103,78 +175,6 @@
                                                autocomplete="tel-national"
                                                inputmode="tel"
                                                disabled>
-                                    </div>
-                                </div>
-                                <div class="form-field">
-                                    <label class="form-label" for="checkout-first-name">First Name</label>
-                                    <input class="form-input"
-                                           id="checkout-first-name"
-                                           name="first_name"
-                                           type="text"
-                                           autocomplete="given-name">
-                                </div>
-                                <div class="form-field">
-                                    <label class="form-label" for="checkout-last-name">Last Name</label>
-                                    <input class="form-input"
-                                           id="checkout-last-name"
-                                           name="last_name"
-                                           type="text"
-                                           autocomplete="family-name">
-                                </div>
-                                <div class="form-field form-field-full">
-                                    <label class="form-label required-label" for="checkout-company">Company Name</label>
-                                    <input class="form-input"
-                                           id="checkout-company"
-                                           name="company"
-                                           type="text"
-                                           autocomplete="organization"
-                                           required>
-                                </div>
-                                <div class="form-field form-field-full">
-                                    <label class="form-label required-label" for="checkout-country">Country</label>
-                                    <select class="form-input form-select"
-                                            id="checkout-country"
-                                            name="country"
-                                            autocomplete="country-name"
-                                            required>
-                                        <option value="" selected disabled>Select country</option>
-                                        <option value="AT">🇦🇹 Austria</option>
-                                        <option value="BE">🇧🇪 Belgium</option>
-                                        <option value="BG">🇧🇬 Bulgaria</option>
-                                        <option value="HR">🇭🇷 Croatia</option>
-                                        <option value="CY">🇨🇾 Cyprus</option>
-                                        <option value="CZ">🇨🇿 Czechia</option>
-                                        <option value="DK">🇩🇰 Denmark</option>
-                                        <option value="EE">🇪🇪 Estonia</option>
-                                        <option value="FI">🇫🇮 Finland</option>
-                                        <option value="FR">🇫🇷 France</option>
-                                        <option value="DE">🇩🇪 Germany</option>
-                                        <option value="GR">🇬🇷 Greece</option>
-                                        <option value="HU">🇭🇺 Hungary</option>
-                                        <option value="IE">🇮🇪 Ireland</option>
-                                        <option value="IT">🇮🇹 Italy</option>
-                                        <option value="LV">🇱🇻 Latvia</option>
-                                        <option value="LT">🇱🇹 Lithuania</option>
-                                        <option value="LU">🇱🇺 Luxembourg</option>
-                                        <option value="MT">🇲🇹 Malta</option>
-                                        <option value="NL">🇳🇱 Netherlands</option>
-                                        <option value="PL">🇵🇱 Poland</option>
-                                        <option value="PT">🇵🇹 Portugal</option>
-                                        <option value="RO">🇷🇴 Romania</option>
-                                        <option value="SK">🇸🇰 Slovakia</option>
-                                        <option value="SI">🇸🇮 Slovenia</option>
-                                        <option value="ES">🇪🇸 Spain</option>
-                                        <option value="SE">🇸🇪 Sweden</option>
-                                    </select>
-                                </div>
-                                <div class="form-field form-field-full form-field-vat">
-                                    <label class="form-label required-label" for="checkout-vat-id">VAT ID</label>
-                                    <div class="form-input-status">
-                                        <input class="form-input"
-                                               id="checkout-vat-id"
-                                               name="vat_id"
-                                               type="text"
-                                               required>
                                     </div>
                                 </div>
                                 <div class="form-field form-field-full">
