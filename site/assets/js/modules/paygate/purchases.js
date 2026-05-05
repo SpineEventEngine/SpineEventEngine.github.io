@@ -53,6 +53,16 @@
  */
 
 /**
+ * Paygate order data returned by the purchase endpoint.
+ *
+ * @typedef {Object} PaygateOrder
+ * @property {string} orderId paygate order ID
+ * @property {string} productName product display name
+ * @property {string} productDescription product description shown on checkout
+ * @property {boolean} paymentCompleted whether the order was already paid
+ */
+
+/**
  * Paygate response for the `place-order` endpoint.
  *
  * @typedef {Object} PlaceOrderResponse
@@ -160,6 +170,8 @@
  * @typedef {Object} PaygatePurchaseClient
  * @property {function(string): Promise<PaygateProduct>} getProduct
  *   loads checkout product data by product ID
+ * @property {function(string): Promise<PaygateOrder>} getOrder
+ *   loads checkout order data by order ID
  * @property {function(string): Promise<PlaceOrderResponse>} placeOrder
  *   creates a checkout order for the given product ID
  * @property {function(CalculateChargesRequest): Promise<CalculateChargesResponse>} calculateCharges
@@ -178,6 +190,9 @@ export function createPurchaseClient(serverUrl) {
     return {
         getProduct(productId) {
             return getJson(`${serverUrl}/products/${encodeURIComponent(productId)}`);
+        },
+        getOrder(orderId) {
+            return getJson(`${serverUrl}/purchases/${encodeURIComponent(orderId)}`);
         },
         placeOrder(productId) {
             return postJson(`${serverUrl}/purchases/place-order`, {productId});
