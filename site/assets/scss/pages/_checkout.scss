@@ -77,19 +77,6 @@
   }
 }
 
-.checkout-consents {
-  margin-top: 32px;
-
-  .text {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .checkbox-container + .error-message {
-    margin-left: 30px;
-  }
-}
-
 .checkout-summary {
 
   &[data-loading='true'] {

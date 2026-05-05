@@ -71,8 +71,6 @@ const vatIdInputDelay = 1000;
  * @param {function(): Promise<string>} options.ensureOrderId creates or reuses the Paygate order
  * @param {function(): string} options.getBuyerCountryCode returns the selected billing country
  * @param {function(): string} options.getVatId returns the current VAT ID value
- * @param {function(): boolean} [options.canSubmit] checks whether submit is allowed by other UI
- *   requirements
  * @param {function(string): void} options.onFieldValidationStateChange updates field UI state
  * @param {function(string): void} options.onVatIdError renders the VAT ID API validation error
  * @param {function(Object|Error): void} options.logApiError logs request failures
@@ -85,7 +83,6 @@ export function createChargeController(
         ensureOrderId,
         getBuyerCountryCode,
         getVatId,
-        canSubmit = () => true,
         onFieldValidationStateChange,
         onVatIdError,
         logApiError
@@ -120,7 +117,7 @@ export function createChargeController(
      * @param {boolean} [hasCurrentResult] whether current inputs already have fresh charges
      */
     function updateSubmitState(hasCurrentResult = delayedRequest.hasCurrentResult()) {
-        view.setSubmitDisabled(view.isFormHidden() || !hasCurrentResult || !canSubmit());
+        view.setSubmitDisabled(view.isFormHidden() || !hasCurrentResult);
     }
 
     /**

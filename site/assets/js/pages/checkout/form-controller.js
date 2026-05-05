@@ -117,9 +117,7 @@ export function createCheckoutFormController({dom}) {
             return true;
         }
 
-        const value = field.type === 'checkbox'
-            ? field.checked
-            : field.value ? field.value.trim() : '';
+        const value = field.value ? field.value.trim() : '';
         let message = '';
 
         if (field.required && !value) {
