@@ -1,0 +1,367 @@
+/*!
+ * Copyright 2026, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.checkout-page {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.checkout {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
+  linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
+
+  @include breakpoint(lg-phone) {
+    background: white;
+  }
+
+  .content-with-fixed-header {
+    margin-top: $header-height;
+
+    @include breakpoint(desktop) {
+      margin-top: $header-height;
+    }
+  }
+
+  .row {
+    flex: 1 0 auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .row > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .content-holder,
+  .article-container {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+  }
+
+  .article-container {
+    height: 100%;
+
+    @include breakpoint(lg-phone) {
+      padding-block: 24px 32px;
+    }
+  }
+}
+
+.checkout-summary {
+
+  &[data-loading='true'] {
+    .checkout-summary-details {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .checkout-summary-row,
+    .checkout-summary-product,
+    .checkout-summary-product-description {
+      display: none;
+    }
+  }
+
+  &[data-error='true'] {
+    .checkout-summary-details {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .checkout-summary-row,
+    .checkout-summary-product,
+    .checkout-summary-product-description {
+      display: none;
+    }
+  }
+
+  .checkout-summary-details {
+    border-top: none;
+    padding-top: 8px;
+  }
+
+  .checkout-summary-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    color: $gray-500;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+
+    .loader {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 14px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: $gray-500;
+      text-align: center;
+    }
+  }
+
+  .checkout-summary-support {
+    max-width: 360px;
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+
+    a {
+      color: $main-brand-color;
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include breakpoint(sm-phone) {
+    &[data-loading='true'],
+    &[data-error='true'] {
+      .checkout-summary-details {
+        min-height: 220px;
+      }
+    }
+
+    .checkout-summary-loading {
+      font-size: 16px;
+
+      .loader {
+        width: 34px;
+        height: 34px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .checkout-summary-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 20px;
+    padding: 12px 0;
+    border-bottom: 0;
+  }
+
+  .checkout-summary-row-divider {
+    border-bottom: 1px solid rgba($black, .12);
+  }
+
+  .checkout-summary-row-total {
+    padding-top: 12px;
+    padding-bottom: 0;
+    border-bottom: 0;
+
+    .checkout-summary-label {
+      color: $black;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .checkout-summary-value {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+  }
+
+  .checkout-summary-product {
+    max-width: 100%;
+    padding-bottom: 8px;
+    color: rgba($black, .4);
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+
+    @include breakpoint(md-phone) {
+      font-size: 32px !important;
+    }
+  }
+
+  .checkout-summary-product-description {
+    margin-bottom: 28px;
+    color: rgba($black, .54);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    @include breakpoint(lg-phone) {
+      margin-bottom: 24px;
+    }
+
+    @include breakpoint(md-phone) {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .checkout-summary-label {
+    flex: 0 0 auto;
+    min-width: 0;
+    color: $black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .checkout-summary-value {
+    min-width: 0;
+    max-width: 100%;
+    color: $black;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: right;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .checkout-summary-value-amount {
+    color: $black;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .checkout-summary-value-total {
+    color: $black;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+
+  @include breakpoint(lg-phone) {
+    margin-bottom: 16px;
+
+    .checkout-summary-product {
+      font-size: 28px;
+      padding-bottom: 6px;
+    }
+
+    .checkout-summary-row {
+      column-gap: 12px;
+      padding: 10px 0 12px;
+    }
+  }
+
+  @include breakpoint(md-phone) {
+    .checkout-summary-label {
+      font-size: 15px;
+    }
+
+    .checkout-summary-value-amount {
+      font-size: 16px;
+    }
+
+    .checkout-summary-row-total .checkout-summary-label,
+    .checkout-summary-value-total {
+      font-size: 20px;
+    }
+  }
+
+  @include breakpoint(sm-phone) {
+    .checkout-summary-product {
+      font-size: 26px;
+    }
+
+    .checkout-summary-row {
+      padding: 8px 0;
+    }
+
+    .checkout-summary-value-amount {
+      font-size: 15px;
+    }
+
+    .checkout-summary-row-total .checkout-summary-label,
+    .checkout-summary-value-total {
+      font-size: 18px;
+    }
+  }
+}
+
+.checkout .form-section {
+  margin-top: 8px;
+
+  .form-title {
+    padding-top: 40px;
+
+    @include breakpoint(lg-phone) {
+      padding-top: 8px;
+    }
+  }
+}
+
+#checkout-not-found,
+#checkout-summary-error {
+  margin-top: 32px;
+
+  @include breakpoint(desktop) {
+    margin-top: 16px;
+  }
+}
+
+.checkout-completed {
+  min-height: 420px;
+
+  @include breakpoint(sm-phone) {
+    min-height: auto;
+  }
+}

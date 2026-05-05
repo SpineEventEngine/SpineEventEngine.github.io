@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2025, TeamDev. All rights reserved.
+  ~ Copyright 2026, TeamDev. All rights reserved.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -24,32 +24,39 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $environment := hugo.Environment }}
-{{ $payment := site.Params.payment }}
-{{ $paygate := site.Params.paygate }}
+<!-- Result panel is a reusable centered status block. -->
 
-{{ $params := (dict
-    "environment" $environment
-    "payment" $payment
-    "paygate" $paygate
-)}}
+{{ $title := .title }}
+{{ $titleAsH1 := .title_as_h1 }}
+{{ $mark := .mark }}
+{{ $lines := .lines | default slice }}
+{{ $action := .action }}
 
-{{ partial "theme/scripts/body/baseurl.html" . }}
-{{ partial "theme/scripts/body/libs.html" . }}
-
-{{ $jsBootstrap := resources.Get "js/bootstrap.js" }}
-{{ $jsThemeMain := resources.Get "js/theme-main.js" }}
-{{ $jsMain := resources.Get "js/main.js" }}
-{{ $js := (slice
-    $jsBootstrap $jsThemeMain $jsMain
-) }}
-
-{{ $js = $js | resources.Concat "js/main.js" | js.Build (dict "params" $params) }}
-{{ partial "theme/scripts/script.html" (dict "js" $js) }}
-
-{{ partial "scripts/body/docsearch.html" . }}
-
-{{ partial "theme/scripts/page-custom-js.html" (dict
-    "context" .
-    "params" $params
-) }}
+<div class="result-panel">
+    {{ with $mark }}
+    {{ $markText := .text | default .content | default "" }}
+    {{ $markClass := .icon_class | default "" }}
+    <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
+    {{ end }}
+    {{ if $titleAsH1 }}
+    <h1 class="result-panel-title">{{ $title }}</h1>
+    {{ else }}
+    <h2 class="result-panel-title">{{ $title }}</h2>
+    {{ end }}
+    {{ if $lines }}
+    <p class="result-panel-text">
+        {{ range $lines }}
+        <span>{{ . }}</span>
+        {{ end }}
+    </p>
+    {{ end }}
+    {{ with $action }}
+    {{ $actionLabel := .label | default .text | default "" }}
+    {{ $actionUrl := .url | default site.Home.RelPermalink }}
+    {{ if $actionLabel }}
+    <a class="btn btn-bordered-blue result-panel-button" href="{{ $actionUrl }}">
+        {{ $actionLabel }}
+    </a>
+    {{ end }}
+    {{ end }}
+</div>

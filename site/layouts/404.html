@@ -1,0 +1,29 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" (dict "Params" (dict "header_type" "fixed-header")) }}
+    <section class="result-page">
+        <div class="container-fluid content-holder content-with-fixed-header">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="article-container article-text">
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Page not found"
+                            "title_as_h1" true
+                            "mark" (dict
+                                "text" "404"
+                                "icon_class" "result-panel-mark-code"
+                            )
+                            "lines" (slice
+                                "The page you are looking for could not be found."
+                                "Please check the address or return to the home page."
+                            )
+                            "action" (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            )
+                        ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{{ end }}

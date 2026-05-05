@@ -1,0 +1,28 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" . }}
+    <section class="checkout checkout-completed">
+        <div class="container-fluid content-holder content-with-fixed-header">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="article-container article-text">
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Thank you for your purchase"
+                            "title_as_h1" true
+                            "mark" (dict
+                                "icon_class" "result-panel-mark-success"
+                            )
+                            "lines" (slice
+                                "Your payment was completed successfully."
+                                "We will send the order details to your email."
+                            )
+                            "action" (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            )
+                        ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{{ end }}

@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,35 +24,43 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* Styles from `SpineEventEngine/site-commons`. */
-@import "theme-main";
+'use strict';
 
-@import "base/colors";
-@import "base/common";
+/**
+ * Removes characters that are not accepted by the phone-number field.
+ *
+ * <p>Allowed: digits, parentheses, hyphens, and spaces.
+ *
+ * @param {string} value phone-number value to sanitize
+ * @return {string} sanitized phone-number value
+ */
+export function sanitizePhoneNumberInput(value) {
+    return String(value || '').replace(/[^0-9\s()-]/g, '');
+}
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
-@import "modules/redirect-screen";
-@import "modules/loader";
-@import "modules/forms";
-@import "modules/result-panel";
-@import "modules/message-modal";
+/**
+ * Builds the phone-number payload with country code and number with digits only.
+ *
+ * @param {string} rawCountryCode phone country code
+ * @param {string} rawNumber local phone number
+ * @return {{countryCode: number, number: string}|null}
+ *   normalized phone-number payload, or null when incomplete
+ */
+export function normalizePhoneNumber(rawCountryCode, rawNumber) {
+    const countryCode = String(rawCountryCode || '').replace(/\D/g, '');
+    const number = String(rawNumber || '').replace(/\D/g, '');
 
-@import "pages/landing";
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
-@import "pages/faq";
-@import "pages/getting-help";
-@import "pages/about";
-@import "pages/licenses";
-@import "pages/privacy";
-@import "pages/checkout";
-@import "pages/blog";
+    if (!countryCode || !number) {
+        return null;
+    }
+
+    const numericCountryCode = Number(countryCode);
+    if (!Number.isInteger(numericCountryCode) || numericCountryCode <= 0) {
+        return null;
+    }
+
+    return {
+        countryCode: numericCountryCode,
+        number
+    };
+}

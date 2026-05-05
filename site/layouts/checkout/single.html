@@ -1,0 +1,280 @@
+{{ define "main" }}
+    {{ partial "components/navbar/navbar.html" . }}
+    <section class="checkout">
+        <div class="container-fluid content-holder content-with-fixed-header">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="article-container article-text">
+                        <div class="checkout-summary"
+                             data-loading="true"
+                             aria-label="Order summary">
+                            <div class="checkout-summary-details">
+                                <div class="checkout-summary-loading loader-container" id="checkout-summary-loading">
+                                    <div class="loader" id="checkout-summary-loading-spinner" aria-hidden="true"></div>
+                                    <p id="checkout-summary-loading-text">Loading checkout details...</p>
+                                    {{ $email := site.Data.emails.sales_email }}
+                                    {{ $emailLink := printf
+                                        "<a href=\"mailto:%s\">%s</a>"
+                                        $email
+                                        $email
+                                        | safeHTML
+                                    }}
+                                    <p class="checkout-summary-support" id="checkout-summary-support" hidden>
+                                        Something went wrong, please contact {{ $emailLink }}.
+                                    </p>
+                                </div>
+                                <div class="checkout-summary-product" id="checkout-product-name" hidden></div>
+                                <div class="checkout-summary-product-description" id="checkout-product-description" hidden></div>
+                                <div class="checkout-summary-row checkout-summary-row-divider">
+                                    <span class="checkout-summary-label">Subtotal</span>
+                                    <span class="checkout-summary-value checkout-summary-value-amount"
+                                          id="checkout-subtotal-value">...</span>
+                                </div>
+                                <div class="checkout-summary-row checkout-summary-row-divider">
+                                    <span class="checkout-summary-label"
+                                          id="checkout-vat-label">VAT</span>
+                                    <span class="checkout-summary-value checkout-summary-value-amount"
+                                          id="checkout-vat-value">...</span>
+                                </div>
+                                <div class="checkout-summary-row checkout-summary-row-total">
+                                    <span class="checkout-summary-label">Total</span>
+                                    <span class="checkout-summary-value checkout-summary-value-total"
+                                          id="checkout-total-value">...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="form-section" id="checkout-form" action="#" method="post" novalidate>
+                            <h2 class="form-title">Billing details</h2>
+                            <div class="form-grid">
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-country">Country</label>
+                                    <select class="form-input form-select"
+                                            id="checkout-country"
+                                            name="country"
+                                            autocomplete="country-name"
+                                            required>
+                                        <option value="" selected disabled>Select country</option>
+                                        <option value="AT">🇦🇹 Austria</option>
+                                        <option value="BE">🇧🇪 Belgium</option>
+                                        <option value="BG">🇧🇬 Bulgaria</option>
+                                        <option value="HR">🇭🇷 Croatia</option>
+                                        <option value="CY">🇨🇾 Cyprus</option>
+                                        <option value="CZ">🇨🇿 Czechia</option>
+                                        <option value="DK">🇩🇰 Denmark</option>
+                                        <option value="EE">🇪🇪 Estonia</option>
+                                        <option value="FI">🇫🇮 Finland</option>
+                                        <option value="FR">🇫🇷 France</option>
+                                        <option value="DE">🇩🇪 Germany</option>
+                                        <option value="GR">🇬🇷 Greece</option>
+                                        <option value="HU">🇭🇺 Hungary</option>
+                                        <option value="IE">🇮🇪 Ireland</option>
+                                        <option value="IT">🇮🇹 Italy</option>
+                                        <option value="LV">🇱🇻 Latvia</option>
+                                        <option value="LT">🇱🇹 Lithuania</option>
+                                        <option value="LU">🇱🇺 Luxembourg</option>
+                                        <option value="MT">🇲🇹 Malta</option>
+                                        <option value="NL">🇳🇱 Netherlands</option>
+                                        <option value="PL">🇵🇱 Poland</option>
+                                        <option value="PT">🇵🇹 Portugal</option>
+                                        <option value="RO">🇷🇴 Romania</option>
+                                        <option value="SK">🇸🇰 Slovakia</option>
+                                        <option value="SI">🇸🇮 Slovenia</option>
+                                        <option value="ES">🇪🇸 Spain</option>
+                                        <option value="SE">🇸🇪 Sweden</option>
+                                    </select>
+                                </div>
+                                <div class="form-field form-field-full form-field-vat">
+                                    <label class="form-label required-label" for="checkout-vat-id">VAT ID</label>
+                                    <div class="form-input-status">
+                                        <input class="form-input"
+                                               id="checkout-vat-id"
+                                               name="vat_id"
+                                               type="text"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-company">Company Name</label>
+                                    <input class="form-input"
+                                           id="checkout-company"
+                                           name="company"
+                                           type="text"
+                                           autocomplete="organization"
+                                           required>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-first-name">First Name</label>
+                                    <input class="form-input"
+                                           id="checkout-first-name"
+                                           name="first_name"
+                                           type="text"
+                                           autocomplete="given-name">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-last-name">Last Name</label>
+                                    <input class="form-input"
+                                           id="checkout-last-name"
+                                           name="last_name"
+                                           type="text"
+                                           autocomplete="family-name">
+                                </div>
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-email">Email</label>
+                                    <input class="form-input"
+                                           id="checkout-email"
+                                           name="email"
+                                           type="email"
+                                           autocomplete="email"
+                                           inputmode="email"
+                                           required>
+                                </div>
+                                <div class="form-field form-field-full">
+                                    <label class="form-label" for="checkout-phone">Phone Number</label>
+                                    <div class="phone-field" data-phone-country-selected="false">
+                                        <select class="form-input form-select phone-country-select"
+                                                id="checkout-phone-country-code"
+                                                name="phone_country_code"
+                                                autocomplete="tel-country-code"
+                                                aria-label="Phone country code">
+                                            <option value="" data-flag="" data-code="" selected>Country</option>
+                                            <option value="43" data-flag="🇦🇹" data-code="+43">🇦🇹 AT +43</option>
+                                            <option value="32" data-flag="🇧🇪" data-code="+32">🇧🇪 BE +32</option>
+                                            <option value="359" data-flag="🇧🇬" data-code="+359">🇧🇬 BG +359</option>
+                                            <option value="385" data-flag="🇭🇷" data-code="+385">🇭🇷 HR +385</option>
+                                            <option value="357" data-flag="🇨🇾" data-code="+357">🇨🇾 CY +357</option>
+                                            <option value="420" data-flag="🇨🇿" data-code="+420">🇨🇿 CZ +420</option>
+                                            <option value="45" data-flag="🇩🇰" data-code="+45">🇩🇰 DK +45</option>
+                                            <option value="372" data-flag="🇪🇪" data-code="+372">🇪🇪 EE +372</option>
+                                            <option value="358" data-flag="🇫🇮" data-code="+358">🇫🇮 FI +358</option>
+                                            <option value="33" data-flag="🇫🇷" data-code="+33">🇫🇷 FR +33</option>
+                                            <option value="49" data-flag="🇩🇪" data-code="+49">🇩🇪 DE +49</option>
+                                            <option value="30" data-flag="🇬🇷" data-code="+30">🇬🇷 GR +30</option>
+                                            <option value="36" data-flag="🇭🇺" data-code="+36">🇭🇺 HU +36</option>
+                                            <option value="353" data-flag="🇮🇪" data-code="+353">🇮🇪 IE +353</option>
+                                            <option value="39" data-flag="🇮🇹" data-code="+39">🇮🇹 IT +39</option>
+                                            <option value="371" data-flag="🇱🇻" data-code="+371">🇱🇻 LV +371</option>
+                                            <option value="370" data-flag="🇱🇹" data-code="+370">🇱🇹 LT +370</option>
+                                            <option value="352" data-flag="🇱🇺" data-code="+352">🇱🇺 LU +352</option>
+                                            <option value="356" data-flag="🇲🇹" data-code="+356">🇲🇹 MT +356</option>
+                                            <option value="31" data-flag="🇳🇱" data-code="+31">🇳🇱 NL +31</option>
+                                            <option value="48" data-flag="🇵🇱" data-code="+48">🇵🇱 PL +48</option>
+                                            <option value="351" data-flag="🇵🇹" data-code="+351">🇵🇹 PT +351</option>
+                                            <option value="40" data-flag="🇷🇴" data-code="+40">🇷🇴 RO +40</option>
+                                            <option value="421" data-flag="🇸🇰" data-code="+421">🇸🇰 SK +421</option>
+                                            <option value="386" data-flag="🇸🇮" data-code="+386">🇸🇮 SI +386</option>
+                                            <option value="34" data-flag="🇪🇸" data-code="+34">🇪🇸 ES +34</option>
+                                            <option value="46" data-flag="🇸🇪" data-code="+46">🇸🇪 SE +46</option>
+                                        </select>
+                                        <span class="phone-flag" id="checkout-phone-flag" aria-hidden="true"></span>
+                                        <span class="phone-chevron" aria-hidden="true"></span>
+                                        <span class="phone-dial-code" id="checkout-phone-dial-code" aria-hidden="true"></span>
+                                        <input class="form-input phone-number"
+                                               id="checkout-phone"
+                                               name="phone_number"
+                                               type="tel"
+                                               autocomplete="tel-national"
+                                               inputmode="tel"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="form-field form-field-full">
+                                    <label class="form-label required-label" for="checkout-address-line-1">Address line 1</label>
+                                    <input class="form-input"
+                                           id="checkout-address-line-1"
+                                           name="address_line_1"
+                                           type="text"
+                                           autocomplete="address-line1"
+                                           required>
+                                </div>
+                                <div class="form-field form-field-full">
+                                    <label class="form-label" for="checkout-address-line-2">Address line 2</label>
+                                    <input class="form-input"
+                                           id="checkout-address-line-2"
+                                           name="address_line_2"
+                                           type="text"
+                                           autocomplete="address-line2">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label required-label" for="checkout-city">City</label>
+                                    <input class="form-input"
+                                           id="checkout-city"
+                                           name="city"
+                                           type="text"
+                                           autocomplete="address-level2"
+                                           required>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="checkout-postal-code">Postal code</label>
+                                    <input class="form-input"
+                                           id="checkout-postal-code"
+                                           name="postal_code"
+                                           type="text"
+                                           autocomplete="postal-code">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-bordered-blue form-submit-button"
+                                        id="checkout-submit"
+                                        type="submit">
+                                    Continue to payment
+                                </button>
+                            </div>
+                        </form>
+                        <div class="message-modal"
+                             id="checkout-error-modal"
+                             role="dialog"
+                             aria-modal="true"
+                             aria-labelledby="checkout-error-modal-title"
+                             aria-describedby="checkout-error-modal-description"
+                             hidden>
+                            <div class="message-modal-backdrop" data-checkout-modal-close></div>
+                            <div class="message-modal-dialog" role="document">
+                                <button class="message-modal-close"
+                                        type="button"
+                                        aria-label="Close"
+                                        data-checkout-modal-close>&times;</button>
+                                <h2 class="message-modal-title" id="checkout-error-modal-title">Something went wrong</h2>
+                                <p class="message-modal-text" id="checkout-error-modal-description">
+                                    Something went wrong, please contact {{ $emailLink }}.
+                                </p>
+                            </div>
+                        </div>
+                        <div id="checkout-not-found" hidden>
+                            {{ partial "components/result-panel.html" (dict
+                                "title" "Product not found"
+                                "title_as_h1" true
+                                "mark" (dict
+                                    "text" "404"
+                                    "icon_class" "result-panel-mark-code"
+                                )
+                                "lines" (slice
+                                    "The checkout product could not be found."
+                                    "Please check the address or return to the home page."
+                                )
+                                "action" (dict
+                                    "label" "Back to home"
+                                    "url" site.Home.RelPermalink
+                                )
+                            ) }}
+                        </div>
+                        <div id="checkout-summary-error" hidden>
+                            <div class="result-panel">
+                                <h1 class="result-panel-title">Ooops...</h1>
+                                <p class="result-panel-text">
+                                    <span>Something went wrong.</span>
+                                    <span>Please contact {{ $emailLink }}.</span>
+                                </p>
+                                <a class="btn btn-bordered-blue result-panel-button"
+                                   href="{{ site.Home.RelPermalink }}">
+                                    Back to home
+                                </a>
+                            </div>
+                        </div>
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ partial "components/go-top-button.html" . }}
+{{ end }}
