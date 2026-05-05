@@ -1061,14 +1061,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
  &gt;@SpineEngine&lt;/a&gt; or 
 
 &lt;style&gt;
-#span-0e51ad9c.cloaked-e-mail:before {
+#span-a9012bb5.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-0e51ad9c"&gt;&lt;/span&gt;&lt;script id="script-0e51ad9c"&gt;
- var scriptTag = document.getElementById("script-0e51ad9c");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-a9012bb5"&gt;&lt;/span&gt;&lt;script id="script-a9012bb5"&gt;
+ var scriptTag = document.getElementById("script-a9012bb5");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
@@ -2246,7 +2246,7 @@ discussing domain design.&lt;/p&gt;
  &lt;/a&gt;
  &lt;p class="author"&gt;by Eric Evans&lt;/p&gt;
  &lt;p class="description"&gt;This book provides a brief overview of the DDD methodology.
-It also defines the terms, which were coined in this topic since 2004.&lt;/p&gt;</description></item><item><title>Communities</title><link>https://spine.io/docs/resources/communities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/communities/</guid><description>&lt;h1 id="communities" data-title&gt;
+It also defines the terms, which were coined in this topic since 2004.&lt;/p&gt;</description></item><item><title>Checkout</title><link>https://spine.io/checkout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout/</guid><description/></item><item><title>Checkout Completed</title><link>https://spine.io/checkout-completed/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout-completed/</guid><description/></item><item><title>Communities</title><link>https://spine.io/docs/resources/communities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/communities/</guid><description>&lt;h1 id="communities" data-title&gt;
 Communities&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;Places to discuss DDD with other practitioners&lt;/p&gt;
