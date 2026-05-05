@@ -73,7 +73,7 @@ $(
         const $linkBack = $redirectScreen.find('#linkBack');
         const $consentCheckboxes = $("input[type='checkbox'].consent");
 
-        const purchaseClient = createPurchaseClient(params.paygate.serverurl);
+        const purchaseClient = createPurchaseClient(params.payment.paygateurl);
         const reCaptchaSiteKey = params.payment.recaptchakey;
         const consentUrl = params.payment.consenturl;
         const productId = ($('[data-paygate-product-id]').attr('data-paygate-product-id') || '')

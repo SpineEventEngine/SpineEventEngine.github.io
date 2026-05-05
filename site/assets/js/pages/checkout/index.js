@@ -43,7 +43,7 @@ $(
             return;
         }
 
-        const purchaseClient = createPurchaseClient(params.paygate.serverurl);
+        const purchaseClient = createPurchaseClient(params.payment.paygateurl);
         const orderId = getOrderId();
         const view = createCheckoutView(dom);
         const formController = createCheckoutFormController({dom});
