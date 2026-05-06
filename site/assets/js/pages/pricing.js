@@ -148,10 +148,6 @@ $(
                 }
 
                 if (shouldSubmitConsent) {
-                    if (!consentUrl) {
-                        throw new Error('Consent URL is not configured.');
-                    }
-
                     const token = await getRecaptchaToken();
                     await submitConsent(buildConsentRequest(orderId, token));
                 }
@@ -177,7 +173,6 @@ $(
                 consent: {
                     privacyConsent: $privacyConsent.prop('checked'),
                     supportAgreementConsent: $supportAgreementConsent.prop('checked'),
-                    newsletterConsent: false
                 },
                 recaptcha: {
                     token
