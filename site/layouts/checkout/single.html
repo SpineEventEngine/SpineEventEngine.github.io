@@ -241,15 +241,15 @@
                         </div>
                         <div id="checkout-not-found" hidden>
                             {{ partial "components/result-panel.html" (dict
-                                "title" "Product not found"
+                                "title" "Order not found"
                                 "title_as_h1" true
                                 "mark" (dict
                                     "text" "404"
                                     "icon_class" "result-panel-mark-code"
                                 )
                                 "lines" (slice
-                                    "The checkout product could not be found."
-                                    "Please check the address or return to the home page."
+                                    "The checkout order could not be found."
+                                    "Please check the address or get help."
                                 )
                                 "action" (dict
                                     "label" "Back to home"

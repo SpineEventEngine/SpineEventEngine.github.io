@@ -31,8 +31,6 @@ and also a full-width “Proof of Concept” card below.
 The Google reCaptcha is used for the payment option.
 -->
 
-<!--TODO:2025-12-04:julia.evseeva: Update the price in 2Checkout before the release. -->
-
 {{ partial "scripts/body/recaptcha.html" . }}
 
 {{ with .Resources.GetMatch "services.json" }}
@@ -43,7 +41,8 @@ The Google reCaptcha is used for the payment option.
             <div class="support-card compare-support">
                 {{ $comparableServices := $data.comparable_services }}
                 {{ range $comparableServices.header_cols }}
-                    <div class="header">
+                    <div class="header"
+                         {{ with .paygate_product_id }}data-paygate-product-id="{{ . }}"{{ end }}>
                         <i class="header-icon {{ .icon }}"></i>
                         <div class="text-container">
                             <h4>{{ .title | markdownify }}</h4>

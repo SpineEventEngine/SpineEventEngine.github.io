@@ -15,12 +15,9 @@ disableKinds = ['taxonomy', 'term']
   description = 'Open-source CQRS/ES framework for modern cloud applications'
 
 [params.payment]
-  apiURL = 'https://us-central1-spine-site-server.cloudfunctions.net/paymentTransaction'
-  orderURL = 'https://secure.2checkout.com/checkout/buy?merchant=999999999589&currency=EUR&tpl=default&prod=4HJME1JJDF&qty=1'
+  consentURL = 'https://us-central1-spine-site-server.cloudfunctions.net/api/consent'
+  paygateURL = 'https://paygate.teamdev.com'
   reCaptchaKey = '6Lef7b0ZAAAAAHPIbf6XQIzzeyCoSzS56GTej1c0'
-
-[params.paygate]
-  serverURL = 'https://stag.paygate.teamdev.com'
 
 [params.libs.docsearch]
   appId = 'DUYV0WFHKV'

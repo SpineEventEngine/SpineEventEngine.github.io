@@ -36,8 +36,8 @@
  * @typedef {Object} CheckoutViewController
  * @property {function(): void} closeErrorModal
  *   closes the generic checkout error modal
- * @property {function(Object): void} fillProductSummary
- *   fills summary fields with product data
+ * @property {function(Object): void} fillOrderSummary
+ *   fills summary fields with order data
  * @property {function(): boolean} isFormHidden
  *   checks whether the checkout form is currently hidden
  * @property {function(boolean): void} setSubmitDisabled
@@ -47,7 +47,7 @@
  * @property {function(): void} showErrorModal
  *   opens the generic checkout error modal
  * @property {function(): void} showNotFoundView
- *   shows the checkout product-not-found panel
+ *   shows the checkout order-not-found panel
  * @property {function(): void} showSummaryError
  *   shows the generic checkout summary-error panel
  * @property {function(Object): void} updateCharges
@@ -81,27 +81,27 @@ export function createCheckoutView(dom) {
     }
 
     /**
-     * Fills the order summary with product details returned by Paygate.
+     * Fills the order summary with order details returned by Paygate.
      *
-     * @param {Object} product paygate product data for the current order
+     * @param {Object} order paygate order data for the current order
      */
-    function fillProductSummary(product) {
-        if (!product) {
+    function fillOrderSummary(order) {
+        if (!order) {
             return;
         }
 
-        dom.$productName.text(product.name || 'Unnamed product').prop('hidden', false);
+        dom.$productName.text(order.productName || 'Unnamed product').prop('hidden', false);
 
-        if (product.description) {
-            dom.$productDescription.text(product.description).prop('hidden', false);
+        if (order.productDescription) {
+            dom.$productDescription.text(order.productDescription).prop('hidden', false);
         } else {
             dom.$productDescription.text('').prop('hidden', true);
         }
 
-        dom.$subtotalValue.text(formatMoney(product.netAmount));
+        dom.$subtotalValue.text(formatMoney(order.netAmount));
         dom.$vatLabel.text('VAT');
-        dom.$vatValue.text(formatMoney(zeroMoney(product.netAmount.currency)));
-        dom.$totalValue.text(formatMoney(product.netAmount));
+        dom.$vatValue.text(formatMoney(zeroMoney(order.netAmount.currency)));
+        dom.$totalValue.text(formatMoney(order.netAmount));
     }
 
     /**
@@ -206,7 +206,7 @@ export function createCheckoutView(dom) {
 
     return {
         closeErrorModal,
-        fillProductSummary,
+        fillOrderSummary,
         isFormHidden,
         setSubmitDisabled,
         setSummaryLoading,
