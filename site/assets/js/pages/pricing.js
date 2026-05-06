@@ -278,7 +278,7 @@ $(
         }
 
         /**
-         * Redirects to checkout for the created order.
+         * Redirects to the checkout page for the created order.
          *
          * @param {string} orderId paygate order ID
          */
