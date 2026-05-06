@@ -16,7 +16,7 @@ disableKinds = ['taxonomy', 'term']
 
 [params.payment]
   consentURL = 'https://us-central1-spine-site-server.cloudfunctions.net/api/consent'
-  paygateURL = 'https://stag.paygate.teamdev.com'
+  paygateURL = 'https://paygate.teamdev.com'
   reCaptchaKey = '6Lef7b0ZAAAAAHPIbf6XQIzzeyCoSzS56GTej1c0'
 
 [params.libs.docsearch]
