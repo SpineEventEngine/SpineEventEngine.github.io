@@ -90,7 +90,7 @@ export function createCheckoutView(dom) {
             return;
         }
 
-        dom.$productName.text(order.productName || 'Unnamed product').prop('hidden', false);
+        dom.$productTitle.text(order.productTitle || 'Untitled product').prop('hidden', false);
 
         if (order.productDescription) {
             dom.$productDescription.text(order.productDescription).prop('hidden', false);

@@ -47,7 +47,7 @@
  *
  * @typedef {Object} PaygateOrder
  * @property {string} orderId paygate order ID
- * @property {string} productName product display name
+ * @property {string} productTitle product display title
  * @property {string} productDescription product description shown on checkout
  * @property {boolean} paymentCompleted whether the order was already paid
  */

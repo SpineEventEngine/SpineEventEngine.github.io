@@ -44,7 +44,7 @@
  * @property {JQuery<HTMLElement>} $loadingSpinner summary spinner element
  * @property {JQuery<HTMLElement>} $loadingText summary loading text element
  * @property {JQuery<HTMLElement>} $loadingSupport summary support text element
- * @property {JQuery<HTMLElement>} $productName product name element
+ * @property {JQuery<HTMLElement>} $productTitle product title element
  * @property {JQuery<HTMLElement>} $productDescription product description
  *   element
  * @property {JQuery<HTMLElement>} $subtotalValue subtotal value element
@@ -78,7 +78,7 @@ export function getCheckoutDom() {
         $loadingSpinner: $('#checkout-summary-loading-spinner'),
         $loadingText: $('#checkout-summary-loading-text'),
         $loadingSupport: $('#checkout-summary-support'),
-        $productName: $('#checkout-product-name'),
+        $productTitle: $('#checkout-product-title'),
         $productDescription: $('#checkout-product-description'),
         $subtotalValue: $('#checkout-subtotal-value'),
         $vatLabel: $('#checkout-vat-label'),
