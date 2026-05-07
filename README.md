@@ -55,6 +55,18 @@ hugo mod clean --all
 
 Then run the `hugo serve` again.
 
+### Testing locally
+
+#### Payments
+The `getting-help` page contains products for sale.
+
+It is possible to test the product checkout flow. 
+The development environment provides a connection to the staging Paygate server, 
+which allows testing of the full checkout process, including payment.
+
+To pay for a product, it is necessary to use 
+[LHV sandbox cards](https://merchant.lhv.ee/help/en/articles/12807566-test-cards).
+
 ## Documentation
 
 The documentation is located in a [separate repository][documentation-repo].

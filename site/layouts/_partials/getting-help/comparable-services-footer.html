@@ -27,7 +27,7 @@
 <!--
 The component renders two columns of actions.
 
-The first column includes the price, agreement checkboxes, and a button to 2Checkout.
+The first column includes the price, agreement checkboxes, and an order button.
 The second includes the mailto button.
 
 Each column will be displayed inside its own comparable card.
@@ -40,8 +40,7 @@ Each column will be displayed inside its own comparable card.
             <span class="slash">/</span>
             <span class="description">1 support pack (100&nbsp;hours)</span>
         </div>
-        <!-- TODO:2026-03-23:julia.evseeva: Uncomment this when the new solution replacing 2Checkout is ready to use. -->
-        <!--<div class="checkboxes-list">
+        <div class="checkboxes-list">
             <label class="checkbox-container" for="privacyConsent">
                 <span class="text">I agree to processing of my personal information as per the
                     <a href="{{ `privacy-statement/`| relURL }}"
@@ -64,18 +63,15 @@ Each column will be displayed inside its own comparable card.
                        autocomplete='off'>
                 <span class="checkmark"></span>
             </label>
-        </div>-->
+        </div>
         <!-- The tooltip visibility is managed in the `js/pages/pricing.js`. -->
-        <!--<div class="pricing-btn-holder"
+        <div class="pricing-btn-holder"
              data-bs-toggle="tooltip"
              data-bs-placement="bottom"
              data-bs-title="Read and agree to the terms to&nbsp;continue.">
             <button class="btn btn-bordered-blue pricing-btn order-btn disabled"
                     id="order-now-btn"
                     disabled>Order Now</button>
-        </div>-->
-        <div class="contact-btn-holder">
-            {{ partial "getting-help/mailto-button.html" . }}
         </div>
     </div>
 </div>

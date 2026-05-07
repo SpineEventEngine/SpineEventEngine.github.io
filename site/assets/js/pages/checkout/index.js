@@ -43,18 +43,16 @@ $(
             return;
         }
 
-        const purchaseClient = createPurchaseClient(params.paygate.serverurl);
-        const productId = getProductId();
+        const purchaseClient = createPurchaseClient(params.payment.paygateurl);
+        const orderId = getOrderId();
         const view = createCheckoutView(dom);
         const formController = createCheckoutFormController({dom});
-        let orderId = null;
-        let orderPromise = null;
         let countryManuallySelected = false;
         let phoneCountryManuallySelected = false;
         const chargeController = createChargeController({
             purchaseClient,
             view,
-            ensureOrderId,
+            ensureOrderId: () => Promise.resolve(orderId),
             getBuyerCountryCode: () => dom.$country.val(),
             getVatId: () => (dom.$vatId.val() || '').trim(),
             onFieldValidationStateChange: state => {
@@ -64,9 +62,8 @@ $(
             logApiError
         });
 
-        if (!productId) {
-            chargeController.invalidate();
-            view.showNotFoundView();
+        if (!orderId) {
+            redirectToGettingHelp();
             return;
         }
 
@@ -74,7 +71,7 @@ $(
         formController.updatePhoneCountryDisplay();
         formController.bindPhoneEvents();
         chargeController.updateSubmitState();
-        loadProduct();
+        loadOrder();
         bindEvents();
 
         /**
@@ -136,16 +133,16 @@ $(
         }
 
         /**
-         * Loads product details for the checkout page from the current checkout URL.
+         * Loads order details for the checkout page from the current checkout URL.
          *
-         * @return {Promise<void>} resolves when the initial product load flow finishes
+         * @return {Promise<void>} resolves when the initial order load flow finishes
          */
-        async function loadProduct() {
+        async function loadOrder() {
             view.setSummaryLoading(true);
 
             try {
-                const product = await purchaseClient.getProduct(productId);
-                view.fillProductSummary(product);
+                const order = await purchaseClient.getOrder(orderId);
+                view.fillOrderSummary(order);
                 view.setSummaryLoading(false);
                 dom.$form.prop('hidden', false);
                 chargeController.updateSubmitState();
@@ -197,12 +194,19 @@ $(
         }
 
         /**
-         * Reads the product ID from the `product` query parameter.
+         * Reads the order ID from the `orderId` query parameter.
          *
-         * @return {string} checkout product ID, or empty string when unavailable
+         * @return {string} checkout order ID, or empty string when unavailable
          */
-        function getProductId() {
-            return (new URLSearchParams(window.location.search).get('product') || '').trim();
+        function getOrderId() {
+            return (new URLSearchParams(window.location.search).get('orderId') || '').trim();
+        }
+
+        /**
+         * Redirects visitors with incomplete checkout links to the help page.
+         */
+        function redirectToGettingHelp() {
+            window.location.replace('/getting-help');
         }
 
         /**
@@ -237,32 +241,6 @@ $(
             }
 
             chargeController.requestIfReady();
-        }
-
-        /**
-         * Places the order once and reuses it for all later charge calculations.
-         *
-         * @return {Promise<string>} paygate order ID
-         */
-        async function ensureOrderId() {
-            if (orderId) {
-                return orderId;
-            }
-
-            if (!orderPromise) {
-                orderPromise = purchaseClient
-                    .placeOrder(productId)
-                    .then(response => {
-                        orderId = response.orderId;
-                        return orderId;
-                    })
-                    .catch(error => {
-                        orderPromise = null;
-                        throw error;
-                    });
-            }
-
-            return orderPromise;
         }
     }
 );

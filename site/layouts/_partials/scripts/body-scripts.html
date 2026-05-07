@@ -26,12 +26,10 @@
 
 {{ $environment := hugo.Environment }}
 {{ $payment := site.Params.payment }}
-{{ $paygate := site.Params.paygate }}
 
 {{ $params := (dict
     "environment" $environment
     "payment" $payment
-    "paygate" $paygate
 )}}
 
 {{ partial "theme/scripts/body/baseurl.html" . }}
