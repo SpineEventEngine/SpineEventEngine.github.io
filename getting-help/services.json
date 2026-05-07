@@ -4,6 +4,7 @@
     "header_cols": [
       {
         "icon": "fas fa-brackets-curly",
+        "paygate_product_id": "spine-standard-support",
         "title": "Standard Support Pack",
         "subtitle": "Get ongoing guidance when implementing your&nbsp;project with Spine"
       },
