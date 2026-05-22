@@ -2,7 +2,7 @@ name: Proof Links
 on: [pull_request, workflow_dispatch]
 
 env:
-  HUGO_VERSION: 0.147.8
+  HUGO_VERSION: 0.161.1
   LYCHEE_RELEASE: "lychee-v0.15.1-x86_64-unknown-linux-gnu.tar.gz"
   LYCHEE_VERSION_TAG: "v0.15.1"
 
