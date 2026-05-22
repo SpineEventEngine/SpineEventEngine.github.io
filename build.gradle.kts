@@ -29,7 +29,7 @@
  */
 tasks.register<Exec>("runSite") {
     description = "Builds and runs the site locally." +
-            " The server is available at http://localhost:1313/."
+            " The server is available at http://localhost:1313/ or other port."
     commandLine("./_script/hugo-serve")
 }
 
