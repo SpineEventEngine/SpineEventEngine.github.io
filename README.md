@@ -20,7 +20,7 @@ into the pages, please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file.
 1. JDK 8 (x86_64).
 2. [Go][go] `1.12` or newer.
 3. [Node.js][nodejs] `18+`.
-4. [Hugo Extended][hugo-quick-start] in version `v0.150.0` or higher.
+4. [Hugo Extended][hugo-quick-start] in version `v0.161.1` or higher.
 
 ## Configuration
 
