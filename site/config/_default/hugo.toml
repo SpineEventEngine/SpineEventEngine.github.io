@@ -38,6 +38,11 @@ disableKinds = ['taxonomy', 'term']
 [security]
   [security.exec]
     osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$']
+  # Hugo 0.161.0+ runs PostCSS under Node's --permission sandbox, which blocks
+  # browserslist from walking up the tree to find a config. Disable it so the
+  # PostCSS pipeline (autoprefixer, purgecss) keeps working on CI.
+  [security.node.permissions]
+    disable = true
 
 # Enables HTML rendering in markdown files.
 [markup]
