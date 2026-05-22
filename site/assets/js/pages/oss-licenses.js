@@ -37,25 +37,27 @@
  */
 $(
     function() {
-        const converter = new showdown.Converter();
+        const converter = new showdown.Converter({ sanitize: true });
         const loadedAttr = 'loaded';
         const repoAttr = 'repo';
         const repoName = 'repo-name';
 
-        // Spine repositories are migrated being migrated to listing their deps in this file.
-        const reportFilePath = '/master/dependencies.md';
+        // Spine repositories are being migrated to keeping their dependency reports under `docs/dependencies/`.
+        const reportFilePath = '/master/docs/dependencies/dependencies.md';
 
-        // Previously used report file path, as a fallback for non-migrated repos.
+        // Previous location of the report, kept as a fallback for repos still in migration.
+        const rootReportFilePath = '/master/dependencies.md';
+
+        // The oldest report file name, used by non-migrated repos.
         const legacyFilePath = '/master/license-report.md';
 
         /**
          * Loads the dependency report file from the repository.
          *
-         * <p>There may be one of two report files present in the repo:
-         * `license-report.md` or `dependencies.md`.
-         * The latter is a newer version of the report, so it is loaded
-         * as a priority. In case it is missing, `license-report.md` is loaded, as a fallback.
-         * Eventually, all Spine repositories will migrate to having `dependencies.md`.
+         * <p>There may be one of three report files present in the repo, tried in this order:
+         * `docs/dependencies/dependencies.md` (new location), `dependencies.md` at the repo root
+         * (previous location), and `license-report.md` at the repo root (oldest).
+         * Eventually, all Spine repositories will migrate to the new location.
          *
          * <p>The report sections describing the terms of use for dual-licensed dependencies,
          * and another one with the credits paid to the author of Gradle plugin
@@ -73,20 +75,30 @@ $(
 
             if (loaded === 'false') {
                 const repositoryUrl = clickedElement.attr(repoAttr);
-                let processLoadedContent = function (data) {
+                const processLoadedContent = function (data) {
                     const html = converter.makeHtml(data);
                     mdDestinationEl.html(html);
                     clickedElement.attr(loadedAttr, 'true');
                     makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
                 };
 
-                let reportUrl = repositoryUrl + reportFilePath;
-                let legacyReportUrl = repositoryUrl + legacyFilePath;
-                
-                $.get(reportUrl, processLoadedContent)
-                    .fail(function () {
-                        $.get(legacyReportUrl, processLoadedContent)
-                    });
+                const candidateUrls = [
+                    repositoryUrl + reportFilePath,
+                    repositoryUrl + rootReportFilePath,
+                    repositoryUrl + legacyFilePath
+                ];
+
+                const tryNext = function (index) {
+                    if (index >= candidateUrls.length) {
+                        mdDestinationEl.html('<p>Could not load dependency report.</p>');
+                        // Mark as resolved to avoid re-firing all requests on the next click.
+                        clickedElement.attr(loadedAttr, 'error');
+                        return;
+                    }
+                    $.get(candidateUrls[index], processLoadedContent)
+                        .fail(function () { tryNext(index + 1); });
+                };
+                tryNext(0);
             }
         });
 
@@ -123,6 +135,7 @@ $(
              * Makes all Markdown links external.
              */
             linkElements.addClass('external');
+            linkElements.attr('rel', 'noopener noreferrer');
             linkElements.attr('target', '_blank');
 
             /**
