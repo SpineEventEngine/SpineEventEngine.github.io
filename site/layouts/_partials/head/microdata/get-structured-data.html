@@ -33,7 +33,7 @@ Adds reviews and FAQs if they are present on the page.
 
 {{ $type := "Organization" }}
 {{ $images := slice $logoUrl }}
-{{ $name := hugo.Data.spine.full_name }}
+{{ $name := site.Data.spine.full_name }}
 {{ $url := site.BaseURL }}
 {{ $logo := $logoUrl }}
 {{ $emails := partial "head/microdata/get-emails.html" . }}

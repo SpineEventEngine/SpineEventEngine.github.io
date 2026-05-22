@@ -24,7 +24,7 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-{{ $columns := hugo.Data.footer.columns }}
+{{ $columns := site.Data.footer.columns }}
 
 <div class="row justify-content-lg-end">
     {{ range $index, $column := $columns }}

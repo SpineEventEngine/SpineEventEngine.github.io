@@ -12,7 +12,7 @@
                                 <div class="checkout-summary-loading loader-container" id="checkout-summary-loading">
                                     <div class="loader" id="checkout-summary-loading-spinner" aria-hidden="true"></div>
                                     <p id="checkout-summary-loading-text">Loading checkout details...</p>
-                                    {{ $email := hugo.Data.emails.sales_email }}
+                                    {{ $email := site.Data.emails.sales_email }}
                                     {{ $emailLink := printf
                                         "<a href=\"mailto:%s\">%s</a>"
                                         $email

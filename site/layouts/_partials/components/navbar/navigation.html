@@ -26,7 +26,7 @@
 
 {{ $currentPage := . }}
 {{ $currentRootSection := partial "functions/get-root-section.html" . }}
-{{ $navItems := hugo.Data.navbar }}
+{{ $navItems := site.Data.navbar }}
 
 <div class="navigation-holder">
     <div class="block-above-scroll-nav"></div>
