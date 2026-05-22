@@ -1,8 +1,13 @@
 baseURL = 'https://spine.io/'
-languageCode = 'en-us'
+defaultContentLanguage = 'en'
 title = 'Spine Event Engine'
 enableRobotsTXT = true
 disableKinds = ['taxonomy', 'term']
+
+[languages]
+  [languages.en]
+    locale = 'en-US'
+    weight = 1
 
 [module]
   # First theme has higher priority than later ones.
