@@ -32,7 +32,7 @@ The not main documentation version will have the suffix "— version <version>".
 {{ $title := .Title | default site.Title }}
 {{ $title = replace $title "&nbsp;" " " }}
 {{ $pageURL := .RelPermalink }}
-{{ $productPrefix := site.Data.spine.name }}
+{{ $productPrefix := hugo.Data.spine.name }}
 {{ $currentVersionData := partial "theme/functions/get-doc-version-data.html" . }}
 
 {{ with $currentVersionData.version }}
