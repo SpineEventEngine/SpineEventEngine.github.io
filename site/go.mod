@@ -3,7 +3,7 @@ module github.com/SpineEventEngine/SpineEventEngine.github.io
 go 1.22.0
 
 require (
-	github.com/SpineEventEngine/documentation/docs v0.0.0-20260522172214-d646f7344f41 // indirect
+	github.com/SpineEventEngine/documentation/docs v0.0.0-20260522173421-4174bf3cf80a // indirect
 	github.com/SpineEventEngine/site-commons v0.0.0-20260522171914-2a606d89558f // indirect
 	github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107 // indirect
 	github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20800 // indirect
