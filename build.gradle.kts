@@ -1,11 +1,11 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -27,21 +27,26 @@
 /**
  * Builds and runs the site locally.
  */
-task<Exec>("runSite") {
+tasks.register<Exec>("runSite") {
+    description = "Builds and runs the site locally." +
+            " The server is available at http://localhost:1313/ or other port."
     commandLine("./_script/hugo-serve")
 }
 
 /**
  * Builds the site without starting the server.
  */
-task<Exec>("buildSite") {
+tasks.register<Exec>("buildSite") {
+    description = "Builds the site without starting the server." +
+            " The generated files are located in the `public` directory."
     commandLine("./_script/hugo-build")
 }
 
 /**
  * Verifies that the external links used by the site are available.
  */
-task<Exec>("checkLinks") {
+tasks.register<Exec>("checkLinks") {
+    description = "Verifies that the external links used by the site are available."
     commandLine("./_script/proof-links")
 }
 
@@ -54,5 +59,7 @@ task<Exec>("checkLinks") {
  * @see https://docs.gradle.org/current/userguide/composite_builds.html
  */
 tasks.register("buildAll")  {
+    description = "Builds all included projects via depending on the top-level" +
+            " \"buildAll\" tasks declared in these projects."
     dependsOn(gradle.includedBuilds.map { it.task(":buildAll") })
 }
