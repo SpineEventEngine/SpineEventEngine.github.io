@@ -92,9 +92,8 @@ $(
 
                 const tryNext = function (index) {
                     if (index >= candidateUrls.length) {
-                        mdDestinationEl.html('<p>Could not load dependency report.</p>');
-                        // Mark as resolved to avoid re-firing all requests on the next click.
-                        clickedElement.attr(loadedAttr, 'error');
+                        mdDestinationEl.html('<p>Could not load dependency report. Click to retry.</p>');
+                        clickedElement.attr(loadedAttr, 'false');
                         return;
                     }
                     $.get(candidateUrls[index], processLoadedContent)
