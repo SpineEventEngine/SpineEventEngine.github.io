@@ -78,15 +78,17 @@ version matches what the CI workflow uses, so behavior is identical.
 Execute the steps in order. On the first failure, stop, write a `FAIL`
 sentinel (step 8), and report the failure with the next action.
 
-### 0. Detect site root
+### 0. Detect site root and work directory
 
-Before any other step, determine `SITE_DIR` — the directory that contains the
-Hugo config file:
+Before any other step, determine `SITE_DIR` (the Hugo site root) and `WORK_DIR`
+(the directory where `npm ci` / `hugo` commands run — mirrors `.github/workflows/check-links.yml`):
 
 ```bash
 SITE_DIR=""
 for dir in docs site; do
-  for cfg in hugo.toml hugo.yaml; do
+  for cfg in hugo.toml hugo.yaml \
+             config/hugo.toml config/hugo.yaml \
+             config/_default/hugo.toml config/_default/hugo.yaml; do
     if [ -f "$dir/$cfg" ]; then
       SITE_DIR="$dir"
       break 2
@@ -97,9 +99,18 @@ if [ -z "$SITE_DIR" ]; then
   echo "ERROR: No Hugo config found under docs/ or site/." >&2
   exit 1
 fi
+
+if [ -f "${SITE_DIR}/_preview/package-lock.json" ]; then
+  WORK_DIR="${SITE_DIR}/_preview"
+elif [ -f "${SITE_DIR}/package-lock.json" ]; then
+  WORK_DIR="${SITE_DIR}"
+else
+  echo "ERROR: No package-lock.json found under ${SITE_DIR}/_preview/ or ${SITE_DIR}/." >&2
+  exit 1
+fi
 ```
 
-Use `$SITE_DIR` everywhere a directory path is needed in the steps below.
+Use `$SITE_DIR` for content paths and `$WORK_DIR` for build/serve operations in the steps below.
 
 ### 1. Scope check
 
@@ -160,7 +171,7 @@ explicitly ask, decline and exit cleanly.
 
 ### 3. Install Hugo deps
 
-Run `( cd ${SITE_DIR}/_preview && npm ci )`. We deliberately use `npm ci`
+Run `( cd ${WORK_DIR} && npm ci )`. We deliberately use `npm ci`
 (matching the CI workflow's `Install Dependencies` step in `check-links.yml`)
 rather than `npm install`:
 
@@ -172,18 +183,13 @@ rather than `npm install`:
   fails fast with a clear error rather than silently healing the
   lockfile — a divergence we want to surface, not paper over.
 
-The helper script `${SITE_DIR}/_script/install-dependencies` exists for
-interactive use but does a relative `cd _preview` and therefore only works
-when invoked from `${SITE_DIR}/` — calling it from the repo root (the skill's
-default CWD) would fail with "No such file or directory: _preview".
-
 ### 4. Build the site
 
-Run `( cd ${SITE_DIR}/_preview && hugo -e development )`.
-This emits `${SITE_DIR}/_preview/public/**/*.html`. The `-e development` flag
-matches what CI uses in `check-links.yml` so the two builds render identical
-HTML. (The helper `${SITE_DIR}/_script/hugo-build` exists for interactive use
-but defaults to `production`; we invoke `hugo` directly to keep the env in
+Run `( cd ${WORK_DIR} && hugo -e development )`.
+This emits `${WORK_DIR}/public/**/*.html`. The `-e development` flag matches
+what CI uses in `check-links.yml` so the two builds render identical HTML.
+(The helper `${SITE_DIR}/_script/hugo-build` exists for interactive use but
+defaults to `production`; we invoke `hugo` directly to keep the env in
 lock-step with CI.)
 
 ### 5. Start the Hugo server in the background
@@ -200,7 +206,7 @@ stale process does not hold port `1414`:
 pkill -F /tmp/check-links.hugo.pid 2>/dev/null || true
 rm -f /tmp/check-links.hugo.pid
 
-( cd ${SITE_DIR}/_preview && nohup hugo server --environment development --port 1414 \
+( cd ${WORK_DIR} && nohup hugo server --environment development --port 1414 \
     > /tmp/check-links.hugo.out 2>&1 & echo $! > /tmp/check-links.hugo.pid )
 sleep 5
 
@@ -223,7 +229,7 @@ Port `1414` is chosen to avoid clashing with a developer's local `hugo server`
 ```bash
 <lychee-path> --config lychee.toml --timeout 60 \
   --base-url http://localhost:1414/ \
-  "${SITE_DIR}/_preview/public/**/*.html"
+  "${WORK_DIR}/public/**/*.html"
 ```
 
 Capture exit code. Any non-zero exit means at least one broken link.
@@ -233,7 +239,7 @@ Capture exit code. Any non-zero exit means at least one broken link.
 Group the broken URLs from Lychee's output by source page. To reverse-map
 an HTML path to its Markdown source:
 
-`${SITE_DIR}/_preview/public/docs/<section>/<page>/index.html`
+`${WORK_DIR}/public/docs/<section>/<page>/index.html`
 ↔ `${SITE_DIR}/content/docs/<section>/<page>.md` (or `<page>/_index.md`).
 
 Report in this shape:
@@ -293,10 +299,9 @@ HEAD advance (commit, amend, rebase) invalidates the cache automatically.
   reader does not mistake them for unrelated side-effects:
   - `.agents/skills/check-links/.cache/lychee/` — auto-downloaded
     Lychee binary, when the system Lychee was unavailable.
-  - `${SITE_DIR}/_preview/node_modules/` — installed by `npm ci` in step 3.
-  - `${SITE_DIR}/_preview/public/` — Hugo's rendered HTML (the corpus Lychee
-    scans).
-  - `${SITE_DIR}/_preview/resources/` — Hugo's asset-pipeline cache.
+  - `${WORK_DIR}/node_modules/` — installed by `npm ci` in step 3.
+  - `${WORK_DIR}/public/` — Hugo's rendered HTML (the corpus Lychee scans).
+  - `${WORK_DIR}/resources/` — Hugo's asset-pipeline cache.
   - `.lycheecache` at the repo root — Lychee's per-URL result cache
     (honoured for `max_cache_age = "3d"` per `lychee.toml`).
   - `/tmp/check-links.hugo.{pid,out}` — server PID file and log, both
