@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MessageValidator overview on Spine Event Engine</title><link>https://spine.io/docs/validation/user/04-validators/</link><description>Recent content in MessageValidator overview on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://spine.io/docs/validation/user/04-validators/index.xml" rel="self" type="application/rss+xml"/><item><title>Implement a validator</title><link>https://spine.io/docs/validation/user/04-validators/implement-a-validator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/04-validators/implement-a-validator/</guid><description>&lt;h1 id="implement-a-validator" data-title&gt;
+Implement a validator&lt;/h1&gt;
+&lt;p&gt;To validate a Protobuf message type &lt;code&gt;M&lt;/code&gt; with custom logic:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Implement &lt;code&gt;io.spine.validation.MessageValidator&amp;lt;M&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Make the implementation discoverable via Java &lt;code&gt;ServiceLoader&lt;/code&gt; (recommended), or register it in
+&lt;code&gt;ValidatorRegistry&lt;/code&gt; explicitly.&lt;/li&gt;
+&lt;li&gt;Ensure the class has a public no-args constructor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Keep validators stateless and cheap to construct.&lt;/p&gt;
+&lt;h2 id="reference-implementation-timestampvalidator" data-title&gt;
+Reference implementation: &lt;code&gt;TimestampValidator&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#reference-implementation-timestampvalidator
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s review the &lt;code&gt;MessageValidator&lt;/code&gt; implementation on the example of
+&lt;code&gt;io.spine.validation.TimestampValidator&lt;/code&gt; from the Validation JVM runtime.&lt;/p&gt;</description></item><item><title>Using `ValidatorRegistry`</title><link>https://spine.io/docs/validation/user/04-validators/validator-registry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/04-validators/validator-registry/</guid><description>&lt;h1 id="using-validatorregistry" data-title&gt;
+Using &lt;code&gt;ValidatorRegistry&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;In most cases, you don’t need to interact with &lt;code&gt;io.spine.validation.ValidatorRegistry&lt;/code&gt; directly.
+Spine Validation discovers validators automatically and applies them as part of the generated
+validation API.&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;ValidatorRegistry&lt;/code&gt; directly when you need to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;register a validator explicitly, for example, at application startup;&lt;/li&gt;
+&lt;li&gt;inspect which validators are registered for a message type;&lt;/li&gt;
+&lt;li&gt;remove or replace validators, for example, to override ones discovered automatically;&lt;/li&gt;
+&lt;li&gt;validate a message using validators only.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="note-block note"&gt;
+&lt;p&gt;&lt;code&gt;ValidatorRegistry&lt;/code&gt; uses Java &lt;code&gt;ServiceLoader&lt;/code&gt; to discover validators when the object is first
+initialized.&lt;/p&gt;</description></item></channel></rss>

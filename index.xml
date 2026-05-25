@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spine Event Engine</title><link>https://spine.io/</link><description>Recent content on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Wed, 24 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Release Notes v1.9.0</title><link>https://spine.io/release-notes/2023/v1.9.0/</link><pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2023/v1.9.0/</guid><description>&lt;h1 id="spine-190" data-title&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spine Event Engine</title><link>https://spine.io/</link><description>Recent content on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Wed, 24 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Field-level options</title><link>https://spine.io/docs/validation/user/03-built-in-options/field-level-options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/field-level-options/</guid><description>&lt;h1 id="field-level-options" data-title&gt;
+Field-level options&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Use this page when you want to validate a field by declaring options next to it in a &lt;code&gt;.proto&lt;/code&gt; file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="choose-an-option" data-title&gt;
+Choose an option&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#choose-an-option
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Require a value to be present: &lt;code&gt;(required)&lt;/code&gt;, customize with &lt;code&gt;(if_missing).error_msg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce a numeric boundary: &lt;code&gt;(min)&lt;/code&gt;, &lt;code&gt;(max)&lt;/code&gt;, or &lt;code&gt;(range)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce a string format: &lt;code&gt;(pattern).regex&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Validate a nested message: &lt;code&gt;(validate) = true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Require another field when this one is set: &lt;code&gt;(goes).with = &amp;quot;other_field&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Prevent reassignment: &lt;code&gt;(set_once) = true&lt;/code&gt;, customize with &lt;code&gt;(if_set_again).error_msg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For canonical definitions, see
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Options for `oneof` fields</title><link>https://spine.io/docs/validation/user/03-built-in-options/oneof-fields/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/oneof-fields/</guid><description>&lt;h1 id="options-for-oneof-fields" data-title&gt;
+Options for &lt;code&gt;oneof&lt;/code&gt; fields&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Use this page when you have a &lt;code&gt;oneof&lt;/code&gt; group and want to enforce that &lt;strong&gt;one of its cases is set&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For canonical definitions, see
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="required-selection-choice" data-title&gt;
+Required selection: &lt;code&gt;(choice)&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#required-selection-choice
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Use &lt;code&gt;(choice).required = true&lt;/code&gt; on a &lt;code&gt;oneof&lt;/code&gt; group to require selecting one of its fields.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Applies to&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;oneof&lt;/code&gt; groups (declared on the &lt;code&gt;oneof&lt;/code&gt; itself, not on a field inside it).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Minimal example&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Message-level options</title><link>https://spine.io/docs/validation/user/03-built-in-options/message-level-options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/message-level-options/</guid><description>&lt;h1 id="message-level-options" data-title&gt;
+Message-level options&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Use this page when message validity depends on &lt;strong&gt;multiple fields together&lt;/strong&gt;, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“At least one of these fields must be set.”&lt;/li&gt;
+&lt;li&gt;“Either this group of fields is set, or that group is set.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;For canonical definitions, see
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="field-group-requirements-require" data-title&gt;
+Field group requirements: &lt;code&gt;(require)&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#field-group-requirements-require
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Use &lt;code&gt;option (require).fields&lt;/code&gt; on a message to declare &lt;strong&gt;alternative groups&lt;/strong&gt; of required fields.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How to write the expression&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Options for `repeated` and `map` fields</title><link>https://spine.io/docs/validation/user/03-built-in-options/repeated-and-map-fields/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/repeated-and-map-fields/</guid><description>&lt;h1 id="options-for-repeated-and-map-fields" data-title&gt;
+Options for &lt;code&gt;repeated&lt;/code&gt; and &lt;code&gt;map&lt;/code&gt; fields&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Use this page when you want to validate &lt;strong&gt;collections&lt;/strong&gt; declared as &lt;code&gt;repeated&lt;/code&gt; fields
+or &lt;code&gt;map&lt;/code&gt; fields.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="choose-an-option" data-title&gt;
+Choose an option&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#choose-an-option
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Require a collection to be non-empty: &lt;code&gt;(required) = true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce uniqueness: &lt;code&gt;(distinct) = true&lt;/code&gt;, customize with &lt;code&gt;(if_has_duplicates).error_msg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Validate nested message elements/values: &lt;code&gt;(validate) = true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce numeric constraints per element: &lt;code&gt;(min)&lt;/code&gt;, &lt;code&gt;(max)&lt;/code&gt;, &lt;code&gt;(range)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce a pattern per element: &lt;code&gt;(pattern).regex&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Require a companion field when the collection is present: &lt;code&gt;(goes).with = &amp;quot;other_field&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For canonical definitions, see
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Release Notes v1.9.0</title><link>https://spine.io/release-notes/2023/v1.9.0/</link><pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2023/v1.9.0/</guid><description>&lt;h1 id="spine-190" data-title&gt;
 Spine 1.9.0&lt;/h1&gt;
 &lt;h2 id="base-libraries" data-title&gt;
 Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
@@ -1061,14 +1154,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
  &gt;@SpineEngine&lt;/a&gt; or 
 
 &lt;style&gt;
-#span-9a4e40ae.cloaked-e-mail:before {
+#span-35ade396.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-9a4e40ae"&gt;&lt;/span&gt;&lt;script id="script-9a4e40ae"&gt;
- var scriptTag = document.getElementById("script-9a4e40ae");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-35ade396"&gt;&lt;/span&gt;&lt;script id="script-35ade396"&gt;
+ var scriptTag = document.getElementById("script-35ade396");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
@@ -1450,7 +1543,56 @@ usage is a major factor for choosing Protobuf rather than other alternatives.&lt
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rdbms&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// use RDBMS instead of default In-Memory storage for tests.&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./gradlew build deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>API Reference</title><link>https://spine.io/docs/reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/reference/</guid><description>&lt;h1 id="api-reference" data-title&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Adding a new built-in validation option</title><link>https://spine.io/docs/validation/developer/adding-a-built-in-option/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/adding-a-built-in-option/</guid><description>&lt;h1 id="adding-a-new-built-in-validationoption" data-title&gt;
+Adding a new built-in validation option&lt;/h1&gt;
+&lt;p&gt;This page is the contributor-side counterpart to the User&amp;rsquo;s Guide
+“&lt;a href="https://spine.io/docs/validation/user/05-custom-validation/"
+ 
+ &gt;Custom validation&lt;/a&gt;” section. Where that section explains how a
+&lt;em&gt;consumer&lt;/em&gt; wires a custom option into their own project, this page explains how a
+&lt;em&gt;contributor&lt;/em&gt; adds a new &lt;strong&gt;standard&lt;/strong&gt; option to the Validation library — one that ships in
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;spine/options.proto&lt;/code&gt;&lt;/a&gt; and is recognised by every consumer of the library
+without further configuration.&lt;/p&gt;</description></item><item><title>Adding to build</title><link>https://spine.io/docs/validation/user/01-getting-started/adding-to-build/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/01-getting-started/adding-to-build/</guid><description>&lt;h1 id="adding-validation-to-a-gradle-build" data-title&gt;
+Adding Validation to a Gradle build&lt;/h1&gt;
+&lt;h2 id="adding-spine-specific-gradle-plugin-repositories" data-title&gt;
+Adding Spine-specific Gradle plugin repositories&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#adding-spine-specific-gradle-plugin-repositories
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;embed-code 
+file="$examples/settings.gradle.kts" 
+start="pluginManagement {" 
+end="^}"&gt;
+&lt;/embed-code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;pluginManagement&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;repositories&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;mavenLocal&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;gradlePluginPortal&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;maven&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;https://europe-maven.pkg.dev/spine-event-engine/snapshots&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;maven&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;https://europe-maven.pkg.dev/spine-event-engine/releases&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The repositories at &lt;a href="https://europe-maven.pkg.dev"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;https://europe-maven.pkg.dev&lt;/a&gt; are needed to obtain versions of
+Spine tools and libraries that are not yet published to the Gradle Plugin Portal or Maven Central.&lt;/p&gt;
+&lt;h2 id="optional-adding-spine-specific-maven-repositories" data-title&gt;
+Optional: adding Spine-specific Maven repositories&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#optional-adding-spine-specific-maven-repositories
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Similar to the plugin repositories, a project using Validation may need artifacts that
+are not yet published to Maven Central. Our Gradle plugins take care of this by adding the
+necessary repositories to the project when applied. Normally, you don&amp;rsquo;t need to add
+repositories manually when using the plugins.&lt;/p&gt;</description></item><item><title>API Reference</title><link>https://spine.io/docs/reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/reference/</guid><description>&lt;h1 id="api-reference" data-title&gt;
 API Reference&lt;/h1&gt;
 &lt;h2 id="java" data-title&gt;
 Java&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#java
@@ -2146,7 +2288,20 @@ are not shaded on the diagram. The rest is handled by the framework.&lt;/p&gt;
 &lt;p&gt;Click on a component to navigate to its definition from the
 &lt;a href="https://spine.io/docs/introduction/concepts/"
  
- &gt;Concepts&lt;/a&gt; page.&lt;/p&gt;</description></item><item><title>Blogs</title><link>https://spine.io/docs/resources/blogs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/blogs/</guid><description>&lt;h1 id="blogs" data-title&gt;
+ &gt;Concepts&lt;/a&gt; page.&lt;/p&gt;</description></item><item><title>Architecture</title><link>https://spine.io/docs/validation/developer/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/architecture/</guid><description>&lt;h1 id="architecture" data-title&gt;
+Architecture&lt;/h1&gt;
+&lt;p&gt;Spine Validation has two main responsibilities, and the codebase is organized around the
+boundary between them:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;At build time&lt;/strong&gt; — translate validation options declared in &lt;code&gt;.proto&lt;/code&gt; files into Java
+code that enforces those constraints inside the generated message and builder classes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;At runtime&lt;/strong&gt; — provide the small library of types that the generated code calls into
+to evaluate constraints and report violations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This page describes how the modules in this repository implement that split. For an
+inventory of every module, see “&lt;a href="https://spine.io/docs/validation/developer/key-modules/"
+ 
+ &gt;Key modules&lt;/a&gt;”.&lt;/p&gt;</description></item><item><title>Blogs</title><link>https://spine.io/docs/resources/blogs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/blogs/</guid><description>&lt;h1 id="blogs" data-title&gt;
 Blogs&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;The ideas unfolding in real time&lt;/p&gt;
@@ -2246,7 +2401,56 @@ discussing domain design.&lt;/p&gt;
  &lt;/a&gt;
  &lt;p class="author"&gt;by Eric Evans&lt;/p&gt;
  &lt;p class="description"&gt;This book provides a brief overview of the DDD methodology.
-It also defines the terms, which were coined in this topic since 2004.&lt;/p&gt;</description></item><item><title>Checkout</title><link>https://spine.io/checkout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout/</guid><description/></item><item><title>Checkout Completed</title><link>https://spine.io/checkout-completed/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout-completed/</guid><description/></item><item><title>Communities</title><link>https://spine.io/docs/resources/communities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/communities/</guid><description>&lt;h1 id="communities" data-title&gt;
+It also defines the terms, which were coined in this topic since 2004.&lt;/p&gt;</description></item><item><title>Build tasks</title><link>https://spine.io/docs/validation/developer/documentation/build-tasks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/documentation/build-tasks/</guid><description>&lt;h1 id="build-tasks" data-title&gt;
+Build tasks&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;:docs&lt;/code&gt; subproject is configured in &lt;a href="https://github.com/SpineEventEngine/validation/blob/master/docs/build.gradle.kts"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;docs/build.gradle.kts&lt;/code&gt;&lt;/a&gt;.
+The tasks declared there are thin Gradle wrappers around shell scripts in
+&lt;code&gt;docs/_script/&lt;/code&gt; and the &lt;code&gt;embed-code-go&lt;/code&gt; binaries in &lt;code&gt;docs/_bin/&lt;/code&gt;. This page
+documents every task, what it does, where it lands its output, and how the
+tasks depend on each other.&lt;/p&gt;
+&lt;h2 id="working-directory-and-paths" data-title&gt;
+Working directory and paths&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#working-directory-and-paths
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;All shell scripts under &lt;code&gt;docs/_script/&lt;/code&gt; assume that &lt;code&gt;docs/&lt;/code&gt; is the current
+working directory. The Gradle tasks take care of this automatically — the
+&lt;code&gt;Exec&lt;/code&gt; tasks invoke each script with an absolute path under &lt;code&gt;$projectDir&lt;/code&gt;, so
+running them as &lt;code&gt;./gradlew :docs:&amp;lt;task&amp;gt;&lt;/code&gt; from the repository root works.&lt;/p&gt;</description></item><item><title>Build, packaging, and release</title><link>https://spine.io/docs/validation/developer/build-and-release/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/build-and-release/</guid><description>&lt;h1 id="build-packaging-and-release" data-title&gt;
+Build, packaging, and release&lt;/h1&gt;
+&lt;p&gt;This page describes how the Gradle multi-project build is wired, what each
+publishable module produces, and how the resulting artifacts reach downstream
+consumers. It is the contributor-side counterpart to “&lt;a href="https://spine.io/docs/validation/user/01-getting-started/adding-to-build/"
+ 
+ &gt;Adding Validation to your
+build&lt;/a&gt;” in the User&amp;rsquo;s Guide:
+where that page shows how a &lt;em&gt;consumer&lt;/em&gt; applies the plugin, this page shows how
+the plugin and its dependencies are &lt;em&gt;produced&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;For day-to-day commands (&lt;code&gt;./gradlew build&lt;/code&gt;, &lt;code&gt;./gradlew dokka&lt;/code&gt;, …) see
+&lt;a href="https://github.com/SpineEventEngine/validation/blob/master/.agents/running-builds.md"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;running-builds.md&lt;/code&gt;&lt;/a&gt; in the &lt;code&gt;.agents/&lt;/code&gt; directory; this page
+focuses on the structure rather than the commands.&lt;/p&gt;</description></item><item><title>Building project</title><link>https://spine.io/docs/validation/user/01-getting-started/build-project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/01-getting-started/build-project/</guid><description>&lt;h1 id="build-your-project" data-title&gt;
+Build your project&lt;/h1&gt;
+&lt;p&gt;After you added Validation to the build and declared constraints in your Protobuf model,
+run your Gradle build as usual.&lt;/p&gt;
+&lt;p&gt;For macOS and Linux:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./gradlew clean build
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For Windows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;gradlew&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="py"&gt;bat&lt;/span&gt; &lt;span class="n"&gt;clean&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The Validation Gradle plugin integrates with Spine Compiler, scans your model, and injects
+validation checks into the generated JVM code.&lt;/p&gt;
+&lt;p&gt;The generated sources will appear in the &lt;code&gt;generated&lt;/code&gt; directory next to the &lt;code&gt;src&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;clean&lt;/code&gt; task is optional and is relevant when Protobuf code changes.&lt;/p&gt;</description></item><item><title>Checkout</title><link>https://spine.io/checkout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout/</guid><description/></item><item><title>Checkout Completed</title><link>https://spine.io/checkout-completed/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout-completed/</guid><description/></item><item><title>Communities</title><link>https://spine.io/docs/resources/communities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/communities/</guid><description>&lt;h1 id="communities" data-title&gt;
 Communities&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;Places to discuss DDD with other practitioners&lt;/p&gt;
@@ -2333,7 +2537,167 @@ Dart Client Library&lt;/h1&gt;
  target="_blank"
  rel="noopener nofollow"
  &gt;Source code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Gradle configuration</title><link>https://spine.io/docs/guides/gradle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/gradle/</guid><description>&lt;p&gt;This guide will lead you through setting up a simple Spine-based project with a Java backend and
+&lt;/ul&gt;</description></item><item><title>Declare the event and view state</title><link>https://spine.io/docs/validation/user/05-custom-validation/declare-event-and-view/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/declare-event-and-view/</guid><description>&lt;h1 id="declare-the-event-and-view-state" data-title&gt;
+Declare the event and view state&lt;/h1&gt;
+&lt;p&gt;After defining the option, declare the Protobuf types that track its discovery during
+compilation. This takes two parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;a domain event emitted by the &lt;code&gt;Reaction&lt;/code&gt; when a valid option application is found,&lt;/li&gt;
+&lt;li&gt;a &lt;code&gt;View&lt;/code&gt; state that persists the event data for the &lt;code&gt;Generator&lt;/code&gt; to query.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="declare-the-event" data-title&gt;
+Declare the event&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#declare-the-event
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;Reaction&lt;/code&gt; emits a domain event carrying all data that the &lt;code&gt;View&lt;/code&gt; and &lt;code&gt;Generator&lt;/code&gt; need. The event
+travels through the compilation bounded context, so it must be a proper Protobuf message.&lt;/p&gt;</description></item><item><title>Declare the option in Protobuf</title><link>https://spine.io/docs/validation/user/05-custom-validation/declare-the-option/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/declare-the-option/</guid><description>&lt;h1 id="declare-the-option-in-protobuf" data-title&gt;
+Declare the option in Protobuf&lt;/h1&gt;
+&lt;p&gt;Declaring a custom validation option requires two Protobuf declarations:
+a message that carries the option&amp;rsquo;s data, and an &lt;code&gt;extend&lt;/code&gt; block that
+registers it as a descriptor option.&lt;/p&gt;
+&lt;h2 id="declare-the-option-message" data-title&gt;
+Declare the option message&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#declare-the-option-message
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Define a Protobuf message to hold the option&amp;rsquo;s parameters.
+Use the &lt;code&gt;(default_message)&lt;/code&gt; option to set the error template rendered when the
+caller does not supply a custom &lt;code&gt;error_msg&lt;/code&gt;:&lt;/p&gt;</description></item><item><title>Defining constraints</title><link>https://spine.io/docs/validation/user/01-getting-started/first-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/01-getting-started/first-model/</guid><description>&lt;h1 id="define-constraints-in-proto-files" data-title&gt;
+Define constraints in &lt;code&gt;.proto&lt;/code&gt; files&lt;/h1&gt;
+&lt;p&gt;This guide shows how to import Spine Validation options and declare constraints
+in your Protobuf model.&lt;/p&gt;
+&lt;p&gt;The validation options come from &lt;code&gt;spine/options.proto&lt;/code&gt; and include constraints like
+&lt;code&gt;(required)&lt;/code&gt;, &lt;code&gt;(min)&lt;/code&gt;, &lt;code&gt;(max)&lt;/code&gt;, &lt;code&gt;(pattern)&lt;/code&gt;, &lt;code&gt;(distinct)&lt;/code&gt;, and &lt;code&gt;(validate)&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="import-options-and-declare-constraints" data-title&gt;
+Import options and declare constraints&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#import-options-and-declare-constraints
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Create a &lt;code&gt;.proto&lt;/code&gt; file and import &lt;code&gt;spine/options.proto&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;embed-code 
+file="$examples/first-model/src/main/proto/spine/validation/docs/first_model/bank_card.proto" 
+start="syntax" 
+end="^}"&gt;
+&lt;/embed-code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-protobuf" data-lang="protobuf"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;proto3&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;spine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;validation.docs.first_model&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;spine/options.proto&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;option&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type_url_prefix&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;type.spine.io&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;option&lt;/span&gt; &lt;span class="n"&gt;java_package&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;io.spine.validation.docs.firstmodel&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;option&lt;/span&gt; &lt;span class="n"&gt;java_multiple_files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Provides bank card information with validation rules.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// The digits of the card are simplified for the sake of the example.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;message&lt;/span&gt; &lt;span class="nc"&gt;BankCard&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// The digits of the card number.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Must be present and match a 16-digit card number formatted as four
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// groups of four digits separated by spaces (for example, &amp;#34;1234 5678 1234 5678&amp;#34;).
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="n"&gt;digits&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;required&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pattern&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;regex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;^\\d{4}(?: \\d{4}){3}&amp;#34;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// The name of the card owner.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Must be present, contain at least 4 characters, start with a Latin letter,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// and have exactly one space between words.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="n"&gt;owner&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;required&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pattern&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;regex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;^(?=.{4,})[A-Z][A-Za-z]*(?: [A-Za-z]+)+$&amp;#34;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// All tags must be unique. Tags are optional.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;repeated&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="n"&gt;tags&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;distinct&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Notes on the options used:&lt;/p&gt;</description></item><item><title>Embedded examples</title><link>https://spine.io/docs/validation/developer/documentation/embedded-examples/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/documentation/embedded-examples/</guid><description>&lt;h1 id="embedded-examples" data-title&gt;
+Embedded examples&lt;/h1&gt;
+&lt;p&gt;The documentation embeds snippets from real source files instead of copying their
+content into Markdown files. This keeps the snippets in lock-step with the code
+they document: when a method signature, a Protobuf option, or an example
+project file changes, the documentation either updates automatically (when
+&lt;code&gt;:docs:embedCode&lt;/code&gt; runs) or fails CI (when &lt;code&gt;:docs:checkSamples&lt;/code&gt; runs against
+a stale page). There are four source pools the documentation pulls from:&lt;/p&gt;</description></item><item><title>Extension points</title><link>https://spine.io/docs/validation/developer/extension-points/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/extension-points/</guid><description>&lt;h1 id="extension-points" data-title&gt;
+Extension points&lt;/h1&gt;
+&lt;p&gt;Spine Validation exposes two extension points.
+They sit on opposite sides of the compile-time / runtime split:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href="https://github.com/SpineEventEngine/validation/blob/master/java/src/main/kotlin/io/spine/tools/validation/java/ValidationOption.kt"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;ValidationOption&lt;/code&gt;&lt;/a&gt; SPI (build time) — adds a &lt;em&gt;new
+validation option&lt;/em&gt; with its own model, codegen, and runtime helpers.&lt;/li&gt;
+&lt;li&gt;The &lt;a href="https://github.com/SpineEventEngine/validation/blob/master/jvm-runtime/src/main/kotlin/io/spine/validation/MessageValidator.kt"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;MessageValidator&lt;/code&gt;&lt;/a&gt; SPI (runtime) — adds a &lt;em&gt;custom check on a
+specific message type&lt;/em&gt;, executed alongside the compiled constraints.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each surface has a corresponding User&amp;rsquo;s Guide section that explains how to &lt;em&gt;use&lt;/em&gt; it:
+“&lt;a href="https://spine.io/docs/validation/user/05-custom-validation/"
+ 
+ &gt;Custom validation&lt;/a&gt;” for &lt;code&gt;ValidationOption&lt;/code&gt;, and
+“&lt;a href="https://spine.io/docs/validation/user/04-validators/"
+ 
+ &gt;Using validators&lt;/a&gt;” for &lt;code&gt;MessageValidator&lt;/code&gt;. This page is the
+contributor-side view: what each surface guarantees, how discovery works, what an
+implementation may and may not do, and why.&lt;/p&gt;</description></item><item><title>External tooling</title><link>https://spine.io/docs/validation/developer/documentation/tooling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/documentation/tooling/</guid><description>&lt;h1 id="external-tooling" data-title&gt;
+External tooling&lt;/h1&gt;
+&lt;p&gt;The documentation build leans on three external pieces of tooling: the
+&lt;a href="https://github.com/SpineEventEngine/site-commons"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;site-commons&lt;/code&gt;&lt;/a&gt; Hugo theme, the &lt;a href="https://github.com/SpineEventEngine/embed-code-go"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;embed-code-go&lt;/code&gt;&lt;/a&gt;
+tool, and the Hugo + Node toolchain that drives the static-site build. This
+page documents what each is, how it is wired into the build, and where it is
+pinned. The step-by-step recipes for updating each live in
+&amp;ldquo;&lt;a href="https://spine.io/docs/validation/developer/documentation/procedures/"
+ 
+ &gt;Procedures&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id="site-commons" data-title&gt;
+&lt;code&gt;site-commons&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#site-commons
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/SpineEventEngine/site-commons"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;site-commons&lt;/code&gt;&lt;/a&gt; is the shared Hugo theme and layout library
+used by the documentation sites of Spine projects. It provides the
+navigation chrome, the sidenav rendering that consumes the
+&lt;a href="https://github.com/SpineEventEngine/validation/blob/master/docs/data/docs/validation/2-0-0-snapshot/sidenav.yml"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;sidenav.yml&lt;/code&gt;&lt;/a&gt; files, code-highlighting partials, and other
+Hugo components that are common across Spine sites.&lt;/p&gt;</description></item><item><title>Gradle configuration</title><link>https://spine.io/docs/guides/gradle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/gradle/</guid><description>&lt;p&gt;This guide will lead you through setting up a simple Spine-based project with a Java backend and
 a JavaScript frontend. The project defines a domain model using Protobuf, which is then converted
 into Java for server usage and JavaScript for client usage.&lt;/p&gt;
 &lt;h1 id="configuring-a-project-with-gradle" data-title&gt;
@@ -2346,7 +2710,97 @@ as &lt;a href="https://docs.gradle.org/current/userguide/plugins.html"
  target="_blank"
  rel="noopener nofollow"
  &gt;Gradle plugins&lt;/a&gt; — an extendable, uniform
-way to tap into a project build process.&lt;/p&gt;</description></item><item><title>Integrating with a third party</title><link>https://spine.io/docs/guides/integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/integration/</guid><description>&lt;h1 id="integration-with-a-third-party" data-title&gt;
+way to tap into a project build process.&lt;/p&gt;</description></item><item><title>Implement a validator</title><link>https://spine.io/docs/validation/user/04-validators/implement-a-validator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/04-validators/implement-a-validator/</guid><description>&lt;h1 id="implement-a-validator" data-title&gt;
+Implement a validator&lt;/h1&gt;
+&lt;p&gt;To validate a Protobuf message type &lt;code&gt;M&lt;/code&gt; with custom logic:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Implement &lt;code&gt;io.spine.validation.MessageValidator&amp;lt;M&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Make the implementation discoverable via Java &lt;code&gt;ServiceLoader&lt;/code&gt; (recommended), or register it in
+&lt;code&gt;ValidatorRegistry&lt;/code&gt; explicitly.&lt;/li&gt;
+&lt;li&gt;Ensure the class has a public no-args constructor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Keep validators stateless and cheap to construct.&lt;/p&gt;
+&lt;h2 id="reference-implementation-timestampvalidator" data-title&gt;
+Reference implementation: &lt;code&gt;TimestampValidator&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#reference-implementation-timestampvalidator
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s review the &lt;code&gt;MessageValidator&lt;/code&gt; implementation on the example of
+&lt;code&gt;io.spine.validation.TimestampValidator&lt;/code&gt; from the Validation JVM runtime.&lt;/p&gt;</description></item><item><title>Implement the `Generator`</title><link>https://spine.io/docs/validation/user/05-custom-validation/implement-the-generator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/implement-the-generator/</guid><description>&lt;h1 id="implement-the-generator" data-title&gt;
+Implement the &lt;code&gt;Generator&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;Generator&lt;/code&gt; produces Java code for every application of the option within a compiled message
+type. The framework calls &lt;code&gt;codeFor&lt;/code&gt; once per message type and inlines each returned
+&lt;code&gt;SingleOptionCode&lt;/code&gt; into the generated &lt;code&gt;validate()&lt;/code&gt; method.&lt;/p&gt;
+&lt;h2 id="class-declaration" data-title&gt;
+Class declaration&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#class-declaration
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;internal&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WhenGenerator&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;OptionGeneratorWithConverter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use &lt;code&gt;OptionGeneratorWithConverter&lt;/code&gt; when your generated code needs to convert a Protobuf field
+value to a Java expression — for example, to format a field value as a JSON string in an error
+message. This base class injects a &lt;code&gt;JavaValueConverter&lt;/code&gt; that handles the conversion. Use the
+plain &lt;code&gt;OptionGenerator&lt;/code&gt; base class when no value conversion is needed.&lt;/p&gt;</description></item><item><title>Implement the `Reaction`</title><link>https://spine.io/docs/validation/user/05-custom-validation/implement-the-reaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/implement-the-reaction/</guid><description>&lt;h1 id="implement-the-reaction" data-title&gt;
+Implement the &lt;code&gt;Reaction&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;Reaction&lt;/code&gt; is the entry point for option handling. It subscribes to
+&lt;code&gt;FieldOptionDiscovered&lt;/code&gt; events (or one of the other &lt;code&gt;*OptionDiscovered&lt;/code&gt; variants),
+filters them by option name, validates the option application, and emits a domain event
+when the option is applied correctly.&lt;/p&gt;
+&lt;h2 id="class-declaration" data-title&gt;
+Class declaration&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#class-declaration
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;internal&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WhenReaction&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Reaction&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;FieldOptionDiscovered&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The type parameter is the event the &lt;code&gt;Reaction&lt;/code&gt; listens to. For a field-level option, use
+&lt;code&gt;FieldOptionDiscovered&lt;/code&gt;. Other variants include &lt;code&gt;FileOptionDiscovered&lt;/code&gt;,
+&lt;code&gt;MessageOptionDiscovered&lt;/code&gt;, and &lt;code&gt;OneofOptionDiscovered&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Implement the `View`</title><link>https://spine.io/docs/validation/user/05-custom-validation/implement-the-view/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/implement-the-view/</guid><description>&lt;h1 id="implement-the-view" data-title&gt;
+Implement the &lt;code&gt;View&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;View&lt;/code&gt; is a Spine projection that persists the data emitted by the &lt;code&gt;Reaction&lt;/code&gt;.
+The &lt;code&gt;Generator&lt;/code&gt; queries the &lt;code&gt;View&lt;/code&gt; to obtain the information it needs to produce Java code.&lt;/p&gt;
+&lt;h2 id="class-declaration" data-title&gt;
+Class declaration&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#class-declaration
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;internal&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WhenFieldView&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;View&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;FieldRef&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;WhenField&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nc"&gt;WhenField&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Builder&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The three type parameters are:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Parameter&lt;/th&gt;
+ &lt;th&gt;Type&lt;/th&gt;
+ &lt;th&gt;Description&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;ID&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;FieldRef&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Entity identity; must match the &lt;code&gt;id&lt;/code&gt; field type in the Protobuf view state.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;State&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;WhenField&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;The generated Protobuf message that holds the accumulated data.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;Builder&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;WhenField.Builder&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;The corresponding Protobuf builder, used by the &lt;code&gt;alter { }&lt;/code&gt; DSL.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="subscriber-method" data-title&gt;
+Subscriber method&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#subscriber-method
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nd"&gt;@Subscribe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;fun&lt;/span&gt; &lt;span class="nf"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;WhenFieldDiscovered&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;alter&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;subject&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subject&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;errorMessage&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;errorMessage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;bound&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bound&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;@Subscribe&lt;/code&gt; annotation registers &lt;code&gt;on&lt;/code&gt; as the event handler. The &lt;code&gt;alter { }&lt;/code&gt; DSL block
+provides access to the state builder; any assignments inside the block are applied atomically
+when the block exits. One &lt;code&gt;@Subscribe&lt;/code&gt; method is required for each event type the &lt;code&gt;View&lt;/code&gt; handles.&lt;/p&gt;</description></item><item><title>Integrating with a third party</title><link>https://spine.io/docs/guides/integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/integration/</guid><description>&lt;h1 id="integration-with-a-third-party" data-title&gt;
 Integration with a third party&lt;/h1&gt;
 &lt;p&gt;When developing an &lt;a href="https://spine.io/docs/introduction/concepts#event"
  
@@ -2357,7 +2811,16 @@ Spine-based &lt;a href="https://spine.io/docs/introduction/concepts#bounded-cont
  
  &gt;Bounded Context&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Note that we think of a third-party system like of yet another Bounded Context with its own
-language. The terms “Bounded Context” and “System” are used interchangeably throughout the article.&lt;/p&gt;</description></item><item><title>JavaScript Client Library</title><link>https://spine.io/docs/client-libs/js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/client-libs/js/</guid><description>&lt;h1 id="javascript-client-library" data-title&gt;
+language. The terms “Bounded Context” and “System” are used interchangeably throughout the article.&lt;/p&gt;</description></item><item><title>Java code generation</title><link>https://spine.io/docs/validation/developer/java-code-generation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/java-code-generation/</guid><description>&lt;h1 id="java-code-generation" data-title&gt;
+Java code generation&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;:java&lt;/code&gt; module turns the populated projections produced by &lt;code&gt;:context&lt;/code&gt; (see
+“&lt;a href="https://spine.io/docs/validation/developer/validation-model/"
+ 
+ &gt;The validation model&lt;/a&gt;”) into Java code that is injected into
+Protobuf-generated message and builder classes. By the time the Spine Compiler invokes
+this module, every constraint discovered in the consumer&amp;rsquo;s &lt;code&gt;.proto&lt;/code&gt; files already lives
+in a view, and &lt;code&gt;:java&lt;/code&gt;&amp;rsquo;s job is to ask each view what it knows and translate that into
+Java.&lt;/p&gt;</description></item><item><title>JavaScript Client Library</title><link>https://spine.io/docs/client-libs/js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/client-libs/js/</guid><description>&lt;h1 id="javascript-client-library" data-title&gt;
 JavaScript Client Library&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://spine.io/web/reference/client-js"
@@ -2374,6 +2837,43 @@ JavaScript Client Library&lt;/h1&gt;
  target="_blank"
  rel="noopener nofollow"
  &gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Key Modules</title><link>https://spine.io/docs/validation/developer/key-modules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/key-modules/</guid><description>&lt;h1 id="key-modules" data-title&gt;
+Key modules&lt;/h1&gt;
+&lt;p&gt;This repository is a Gradle multi-project build. Module names below are shown as Gradle
+project paths like &lt;code&gt;:java&lt;/code&gt; and &lt;code&gt;:tests:vanilla&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="core-modules" data-title&gt;
+Core modules&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#core-modules
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:context&lt;/code&gt;&lt;/strong&gt;: Language-agnostic validation model and built-in option handling for views and reactions shared by language plugins.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:java&lt;/code&gt;&lt;/strong&gt;: Spine Compiler plugin for Java: generates/injects validation code; loads custom options via &lt;code&gt;ValidationOption&lt;/code&gt; SPI.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:jvm-runtime&lt;/code&gt;&lt;/strong&gt;: Runtime library used by generated code: &lt;code&gt;ValidationException&lt;/code&gt;, validation/constraint APIs, &lt;code&gt;MessageValidator&lt;/code&gt;, and error Protobuf types.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:java-bundle&lt;/code&gt;&lt;/strong&gt;: Fat JAR bundling &lt;code&gt;:java&lt;/code&gt; for distribution, which is the artifact typically used as the compiler plugin dependency.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:gradle-plugin&lt;/code&gt;&lt;/strong&gt;: The &lt;code&gt;io.spine.validation&lt;/code&gt; Gradle plugin that configures Spine Compiler to run the Validation compiler for consumer projects.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:docs&lt;/code&gt;&lt;/strong&gt;: Sources for the Hugo documentation site, scripts, and example projects used in docs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="test-modules" data-title&gt;
+Test modules&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#test-modules
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:context-tests&lt;/code&gt;&lt;/strong&gt;: &lt;a href="https://github.com/SpineEventEngine/ProtoTap"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;ProtoTap&lt;/a&gt;-based compilation tests for &lt;code&gt;:context&lt;/code&gt;, focusing on invalid option usage and error reporting.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests&lt;/code&gt;&lt;/strong&gt;: Parent project for integration tests that run the Compiler plugins and exercise generated code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:vanilla&lt;/code&gt;&lt;/strong&gt;: “Vanilla” integration tests: validation without any custom extensions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:extensions&lt;/code&gt;&lt;/strong&gt;: Example implementation of the &lt;code&gt;(currency)&lt;/code&gt; custom option used by test suites to verify custom reactions, views, and generators.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:consumer&lt;/code&gt;&lt;/strong&gt;: Integration tests for a consuming project that uses validation plus custom extensions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:consumer-dependency&lt;/code&gt;&lt;/strong&gt;: A dependency module with &lt;code&gt;.proto&lt;/code&gt; sources used by &lt;code&gt;:tests:consumer&lt;/code&gt; to verify “protos in dependencies” scenarios.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:validator&lt;/code&gt;&lt;/strong&gt;: Integration tests for custom &lt;code&gt;MessageValidator&lt;/code&gt;s discovered through &lt;code&gt;ServiceLoader&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:validator-dependency&lt;/code&gt;&lt;/strong&gt;: A dependency module used by &lt;code&gt;:tests:validator&lt;/code&gt; for validator-related dependency scenarios.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:runtime&lt;/code&gt;&lt;/strong&gt;: Tests focused on runtime behavior of validation APIs and error messages.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:validating&lt;/code&gt;&lt;/strong&gt;: Shared fixtures and tests for validation behavior across multiple scenarios, including &lt;code&gt;testFixtures&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Libraries and Frameworks</title><link>https://spine.io/docs/resources/libraries/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/libraries/</guid><description>&lt;h1 id="libraries-and-frameworks" data-title&gt;
 Libraries and Frameworks&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
@@ -2423,7 +2923,39 @@ Proto files&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" h
  aria-label="Copy heading anchor"&gt;&lt;/a&gt;
 &lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;Proto files are named using the &lt;code&gt;snake_case&lt;/code&gt;, as defined by Protobuf. There are several special
-kinds of files.&lt;/p&gt;</description></item><item><title>People</title><link>https://spine.io/docs/resources/people/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/people/</guid><description>&lt;h1 id="people" data-title&gt;
+kinds of files.&lt;/p&gt;</description></item><item><title>Options overview</title><link>https://spine.io/docs/validation/user/02-concepts/options-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/02-concepts/options-overview/</guid><description>&lt;h1 id="options-overview" data-title&gt;
+Options overview&lt;/h1&gt;
+&lt;p&gt;Spine Validation rules are expressed as &lt;strong&gt;Protobuf options&lt;/strong&gt;.
+You annotate your &lt;code&gt;.proto&lt;/code&gt; model with built-in options, and the &lt;strong&gt;Validation Compiler&lt;/strong&gt;
+turns those option values into runtime checks in the generated Java code.&lt;/p&gt;
+&lt;p&gt;This page explains where the built-in options come from, how they are applied at build time,
+and what API you get at runtime.&lt;/p&gt;
+&lt;h2 id="where-options-come-from" data-title&gt;
+Where options come from&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#where-options-come-from
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;The built-in validation options are defined in &lt;code&gt;spine/options.proto&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Overview and audience</title><link>https://spine.io/docs/validation/developer/overview-and-audience/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/overview-and-audience/</guid><description>&lt;h1 id="overview-and-audience" data-title&gt;
+Overview and audience&lt;/h1&gt;
+&lt;p&gt;This guide is for contributors to Spine Validation and for readers who want a deep
+understanding of how the library works internally. It complements the User&amp;rsquo;s Guide,
+which targets consumers of the library: where the User&amp;rsquo;s Guide shows &lt;em&gt;how to use&lt;/em&gt;
+Validation, this guide shows &lt;em&gt;how Validation is built&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id="who-this-guide-is-for" data-title&gt;
+Who this guide is for&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#who-this-guide-is-for
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Read this guide if you are:&lt;/p&gt;</description></item><item><title>Pass the option to the Compiler</title><link>https://spine.io/docs/validation/user/05-custom-validation/pass-to-compiler/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/pass-to-compiler/</guid><description>&lt;h1 id="pass-the-option-to-the-compiler" data-title&gt;
+Pass the option to the Compiler&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;JavaValidationPlugin&lt;/code&gt; — the Spine Compiler plugin that generates Java validation code —
+discovers &lt;code&gt;ValidationOption&lt;/code&gt; implementations via the Java &lt;code&gt;ServiceLoader&lt;/code&gt; mechanism. To be
+found, a &lt;code&gt;ValidationOption&lt;/code&gt; implementation must be present on the Compiler&amp;rsquo;s user classpath.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;io.spine.validation&lt;/code&gt; Gradle plugin places &lt;code&gt;JavaValidationPlugin&lt;/code&gt; itself on that classpath
+automatically. Adding your custom &lt;code&gt;ValidationOption&lt;/code&gt; requires one additional step.&lt;/p&gt;
+&lt;p&gt;There are two approaches:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Direct dependency&lt;/strong&gt; — add the implementation module to the &lt;code&gt;spineCompiler&lt;/code&gt; dependency
+configuration. Use this for a single project or a single module in a multi-module build.&lt;/p&gt;</description></item><item><title>People</title><link>https://spine.io/docs/resources/people/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/people/</guid><description>&lt;h1 id="people" data-title&gt;
 People&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;The creators and drivers of the DDD ideas.&lt;/p&gt;
@@ -2518,7 +3050,25 @@ Founder of the &lt;a href="https://eventstore.com/"
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- &gt;Event Store&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Prior Art</title><link>https://spine.io/docs/introduction/prior-art/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/prior-art/</guid><description>&lt;h1 id="prior-art" data-title&gt;
+ &gt;Event Store&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Philosophy</title><link>https://spine.io/docs/validation/user/00-intro/philosophy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/00-intro/philosophy/</guid><description>&lt;h1 id="philosophy" data-title&gt;
+Philosophy&lt;/h1&gt;
+&lt;p&gt;Spine Validation is built on a small set of principles that shape how developers
+model, generate, and enforce constraints on their data.&lt;br&gt;
+This section outlines those principles and explains why the library is designed
+the way it is.&lt;/p&gt;
+&lt;h2 id="1-validation-belongs-to-the-model" data-title&gt;
+1. Validation belongs to the model&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#1-validation-belongs-to-the-model
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;In many systems, validation rules drift between:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UI forms,&lt;/li&gt;
+&lt;li&gt;REST controllers,&lt;/li&gt;
+&lt;li&gt;service layers,&lt;/li&gt;
+&lt;li&gt;persistence layers,&lt;/li&gt;
+&lt;li&gt;scattered hand-written validators.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Spine Validation takes the opposite approach:&lt;/p&gt;</description></item><item><title>Prior Art</title><link>https://spine.io/docs/introduction/prior-art/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/prior-art/</guid><description>&lt;h1 id="prior-art" data-title&gt;
 Prior Art&lt;/h1&gt;
 &lt;p&gt;The demands for software projects increase rapidly as time progresses.
 So does the scope of architecture approaches to meet these needs.
@@ -2549,7 +3099,41 @@ whilst this energy could have been spent on productive
  target="_blank"
  rel="noopener nofollow"
  &gt;Event Storming&lt;/a&gt;,
-detailing the Domain model and so on. Attempts to address this issue led to the Spine vision.&lt;/p&gt;</description></item><item><title>Project Structure</title><link>https://spine.io/docs/introduction/project-structure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/project-structure/</guid><description>&lt;h1 id="project-structure" data-title&gt;
+detailing the Domain model and so on. Attempts to address this issue led to the Spine vision.&lt;/p&gt;</description></item><item><title>Procedures</title><link>https://spine.io/docs/validation/developer/documentation/procedures/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/documentation/procedures/</guid><description>&lt;h1 id="procedures" data-title&gt;
+Procedures&lt;/h1&gt;
+&lt;p&gt;Each section below is an executable recipe. Unless stated otherwise, run
+commands from the repository root and prefix Gradle tasks with &lt;code&gt;./gradlew&lt;/code&gt;.
+The conceptual background for each procedure lives on the sibling pages:
+&amp;ldquo;&lt;a href="https://spine.io/docs/validation/developer/documentation/build-tasks/"
+ 
+ &gt;Build tasks&lt;/a&gt;&amp;rdquo;, &amp;ldquo;&lt;a href="https://spine.io/docs/validation/developer/documentation/embedded-examples/"
+ 
+ &gt;Embedded examples&lt;/a&gt;&amp;rdquo;,
+and &amp;ldquo;&lt;a href="https://spine.io/docs/validation/developer/documentation/tooling/"
+ 
+ &gt;External tooling&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id="incrementing-the-version-of-validation" data-title&gt;
+Incrementing the version of Validation&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#incrementing-the-version-of-validation
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Update the version literal in &lt;a href="https://github.com/SpineEventEngine/validation/blob/master/version.gradle.kts"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;version.gradle.kts&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;val&lt;/span&gt; &lt;span class="py"&gt;validationVersion&lt;/span&gt; &lt;span class="k"&gt;by&lt;/span&gt; &lt;span class="n"&gt;extra&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&amp;lt;new-version&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For the detailed instructions on selecting an increment,
+see the &lt;a href="https://github.com/SpineEventEngine/documentation/wiki/Versioning"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;Versioning policy&lt;/a&gt; of the Spine SDK.&lt;/p&gt;</description></item><item><title>Project Structure</title><link>https://spine.io/docs/introduction/project-structure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/project-structure/</guid><description>&lt;h1 id="project-structure" data-title&gt;
 Project Structure&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;This document describes standard structure of a Spine-based project.
@@ -2569,7 +3153,36 @@ Handcrafted code&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-ic
  aria-label="Copy heading anchor"&gt;&lt;/a&gt;
 &lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;Following standard Gradle conventions a manually written code is created under the
-&lt;code&gt;src/main/&lt;/code&gt; directory with subdirectories &lt;code&gt;proto&lt;/code&gt;, &lt;code&gt;java&lt;/code&gt;, etc. for corresponding languages.&lt;/p&gt;</description></item><item><title>Rules</title><link>https://spine.io/docs/introduction/rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/rules/</guid><description>&lt;h1 id="rules" data-title&gt;
+&lt;code&gt;src/main/&lt;/code&gt; directory with subdirectories &lt;code&gt;proto&lt;/code&gt;, &lt;code&gt;java&lt;/code&gt;, etc. for corresponding languages.&lt;/p&gt;</description></item><item><title>Register the option</title><link>https://spine.io/docs/validation/user/05-custom-validation/register-the-option/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/register-the-option/</guid><description>&lt;h1 id="register-the-option" data-title&gt;
+Register the option&lt;/h1&gt;
+&lt;p&gt;Two registrations are required before the build plugin can use a custom option:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Register the Protobuf extension, so the descriptor machinery can resolve it at runtime.&lt;/li&gt;
+&lt;li&gt;Wire up the &lt;code&gt;Reaction&lt;/code&gt;, &lt;code&gt;View&lt;/code&gt;, and &lt;code&gt;Generator&lt;/code&gt; via &lt;code&gt;ValidationOption&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="register-the-proto-extension" data-title&gt;
+Register the proto extension&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#register-the-proto-extension
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Create a class that implements &lt;code&gt;OptionsProvider&lt;/code&gt; and annotate it with
+&lt;code&gt;@AutoService(OptionsProvider.class)&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;com.google.auto.service.AutoService&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;com.google.protobuf.ExtensionRegistry&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;io.spine.option.OptionsProvider&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nd"&gt;@AutoService&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OptionsProvider&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TimeOptionsProvider&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;implements&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OptionsProvider&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nd"&gt;@Override&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;registerIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ExtensionRegistry&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;registry&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;TimeOptionsProto&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;registerAllExtensions&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;registry&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Call &lt;code&gt;registerAllExtensions&lt;/code&gt; on the generated outer class of the &lt;code&gt;.proto&lt;/code&gt; file that contains
+the &lt;code&gt;extend&lt;/code&gt; block. The &lt;code&gt;java_outer_classname&lt;/code&gt; option in the proto file controls this class name
+(for example, &lt;code&gt;option java_outer_classname = &amp;quot;TimeOptionsProto&amp;quot;&lt;/code&gt;). Without this registration,
+the Protobuf runtime cannot deserialize the extension field and the option will be silently
+ignored.&lt;/p&gt;</description></item><item><title>Rules</title><link>https://spine.io/docs/introduction/rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/rules/</guid><description>&lt;h1 id="rules" data-title&gt;
 Rules&lt;/h1&gt;
 &lt;p&gt;Here are the ground rules the framework is built upon:&lt;/p&gt;
 &lt;ol&gt;
@@ -2588,7 +3201,14 @@ Rules&lt;/h1&gt;
 &lt;li&gt;
 &lt;p&gt;Events are &lt;em&gt;always&lt;/em&gt; appended. Never deleted or edited.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>Sites</title><link>https://spine.io/docs/resources/sites/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/sites/</guid><description>&lt;h1 id="sites" data-title&gt;
+&lt;/ol&gt;</description></item><item><title>Runtime library</title><link>https://spine.io/docs/validation/developer/runtime-library/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/runtime-library/</guid><description>&lt;h1 id="runtime-library" data-title&gt;
+Runtime library&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;:jvm-runtime&lt;/code&gt; module is the only thing the generated validation code depends on at
+execution time. It is deliberately small: there is no rule engine, no descriptor scanning,
+and no reflection-driven dispatch. The module ships the contracts that generated message
+and builder classes implement, the Protobuf types used to describe violations, the
+exception raised when a &lt;code&gt;build()&lt;/code&gt; call fails, and a single registry through which custom
+validators reach generated code.&lt;/p&gt;</description></item><item><title>Sites</title><link>https://spine.io/docs/resources/sites/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/sites/</guid><description>&lt;h1 id="sites" data-title&gt;
 Sites&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;Learning hubs&lt;/p&gt;
@@ -2643,7 +3263,144 @@ and develop new projects.&lt;/p&gt;
  title="Check the Introduction"
  &gt;Introduction&lt;/a&gt;
 section, this guide provides more hands-on details on the steps that we follow while working
-on a project.&lt;/p&gt;</description></item><item><title>Validation User Guide</title><link>https://spine.io/docs/guides/validation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/validation/</guid><description>&lt;h1 id="validation-user-guide" data-title&gt;
+on a project.&lt;/p&gt;</description></item><item><title>Summary</title><link>https://spine.io/docs/validation/user/05-custom-validation/summary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/summary/</guid><description>&lt;h1 id="summary" data-title&gt;
+Summary&lt;/h1&gt;
+&lt;p&gt;This section walked through the complete workflow for adding a custom validation option to the
+Spine Validation library, from declaring the option in Protobuf to making it available to the
+Spine Compiler.&lt;/p&gt;
+&lt;h2 id="what-you-covered" data-title&gt;
+What you covered&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#what-you-covered
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://spine.io/docs/validation/user/05-custom-validation/declare-the-option/"
+ 
+ &gt;Declare the option in Protobuf&lt;/a&gt;&lt;/strong&gt; — define a Protobuf &lt;code&gt;extend&lt;/code&gt;
+block targeting a standard descriptor option type, with a unique field number and an error
+message template that supports named placeholders.&lt;/p&gt;</description></item><item><title>Target audience</title><link>https://spine.io/docs/validation/user/00-intro/target-audience/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/00-intro/target-audience/</guid><description>&lt;h1 id="target-audience" data-title&gt;
+Target audience&lt;/h1&gt;
+&lt;p&gt;Spine Validation is designed for developers who model data and APIs using
+&lt;strong&gt;Protocol Buffers&lt;/strong&gt; and need a structured, type-safe way to express and enforce
+constraints on that data.&lt;/p&gt;
+&lt;p&gt;The library serves several overlapping groups:&lt;/p&gt;
+&lt;h2 id="1-application-developers" data-title&gt;
+1. Application developers&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#1-application-developers
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Developers building backend services in &lt;strong&gt;Java&lt;/strong&gt; or &lt;strong&gt;Kotlin&lt;/strong&gt; who need
+validation for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;incoming API requests (REST / gRPC),&lt;/li&gt;
+&lt;li&gt;commands and events,&lt;/li&gt;
+&lt;li&gt;domain objects stored in persistence,&lt;/li&gt;
+&lt;li&gt;user-generated data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These developers benefit from:&lt;/p&gt;</description></item><item><title>Testing strategy</title><link>https://spine.io/docs/validation/developer/testing-strategy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/testing-strategy/</guid><description>&lt;h1 id="testing-strategy" data-title&gt;
+Testing strategy&lt;/h1&gt;
+&lt;p&gt;The repository has a deliberately wide test layout: ten modules dedicated to tests
+(or to fixtures consumed by tests), plus per-module unit tests where they pay off.
+This is not over-engineering — each module isolates one concern that the others
+cannot exercise without polluting their own classpath. The compile-time/runtime
+split described in “&lt;a href="https://spine.io/docs/validation/developer/architecture/"
+ 
+ &gt;Architecture&lt;/a&gt;” is reflected in how the test
+modules are organised, and so is the built-in/custom split documented in
+“&lt;a href="https://spine.io/docs/validation/developer/extension-points/"
+ 
+ &gt;Extension points&lt;/a&gt;”.&lt;/p&gt;</description></item><item><title>The validation model</title><link>https://spine.io/docs/validation/developer/validation-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/validation-model/</guid><description>&lt;h1 id="the-validation-model" data-title&gt;
+The validation model&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;:context&lt;/code&gt; module is the language-agnostic half of the Compiler plugin. It does not
+emit code. It builds a description of the constraints declared in a set of &lt;code&gt;.proto&lt;/code&gt; files
+and exposes that description as a Bounded Context: an event-sourced model whose state can
+be queried by language-specific renderers.&lt;/p&gt;
+&lt;p&gt;A code-generating renderer in &lt;code&gt;:java&lt;/code&gt; (see “&lt;a href="https://spine.io/docs/validation/developer/java-code-generation/"
+ 
+ &gt;Java code generation&lt;/a&gt;”)
+consumes that state to produce validation logic. A renderer for another target language
+could consume the same state without changes to &lt;code&gt;:context&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Using `ValidatorRegistry`</title><link>https://spine.io/docs/validation/user/04-validators/validator-registry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/04-validators/validator-registry/</guid><description>&lt;h1 id="using-validatorregistry" data-title&gt;
+Using &lt;code&gt;ValidatorRegistry&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;In most cases, you don’t need to interact with &lt;code&gt;io.spine.validation.ValidatorRegistry&lt;/code&gt; directly.
+Spine Validation discovers validators automatically and applies them as part of the generated
+validation API.&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;ValidatorRegistry&lt;/code&gt; directly when you need to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;register a validator explicitly, for example, at application startup;&lt;/li&gt;
+&lt;li&gt;inspect which validators are registered for a message type;&lt;/li&gt;
+&lt;li&gt;remove or replace validators, for example, to override ones discovered automatically;&lt;/li&gt;
+&lt;li&gt;validate a message using validators only.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="note-block note"&gt;
+&lt;p&gt;&lt;code&gt;ValidatorRegistry&lt;/code&gt; uses Java &lt;code&gt;ServiceLoader&lt;/code&gt; to discover validators when the object is first
+initialized.&lt;/p&gt;</description></item><item><title>Using the generated code</title><link>https://spine.io/docs/validation/user/01-getting-started/generated-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/01-getting-started/generated-code/</guid><description>&lt;h1 id="using-the-generated-code" data-title&gt;
+Using the generated code&lt;/h1&gt;
+&lt;p&gt;This guide shows how the generated JVM API enforces constraints at runtime.&lt;/p&gt;
+&lt;p&gt;Validation runs automatically when a message is created.
+It is also possible to validate an existing instance.&lt;/p&gt;
+&lt;h2 id="validation-on-creation" data-title&gt;
+Validation on creation&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#validation-on-creation
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;When a message violates declared constraints, &lt;code&gt;build()&lt;/code&gt; throws &lt;code&gt;ValidationException&lt;/code&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class="code-block code-tabs "
+ &gt;
+ &lt;div class="code-block-header tabs "&gt;
+ &lt;div class="indicator"&gt;&lt;/div&gt;
+ 
+ 
+ &lt;div class="tab" lang="kotlin"&gt;Kotlin&lt;/div&gt;
+ 
+ 
+ &lt;div class="tab" lang="java"&gt;Java&lt;/div&gt;
+ 
+ &lt;/div&gt;
+ 
+
+
+
+
+&lt;div class="code-wrapper code-tab-content" lang="kotlin"&gt;
+ 
+ 
+ &lt;p&gt;&lt;embed-code 
+file="$examples/first-model/src/test/kotlin/io/spine/validation/docs/firstmodel/BankCardKtTest.kt" 
+fragment="invalid-digits"&gt;
+&lt;/embed-code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;shouldThrow&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ValidationException&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Kotlin proto DSL delegates to a Java builder.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;bankCard&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;digits&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;owner&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;ALEX SMITH&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ 
+&lt;/div&gt;
+
+
+
+
+&lt;div class="code-wrapper code-tab-content" lang="java"&gt;
+ 
+ 
+ &lt;p&gt;&lt;embed-code 
+file="$examples/first-model/src/test/java/io/spine/validation/docs/firstmodel/BankCardTest.java" 
+fragment="invalid-digits"&gt;
+&lt;/embed-code&gt;&lt;/p&gt;</description></item><item><title>Validation User Guide</title><link>https://spine.io/docs/guides/validation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/validation/</guid><description>&lt;h1 id="validation-user-guide" data-title&gt;
 Validation User Guide&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;Building a good domain model requires more than just defining data structures.
@@ -2666,7 +3423,22 @@ to the next version of JDK or when the architecture of the framework has been si
 &lt;p&gt;The &lt;strong&gt;MINOR&lt;/strong&gt; version is incremented when the API has been extended with new functionality.
 Most of the time the changes are backward-compatible. However, a minor version release might
 include some breaking changes. We treat minor releases with the version number X.X.0 as being
-stable for use in production.&lt;/p&gt;</description></item><item><title>Working with Rejections</title><link>https://spine.io/docs/guides/rejections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/rejections/</guid><description>&lt;h1 id="working-with-rejections" data-title&gt;
+stable for use in production.&lt;/p&gt;</description></item><item><title>Working with error messages</title><link>https://spine.io/docs/validation/user/02-concepts/error-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/02-concepts/error-messages/</guid><description>&lt;h1 id="working-with-error-messages" data-title&gt;
+Working with error messages&lt;/h1&gt;
+&lt;p&gt;When a message violates validation constraints, Spine Validation reports violations as
+&lt;code&gt;ConstraintViolation&lt;/code&gt; entries inside a &lt;code&gt;ValidationError&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Each violation contains a machine-friendly error message (&lt;code&gt;TemplateString&lt;/code&gt;) which you can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;format for end users,&lt;/li&gt;
+&lt;li&gt;log for diagnostics, and&lt;/li&gt;
+&lt;li&gt;customize in your &lt;code&gt;.proto&lt;/code&gt; model.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="where-error-messages-come-from" data-title&gt;
+Where error messages come from&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#where-error-messages-come-from
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Every built-in validation option defines a &lt;strong&gt;default&lt;/strong&gt; error message.
+These messages come as the value of the &lt;code&gt;default_message&lt;/code&gt; option declared for each option type.&lt;/p&gt;</description></item><item><title>Working with Rejections</title><link>https://spine.io/docs/guides/rejections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/guides/rejections/</guid><description>&lt;h1 id="working-with-rejections" data-title&gt;
 Working with Rejections&lt;/h1&gt;
 &lt;p&gt;Compared with regular Events, &lt;a href="https://spine.io/docs/introduction/concepts#rejection"
  

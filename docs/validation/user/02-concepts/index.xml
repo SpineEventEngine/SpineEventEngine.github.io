@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Concepts on Spine Event Engine</title><link>https://spine.io/docs/validation/user/02-concepts/</link><description>Recent content in Concepts on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://spine.io/docs/validation/user/02-concepts/index.xml" rel="self" type="application/rss+xml"/><item><title>Options overview</title><link>https://spine.io/docs/validation/user/02-concepts/options-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/02-concepts/options-overview/</guid><description>&lt;h1 id="options-overview" data-title&gt;
+Options overview&lt;/h1&gt;
+&lt;p&gt;Spine Validation rules are expressed as &lt;strong&gt;Protobuf options&lt;/strong&gt;.
+You annotate your &lt;code&gt;.proto&lt;/code&gt; model with built-in options, and the &lt;strong&gt;Validation Compiler&lt;/strong&gt;
+turns those option values into runtime checks in the generated Java code.&lt;/p&gt;
+&lt;p&gt;This page explains where the built-in options come from, how they are applied at build time,
+and what API you get at runtime.&lt;/p&gt;
+&lt;h2 id="where-options-come-from" data-title&gt;
+Where options come from&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#where-options-come-from
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;The built-in validation options are defined in &lt;code&gt;spine/options.proto&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Working with error messages</title><link>https://spine.io/docs/validation/user/02-concepts/error-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/02-concepts/error-messages/</guid><description>&lt;h1 id="working-with-error-messages" data-title&gt;
+Working with error messages&lt;/h1&gt;
+&lt;p&gt;When a message violates validation constraints, Spine Validation reports violations as
+&lt;code&gt;ConstraintViolation&lt;/code&gt; entries inside a &lt;code&gt;ValidationError&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Each violation contains a machine-friendly error message (&lt;code&gt;TemplateString&lt;/code&gt;) which you can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;format for end users,&lt;/li&gt;
+&lt;li&gt;log for diagnostics, and&lt;/li&gt;
+&lt;li&gt;customize in your &lt;code&gt;.proto&lt;/code&gt; model.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="where-error-messages-come-from" data-title&gt;
+Where error messages come from&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#where-error-messages-come-from
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Every built-in validation option defines a &lt;strong&gt;default&lt;/strong&gt; error message.
+These messages come as the value of the &lt;code&gt;default_message&lt;/code&gt; option declared for each option type.&lt;/p&gt;</description></item></channel></rss>

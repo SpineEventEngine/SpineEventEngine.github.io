@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introduction on Spine Event Engine</title><link>https://spine.io/docs/validation/user/00-intro/</link><description>Recent content in Introduction on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://spine.io/docs/validation/user/00-intro/index.xml" rel="self" type="application/rss+xml"/><item><title>Philosophy</title><link>https://spine.io/docs/validation/user/00-intro/philosophy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/00-intro/philosophy/</guid><description>&lt;h1 id="philosophy" data-title&gt;
+Philosophy&lt;/h1&gt;
+&lt;p&gt;Spine Validation is built on a small set of principles that shape how developers
+model, generate, and enforce constraints on their data.&lt;br&gt;
+This section outlines those principles and explains why the library is designed
+the way it is.&lt;/p&gt;
+&lt;h2 id="1-validation-belongs-to-the-model" data-title&gt;
+1. Validation belongs to the model&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#1-validation-belongs-to-the-model
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;In many systems, validation rules drift between:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UI forms,&lt;/li&gt;
+&lt;li&gt;REST controllers,&lt;/li&gt;
+&lt;li&gt;service layers,&lt;/li&gt;
+&lt;li&gt;persistence layers,&lt;/li&gt;
+&lt;li&gt;scattered hand-written validators.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Spine Validation takes the opposite approach:&lt;/p&gt;</description></item><item><title>Target audience</title><link>https://spine.io/docs/validation/user/00-intro/target-audience/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/00-intro/target-audience/</guid><description>&lt;h1 id="target-audience" data-title&gt;
+Target audience&lt;/h1&gt;
+&lt;p&gt;Spine Validation is designed for developers who model data and APIs using
+&lt;strong&gt;Protocol Buffers&lt;/strong&gt; and need a structured, type-safe way to express and enforce
+constraints on that data.&lt;/p&gt;
+&lt;p&gt;The library serves several overlapping groups:&lt;/p&gt;
+&lt;h2 id="1-application-developers" data-title&gt;
+1. Application developers&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#1-application-developers
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Developers building backend services in &lt;strong&gt;Java&lt;/strong&gt; or &lt;strong&gt;Kotlin&lt;/strong&gt; who need
+validation for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;incoming API requests (REST / gRPC),&lt;/li&gt;
+&lt;li&gt;commands and events,&lt;/li&gt;
+&lt;li&gt;domain objects stored in persistence,&lt;/li&gt;
+&lt;li&gt;user-generated data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These developers benefit from:&lt;/p&gt;</description></item></channel></rss>

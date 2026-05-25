@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Overview on Spine Event Engine</title><link>https://spine.io/docs/validation/user/05-custom-validation/</link><description>Recent content in Overview on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://spine.io/docs/validation/user/05-custom-validation/index.xml" rel="self" type="application/rss+xml"/><item><title>Declare the event and view state</title><link>https://spine.io/docs/validation/user/05-custom-validation/declare-event-and-view/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/declare-event-and-view/</guid><description>&lt;h1 id="declare-the-event-and-view-state" data-title&gt;
+Declare the event and view state&lt;/h1&gt;
+&lt;p&gt;After defining the option, declare the Protobuf types that track its discovery during
+compilation. This takes two parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;a domain event emitted by the &lt;code&gt;Reaction&lt;/code&gt; when a valid option application is found,&lt;/li&gt;
+&lt;li&gt;a &lt;code&gt;View&lt;/code&gt; state that persists the event data for the &lt;code&gt;Generator&lt;/code&gt; to query.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="declare-the-event" data-title&gt;
+Declare the event&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#declare-the-event
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;Reaction&lt;/code&gt; emits a domain event carrying all data that the &lt;code&gt;View&lt;/code&gt; and &lt;code&gt;Generator&lt;/code&gt; need. The event
+travels through the compilation bounded context, so it must be a proper Protobuf message.&lt;/p&gt;</description></item><item><title>Declare the option in Protobuf</title><link>https://spine.io/docs/validation/user/05-custom-validation/declare-the-option/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/declare-the-option/</guid><description>&lt;h1 id="declare-the-option-in-protobuf" data-title&gt;
+Declare the option in Protobuf&lt;/h1&gt;
+&lt;p&gt;Declaring a custom validation option requires two Protobuf declarations:
+a message that carries the option&amp;rsquo;s data, and an &lt;code&gt;extend&lt;/code&gt; block that
+registers it as a descriptor option.&lt;/p&gt;
+&lt;h2 id="declare-the-option-message" data-title&gt;
+Declare the option message&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#declare-the-option-message
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Define a Protobuf message to hold the option&amp;rsquo;s parameters.
+Use the &lt;code&gt;(default_message)&lt;/code&gt; option to set the error template rendered when the
+caller does not supply a custom &lt;code&gt;error_msg&lt;/code&gt;:&lt;/p&gt;</description></item><item><title>Implement the `Generator`</title><link>https://spine.io/docs/validation/user/05-custom-validation/implement-the-generator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/implement-the-generator/</guid><description>&lt;h1 id="implement-the-generator" data-title&gt;
+Implement the &lt;code&gt;Generator&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;Generator&lt;/code&gt; produces Java code for every application of the option within a compiled message
+type. The framework calls &lt;code&gt;codeFor&lt;/code&gt; once per message type and inlines each returned
+&lt;code&gt;SingleOptionCode&lt;/code&gt; into the generated &lt;code&gt;validate()&lt;/code&gt; method.&lt;/p&gt;
+&lt;h2 id="class-declaration" data-title&gt;
+Class declaration&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#class-declaration
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;internal&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WhenGenerator&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;OptionGeneratorWithConverter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use &lt;code&gt;OptionGeneratorWithConverter&lt;/code&gt; when your generated code needs to convert a Protobuf field
+value to a Java expression — for example, to format a field value as a JSON string in an error
+message. This base class injects a &lt;code&gt;JavaValueConverter&lt;/code&gt; that handles the conversion. Use the
+plain &lt;code&gt;OptionGenerator&lt;/code&gt; base class when no value conversion is needed.&lt;/p&gt;</description></item><item><title>Implement the `Reaction`</title><link>https://spine.io/docs/validation/user/05-custom-validation/implement-the-reaction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/implement-the-reaction/</guid><description>&lt;h1 id="implement-the-reaction" data-title&gt;
+Implement the &lt;code&gt;Reaction&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;Reaction&lt;/code&gt; is the entry point for option handling. It subscribes to
+&lt;code&gt;FieldOptionDiscovered&lt;/code&gt; events (or one of the other &lt;code&gt;*OptionDiscovered&lt;/code&gt; variants),
+filters them by option name, validates the option application, and emits a domain event
+when the option is applied correctly.&lt;/p&gt;
+&lt;h2 id="class-declaration" data-title&gt;
+Class declaration&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#class-declaration
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;internal&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WhenReaction&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Reaction&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;FieldOptionDiscovered&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The type parameter is the event the &lt;code&gt;Reaction&lt;/code&gt; listens to. For a field-level option, use
+&lt;code&gt;FieldOptionDiscovered&lt;/code&gt;. Other variants include &lt;code&gt;FileOptionDiscovered&lt;/code&gt;,
+&lt;code&gt;MessageOptionDiscovered&lt;/code&gt;, and &lt;code&gt;OneofOptionDiscovered&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Implement the `View`</title><link>https://spine.io/docs/validation/user/05-custom-validation/implement-the-view/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/implement-the-view/</guid><description>&lt;h1 id="implement-the-view" data-title&gt;
+Implement the &lt;code&gt;View&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;View&lt;/code&gt; is a Spine projection that persists the data emitted by the &lt;code&gt;Reaction&lt;/code&gt;.
+The &lt;code&gt;Generator&lt;/code&gt; queries the &lt;code&gt;View&lt;/code&gt; to obtain the information it needs to produce Java code.&lt;/p&gt;
+&lt;h2 id="class-declaration" data-title&gt;
+Class declaration&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#class-declaration
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;internal&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WhenFieldView&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;View&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;FieldRef&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;WhenField&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nc"&gt;WhenField&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Builder&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The three type parameters are:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Parameter&lt;/th&gt;
+ &lt;th&gt;Type&lt;/th&gt;
+ &lt;th&gt;Description&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;ID&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;FieldRef&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Entity identity; must match the &lt;code&gt;id&lt;/code&gt; field type in the Protobuf view state.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;State&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;WhenField&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;The generated Protobuf message that holds the accumulated data.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;Builder&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;WhenField.Builder&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;The corresponding Protobuf builder, used by the &lt;code&gt;alter { }&lt;/code&gt; DSL.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="subscriber-method" data-title&gt;
+Subscriber method&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#subscriber-method
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nd"&gt;@Subscribe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;fun&lt;/span&gt; &lt;span class="nf"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;WhenFieldDiscovered&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;alter&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;subject&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subject&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;errorMessage&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;errorMessage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;bound&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bound&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;@Subscribe&lt;/code&gt; annotation registers &lt;code&gt;on&lt;/code&gt; as the event handler. The &lt;code&gt;alter { }&lt;/code&gt; DSL block
+provides access to the state builder; any assignments inside the block are applied atomically
+when the block exits. One &lt;code&gt;@Subscribe&lt;/code&gt; method is required for each event type the &lt;code&gt;View&lt;/code&gt; handles.&lt;/p&gt;</description></item><item><title>Pass the option to the Compiler</title><link>https://spine.io/docs/validation/user/05-custom-validation/pass-to-compiler/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/pass-to-compiler/</guid><description>&lt;h1 id="pass-the-option-to-the-compiler" data-title&gt;
+Pass the option to the Compiler&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;JavaValidationPlugin&lt;/code&gt; — the Spine Compiler plugin that generates Java validation code —
+discovers &lt;code&gt;ValidationOption&lt;/code&gt; implementations via the Java &lt;code&gt;ServiceLoader&lt;/code&gt; mechanism. To be
+found, a &lt;code&gt;ValidationOption&lt;/code&gt; implementation must be present on the Compiler&amp;rsquo;s user classpath.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;io.spine.validation&lt;/code&gt; Gradle plugin places &lt;code&gt;JavaValidationPlugin&lt;/code&gt; itself on that classpath
+automatically. Adding your custom &lt;code&gt;ValidationOption&lt;/code&gt; requires one additional step.&lt;/p&gt;
+&lt;p&gt;There are two approaches:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Direct dependency&lt;/strong&gt; — add the implementation module to the &lt;code&gt;spineCompiler&lt;/code&gt; dependency
+configuration. Use this for a single project or a single module in a multi-module build.&lt;/p&gt;</description></item><item><title>Register the option</title><link>https://spine.io/docs/validation/user/05-custom-validation/register-the-option/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/register-the-option/</guid><description>&lt;h1 id="register-the-option" data-title&gt;
+Register the option&lt;/h1&gt;
+&lt;p&gt;Two registrations are required before the build plugin can use a custom option:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Register the Protobuf extension, so the descriptor machinery can resolve it at runtime.&lt;/li&gt;
+&lt;li&gt;Wire up the &lt;code&gt;Reaction&lt;/code&gt;, &lt;code&gt;View&lt;/code&gt;, and &lt;code&gt;Generator&lt;/code&gt; via &lt;code&gt;ValidationOption&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="register-the-proto-extension" data-title&gt;
+Register the proto extension&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#register-the-proto-extension
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Create a class that implements &lt;code&gt;OptionsProvider&lt;/code&gt; and annotate it with
+&lt;code&gt;@AutoService(OptionsProvider.class)&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;com.google.auto.service.AutoService&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;com.google.protobuf.ExtensionRegistry&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;io.spine.option.OptionsProvider&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nd"&gt;@AutoService&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OptionsProvider&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TimeOptionsProvider&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;implements&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OptionsProvider&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nd"&gt;@Override&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;registerIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ExtensionRegistry&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;registry&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;TimeOptionsProto&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;registerAllExtensions&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;registry&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Call &lt;code&gt;registerAllExtensions&lt;/code&gt; on the generated outer class of the &lt;code&gt;.proto&lt;/code&gt; file that contains
+the &lt;code&gt;extend&lt;/code&gt; block. The &lt;code&gt;java_outer_classname&lt;/code&gt; option in the proto file controls this class name
+(for example, &lt;code&gt;option java_outer_classname = &amp;quot;TimeOptionsProto&amp;quot;&lt;/code&gt;). Without this registration,
+the Protobuf runtime cannot deserialize the extension field and the option will be silently
+ignored.&lt;/p&gt;</description></item><item><title>Summary</title><link>https://spine.io/docs/validation/user/05-custom-validation/summary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/summary/</guid><description>&lt;h1 id="summary" data-title&gt;
+Summary&lt;/h1&gt;
+&lt;p&gt;This section walked through the complete workflow for adding a custom validation option to the
+Spine Validation library, from declaring the option in Protobuf to making it available to the
+Spine Compiler.&lt;/p&gt;
+&lt;h2 id="what-you-covered" data-title&gt;
+What you covered&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#what-you-covered
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://spine.io/docs/validation/user/05-custom-validation/declare-the-option/"
+ 
+ &gt;Declare the option in Protobuf&lt;/a&gt;&lt;/strong&gt; — define a Protobuf &lt;code&gt;extend&lt;/code&gt;
+block targeting a standard descriptor option type, with a unique field number and an error
+message template that supports named placeholders.&lt;/p&gt;</description></item></channel></rss>

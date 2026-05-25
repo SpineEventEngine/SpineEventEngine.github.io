@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Built-in options on Spine Event Engine</title><link>https://spine.io/docs/validation/user/03-built-in-options/</link><description>Recent content in Built-in options on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://spine.io/docs/validation/user/03-built-in-options/index.xml" rel="self" type="application/rss+xml"/><item><title>Field-level options</title><link>https://spine.io/docs/validation/user/03-built-in-options/field-level-options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/field-level-options/</guid><description>&lt;h1 id="field-level-options" data-title&gt;
+Field-level options&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Use this page when you want to validate a field by declaring options next to it in a &lt;code&gt;.proto&lt;/code&gt; file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="choose-an-option" data-title&gt;
+Choose an option&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#choose-an-option
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Require a value to be present: &lt;code&gt;(required)&lt;/code&gt;, customize with &lt;code&gt;(if_missing).error_msg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce a numeric boundary: &lt;code&gt;(min)&lt;/code&gt;, &lt;code&gt;(max)&lt;/code&gt;, or &lt;code&gt;(range)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce a string format: &lt;code&gt;(pattern).regex&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Validate a nested message: &lt;code&gt;(validate) = true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Require another field when this one is set: &lt;code&gt;(goes).with = &amp;quot;other_field&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Prevent reassignment: &lt;code&gt;(set_once) = true&lt;/code&gt;, customize with &lt;code&gt;(if_set_again).error_msg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For canonical definitions, see
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Options for `oneof` fields</title><link>https://spine.io/docs/validation/user/03-built-in-options/oneof-fields/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/oneof-fields/</guid><description>&lt;h1 id="options-for-oneof-fields" data-title&gt;
+Options for &lt;code&gt;oneof&lt;/code&gt; fields&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Use this page when you have a &lt;code&gt;oneof&lt;/code&gt; group and want to enforce that &lt;strong&gt;one of its cases is set&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For canonical definitions, see
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="required-selection-choice" data-title&gt;
+Required selection: &lt;code&gt;(choice)&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#required-selection-choice
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Use &lt;code&gt;(choice).required = true&lt;/code&gt; on a &lt;code&gt;oneof&lt;/code&gt; group to require selecting one of its fields.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Applies to&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;oneof&lt;/code&gt; groups (declared on the &lt;code&gt;oneof&lt;/code&gt; itself, not on a field inside it).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Minimal example&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Message-level options</title><link>https://spine.io/docs/validation/user/03-built-in-options/message-level-options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/message-level-options/</guid><description>&lt;h1 id="message-level-options" data-title&gt;
+Message-level options&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Use this page when message validity depends on &lt;strong&gt;multiple fields together&lt;/strong&gt;, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“At least one of these fields must be set.”&lt;/li&gt;
+&lt;li&gt;“Either this group of fields is set, or that group is set.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;For canonical definitions, see
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="field-group-requirements-require" data-title&gt;
+Field group requirements: &lt;code&gt;(require)&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#field-group-requirements-require
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Use &lt;code&gt;option (require).fields&lt;/code&gt; on a message to declare &lt;strong&gt;alternative groups&lt;/strong&gt; of required fields.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How to write the expression&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Options for `repeated` and `map` fields</title><link>https://spine.io/docs/validation/user/03-built-in-options/repeated-and-map-fields/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/repeated-and-map-fields/</guid><description>&lt;h1 id="options-for-repeated-and-map-fields" data-title&gt;
+Options for &lt;code&gt;repeated&lt;/code&gt; and &lt;code&gt;map&lt;/code&gt; fields&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;Use this page when you want to validate &lt;strong&gt;collections&lt;/strong&gt; declared as &lt;code&gt;repeated&lt;/code&gt; fields
+or &lt;code&gt;map&lt;/code&gt; fields.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="choose-an-option" data-title&gt;
+Choose an option&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#choose-an-option
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Require a collection to be non-empty: &lt;code&gt;(required) = true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce uniqueness: &lt;code&gt;(distinct) = true&lt;/code&gt;, customize with &lt;code&gt;(if_has_duplicates).error_msg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Validate nested message elements/values: &lt;code&gt;(validate) = true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce numeric constraints per element: &lt;code&gt;(min)&lt;/code&gt;, &lt;code&gt;(max)&lt;/code&gt;, &lt;code&gt;(range)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enforce a pattern per element: &lt;code&gt;(pattern).regex&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Require a companion field when the collection is present: &lt;code&gt;(goes).with = &amp;quot;other_field&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For canonical definitions, see
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

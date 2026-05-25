@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spine Validation on Spine Event Engine</title><link>https://spine.io/docs/validation/</link><description>Recent content in Spine Validation on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://spine.io/docs/validation/index.xml" rel="self" type="application/rss+xml"/><item><title>Adding a new built-in validation option</title><link>https://spine.io/docs/validation/developer/adding-a-built-in-option/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/adding-a-built-in-option/</guid><description>&lt;h1 id="adding-a-new-built-in-validationoption" data-title&gt;
+Adding a new built-in validation option&lt;/h1&gt;
+&lt;p&gt;This page is the contributor-side counterpart to the User&amp;rsquo;s Guide
+“&lt;a href="https://spine.io/docs/validation/user/05-custom-validation/"
+ 
+ &gt;Custom validation&lt;/a&gt;” section. Where that section explains how a
+&lt;em&gt;consumer&lt;/em&gt; wires a custom option into their own project, this page explains how a
+&lt;em&gt;contributor&lt;/em&gt; adds a new &lt;strong&gt;standard&lt;/strong&gt; option to the Validation library — one that ships in
+&lt;a href="https://github.com/SpineEventEngine/base-libraries/blob/master/base/src/main/proto/spine/options.proto"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;spine/options.proto&lt;/code&gt;&lt;/a&gt; and is recognised by every consumer of the library
+without further configuration.&lt;/p&gt;</description></item><item><title>Architecture</title><link>https://spine.io/docs/validation/developer/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/architecture/</guid><description>&lt;h1 id="architecture" data-title&gt;
+Architecture&lt;/h1&gt;
+&lt;p&gt;Spine Validation has two main responsibilities, and the codebase is organized around the
+boundary between them:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;At build time&lt;/strong&gt; — translate validation options declared in &lt;code&gt;.proto&lt;/code&gt; files into Java
+code that enforces those constraints inside the generated message and builder classes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;At runtime&lt;/strong&gt; — provide the small library of types that the generated code calls into
+to evaluate constraints and report violations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This page describes how the modules in this repository implement that split. For an
+inventory of every module, see “&lt;a href="https://spine.io/docs/validation/developer/key-modules/"
+ 
+ &gt;Key modules&lt;/a&gt;”.&lt;/p&gt;</description></item><item><title>Build, packaging, and release</title><link>https://spine.io/docs/validation/developer/build-and-release/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/build-and-release/</guid><description>&lt;h1 id="build-packaging-and-release" data-title&gt;
+Build, packaging, and release&lt;/h1&gt;
+&lt;p&gt;This page describes how the Gradle multi-project build is wired, what each
+publishable module produces, and how the resulting artifacts reach downstream
+consumers. It is the contributor-side counterpart to “&lt;a href="https://spine.io/docs/validation/user/01-getting-started/adding-to-build/"
+ 
+ &gt;Adding Validation to your
+build&lt;/a&gt;” in the User&amp;rsquo;s Guide:
+where that page shows how a &lt;em&gt;consumer&lt;/em&gt; applies the plugin, this page shows how
+the plugin and its dependencies are &lt;em&gt;produced&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;For day-to-day commands (&lt;code&gt;./gradlew build&lt;/code&gt;, &lt;code&gt;./gradlew dokka&lt;/code&gt;, …) see
+&lt;a href="https://github.com/SpineEventEngine/validation/blob/master/.agents/running-builds.md"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;running-builds.md&lt;/code&gt;&lt;/a&gt; in the &lt;code&gt;.agents/&lt;/code&gt; directory; this page
+focuses on the structure rather than the commands.&lt;/p&gt;</description></item><item><title>Extension points</title><link>https://spine.io/docs/validation/developer/extension-points/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/extension-points/</guid><description>&lt;h1 id="extension-points" data-title&gt;
+Extension points&lt;/h1&gt;
+&lt;p&gt;Spine Validation exposes two extension points.
+They sit on opposite sides of the compile-time / runtime split:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href="https://github.com/SpineEventEngine/validation/blob/master/java/src/main/kotlin/io/spine/tools/validation/java/ValidationOption.kt"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;ValidationOption&lt;/code&gt;&lt;/a&gt; SPI (build time) — adds a &lt;em&gt;new
+validation option&lt;/em&gt; with its own model, codegen, and runtime helpers.&lt;/li&gt;
+&lt;li&gt;The &lt;a href="https://github.com/SpineEventEngine/validation/blob/master/jvm-runtime/src/main/kotlin/io/spine/validation/MessageValidator.kt"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;MessageValidator&lt;/code&gt;&lt;/a&gt; SPI (runtime) — adds a &lt;em&gt;custom check on a
+specific message type&lt;/em&gt;, executed alongside the compiled constraints.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each surface has a corresponding User&amp;rsquo;s Guide section that explains how to &lt;em&gt;use&lt;/em&gt; it:
+“&lt;a href="https://spine.io/docs/validation/user/05-custom-validation/"
+ 
+ &gt;Custom validation&lt;/a&gt;” for &lt;code&gt;ValidationOption&lt;/code&gt;, and
+“&lt;a href="https://spine.io/docs/validation/user/04-validators/"
+ 
+ &gt;Using validators&lt;/a&gt;” for &lt;code&gt;MessageValidator&lt;/code&gt;. This page is the
+contributor-side view: what each surface guarantees, how discovery works, what an
+implementation may and may not do, and why.&lt;/p&gt;</description></item><item><title>Java code generation</title><link>https://spine.io/docs/validation/developer/java-code-generation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/java-code-generation/</guid><description>&lt;h1 id="java-code-generation" data-title&gt;
+Java code generation&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;:java&lt;/code&gt; module turns the populated projections produced by &lt;code&gt;:context&lt;/code&gt; (see
+“&lt;a href="https://spine.io/docs/validation/developer/validation-model/"
+ 
+ &gt;The validation model&lt;/a&gt;”) into Java code that is injected into
+Protobuf-generated message and builder classes. By the time the Spine Compiler invokes
+this module, every constraint discovered in the consumer&amp;rsquo;s &lt;code&gt;.proto&lt;/code&gt; files already lives
+in a view, and &lt;code&gt;:java&lt;/code&gt;&amp;rsquo;s job is to ask each view what it knows and translate that into
+Java.&lt;/p&gt;</description></item><item><title>Key Modules</title><link>https://spine.io/docs/validation/developer/key-modules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/key-modules/</guid><description>&lt;h1 id="key-modules" data-title&gt;
+Key modules&lt;/h1&gt;
+&lt;p&gt;This repository is a Gradle multi-project build. Module names below are shown as Gradle
+project paths like &lt;code&gt;:java&lt;/code&gt; and &lt;code&gt;:tests:vanilla&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="core-modules" data-title&gt;
+Core modules&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#core-modules
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:context&lt;/code&gt;&lt;/strong&gt;: Language-agnostic validation model and built-in option handling for views and reactions shared by language plugins.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:java&lt;/code&gt;&lt;/strong&gt;: Spine Compiler plugin for Java: generates/injects validation code; loads custom options via &lt;code&gt;ValidationOption&lt;/code&gt; SPI.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:jvm-runtime&lt;/code&gt;&lt;/strong&gt;: Runtime library used by generated code: &lt;code&gt;ValidationException&lt;/code&gt;, validation/constraint APIs, &lt;code&gt;MessageValidator&lt;/code&gt;, and error Protobuf types.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:java-bundle&lt;/code&gt;&lt;/strong&gt;: Fat JAR bundling &lt;code&gt;:java&lt;/code&gt; for distribution, which is the artifact typically used as the compiler plugin dependency.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:gradle-plugin&lt;/code&gt;&lt;/strong&gt;: The &lt;code&gt;io.spine.validation&lt;/code&gt; Gradle plugin that configures Spine Compiler to run the Validation compiler for consumer projects.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:docs&lt;/code&gt;&lt;/strong&gt;: Sources for the Hugo documentation site, scripts, and example projects used in docs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="test-modules" data-title&gt;
+Test modules&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#test-modules
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:context-tests&lt;/code&gt;&lt;/strong&gt;: &lt;a href="https://github.com/SpineEventEngine/ProtoTap"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;ProtoTap&lt;/a&gt;-based compilation tests for &lt;code&gt;:context&lt;/code&gt;, focusing on invalid option usage and error reporting.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests&lt;/code&gt;&lt;/strong&gt;: Parent project for integration tests that run the Compiler plugins and exercise generated code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:vanilla&lt;/code&gt;&lt;/strong&gt;: “Vanilla” integration tests: validation without any custom extensions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:extensions&lt;/code&gt;&lt;/strong&gt;: Example implementation of the &lt;code&gt;(currency)&lt;/code&gt; custom option used by test suites to verify custom reactions, views, and generators.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:consumer&lt;/code&gt;&lt;/strong&gt;: Integration tests for a consuming project that uses validation plus custom extensions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:consumer-dependency&lt;/code&gt;&lt;/strong&gt;: A dependency module with &lt;code&gt;.proto&lt;/code&gt; sources used by &lt;code&gt;:tests:consumer&lt;/code&gt; to verify “protos in dependencies” scenarios.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:validator&lt;/code&gt;&lt;/strong&gt;: Integration tests for custom &lt;code&gt;MessageValidator&lt;/code&gt;s discovered through &lt;code&gt;ServiceLoader&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:validator-dependency&lt;/code&gt;&lt;/strong&gt;: A dependency module used by &lt;code&gt;:tests:validator&lt;/code&gt; for validator-related dependency scenarios.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:runtime&lt;/code&gt;&lt;/strong&gt;: Tests focused on runtime behavior of validation APIs and error messages.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;:tests:validating&lt;/code&gt;&lt;/strong&gt;: Shared fixtures and tests for validation behavior across multiple scenarios, including &lt;code&gt;testFixtures&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Overview and audience</title><link>https://spine.io/docs/validation/developer/overview-and-audience/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/overview-and-audience/</guid><description>&lt;h1 id="overview-and-audience" data-title&gt;
+Overview and audience&lt;/h1&gt;
+&lt;p&gt;This guide is for contributors to Spine Validation and for readers who want a deep
+understanding of how the library works internally. It complements the User&amp;rsquo;s Guide,
+which targets consumers of the library: where the User&amp;rsquo;s Guide shows &lt;em&gt;how to use&lt;/em&gt;
+Validation, this guide shows &lt;em&gt;how Validation is built&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id="who-this-guide-is-for" data-title&gt;
+Who this guide is for&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#who-this-guide-is-for
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Read this guide if you are:&lt;/p&gt;</description></item><item><title>Runtime library</title><link>https://spine.io/docs/validation/developer/runtime-library/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/runtime-library/</guid><description>&lt;h1 id="runtime-library" data-title&gt;
+Runtime library&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;:jvm-runtime&lt;/code&gt; module is the only thing the generated validation code depends on at
+execution time. It is deliberately small: there is no rule engine, no descriptor scanning,
+and no reflection-driven dispatch. The module ships the contracts that generated message
+and builder classes implement, the Protobuf types used to describe violations, the
+exception raised when a &lt;code&gt;build()&lt;/code&gt; call fails, and a single registry through which custom
+validators reach generated code.&lt;/p&gt;</description></item><item><title>Testing strategy</title><link>https://spine.io/docs/validation/developer/testing-strategy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/testing-strategy/</guid><description>&lt;h1 id="testing-strategy" data-title&gt;
+Testing strategy&lt;/h1&gt;
+&lt;p&gt;The repository has a deliberately wide test layout: ten modules dedicated to tests
+(or to fixtures consumed by tests), plus per-module unit tests where they pay off.
+This is not over-engineering — each module isolates one concern that the others
+cannot exercise without polluting their own classpath. The compile-time/runtime
+split described in “&lt;a href="https://spine.io/docs/validation/developer/architecture/"
+ 
+ &gt;Architecture&lt;/a&gt;” is reflected in how the test
+modules are organised, and so is the built-in/custom split documented in
+“&lt;a href="https://spine.io/docs/validation/developer/extension-points/"
+ 
+ &gt;Extension points&lt;/a&gt;”.&lt;/p&gt;</description></item><item><title>The validation model</title><link>https://spine.io/docs/validation/developer/validation-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/validation-model/</guid><description>&lt;h1 id="the-validation-model" data-title&gt;
+The validation model&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;:context&lt;/code&gt; module is the language-agnostic half of the Compiler plugin. It does not
+emit code. It builds a description of the constraints declared in a set of &lt;code&gt;.proto&lt;/code&gt; files
+and exposes that description as a Bounded Context: an event-sourced model whose state can
+be queried by language-specific renderers.&lt;/p&gt;
+&lt;p&gt;A code-generating renderer in &lt;code&gt;:java&lt;/code&gt; (see “&lt;a href="https://spine.io/docs/validation/developer/java-code-generation/"
+ 
+ &gt;Java code generation&lt;/a&gt;”)
+consumes that state to produce validation logic. A renderer for another target language
+could consume the same state without changes to &lt;code&gt;:context&lt;/code&gt;.&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation process on Spine Event Engine</title><link>https://spine.io/docs/validation/developer/documentation/</link><description>Recent content in Documentation process on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://spine.io/docs/validation/developer/documentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Build tasks</title><link>https://spine.io/docs/validation/developer/documentation/build-tasks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/documentation/build-tasks/</guid><description>&lt;h1 id="build-tasks" data-title&gt;
+Build tasks&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;:docs&lt;/code&gt; subproject is configured in &lt;a href="https://github.com/SpineEventEngine/validation/blob/master/docs/build.gradle.kts"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;docs/build.gradle.kts&lt;/code&gt;&lt;/a&gt;.
+The tasks declared there are thin Gradle wrappers around shell scripts in
+&lt;code&gt;docs/_script/&lt;/code&gt; and the &lt;code&gt;embed-code-go&lt;/code&gt; binaries in &lt;code&gt;docs/_bin/&lt;/code&gt;. This page
+documents every task, what it does, where it lands its output, and how the
+tasks depend on each other.&lt;/p&gt;
+&lt;h2 id="working-directory-and-paths" data-title&gt;
+Working directory and paths&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#working-directory-and-paths
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;All shell scripts under &lt;code&gt;docs/_script/&lt;/code&gt; assume that &lt;code&gt;docs/&lt;/code&gt; is the current
+working directory. The Gradle tasks take care of this automatically — the
+&lt;code&gt;Exec&lt;/code&gt; tasks invoke each script with an absolute path under &lt;code&gt;$projectDir&lt;/code&gt;, so
+running them as &lt;code&gt;./gradlew :docs:&amp;lt;task&amp;gt;&lt;/code&gt; from the repository root works.&lt;/p&gt;</description></item><item><title>Embedded examples</title><link>https://spine.io/docs/validation/developer/documentation/embedded-examples/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/documentation/embedded-examples/</guid><description>&lt;h1 id="embedded-examples" data-title&gt;
+Embedded examples&lt;/h1&gt;
+&lt;p&gt;The documentation embeds snippets from real source files instead of copying their
+content into Markdown files. This keeps the snippets in lock-step with the code
+they document: when a method signature, a Protobuf option, or an example
+project file changes, the documentation either updates automatically (when
+&lt;code&gt;:docs:embedCode&lt;/code&gt; runs) or fails CI (when &lt;code&gt;:docs:checkSamples&lt;/code&gt; runs against
+a stale page). There are four source pools the documentation pulls from:&lt;/p&gt;</description></item><item><title>External tooling</title><link>https://spine.io/docs/validation/developer/documentation/tooling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/documentation/tooling/</guid><description>&lt;h1 id="external-tooling" data-title&gt;
+External tooling&lt;/h1&gt;
+&lt;p&gt;The documentation build leans on three external pieces of tooling: the
+&lt;a href="https://github.com/SpineEventEngine/site-commons"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;site-commons&lt;/code&gt;&lt;/a&gt; Hugo theme, the &lt;a href="https://github.com/SpineEventEngine/embed-code-go"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;embed-code-go&lt;/code&gt;&lt;/a&gt;
+tool, and the Hugo + Node toolchain that drives the static-site build. This
+page documents what each is, how it is wired into the build, and where it is
+pinned. The step-by-step recipes for updating each live in
+&amp;ldquo;&lt;a href="https://spine.io/docs/validation/developer/documentation/procedures/"
+ 
+ &gt;Procedures&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id="site-commons" data-title&gt;
+&lt;code&gt;site-commons&lt;/code&gt;&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#site-commons
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/SpineEventEngine/site-commons"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;site-commons&lt;/code&gt;&lt;/a&gt; is the shared Hugo theme and layout library
+used by the documentation sites of Spine projects. It provides the
+navigation chrome, the sidenav rendering that consumes the
+&lt;a href="https://github.com/SpineEventEngine/validation/blob/master/docs/data/docs/validation/2-0-0-snapshot/sidenav.yml"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;sidenav.yml&lt;/code&gt;&lt;/a&gt; files, code-highlighting partials, and other
+Hugo components that are common across Spine sites.&lt;/p&gt;</description></item><item><title>Procedures</title><link>https://spine.io/docs/validation/developer/documentation/procedures/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/developer/documentation/procedures/</guid><description>&lt;h1 id="procedures" data-title&gt;
+Procedures&lt;/h1&gt;
+&lt;p&gt;Each section below is an executable recipe. Unless stated otherwise, run
+commands from the repository root and prefix Gradle tasks with &lt;code&gt;./gradlew&lt;/code&gt;.
+The conceptual background for each procedure lives on the sibling pages:
+&amp;ldquo;&lt;a href="https://spine.io/docs/validation/developer/documentation/build-tasks/"
+ 
+ &gt;Build tasks&lt;/a&gt;&amp;rdquo;, &amp;ldquo;&lt;a href="https://spine.io/docs/validation/developer/documentation/embedded-examples/"
+ 
+ &gt;Embedded examples&lt;/a&gt;&amp;rdquo;,
+and &amp;ldquo;&lt;a href="https://spine.io/docs/validation/developer/documentation/tooling/"
+ 
+ &gt;External tooling&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id="incrementing-the-version-of-validation" data-title&gt;
+Incrementing the version of Validation&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#incrementing-the-version-of-validation
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Update the version literal in &lt;a href="https://github.com/SpineEventEngine/validation/blob/master/version.gradle.kts"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;&lt;code&gt;version.gradle.kts&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-kotlin" data-lang="kotlin"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;val&lt;/span&gt; &lt;span class="py"&gt;validationVersion&lt;/span&gt; &lt;span class="k"&gt;by&lt;/span&gt; &lt;span class="n"&gt;extra&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&amp;lt;new-version&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For the detailed instructions on selecting an increment,
+see the &lt;a href="https://github.com/SpineEventEngine/documentation/wiki/Versioning"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;Versioning policy&lt;/a&gt; of the Spine SDK.&lt;/p&gt;</description></item></channel></rss>
