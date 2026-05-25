@@ -1,11 +1,11 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -75,9 +75,11 @@ $(
 
             if (loaded === 'false') {
                 const repositoryUrl = clickedElement.attr(repoAttr);
+                clickedElement.attr(loadedAttr, 'loading');
                 const processLoadedContent = function (data) {
                     const html = converter.makeHtml(data);
-                    mdDestinationEl.html(html);
+                    const sanitized = typeof DOMPurify !== 'undefined' ? DOMPurify.sanitize(html) : html;
+                    mdDestinationEl.html(sanitized);
                     clickedElement.attr(loadedAttr, 'true');
                     makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
                 };
