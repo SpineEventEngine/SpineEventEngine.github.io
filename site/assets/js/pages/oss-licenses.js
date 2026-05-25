@@ -30,8 +30,9 @@
  * Loads markdown content from the dependency report files
  * via Spine public repositories.
  *
- * The script requires the `https://github.com/showdownjs/showdown`
- * library to be loaded on the page.
+ * The script requires both the `https://github.com/showdownjs/showdown`
+ * Markdown converter and the `https://github.com/cure53/DOMPurify`
+ * sanitizer to be loaded on the page before this script runs.
  *
  * See `layouts/_partials/oss-licenses/licenses.html` for usage.
  */
@@ -78,8 +79,7 @@ $(
                 clickedElement.attr(loadedAttr, 'loading');
                 const processLoadedContent = function (data) {
                     const html = converter.makeHtml(data);
-                    const sanitized = typeof DOMPurify !== 'undefined' ? DOMPurify.sanitize(html) : html;
-                    mdDestinationEl.html(sanitized);
+                    mdDestinationEl.html(DOMPurify.sanitize(html));
                     clickedElement.attr(loadedAttr, 'true');
                     makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
                 };
