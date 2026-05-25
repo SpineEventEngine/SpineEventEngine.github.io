@@ -5,7 +5,7 @@ This directory contains two live template groups:
 1. `Spine.xml`: shortcuts for the repeated patterns used in the framework.
 2. `User.xml`: a single shortcut to generate TODO comments.
 
-### Instlallation
+### Installation
 
 Live templates are not picked up by IDEA automatically. They should be added manually.
 In order to add these templates, perform the following steps:
