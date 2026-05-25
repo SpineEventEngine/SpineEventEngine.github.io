@@ -132,4 +132,4 @@ the [`AUTHORING.md`](AUTHORING.md) file.
 [site-commons]: https://github.com/SpineEventEngine/site-commons
 [hugo-modules]: https://gohugo.io/hugo-modules/introduction
 [embed-code]: https://github.com/SpineEventEngine/embed-code/tree/embed-code-go
-[documentation-repo]: https://github.com/SpineEventEngine/documentation.git
+[documentation-repo]: https://github.com/SpineEventEngine/documentation
