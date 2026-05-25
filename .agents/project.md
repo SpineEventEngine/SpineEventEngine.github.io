@@ -22,7 +22,7 @@ wrapper only** — no JVM compilation happens here.
 - `config/` — the only git submodule, pointing at
   [`SpineEventEngine/config`][config] (shared Spine build conventions).
 - `build.gradle.kts` — exposes shell-backed tasks:
-  `:runSite`, `:buildSite`, `:checkLinks`, and a composite `:buildAll`.
+  `:runSite`, `:buildSite`, and `:checkLinks`.
 
 **External pieces (consumed, not vendored)**
 

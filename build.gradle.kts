@@ -24,42 +24,19 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * Builds and runs the site locally.
- */
 tasks.register<Exec>("runSite") {
     description = "Builds and runs the site locally." +
             " The server is available at http://localhost:1313/ or other port."
     commandLine("./_script/hugo-serve")
 }
 
-/**
- * Builds the site without starting the server.
- */
 tasks.register<Exec>("buildSite") {
     description = "Builds the site without starting the server." +
             " The generated files are located in the `public` directory."
     commandLine("./_script/hugo-build")
 }
 
-/**
- * Verifies that the external links used by the site are available.
- */
 tasks.register<Exec>("checkLinks") {
     description = "Verifies that the external links used by the site are available."
     commandLine("./_script/proof-links")
-}
-
-/**
- * Builds all included projects via depending on the top-level "buildAll" tasks
- * declared in these projects.
- *
- * @see https://discuss.gradle.org/t/defining-a-composite-build-only-to-build-all-subprojects/25070/6
- * @see https://github.com/AlexMAS/gradle-composite-build-example
- * @see https://docs.gradle.org/current/userguide/composite_builds.html
- */
-tasks.register("buildAll")  {
-    description = "Builds all included projects via depending on the top-level" +
-            " \"buildAll\" tasks declared in these projects."
-    dependsOn(gradle.includedBuilds.map { it.task(":buildAll") })
 }
