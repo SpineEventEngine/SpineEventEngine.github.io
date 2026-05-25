@@ -1,11 +1,11 @@
 /*
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -30,17 +30,18 @@
  * Loads markdown content from the dependency report files
  * via Spine public repositories.
  *
- * The script requires the `https://github.com/showdownjs/showdown`
- * library to be loaded on the page.
+ * The script requires both the `https://github.com/showdownjs/showdown`
+ * Markdown converter and the `https://github.com/cure53/DOMPurify`
+ * sanitizer to be loaded on the page before this script runs.
  *
  * See `layouts/_partials/oss-licenses/licenses.html` for usage.
  */
 $(
     function() {
         const converter = new showdown.Converter({ sanitize: true });
-        const loadedAttr = 'loaded';
-        const repoAttr = 'repo';
-        const repoName = 'repo-name';
+        const loadedAttr = 'data-loaded';
+        const repoAttr = 'data-repo';
+        const repoName = 'data-repo-name';
 
         // Spine repositories are being migrated to keeping their dependency reports under `docs/dependencies/`.
         const reportFilePath = '/master/docs/dependencies/dependencies.md';
@@ -75,9 +76,10 @@ $(
 
             if (loaded === 'false') {
                 const repositoryUrl = clickedElement.attr(repoAttr);
+                clickedElement.attr(loadedAttr, 'loading');
                 const processLoadedContent = function (data) {
                     const html = converter.makeHtml(data);
-                    mdDestinationEl.html(html);
+                    mdDestinationEl.html(DOMPurify.sanitize(html));
                     clickedElement.attr(loadedAttr, 'true');
                     makeCollapsibleTitle(mdDestinationEl, clickedElRepoName);
                 };
@@ -90,9 +92,8 @@ $(
 
                 const tryNext = function (index) {
                     if (index >= candidateUrls.length) {
-                        mdDestinationEl.html('<p>Could not load dependency report.</p>');
-                        // Mark as resolved to avoid re-firing all requests on the next click.
-                        clickedElement.attr(loadedAttr, 'error');
+                        mdDestinationEl.html('<p>Could not load dependency report. Click to retry.</p>');
+                        clickedElement.attr(loadedAttr, 'false');
                         return;
                     }
                     $.get(candidateUrls[index], processLoadedContent)
