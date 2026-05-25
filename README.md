@@ -7,13 +7,13 @@ It is based on [Hugo](https://gohugo.io/) and is hosted on
 
 This project is two-headed:
   * It is a Hugo project.
-  * It is a Gradle project to for checking the source code embedded to the site.   
+  * It is a Gradle project that exposes convenience tasks for building, serving,
+    and link-checking the site.
 
-The code samples used on the site and in the framework documentation are added using
-the [`embed-code`][embed-code] tool (Go version).
-
-The code resides under the `_code` directory. For instructions on embedding the code
-into the pages, please see the [`_code/EMBEDDING.md`](_code/EMBEDDING.md) file. 
+Code snippets shown on the rendered site are embedded inside the
+[`documentation`][documentation-repo] repository (via the
+[`embed-code`][embed-code] Go tool) before its content is pulled into this site
+as a Hugo Module. This repository does not invoke `embed-code` itself.
 
 ## Prerequisites
 

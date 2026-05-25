@@ -19,23 +19,18 @@ wrapper only** — no JVM compilation happens here.
 **Composition**
 
 - `site/` — the Hugo project (config, layouts, assets, content shell).
-- `_code/` — code samples consumed by the [`embed-code`][embed-code] Go tool
-  and injected into pages at build time. See
-  [`_code/EMBEDDING.md`](../_code/EMBEDDING.md).
-- `_code/examples/{hello,airport,blog,kanban,todo-list}` — git submodules,
-  one per `spine-examples/*` repo.
-- `config/` — git submodule pointing at [`SpineEventEngine/config`][config].
+- `config/` — the only git submodule, pointing at
+  [`SpineEventEngine/config`][config] (shared Spine build conventions).
 - `build.gradle.kts` — exposes shell-backed tasks:
   `:runSite`, `:buildSite`, `:checkLinks`, and a composite `:buildAll`.
 
 **External pieces (consumed, not vendored)**
 
 - [`documentation`][documentation] — pulled in as a Hugo Module; provides the
-  documentation content.
+  documentation content. Code snippets shown on the rendered site are
+  embedded *there* (via `embed-code`) before being pulled in as a module.
 - [`site-commons`][site-commons] — Hugo theme module shared across Spine
   public sites (anchor icons, snackbars, etc.).
-- [`embed-code`][embed-code] (Go variant) — embeds snippets from `_code/`
-  into Markdown pages.
 
 **CI / deployment** (`.github/workflows/`)
 
@@ -52,9 +47,9 @@ wrapper only** — no JVM compilation happens here.
 - **Hugo Extended version is pinned.** Use `v0.161.1` or higher of the
   *Extended* build. A mismatched/non-extended Hugo will break the theme
   pipeline and SCSS.
-- **Submodules are pinned to specific commits.** Do not bump
-  `_code/examples/*` or `config/` outside a dedicated update task — drive-by
-  pointer changes silently alter embedded snippets and rendered pages.
+- **The `config/` submodule is pinned to a specific commit.** Do not bump
+  it outside a dedicated update task — drive-by pointer changes silently
+  alter shared Spine build conventions.
 - **Documentation content lives in the [`documentation`][documentation]
   repo, not here.** Edits to documentation pages must be made there (or in
   the relevant doc module). This repo only owns the site shell, landing
@@ -91,10 +86,11 @@ verify the flow end-to-end, not just the rendered markup.
 ## Authoring
 
 - Content authoring conventions: [`AUTHORING.md`](../AUTHORING.md).
-- Embedding code samples into pages: [`_code/EMBEDDING.md`](../_code/EMBEDDING.md).
+- Embedding code samples into pages happens in the
+  [`documentation`][documentation] repo, not here — see its
+  [`EMBEDDING.md`](https://github.com/SpineEventEngine/documentation/blob/master/EMBEDDING.md).
 
 [hugo]: https://gohugo.io/getting-started/quick-start/#step-1-install-hugo
 [documentation]: https://github.com/SpineEventEngine/documentation
 [site-commons]: https://github.com/SpineEventEngine/site-commons
-[embed-code]: https://github.com/SpineEventEngine/embed-code/tree/embed-code-go
 [config]: https://github.com/SpineEventEngine/config
