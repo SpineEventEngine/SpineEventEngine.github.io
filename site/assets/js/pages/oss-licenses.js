@@ -39,9 +39,9 @@
 $(
     function() {
         const converter = new showdown.Converter({ sanitize: true });
-        const loadedAttr = 'loaded';
-        const repoAttr = 'repo';
-        const repoName = 'repo-name';
+        const loadedAttr = 'data-loaded';
+        const repoAttr = 'data-repo';
+        const repoName = 'data-repo-name';
 
         // Spine repositories are being migrated to keeping their dependency reports under `docs/dependencies/`.
         const reportFilePath = '/master/docs/dependencies/dependencies.md';

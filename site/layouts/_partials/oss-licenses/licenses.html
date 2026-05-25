@@ -32,9 +32,9 @@
             {{ $repo := .repo_name }}
             {{ $id := print "md-destination-" $repo }}
             <a class="collapsible-panel-title collapsed"
-               repo="{{ $githubBase }}{{ $repo }}"
-               repo-name="{{ $repo }}"
-               loaded="false"
+               data-repo="{{ $githubBase }}{{ $repo }}"
+               data-repo-name="{{ $repo }}"
+               data-loaded="false"
                href="#{{ $id }}"
                data-bs-toggle="collapse"
                aria-expanded="false"
@@ -51,11 +51,9 @@ to prevent XSS when injecting remote Markdown as HTML. -->
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.5/dist/purify.min.js"
         integrity="sha384-7FXQySTrDscwsLx1i8RIqZM/JHoUVstx4CuL2b7tziI4Glhp3/3dm/j3qUTheVXE"
         crossorigin="anonymous"
-        type="text/javascript"
-        charset="utf-8"></script>
+        type="text/javascript"></script>
 
 <!-- The JavaScript Markdown to HTML converter.
 Used in the `assets/js/pages/oss-licenses.js`. -->
 <script src="https://cdn.rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js"
-        type="text/javascript"
-        charset="utf-8"></script>
+        type="text/javascript"></script>
