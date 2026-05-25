@@ -18,7 +18,7 @@ as a Hugo Module. This repository does not invoke `embed-code` itself.
 ## Prerequisites
 
 1. JDK 17+.
-2. [Go][go] `1.12` or newer.
+2. [Go][go] `1.22` or newer.
 3. [Node.js][nodejs] `18+`.
 4. [Hugo Extended][hugo-quick-start] in version `v0.161.1` or higher.
 
