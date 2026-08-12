@@ -1,6 +1,6 @@
 ---
-title: Checkout Completed
-description: Thank you page about completed checkout.
+title: Payment Result
+description: Current payment result for a checkout order.
 body_class: checkout-page
 header_type: fixed-header
 sitemap:

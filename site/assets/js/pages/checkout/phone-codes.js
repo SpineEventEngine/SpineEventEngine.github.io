@@ -58,3 +58,16 @@ export const euCountryPhoneCodes = {
     ES: '34',
     SE: '46'
 };
+
+/**
+ * Checks whether the country supports EU VAT ID entry.
+ *
+ * @param {string} countryCode ISO country code
+ * @return {boolean} true for an EU member country
+ */
+export function isEuCountry(countryCode) {
+    return Object.prototype.hasOwnProperty.call(
+        euCountryPhoneCodes,
+        String(countryCode || '').trim().toUpperCase()
+    );
+}

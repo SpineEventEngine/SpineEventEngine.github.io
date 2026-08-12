@@ -29,6 +29,8 @@
 import * as params from '@params';
 import {createPurchaseClient} from 'js/modules/paygate/purchases';
 import {createChargeController} from 'js/pages/checkout/charge-controller';
+import {getCompletedPageUrl} from 'js/pages/checkout/completed-page-url';
+import {populateCountrySelect} from 'js/pages/checkout/countries';
 import {getCheckoutDom} from 'js/pages/checkout/dom';
 import {createCheckoutFormController} from 'js/pages/checkout/form-controller';
 import {createCheckoutView} from 'js/pages/checkout/view-controller';
@@ -43,6 +45,7 @@ $(
             return;
         }
 
+        populateCountrySelect(dom.$country.get(0));
         const purchaseClient = createPurchaseClient(params.payment.paygateurl);
         const orderId = getOrderId();
         const view = createCheckoutView(dom);
@@ -54,7 +57,7 @@ $(
             view,
             ensureOrderId: () => Promise.resolve(orderId),
             getBuyerCountryCode: () => dom.$country.val(),
-            getVatId: () => (dom.$vatId.val() || '').trim(),
+            getVatId: formController.getVatId,
             onFieldValidationStateChange: state => {
                 formController.setFieldValidationState(dom.$vatId.get(0), state);
             },
@@ -63,7 +66,7 @@ $(
         });
 
         if (!orderId) {
-            redirectToGettingHelp();
+            view.showMissingOrderView();
             return;
         }
 
@@ -95,7 +98,7 @@ $(
             });
 
             $(window).on('pageshow', () => {
-                scheduleRestoredVatResume();
+                scheduleCurrentChargeCalculation();
             });
 
             dom.$country.on('change', () => {
@@ -142,11 +145,22 @@ $(
 
             try {
                 const order = await purchaseClient.getOrder(orderId);
+
+                if (order.completed) {
+                    const completedPageUrl = getCompletedPageUrl(
+                        window.location.href,
+                        orderId
+                    );
+                    if (completedPageUrl) {
+                        window.location.replace(completedPageUrl);
+                        return;
+                    }
+                }
+
                 view.fillOrderSummary(order);
-                view.setSummaryLoading(false);
-                dom.$form.prop('hidden', false);
+                view.showCheckoutView();
                 chargeController.updateSubmitState();
-                scheduleRestoredVatResume();
+                scheduleCurrentChargeCalculation();
             } catch (error) {
                 if (error.status === 404) {
                     chargeController.invalidate();
@@ -203,13 +217,6 @@ $(
         }
 
         /**
-         * Redirects visitors with incomplete checkout links to the help page.
-         */
-        function redirectToGettingHelp() {
-            window.location.replace('/getting-help');
-        }
-
-        /**
          * Logs API failures in a compact and consistent format.
          *
          * @param {Object|Error} error request error to log
@@ -222,21 +229,17 @@ $(
         }
 
         /**
-         * Schedules one pass that resumes charge calculation from browser-restored VAT data.
+         * Schedules one charge calculation after browser-restored fields settle.
          */
-        function scheduleRestoredVatResume() {
-            window.setTimeout(resumeChargesFromRestoredVatId, 0);
+        function scheduleCurrentChargeCalculation() {
+            window.setTimeout(requestCurrentCharges, 0);
         }
 
         /**
-         * Restarts charge calculation when the browser already restored VAT ID into the field.
+         * Calculates charges when a billing country is currently selected.
          */
-        function resumeChargesFromRestoredVatId() {
+        function requestCurrentCharges() {
             if (view.isFormHidden()) {
-                return;
-            }
-
-            if (!(dom.$vatId.val() || '').trim()) {
                 return;
             }
 

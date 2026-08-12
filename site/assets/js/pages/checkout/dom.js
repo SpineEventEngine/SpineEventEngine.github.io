@@ -53,6 +53,7 @@
  * @property {JQuery<HTMLElement>} $totalValue total amount element
  * @property {JQuery<HTMLButtonElement>} $submitButton checkout submit button
  * @property {JQuery<HTMLElement>} $errorModal generic checkout error modal
+ * @property {JQuery<HTMLElement>} $missingOrder missing-order result panel
  * @property {JQuery<HTMLElement>} $notFound order-not-found result panel
  * @property {JQuery<HTMLElement>} $summaryError generic checkout summary-error panel
  * @property {HTMLFormElement} form native checkout form element
@@ -86,6 +87,7 @@ export function getCheckoutDom() {
         $totalValue: $('#checkout-total-value'),
         $submitButton: $('#checkout-submit'),
         $errorModal: $('#checkout-error-modal'),
+        $missingOrder: $('#checkout-missing-order'),
         $notFound: $('#checkout-not-found'),
         $summaryError: $('#checkout-summary-error')
     };

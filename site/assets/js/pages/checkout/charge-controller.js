@@ -33,6 +33,7 @@
  */
 
 import {createDelayedRequestController} from 'js/pages/checkout/delayed-request-controller';
+import {buildChargeRequest} from 'js/pages/checkout/charge-request';
 import {fieldValidationState} from 'js/pages/checkout/form-controller';
 
 /**
@@ -128,9 +129,9 @@ export function createChargeController(
      * @param {boolean} state.isRequesting whether a charge request is currently in flight
      */
     function updateVatIdState({hasCurrentResult, isRequesting}) {
-        const hasRequestKey = Boolean(getRequestKey());
+        const hasVatId = Boolean(getVatId());
 
-        if (!hasRequestKey) {
+        if (!hasVatId) {
             onFieldValidationStateChange(fieldValidationState.idle);
             return;
         }
@@ -155,15 +156,12 @@ export function createChargeController(
         const buyerCountryCode = getBuyerCountryCode();
         const vatId = getVatId();
 
-        if (!orderId || !buyerCountryCode || !vatId) {
+        const payload = buildChargeRequest(orderId, buyerCountryCode, vatId);
+        if (!payload) {
             return null;
         }
 
-        return purchaseClient.calculateCharges({
-            orderId,
-            buyerCountryCode,
-            vatId
-        });
+        return purchaseClient.calculateCharges(payload);
     }
 
     /**
@@ -175,9 +173,7 @@ export function createChargeController(
         const buyerCountryCode = getBuyerCountryCode();
         const vatId = getVatId();
 
-        return buyerCountryCode && vatId
-            ? [buyerCountryCode, vatId].join(':')
-            : '';
+        return buyerCountryCode ? [buyerCountryCode, vatId].join(':') : '';
     }
 
     /**
@@ -212,7 +208,7 @@ export function createChargeController(
      * @return {boolean} true when the error is a Paygate VAT validation response
      */
     function isVatErrorResponse(error) {
-        return error.status === 422 && Boolean(error.body.vatIdInvalid);
+        return error.status === 422 && Boolean(error.body && error.body.vatIdInvalid);
     }
 
     /**

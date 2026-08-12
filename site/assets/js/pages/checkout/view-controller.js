@@ -46,6 +46,10 @@
  *   shows or hides the summary loading state
  * @property {function(): void} showErrorModal
  *   opens the generic checkout error modal
+ * @property {function(): void} showCheckoutView
+ *   shows a resolved order summary and its billing form
+ * @property {function(): void} showMissingOrderView
+ *   shows the missing-order result panel
  * @property {function(): void} showNotFoundView
  *   shows the checkout order-not-found panel
  * @property {function(): void} showSummaryError
@@ -68,7 +72,9 @@ export function createCheckoutView(dom) {
      * @param {boolean} isDisabled whether submit should be disabled
      */
     function setSubmitDisabled(isDisabled) {
-        dom.$submitButton.prop('disabled', isDisabled);
+        dom.$submitButton
+            .prop('disabled', isDisabled)
+            .toggleClass('disabled', isDisabled);
     }
 
     /**
@@ -124,13 +130,12 @@ export function createCheckoutView(dom) {
      * @param {boolean} isLoading whether the summary should show the loading state
      */
     function setSummaryLoading(isLoading) {
-        dom.$summary.attr('data-loading', isLoading ? 'true' : 'false');
-        dom.$summary.attr('data-error', 'false');
-        dom.$summary.prop('hidden', false);
+        dom.$summary.prop('hidden', isLoading);
         dom.$loading.prop('hidden', !isLoading);
         dom.$loadingSpinner.prop('hidden', !isLoading);
         dom.$loadingSupport.prop('hidden', true);
         dom.$form.prop('hidden', isLoading);
+        dom.$missingOrder.prop('hidden', true);
         dom.$notFound.prop('hidden', true);
         dom.$summaryError.prop('hidden', true);
 
@@ -143,11 +148,34 @@ export function createCheckoutView(dom) {
      * Shows the generic summary error panel inside the checkout page.
      */
     function showSummaryError() {
-        dom.$summary.attr('data-error', 'true');
+        dom.$loading.prop('hidden', true);
+        dom.$summary.prop('hidden', true);
+        dom.$form.prop('hidden', true);
+        dom.$missingOrder.prop('hidden', true);
+        dom.$notFound.prop('hidden', true);
+        dom.$summaryError.prop('hidden', false);
+    }
+
+    /** Shows the resolved order summary and billing form. */
+    function showCheckoutView() {
+        closeErrorModal();
+        dom.$loading.prop('hidden', true);
+        dom.$summary.prop('hidden', false);
+        dom.$form.prop('hidden', false);
+        dom.$missingOrder.prop('hidden', true);
+        dom.$notFound.prop('hidden', true);
+        dom.$summaryError.prop('hidden', true);
+    }
+
+    /** Shows the missing-order result panel. */
+    function showMissingOrderView() {
+        closeErrorModal();
+        dom.$loading.prop('hidden', true);
         dom.$summary.prop('hidden', true);
         dom.$form.prop('hidden', true);
         dom.$notFound.prop('hidden', true);
-        dom.$summaryError.prop('hidden', false);
+        dom.$summaryError.prop('hidden', true);
+        dom.$missingOrder.prop('hidden', false);
     }
 
     /**
@@ -169,8 +197,10 @@ export function createCheckoutView(dom) {
      */
     function showNotFoundView() {
         closeErrorModal();
+        dom.$loading.prop('hidden', true);
         dom.$summary.prop('hidden', true);
         dom.$form.prop('hidden', true);
+        dom.$missingOrder.prop('hidden', true);
         dom.$summaryError.prop('hidden', true);
         dom.$notFound.prop('hidden', false);
     }
@@ -210,7 +240,9 @@ export function createCheckoutView(dom) {
         isFormHidden,
         setSubmitDisabled,
         setSummaryLoading,
+        showCheckoutView,
         showErrorModal,
+        showMissingOrderView,
         showNotFoundView,
         showSummaryError,
         updateCharges

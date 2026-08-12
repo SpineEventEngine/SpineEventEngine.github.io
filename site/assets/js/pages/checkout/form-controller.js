@@ -26,7 +26,10 @@
 
 'use strict';
 
-import {euCountryPhoneCodes} from 'js/pages/checkout/phone-codes';
+import {
+    euCountryPhoneCodes,
+    isEuCountry
+} from 'js/pages/checkout/phone-codes';
 import {
     normalizePhoneNumber,
     sanitizePhoneNumberInput
@@ -61,6 +64,8 @@ export const fieldValidationState = Object.freeze({
  *   buildSubmitBillingInfoRequest builds the billing-info payload for Paygate
  * @property {function(): void} focusPhoneNumber
  *   focuses the phone number input when a country is selected
+ * @property {function(): string} getVatId
+ *   returns VAT ID only when it applies to the selected country
  * @property {function(HTMLElement, string): void} setFieldValidationState
  *   updates generic async field validation styling
  * @property {function(string): void} showVatIdError
@@ -117,6 +122,11 @@ export function createCheckoutFormController({dom}) {
             return true;
         }
 
+        if (field.disabled || field.closest('[hidden]')) {
+            setFieldError(field, '');
+            return true;
+        }
+
         const value = field.value ? field.value.trim() : '';
         let message = '';
 
@@ -136,6 +146,9 @@ export function createCheckoutFormController({dom}) {
      * @param {string} reason paygate VAT ID error reason
      */
     function showVatIdError(reason) {
+        if (!isVatIdRelevant()) {
+            return;
+        }
         setFieldError(dom.$vatId.get(0), vatIdErrorMessage(reason));
     }
 
@@ -146,6 +159,9 @@ export function createCheckoutFormController({dom}) {
      * @param {string} state async validation state
      */
     function setFieldValidationState(field, state) {
+        if (state === fieldValidationState.success) {
+            setFieldError(field, '');
+        }
         applyFieldValidationState(field, state);
     }
 
@@ -154,9 +170,35 @@ export function createCheckoutFormController({dom}) {
      */
     function updateVatIdFieldState() {
         const field = dom.$vatId.get(0);
-        const vatId = (dom.$vatId.val() || '').trim();
+        const fieldContainer = field && field.closest('.form-field');
+        const isRelevant = isVatIdRelevant();
 
-        vatId ? validateField(field) : setFieldError(field, '');
+        if (!field || !fieldContainer) {
+            return;
+        }
+
+        field.disabled = !isRelevant;
+        fieldContainer.hidden = !isRelevant;
+
+        if (!isRelevant) {
+            dom.$vatId.val('');
+            setFieldError(field, '');
+            applyFieldValidationState(field, fieldValidationState.idle);
+            return;
+        }
+
+        setFieldError(field, '');
+    }
+
+    /**
+     * Returns VAT ID only when it applies to the selected billing country.
+     *
+     * @return {string} VAT ID, or an empty string when VAT ID is not applicable
+     */
+    function getVatId() {
+        return isVatIdRelevant()
+            ? String(dom.$vatId.val() || '').trim()
+            : '';
     }
 
     /**
@@ -169,7 +211,7 @@ export function createCheckoutFormController({dom}) {
         const formData = Object.fromEntries(new FormData(dom.form).entries());
         const field = name => (formData[name] || '').trim();
         const companyName = field('company');
-        const vatId = field('vat_id');
+        const vatId = getVatId();
         const fullName = [field('first_name'), field('last_name')]
             .filter(Boolean)
             .join(' ') || companyName;
@@ -177,6 +219,10 @@ export function createCheckoutFormController({dom}) {
             formData.phone_country_code || '',
             formData.phone_number || ''
         );
+        const company = companyName || vatId ? {
+            ...(companyName ? {name: companyName} : {}),
+            ...(vatId ? {vatId} : {})
+        } : null;
         const billingInfo = {
             name: fullName,
             email: field('email'),
@@ -186,10 +232,7 @@ export function createCheckoutFormController({dom}) {
                 street: joinAddressLines(formData.address_line_1, formData.address_line_2),
                 postalCode: field('postal_code')
             },
-            company: companyName ? {
-                name: companyName,
-                vatId
-            } : null
+            company
         };
 
         if (phoneNumber) {
@@ -465,7 +508,16 @@ export function createCheckoutFormController({dom}) {
      * @return {boolean} true when the select has an option for the country code
      */
     function hasCountryOption(countryCode) {
-        return dom.$country.find(`option[value="${countryCode}"]`).length > 0;
+        const countryField = dom.$country.get(0);
+        return Boolean(
+            countryField && Array.from(countryField.options)
+                .some(option => option.value === countryCode)
+        );
+    }
+
+    /** Checks whether the selected billing country supports VAT ID entry. */
+    function isVatIdRelevant() {
+        return isEuCountry(dom.$country.val());
     }
 
     /**
@@ -497,6 +549,7 @@ export function createCheckoutFormController({dom}) {
         bindPhoneEvents,
         buildSubmitBillingInfoRequest,
         focusPhoneNumber,
+        getVatId,
         setFieldValidationState,
         showVatIdError,
         updatePhoneCountryDisplay,

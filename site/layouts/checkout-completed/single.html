@@ -1,28 +1,109 @@
 {{ define "main" }}
     {{ partial "components/navbar/navbar.html" . }}
-    <section class="checkout checkout-completed">
-        <div class="container-fluid content-holder content-with-fixed-header">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="article-container article-text">
+    {{ $email := hugo.Data.emails.sales_email }}
+    <section class="checkout checkout-completed" data-payment-status-page>
+        <div class="checkout-frame content-with-fixed-header">
+            <div class="checkout-panel">
+                <div class="content-holder">
+                    <div class="checkout-loading checkout-result-loading"
+                         id="payment-in-progress"
+                         role="status"
+                         aria-live="polite"
+                         hidden>
+                        <div class="checkout-loading-spinner" aria-hidden="true"></div>
+                        <h1 class="checkout-result-title">Transaction in progress...</h1>
+                        <p>
+                            <span>We are confirming the final payment status.</span>
+                            <span>This page will update automatically.</span>
+                        </p>
+                    </div>
+                    <div id="payment-completed" hidden>
                         {{ partial "components/result-panel.html" (dict
-                            "title" "Thank you for your purchase"
+                            "title" "Thank you for your purchase!"
                             "title_as_h1" true
-                            "mark" (dict
-                                "icon_class" "result-panel-mark-success"
-                            )
+                            "mark" (dict "icon_class" "result-panel-mark-success")
                             "lines" (slice
-                                "Your payment was completed successfully."
+                                "Your payment was successful."
                                 "We will send the order details to your email."
+                                (printf "If you have any questions, email us at %s." $email)
                             )
-                            "action" (dict
-                                "label" "Back to home"
-                                "url" site.Home.RelPermalink
+                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                        ) }}
+                    </div>
+                    <div id="payment-failed" hidden>
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Payment was not completed"
+                            "title_as_h1" true
+                            "lines" (slice
+                                "Your payment was not completed successfully."
+                                "Please try again or contact your bank for details."
+                                (printf "If you have any questions, email us at %s." $email)
                             )
+                            "action" (dict "label" "Back to checkout" "url" "#")
+                        ) }}
+                    </div>
+                    <div id="payment-refunded" hidden>
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Your payment was refunded"
+                            "title_as_h1" true
+                            "lines" (slice
+                                "A refund was issued to your original payment method."
+                                (printf "If you have any questions, email us at %s." $email)
+                            )
+                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                        ) }}
+                    </div>
+                    <div id="payment-charged-back" hidden>
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Your payment was reversed"
+                            "title_as_h1" true
+                            "lines" (slice
+                                "Your bank or card provider reversed it after a payment dispute."
+                                (printf "If you have any questions, email us at %s." $email)
+                            )
+                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                        ) }}
+                    </div>
+                    <div id="payment-status-error" hidden>
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "We cannot confirm your payment yet"
+                            "title_as_h1" true
+                            "lines" (slice
+                                "The payment status is temporarily unavailable."
+                                "This page will retry automatically."
+                                (printf "If you have any questions, email us at %s." $email)
+                            )
+                        ) }}
+                    </div>
+                    <div id="payment-order-not-found" hidden>
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Order not found"
+                            "title_as_h1" true
+                            "mark" (dict "text" "404" "icon_class" "result-panel-mark-code")
+                            "lines" (slice
+                                "The checkout order could not be found."
+                                (printf "Please check the address or contact %s." $email)
+                            )
+                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                        ) }}
+                    </div>
+                    <div id="payment-status-unknown">
+                        {{ partial "components/result-panel.html" (dict
+                            "title" "Thank you!"
+                            "title_as_h1" true
+                            "lines" (slice
+                                "We will send the order details to your email after the payment is confirmed."
+                                (printf "If you have any questions, email us at %s." $email)
+                            )
+                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
                         ) }}
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    {{ $params := dict "payment" site.Params.payment }}
+    {{ $js := resources.Get "js/pages/checkout/completed.js" | js.Build (dict "params" $params) }}
+    {{ partial "scripts/script.html" (dict "js" $js "attributes" "defer") }}
 {{ end }}

@@ -49,7 +49,8 @@
  * @property {string} orderId paygate order ID
  * @property {string} productTitle product display title
  * @property {string} productDescription product description shown on checkout
- * @property {boolean} paymentCompleted whether the order was already paid
+ * @property {string} [paymentStatus] current known payment status
+ * @property {boolean} completed whether the order was already paid
  */
 
 /**
@@ -202,7 +203,7 @@ export function createPurchaseClient(serverUrl) {
  * @throws {PurchaseApiError} if response status is not OK
  */
 async function getJson(url) {
-    const response = await fetch(url);
+    const response = await fetch(url, {cache: 'no-store'});
     const body = await readResponseBody(response);
 
     if (!response.ok) {
