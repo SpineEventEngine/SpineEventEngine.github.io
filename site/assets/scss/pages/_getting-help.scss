@@ -342,7 +342,6 @@
         padding-left: 0;
         padding-right: 0;
 
-        $light-blue-btn-hover: #5fabdd;
         &.order-btn {
           background: $main-brand-color;
           border-color: $main-brand-color;
@@ -353,8 +352,8 @@
           }
 
           &:hover {
-            background: $light-blue-btn-hover;
-            border-color: $light-blue-btn-hover;
+            background: $btn-main-hover;
+            border-color: $btn-main-hover;
 
             &:after {
               color: white;

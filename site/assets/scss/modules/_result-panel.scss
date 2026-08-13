@@ -190,8 +190,8 @@
   &:hover,
   &:focus {
     color: white;
-    background: darken($main-brand-color, 7%);
-    border-color: darken($main-brand-color, 7%);
+    background: $btn-main-hover;
+    border-color: $btn-main-hover;
   }
 }
 
