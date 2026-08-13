@@ -2,6 +2,7 @@
     {{ partial "components/navbar/navbar.html" . }}
     {{ $email := hugo.Data.emails.sales_email }}
     {{ $emailLink := printf "<a href=\"mailto:%s\">%s</a>" $email $email | safeHTML }}
+    {{ $missingOrderContactLine := printf "Please check the address or contact <a href=\"mailto:%s\">%s</a>." $email $email | safeHTML }}
     <section class="checkout">
         <div class="checkout-frame content-with-fixed-header">
             <div class="checkout-panel">
@@ -207,8 +208,8 @@
                             "mark" (dict "text" "404" "icon_class" "result-panel-mark-code")
                             "lines" (slice
                                 "The checkout order could not be found."
-                                "Please check the address or contact us for help."
                             )
+                            "additional_line" $missingOrderContactLine
                             "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
                         ) }}
                     </div>

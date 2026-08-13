@@ -28,7 +28,8 @@ $checkout-panel-width: 790px;
   }
 }
 
-.checkout-completed-page .main {
+.checkout-completed-page .main,
+.checkout-result-page .main {
   min-height: auto;
 }
 
@@ -100,7 +101,7 @@ $checkout-panel-width: 790px;
     margin: 0;
     color: $gray-500;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.5;
   }
 
@@ -427,7 +428,8 @@ $checkout-panel-width: 790px;
   }
 }
 
-.checkout-completed {
+.checkout-completed,
+.checkout-result-page .checkout {
   min-height: 420px;
 
   @include breakpoint(sm-phone) {

@@ -130,6 +130,7 @@ export function createCheckoutView(dom) {
      * @param {boolean} isLoading whether the summary should show the loading state
      */
     function setSummaryLoading(isLoading) {
+        setResultPageMode(false);
         dom.$summary.prop('hidden', isLoading);
         dom.$loading.prop('hidden', !isLoading);
         dom.$loadingSpinner.prop('hidden', !isLoading);
@@ -148,6 +149,7 @@ export function createCheckoutView(dom) {
      * Shows the generic summary error panel inside the checkout page.
      */
     function showSummaryError() {
+        setResultPageMode(true);
         dom.$loading.prop('hidden', true);
         dom.$summary.prop('hidden', true);
         dom.$form.prop('hidden', true);
@@ -158,6 +160,7 @@ export function createCheckoutView(dom) {
 
     /** Shows the resolved order summary and billing form. */
     function showCheckoutView() {
+        setResultPageMode(false);
         closeErrorModal();
         dom.$loading.prop('hidden', true);
         dom.$summary.prop('hidden', false);
@@ -169,6 +172,7 @@ export function createCheckoutView(dom) {
 
     /** Shows the missing-order result panel. */
     function showMissingOrderView() {
+        setResultPageMode(true);
         closeErrorModal();
         dom.$loading.prop('hidden', true);
         dom.$summary.prop('hidden', true);
@@ -196,6 +200,7 @@ export function createCheckoutView(dom) {
      * Shows the not-found result panel inside the checkout page.
      */
     function showNotFoundView() {
+        setResultPageMode(true);
         closeErrorModal();
         dom.$loading.prop('hidden', true);
         dom.$summary.prop('hidden', true);
@@ -203,6 +208,11 @@ export function createCheckoutView(dom) {
         dom.$missingOrder.prop('hidden', true);
         dom.$summaryError.prop('hidden', true);
         dom.$notFound.prop('hidden', false);
+    }
+
+    /** Matches checkout result-page height to the payment-result layout. */
+    function setResultPageMode(isResultPage) {
+        document.body.classList.toggle('checkout-result-page', isResultPage);
     }
 
     /**
