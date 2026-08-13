@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -183,19 +183,15 @@ export function createChargeController(
      * @param {boolean} isCurrentRequest whether the failed request is still current
      */
     function handleRequestError(error, isCurrentRequest) {
-        const isVatError = isVatErrorResponse(error);
-
-        if (!isVatError) {
-            view.showErrorModal();
-        }
-
         if (!isCurrentRequest) {
             logApiError(error);
             return;
         }
 
-        if (isVatError) {
+        if (isVatErrorResponse(error)) {
             onVatIdError(getVatErrorReason(error));
+        } else {
+            view.showErrorModal();
         }
 
         logApiError(error);

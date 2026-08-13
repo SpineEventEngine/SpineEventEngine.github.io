@@ -29,7 +29,7 @@
 import * as params from '@params';
 import {createPurchaseClient} from 'js/modules/paygate/purchases';
 import {getCheckoutPageUrl} from 'js/pages/checkout/completed-page-url';
-import {getCompletionOrderId} from 'js/pages/checkout/completion-order-id';
+import {getOrderId} from 'js/pages/checkout/order-id';
 
 const pollingIntervalsMs = [3000, 5000, 10000, 30000];
 const failuresBeforeErrorView = 3;
@@ -55,7 +55,7 @@ function init() {
         return;
     }
 
-    const orderId = getCompletionOrderId(window.location);
+    const orderId = getOrderId(window.location);
     if (!orderId) {
         return;
     }

@@ -46,12 +46,12 @@ const completedPageUrlSource = fs.readFileSync(
 const {getCheckoutPageUrl, getCompletedPageUrl} = await import(
     `data:text/javascript,${encodeURIComponent(completedPageUrlSource)}`
 );
-const completionOrderIdSource = fs.readFileSync(
-    new URL('../assets/js/pages/checkout/completion-order-id.js', import.meta.url),
+const orderIdSource = fs.readFileSync(
+    new URL('../assets/js/pages/checkout/order-id.js', import.meta.url),
     'utf8'
 );
-const {getCompletionOrderId} = await import(
-    `data:text/javascript,${encodeURIComponent(completionOrderIdSource)}`
+const {getOrderId} = await import(
+    `data:text/javascript,${encodeURIComponent(orderIdSource)}`
 );
 const viewIds = [
     'payment-in-progress',
@@ -64,7 +64,6 @@ const viewIds = [
     'payment-status-unknown'
 ];
 const maxPollingDurationMs = 15 * 60 * 1000;
-
 
 test('keep polling until a pending payment settles', async () => {
     const page = await render([
@@ -281,7 +280,7 @@ test('keep the order ID in the visible URL', () => {
         '?campaign=sale&orderId=current-order&orderId=ignored#result';
     const browser = createBrowserState(initialUrl);
 
-    const orderId = getCompletionOrderId(browser.location);
+    const orderId = getOrderId(browser.location);
 
     assert.equal(orderId, 'current-order');
     assert.equal(browser.location.href, initialUrl);
@@ -374,7 +373,7 @@ async function render(
             };
         },
         getCheckoutPageUrl,
-        getCompletionOrderId,
+        getOrderId,
         document: {
             querySelector: selector => {
                 if (selector === '[data-payment-status-page]') {

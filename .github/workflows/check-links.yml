@@ -108,6 +108,11 @@ jobs:
         working-directory: ${{ steps.docs.outputs.work_dir }}
         run: npm ci
 
+      - name: Run checkout tests
+        if: steps.docs.outputs.present == 'true'
+        working-directory: ${{ steps.docs.outputs.work_dir }}
+        run: npm test
+
       - name: Build docs preview site
         if: steps.docs.outputs.present == 'true'
         working-directory: ${{ steps.docs.outputs.work_dir }}

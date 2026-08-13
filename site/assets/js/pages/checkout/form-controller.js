@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -70,7 +70,8 @@ export const fieldValidationState = Object.freeze({
  *   initializes the shared international phone input
  * @property {function(): void} updateVatIdFieldState
  *   refreshes VAT field state after country changes
- * @property {function(HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement):boolean} validateField
+ * @property {function(HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement):boolean}
+ *   validateField
  *   validates one form field
  * @property {function(string): boolean} validateRequiredFields
  *   validates all required checkout fields
@@ -268,7 +269,7 @@ export function createCheckoutFormController({dom}) {
             .filter(Boolean)
             .join(' ') || companyName;
         const phoneNumber = buildPhoneNumberPayload();
-        const company = companyName || vatId ? {
+        const company = (companyName || vatId) ? {
             ...(companyName ? {name: companyName} : {}),
             ...(vatId ? {vatId} : {})
         } : null;

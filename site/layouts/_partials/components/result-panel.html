@@ -31,7 +31,6 @@
 {{ $mark := .mark }}
 {{ $lines := .lines | default slice }}
 {{ $additionalLine := .additional_line | default "" }}
-{{ $action := .action }}
 {{ $actions := .actions | default slice }}
 
 <div class="result-panel">
@@ -55,17 +54,8 @@
     {{ with $additionalLine }}
     <p class="result-panel-text result-panel-contact">{{ . }}</p>
     {{ end }}
-    {{ if or $action $actions }}
+    {{ if $actions }}
     <div class="result-panel-actions">
-        {{ with $action }}
-        {{ $actionLabel := .label | default .text | default "" }}
-        {{ $actionUrl := .url | default site.Home.RelPermalink }}
-        {{ if $actionLabel }}
-        <a class="btn btn-bordered-blue result-panel-button" href="{{ $actionUrl }}">
-            {{ $actionLabel }}
-        </a>
-        {{ end }}
-        {{ end }}
         {{ range $actions }}
         {{ $actionLabel := .label | default .text | default "" }}
         {{ $actionUrl := .url | default site.Home.RelPermalink }}

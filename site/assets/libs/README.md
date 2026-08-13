@@ -9,8 +9,9 @@ The checkout uses locally hosted copies of these browser libraries:
 
 Their CSS distributions live under `site/assets/scss/libs/`. Hugo compiles the CSS
 into the site stylesheet and fingerprints the JavaScript resources in production.
-The generated script tags include Subresource Integrity metadata. The original
-library license notices remain in the distributed files.
+The generated script tags include Subresource Integrity metadata. The vendored
+JavaScript license notices remain in the distributed files; the upstream CSS
+distributions do not include equivalent banner comments.
 
 Library version changes require a dedicated dependency update and checkout UI
 regression testing.

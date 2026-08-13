@@ -27,12 +27,12 @@
 'use strict';
 
 /**
- * Reads the order ID from the visible payment-result URL.
+ * Reads the order ID from the visible checkout URL.
  *
  * @param {Location|URL} location browser location
  * @return {string} Paygate order ID, or an empty string when unavailable
  */
-export function getCompletionOrderId(location) {
-    const completionUrl = new URL(location.href);
-    return (completionUrl.searchParams.get('orderId') || '').trim();
+export function getOrderId(location) {
+    const checkoutUrl = new URL(location.href);
+    return (checkoutUrl.searchParams.get('orderId') || '').trim();
 }

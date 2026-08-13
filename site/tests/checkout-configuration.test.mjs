@@ -50,6 +50,10 @@ const {normalizeIntlPhoneNumber} = await importSource(
     '../assets/js/modules/forms/phone-number.js'
 );
 const {createCheckoutFormController} = await importFormController();
+const {createCheckoutView} = await importSource(
+    '../assets/js/pages/checkout/view-controller.js'
+);
+const {createChargeController} = await importChargeController();
 
 test('keep checkout libraries aligned with pinned npm distributions', () => {
     assert.deepEqual(
@@ -306,6 +310,81 @@ test('clear an earlier VAT validation error after the input changes', () => {
     assert.equal(errorElement.textContent, '');
 });
 
+test('ignore an obsolete charge failure after newer charges succeed', async () => {
+    const requests = [];
+    const updatedCharges = [];
+    const loggedErrors = [];
+    let countryCode = 'EE';
+    let modalOpenCount = 0;
+    const controller = createChargeController({
+        purchaseClient: {
+            calculateCharges(payload) {
+                return new Promise((resolve, reject) => {
+                    requests.push({payload, resolve, reject});
+                });
+            }
+        },
+        view: {
+            isFormHidden: () => false,
+            setSubmitDisabled() {},
+            showErrorModal: () => modalOpenCount += 1,
+            updateCharges: charges => updatedCharges.push(charges)
+        },
+        ensureOrderId: () => Promise.resolve('order-1'),
+        getBuyerCountryCode: () => countryCode,
+        getVatId: () => '',
+        onFieldValidationStateChange() {},
+        onVatIdError() {},
+        logApiError: error => loggedErrors.push(error)
+    });
+
+    const firstRequest = controller.flush();
+    await waitUntil(() => requests.length === 1);
+
+    countryCode = 'DE';
+    controller.invalidate();
+    const secondRequest = controller.flush();
+    await waitUntil(() => requests.length === 2);
+
+    const currentCharges = {vatRate: 0.19};
+    requests[1].resolve(currentCharges);
+    await secondRequest;
+    const obsoleteError = {status: 500, statusText: 'Unavailable'};
+    requests[0].reject(obsoleteError);
+    await firstRequest;
+
+    assert.deepEqual(updatedCharges, [currentCharges]);
+    assert.equal(modalOpenCount, 0);
+    assert.deepEqual(loggedErrors, [obsoleteError]);
+});
+
+test('render a safe rounded VAT label and tolerate missing order money', () => {
+    const dom = createSummaryDom();
+    const view = createCheckoutView(dom);
+
+    assert.doesNotThrow(() => view.fillOrderSummary({productTitle: 'Support'}));
+    assert.equal(dom.$vatLabel.value, 'VAT');
+    assert.equal(dom.$subtotalValue.value, '');
+    assert.equal(dom.$vatValue.value, '0.00');
+    assert.equal(dom.$totalValue.value, '');
+
+    const money = {value: 10, currency: {symbol: '€'}};
+    view.updateCharges({
+        vatRate: 0.07,
+        netAmount: money,
+        vatAmount: money,
+        totalAmount: money
+    });
+    assert.equal(dom.$vatLabel.value, 'VAT (7%)');
+
+    view.updateCharges({
+        netAmount: money,
+        vatAmount: money,
+        totalAmount: money
+    });
+    assert.equal(dom.$vatLabel.value, 'VAT');
+});
+
 async function importSource(relativePath) {
     const source = fs.readFileSync(new URL(relativePath, import.meta.url), 'utf8');
     return import(`data:text/javascript,${encodeURIComponent(source)}`);
@@ -317,6 +396,65 @@ function readFile(relativePath) {
 
 function readText(relativePath) {
     return fs.readFileSync(new URL(relativePath, import.meta.url), 'utf8');
+}
+
+async function importChargeController() {
+    const delayedRequestSource = readText(
+        '../assets/js/pages/checkout/delayed-request-controller.js'
+    ).replace('export function createDelayedRequestController',
+        'function createDelayedRequestController');
+    const chargeControllerSource = readText(
+        '../assets/js/pages/checkout/charge-controller.js'
+    ).replace(/^import .*;\n/gm, '');
+    const dependencies = `
+        const fieldValidationState = {idle: 'idle', loading: 'loading', success: 'success'};
+        const buildChargeRequest = (orderId, buyerCountryCode, vatId) => {
+            if (!orderId || !buyerCountryCode) return null;
+            return vatId
+                ? {orderId, buyerCountryCode, vatId}
+                : {orderId, buyerCountryCode};
+        };
+    `;
+
+    const source = [delayedRequestSource, dependencies, chargeControllerSource].join('\n');
+    return import(`data:text/javascript,${encodeURIComponent(source)}`);
+}
+
+function createSummaryDom() {
+    const element = () => ({
+        hidden: false,
+        value: '',
+        prop(name, value) {
+            if (value === undefined) {
+                return this[name];
+            }
+            this[name] = value;
+            return this;
+        },
+        text(value) {
+            this.value = value;
+            return this;
+        }
+    });
+
+    return {
+        $productTitle: element(),
+        $productDescription: element(),
+        $subtotalValue: element(),
+        $vatLabel: element(),
+        $vatValue: element(),
+        $totalValue: element()
+    };
+}
+
+async function waitUntil(predicate) {
+    for (let attempt = 0; attempt < 20; attempt += 1) {
+        if (predicate()) {
+            return;
+        }
+        await Promise.resolve();
+    }
+    assert.fail('Timed out waiting for asynchronous checkout state.');
 }
 
 async function importFormController() {

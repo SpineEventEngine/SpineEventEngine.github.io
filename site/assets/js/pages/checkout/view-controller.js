@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -42,8 +42,8 @@
  *   checks whether the checkout form is currently hidden
  * @property {function(boolean): void} setSubmitDisabled
  *   enables or disables the checkout submit button
- * @property {function(boolean): void} setSummaryLoading
- *   shows or hides the summary loading state
+ * @property {function(): void} showSummaryLoading
+ *   shows the summary loading state
  * @property {function(): void} showErrorModal
  *   opens the generic checkout error modal
  * @property {function(): void} showCheckoutView
@@ -104,10 +104,12 @@ export function createCheckoutView(dom) {
             dom.$productDescription.text('').prop('hidden', true);
         }
 
-        dom.$subtotalValue.text(formatMoney(order.netAmount));
+        const netAmount = order.netAmount || {};
+
+        dom.$subtotalValue.text(formatMoney(netAmount));
         dom.$vatLabel.text('VAT');
-        dom.$vatValue.text(formatMoney(zeroMoney(order.netAmount.currency)));
-        dom.$totalValue.text(formatMoney(order.netAmount));
+        dom.$vatValue.text(formatMoney(zeroMoney(netAmount.currency)));
+        dom.$totalValue.text(formatMoney(netAmount));
     }
 
     /**
@@ -116,32 +118,23 @@ export function createCheckoutView(dom) {
      * @param {Object} response paygate charge calculation response
      */
     function updateCharges(response) {
-        const vatRatePercent = Number(response.vatRate) * 100;
-
-        dom.$vatLabel.text(`VAT (${String(vatRatePercent)}%)`);
+        dom.$vatLabel.text(formatVatLabel(response && response.vatRate));
         dom.$subtotalValue.text(formatMoney(response.netAmount));
         dom.$vatValue.text(formatMoney(response.vatAmount));
         dom.$totalValue.text(formatMoney(response.totalAmount));
     }
 
     /**
-     * Shows or hides the order-summary loading state.
-     *
-     * @param {boolean} isLoading whether the summary should show the loading state
+     * Shows the order-summary loading state.
      */
-    function setSummaryLoading(isLoading) {
+    function showSummaryLoading() {
         setResultPageMode(false);
-        dom.$summary.prop('hidden', isLoading);
-        dom.$loading.prop('hidden', !isLoading);
-        dom.$loadingSpinner.prop('hidden', !isLoading);
-        dom.$form.prop('hidden', isLoading);
+        dom.$summary.prop('hidden', true);
+        dom.$loading.prop('hidden', false);
+        dom.$form.prop('hidden', true);
         dom.$missingOrder.prop('hidden', true);
         dom.$notFound.prop('hidden', true);
         dom.$summaryError.prop('hidden', true);
-
-        if (isLoading) {
-            dom.$loadingText.text('Loading checkout details...');
-        }
     }
 
     /**
@@ -221,13 +214,33 @@ export function createCheckoutView(dom) {
      * @return {string} formatted money value
      */
     function formatMoney(amount) {
-        const numericAmount = Number(amount.value);
+        const amountValue = amount && amount.value;
+        const numericAmount = Number(amountValue);
         const formattedAmount = Number.isNaN(numericAmount)
-            ? String(amount.value || '')
+            ? String(amountValue || '')
             : numericAmount.toFixed(2);
-        const currency = amount.currency;
+        const currency = amount && amount.currency;
+        const currencySymbol = currency && currency.symbol || '';
 
-        return `${currency.symbol}${formattedAmount}`;
+        return `${currencySymbol}${formattedAmount}`;
+    }
+
+    /**
+     * Formats a VAT-rate label without exposing invalid or imprecise numbers.
+     *
+     * @param {*} rawVatRate VAT rate returned by Paygate
+     * @return {string} VAT label with an optional percentage
+     */
+    function formatVatLabel(rawVatRate) {
+        const vatRate = Number(rawVatRate);
+
+        if (rawVatRate === null || rawVatRate === undefined || rawVatRate === '' ||
+            !Number.isFinite(vatRate)) {
+            return 'VAT';
+        }
+
+        const percentage = Math.round(vatRate * 10000) / 100;
+        return `VAT (${String(percentage)}%)`;
     }
 
     /**
@@ -248,7 +261,7 @@ export function createCheckoutView(dom) {
         fillOrderSummary,
         isFormHidden,
         setSubmitDisabled,
-        setSummaryLoading,
+        showSummaryLoading,
         showCheckoutView,
         showErrorModal,
         showMissingOrderView,

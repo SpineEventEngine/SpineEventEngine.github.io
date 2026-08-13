@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -37,8 +37,6 @@
  * @property {JQuery<HTMLInputElement>} $phoneCountry native phone-country state
  * @property {JQuery<HTMLInputElement>} $vatId vat ID input
  * @property {JQuery<HTMLElement>} $loading summary loading container
- * @property {JQuery<HTMLElement>} $loadingSpinner summary spinner element
- * @property {JQuery<HTMLElement>} $loadingText summary loading text element
  * @property {JQuery<HTMLElement>} $productTitle product title element
  * @property {JQuery<HTMLElement>} $productDescription product description
  *   element
@@ -68,8 +66,6 @@ export function getCheckoutDom() {
         $phoneCountry: $('#checkout-phone-country'),
         $vatId: $('#checkout-vat-id'),
         $loading: $('#checkout-summary-loading'),
-        $loadingSpinner: $('#checkout-summary-loading-spinner'),
-        $loadingText: $('#checkout-summary-loading-text'),
         $productTitle: $('#checkout-product-title'),
         $productDescription: $('#checkout-product-description'),
         $subtotalValue: $('#checkout-subtotal-value'),

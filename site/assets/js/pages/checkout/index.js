@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -37,6 +37,7 @@ import {
     checkoutNavigationMode,
     getCheckoutNavigationMode
 } from 'js/pages/checkout/navigation';
+import {getOrderId} from 'js/pages/checkout/order-id';
 import {createCheckoutView} from 'js/pages/checkout/view-controller';
 
 const requiredSelector = 'input[required], select[required], textarea[required]';
@@ -51,7 +52,7 @@ $(
 
         initializeCountrySelector(dom.$country.get(0));
         const purchaseClient = createPurchaseClient(params.payment.paygateurl);
-        const orderId = getOrderId();
+        const orderId = getOrderId(window.location);
         const view = createCheckoutView(dom);
         const formController = createCheckoutFormController({dom});
         let phoneCountryManuallySelected = false;
@@ -149,7 +150,7 @@ $(
          * @return {Promise<void>} resolves when the initial order load flow finishes
          */
         async function loadOrder() {
-            view.setSummaryLoading(true);
+            view.showSummaryLoading();
 
             try {
                 const order = await purchaseClient.getOrder(orderId);
@@ -216,15 +217,6 @@ $(
                 view.showErrorModal();
                 logApiError(error);
             }
-        }
-
-        /**
-         * Reads the order ID from the `orderId` query parameter.
-         *
-         * @return {string} checkout order ID, or empty string when unavailable
-         */
-        function getOrderId() {
-            return (new URLSearchParams(window.location.search).get('orderId') || '').trim();
         }
 
         /**

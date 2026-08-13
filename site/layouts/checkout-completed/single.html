@@ -29,7 +29,10 @@
                                 "We will send the order details to your email."
                             )
                             "additional_line" $contactLine
-                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            "actions" (slice (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            ))
                         ) }}
                     </div>
                     <div id="payment-failed" hidden>
@@ -60,7 +63,10 @@
                                 "A refund was issued to your original payment method."
                             )
                             "additional_line" $contactLine
-                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            "actions" (slice (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            ))
                         ) }}
                     </div>
                     <div id="payment-charged-back" hidden>
@@ -71,7 +77,10 @@
                                 "Your bank or card provider reversed it after a payment dispute."
                             )
                             "additional_line" $contactLine
-                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            "actions" (slice (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            ))
                         ) }}
                     </div>
                     <div id="payment-status-error" hidden>
@@ -94,7 +103,10 @@
                                 "The checkout order could not be found."
                             )
                             "additional_line" $missingOrderContactLine
-                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            "actions" (slice (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            ))
                         ) }}
                     </div>
                     <div id="payment-status-unknown">
@@ -105,15 +117,14 @@
                                 "We will send the order details to your email after the payment is confirmed."
                             )
                             "additional_line" $contactLine
-                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            "actions" (slice (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            ))
                         ) }}
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    {{ $params := dict "payment" site.Params.payment }}
-    {{ $js := resources.Get "js/pages/checkout/completed.js" | js.Build (dict "params" $params) }}
-    {{ partial "scripts/script.html" (dict "js" $js "attributes" "defer") }}
 {{ end }}

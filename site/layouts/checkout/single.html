@@ -11,10 +11,8 @@
                          id="checkout-summary-loading"
                          role="status"
                          aria-live="polite">
-                        <div class="checkout-loading-spinner"
-                             id="checkout-summary-loading-spinner"
-                             aria-hidden="true"></div>
-                        <p id="checkout-summary-loading-text">Processing your order...</p>
+                        <div class="checkout-loading-spinner" aria-hidden="true"></div>
+                        <p>Loading checkout details...</p>
                     </div>
                     <div class="checkout-summary" aria-label="Order summary" hidden>
                         <div class="checkout-summary-details">
@@ -198,7 +196,10 @@
                             "title" "Order required"
                             "title_as_h1" true
                             "lines" (slice (printf "Please contact %s to place an order." $email))
-                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            "actions" (slice (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            ))
                         ) }}
                     </div>
                     <div id="checkout-not-found" hidden>
@@ -210,7 +211,10 @@
                                 "The checkout order could not be found."
                             )
                             "additional_line" $missingOrderContactLine
-                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            "actions" (slice (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            ))
                         ) }}
                     </div>
                     <div id="checkout-summary-error" hidden>
@@ -221,7 +225,10 @@
                                 "Something went wrong."
                                 (printf "Please contact %s." $email)
                             )
-                            "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            "actions" (slice (dict
+                                "label" "Back to home"
+                                "url" site.Home.RelPermalink
+                            ))
                         ) }}
                     </div>
                 </div>
@@ -230,9 +237,21 @@
     </section>
 
     {{ $select2 := resources.Get "libs/country-select/select2.js" }}
-    {{ partial "scripts/script.html" (dict "js" $select2 "attributes" "defer") }}
+    {{ partial "scripts/script.html" (dict
+        "js" $select2
+        "attributes" "defer"
+        "skip_minify" true
+    ) }}
     {{ $phoneUtils := resources.Get "libs/intl-tel-input/utils.js" }}
-    {{ partial "scripts/script.html" (dict "js" $phoneUtils "attributes" "defer") }}
+    {{ partial "scripts/script.html" (dict
+        "js" $phoneUtils
+        "attributes" "defer"
+        "skip_minify" true
+    ) }}
     {{ $internationalPhoneInput := resources.Get "libs/intl-tel-input/intlTelInput.js" }}
-    {{ partial "scripts/script.html" (dict "js" $internationalPhoneInput "attributes" "defer") }}
+    {{ partial "scripts/script.html" (dict
+        "js" $internationalPhoneInput
+        "attributes" "defer"
+        "skip_minify" true
+    ) }}
 {{ end }}
