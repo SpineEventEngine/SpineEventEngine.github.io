@@ -42,7 +42,7 @@ The Google reCaptcha is used for the payment option.
                 {{ $comparableServices := $data.comparable_services }}
                 {{ range $comparableServices.header_cols }}
                     <div class="header"
-                         {{ with .paygate_product_id }}data-paygate-product-id="{{ site.Params.payment.productid | default . }}"{{ end }}>
+                         {{ with .paygate_product_id }}data-paygate-product-id="{{ site.Params.payment.standardsupportproductid | default . }}"{{ end }}>
                         <i class="header-icon {{ .icon }}"></i>
                         <div class="text-container">
                             <h4>{{ .title | markdownify }}</h4>
