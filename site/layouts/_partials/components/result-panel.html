@@ -30,7 +30,9 @@
 {{ $titleAsH1 := .title_as_h1 }}
 {{ $mark := .mark }}
 {{ $lines := .lines | default slice }}
+{{ $additionalLine := .additional_line | default "" }}
 {{ $action := .action }}
+{{ $actions := .actions | default slice }}
 
 <div class="result-panel">
     {{ with $mark }}
@@ -44,19 +46,37 @@
     <h2 class="result-panel-title">{{ $title }}</h2>
     {{ end }}
     {{ if $lines }}
-    <p class="result-panel-text">
+    <p class="result-panel-text {{ if $additionalLine }}result-panel-text-primary{{ end }}">
         {{ range $lines }}
         <span>{{ . }}</span>
         {{ end }}
     </p>
     {{ end }}
-    {{ with $action }}
-    {{ $actionLabel := .label | default .text | default "" }}
-    {{ $actionUrl := .url | default site.Home.RelPermalink }}
-    {{ if $actionLabel }}
-    <a class="btn btn-bordered-blue result-panel-button" href="{{ $actionUrl }}">
-        {{ $actionLabel }}
-    </a>
+    {{ with $additionalLine }}
+    <p class="result-panel-text result-panel-contact">{{ . }}</p>
     {{ end }}
+    {{ if or $action $actions }}
+    <div class="result-panel-actions">
+        {{ with $action }}
+        {{ $actionLabel := .label | default .text | default "" }}
+        {{ $actionUrl := .url | default site.Home.RelPermalink }}
+        {{ if $actionLabel }}
+        <a class="btn btn-bordered-blue result-panel-button" href="{{ $actionUrl }}">
+            {{ $actionLabel }}
+        </a>
+        {{ end }}
+        {{ end }}
+        {{ range $actions }}
+        {{ $actionLabel := .label | default .text | default "" }}
+        {{ $actionUrl := .url | default site.Home.RelPermalink }}
+        {{ if $actionLabel }}
+        <a class="btn result-panel-button {{ if .primary }}result-panel-button-primary{{ else }}btn-bordered-blue{{ end }}"
+           href="{{ $actionUrl }}"
+           {{ if .back_to_checkout }}data-back-to-checkout hidden{{ end }}>
+            {{ $actionLabel }}
+        </a>
+        {{ end }}
+        {{ end }}
+    </div>
     {{ end }}
 </div>

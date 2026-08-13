@@ -26,14 +26,8 @@
 
 'use strict';
 
-import {
-    euCountryPhoneCodes,
-    isEuCountry
-} from 'js/pages/checkout/phone-codes';
-import {
-    normalizePhoneNumber,
-    sanitizePhoneNumberInput
-} from 'js/modules/forms/phone-number';
+import {isEuCountry} from 'js/pages/checkout/phone-codes';
+import {normalizeIntlPhoneNumber} from 'js/modules/forms/phone-number';
 
 /**
  * Generic async field-validation states.
@@ -62,22 +56,28 @@ export const fieldValidationState = Object.freeze({
  *   attaches phone field event handlers
  * @property {function(string): SubmitBillingInfoRequest}
  *   buildSubmitBillingInfoRequest builds the billing-info payload for Paygate
+ * @property {function(): void} clearVatIdError
+ *   clears the VAT ID API validation error
  * @property {function(): void} focusPhoneNumber
  *   focuses the phone number input when a country is selected
  * @property {function(): string} getVatId
  *   returns VAT ID only when it applies to the selected country
+ * @property {function(Object): void} restoreCountryState
+ *   restores the billing-country and phone-country controls
  * @property {function(HTMLElement, string): void} setFieldValidationState
  *   updates generic async field validation styling
  * @property {function(string): void} showVatIdError
  *   renders VAT API validation errors inline
- * @property {function(): void} updatePhoneCountryDisplay
- *   refreshes visible phone-country UI
+ * @property {function(): void} initPhoneNumberField
+ *   initializes the shared international phone input
  * @property {function(): void} updateVatIdFieldState
  *   refreshes VAT field state after country changes
  * @property {function(HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement):boolean} validateField
  *   validates one form field
  * @property {function(string): boolean} validateRequiredFields
  *   validates all required checkout fields
+ * @property {function(): boolean} validatePhoneNumber
+ *   validates the optional international phone number
  */
 
 /**
@@ -88,14 +88,45 @@ export const fieldValidationState = Object.freeze({
  * @return {CheckoutFormController} checkout form helpers and event handlers
  */
 export function createCheckoutFormController({dom}) {
+    let isSettingPhoneCountryProgrammatically = false;
+
+    /** Initializes the shared `intl-tel-input` field. */
+    function initPhoneNumberField() {
+        const field = dom.$phoneNumber.get(0);
+
+        if (!field || typeof window.intlTelInput !== 'function') {
+            return;
+        }
+
+        window.intlTelInput(field, {
+            initialCountry: normalizeCountryCode(dom.$phoneCountry.val()) || 'us',
+            autoPlaceholder: 'aggressive',
+            separateDialCode: true,
+            formatOnDisplay: true,
+            utilsScript: '/libs/intl-tel-input/utils.js'
+        });
+        syncPhoneCountryState();
+    }
+
     /**
-     * Attaches event handlers for the custom phone field.
+     * Attaches event handlers for the shared phone field.
+     *
+     * @param {Object} options phone event options
+     * @param {function(): void} [options.onPhoneCountryChange] called after a
+     *   user-driven phone country change
      */
-    function bindPhoneEvents() {
-        dom.$phone.on('click', focusPhoneCountrySelectorIfMissing);
-        dom.$phoneNumber.on('focus', focusPhoneCountrySelectorIfMissing);
-        dom.$phoneNumber.on('beforeinput', preventUnsupportedPhoneInput);
-        dom.$phoneNumber.on('input', sanitizePhoneNumberValue);
+    function bindPhoneEvents({onPhoneCountryChange} = {}) {
+        dom.$phoneNumber.on('countrychange', () => {
+            syncPhoneCountryState();
+            if (
+                !isSettingPhoneCountryProgrammatically &&
+                typeof onPhoneCountryChange === 'function'
+            ) {
+                onPhoneCountryChange();
+            }
+        });
+        dom.$phoneNumber.on('input', () => setPhoneFieldError(''));
+        dom.$phoneNumber.on('blur', validatePhoneNumber);
     }
 
     /**
@@ -127,6 +158,10 @@ export function createCheckoutFormController({dom}) {
             return true;
         }
 
+        if (field.type === 'tel') {
+            return true;
+        }
+
         const value = field.value ? field.value.trim() : '';
         let message = '';
 
@@ -141,6 +176,20 @@ export function createCheckoutFormController({dom}) {
     }
 
     /**
+     * Validates the optional phone number through `intl-tel-input`.
+     *
+     * @return {boolean} true when the phone is empty or valid
+     */
+    function validatePhoneNumber() {
+        const value = String(dom.$phoneNumber.val() || '').trim();
+        const phoneInput = getPhoneInputInstance();
+        const isValid = !value || Boolean(phoneInput && phoneInput.isValidNumber());
+
+        setPhoneFieldError(isValid ? '' : 'Enter a valid phone number.');
+        return isValid;
+    }
+
+    /**
      * Shows the API-provided VAT ID validation error on the VAT ID field.
      *
      * @param {string} reason paygate VAT ID error reason
@@ -150,6 +199,11 @@ export function createCheckoutFormController({dom}) {
             return;
         }
         setFieldError(dom.$vatId.get(0), vatIdErrorMessage(reason));
+    }
+
+    /** Clears an earlier VAT ID validation response after the input changes. */
+    function clearVatIdError() {
+        setFieldError(dom.$vatId.get(0), '');
     }
 
     /**
@@ -177,7 +231,6 @@ export function createCheckoutFormController({dom}) {
             return;
         }
 
-        field.disabled = !isRelevant;
         fieldContainer.hidden = !isRelevant;
 
         if (!isRelevant) {
@@ -215,10 +268,7 @@ export function createCheckoutFormController({dom}) {
         const fullName = [field('first_name'), field('last_name')]
             .filter(Boolean)
             .join(' ') || companyName;
-        const phoneNumber = normalizePhoneNumber(
-            formData.phone_country_code || '',
-            formData.phone_number || ''
-        );
+        const phoneNumber = buildPhoneNumberPayload();
         const company = companyName || vatId ? {
             ...(companyName ? {name: companyName} : {}),
             ...(vatId ? {vatId} : {})
@@ -256,13 +306,13 @@ export function createCheckoutFormController({dom}) {
             return false;
         }
 
-        const countryCode = countryCodeFromPhoneCode(getPhoneCountryCode());
+        const countryCode = getSelectedPhoneCountryCode();
 
         if (!countryCode || !hasCountryOption(countryCode) || dom.$country.val() === countryCode) {
             return false;
         }
 
-        dom.$country.val(countryCode);
+        setBillingCountry(countryCode);
         return true;
     }
 
@@ -273,123 +323,100 @@ export function createCheckoutFormController({dom}) {
      */
     function applyPhoneCountryFromBillingCountry(phoneCountryManuallySelected) {
         if (phoneCountryManuallySelected || hasPhoneNumber()) {
-            updatePhoneCountryDisplay();
             return;
         }
 
-        setPhoneCountryCode(euCountryPhoneCodes[dom.$country.val()] || '');
-        updatePhoneCountryDisplay();
+        setPhoneCountry(dom.$country.val());
     }
 
-    /**
-     * Mirrors the selected phone country into the custom visible phone field.
-     */
-    function updatePhoneCountryDisplay() {
-        restorePhoneCountryFromBillingCountry();
-        const selection = getPhoneCountrySelection();
-
-        dom.$phoneFlag.text(selection.flag);
-        dom.$phoneDialCode.text(selection.code);
-        dom.$phone.attr(
-            'data-phone-country-selected',
-            selection.isSelected ? 'true' : 'false'
-        );
-        dom.$phoneNumber.prop('disabled', !selection.isSelected);
-
-        if (!selection.isSelected && !hasPhoneNumber()) {
-            clearPhoneNumber();
+    /** Restores billing-country and phone-country controls from browser history. */
+    function restoreCountryState({billingCountryCode, phoneCountryCode}) {
+        if (hasCountryOption(billingCountryCode)) {
+            setBillingCountry(billingCountryCode);
         }
+
+        setPhoneCountry(phoneCountryCode || billingCountryCode);
     }
 
-    /**
-     * Restores phone country from billing country when browser already restored the number.
-     */
-    function restorePhoneCountryFromBillingCountry() {
-        if (getPhoneCountryCode() || !hasPhoneNumber()) {
-            return;
-        }
-
-        setPhoneCountryCode(euCountryPhoneCodes[dom.$country.val()] || '');
+    /** Returns country values restored by the browser's native form state. */
+    function getBrowserRestoredCountryState() {
+        return {
+            billingCountryCode: normalizeCountryCode(dom.$country.val()),
+            phoneCountryCode: normalizeCountryCode(dom.$phoneCountry.val())
+        };
     }
 
     /**
      * Focuses the phone number input when the phone country is selected.
      */
     function focusPhoneNumber() {
-        if (!getPhoneCountryCode()) {
-            return;
-        }
-
         window.requestAnimationFrame(() => {
             dom.$phoneNumber.trigger('focus');
         });
     }
 
-    /**
-     * Focuses the phone-country select when the number part cannot be used yet.
-     */
-    function focusPhoneCountrySelectorIfMissing() {
-        if (!getPhoneCountryCode()) {
-            dom.$phoneCountryCode.trigger('focus');
+    /** Returns the `intl-tel-input` instance for the checkout phone field. */
+    function getPhoneInputInstance() {
+        const field = dom.$phoneNumber.get(0);
+
+        if (!field || !window.intlTelInputGlobals) {
+            return null;
+        }
+
+        return window.intlTelInputGlobals.getInstance(field);
+    }
+
+    /** Returns the selected phone country as an uppercase ISO code. */
+    function getSelectedPhoneCountryCode() {
+        const phoneInput = getPhoneInputInstance();
+        const countryData = phoneInput && phoneInput.getSelectedCountryData();
+
+        return String(countryData && countryData.iso2 || '').toUpperCase();
+    }
+
+    /** Mirrors the library-owned phone country into a native form control. */
+    function syncPhoneCountryState() {
+        dom.$phoneCountry.val(getSelectedPhoneCountryCode());
+    }
+
+    /** Selects the phone country without treating it as a user change. */
+    function setPhoneCountry(countryCode) {
+        const phoneInput = getPhoneInputInstance();
+        const normalizedCode = String(countryCode || '').trim().toLowerCase();
+
+        if (!phoneInput || !/^[a-z]{2}$/.test(normalizedCode)) {
+            return;
+        }
+
+        isSettingPhoneCountryProgrammatically = true;
+        try {
+            phoneInput.setCountry(normalizedCode);
+        } finally {
+            window.setTimeout(() => {
+                isSettingPhoneCountryProgrammatically = false;
+            }, 0);
         }
     }
 
-    /**
-     * Prevents unsupported phone symbols from being typed into the phone field.
-     *
-     * @param {JQuery.Event} event phone number beforeinput event
-     */
-    function preventUnsupportedPhoneInput(event) {
-        const originalEvent = event.originalEvent;
-        const input = originalEvent && originalEvent.data;
-
-        if (input && sanitizePhoneNumberInput(input) !== input) {
-            event.preventDefault();
+    /** Sets the native country value and refreshes its Select2 presentation. */
+    function setBillingCountry(countryCode) {
+        dom.$country.val(countryCode);
+        if (dom.$country.hasClass('select2-hidden-accessible')) {
+            dom.$country.trigger('change.select2');
         }
     }
 
-    /**
-     * Sanitizes the phone number input after user edits.
-     */
-    function sanitizePhoneNumberValue() {
-        const sanitized = sanitizePhoneNumberInput(dom.$phoneNumber.val());
+    /** Builds the optional Paygate phone number from the shared plugin state. */
+    function buildPhoneNumberPayload() {
+        const rawNumber = String(dom.$phoneNumber.val() || '').trim();
+        const phoneInput = getPhoneInputInstance();
+        const countryData = phoneInput && phoneInput.getSelectedCountryData();
 
-        if (dom.$phoneNumber.val() !== sanitized) {
-            dom.$phoneNumber.val(sanitized);
-        }
-    }
-
-    /**
-     * Returns the current phone-country code.
-     *
-     * @return {string} selected phone-country code, or empty string
-     */
-    function getPhoneCountryCode() {
-        return String(dom.$phoneCountryCode.val() || '');
-    }
-
-    /**
-     * Updates the selected phone-country code.
-     *
-     * @param {string} phoneCode phone-country code without a leading plus sign
-     */
-    function setPhoneCountryCode(phoneCode) {
-        dom.$phoneCountryCode.val(phoneCode);
-    }
-
-    /**
-     * Returns the currently selected phone-country data for the visible field.
-     *
-     * @return {{flag: string, code: string, isSelected: boolean}} selected phone-country data
-     */
-    function getPhoneCountrySelection() {
-        const selected = dom.$phoneCountryCode.find(':selected');
-
-        return {
-            flag: String(selected.data('flag') || ''),
-            code: String(selected.data('code') || ''),
-            isSelected: Boolean(getPhoneCountryCode())
-        };
+        return normalizeIntlPhoneNumber(
+            rawNumber,
+            countryData && countryData.dialCode,
+            phoneInput && phoneInput.getNumber()
+        );
     }
 
     /**
@@ -417,6 +444,26 @@ export function createCheckoutFormController({dom}) {
 
         fieldContainer.classList.toggle('field-error', Boolean(message));
         errorElement.textContent = message || '';
+    }
+
+    /** Applies or clears the international phone field error state. */
+    function setPhoneFieldError(message) {
+        const field = dom.$phoneNumber.get(0);
+
+        if (!field) {
+            return;
+        }
+
+        setFieldError(field, message);
+        field.classList.toggle('error', Boolean(message));
+        field.setCustomValidity(message || '');
+
+        const fieldContainer = field.closest('.form-field');
+        const errorElement = fieldContainer &&
+            fieldContainer.querySelector('.phone-error-message');
+        if (errorElement) {
+            errorElement.classList.toggle('show', Boolean(message));
+        }
     }
 
     /**
@@ -485,14 +532,6 @@ export function createCheckoutFormController({dom}) {
     }
 
     /**
-     * Clears the national phone-number input and refreshes its validation state.
-     */
-    function clearPhoneNumber() {
-        dom.$phoneNumber.val('');
-        validateField(dom.$phoneNumber.get(0));
-    }
-
-    /**
      * Checks whether the national phone-number input has user-entered text.
      *
      * @return {boolean} true when the phone number input is not empty
@@ -515,21 +554,15 @@ export function createCheckoutFormController({dom}) {
         );
     }
 
+    /** Normalizes a possible ISO country code. */
+    function normalizeCountryCode(countryCode) {
+        const normalizedCode = String(countryCode || '').trim().toUpperCase();
+        return /^[A-Z]{2}$/.test(normalizedCode) ? normalizedCode : '';
+    }
+
     /** Checks whether the selected billing country supports VAT ID entry. */
     function isVatIdRelevant() {
         return isEuCountry(dom.$country.val());
-    }
-
-    /**
-     * Resolves an EU billing country code from a phone country code.
-     *
-     * @param {string} phoneCode phone calling code without a plus sign
-     * @return {string} matching billing country code, or empty string when none matches
-     */
-    function countryCodeFromPhoneCode(phoneCode) {
-        return Object.keys(euCountryPhoneCodes).find(
-            countryCode => euCountryPhoneCodes[countryCode] === phoneCode
-        ) || '';
     }
 
     /**
@@ -548,13 +581,17 @@ export function createCheckoutFormController({dom}) {
         applyPhoneCountryFromBillingCountry,
         bindPhoneEvents,
         buildSubmitBillingInfoRequest,
+        clearVatIdError,
         focusPhoneNumber,
+        getBrowserRestoredCountryState,
         getVatId,
+        initPhoneNumberField,
+        restoreCountryState,
         setFieldValidationState,
         showVatIdError,
-        updatePhoneCountryDisplay,
         updateVatIdFieldState,
         validateField,
+        validatePhoneNumber,
         validateRequiredFields
     };
 }

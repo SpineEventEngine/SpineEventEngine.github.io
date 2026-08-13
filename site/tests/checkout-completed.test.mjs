@@ -430,7 +430,7 @@ async function render(
                 if (selector === '[data-payment-status-page]') {
                     return {};
                 }
-                if (selector === '#payment-failed .result-panel-button') {
+                if (selector === '#payment-failed [data-back-to-checkout]') {
                     return backToCheckoutLink;
                 }
                 return null;
@@ -558,4 +558,3 @@ function createBrowserState(href, state = null) {
 function settleAsyncWork() {
     return new Promise(resolve => setImmediate(resolve));
 }
-

@@ -64,3 +64,33 @@ export function normalizePhoneNumber(rawCountryCode, rawNumber) {
         number
     };
 }
+
+/**
+ * Builds a Paygate phone payload from an `intl-tel-input` field.
+ *
+ * @param {string} rawNumber displayed national phone number
+ * @param {string} rawCountryCode selected international dial code
+ * @param {string} rawFullNumber full number returned by the plugin
+ * @return {{countryCode: number, number: string}|null}
+ *   normalized phone-number payload, or null when incomplete
+ */
+export function normalizeIntlPhoneNumber(rawNumber, rawCountryCode, rawFullNumber) {
+    const countryCode = digits(rawCountryCode);
+    const fullNumber = digits(rawFullNumber);
+    const fallbackNumber = digits(rawNumber);
+
+    if (!countryCode || !fallbackNumber) {
+        return null;
+    }
+
+    const number = fullNumber.indexOf(countryCode) === 0
+        ? fullNumber.slice(countryCode.length)
+        : fallbackNumber;
+
+    return normalizePhoneNumber(countryCode, number);
+}
+
+/** Returns decimal digits from a phone-number fragment. */
+function digits(value) {
+    return String(value || '').replace(/\D/g, '');
+}

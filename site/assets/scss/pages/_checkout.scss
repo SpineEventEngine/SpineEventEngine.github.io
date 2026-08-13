@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+@import 'libs/country-select/select2.min.css';
+@import 'libs/intl-tel-input/intlTelInput.min.css';
+
 $checkout-bg-color: #f3f3f3;
 $checkout-panel-width: 790px;
 
@@ -23,6 +26,10 @@ $checkout-panel-width: 790px;
     display: flex;
     flex-direction: column;
   }
+}
+
+.checkout-completed-page .main {
+  min-height: auto;
 }
 
 .checkout {
@@ -235,12 +242,7 @@ $checkout-panel-width: 790px;
     appearance: auto;
   }
 
-  .form-actions {
-    margin-top: 8px;
-  }
-
   .form-submit-button {
-    width: 100%;
     min-height: 48px;
   }
 
@@ -264,12 +266,123 @@ $checkout-panel-width: 790px;
   }
 }
 
+.checkout {
+  .select2-hidden-accessible[required] {
+    position: static !important;
+    display: block;
+    width: 100% !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    opacity: 0;
+  }
+
+  .select2-container {
+    width: 100% !important;
+
+    .select2-selection--single {
+      height: 48px;
+      border: 1px solid rgba($black, .12);
+      border-radius: $border-radius-m;
+      box-shadow: inset 0 1px 1px rgba($black, .02);
+
+      &:focus {
+        outline: none;
+        border-color: rgba($main-brand-color, .55);
+        box-shadow: 0 0 0 3px rgba($main-brand-color, .12);
+      }
+
+      .select2-selection__rendered {
+        padding: 13px 40px 13px 15px;
+        color: $black;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      .select2-selection__arrow {
+        width: 40px;
+        height: 46px;
+      }
+    }
+  }
+
+  .field-error .select2-selection--single {
+    border-color: rgba($form-error-color, .7);
+    box-shadow: 0 0 0 3px rgba($form-error-color, .12);
+  }
+
+  .iti {
+    display: block;
+    width: 100%;
+
+    input.form-input {
+      width: 100%;
+      min-height: 48px;
+    }
+
+    .iti__selected-flag {
+      border-radius: $border-radius-m 0 0 $border-radius-m;
+    }
+
+    .iti__country-list {
+      z-index: 20;
+      border: 0;
+      border-radius: $border-radius-m;
+      box-shadow: 0 8px 24px rgba($black, .16);
+    }
+  }
+
+  .phone-error-message.show {
+    display: block;
+  }
+}
+
+.select2-dropdown {
+  border: 0;
+  border-radius: $border-radius-m;
+  box-shadow: 0 8px 24px rgba($black, .16);
+  z-index: 20;
+
+  .select2-results__option {
+    padding: 10px 15px;
+  }
+
+  .select2-results__option--highlighted.select2-results__option--selectable {
+    color: $black;
+    background: rgba($main-brand-color, .1);
+  }
+
+  .select2-search__field {
+    padding: 8px 10px;
+    border: 1px solid rgba($black, .15) !important;
+    border-radius: $border-radius-m;
+  }
+}
+
+.country-selector__option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  min-width: 0;
+
+  .iti__flag {
+    flex: 0 0 auto;
+  }
+}
+
+.country-selector__text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .checkout-business-fields {
   min-width: 0;
-  margin: 10px 0 0;
-  padding: 28px 0 0;
+  margin: 0;
+  padding: 0;
   border: 0;
-  border-top: 1px solid rgba($black, .12);
 
   .checkout-business-fields-title {
     width: 100%;
@@ -290,6 +403,7 @@ $checkout-panel-width: 790px;
   .checkout-business-fields-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
   }
 }
 
@@ -313,7 +427,10 @@ $checkout-panel-width: 790px;
   }
 }
 
-.checkout-completed .result-panel {
-  margin-top: auto;
-  margin-bottom: auto;
+.checkout-completed {
+  min-height: 420px;
+
+  @include breakpoint(sm-phone) {
+    min-height: auto;
+  }
 }

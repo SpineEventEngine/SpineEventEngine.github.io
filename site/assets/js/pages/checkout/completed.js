@@ -173,7 +173,7 @@ function init() {
 
 /** Makes the failed-payment action navigate back to the same order. */
 function configureBackToCheckoutLink(orderId) {
-    const link = document.querySelector('#payment-failed .result-panel-button');
+    const link = document.querySelector('#payment-failed [data-back-to-checkout]');
     if (!link) {
         return;
     }

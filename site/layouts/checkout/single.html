@@ -49,12 +49,13 @@
                             <div class="form-field form-field-full">
                                 <label class="form-label required-label"
                                        for="checkout-country">Country</label>
-                                <select class="form-input form-select"
+                                <select class="form-input country-select"
                                         id="checkout-country"
                                         name="country"
                                         autocomplete="country-name"
+                                        data-placeholder="Select country"
                                         required>
-                                    <option value="" selected disabled>Select country</option>
+                                    <option></option>
                                 </select>
                             </div>
                             <div class="form-field">
@@ -85,54 +86,20 @@
                             </div>
                             <div class="form-field form-field-full">
                                 <label class="form-label" for="checkout-phone">Phone number</label>
-                                <div class="phone-field" data-phone-country-selected="false">
-                                    <select class="form-input form-select phone-country-select"
-                                            id="checkout-phone-country-code"
-                                            name="phone_country_code"
-                                            autocomplete="tel-country-code"
-                                            aria-label="Phone country code">
-                                        <option value="" data-flag="" data-code="" selected>Country</option>
-                                        <option value="43" data-flag="🇦🇹" data-code="+43">🇦🇹 AT +43</option>
-                                        <option value="32" data-flag="🇧🇪" data-code="+32">🇧🇪 BE +32</option>
-                                        <option value="359" data-flag="🇧🇬" data-code="+359">🇧🇬 BG +359</option>
-                                        <option value="385" data-flag="🇭🇷" data-code="+385">🇭🇷 HR +385</option>
-                                        <option value="357" data-flag="🇨🇾" data-code="+357">🇨🇾 CY +357</option>
-                                        <option value="420" data-flag="🇨🇿" data-code="+420">🇨🇿 CZ +420</option>
-                                        <option value="45" data-flag="🇩🇰" data-code="+45">🇩🇰 DK +45</option>
-                                        <option value="372" data-flag="🇪🇪" data-code="+372">🇪🇪 EE +372</option>
-                                        <option value="358" data-flag="🇫🇮" data-code="+358">🇫🇮 FI +358</option>
-                                        <option value="33" data-flag="🇫🇷" data-code="+33">🇫🇷 FR +33</option>
-                                        <option value="49" data-flag="🇩🇪" data-code="+49">🇩🇪 DE +49</option>
-                                        <option value="30" data-flag="🇬🇷" data-code="+30">🇬🇷 GR +30</option>
-                                        <option value="36" data-flag="🇭🇺" data-code="+36">🇭🇺 HU +36</option>
-                                        <option value="353" data-flag="🇮🇪" data-code="+353">🇮🇪 IE +353</option>
-                                        <option value="39" data-flag="🇮🇹" data-code="+39">🇮🇹 IT +39</option>
-                                        <option value="371" data-flag="🇱🇻" data-code="+371">🇱🇻 LV +371</option>
-                                        <option value="370" data-flag="🇱🇹" data-code="+370">🇱🇹 LT +370</option>
-                                        <option value="352" data-flag="🇱🇺" data-code="+352">🇱🇺 LU +352</option>
-                                        <option value="356" data-flag="🇲🇹" data-code="+356">🇲🇹 MT +356</option>
-                                        <option value="31" data-flag="🇳🇱" data-code="+31">🇳🇱 NL +31</option>
-                                        <option value="48" data-flag="🇵🇱" data-code="+48">🇵🇱 PL +48</option>
-                                        <option value="351" data-flag="🇵🇹" data-code="+351">🇵🇹 PT +351</option>
-                                        <option value="40" data-flag="🇷🇴" data-code="+40">🇷🇴 RO +40</option>
-                                        <option value="421" data-flag="🇸🇰" data-code="+421">🇸🇰 SK +421</option>
-                                        <option value="386" data-flag="🇸🇮" data-code="+386">🇸🇮 SI +386</option>
-                                        <option value="34" data-flag="🇪🇸" data-code="+34">🇪🇸 ES +34</option>
-                                        <option value="46" data-flag="🇸🇪" data-code="+46">🇸🇪 SE +46</option>
-                                    </select>
-                                    <span class="phone-flag" id="checkout-phone-flag" aria-hidden="true"></span>
-                                    <span class="phone-chevron" aria-hidden="true"></span>
-                                    <span class="phone-dial-code"
-                                          id="checkout-phone-dial-code"
-                                          aria-hidden="true"></span>
-                                    <input class="form-input phone-number"
-                                           id="checkout-phone"
-                                           name="phone_number"
-                                           type="tel"
-                                           autocomplete="tel-national"
-                                           inputmode="tel"
-                                           disabled>
-                                </div>
+                                <input class="form-input"
+                                       id="checkout-phone"
+                                       name="phone"
+                                       type="tel"
+                                       autocomplete="tel"
+                                       inputmode="tel"
+                                       placeholder=" ">
+                                <input id="checkout-phone-country"
+                                       name="phone_country"
+                                       type="text"
+                                       hidden>
+                                <p class="error-message phone-error-message">
+                                    Enter a valid phone number.
+                                </p>
                             </div>
                             <div class="form-field form-field-full">
                                 <label class="form-label required-label"
@@ -191,8 +158,7 @@
                                             <input class="form-input"
                                                    id="checkout-vat-id"
                                                    name="vat_id"
-                                                   type="text"
-                                                   disabled>
+                                                   type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -261,4 +227,11 @@
             </div>
         </div>
     </section>
+
+    <script defer src="{{ `libs/country-select/select2.min.js` | relURL }}"
+            type="text/javascript"
+            charset="utf-8"></script>
+    <script defer src="{{ `libs/intl-tel-input/intlTelInput.min.js` | relURL }}"
+            type="text/javascript"
+            charset="utf-8"></script>
 {{ end }}

@@ -1,6 +1,8 @@
 {{ define "main" }}
     {{ partial "components/navbar/navbar.html" . }}
     {{ $email := hugo.Data.emails.sales_email }}
+    {{ $contactLine := printf "If you have any questions, email us at <a href=\"mailto:%s\">%s</a>." $email $email | safeHTML }}
+    {{ $missingOrderContactLine := printf "Please check the address or contact <a href=\"mailto:%s\">%s</a>." $email $email | safeHTML }}
     <section class="checkout checkout-completed" data-payment-status-page>
         <div class="checkout-frame content-with-fixed-header">
             <div class="checkout-panel">
@@ -25,8 +27,8 @@
                             "lines" (slice
                                 "Your payment was successful."
                                 "We will send the order details to your email."
-                                (printf "If you have any questions, email us at %s." $email)
                             )
+                            "additional_line" $contactLine
                             "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
                         ) }}
                     </div>
@@ -37,9 +39,17 @@
                             "lines" (slice
                                 "Your payment was not completed successfully."
                                 "Please try again or contact your bank for details."
-                                (printf "If you have any questions, email us at %s." $email)
                             )
-                            "action" (dict "label" "Back to checkout" "url" "#")
+                            "additional_line" $contactLine
+                            "actions" (slice
+                                (dict
+                                    "label" "Back to checkout"
+                                    "url" "#"
+                                    "primary" true
+                                    "back_to_checkout" true
+                                )
+                                (dict "label" "Back to home" "url" site.Home.RelPermalink)
+                            )
                         ) }}
                     </div>
                     <div id="payment-refunded" hidden>
@@ -48,8 +58,8 @@
                             "title_as_h1" true
                             "lines" (slice
                                 "A refund was issued to your original payment method."
-                                (printf "If you have any questions, email us at %s." $email)
                             )
+                            "additional_line" $contactLine
                             "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
                         ) }}
                     </div>
@@ -59,8 +69,8 @@
                             "title_as_h1" true
                             "lines" (slice
                                 "Your bank or card provider reversed it after a payment dispute."
-                                (printf "If you have any questions, email us at %s." $email)
                             )
+                            "additional_line" $contactLine
                             "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
                         ) }}
                     </div>
@@ -71,8 +81,8 @@
                             "lines" (slice
                                 "The payment status is temporarily unavailable."
                                 "This page will retry automatically."
-                                (printf "If you have any questions, email us at %s." $email)
                             )
+                            "additional_line" $contactLine
                         ) }}
                     </div>
                     <div id="payment-order-not-found" hidden>
@@ -82,8 +92,8 @@
                             "mark" (dict "text" "404" "icon_class" "result-panel-mark-code")
                             "lines" (slice
                                 "The checkout order could not be found."
-                                (printf "Please check the address or contact %s." $email)
                             )
+                            "additional_line" $missingOrderContactLine
                             "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
                         ) }}
                     </div>
@@ -93,8 +103,8 @@
                             "title_as_h1" true
                             "lines" (slice
                                 "We will send the order details to your email after the payment is confirmed."
-                                (printf "If you have any questions, email us at %s." $email)
                             )
+                            "additional_line" $contactLine
                             "action" (dict "label" "Back to home" "url" site.Home.RelPermalink)
                         ) }}
                     </div>

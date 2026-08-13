@@ -33,12 +33,8 @@
  * @property {JQuery<HTMLFormElement>} $form checkout billing form wrapper
  * @property {JQuery<HTMLElement>} $summary order summary container
  * @property {JQuery<HTMLSelectElement>} $country billing country select
- * @property {JQuery<HTMLElement>} $phone custom phone field wrapper
- * @property {JQuery<HTMLSelectElement>} $phoneCountryCode phone country-code
- *   select
- * @property {JQuery<HTMLElement>} $phoneFlag visible phone country flag
- * @property {JQuery<HTMLElement>} $phoneDialCode visible phone dial code label
- * @property {JQuery<HTMLInputElement>} $phoneNumber national phone number input
+ * @property {JQuery<HTMLInputElement>} $phoneNumber international phone input
+ * @property {JQuery<HTMLInputElement>} $phoneCountry native phone-country state
  * @property {JQuery<HTMLInputElement>} $vatId vat ID input
  * @property {JQuery<HTMLElement>} $loading summary loading container
  * @property {JQuery<HTMLElement>} $loadingSpinner summary spinner element
@@ -69,11 +65,8 @@ export function getCheckoutDom() {
         $form: $('#checkout-form'),
         $summary: $('.checkout-summary'),
         $country: $('#checkout-country'),
-        $phone: $('.phone-field'),
-        $phoneCountryCode: $('#checkout-phone-country-code'),
-        $phoneFlag: $('#checkout-phone-flag'),
-        $phoneDialCode: $('#checkout-phone-dial-code'),
         $phoneNumber: $('#checkout-phone'),
+        $phoneCountry: $('#checkout-phone-country'),
         $vatId: $('#checkout-vat-id'),
         $loading: $('#checkout-summary-loading'),
         $loadingSpinner: $('#checkout-summary-loading-spinner'),

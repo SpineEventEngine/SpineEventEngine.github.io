@@ -21,12 +21,21 @@ import test from 'node:test';
 const {buildChargeRequest} = await importSource(
     '../assets/js/pages/checkout/charge-request.js'
 );
-const {populateCountrySelect} = await importSource(
+const {
+    checkoutNavigationMode,
+    focusOpenCountrySearchField,
+    getCheckoutNavigationMode,
+    populateCountrySelect
+} = await importSource(
     '../assets/js/pages/checkout/countries.js'
 );
 const {isEuCountry} = await importSource(
     '../assets/js/pages/checkout/phone-codes.js'
 );
+const {normalizeIntlPhoneNumber} = await importSource(
+    '../assets/js/modules/forms/phone-number.js'
+);
+const {createCheckoutFormController} = await importFormController();
 
 test('calculate charges without requiring a VAT ID', () => {
     assert.deepEqual(
@@ -73,6 +82,44 @@ test('offer the complete ISO billing-country list', () => {
     }
 });
 
+test('focus the country search input when its dropdown opens', () => {
+    let focused = false;
+    let requestedSelector = '';
+    const root = {
+        querySelector(selector) {
+            requestedSelector = selector;
+            return {focus: () => focused = true};
+        }
+    };
+
+    focusOpenCountrySearchField(root);
+
+    assert.equal(
+        requestedSelector,
+        '.select2-container--open .select2-search__field'
+    );
+    assert.equal(focused, true);
+});
+
+test('restore checkout fields only for browser history navigation', () => {
+    assert.equal(
+        getCheckoutNavigationMode('back_forward'),
+        checkoutNavigationMode.restore
+    );
+    assert.equal(
+        getCheckoutNavigationMode('navigate', true),
+        checkoutNavigationMode.restore
+    );
+    assert.equal(
+        getCheckoutNavigationMode('reload'),
+        checkoutNavigationMode.reset
+    );
+    assert.equal(
+        getCheckoutNavigationMode('navigate'),
+        checkoutNavigationMode.none
+    );
+});
+
 test('show VAT ID only for EU billing countries', () => {
     assert.equal(isEuCountry('EE'), true);
     assert.equal(isEuCountry('DE'), true);
@@ -80,7 +127,73 @@ test('show VAT ID only for EU billing countries', () => {
     assert.equal(isEuCountry('US'), false);
 });
 
+test('build Paygate phone data from the shared international input', () => {
+    assert.deepEqual(
+        normalizeIntlPhoneNumber('555 0100', '372', '+372 555 0100'),
+        {countryCode: 372, number: '5550100'}
+    );
+    assert.deepEqual(
+        normalizeIntlPhoneNumber('(512) 555-0199', '1', ''),
+        {countryCode: 1, number: '5125550199'}
+    );
+    assert.equal(normalizeIntlPhoneNumber('', '372', ''), null);
+    assert.equal(normalizeIntlPhoneNumber('5550100', '', ''), null);
+});
+
+test('clear an earlier VAT validation error after the input changes', () => {
+    const classes = new Set();
+    const errorElement = {textContent: ''};
+    const fieldContainer = {
+        classList: {
+            toggle(className, enabled) {
+                if (enabled) {
+                    classes.add(className);
+                } else {
+                    classes.delete(className);
+                }
+            }
+        },
+        querySelector() {
+            return errorElement;
+        }
+    };
+    const vatField = {
+        closest() {
+            return fieldContainer;
+        }
+    };
+    const controller = createCheckoutFormController({
+        dom: {
+            $country: {val: () => 'EE'},
+            $vatId: {get: () => vatField}
+        }
+    });
+
+    controller.showVatIdError('NOT_ACTIVE');
+    assert.equal(classes.has('field-error'), true);
+    assert.equal(errorElement.textContent, 'This VAT ID is not active.');
+
+    controller.clearVatIdError();
+    assert.equal(classes.has('field-error'), false);
+    assert.equal(errorElement.textContent, '');
+});
+
 async function importSource(relativePath) {
     const source = fs.readFileSync(new URL(relativePath, import.meta.url), 'utf8');
+    return import(`data:text/javascript,${encodeURIComponent(source)}`);
+}
+
+async function importFormController() {
+    const source = fs.readFileSync(
+        new URL('../assets/js/pages/checkout/form-controller.js', import.meta.url),
+        'utf8'
+    ).replace(
+        "import {isEuCountry} from 'js/pages/checkout/phone-codes';",
+        "const isEuCountry = countryCode => countryCode === 'EE';"
+    ).replace(
+        "import {normalizeIntlPhoneNumber} from 'js/modules/forms/phone-number';",
+        'const normalizeIntlPhoneNumber = () => null;'
+    );
+
     return import(`data:text/javascript,${encodeURIComponent(source)}`);
 }

@@ -30,7 +30,11 @@ import * as params from '@params';
 import {createPurchaseClient} from 'js/modules/paygate/purchases';
 import {createChargeController} from 'js/pages/checkout/charge-controller';
 import {getCompletedPageUrl} from 'js/pages/checkout/completed-page-url';
-import {populateCountrySelect} from 'js/pages/checkout/countries';
+import {
+    checkoutNavigationMode,
+    getCheckoutNavigationMode,
+    initializeCountrySelector
+} from 'js/pages/checkout/countries';
 import {getCheckoutDom} from 'js/pages/checkout/dom';
 import {createCheckoutFormController} from 'js/pages/checkout/form-controller';
 import {createCheckoutView} from 'js/pages/checkout/view-controller';
@@ -45,7 +49,7 @@ $(
             return;
         }
 
-        populateCountrySelect(dom.$country.get(0));
+        initializeCountrySelector(dom.$country.get(0));
         const purchaseClient = createPurchaseClient(params.payment.paygateurl);
         const orderId = getOrderId();
         const view = createCheckoutView(dom);
@@ -71,8 +75,10 @@ $(
         }
 
         dom.$form.prop('hidden', true);
-        formController.updatePhoneCountryDisplay();
-        formController.bindPhoneEvents();
+        formController.initPhoneNumberField();
+        formController.bindPhoneEvents({
+            onPhoneCountryChange: handlePhoneCountryChange
+        });
         chargeController.updateSubmitState();
         loadOrder();
         bindEvents();
@@ -97,8 +103,17 @@ $(
                 }
             });
 
-            $(window).on('pageshow', () => {
-                scheduleCurrentChargeCalculation();
+            $(window).on('pageshow', event => {
+                const mode = getCheckoutNavigationMode(
+                    getNavigationType(),
+                    Boolean(event.originalEvent && event.originalEvent.persisted)
+                );
+
+                if (mode === checkoutNavigationMode.reset) {
+                    scheduleCheckoutReset();
+                } else if (mode === checkoutNavigationMode.restore) {
+                    scheduleCheckoutRestoration();
+                }
             });
 
             dom.$country.on('change', () => {
@@ -109,19 +124,8 @@ $(
                 chargeController.flush();
             });
 
-            dom.$phoneCountryCode.on('change', () => {
-                phoneCountryManuallySelected = true;
-                formController.updatePhoneCountryDisplay();
-                formController.focusPhoneNumber();
-
-                if (formController.applyBillingCountryFromPhoneCountry(countryManuallySelected)) {
-                    chargeController.invalidate();
-                    formController.updateVatIdFieldState();
-                    chargeController.flush();
-                }
-            });
-
             dom.$vatId.on('input', () => {
+                formController.clearVatIdError();
                 chargeController.invalidate();
                 chargeController.schedule();
             });
@@ -133,6 +137,18 @@ $(
             });
 
             dom.$form.on('submit', handleSubmit);
+        }
+
+        /** Syncs billing country after a user changes the phone country. */
+        function handlePhoneCountryChange() {
+            phoneCountryManuallySelected = true;
+            formController.focusPhoneNumber();
+
+            if (formController.applyBillingCountryFromPhoneCountry(countryManuallySelected)) {
+                chargeController.invalidate();
+                formController.updateVatIdFieldState();
+                chargeController.flush();
+            }
         }
 
         /**
@@ -185,7 +201,11 @@ $(
         async function handleSubmit(event) {
             event.preventDefault();
 
-            if (!formController.validateRequiredFields(requiredSelector)) {
+            const hasValidRequiredFields =
+                formController.validateRequiredFields(requiredSelector);
+            const hasValidPhoneNumber = formController.validatePhoneNumber();
+
+            if (!hasValidRequiredFields || !hasValidPhoneNumber) {
                 dom.form.reportValidity();
                 return;
             }
@@ -233,6 +253,61 @@ $(
          */
         function scheduleCurrentChargeCalculation() {
             window.setTimeout(requestCurrentCharges, 0);
+        }
+
+        /** Restores custom country widgets after native browser form restoration settles. */
+        function scheduleCheckoutRestoration() {
+            window.setTimeout(() => {
+                const restoredState = formController.getBrowserRestoredCountryState();
+
+                countryManuallySelected = Boolean(restoredState.billingCountryCode);
+                phoneCountryManuallySelected = Boolean(
+                    restoredState.phoneCountryCode &&
+                    restoredState.phoneCountryCode !== restoredState.billingCountryCode
+                );
+                formController.restoreCountryState(restoredState);
+                formController.updateVatIdFieldState();
+                requestCurrentCharges();
+            }, 0);
+        }
+
+        /** Clears browser-restored custom checkout fields after an explicit reload. */
+        function scheduleCheckoutReset() {
+            window.setTimeout(() => {
+                countryManuallySelected = false;
+                phoneCountryManuallySelected = false;
+                formController.restoreCountryState({
+                    billingCountryCode: '',
+                    phoneCountryCode: 'US'
+                });
+                dom.$vatId.val('');
+                formController.updateVatIdFieldState();
+                chargeController.invalidate();
+                requestCurrentCharges();
+            }, 0);
+        }
+
+        /** Returns the current document-navigation type with a legacy fallback. */
+        function getNavigationType() {
+            const navigationEntries = window.performance &&
+                typeof window.performance.getEntriesByType === 'function'
+                ? window.performance.getEntriesByType('navigation')
+                : [];
+
+            if (navigationEntries.length) {
+                return navigationEntries[0].type;
+            }
+
+            const legacyType = window.performance &&
+                window.performance.navigation &&
+                window.performance.navigation.type;
+            if (legacyType === 1) {
+                return 'reload';
+            }
+            if (legacyType === 2) {
+                return 'back_forward';
+            }
+            return 'navigate';
         }
 
         /**
