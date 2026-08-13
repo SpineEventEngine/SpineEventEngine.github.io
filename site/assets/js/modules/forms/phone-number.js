@@ -27,18 +27,6 @@
 'use strict';
 
 /**
- * Removes characters that are not accepted by the phone-number field.
- *
- * <p>Allowed: digits, parentheses, hyphens, and spaces.
- *
- * @param {string} value phone-number value to sanitize
- * @return {string} sanitized phone-number value
- */
-export function sanitizePhoneNumberInput(value) {
-    return String(value || '').replace(/[^0-9\s()-]/g, '');
-}
-
-/**
  * Builds the phone-number payload with country code and number with digits only.
  *
  * @param {string} rawCountryCode phone country code

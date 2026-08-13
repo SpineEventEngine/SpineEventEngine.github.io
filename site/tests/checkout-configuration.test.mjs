@@ -7,11 +7,21 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 import assert from 'node:assert/strict';
@@ -22,20 +32,65 @@ const {buildChargeRequest} = await importSource(
     '../assets/js/pages/checkout/charge-request.js'
 );
 const {
-    checkoutNavigationMode,
     focusOpenCountrySearchField,
-    getCheckoutNavigationMode,
     populateCountrySelect
 } = await importSource(
     '../assets/js/pages/checkout/countries.js'
 );
+const {
+    checkoutNavigationMode,
+    getCheckoutNavigationMode
+} = await importSource(
+    '../assets/js/pages/checkout/navigation.js'
+);
 const {isEuCountry} = await importSource(
-    '../assets/js/pages/checkout/phone-codes.js'
+    '../assets/js/pages/checkout/vat-countries.js'
 );
 const {normalizeIntlPhoneNumber} = await importSource(
     '../assets/js/modules/forms/phone-number.js'
 );
 const {createCheckoutFormController} = await importFormController();
+
+test('keep checkout libraries aligned with pinned npm distributions', () => {
+    assert.deepEqual(
+        readFile('../assets/libs/country-select/select2.js'),
+        readFile('../node_modules/select2/dist/js/select2.min.js')
+    );
+    assert.deepEqual(
+        readFile('../assets/scss/libs/country-select/_select2.scss'),
+        readFile('../node_modules/select2/dist/css/select2.min.css')
+    );
+    assert.deepEqual(
+        readFile('../assets/libs/intl-tel-input/intlTelInput.js'),
+        readFile('../node_modules/intl-tel-input/build/js/intlTelInput.min.js')
+    );
+    assert.deepEqual(
+        readFile('../assets/libs/intl-tel-input/utils.js'),
+        readFile('../node_modules/intl-tel-input/build/js/utils.js')
+    );
+
+    const expectedPhoneCss = readText(
+        '../node_modules/intl-tel-input/build/css/intlTelInput.min.css'
+    ).replace(
+        'url(../img/flags.png?1)',
+        'url("../../images/flags/flags.png?1")'
+    ).replace(
+        'url(../img/flags@2x.png?1)',
+        'url("../../images/flags/flags@2x.png?1")'
+    );
+    assert.equal(
+        readText('../assets/scss/libs/intl-tel-input/_intl-tel-input.scss'),
+        expectedPhoneCss
+    );
+    assert.deepEqual(
+        readFile('../static/images/flags/flags.png'),
+        readFile('../node_modules/intl-tel-input/build/img/flags.png')
+    );
+    assert.deepEqual(
+        readFile('../static/images/flags/flags@2x.png'),
+        readFile('../node_modules/intl-tel-input/build/img/flags@2x.png')
+    );
+});
 
 test('calculate charges without requiring a VAT ID', () => {
     assert.deepEqual(
@@ -115,6 +170,10 @@ test('restore checkout fields only for browser history navigation', () => {
         checkoutNavigationMode.reset
     );
     assert.equal(
+        getCheckoutNavigationMode('reload', true),
+        checkoutNavigationMode.restore
+    );
+    assert.equal(
         getCheckoutNavigationMode('navigate'),
         checkoutNavigationMode.none
     );
@@ -138,6 +197,75 @@ test('build Paygate phone data from the shared international input', () => {
     );
     assert.equal(normalizeIntlPhoneNumber('', '372', ''), null);
     assert.equal(normalizeIntlPhoneNumber('5550100', '', ''), null);
+});
+
+test('allow an optional phone number while validation utilities are loading', () => {
+    const originalWindow = globalThis.window;
+    let validityMessage = '';
+    const errorElement = {textContent: ''};
+    const fieldContainer = {
+        classList: {toggle() {}},
+        querySelector: () => errorElement
+    };
+    const phoneField = {
+        closest: () => fieldContainer,
+        setCustomValidity: message => validityMessage = message
+    };
+    const phoneInput = {isValidNumber: () => false};
+    globalThis.window = {
+        intlTelInputGlobals: {getInstance: () => phoneInput}
+    };
+
+    try {
+        const controller = createCheckoutFormController({
+            dom: {
+                $phoneNumber: {
+                    get: () => phoneField,
+                    val: () => '151 23456789'
+                }
+            }
+        });
+
+        assert.equal(controller.validatePhoneNumber(), true);
+        assert.equal(validityMessage, '');
+
+        globalThis.window.intlTelInputUtils = {};
+        assert.equal(controller.validatePhoneNumber(), false);
+        assert.equal(validityMessage, 'Enter a valid phone number.');
+    } finally {
+        globalThis.window = originalWindow;
+    }
+});
+
+test('apply billing country to a typed phone unless its country was chosen manually', () => {
+    const originalWindow = globalThis.window;
+    const selectedCountries = [];
+    const phoneField = {};
+    globalThis.window = {
+        intlTelInputGlobals: {
+            getInstance: () => ({
+                setCountry: countryCode => selectedCountries.push(countryCode)
+            })
+        },
+        setTimeout: callback => callback()
+    };
+
+    try {
+        const controller = createCheckoutFormController({
+            dom: {
+                $country: {val: () => 'DE'},
+                $phoneNumber: {get: () => phoneField, val: () => '151 23456789'}
+            }
+        });
+
+        controller.applyPhoneCountryFromBillingCountry(false);
+        controller.applyPhoneCountryFromBillingCountry(true);
+
+        assert.deepEqual(selectedCountries, ['de']);
+        assert.equal(controller.applyBillingCountryFromPhoneCountry, undefined);
+    } finally {
+        globalThis.window = originalWindow;
+    }
 });
 
 test('clear an earlier VAT validation error after the input changes', () => {
@@ -183,12 +311,20 @@ async function importSource(relativePath) {
     return import(`data:text/javascript,${encodeURIComponent(source)}`);
 }
 
+function readFile(relativePath) {
+    return fs.readFileSync(new URL(relativePath, import.meta.url));
+}
+
+function readText(relativePath) {
+    return fs.readFileSync(new URL(relativePath, import.meta.url), 'utf8');
+}
+
 async function importFormController() {
     const source = fs.readFileSync(
         new URL('../assets/js/pages/checkout/form-controller.js', import.meta.url),
         'utf8'
     ).replace(
-        "import {isEuCountry} from 'js/pages/checkout/phone-codes';",
+        "import {isEuCountry} from 'js/pages/checkout/vat-countries';",
         "const isEuCountry = countryCode => countryCode === 'EE';"
     ).replace(
         "import {normalizeIntlPhoneNumber} from 'js/modules/forms/phone-number';",

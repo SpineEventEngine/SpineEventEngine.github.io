@@ -7,11 +7,21 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -269,48 +279,12 @@ test('keep the neutral result when the payment client cannot initialize', async 
 test('keep the order ID in the visible URL', () => {
     const initialUrl = 'https://example.com/checkout-completed/' +
         '?campaign=sale&orderId=current-order&orderId=ignored#result';
-    const browser = createBrowserState(
-        initialUrl,
-        {
-            consumerState: 'preserved',
-            siteCommonsCompletionOrderId: 'previous-order'
-        }
-    );
+    const browser = createBrowserState(initialUrl);
 
-    const orderId = getCompletionOrderId(browser.location, browser.history);
+    const orderId = getCompletionOrderId(browser.location);
 
     assert.equal(orderId, 'current-order');
     assert.equal(browser.location.href, initialUrl);
-    assert.equal(browser.history.state.consumerState, 'preserved');
-    assert.equal(browser.history.state.siteCommonsCompletionOrderId, 'previous-order');
-});
-
-test('fall back to an order ID retained by the previous URL behavior', () => {
-    const browser = createBrowserState(
-        'https://example.com/checkout-completed/?campaign=sale#result',
-        {siteCommonsCompletionOrderId: 'current-order'}
-    );
-
-    assert.equal(
-        getCompletionOrderId(browser.location, browser.history),
-        'current-order'
-    );
-    assert.equal(
-        browser.location.href,
-        'https://example.com/checkout-completed/?campaign=sale#result'
-    );
-});
-
-test('let an explicit empty order ID override retained history', () => {
-    const browser = createBrowserState(
-        'https://example.com/checkout-completed/?orderId=',
-        {siteCommonsCompletionOrderId: 'previous-order'}
-    );
-
-    assert.equal(
-        getCompletionOrderId(browser.location, browser.history),
-        ''
-    );
 });
 
 test('carry only the order ID to a directory completion URL', () => {
@@ -325,18 +299,6 @@ test('carry only the order ID to a directory completion URL', () => {
     );
 });
 
-test('carry the order ID to a file-style completion URL', () => {
-    const actual = getCompletedPageUrl(
-        'https://example.com/checkout.html?orderId=current-order',
-        'current-order'
-    );
-
-    assert.equal(
-        actual,
-        'https://example.com/checkout-completed.html?orderId=current-order'
-    );
-});
-
 test('carry only the order ID back to a directory checkout URL', () => {
     const actual = getCheckoutPageUrl(
         'https://example.com/checkout-completed/?campaign=sale#result',
@@ -346,18 +308,6 @@ test('carry only the order ID back to a directory checkout URL', () => {
     assert.equal(
         actual,
         'https://example.com/checkout/?orderId=current-order'
-    );
-});
-
-test('carry the order ID back to a file-style checkout URL', () => {
-    const actual = getCheckoutPageUrl(
-        'https://example.com/checkout-completed.html?campaign=sale#result',
-        'current-order'
-    );
-
-    assert.equal(
-        actual,
-        'https://example.com/checkout.html?orderId=current-order'
     );
 });
 

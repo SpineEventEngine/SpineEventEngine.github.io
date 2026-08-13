@@ -26,7 +26,7 @@
 
 'use strict';
 
-import {isEuCountry} from 'js/pages/checkout/phone-codes';
+import {isEuCountry} from 'js/pages/checkout/vat-countries';
 import {normalizeIntlPhoneNumber} from 'js/modules/forms/phone-number';
 
 /**
@@ -48,8 +48,6 @@ export const fieldValidationState = Object.freeze({
  * API exposed by the checkout form controller.
  *
  * @typedef {Object} CheckoutFormController
- * @property {function(boolean): boolean} applyBillingCountryFromPhoneCountry
- *   syncs billing country from phone country when allowed
  * @property {function(boolean): void} applyPhoneCountryFromBillingCountry
  *   syncs phone country from billing country when allowed
  * @property {function(): void} bindPhoneEvents
@@ -102,8 +100,7 @@ export function createCheckoutFormController({dom}) {
             initialCountry: normalizeCountryCode(dom.$phoneCountry.val()) || 'us',
             autoPlaceholder: 'aggressive',
             separateDialCode: true,
-            formatOnDisplay: true,
-            utilsScript: '/libs/intl-tel-input/utils.js'
+            formatOnDisplay: true
         });
         syncPhoneCountryState();
     }
@@ -183,7 +180,9 @@ export function createCheckoutFormController({dom}) {
     function validatePhoneNumber() {
         const value = String(dom.$phoneNumber.val() || '').trim();
         const phoneInput = getPhoneInputInstance();
-        const isValid = !value || Boolean(phoneInput && phoneInput.isValidNumber());
+        const utilsReady = Boolean(window.intlTelInputUtils);
+        const isValid = !value || !utilsReady ||
+            Boolean(phoneInput && phoneInput.isValidNumber());
 
         setPhoneFieldError(isValid ? '' : 'Enter a valid phone number.');
         return isValid;
@@ -296,33 +295,12 @@ export function createCheckoutFormController({dom}) {
     }
 
     /**
-     * Sets billing country from phone country when the user has not chosen country manually.
-     *
-     * @param {boolean} countryManuallySelected whether billing country was chosen by the user
-     * @return {boolean} true when billing country was changed by the phone-country selector
-     */
-    function applyBillingCountryFromPhoneCountry(countryManuallySelected) {
-        if (countryManuallySelected) {
-            return false;
-        }
-
-        const countryCode = getSelectedPhoneCountryCode();
-
-        if (!countryCode || !hasCountryOption(countryCode) || dom.$country.val() === countryCode) {
-            return false;
-        }
-
-        setBillingCountry(countryCode);
-        return true;
-    }
-
-    /**
-     * Sets phone country from billing country while the phone number is still untouched.
+     * Sets phone country from billing country unless the phone country was chosen manually.
      *
      * @param {boolean} phoneCountryManuallySelected whether phone country was chosen by the user
      */
     function applyPhoneCountryFromBillingCountry(phoneCountryManuallySelected) {
-        if (phoneCountryManuallySelected || hasPhoneNumber()) {
+        if (phoneCountryManuallySelected) {
             return;
         }
 
@@ -331,7 +309,7 @@ export function createCheckoutFormController({dom}) {
 
     /** Restores billing-country and phone-country controls from browser history. */
     function restoreCountryState({billingCountryCode, phoneCountryCode}) {
-        if (hasCountryOption(billingCountryCode)) {
+        if (!billingCountryCode || hasCountryOption(billingCountryCode)) {
             setBillingCountry(billingCountryCode);
         }
 
@@ -390,6 +368,8 @@ export function createCheckoutFormController({dom}) {
 
         isSettingPhoneCountryProgrammatically = true;
         try {
+            // `setCountry()` emits `countrychange` synchronously. Keep the guard
+            // through that event and release it after the current event turn.
             phoneInput.setCountry(normalizedCode);
         } finally {
             window.setTimeout(() => {
@@ -455,15 +435,7 @@ export function createCheckoutFormController({dom}) {
         }
 
         setFieldError(field, message);
-        field.classList.toggle('error', Boolean(message));
         field.setCustomValidity(message || '');
-
-        const fieldContainer = field.closest('.form-field');
-        const errorElement = fieldContainer &&
-            fieldContainer.querySelector('.phone-error-message');
-        if (errorElement) {
-            errorElement.classList.toggle('show', Boolean(message));
-        }
     }
 
     /**
@@ -532,15 +504,6 @@ export function createCheckoutFormController({dom}) {
     }
 
     /**
-     * Checks whether the national phone-number input has user-entered text.
-     *
-     * @return {boolean} true when the phone number input is not empty
-     */
-    function hasPhoneNumber() {
-        return Boolean((dom.$phoneNumber.val() || '').trim());
-    }
-
-    /**
      * Checks whether the billing country select contains the given country code.
      *
      * @param {string} countryCode country ISO code to look for in the billing country select
@@ -577,7 +540,6 @@ export function createCheckoutFormController({dom}) {
     }
 
     return {
-        applyBillingCountryFromPhoneCountry,
         applyPhoneCountryFromBillingCountry,
         bindPhoneEvents,
         buildSubmitBillingInfoRequest,

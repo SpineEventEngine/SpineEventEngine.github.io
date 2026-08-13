@@ -30,13 +30,13 @@ import * as params from '@params';
 import {createPurchaseClient} from 'js/modules/paygate/purchases';
 import {createChargeController} from 'js/pages/checkout/charge-controller';
 import {getCompletedPageUrl} from 'js/pages/checkout/completed-page-url';
-import {
-    checkoutNavigationMode,
-    getCheckoutNavigationMode,
-    initializeCountrySelector
-} from 'js/pages/checkout/countries';
+import {initializeCountrySelector} from 'js/pages/checkout/countries';
 import {getCheckoutDom} from 'js/pages/checkout/dom';
 import {createCheckoutFormController} from 'js/pages/checkout/form-controller';
+import {
+    checkoutNavigationMode,
+    getCheckoutNavigationMode
+} from 'js/pages/checkout/navigation';
 import {createCheckoutView} from 'js/pages/checkout/view-controller';
 
 const requiredSelector = 'input[required], select[required], textarea[required]';
@@ -54,7 +54,6 @@ $(
         const orderId = getOrderId();
         const view = createCheckoutView(dom);
         const formController = createCheckoutFormController({dom});
-        let countryManuallySelected = false;
         let phoneCountryManuallySelected = false;
         const chargeController = createChargeController({
             purchaseClient,
@@ -117,7 +116,6 @@ $(
             });
 
             dom.$country.on('change', () => {
-                countryManuallySelected = true;
                 chargeController.invalidate();
                 formController.applyPhoneCountryFromBillingCountry(phoneCountryManuallySelected);
                 formController.updateVatIdFieldState();
@@ -139,16 +137,10 @@ $(
             dom.$form.on('submit', handleSubmit);
         }
 
-        /** Syncs billing country after a user changes the phone country. */
+        /** Records a user-selected phone country without changing billing/tax country. */
         function handlePhoneCountryChange() {
             phoneCountryManuallySelected = true;
             formController.focusPhoneNumber();
-
-            if (formController.applyBillingCountryFromPhoneCountry(countryManuallySelected)) {
-                chargeController.invalidate();
-                formController.updateVatIdFieldState();
-                chargeController.flush();
-            }
         }
 
         /**
@@ -185,7 +177,6 @@ $(
                     return;
                 }
 
-                view.setSummaryLoading(false);
                 view.showSummaryError();
                 chargeController.updateSubmitState();
                 logApiError(error);
@@ -260,7 +251,6 @@ $(
             window.setTimeout(() => {
                 const restoredState = formController.getBrowserRestoredCountryState();
 
-                countryManuallySelected = Boolean(restoredState.billingCountryCode);
                 phoneCountryManuallySelected = Boolean(
                     restoredState.phoneCountryCode &&
                     restoredState.phoneCountryCode !== restoredState.billingCountryCode
@@ -274,12 +264,12 @@ $(
         /** Clears browser-restored custom checkout fields after an explicit reload. */
         function scheduleCheckoutReset() {
             window.setTimeout(() => {
-                countryManuallySelected = false;
                 phoneCountryManuallySelected = false;
                 formController.restoreCountryState({
                     billingCountryCode: '',
                     phoneCountryCode: 'US'
                 });
+                dom.$phoneNumber.val('');
                 dom.$vatId.val('');
                 formController.updateVatIdFieldState();
                 chargeController.invalidate();

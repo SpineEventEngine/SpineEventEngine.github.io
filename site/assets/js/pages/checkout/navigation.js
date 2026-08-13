@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -26,48 +26,19 @@
 
 'use strict';
 
-/**
- * Phone codes of the EU countries.
- */
-export const euCountryPhoneCodes = {
-    AT: '43',
-    BE: '32',
-    BG: '359',
-    HR: '385',
-    CY: '357',
-    CZ: '420',
-    DK: '45',
-    EE: '372',
-    FI: '358',
-    FR: '33',
-    DE: '49',
-    GR: '30',
-    HU: '36',
-    IE: '353',
-    IT: '39',
-    LV: '371',
-    LT: '370',
-    LU: '352',
-    MT: '356',
-    NL: '31',
-    PL: '48',
-    PT: '351',
-    RO: '40',
-    SK: '421',
-    SI: '386',
-    ES: '34',
-    SE: '46'
-};
+export const checkoutNavigationMode = Object.freeze({
+    none: 'none',
+    reset: 'reset',
+    restore: 'restore'
+});
 
-/**
- * Checks whether the country supports EU VAT ID entry.
- *
- * @param {string} countryCode ISO country code
- * @return {boolean} true for an EU member country
- */
-export function isEuCountry(countryCode) {
-    return Object.prototype.hasOwnProperty.call(
-        euCountryPhoneCodes,
-        String(countryCode || '').trim().toUpperCase()
-    );
+/** Chooses whether checkout state should be restored or reset for a navigation. */
+export function getCheckoutNavigationMode(navigationType, pagePersisted = false) {
+    if (pagePersisted || navigationType === 'back_forward') {
+        return checkoutNavigationMode.restore;
+    }
+    if (navigationType === 'reload') {
+        return checkoutNavigationMode.reset;
+    }
+    return checkoutNavigationMode.none;
 }

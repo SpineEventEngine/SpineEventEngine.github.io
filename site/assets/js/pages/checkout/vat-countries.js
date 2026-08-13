@@ -26,13 +26,18 @@
 
 'use strict';
 
+const euCountryCodes = new Set([
+    'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI',
+    'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU',
+    'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'
+]);
+
 /**
- * Reads the order ID from the visible payment-result URL.
+ * Checks whether the country supports EU VAT ID entry.
  *
- * @param {Location|URL} location browser location
- * @return {string} Paygate order ID, or an empty string when unavailable
+ * @param {string} countryCode ISO country code
+ * @return {boolean} true for an EU member country
  */
-export function getCompletionOrderId(location) {
-    const completionUrl = new URL(location.href);
-    return (completionUrl.searchParams.get('orderId') || '').trim();
+export function isEuCountry(countryCode) {
+    return euCountryCodes.has(String(countryCode || '').trim().toUpperCase());
 }

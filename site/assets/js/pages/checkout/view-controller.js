@@ -134,7 +134,6 @@ export function createCheckoutView(dom) {
         dom.$summary.prop('hidden', isLoading);
         dom.$loading.prop('hidden', !isLoading);
         dom.$loadingSpinner.prop('hidden', !isLoading);
-        dom.$loadingSupport.prop('hidden', true);
         dom.$form.prop('hidden', isLoading);
         dom.$missingOrder.prop('hidden', true);
         dom.$notFound.prop('hidden', true);
