@@ -236,22 +236,12 @@
         </div>
     </section>
 
-    {{ $select2 := resources.Get "libs/country-select/select2.js" }}
-    {{ partial "scripts/script.html" (dict
-        "js" $select2
-        "attributes" "defer"
-        "skip_minify" true
-    ) }}
-    {{ $phoneUtils := resources.Get "libs/intl-tel-input/utils.js" }}
-    {{ partial "scripts/script.html" (dict
-        "js" $phoneUtils
-        "attributes" "defer"
-        "skip_minify" true
-    ) }}
-    {{ $internationalPhoneInput := resources.Get "libs/intl-tel-input/intlTelInput.js" }}
-    {{ partial "scripts/script.html" (dict
-        "js" $internationalPhoneInput
-        "attributes" "defer"
-        "skip_minify" true
-    ) }}
+    <!-- Select2 library for the country selector https://select2.org/. -->
+    <script defer src="{{ `libs/country-select/select2.min.js` | relURL }}"
+            type="text/javascript"
+            charset="utf-8"></script>
+    <!-- JavaScript plugin for entering and validating international telephone numbers. -->
+    <script defer src="{{ `libs/intl-tel-input/intlTelInput.min.js` | relURL }}"
+            type="text/javascript"
+            charset="utf-8"></script>
 {{ end }}

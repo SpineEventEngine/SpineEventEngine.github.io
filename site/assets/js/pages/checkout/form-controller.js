@@ -29,6 +29,9 @@
 import {isEuCountry} from 'js/pages/checkout/vat-countries';
 import {normalizeIntlPhoneNumber} from 'js/modules/forms/phone-number';
 
+const intlTelInputScriptSelector =
+    'script[src*="libs/intl-tel-input/intlTelInput.min.js"]';
+
 /**
  * Generic async field-validation states.
  */
@@ -106,9 +109,19 @@ export function createCheckoutFormController({dom}) {
             initialCountry: normalizeCountryCode(dom.$phoneCountry.val()) || 'us',
             autoPlaceholder: 'aggressive',
             separateDialCode: true,
-            formatOnDisplay: true
+            formatOnDisplay: true,
+            utilsScript: getPhoneUtilsScriptUrl()
         });
         syncPhoneCountryState();
+    }
+
+    /** Resolves the phone utility bundle next to the loaded library. */
+    function getPhoneUtilsScriptUrl() {
+        const libraryScript = document.querySelector(intlTelInputScriptSelector);
+
+        return libraryScript
+            ? new URL('utils.js', libraryScript.src).toString()
+            : '/libs/intl-tel-input/utils.js';
     }
 
     /**

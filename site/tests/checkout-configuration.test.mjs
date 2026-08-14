@@ -57,7 +57,7 @@ const {createChargeController} = await importChargeController();
 
 test('keep checkout libraries aligned with pinned npm distributions', () => {
     assert.deepEqual(
-        readFile('../assets/libs/country-select/select2.js'),
+        readFile('../static/libs/country-select/select2.min.js'),
         readFile('../node_modules/select2/dist/js/select2.min.js')
     );
     assert.deepEqual(
@@ -65,11 +65,11 @@ test('keep checkout libraries aligned with pinned npm distributions', () => {
         readFile('../node_modules/select2/dist/css/select2.min.css')
     );
     assert.deepEqual(
-        readFile('../assets/libs/intl-tel-input/intlTelInput.js'),
+        readFile('../static/libs/intl-tel-input/intlTelInput.min.js'),
         readFile('../node_modules/intl-tel-input/build/js/intlTelInput.min.js')
     );
     assert.deepEqual(
-        readFile('../assets/libs/intl-tel-input/utils.js'),
+        readFile('../static/libs/intl-tel-input/utils.js'),
         readFile('../node_modules/intl-tel-input/build/js/utils.js')
     );
 
@@ -201,6 +201,48 @@ test('build Paygate phone data from the shared international input', () => {
     );
     assert.equal(normalizeIntlPhoneNumber('', '372', ''), null);
     assert.equal(normalizeIntlPhoneNumber('5550100', '', ''), null);
+});
+
+test('load phone validation utilities next to the static library', () => {
+    const originalDocument = globalThis.document;
+    const originalWindow = globalThis.window;
+    const phoneField = {};
+    let libraryOptions;
+    globalThis.document = {
+        querySelector: () => ({
+            src: 'https://spine.io/libs/intl-tel-input/intlTelInput.min.js'
+        })
+    };
+    globalThis.window = {
+        intlTelInput(field, options) {
+            assert.equal(field, phoneField);
+            libraryOptions = options;
+        },
+        intlTelInputGlobals: {
+            getInstance: () => ({
+                getSelectedCountryData: () => ({iso2: 'us'})
+            })
+        }
+    };
+
+    try {
+        const controller = createCheckoutFormController({
+            dom: {
+                $phoneNumber: {get: () => phoneField},
+                $phoneCountry: {val: () => 'US'}
+            }
+        });
+
+        controller.initPhoneNumberField();
+
+        assert.equal(
+            libraryOptions.utilsScript,
+            'https://spine.io/libs/intl-tel-input/utils.js'
+        );
+    } finally {
+        globalThis.document = originalDocument;
+        globalThis.window = originalWindow;
+    }
 });
 
 test('allow an optional phone number while validation utilities are loading', () => {
