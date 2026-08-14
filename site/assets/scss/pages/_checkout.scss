@@ -27,7 +27,6 @@
 @import 'libs/country-select/select2';
 @import 'libs/intl-tel-input/intl-tel-input';
 
-$checkout-bg-color: #f3f3f3;
 $checkout-panel-width: 790px;
 
 .checkout-page {
@@ -47,10 +46,15 @@ $checkout-panel-width: 790px;
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
+  background: radial-gradient(circle at top left, rgba($main-brand-color, .10), transparent 36%),
+  linear-gradient(180deg, #f5faff 0%, var(--body-bg-color) 220px);
   width: 100%;
   min-height: 0;
   overflow-x: hidden;
-  background: $checkout-bg-color;
+
+  @include breakpoint(lg-phone) {
+    background: white;
+  }
 
   [hidden] {
     display: none !important;
