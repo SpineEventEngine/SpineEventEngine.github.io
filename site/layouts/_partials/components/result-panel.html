@@ -60,7 +60,7 @@
         {{ $actionLabel := .label | default .text | default "" }}
         {{ $actionUrl := .url | default site.Home.RelPermalink }}
         {{ if $actionLabel }}
-        <a class="btn result-panel-button {{ if .primary }}result-panel-button-primary{{ else }}btn-bordered-blue{{ end }}"
+        <a class="btn {{ if .primary }}btn-primary-blue{{ else }}btn-bordered-blue{{ end }} result-panel-button"
            href="{{ $actionUrl }}"
            {{ if .back_to_checkout }}data-back-to-checkout hidden{{ end }}>
             {{ $actionLabel }}
