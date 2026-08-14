@@ -24,6 +24,13 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+.error-pages {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .result-page {
   flex: 1 0 auto;
   min-height: 420px;
@@ -119,7 +126,7 @@
 .result-panel h1.result-panel-title,
 .result-panel h2.result-panel-title {
   margin: 0 0 14px;
-  color: $black;
+  color: $text-color;
   font-size: 36px;
   font-weight: 800;
   line-height: 1.15;
