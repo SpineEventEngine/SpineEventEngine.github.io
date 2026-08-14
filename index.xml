@@ -1154,14 +1154,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
  &gt;@SpineEngine&lt;/a&gt; or 
 
 &lt;style&gt;
-#span-35ade396.cloaked-e-mail:before {
+#span-af3355fe.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-35ade396"&gt;&lt;/span&gt;&lt;script id="script-35ade396"&gt;
- var scriptTag = document.getElementById("script-35ade396");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-af3355fe"&gt;&lt;/span&gt;&lt;script id="script-af3355fe"&gt;
+ var scriptTag = document.getElementById("script-af3355fe");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
@@ -2450,7 +2450,7 @@ run your Gradle build as usual.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The Validation Gradle plugin integrates with Spine Compiler, scans your model, and injects
 validation checks into the generated JVM code.&lt;/p&gt;
 &lt;p&gt;The generated sources will appear in the &lt;code&gt;generated&lt;/code&gt; directory next to the &lt;code&gt;src&lt;/code&gt; directory.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;clean&lt;/code&gt; task is optional and is relevant when Protobuf code changes.&lt;/p&gt;</description></item><item><title>Checkout</title><link>https://spine.io/checkout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout/</guid><description/></item><item><title>Checkout Completed</title><link>https://spine.io/checkout-completed/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout-completed/</guid><description/></item><item><title>Communities</title><link>https://spine.io/docs/resources/communities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/communities/</guid><description>&lt;h1 id="communities" data-title&gt;
+&lt;p&gt;The &lt;code&gt;clean&lt;/code&gt; task is optional and is relevant when Protobuf code changes.&lt;/p&gt;</description></item><item><title>Checkout</title><link>https://spine.io/checkout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout/</guid><description/></item><item><title>Communities</title><link>https://spine.io/docs/resources/communities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/communities/</guid><description>&lt;h1 id="communities" data-title&gt;
 Communities&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;Places to discuss DDD with other practitioners&lt;/p&gt;
@@ -2955,7 +2955,7 @@ automatically. Adding your custom &lt;code&gt;ValidationOption&lt;/code&gt; requ
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Direct dependency&lt;/strong&gt; — add the implementation module to the &lt;code&gt;spineCompiler&lt;/code&gt; dependency
-configuration. Use this for a single project or a single module in a multi-module build.&lt;/p&gt;</description></item><item><title>People</title><link>https://spine.io/docs/resources/people/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/people/</guid><description>&lt;h1 id="people" data-title&gt;
+configuration. Use this for a single project or a single module in a multi-module build.&lt;/p&gt;</description></item><item><title>Payment Result</title><link>https://spine.io/checkout-completed/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/checkout-completed/</guid><description/></item><item><title>People</title><link>https://spine.io/docs/resources/people/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/people/</guid><description>&lt;h1 id="people" data-title&gt;
 People&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;The creators and drivers of the DDD ideas.&lt;/p&gt;
