@@ -25,25 +25,28 @@
  */
 
 $btn-font-size: 14px;
+$btn-border-radius: $border-radius-m;
+$btn-primary-color: $main-brand-color;
 $btn-primary-hover-color: #5fabdd;
 
 .btn {
   display: inline-block;
+  padding: 14px 32px;
   font-size: $btn-font-size;
   font-weight: bold;
   text-align: center;
-  padding: 14px 32px;
-  border-radius: $border-radius-m;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: $btn-border-radius;
   cursor: pointer;
   transition: all .34s ease-in-out;
 
   &:hover {
-    outline: none;
     text-decoration: none;
   }
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     text-decoration: none;
     box-shadow: none;
     outline: 1px dotted;
@@ -62,6 +65,46 @@ $btn-primary-hover-color: #5fabdd;
   cursor: pointer;
 }
 
+.btn-primary-blue {
+  --bs-btn-color: #{$white};
+  --bs-btn-bg: #{$btn-primary-color};
+  --bs-btn-border-color: #{$btn-primary-color};
+
+  --bs-btn-hover-color: #{$white};
+  --bs-btn-hover-bg: #{$btn-primary-hover-color};
+  --bs-btn-hover-border-color: #{$btn-primary-hover-color};
+
+  --bs-btn-active-color: #{$white};
+  --bs-btn-active-bg: #{$btn-primary-color};
+  --bs-btn-active-border-color: #{$btn-primary-color};
+
+  --bs-btn-disabled-color: #{$white};
+  --bs-btn-disabled-bg: #{$btn-primary-color};
+  --bs-btn-disabled-border-color: #{$btn-primary-color};
+
+  border-width: 2px;
+}
+
+.btn-bordered-blue {
+  --bs-btn-color: #{$btn-primary-color};
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: #{$btn-primary-color};
+
+  --bs-btn-hover-color: #{$btn-primary-color};
+  --bs-btn-hover-bg: rgba(26, 150, 222, .12);
+  --bs-btn-hover-border-color: #{$btn-primary-color};
+
+  --bs-btn-active-color: #{$btn-primary-color};
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: #{$btn-primary-color};
+
+  --bs-btn-disabled-color: #{$gray-600};
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #{$gray-600};
+
+  border-width: 2px;
+}
+
 .icon-caret {
   background: url('img/icons/caret.svg') no-repeat center/cover;
   height: 20px;
@@ -71,56 +114,6 @@ $btn-primary-hover-color: #5fabdd;
   @include breakpoint-min(tablet) {
     height: 45px;
     width: 45px;
-  }
-}
-
-.external-link-icon {
-  background: url('img/icons/external-link.svg') no-repeat center/cover;
-  width: 15px;
-  height: 15px;
-}
-
-.btn-doc-call-white {
-  color: $white;
-  border: 1px solid $white;
-  background-color: transparent;
-  border-radius: $border-radius-s;
-  padding: 12px 56px;
-
-  &:hover, &:focus {
-    color: white;
-    background-color: rgba($link-blue-color, .2);
-    border: 1px solid $link-blue-color;
-    box-shadow: 0 5px 20px 0 rgba($footer-color, .28);
-  }
-}
-
-.btn-primary-blue,
-.btn-primary-blue:visited {
-  letter-spacing: 1px;
-  color: white;
-  background-color: $main-brand-color;
-  border: 2px solid $main-brand-color;
-
-  &:hover,
-  &:focus {
-    color: white;
-    background-color: $btn-primary-hover-color;
-    border-color: $btn-primary-hover-color;
-  }
-}
-
-.btn-bordered-blue,
-.btn-bordered-blue:visited {
-  letter-spacing: 1px;
-  color: $main-brand-color;
-  border: 2px solid $main-brand-color;
-
-  &:hover,
-  &:focus {
-    background-color: rgba($main-brand-color, .12);
-    color: $main-brand-color;
-    border: 2px solid $main-brand-color;
   }
 }
 
