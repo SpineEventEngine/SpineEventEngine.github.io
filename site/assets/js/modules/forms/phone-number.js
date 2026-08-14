@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -27,18 +27,6 @@
 'use strict';
 
 /**
- * Removes characters that are not accepted by the phone-number field.
- *
- * <p>Allowed: digits, parentheses, hyphens, and spaces.
- *
- * @param {string} value phone-number value to sanitize
- * @return {string} sanitized phone-number value
- */
-export function sanitizePhoneNumberInput(value) {
-    return String(value || '').replace(/[^0-9\s()-]/g, '');
-}
-
-/**
  * Builds the phone-number payload with country code and number with digits only.
  *
  * @param {string} rawCountryCode phone country code
@@ -46,7 +34,7 @@ export function sanitizePhoneNumberInput(value) {
  * @return {{countryCode: number, number: string}|null}
  *   normalized phone-number payload, or null when incomplete
  */
-export function normalizePhoneNumber(rawCountryCode, rawNumber) {
+function normalizePhoneNumber(rawCountryCode, rawNumber) {
     const countryCode = String(rawCountryCode || '').replace(/\D/g, '');
     const number = String(rawNumber || '').replace(/\D/g, '');
 
@@ -63,4 +51,34 @@ export function normalizePhoneNumber(rawCountryCode, rawNumber) {
         countryCode: numericCountryCode,
         number
     };
+}
+
+/**
+ * Builds a Paygate phone payload from an `intl-tel-input` field.
+ *
+ * @param {string} rawNumber displayed national phone number
+ * @param {string} rawCountryCode selected international dial code
+ * @param {string} rawFullNumber full number returned by the plugin
+ * @return {{countryCode: number, number: string}|null}
+ *   normalized phone-number payload, or null when incomplete
+ */
+export function normalizeIntlPhoneNumber(rawNumber, rawCountryCode, rawFullNumber) {
+    const countryCode = digits(rawCountryCode);
+    const fullNumber = digits(rawFullNumber);
+    const fallbackNumber = digits(rawNumber);
+
+    if (!countryCode || !fallbackNumber) {
+        return null;
+    }
+
+    const number = fullNumber.indexOf(countryCode) === 0
+        ? fullNumber.slice(countryCode.length)
+        : fallbackNumber;
+
+    return normalizePhoneNumber(countryCode, number);
+}
+
+/** Returns decimal digits from a phone-number fragment. */
+function digits(value) {
+    return String(value || '').replace(/\D/g, '');
 }

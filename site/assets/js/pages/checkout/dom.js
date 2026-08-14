@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -33,17 +33,10 @@
  * @property {JQuery<HTMLFormElement>} $form checkout billing form wrapper
  * @property {JQuery<HTMLElement>} $summary order summary container
  * @property {JQuery<HTMLSelectElement>} $country billing country select
- * @property {JQuery<HTMLElement>} $phone custom phone field wrapper
- * @property {JQuery<HTMLSelectElement>} $phoneCountryCode phone country-code
- *   select
- * @property {JQuery<HTMLElement>} $phoneFlag visible phone country flag
- * @property {JQuery<HTMLElement>} $phoneDialCode visible phone dial code label
- * @property {JQuery<HTMLInputElement>} $phoneNumber national phone number input
+ * @property {JQuery<HTMLInputElement>} $phoneNumber international phone input
+ * @property {JQuery<HTMLInputElement>} $phoneCountry native phone-country state
  * @property {JQuery<HTMLInputElement>} $vatId vat ID input
  * @property {JQuery<HTMLElement>} $loading summary loading container
- * @property {JQuery<HTMLElement>} $loadingSpinner summary spinner element
- * @property {JQuery<HTMLElement>} $loadingText summary loading text element
- * @property {JQuery<HTMLElement>} $loadingSupport summary support text element
  * @property {JQuery<HTMLElement>} $productTitle product title element
  * @property {JQuery<HTMLElement>} $productDescription product description
  *   element
@@ -53,6 +46,7 @@
  * @property {JQuery<HTMLElement>} $totalValue total amount element
  * @property {JQuery<HTMLButtonElement>} $submitButton checkout submit button
  * @property {JQuery<HTMLElement>} $errorModal generic checkout error modal
+ * @property {JQuery<HTMLElement>} $missingOrder missing-order result panel
  * @property {JQuery<HTMLElement>} $notFound order-not-found result panel
  * @property {JQuery<HTMLElement>} $summaryError generic checkout summary-error panel
  * @property {HTMLFormElement} form native checkout form element
@@ -68,16 +62,10 @@ export function getCheckoutDom() {
         $form: $('#checkout-form'),
         $summary: $('.checkout-summary'),
         $country: $('#checkout-country'),
-        $phone: $('.phone-field'),
-        $phoneCountryCode: $('#checkout-phone-country-code'),
-        $phoneFlag: $('#checkout-phone-flag'),
-        $phoneDialCode: $('#checkout-phone-dial-code'),
         $phoneNumber: $('#checkout-phone'),
+        $phoneCountry: $('#checkout-phone-country'),
         $vatId: $('#checkout-vat-id'),
         $loading: $('#checkout-summary-loading'),
-        $loadingSpinner: $('#checkout-summary-loading-spinner'),
-        $loadingText: $('#checkout-summary-loading-text'),
-        $loadingSupport: $('#checkout-summary-support'),
         $productTitle: $('#checkout-product-title'),
         $productDescription: $('#checkout-product-description'),
         $subtotalValue: $('#checkout-subtotal-value'),
@@ -86,6 +74,7 @@ export function getCheckoutDom() {
         $totalValue: $('#checkout-total-value'),
         $submitButton: $('#checkout-submit'),
         $errorModal: $('#checkout-error-modal'),
+        $missingOrder: $('#checkout-missing-order'),
         $notFound: $('#checkout-not-found'),
         $summaryError: $('#checkout-summary-error')
     };

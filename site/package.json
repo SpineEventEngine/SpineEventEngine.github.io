@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test tests/*.test.mjs"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "autoprefixer": "^10.5.0",
+    "intl-tel-input": "18.2.1",
     "postcss": "^8.5.14",
     "postcss-cli": "^11.0.1",
-    "postcss-discard-comments": "^7.0.5"
+    "postcss-discard-comments": "^7.0.5",
+    "select2": "4.1.0-rc.0"
   }
 }

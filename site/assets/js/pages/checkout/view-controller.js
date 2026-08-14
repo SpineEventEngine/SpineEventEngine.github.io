@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -42,10 +42,14 @@
  *   checks whether the checkout form is currently hidden
  * @property {function(boolean): void} setSubmitDisabled
  *   enables or disables the checkout submit button
- * @property {function(boolean): void} setSummaryLoading
- *   shows or hides the summary loading state
+ * @property {function(): void} showSummaryLoading
+ *   shows the summary loading state
  * @property {function(): void} showErrorModal
  *   opens the generic checkout error modal
+ * @property {function(): void} showCheckoutView
+ *   shows a resolved order summary and its billing form
+ * @property {function(): void} showMissingOrderView
+ *   shows the missing-order result panel
  * @property {function(): void} showNotFoundView
  *   shows the checkout order-not-found panel
  * @property {function(): void} showSummaryError
@@ -61,6 +65,21 @@
  * @return {CheckoutViewController} view update helpers for the checkout page
  */
 export function createCheckoutView(dom) {
+    const pageElements = [
+        dom.$loading,
+        dom.$summary,
+        dom.$form,
+        dom.$missingOrder,
+        dom.$notFound,
+        dom.$summaryError
+    ];
+    const pageViews = {
+        loading: {elements: [dom.$loading], isResultPage: false},
+        checkout: {elements: [dom.$summary, dom.$form], isResultPage: false},
+        missingOrder: {elements: [dom.$missingOrder], isResultPage: true},
+        notFound: {elements: [dom.$notFound], isResultPage: true},
+        summaryError: {elements: [dom.$summaryError], isResultPage: true}
+    };
 
     /**
      * Enables or disables the checkout submit button.
@@ -68,7 +87,9 @@ export function createCheckoutView(dom) {
      * @param {boolean} isDisabled whether submit should be disabled
      */
     function setSubmitDisabled(isDisabled) {
-        dom.$submitButton.prop('disabled', isDisabled);
+        dom.$submitButton
+            .prop('disabled', isDisabled)
+            .toggleClass('disabled', isDisabled);
     }
 
     /**
@@ -98,10 +119,12 @@ export function createCheckoutView(dom) {
             dom.$productDescription.text('').prop('hidden', true);
         }
 
-        dom.$subtotalValue.text(formatMoney(order.netAmount));
+        const netAmount = order.netAmount || {};
+
+        dom.$subtotalValue.text(formatMoney(netAmount));
         dom.$vatLabel.text('VAT');
-        dom.$vatValue.text(formatMoney(zeroMoney(order.netAmount.currency)));
-        dom.$totalValue.text(formatMoney(order.netAmount));
+        dom.$vatValue.text(formatMoney(zeroMoney(netAmount.currency)));
+        dom.$totalValue.text(formatMoney(netAmount));
     }
 
     /**
@@ -110,44 +133,36 @@ export function createCheckoutView(dom) {
      * @param {Object} response paygate charge calculation response
      */
     function updateCharges(response) {
-        const vatRatePercent = Number(response.vatRate) * 100;
-
-        dom.$vatLabel.text(`VAT (${String(vatRatePercent)}%)`);
+        dom.$vatLabel.text(formatVatLabel(response && response.vatRate));
         dom.$subtotalValue.text(formatMoney(response.netAmount));
         dom.$vatValue.text(formatMoney(response.vatAmount));
         dom.$totalValue.text(formatMoney(response.totalAmount));
     }
 
     /**
-     * Shows or hides the order-summary loading state.
-     *
-     * @param {boolean} isLoading whether the summary should show the loading state
+     * Shows the order-summary loading state.
      */
-    function setSummaryLoading(isLoading) {
-        dom.$summary.attr('data-loading', isLoading ? 'true' : 'false');
-        dom.$summary.attr('data-error', 'false');
-        dom.$summary.prop('hidden', false);
-        dom.$loading.prop('hidden', !isLoading);
-        dom.$loadingSpinner.prop('hidden', !isLoading);
-        dom.$loadingSupport.prop('hidden', true);
-        dom.$form.prop('hidden', isLoading);
-        dom.$notFound.prop('hidden', true);
-        dom.$summaryError.prop('hidden', true);
-
-        if (isLoading) {
-            dom.$loadingText.text('Loading checkout details...');
-        }
+    function showSummaryLoading() {
+        showPageView('loading');
     }
 
     /**
      * Shows the generic summary error panel inside the checkout page.
      */
     function showSummaryError() {
-        dom.$summary.attr('data-error', 'true');
-        dom.$summary.prop('hidden', true);
-        dom.$form.prop('hidden', true);
-        dom.$notFound.prop('hidden', true);
-        dom.$summaryError.prop('hidden', false);
+        showPageView('summaryError');
+    }
+
+    /** Shows the resolved order summary and billing form. */
+    function showCheckoutView() {
+        closeErrorModal();
+        showPageView('checkout');
+    }
+
+    /** Shows the missing-order result panel. */
+    function showMissingOrderView() {
+        closeErrorModal();
+        showPageView('missingOrder');
     }
 
     /**
@@ -169,10 +184,23 @@ export function createCheckoutView(dom) {
      */
     function showNotFoundView() {
         closeErrorModal();
-        dom.$summary.prop('hidden', true);
-        dom.$form.prop('hidden', true);
-        dom.$summaryError.prop('hidden', true);
-        dom.$notFound.prop('hidden', false);
+        showPageView('notFound');
+    }
+
+    /** Shows one checkout page state and hides every other state panel. */
+    function showPageView(viewName) {
+        const view = pageViews[viewName];
+        const visibleElements = new Set(view.elements);
+
+        pageElements.forEach(element => {
+            element.prop('hidden', !visibleElements.has(element));
+        });
+        setResultPageMode(view.isResultPage);
+    }
+
+    /** Matches checkout result-page height to the payment-result layout. */
+    function setResultPageMode(isResultPage) {
+        document.body.classList.toggle('checkout-result-page', isResultPage);
     }
 
     /**
@@ -182,13 +210,33 @@ export function createCheckoutView(dom) {
      * @return {string} formatted money value
      */
     function formatMoney(amount) {
-        const numericAmount = Number(amount.value);
+        const amountValue = amount && amount.value;
+        const numericAmount = Number(amountValue);
         const formattedAmount = Number.isNaN(numericAmount)
-            ? String(amount.value || '')
+            ? String(amountValue || '')
             : numericAmount.toFixed(2);
-        const currency = amount.currency;
+        const currency = amount && amount.currency;
+        const currencySymbol = currency && currency.symbol || '';
 
-        return `${currency.symbol}${formattedAmount}`;
+        return `${currencySymbol}${formattedAmount}`;
+    }
+
+    /**
+     * Formats a VAT-rate label without exposing invalid or imprecise numbers.
+     *
+     * @param {*} rawVatRate VAT rate returned by Paygate
+     * @return {string} VAT label with an optional percentage
+     */
+    function formatVatLabel(rawVatRate) {
+        const vatRate = Number(rawVatRate);
+
+        if (rawVatRate === null || rawVatRate === undefined || rawVatRate === '' ||
+            !Number.isFinite(vatRate)) {
+            return 'VAT';
+        }
+
+        const percentage = Math.round(vatRate * 10000) / 100;
+        return `VAT (${String(percentage)}%)`;
     }
 
     /**
@@ -209,8 +257,10 @@ export function createCheckoutView(dom) {
         fillOrderSummary,
         isFormHidden,
         setSubmitDisabled,
-        setSummaryLoading,
+        showSummaryLoading,
+        showCheckoutView,
         showErrorModal,
+        showMissingOrderView,
         showNotFoundView,
         showSummaryError,
         updateCharges

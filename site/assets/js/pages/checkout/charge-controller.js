@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -33,6 +33,7 @@
  */
 
 import {createDelayedRequestController} from 'js/pages/checkout/delayed-request-controller';
+import {buildChargeRequest} from 'js/pages/checkout/charge-request';
 import {fieldValidationState} from 'js/pages/checkout/form-controller';
 
 /**
@@ -128,9 +129,9 @@ export function createChargeController(
      * @param {boolean} state.isRequesting whether a charge request is currently in flight
      */
     function updateVatIdState({hasCurrentResult, isRequesting}) {
-        const hasRequestKey = Boolean(getRequestKey());
+        const hasVatId = Boolean(getVatId());
 
-        if (!hasRequestKey) {
+        if (!hasVatId) {
             onFieldValidationStateChange(fieldValidationState.idle);
             return;
         }
@@ -155,15 +156,12 @@ export function createChargeController(
         const buyerCountryCode = getBuyerCountryCode();
         const vatId = getVatId();
 
-        if (!orderId || !buyerCountryCode || !vatId) {
+        const payload = buildChargeRequest(orderId, buyerCountryCode, vatId);
+        if (!payload) {
             return null;
         }
 
-        return purchaseClient.calculateCharges({
-            orderId,
-            buyerCountryCode,
-            vatId
-        });
+        return purchaseClient.calculateCharges(payload);
     }
 
     /**
@@ -175,9 +173,7 @@ export function createChargeController(
         const buyerCountryCode = getBuyerCountryCode();
         const vatId = getVatId();
 
-        return buyerCountryCode && vatId
-            ? [buyerCountryCode, vatId].join(':')
-            : '';
+        return buyerCountryCode ? [buyerCountryCode, vatId].join(':') : '';
     }
 
     /**
@@ -187,19 +183,15 @@ export function createChargeController(
      * @param {boolean} isCurrentRequest whether the failed request is still current
      */
     function handleRequestError(error, isCurrentRequest) {
-        const isVatError = isVatErrorResponse(error);
-
-        if (!isVatError) {
-            view.showErrorModal();
-        }
-
         if (!isCurrentRequest) {
             logApiError(error);
             return;
         }
 
-        if (isVatError) {
+        if (isVatErrorResponse(error)) {
             onVatIdError(getVatErrorReason(error));
+        } else {
+            view.showErrorModal();
         }
 
         logApiError(error);
@@ -212,7 +204,7 @@ export function createChargeController(
      * @return {boolean} true when the error is a Paygate VAT validation response
      */
     function isVatErrorResponse(error) {
-        return error.status === 422 && Boolean(error.body.vatIdInvalid);
+        return error.status === 422 && Boolean(error.body && error.body.vatIdInvalid);
     }
 
     /**

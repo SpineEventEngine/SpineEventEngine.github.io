@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -23,6 +23,13 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+.error-pages {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 .result-page {
   flex: 1 0 auto;
@@ -119,7 +126,7 @@
 .result-panel h1.result-panel-title,
 .result-panel h2.result-panel-title {
   margin: 0 0 14px;
-  color: $black;
+  color: $text-color;
   font-size: 36px;
   font-weight: 800;
   line-height: 1.15;
@@ -143,12 +150,31 @@
   }
 }
 
+.result-panel p.result-panel-text-primary {
+  margin-bottom: 0;
+}
+
+.result-panel p.result-panel-contact {
+  margin-top: 24px;
+}
+
+.result-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.checkout .result-panel-actions {
+  margin-top: 50px;
+}
+
 .result-panel a.result-panel-button,
 .result-panel a.result-panel-button:visited {
   display: inline-block;
-  margin-top: 20px;
   min-width: 220px;
-  color: $main-brand-color;
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -158,6 +184,16 @@
   &:hover,
   &:focus {
     text-decoration: none;
+  }
+}
+
+.result-panel-text a {
+  color: $main-brand-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
   }
 }
 
@@ -179,5 +215,14 @@
 
   .result-panel p.result-panel-text {
     font-size: 16px;
+  }
+
+  .checkout .result-panel-actions {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  .result-panel a.result-panel-button {
+    width: 100%;
   }
 }

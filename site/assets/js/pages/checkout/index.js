@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -29,8 +29,19 @@
 import * as params from '@params';
 import {createPurchaseClient} from 'js/modules/paygate/purchases';
 import {createChargeController} from 'js/pages/checkout/charge-controller';
+import {getCompletedPageUrl} from 'js/pages/checkout/completed-page-url';
+import {initializeCountrySelector} from 'js/pages/checkout/countries';
 import {getCheckoutDom} from 'js/pages/checkout/dom';
-import {createCheckoutFormController} from 'js/pages/checkout/form-controller';
+import {
+    createCheckoutFormController,
+    defaultPhoneCountryCode
+} from 'js/pages/checkout/form-controller';
+import {
+    checkoutNavigationMode,
+    getCheckoutNavigationMode,
+    getRestoredPhoneCountryManualState
+} from 'js/pages/checkout/navigation';
+import {getOrderId} from 'js/pages/checkout/order-id';
 import {createCheckoutView} from 'js/pages/checkout/view-controller';
 
 const requiredSelector = 'input[required], select[required], textarea[required]';
@@ -43,18 +54,18 @@ $(
             return;
         }
 
+        initializeCountrySelector(dom.$country.get(0));
         const purchaseClient = createPurchaseClient(params.payment.paygateurl);
-        const orderId = getOrderId();
+        const orderId = getOrderId(window.location);
         const view = createCheckoutView(dom);
         const formController = createCheckoutFormController({dom});
-        let countryManuallySelected = false;
         let phoneCountryManuallySelected = false;
         const chargeController = createChargeController({
             purchaseClient,
             view,
             ensureOrderId: () => Promise.resolve(orderId),
             getBuyerCountryCode: () => dom.$country.val(),
-            getVatId: () => (dom.$vatId.val() || '').trim(),
+            getVatId: formController.getVatId,
             onFieldValidationStateChange: state => {
                 formController.setFieldValidationState(dom.$vatId.get(0), state);
             },
@@ -63,13 +74,15 @@ $(
         });
 
         if (!orderId) {
-            redirectToGettingHelp();
+            view.showMissingOrderView();
             return;
         }
 
         dom.$form.prop('hidden', true);
-        formController.updatePhoneCountryDisplay();
-        formController.bindPhoneEvents();
+        formController.initPhoneNumberField();
+        formController.bindPhoneEvents({
+            onPhoneCountryChange: handlePhoneCountryChange
+        });
         chargeController.updateSubmitState();
         loadOrder();
         bindEvents();
@@ -79,6 +92,10 @@ $(
          */
         function bindEvents() {
             dom.$form.on('input', requiredSelector, event => {
+                formController.clearFieldError(event.target);
+            });
+
+            dom.$form.on('blur', 'input[required], textarea[required]', event => {
                 formController.validateField(event.target);
             });
 
@@ -94,36 +111,34 @@ $(
                 }
             });
 
-            $(window).on('pageshow', () => {
-                scheduleRestoredVatResume();
+            $(window).on('pageshow', event => {
+                const mode = getCheckoutNavigationMode(
+                    getNavigationType(),
+                    Boolean(event.originalEvent && event.originalEvent.persisted)
+                );
+
+                if (mode === checkoutNavigationMode.reset) {
+                    scheduleCheckoutReset();
+                } else if (mode === checkoutNavigationMode.restore) {
+                    scheduleCheckoutRestoration();
+                }
             });
 
             dom.$country.on('change', () => {
-                countryManuallySelected = true;
                 chargeController.invalidate();
                 formController.applyPhoneCountryFromBillingCountry(phoneCountryManuallySelected);
                 formController.updateVatIdFieldState();
                 chargeController.flush();
             });
 
-            dom.$phoneCountryCode.on('change', () => {
-                phoneCountryManuallySelected = true;
-                formController.updatePhoneCountryDisplay();
-                formController.focusPhoneNumber();
-
-                if (formController.applyBillingCountryFromPhoneCountry(countryManuallySelected)) {
-                    chargeController.invalidate();
-                    formController.updateVatIdFieldState();
-                    chargeController.flush();
-                }
-            });
-
             dom.$vatId.on('input', () => {
+                formController.clearVatIdError();
                 chargeController.invalidate();
                 chargeController.schedule();
             });
 
             dom.$vatId.on('blur', () => {
+                formController.showPendingVatIdError();
                 if (chargeController.hasScheduledRequest()) {
                     chargeController.flush();
                 }
@@ -132,21 +147,38 @@ $(
             dom.$form.on('submit', handleSubmit);
         }
 
+        /** Records a user-selected phone country without changing billing/tax country. */
+        function handlePhoneCountryChange() {
+            phoneCountryManuallySelected = true;
+            formController.focusPhoneNumber();
+        }
+
         /**
          * Loads order details for the checkout page from the current checkout URL.
          *
          * @return {Promise<void>} resolves when the initial order load flow finishes
          */
         async function loadOrder() {
-            view.setSummaryLoading(true);
+            view.showSummaryLoading();
 
             try {
                 const order = await purchaseClient.getOrder(orderId);
+
+                if (order.completed) {
+                    const completedPageUrl = getCompletedPageUrl(
+                        window.location.href,
+                        orderId
+                    );
+                    if (completedPageUrl) {
+                        window.location.replace(completedPageUrl);
+                        return;
+                    }
+                }
+
                 view.fillOrderSummary(order);
-                view.setSummaryLoading(false);
-                dom.$form.prop('hidden', false);
+                view.showCheckoutView();
                 chargeController.updateSubmitState();
-                scheduleRestoredVatResume();
+                scheduleCurrentChargeCalculation();
             } catch (error) {
                 if (error.status === 404) {
                     chargeController.invalidate();
@@ -155,7 +187,6 @@ $(
                     return;
                 }
 
-                view.setSummaryLoading(false);
                 view.showSummaryError();
                 chargeController.updateSubmitState();
                 logApiError(error);
@@ -171,7 +202,11 @@ $(
         async function handleSubmit(event) {
             event.preventDefault();
 
-            if (!formController.validateRequiredFields(requiredSelector)) {
+            const hasValidRequiredFields =
+                formController.validateRequiredFields(requiredSelector);
+            const hasValidPhoneNumber = formController.validatePhoneNumber();
+
+            if (!hasValidRequiredFields || !hasValidPhoneNumber) {
                 dom.form.reportValidity();
                 return;
             }
@@ -194,22 +229,6 @@ $(
         }
 
         /**
-         * Reads the order ID from the `orderId` query parameter.
-         *
-         * @return {string} checkout order ID, or empty string when unavailable
-         */
-        function getOrderId() {
-            return (new URLSearchParams(window.location.search).get('orderId') || '').trim();
-        }
-
-        /**
-         * Redirects visitors with incomplete checkout links to the help page.
-         */
-        function redirectToGettingHelp() {
-            window.location.replace('/getting-help');
-        }
-
-        /**
          * Logs API failures in a compact and consistent format.
          *
          * @param {Object|Error} error request error to log
@@ -222,21 +241,71 @@ $(
         }
 
         /**
-         * Schedules one pass that resumes charge calculation from browser-restored VAT data.
+         * Schedules one charge calculation after browser-restored fields settle.
          */
-        function scheduleRestoredVatResume() {
-            window.setTimeout(resumeChargesFromRestoredVatId, 0);
+        function scheduleCurrentChargeCalculation() {
+            window.setTimeout(requestCurrentCharges, 0);
+        }
+
+        /** Restores custom country widgets after native browser form restoration settles. */
+        function scheduleCheckoutRestoration() {
+            window.setTimeout(() => {
+                const restoredState = formController.getBrowserRestoredCountryState();
+
+                phoneCountryManuallySelected = getRestoredPhoneCountryManualState(
+                    phoneCountryManuallySelected,
+                    restoredState
+                );
+                formController.restoreCountryState(restoredState);
+                formController.updateVatIdFieldState();
+                requestCurrentCharges();
+            }, 0);
+        }
+
+        /** Clears browser-restored custom checkout fields after an explicit reload. */
+        function scheduleCheckoutReset() {
+            window.setTimeout(() => {
+                phoneCountryManuallySelected = false;
+                formController.restoreCountryState({
+                    billingCountryCode: '',
+                    phoneCountryCode: defaultPhoneCountryCode
+                });
+                dom.$phoneNumber.val('');
+                dom.$vatId.val('');
+                formController.updateVatIdFieldState();
+                chargeController.invalidate();
+                requestCurrentCharges();
+            }, 0);
+        }
+
+        /** Returns the current document-navigation type with a legacy fallback. */
+        function getNavigationType() {
+            const navigationEntries = window.performance &&
+                typeof window.performance.getEntriesByType === 'function'
+                ? window.performance.getEntriesByType('navigation')
+                : [];
+
+            if (navigationEntries.length) {
+                return navigationEntries[0].type;
+            }
+
+            const legacyType = window.performance &&
+                window.performance.navigation &&
+                window.performance.navigation.type;
+            if (legacyType === 1) {
+                return 'reload';
+            }
+            if (legacyType === 2) {
+                return 'back_forward';
+            }
+            return 'navigate';
         }
 
         /**
-         * Restarts charge calculation when the browser already restored VAT ID into the field.
+         * Calculates charges when a billing country is currently selected.
          */
-        function resumeChargesFromRestoredVatId() {
+        function requestCurrentCharges() {
             if (view.isFormHidden()) {
-                return;
-            }
-
-            if (!(dom.$vatId.val() || '').trim()) {
                 return;
             }
 

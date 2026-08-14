@@ -1,11 +1,11 @@
-/*!
- * Copyright 2025, TeamDev. All rights reserved.
+/*
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Redistribution and use in source and/or binary forms, with or without
  * modification, must retain the above copyright notice and the following
@@ -24,54 +24,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-.call-to-action {
-  background-image: $nav-blue-gradient;
-  padding: 80px 0 84px;
+'use strict';
 
-  @include breakpoint(lg-phone) {
-    padding: 64px 0 72px;
-  }
-
-  .doc-call-title {
-    margin: 0 auto;
-    font-family: $main-mono-font;
-    font-weight: 400;
-    color: $white;
-  }
-
-  .doc-call-text {
-    margin: 0 auto;
-    padding-top: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: rgba($white, .64);
-  }
-
-  .btn-doc-call-white {
-    color: $white;
-    background-color: transparent;
-    text-transform: uppercase;
-    border: 1px solid $white;
-    border-radius: $border-radius-m;
-    padding: 12px 56px;
-    margin: 40px auto 0;
-
-    &:hover, &:focus {
-      color: white;
-      background-color: rgba($link-blue-color, .2);
-      border: 1px solid $link-blue-color;
-      box-shadow: 0 5px 20px 0 rgba($footer-color, .28);
-    }
-  }
-
-  .lang-select-row {
-    display: flex;
-    justify-content: center;
-  }
-
-  .lang-selector-text {
-    margin: 0 auto;
-    padding-bottom: 10px;
-    width: 75%;
-  }
+/**
+ * Reads the order ID from the visible checkout URL.
+ *
+ * @param {Location|URL} location browser location
+ * @return {string} Paygate order ID, or an empty string when unavailable
+ */
+export function getOrderId(location) {
+    const checkoutUrl = new URL(location.href);
+    return (checkoutUrl.searchParams.get('orderId') || '').trim();
 }
