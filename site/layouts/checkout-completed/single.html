@@ -1,8 +1,10 @@
 {{ define "main" }}
     {{ partial "components/navbar/navbar.html" . }}
-    {{ $email := hugo.Data.emails.sales_email }}
-    {{ $contactLine := printf "If you have any questions, email us at <a href=\"mailto:%s\">%s</a>." $email $email | safeHTML }}
-    {{ $missingOrderContactLine := printf "Please check the address or contact <a href=\"mailto:%s\">%s</a>." $email $email | safeHTML }}
+    {{ $salesEmail := hugo.Data.emails.sales_email }}
+    {{ $salesEmailLink := (printf "{{< cloakemail address=\"%s\" >}}" $salesEmail) }}
+
+    {{ $contactLine := printf "If you have any questions, email us at %s." $salesEmailLink }}
+    {{ $missingOrderContactLine := printf "Please check the address or contact %s." $salesEmailLink }}
     <section class="checkout checkout-completed" data-payment-status-page>
         <div class="checkout-frame content-with-fixed-header">
             <div class="checkout-panel">

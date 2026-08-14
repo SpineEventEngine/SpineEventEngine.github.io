@@ -1,8 +1,9 @@
 {{ define "main" }}
     {{ partial "components/navbar/navbar.html" . }}
-    {{ $email := hugo.Data.emails.sales_email }}
-    {{ $emailLink := printf "<a href=\"mailto:%s\">%s</a>" $email $email | safeHTML }}
-    {{ $missingOrderContactLine := printf "Please check the address or contact <a href=\"mailto:%s\">%s</a>." $email $email | safeHTML }}
+    {{ $salesEmail := hugo.Data.emails.sales_email }}
+    {{ $salesEmailLink := (printf "{{< cloakemail address=\"%s\" >}}" $salesEmail) }}
+
+    {{ $missingOrderContactLine := printf "Please check the address or contact %s." $salesEmailLink }}
     <section class="checkout">
         <div class="checkout-frame content-with-fixed-header">
             <div class="checkout-panel">
@@ -187,7 +188,8 @@
                             <h2 class="message-modal-title"
                                 id="checkout-error-modal-title">Something went wrong</h2>
                             <p class="message-modal-text" id="checkout-error-modal-description">
-                                Something went wrong, please contact {{ $emailLink }}.
+                                Something went wrong, please contact
+                                {{ $salesEmailLink | markdownify }}.
                             </p>
                         </div>
                     </div>
@@ -195,7 +197,9 @@
                         {{ partial "components/result-panel.html" (dict
                             "title" "Order required"
                             "title_as_h1" true
-                            "lines" (slice (printf "Please contact %s to place an order." $email))
+                            "lines" (slice
+                                (printf "Please contact %s to place an order." $salesEmailLink)
+                            )
                             "actions" (slice (dict
                                 "label" "Back to home"
                                 "url" site.Home.RelPermalink
@@ -223,7 +227,7 @@
                             "title_as_h1" true
                             "lines" (slice
                                 "Something went wrong."
-                                (printf "Please contact %s." $email)
+                                (printf "Please contact %s." $salesEmailLink)
                             )
                             "actions" (slice (dict
                                 "label" "Back to home"

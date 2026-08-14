@@ -35,38 +35,38 @@
 
 <div class="result-panel">
     {{ with $mark }}
-    {{ $markText := .text | default .content | default "" }}
-    {{ $markClass := .icon_class | default "" }}
-    <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
+        {{ $markText := .text | default .content | default "" }}
+        {{ $markClass := .icon_class | default "" }}
+        <div class="result-panel-mark {{ $markClass }}" aria-hidden="true">{{ $markText }}</div>
     {{ end }}
     {{ if $titleAsH1 }}
-    <h1 class="result-panel-title">{{ $title }}</h1>
+        <h1 class="result-panel-title">{{ $title }}</h1>
     {{ else }}
-    <h2 class="result-panel-title">{{ $title }}</h2>
+        <h2 class="result-panel-title">{{ $title }}</h2>
     {{ end }}
     {{ if $lines }}
-    <p class="result-panel-text {{ if $additionalLine }}result-panel-text-primary{{ end }}">
-        {{ range $lines }}
-        <span>{{ . }}</span>
-        {{ end }}
-    </p>
+        <p class="result-panel-text {{ if $additionalLine }}result-panel-text-primary{{ end }}">
+            {{ range $lines }}
+                <span>{{ . | markdownify }}</span>
+            {{ end }}
+        </p>
     {{ end }}
     {{ with $additionalLine }}
-    <p class="result-panel-text result-panel-contact">{{ . }}</p>
+        <p class="result-panel-text result-panel-contact">{{ . | markdownify }}</p>
     {{ end }}
     {{ if $actions }}
-    <div class="result-panel-actions">
-        {{ range $actions }}
-        {{ $actionLabel := .label | default .text | default "" }}
-        {{ $actionUrl := .url | default site.Home.RelPermalink }}
-        {{ if $actionLabel }}
-        <a class="btn {{ if .primary }}btn-primary-blue{{ else }}btn-bordered-blue{{ end }} result-panel-button"
-           href="{{ $actionUrl }}"
-           {{ if .back_to_checkout }}data-back-to-checkout hidden{{ end }}>
-            {{ $actionLabel }}
-        </a>
-        {{ end }}
-        {{ end }}
-    </div>
+        <div class="result-panel-actions">
+            {{ range $actions }}
+                {{ $actionLabel := .label | default .text | default "" }}
+                {{ $actionUrl := .url | default site.Home.RelPermalink }}
+                {{ if $actionLabel }}
+                    <a class="btn {{ if .primary }}btn-primary-blue{{ else }}btn-bordered-blue{{ end }} result-panel-button"
+                       href="{{ $actionUrl }}"
+                       {{ if .back_to_checkout }}data-back-to-checkout hidden{{ end }}>
+                        {{ $actionLabel }}
+                    </a>
+                {{ end }}
+            {{ end }}
+        </div>
     {{ end }}
 </div>
