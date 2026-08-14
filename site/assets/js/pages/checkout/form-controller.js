@@ -56,6 +56,8 @@ export const fieldValidationState = Object.freeze({
  *   buildSubmitBillingInfoRequest builds the billing-info payload for Paygate
  * @property {function(): void} clearVatIdError
  *   clears the VAT ID API validation error
+ * @property {function(HTMLElement): void} clearFieldError
+ *   clears the inline validation error for a field while it is being edited
  * @property {function(): void} focusPhoneNumber
  *   focuses the phone number input when a country is selected
  * @property {function(): string} getVatId
@@ -66,6 +68,8 @@ export const fieldValidationState = Object.freeze({
  *   updates generic async field validation styling
  * @property {function(string): void} showVatIdError
  *   renders VAT API validation errors inline
+ * @property {function(): void} showPendingVatIdError
+ *   renders a VAT API validation error deferred while the field was focused
  * @property {function(): void} initPhoneNumberField
  *   initializes the shared international phone input
  * @property {function(): void} updateVatIdFieldState
@@ -88,6 +92,7 @@ export const fieldValidationState = Object.freeze({
  */
 export function createCheckoutFormController({dom}) {
     let isSettingPhoneCountryProgrammatically = false;
+    let pendingVatIdErrorReason = '';
 
     /** Initializes the shared `intl-tel-input` field. */
     function initPhoneNumberField() {
@@ -198,12 +203,36 @@ export function createCheckoutFormController({dom}) {
         if (!isVatIdRelevant()) {
             return;
         }
-        setFieldError(dom.$vatId.get(0), vatIdErrorMessage(reason));
+
+        const field = dom.$vatId.get(0);
+        pendingVatIdErrorReason = reason;
+
+        if (field && field.ownerDocument && field.ownerDocument.activeElement === field) {
+            return;
+        }
+
+        showPendingVatIdError();
+    }
+
+    /** Shows a VAT ID error that arrived while the user was editing the field. */
+    function showPendingVatIdError() {
+        if (!pendingVatIdErrorReason || !isVatIdRelevant()) {
+            return;
+        }
+
+        setFieldError(dom.$vatId.get(0), vatIdErrorMessage(pendingVatIdErrorReason));
+        pendingVatIdErrorReason = '';
     }
 
     /** Clears an earlier VAT ID validation response after the input changes. */
     function clearVatIdError() {
+        pendingVatIdErrorReason = '';
         setFieldError(dom.$vatId.get(0), '');
+    }
+
+    /** Clears an inline validation error while the user edits a field. */
+    function clearFieldError(field) {
+        setFieldError(field, '');
     }
 
     /**
@@ -235,12 +264,12 @@ export function createCheckoutFormController({dom}) {
 
         if (!isRelevant) {
             dom.$vatId.val('');
-            setFieldError(field, '');
+            clearVatIdError();
             applyFieldValidationState(field, fieldValidationState.idle);
             return;
         }
 
-        setFieldError(field, '');
+        clearVatIdError();
     }
 
     /**
@@ -544,6 +573,7 @@ export function createCheckoutFormController({dom}) {
         applyPhoneCountryFromBillingCountry,
         bindPhoneEvents,
         buildSubmitBillingInfoRequest,
+        clearFieldError,
         clearVatIdError,
         focusPhoneNumber,
         getBrowserRestoredCountryState,
@@ -551,6 +581,7 @@ export function createCheckoutFormController({dom}) {
         initPhoneNumberField,
         restoreCountryState,
         setFieldValidationState,
+        showPendingVatIdError,
         showVatIdError,
         updateVatIdFieldState,
         validateField,

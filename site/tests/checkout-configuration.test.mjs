@@ -310,6 +310,76 @@ test('clear an earlier VAT validation error after the input changes', () => {
     assert.equal(errorElement.textContent, '');
 });
 
+test('defer a VAT validation error until the field loses focus', () => {
+    const classes = new Set();
+    const errorElement = {textContent: ''};
+    const fieldContainer = {
+        classList: {
+            toggle(className, enabled) {
+                if (enabled) {
+                    classes.add(className);
+                } else {
+                    classes.delete(className);
+                }
+            }
+        },
+        querySelector: () => errorElement
+    };
+    const ownerDocument = {activeElement: null};
+    const vatField = {
+        ownerDocument,
+        closest: () => fieldContainer
+    };
+    const controller = createCheckoutFormController({
+        dom: {
+            $country: {val: () => 'EE'},
+            $vatId: {get: () => vatField}
+        }
+    });
+
+    ownerDocument.activeElement = vatField;
+    controller.showVatIdError('NOT_ACTIVE');
+    assert.equal(classes.has('field-error'), false);
+    assert.equal(errorElement.textContent, '');
+
+    ownerDocument.activeElement = null;
+    controller.showPendingVatIdError();
+    assert.equal(classes.has('field-error'), true);
+    assert.equal(errorElement.textContent, 'This VAT ID is not active.');
+});
+
+test('clear a required-field error while the user edits the field', () => {
+    const classes = new Set();
+    const errorElement = {textContent: ''};
+    const fieldContainer = {
+        classList: {
+            toggle(className, enabled) {
+                if (enabled) {
+                    classes.add(className);
+                } else {
+                    classes.delete(className);
+                }
+            }
+        },
+        querySelector: () => errorElement
+    };
+    const field = {
+        disabled: false,
+        required: true,
+        type: 'text',
+        value: '',
+        closest: selector => selector === '[hidden]' ? null : fieldContainer
+    };
+    const controller = createCheckoutFormController({dom: {}});
+
+    assert.equal(controller.validateField(field), false);
+    assert.equal(classes.has('field-error'), true);
+
+    controller.clearFieldError(field);
+    assert.equal(classes.has('field-error'), false);
+    assert.equal(errorElement.textContent, '');
+});
+
 test('ignore an obsolete charge failure after newer charges succeed', async () => {
     const requests = [];
     const updatedCharges = [];

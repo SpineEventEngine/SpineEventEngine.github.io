@@ -88,6 +88,10 @@ $(
          */
         function bindEvents() {
             dom.$form.on('input', requiredSelector, event => {
+                formController.clearFieldError(event.target);
+            });
+
+            dom.$form.on('blur', 'input[required], textarea[required]', event => {
                 formController.validateField(event.target);
             });
 
@@ -130,6 +134,7 @@ $(
             });
 
             dom.$vatId.on('blur', () => {
+                formController.showPendingVatIdError();
                 if (chargeController.hasScheduledRequest()) {
                     chargeController.flush();
                 }
