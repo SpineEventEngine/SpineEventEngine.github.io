@@ -65,6 +65,21 @@
  * @return {CheckoutViewController} view update helpers for the checkout page
  */
 export function createCheckoutView(dom) {
+    const pageElements = [
+        dom.$loading,
+        dom.$summary,
+        dom.$form,
+        dom.$missingOrder,
+        dom.$notFound,
+        dom.$summaryError
+    ];
+    const pageViews = {
+        loading: {elements: [dom.$loading], isResultPage: false},
+        checkout: {elements: [dom.$summary, dom.$form], isResultPage: false},
+        missingOrder: {elements: [dom.$missingOrder], isResultPage: true},
+        notFound: {elements: [dom.$notFound], isResultPage: true},
+        summaryError: {elements: [dom.$summaryError], isResultPage: true}
+    };
 
     /**
      * Enables or disables the checkout submit button.
@@ -128,50 +143,26 @@ export function createCheckoutView(dom) {
      * Shows the order-summary loading state.
      */
     function showSummaryLoading() {
-        setResultPageMode(false);
-        dom.$summary.prop('hidden', true);
-        dom.$loading.prop('hidden', false);
-        dom.$form.prop('hidden', true);
-        dom.$missingOrder.prop('hidden', true);
-        dom.$notFound.prop('hidden', true);
-        dom.$summaryError.prop('hidden', true);
+        showPageView('loading');
     }
 
     /**
      * Shows the generic summary error panel inside the checkout page.
      */
     function showSummaryError() {
-        setResultPageMode(true);
-        dom.$loading.prop('hidden', true);
-        dom.$summary.prop('hidden', true);
-        dom.$form.prop('hidden', true);
-        dom.$missingOrder.prop('hidden', true);
-        dom.$notFound.prop('hidden', true);
-        dom.$summaryError.prop('hidden', false);
+        showPageView('summaryError');
     }
 
     /** Shows the resolved order summary and billing form. */
     function showCheckoutView() {
-        setResultPageMode(false);
         closeErrorModal();
-        dom.$loading.prop('hidden', true);
-        dom.$summary.prop('hidden', false);
-        dom.$form.prop('hidden', false);
-        dom.$missingOrder.prop('hidden', true);
-        dom.$notFound.prop('hidden', true);
-        dom.$summaryError.prop('hidden', true);
+        showPageView('checkout');
     }
 
     /** Shows the missing-order result panel. */
     function showMissingOrderView() {
-        setResultPageMode(true);
         closeErrorModal();
-        dom.$loading.prop('hidden', true);
-        dom.$summary.prop('hidden', true);
-        dom.$form.prop('hidden', true);
-        dom.$notFound.prop('hidden', true);
-        dom.$summaryError.prop('hidden', true);
-        dom.$missingOrder.prop('hidden', false);
+        showPageView('missingOrder');
     }
 
     /**
@@ -192,14 +183,19 @@ export function createCheckoutView(dom) {
      * Shows the not-found result panel inside the checkout page.
      */
     function showNotFoundView() {
-        setResultPageMode(true);
         closeErrorModal();
-        dom.$loading.prop('hidden', true);
-        dom.$summary.prop('hidden', true);
-        dom.$form.prop('hidden', true);
-        dom.$missingOrder.prop('hidden', true);
-        dom.$summaryError.prop('hidden', true);
-        dom.$notFound.prop('hidden', false);
+        showPageView('notFound');
+    }
+
+    /** Shows one checkout page state and hides every other state panel. */
+    function showPageView(viewName) {
+        const view = pageViews[viewName];
+        const visibleElements = new Set(view.elements);
+
+        pageElements.forEach(element => {
+            element.prop('hidden', !visibleElements.has(element));
+        });
+        setResultPageMode(view.isResultPage);
     }
 
     /** Matches checkout result-page height to the payment-result layout. */

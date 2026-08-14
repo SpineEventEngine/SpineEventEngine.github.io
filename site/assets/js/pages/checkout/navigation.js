@@ -42,3 +42,20 @@ export function getCheckoutNavigationMode(navigationType, pagePersisted = false)
     }
     return checkoutNavigationMode.none;
 }
+
+/**
+ * Restores whether the phone country should remain independent from billing country.
+ *
+ * @param {boolean} wasManuallySelected state retained by a cached page
+ * @param {Object} restoredState country values restored by the browser
+ * @return {boolean} whether billing-country changes should leave phone country unchanged
+ */
+export function getRestoredPhoneCountryManualState(wasManuallySelected, restoredState) {
+    const billingCountryCode = restoredState && restoredState.billingCountryCode;
+    const phoneCountryCode = restoredState && restoredState.phoneCountryCode;
+
+    return Boolean(
+        wasManuallySelected ||
+        billingCountryCode && phoneCountryCode && phoneCountryCode !== billingCountryCode
+    );
+}

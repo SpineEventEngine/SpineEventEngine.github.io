@@ -32,10 +32,14 @@ import {createChargeController} from 'js/pages/checkout/charge-controller';
 import {getCompletedPageUrl} from 'js/pages/checkout/completed-page-url';
 import {initializeCountrySelector} from 'js/pages/checkout/countries';
 import {getCheckoutDom} from 'js/pages/checkout/dom';
-import {createCheckoutFormController} from 'js/pages/checkout/form-controller';
+import {
+    createCheckoutFormController,
+    defaultPhoneCountryCode
+} from 'js/pages/checkout/form-controller';
 import {
     checkoutNavigationMode,
-    getCheckoutNavigationMode
+    getCheckoutNavigationMode,
+    getRestoredPhoneCountryManualState
 } from 'js/pages/checkout/navigation';
 import {getOrderId} from 'js/pages/checkout/order-id';
 import {createCheckoutView} from 'js/pages/checkout/view-controller';
@@ -248,9 +252,9 @@ $(
             window.setTimeout(() => {
                 const restoredState = formController.getBrowserRestoredCountryState();
 
-                phoneCountryManuallySelected = Boolean(
-                    restoredState.phoneCountryCode &&
-                    restoredState.phoneCountryCode !== restoredState.billingCountryCode
+                phoneCountryManuallySelected = getRestoredPhoneCountryManualState(
+                    phoneCountryManuallySelected,
+                    restoredState
                 );
                 formController.restoreCountryState(restoredState);
                 formController.updateVatIdFieldState();
@@ -264,7 +268,7 @@ $(
                 phoneCountryManuallySelected = false;
                 formController.restoreCountryState({
                     billingCountryCode: '',
-                    phoneCountryCode: 'US'
+                    phoneCountryCode: defaultPhoneCountryCode
                 });
                 dom.$phoneNumber.val('');
                 dom.$vatId.val('');

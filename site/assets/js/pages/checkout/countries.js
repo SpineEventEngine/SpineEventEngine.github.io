@@ -61,9 +61,11 @@ export function populateCountrySelect(select) {
         name: displayNames ? displayNames.of(code) : code
     })).sort((first, second) => first.name.localeCompare(second.name));
 
+    const options = document.createDocumentFragment();
     countries.forEach(country => {
-        select.add(new Option(country.name, country.code));
+        options.append(new Option(country.name, country.code));
     });
+    select.append(options);
 }
 
 /**

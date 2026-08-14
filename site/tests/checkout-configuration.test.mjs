@@ -39,7 +39,8 @@ const {
 );
 const {
     checkoutNavigationMode,
-    getCheckoutNavigationMode
+    getCheckoutNavigationMode,
+    getRestoredPhoneCountryManualState
 } = await importSource(
     '../assets/js/pages/checkout/navigation.js'
 );
@@ -49,7 +50,10 @@ const {isEuCountry} = await importSource(
 const {normalizeIntlPhoneNumber} = await importSource(
     '../assets/js/modules/forms/phone-number.js'
 );
-const {createCheckoutFormController} = await importFormController();
+const {
+    createCheckoutFormController,
+    defaultPhoneCountryCode
+} = await importFormController();
 const {createCheckoutView} = await importSource(
     '../assets/js/pages/checkout/view-controller.js'
 );
@@ -114,7 +118,19 @@ test('calculate charges without requiring a VAT ID', () => {
 });
 
 test('offer the complete ISO billing-country list', () => {
+    const OriginalDocument = globalThis.document;
     const OriginalOption = globalThis.Option;
+    let appendCount = 0;
+    globalThis.document = {
+        createDocumentFragment() {
+            return {
+                children: [],
+                append(option) {
+                    this.children.push(option);
+                }
+            };
+        }
+    };
     globalThis.Option = class {
         constructor(text, value) {
             this.text = text;
@@ -125,18 +141,21 @@ test('offer the complete ISO billing-country list', () => {
     try {
         const select = {
             options: [{text: 'Select country', value: ''}],
-            add(option) {
-                this.options.push(option);
+            append(fragment) {
+                appendCount += 1;
+                this.options.push(...fragment.children);
             }
         };
 
         populateCountrySelect(select);
 
         assert.ok(select.options.length > 240);
+        assert.equal(appendCount, 1);
         for (const countryCode of ['AU', 'BR', 'CA', 'CN', 'EE', 'GB', 'JP', 'US', 'ZA']) {
             assert.ok(select.options.some(option => option.value === countryCode));
         }
     } finally {
+        globalThis.document = OriginalDocument;
         globalThis.Option = OriginalOption;
     }
 });
@@ -180,6 +199,30 @@ test('restore checkout fields only for browser history navigation', () => {
     assert.equal(
         getCheckoutNavigationMode('navigate'),
         checkoutNavigationMode.none
+    );
+});
+
+test('preserve only genuine manual phone-country selection after history restore', () => {
+    assert.equal(
+        getRestoredPhoneCountryManualState(false, {
+            billingCountryCode: '',
+            phoneCountryCode: defaultPhoneCountryCode
+        }),
+        false
+    );
+    assert.equal(
+        getRestoredPhoneCountryManualState(false, {
+            billingCountryCode: 'DE',
+            phoneCountryCode: 'US'
+        }),
+        true
+    );
+    assert.equal(
+        getRestoredPhoneCountryManualState(true, {
+            billingCountryCode: 'DE',
+            phoneCountryCode: 'DE'
+        }),
+        true
     );
 });
 
@@ -239,6 +282,7 @@ test('load phone validation utilities next to the static library', () => {
             libraryOptions.utilsScript,
             'https://spine.io/libs/intl-tel-input/utils.js'
         );
+        assert.equal(libraryOptions.initialCountry, 'us');
     } finally {
         globalThis.document = originalDocument;
         globalThis.window = originalWindow;
@@ -422,6 +466,25 @@ test('clear a required-field error while the user edits the field', () => {
     assert.equal(errorElement.textContent, '');
 });
 
+test('reject an empty required phone field', () => {
+    const errorElement = {textContent: ''};
+    const fieldContainer = {
+        classList: {toggle() {}},
+        querySelector: () => errorElement
+    };
+    const field = {
+        disabled: false,
+        required: true,
+        type: 'tel',
+        value: '',
+        closest: selector => selector === '[hidden]' ? null : fieldContainer
+    };
+    const controller = createCheckoutFormController({dom: {}});
+
+    assert.equal(controller.validateField(field), false);
+    assert.equal(errorElement.textContent, 'This field is required.');
+});
+
 test('ignore an obsolete charge failure after newer charges succeed', async () => {
     const requests = [];
     const updatedCharges = [];
@@ -497,6 +560,36 @@ test('render a safe rounded VAT label and tolerate missing order money', () => {
     assert.equal(dom.$vatLabel.value, 'VAT');
 });
 
+test('show one checkout page state at a time', () => {
+    const originalDocument = globalThis.document;
+    let isResultPage = false;
+    globalThis.document = {
+        body: {
+            classList: {
+                toggle(className, enabled) {
+                    assert.equal(className, 'checkout-result-page');
+                    isResultPage = enabled;
+                }
+            }
+        }
+    };
+
+    try {
+        const dom = createSummaryDom();
+        const view = createCheckoutView(dom);
+
+        view.showCheckoutView();
+        assertVisiblePageElements(dom, ['$summary', '$form']);
+        assert.equal(isResultPage, false);
+
+        view.showNotFoundView();
+        assertVisiblePageElements(dom, ['$notFound']);
+        assert.equal(isResultPage, true);
+    } finally {
+        globalThis.document = originalDocument;
+    }
+});
+
 async function importSource(relativePath) {
     const source = fs.readFileSync(new URL(relativePath, import.meta.url), 'utf8');
     return import(`data:text/javascript,${encodeURIComponent(source)}`);
@@ -520,12 +613,7 @@ async function importChargeController() {
     ).replace(/^import .*;\n/gm, '');
     const dependencies = `
         const fieldValidationState = {idle: 'idle', loading: 'loading', success: 'success'};
-        const buildChargeRequest = (orderId, buyerCountryCode, vatId) => {
-            if (!orderId || !buyerCountryCode) return null;
-            return vatId
-                ? {orderId, buyerCountryCode, vatId}
-                : {orderId, buyerCountryCode};
-        };
+        const buildChargeRequest = ${buildChargeRequest.toString()};
     `;
 
     const source = [delayedRequestSource, dependencies, chargeControllerSource].join('\n');
@@ -550,13 +638,36 @@ function createSummaryDom() {
     });
 
     return {
+        $errorModal: element(),
+        $form: element(),
+        $loading: element(),
+        $missingOrder: element(),
+        $notFound: element(),
         $productTitle: element(),
         $productDescription: element(),
+        $summary: element(),
+        $summaryError: element(),
         $subtotalValue: element(),
+        $submitButton: element(),
         $vatLabel: element(),
         $vatValue: element(),
         $totalValue: element()
     };
+}
+
+function assertVisiblePageElements(dom, visibleNames) {
+    const pageElementNames = [
+        '$loading',
+        '$summary',
+        '$form',
+        '$missingOrder',
+        '$notFound',
+        '$summaryError'
+    ];
+
+    for (const name of pageElementNames) {
+        assert.equal(dom[name].hidden, !visibleNames.includes(name), name);
+    }
 }
 
 async function waitUntil(predicate) {

@@ -32,6 +32,9 @@ import {normalizeIntlPhoneNumber} from 'js/modules/forms/phone-number';
 const intlTelInputScriptSelector =
     'script[src*="libs/intl-tel-input/intlTelInput.min.js"]';
 
+/** Default phone country used before the user selects a billing country. */
+export const defaultPhoneCountryCode = 'US';
+
 /**
  * Generic async field-validation states.
  */
@@ -105,8 +108,10 @@ export function createCheckoutFormController({dom}) {
             return;
         }
 
+        const initialCountry = normalizeCountryCode(dom.$phoneCountry.val()) ||
+            defaultPhoneCountryCode;
         window.intlTelInput(field, {
-            initialCountry: normalizeCountryCode(dom.$phoneCountry.val()) || 'us',
+            initialCountry: initialCountry.toLowerCase(),
             autoPlaceholder: 'aggressive',
             separateDialCode: true,
             formatOnDisplay: true,
@@ -171,10 +176,6 @@ export function createCheckoutFormController({dom}) {
 
         if (field.disabled || field.closest('[hidden]')) {
             setFieldError(field, '');
-            return true;
-        }
-
-        if (field.type === 'tel') {
             return true;
         }
 

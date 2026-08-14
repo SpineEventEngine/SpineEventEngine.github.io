@@ -244,14 +244,9 @@ $checkout-panel-width: 790px;
     grid-column: 1 / -1;
   }
 
-  .form-input,
-  .form-select {
+  .form-input {
     width: 100%;
     min-height: 48px;
-  }
-
-  .form-select {
-    appearance: auto;
   }
 
   .form-submit-button {

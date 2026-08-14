@@ -42,8 +42,10 @@ The Google reCaptcha is used for the payment option.
                 {{ $comparableServices := $data.comparable_services }}
                 {{ range $comparableServices.header_cols }}
                     {{ $productId := .paygate_product_id | default "" }}
-                    {{ with site.Params.payment.standardsupportproductid }}
-                        {{ $productId = . }}
+                    {{ if $productId }}
+                        {{ with site.Params.payment.standardsupportproductid }}
+                            {{ $productId = . }}
+                        {{ end }}
                     {{ end }}
                     <div class="header"
                          {{ with $productId }}data-paygate-product-id="{{ . }}"{{ end }}>
