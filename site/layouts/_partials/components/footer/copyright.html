@@ -27,9 +27,11 @@
 {{ $currentYear := now.Year }}
 
 <div class="copyright">
-    <a class="privacy-link" href="{{ `privacy-statement/` | relURL }}">Privacy Statement</a>
-    <a class="privacy-link terms" href="{{ `terms-of-use/` | relURL }}">Terms of Use</a>
-    <a class="privacy-link terms" href="{{ `cvd-policy/` | relURL }}">CVD Policy</a>
+    <div class="privacy-links">
+        <span><a class="privacy-link" href="{{ `privacy-statement/` | relURL }}">Privacy Statement</a></span>
+        <span><a class="privacy-link" href="{{ `terms-of-use/` | relURL }}">Terms of Use</a></span>
+        <span><a class="privacy-link" href="{{ `cvd-policy/` | relURL }}">CVD Policy</a></span>
+    </div>
     <span class="description">
         <span>&copy; 2015 – {{ $currentYear }}</span>
         <a class="company-site-link" href="https://teamdev.com">TeamDev</a>.
