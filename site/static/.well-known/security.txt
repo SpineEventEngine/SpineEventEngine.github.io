@@ -1,0 +1,5 @@
+Contact: mailto:cra-request@codematters.ltd
+Expires: 2027-09-10 T13:05:00.000Z
+Preferred-Languages: en
+Canonical: https://spine.io/.well-known/security.txt
+Policy: https://spine.io/cvd-policy/

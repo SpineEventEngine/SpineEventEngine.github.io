@@ -1,5 +1,5 @@
 /*!
- * Copyright 2025, TeamDev. All rights reserved.
+ * Copyright 2026, TeamDev. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,8 +35,22 @@
     }
   }
 
+  .article-text {
+    text-wrap: pretty;
+  }
+
   h2 {
     font-family: $main-font;
+  }
+
+  ul {
+    li {
+      font-weight: normal;
+    }
+  }
+
+  a[href^="mailto:"] {
+    white-space: nowrap;
   }
 
   $table-border-color: rgba(black, .12);
@@ -142,7 +156,12 @@
     }
   }
 
+  &.cvd-policy,
   &.contributor-agreement {
+    .date {
+      margin-bottom: 0;
+    }
+
     .article-container {
       // Makes list numbers the same style as h2 titles.
       // The `.title-list-item` class is applied in the `common.js` file.
