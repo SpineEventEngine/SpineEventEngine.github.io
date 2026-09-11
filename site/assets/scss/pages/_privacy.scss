@@ -58,12 +58,13 @@
   .table-container {
     overflow-x: auto;
     border: 1px solid $table-border-color;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 
     table {
       width: 100%;
       padding: 0;
       border: none;
+      margin: 0;
 
       tr {
         border-bottom: 1px solid $table-border-color;
@@ -91,83 +92,14 @@
   }
 
   .date {
-    margin: -20px 0 32px;
+    margin: -16px 0 32px;
 
     @include breakpoint(lg-phone) {
       margin-top: 0;
     }
-  }
 
-  $title-size-mobile: 24px;
-  %title-as-h2 {
-    font-family: $main-font;
-    font-size: 27px;
-    font-weight: bold;
-
-    @include breakpoint(lg-phone) {
-      font-size: $title-size-mobile - 2px;
-    }
-  }
-
-  &.development-support-agreement {
-    .article-container {
-      @include breakpoint(lg-phone) {
-        h2 {
-          font-size: $title-size-mobile;
-        }
-      }
-
-      ol {
-        list-style-type: none;
-        counter-reset: item;
-        margin: 0;
-        padding: 0;
-
-        > li {
-          display: table;
-          counter-increment: item;
-          margin: 0;
-
-          &:before {
-            content: counters(item, ".") ". ";
-            display: table-cell;
-            padding-right: .6em;
-
-            @include breakpoint(lg-phone) {
-              padding-right: .36em;
-            }
-          }
-        }
-      }
-
-      // Shows list as: a. b. c. ...
-      // To use it, add the `lower-alpha-type` class to the `<ol>` tag.
-      ol.lower-alpha-type > li:before {
-        content: counter(item, lower-alpha) ". ";
-      }
-
-      // Makes list numbers the same style as h2 titles.
-      // The `.title-list-item` class is applied in the `common.js` file.
-      .title-list-item {
-        &:before {
-          @extend %title-as-h2;
-        }
-      }
-    }
-  }
-
-  &.cvd-policy,
-  &.contributor-agreement {
-    .date {
+    &:has(+ h2) {
       margin-bottom: 0;
-    }
-
-    .article-container {
-      // Makes list numbers the same style as h2 titles.
-      // The `.title-list-item` class is applied in the `common.js` file.
-      .title-list-item {
-        @extend %title-as-h2;
-      }
     }
   }
 }

@@ -115,8 +115,8 @@ Optional parameters:
 ```markdown
 ---
 header_type: fixed-header
-body_class: privacy
-customjs: js/pages/privacy.js
+body_class: faq
+customjs: js/pages/faq.js
 ---
 ```
 
