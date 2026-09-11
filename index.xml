@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spine Event Engine</title><link>https://spine.io/</link><description>Recent content on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Wed, 24 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Field-level options</title><link>https://spine.io/docs/validation/user/03-built-in-options/field-level-options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/field-level-options/</guid><description>&lt;h1 id="field-level-options" data-title&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spine Event Engine</title><link>https://spine.io/</link><description>Recent content on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 11 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Field-level options</title><link>https://spine.io/docs/validation/user/03-built-in-options/field-level-options/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/03-built-in-options/field-level-options/</guid><description>&lt;h1 id="field-level-options" data-title&gt;
 Field-level options&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;Use this page when you want to validate a field by declaring options next to it in a &lt;code&gt;.proto&lt;/code&gt; file.&lt;/p&gt;
@@ -91,7 +91,25 @@ Choose an option&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-ic
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Release Notes v1.9.0</title><link>https://spine.io/release-notes/2023/v1.9.0/</link><pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2023/v1.9.0/</guid><description>&lt;h1 id="spine-190" data-title&gt;
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Coordinated Vulnerability Disclosure Policy</title><link>https://spine.io/cvd-policy/</link><pubDate>Fri, 11 Sep 2026 00:00:00 +0000</pubDate><guid>https://spine.io/cvd-policy/</guid><description>&lt;h1 id="coordinated-vulnerability-disclosure-policy" data-title&gt;
+Coordinated Vulnerability Disclosure Policy&lt;/h1&gt;
+
+&lt;p class="date"&gt;&lt;span&gt;Last updated:&amp;nbsp;&lt;/span&gt;&lt;time datetime="2026-09-11"&gt;September 11, 2026&lt;/time&gt;
+&lt;/p&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;h2 id="why-we-have-this-policy" data-title&gt;
+Why we have this Policy&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#why-we-have-this-policy
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Security is an integral part of how we develop and maintain our product.&lt;/p&gt;
+&lt;p&gt;We welcome responsible disclosure of security risks and product vulnerabilities by our customers,
+security researchers, and anyone who may discover a potential vulnerability.&lt;/p&gt;
+&lt;p&gt;This Policy explains how to report a security vulnerability affecting Spine Event Engine
+(“Spine”), how we handle the information you provide, and what you can expect from us in
+response.&lt;/p&gt;</description></item><item><title>Release Notes v1.9.0</title><link>https://spine.io/release-notes/2023/v1.9.0/</link><pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate><guid>https://spine.io/release-notes/2023/v1.9.0/</guid><description>&lt;h1 id="spine-190" data-title&gt;
 Spine 1.9.0&lt;/h1&gt;
 &lt;h2 id="base-libraries" data-title&gt;
 Base Libraries&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#base-libraries
@@ -1154,14 +1172,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
  &gt;@SpineEngine&lt;/a&gt; or 
 
 &lt;style&gt;
-#span-ca36b587.cloaked-e-mail:before {
+#span-6c5cd181.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-ca36b587"&gt;&lt;/span&gt;&lt;script id="script-ca36b587"&gt;
- var scriptTag = document.getElementById("script-ca36b587");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-6c5cd181"&gt;&lt;/span&gt;&lt;script id="script-6c5cd181"&gt;
+ var scriptTag = document.getElementById("script-6c5cd181");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
