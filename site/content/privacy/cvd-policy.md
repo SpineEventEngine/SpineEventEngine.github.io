@@ -97,7 +97,7 @@ body_class: privacy cvd-policy
 1. ## Reporting to authorities
 
    Where required by applicable law, we will notify the competent authorities, including the
-   Estonian CSIRT (CERT-EE) and ENISA, of actively exploited vulnerabilities and severe security
+   Portuguese CSIRT (CNCS/CERT.PT) and ENISA, of actively exploited vulnerabilities and severe security
    incidents affecting Spine within the time limits prescribed by the Cyber Resilience Act. We will
    also inform affected users where required.
 
