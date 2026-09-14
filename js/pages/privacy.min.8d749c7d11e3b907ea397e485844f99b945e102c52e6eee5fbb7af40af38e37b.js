@@ -1,1 +1,0 @@
-"use strict";(()=>{$(function(){const e=$("body").hasClass("privacy");if(!e)return;t();function t(){$("ol li:has(h2)").addClass("title-list-item")}})})()

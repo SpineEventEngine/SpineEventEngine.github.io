@@ -118,14 +118,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
  &gt;@SpineEngine&lt;/a&gt; or 
 
 &lt;style&gt;
-#span-dd292cdc.cloaked-e-mail:before {
+#span-c1a645f8.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-dd292cdc"&gt;&lt;/span&gt;&lt;script id="script-dd292cdc"&gt;
- var scriptTag = document.getElementById("script-dd292cdc");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-c1a645f8"&gt;&lt;/span&gt;&lt;script id="script-c1a645f8"&gt;
+ var scriptTag = document.getElementById("script-c1a645f8");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
