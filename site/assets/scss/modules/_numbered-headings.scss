@@ -1,0 +1,163 @@
+/*!
+ * Copyright 2026, TeamDev. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Redistribution and use in source and/or binary forms, with or without
+ * modification, must retain the above copyright notice and the following
+ * disclaimer.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+  Automatically generates numbered headings and numbered Table of Contents.
+
+  Usage:
+  ```html
+  <div class="numbered-headings">
+     <h2>First section title</h2>
+     <ol>
+         <li>First item</li>
+         <li>Second item</li>
+     </ol>
+     <h2>Another section title</h2>
+  </div>
+  ```
+
+  Markdown:
+  ```
+  ---
+  has_numbered_headings: true
+  ---
+
+  ## First section title
+  1. First item
+  2. Second item
+
+  ## Another section title
+  1. First item
+  2. Second item
+  ```
+
+  Result:
+  1. First section title
+    1.1. First item
+    1.2. Second item
+  2. Another section title
+    2.1. First item
+    2.2. Second item
+ */
+.numbered-headings {
+  counter-reset: section toc;
+
+  h2 {
+    counter-increment: section;
+    counter-reset: item;
+
+    &:before {
+      content: counter(section) ". ";
+    }
+  }
+
+  h2 ~ ol {
+    counter-reset: item;
+    list-style: none;
+    padding-left: 1.4em;
+
+    > li {
+      display: table;
+      counter-increment: item;
+      margin-left: 0;
+
+      &:before {
+        display: table-cell;
+        content: counter(section) "." counter(item) ". ";
+        padding-right: .6em;
+
+        @include breakpoint(lg-phone) {
+          padding-right: .36em;
+        }
+      }
+    }
+  }
+
+  ol {
+    li {
+      ul, ol {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Shows list as: a. b. c. ...
+  // To use it, add the `lower-alpha-type` class to the `<ol>` tag.
+  ol {
+    &.lower-alpha-type {
+      counter-reset: letter;
+      list-style-type: none;
+
+      > li {
+        display: table;
+        counter-increment: letter;
+        margin-left: 0;
+        padding-left: 0;
+
+        &:before {
+          display: table-cell;
+          content: counter(letter, lower-alpha) ". ";
+          padding-right: .6em;
+
+          @include breakpoint(lg-phone) {
+            padding-right: .36em;
+          }
+        }
+      }
+    }
+  }
+
+  #TableOfContents {
+    ul {
+      li {
+        display: flex;
+
+        $counter-width: 30px;
+        &:before {
+          display: block;
+          counter-increment: toc;
+          content: counter(toc) ".";
+          top: 0;
+          left: 0;
+          width: $counter-width;
+          height: auto;
+          text-align: right;
+          background: none;
+          color: rgba($text-color, .54);
+        }
+
+        a {
+          padding-left: $counter-width + 12px;
+        }
+
+        /* Hides the internal list with h3 and h4 tags. */
+        ul {
+          display: none;
+        }
+      }
+    }
+  }
+}

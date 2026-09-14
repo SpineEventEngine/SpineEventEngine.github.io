@@ -1,10 +1,12 @@
 {{ define "main" }}
     {{ partial "components/navbar/navbar.html" . }}
+    {{ $hasNumberedHeadings := .Params.has_numbered_headings }}
     <section>
         <div class="container-fluid content-holder content-with-fixed-header">
             <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="article-container article-text">
+                <div class="col-lg-8">
+                    <div class="article-container article-text
+                                {{ if $hasNumberedHeadings }}numbered-headings{{ end }}">
                         {{ .Content }}
                     </div>
                 </div>
