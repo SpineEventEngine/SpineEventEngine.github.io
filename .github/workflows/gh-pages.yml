@@ -5,12 +5,17 @@ on:
     branches:
       - master
       - staging
+  # Rebuilds the site on demand, e.g. to publish a change to `SECURITY.md` in
+  # `SpineEventEngine/.github`: the Security policy page fetches that file at build time.
+  workflow_dispatch:
 
 env:
   HUGO_VERSION: 0.161.1
 
 jobs:
   deploy:
+    # A manual run deploys only when started on `master`; on other branches, the job is skipped.
+    if: github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     permissions:
       contents: write
