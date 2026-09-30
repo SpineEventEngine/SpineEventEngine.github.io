@@ -10,7 +10,7 @@ This directory contains two live template groups:
 Live templates are not picked up by IDEA automatically. They should be added manually.
 In order to add these templates, perform the following steps:
 
-1. Copy `*.xml` files from this directory to `templates` directory in the IntelliJ IDEA 
+1. Copy `*.xml` files from this directory to `templates` directory in the IntelliJ IDEA
    [settings folder][settings_folder].
 2. Restart IntelliJ IDEA: `File -> Invalidate Caches -> Just restart`.
 3. Go to `Preferences -> Editor -> Live Templates`.
@@ -22,6 +22,6 @@ In order to add these templates, perform the following steps:
 
 1. Open the corresponding template: `Preferences -> Editor -> Live Templates -> User.todo`.
 2. Click on `Edit variables`.
-3. Set `USER` variable to your domain email address without `@teamdev.com` ending.  For example,
+3. Set `USER` variable to your domain email address without `@teamdev.com` ending. For example,
    for `jack.sparrow@teamdev.com` use the following expression `"jack.sparrow"`.
 4. Verify that the template generates expected comments: `// TODO:2022-11-03:jack.sparrow: <...>`.

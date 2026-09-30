@@ -4,15 +4,33 @@
 
 If `.agents/project.md` exists in this repository, read it first — it describes
 the language, architecture, and role of this specific repo within the Spine SDK
-organisation. To create one, copy `.agents/project.template.md` (or the
-relevant language template) and fill it in. If `project.md` links to a shared
-requirements file (e.g. `jvm-project.md`), read that too.
+organisation. It is a symlink to `docs/project.md`; to create one, copy
+`.agents/guidelines/project.template.md` to `docs/project.md` and fill it in. If it
+links to a shared requirements file (e.g. `jvm-project.md`), read that too.
 
-- Start every session by reading `.agents/quick-reference-card.md` (if present).
+- Start every session by reading `.agents/guidelines/quick-reference-card.md` (if present).
 - For specific tasks (code review, PR prep, dependency updates, docs, etc.),
   prefer the matching skill from `.agents/skills/`.
-- Full standards reference: `.agents/_TOC.md` (if present) — consult when a
+- Full standards reference: `.agents/guidelines/_TOC.md` (if present) — consult when a
   skill doesn't cover the needed context.
+
+Shared skills, scripts, and guidelines come from the `.agents/shared` submodule (the
+[`agents`][agents-repo] repository) exposed via symlinks.
+`./config/pull` initializes and floats them automatically. But a fresh `git worktree`
+(and some shallow clones / cloud checkouts) start with NO submodules checked out, so
+those symlinks dangle and no skills are found. Bootstrap such a tree with
+**`./init-submodules`** — a root script that materializes the missing
+*config-managed* submodules at their pinned commits: `config` itself, plus every
+submodule that declares a tracked `branch` in `.gitmodules` (`.agents/shared`, and
+any shared submodule added later) — the same rule `./config/pull` uses to decide
+what it floats. Submodules the consumer owns (a Hugo theme, a vendored library,
+doc-example submodules, …) declare no tracked branch and are left untouched, so the
+automatic `SessionStart` run never tries to clone — or fail on credentials for — a
+submodule this project does not manage. It depends on no pre-existing `config`
+submodule, so it works before `./config/pull` (which lives inside the `config`
+submodule) can. Claude Code runs it automatically via a `SessionStart` hook; other
+agents and humans run it by hand, then `./config/pull` to float the shared submodules
+to their branch tips.
 
 ## Commit and history safety
 
@@ -26,7 +44,7 @@ unless one of the following is true *right now*:
 Authorization does not carry over between turns or sessions. When in doubt: stage
 changes, show the diff, and stop — let the user commit.
 
-See [`.agents/safety-rules.md`](.agents/safety-rules.md) → *Commits and history-writing*.
+See [`.agents/guidelines/safety-rules.md`](.agents/guidelines/safety-rules.md) → *Commits and history-writing*.
 
 ## Other safety rules
 
@@ -35,7 +53,7 @@ See [`.agents/safety-rules.md`](.agents/safety-rules.md) → *Commits and histor
 - No analytics, telemetry, or tracking code.
 - No reflection or unsafe code without explicit approval.
 
-See [`.agents/safety-rules.md`](.agents/safety-rules.md) for the full list.
+See [`.agents/guidelines/safety-rules.md`](.agents/guidelines/safety-rules.md) for the full list.
 
 ## Moving files
 
@@ -54,6 +72,17 @@ See `.agents/memory/README.md` for layout and write protocol.
 
 Review `.agents/memory/MEMORY.md` at the start of every session.
 Ruthlessly iterate until mistakes stop repeating.
+
+## Asking questions
+
+- Ask at most one question per message. If a decision has a small set of
+  options, include those options as part of that one question.
+- Do not bundle unrelated clarification questions. Ask the next question only
+  after the user answers the previous one.
+- Apply this rule both when the agent needs clarification and when the user's
+  prompt means "ask questions".
+- Prefer a reasonable assumption over another question when the answer would not
+  materially change the next step.
 
 ## Verification & Quality
 
@@ -77,3 +106,30 @@ Ruthlessly iterate until mistakes stop repeating.
 - Verify changes before marking a task done.
 - Update memory if lessons emerged.
 - Delete the task file on merge to master.
+
+## Code review
+
+Never review `gradlew` or `gradlew.bat` in any repository, including `config`.
+These files are provided by Gradle and are not edited manually.
+
+When reviewing a pull request or diff in a consumer repository, skip any
+file that the `config` module distributes. Those files belong in a review
+of the `config` repo, not the consumer repo — reviewing them there adds
+noise without value.
+
+Do **not** apply this skip rule when reviewing the `config` repository
+itself. In `config`, these files are source files owned by the current
+repo and must be reviewed normally, except `gradlew` and `gradlew.bat`.
+
+In consumer repositories, skip without comment any path matching:
+
+- `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`
+- `.agents/**` (except `.agents/project.md`)
+- `.claude/**`, `.idea/**`, `.junie/**`
+- `.github/copilot-instructions.md`
+- `buildSrc/**` (except `buildSrc/src/main/kotlin/module.gradle.kts`)
+- `gradle/`, `gradlew`, `gradlew.bat`, `init-submodules`
+- `.codecov.yml`, `.gitignore`, `gradle.properties`, `lychee.toml`
+- `.github/workflows/` — unless the workflow was introduced by this repo
+
+[agents-repo]: https://github.com/SpineEventEngine/agents

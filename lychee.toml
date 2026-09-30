@@ -1,37 +1,66 @@
+# Lychee configuration for the `check-links` skill and the
+# `Check Links` GitHub workflow.
+#
+# Mirrors the configuration used by the sibling
+# `SpineEventEngine/SpineEventEngine.github.io` repository, with the same
+# exclude list of flaky external endpoints.
+
 # Exclude URLs and mail addresses from checking (supports regex).
+#
+# The entries are interpreted as Rust regexes, NOT shell globs:
+#   - `.` is escaped (`\.`) because an unescaped dot matches any character
+#     and would silently over-match (e.g. `fonts.googleapis.com` would
+#     also match `fontsXgoogleapisYcomZ`, masking real broken links).
+#   - `/.*` replaces the shell-style `/*` so a trailing path of any length
+#     matches (zero-or-more of any character, not zero-or-more slashes).
+# TOML literal strings (single-quoted) are used so backslashes stay
+# literal — basic strings (double quotes) would treat `\.` as an unknown
+# escape and either error out or strip the backslash.
 exclude = [
     # Links that return errors during checks, but work for the user.
-    "fonts.googleapis.com/*",
-    "fonts.gstatic.com/*",
-    "chromium.googlesource.com/*",
-    "chromereleases.googleblog.com/*",
-    "clients4.google.com/",
-    "ssl.gstatic.com/",
-    "googletagmanager.com/*",
-    "x.com/*",
+    'fonts\.googleapis\.com/.*',
+    'fonts\.gstatic\.com/.*',
+    'chromium\.googlesource\.com/.*',
+    'chromereleases\.googleblog\.com/.*',
+    'clients4\.google\.com/.*',
+    'ssl\.gstatic\.com/.*',
+    'googletagmanager\.com/.*',
+    'x\.com/.*',
 
-    "stackoverflow.com/questions/*",
-    "openjdk.org/*",
-    "npmjs.com/*",
-    "raw.githubusercontent.com/SpineEventEngine/*",
-    "medium.com/*",
-    "levelup.gitconnected.com/*"
+    'stackoverflow\.com/questions/.*',
+    'openjdk\.org/.*',
+    'npmjs\.com/.*',
+    'medium\.com/.*',
+    'levelup\.gitconnected\.com/.*',
 ]
+# Deliberately NOT excluded: `raw.githubusercontent.com/SpineEventEngine/*`.
+# Catching broken refs into our own raw GitHub content is part of the reason
+# this skill exists. If rate-limit flake appears, prefer narrowing the
+# pattern to the specific failing path rather than re-adding the broad rule.
+# Existing `max_retries`/`retry_wait_time` below should absorb transient 429s.
 
 # Exclude these filesystem paths from getting checked.
 exclude_path = []
 
-# Check links inside `<code>` and `<pre>` blocks as well
-# as Markdown code blocks.
+# Do NOT check links inside `<code>` and `<pre>` blocks or
+# Markdown code blocks (verbatim/code sections are excluded).
 include_verbatim = false
 
 # Verbose program output
 verbose = "error"
 
-# Don't show interactive progress bar while checking links.
-no_progress = false
+# Don't show the interactive progress bar while checking links. Both
+# consumers (CI and the `check-links` skill) run non-interactively, so
+# the progress bar adds noise to logs without value.
+no_progress = true
 
 # Comma-separated list of accepted status codes for valid links.
+# `429` (Too Many Requests) is accepted as a tradeoff against CI flake: some
+# providers rate-limit unauthenticated link probes from CI runners even when
+# the URL is healthy. Combined with `max_retries`/`retry_wait_time` below,
+# this avoids spurious failures on healthy-but-rate-limited URLs. The
+# downside: a URL that is genuinely broken AND returns `429` (rare) will
+# pass. Revisit this if false negatives accumulate.
 accept = ["200..=204", "429"]
 
 # Link caching to avoid checking the same links on multiple runs.

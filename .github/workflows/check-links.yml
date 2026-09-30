@@ -33,15 +33,15 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Detect the Hugo site root (`docs/` or `site/`) by looking for a Hugo
       # config file. Hugo config may live directly in the site root or in a
       # `config/` or `config/_default/` subdirectory (both layouts are valid).
-      # Outputs `present=true|false`, `site_dir=docs|site`, and `work_dir`
-      # (the directory where `npm ci` / `hugo` commands should run — either
-      # `$site_dir/_preview` for repos that use a separate preview sub-tree,
-      # or `$site_dir` for repos whose Node/Hugo setup lives at the root).
+      # Outputs `present=true|false` and `work_dir` (the directory where
+      # `npm ci` / `hugo` commands should run — either `$dir/_preview` for
+      # repos that use a separate preview sub-tree, or `$dir` for repos whose
+      # Node/Hugo setup lives at the site root).
       # When neither directory has a Hugo config, the job short-circuits to a
       # success so that this shared workflow stays green on repos that do not
       # host a Hugo site at all.
@@ -49,9 +49,10 @@ jobs:
         id: docs
         run: |
           for dir in docs site; do
-            for cfg in hugo.toml hugo.yaml config/hugo.toml config/_default/hugo.toml; do
+            for cfg in hugo.toml hugo.yaml \
+                       config/hugo.toml config/hugo.yaml \
+                       config/_default/hugo.toml config/_default/hugo.yaml; do
               if [ -f "$dir/$cfg" ]; then
-                echo "site_dir=$dir" >> "$GITHUB_OUTPUT"
                 if [ -f "$dir/_preview/package-lock.json" ]; then
                   echo "work_dir=$dir/_preview" >> "$GITHUB_OUTPUT"
                   echo "present=true" >> "$GITHUB_OUTPUT"
