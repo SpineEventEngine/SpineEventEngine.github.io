@@ -133,10 +133,14 @@
   #TableOfContents {
     ul {
       li {
+        position: relative;
         display: flex;
 
+        // The number sits in the left padding of the link, so it keeps its place
+        // when the title wraps.
         $counter-width: 30px;
         &:before {
+          position: absolute;
           display: block;
           counter-increment: toc;
           content: counter(toc) ".";

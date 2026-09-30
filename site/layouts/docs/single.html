@@ -1,6 +1,12 @@
 {{ define "main" }}
     {{ partial "components/navbar/navbar.html" . }}
     {{ partial "components/nav-hero.html" . }}
-    {{ partial "theme/docs/layout/three-column.html" . }}
+    {{ if .Params.has_numbered_headings }}
+        <div class="numbered-headings">
+            {{ partial "theme/docs/layout/three-column.html" . }}
+        </div>
+    {{ else }}
+        {{ partial "theme/docs/layout/three-column.html" . }}
+    {{ end }}
     {{ partial "components/go-top-button.html" . }}
 {{ end }}
