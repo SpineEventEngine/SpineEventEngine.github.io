@@ -1,0 +1,5 @@
+# A deploy publishes the current `SECURITY.md` for the Security policy page, so it never reuses
+# a fetched file, whatever the state of the Hugo cache. Other builds keep them for an hour.
+[caches]
+  [caches.getresource]
+    maxAge = 0
