@@ -44,6 +44,14 @@ disableKinds = ['taxonomy', 'term']
   [security.node.permissions]
     disable = true
 
+# Remote files that the build fetches, such as `SECURITY.md` for the Security policy page,
+# stay cached for an hour. Hugo never expires them by default, so a cache that CI restores
+# between runs would keep serving the first copy. Deploys don't reuse them at all:
+# see `config/production/hugo.toml`.
+[caches]
+  [caches.getresource]
+    maxAge = '1h'
+
 # Enables HTML rendering in markdown files.
 [markup]
   [markup.goldmark]

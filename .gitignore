@@ -1,44 +1,15 @@
+# >>> shared config (managed by ./config/pull -- do not edit inside this block) >>>
+# Copyright 2026 CodeMatters, Lda.
 #
-# Copyright 2025, TeamDev. All rights reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+# except in compliance with the License. You may obtain a copy of the License at
 #
 # https://www.apache.org/licenses/LICENSE-2.0
 #
-# Redistribution and use in source and/or binary forms, with or without
-# modification, must retain the above copyright notice and the following
-# disclaimer.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-
-# Hugo cache files
-/site/resources
-public
-
-# Cache folder for Hugo Modules
-/site/_vendor
-
-# Node modules
-node_modules
-
-# Used to control concurrency between multiple Hugo instances
-/site/.hugo_build.lock
-
-# Needed for navigation help inside code editors
-jsconfig.json
+# Unless required by applicable law or agreed to in writing, software distributed under
+# the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+# either express or implied. See the License for the specific language governing permissions
+# and limitations under the License.
 
 #
 # This file is used for two purposes:
@@ -69,13 +40,19 @@ jsconfig.json
 .idea/modules
 .idea/shelf
 
+# `.idea/misc.xml` is intentionally NOT re-included below. It is project-local —
+# it holds the per-project JDK name and IDEA's own churn (entry-point list
+# indices, external-storage toggles) — so `.idea/*.xml` above keeps it ignored.
+# `./config/pull` (via `migrate`) untracks any copy an earlier pull committed.
+
+# `.idea/kotlinc.xml` is likewise NOT re-included. It records the Kotlin compiler
+# settings IDEA rewrites on its own (JVM target, bundled plugin version), so it
+# churns per machine and per IDE build — `.idea/*.xml` above keeps it ignored.
+
 # Do not ignore the following IDEA settings
-!.idea/misc.xml
 !.idea/codeStyleSettings.xml
 !.idea/codeStyles/
 !.idea/copyright/
-
-.DS_Store
 
 # Ignore IDEA config files under `tests`
 /tests/.idea/**
@@ -121,13 +98,47 @@ gradle-app.setting
 # Spine internal directory for storing intermediate artifacts
 **/.spine/**
 
-# Login details to Maven repository.
-# Each workstation should have developer's login defined in this file.
+# ---------------------------------------------------------------------------
+# Secrets — NEVER commit these.
+#
+# Encrypted credentials live under `.github/keys/*.gpg` and ARE committed.
+# `config/scripts/decrypt.sh` turns each into its PLAINTEXT twin at build / CI /
+# publish time (e.g. `spine-dev-framework-ci.json.gpg` -> `spine-dev.json`). The
+# decrypted twins below — and any private key or service-account file — must stay
+# out of Git. The shared `secret-scan` pre-commit hook is the backstop if one ever
+# slips past these patterns.
+# ---------------------------------------------------------------------------
+
+# Maven repository login details; each workstation defines its own.
 credentials.tar
 credentials.properties
 cloudrepo.properties
 deploy_key_rsa
 gcs-auth-key.json
+
+# Decrypted Google / GCP service-account keys (plaintext twins of *.gpg).
+spine-dev.json
+spine-dev-*.json
+maven-publisher.json
+firebase-sa.json
+*-sa.json
+*service-account*.json
+
+# Decrypted credential property files and portal / publisher secrets.
+*.secret.properties
+
+# Private SSH keys (public keys are *.pub and remain committable).
+*_rsa
+*_dsa
+*_ecdsa
+*_ed25519
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# ...but always keep the committed ENCRYPTED forms.
+!*.gpg
 
 # Log files
 *.log
@@ -148,17 +159,23 @@ pubspec.lock
 # Ignore the `tmp` directory used for building dependant repositories.
 /tmp
 
+.gradle-test-kit/
+
 # Python cache
 __pycache__/
 *.pyc
 
 # Claude working files
 /.claude/worktrees/
+# Ephemeral plan-mode scratch (durable task docs live in `.agents/tasks/`).
+/.claude/plans/
+
+# Personal, per-developer Claude Code settings overrides (never committed;
+# the distributed `.claude/settings.json` is the shared, committed layer).
+/.claude/settings.local.json
 
 # Auto-downloaded Lychee binary used by the `check-links` skill.
 /.agents/skills/check-links/.cache/
-
-/.sass-cache/
 
 # Lychee link-checker cache (created by the `check-links` skill and
 # the `Check Links` workflow when run locally).
@@ -170,3 +187,68 @@ __pycache__/
 docs/_preview/node_modules/
 docs/_preview/public/
 docs/_preview/resources/
+# <<< shared config <<<
+
+# >>> repo-local entries (preserved across ./config/pull) >>>
+# Copyright 2025, TeamDev. All rights reserved.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# Redistribution and use in source and/or binary forms, with or without
+# modification, must retain the above copyright notice and the following
+# disclaimer.
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# Hugo cache files
+/site/resources
+public
+# Cache folder for Hugo Modules
+/site/_vendor
+# Node modules
+node_modules
+# Used to control concurrency between multiple Hugo instances
+/site/.hugo_build.lock
+# Needed for navigation help inside code editors
+jsconfig.json
+!.idea/codeStyleSettings.xml
+!.idea/codeStyles/
+!.idea/copyright/
+.DS_Store
+!**/src/**/build/**
+!gradle-wrapper.jar
+# Login details to Maven repository.
+# Each workstation should have developer's login defined in this file.
+/.sass-cache/
+# <<< repo-local entries <<<
+
+# >>> secret ignores re-asserted last (managed by ./config/pull -- do not edit) >>>
+credentials.tar
+credentials.properties
+cloudrepo.properties
+deploy_key_rsa
+gcs-auth-key.json
+spine-dev.json
+spine-dev-*.json
+maven-publisher.json
+firebase-sa.json
+*-sa.json
+*service-account*.json
+*.secret.properties
+*_rsa
+*_dsa
+*_ecdsa
+*_ed25519
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+# <<< secret ignores <<<
