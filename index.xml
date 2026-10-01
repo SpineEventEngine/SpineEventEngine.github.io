@@ -91,7 +91,7 @@ Choose an option&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-ic
  class="external-link"
  target="_blank"
  rel="noopener nofollow"
- &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Coordinated Vulnerability Disclosure Policy</title><link>https://spine.io/cvd-policy/</link><pubDate>Fri, 11 Sep 2026 00:00:00 +0000</pubDate><guid>https://spine.io/cvd-policy/</guid><description>&lt;h1 id="coordinated-vulnerability-disclosure-policy" data-title&gt;
+ &gt;spine/options.proto&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Coordinated Vulnerability Disclosure Policy</title><link>https://spine.io/docs/security/cvd-policy/</link><pubDate>Fri, 11 Sep 2026 00:00:00 +0000</pubDate><guid>https://spine.io/docs/security/cvd-policy/</guid><description>&lt;h1 id="coordinated-vulnerability-disclosure-policy" data-title&gt;
 Coordinated Vulnerability Disclosure Policy&lt;/h1&gt;
 
 &lt;p class="date"&gt;&lt;span&gt;Last updated:&amp;nbsp;&lt;/span&gt;&lt;time datetime="2026-09-11"&gt;September 11, 2026&lt;/time&gt;
@@ -1170,14 +1170,14 @@ start blogging about the framework development, the ES/CQRS-based projects, our 
  &gt;@SpineEngine&lt;/a&gt; or 
 
 &lt;style&gt;
-#span-c1a645f8.cloaked-e-mail:before {
+#span-96b8941e.cloaked-e-mail:before {
  content:attr(data-domain) "\0040" attr(data-user);
  unicode-bidi:bidi-override;
  direction:rtl;
 }
 &lt;/style&gt;
-&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-c1a645f8"&gt;&lt;/span&gt;&lt;script id="script-c1a645f8"&gt;
- var scriptTag = document.getElementById("script-c1a645f8");
+&amp;#32;&lt;span class="cloaked-e-mail" data-user="srepoleved" data-domain="oi.enips" id="span-96b8941e"&gt;&lt;/span&gt;&lt;script id="script-96b8941e"&gt;
+ var scriptTag = document.getElementById("script-96b8941e");
  var link = document.createElement("a");
  var address = "srepoleved".split('').reverse().join('') + "@" + "oi.enips".split('').reverse().join('');
  link.href = "mailto" + ":" + address;
@@ -2300,7 +2300,7 @@ with the server-side via &lt;code&gt;CommandService&lt;/code&gt;, &lt;code&gt;Qu
 &lt;p&gt;The diagram below shows &lt;span id="display-all-components"&gt;all server-side components&lt;/span&gt;
 of a cloud application. When developing with Spine, you will be interacting
 with only &lt;em&gt;&lt;span id="display-user-facing-components"&gt;some of them&lt;/span&gt;&lt;/em&gt;, which
-are not shaded on the diagram. The rest is handled by the framework.&lt;/p&gt;
+are not shaded in the diagram. The rest is handled by the framework.&lt;/p&gt;
 &lt;p&gt;Click on a component to navigate to its definition from the
 &lt;a href="https://spine.io/docs/introduction/concepts/"
  
@@ -2385,7 +2385,7 @@ Books&lt;/h1&gt;
  
  &lt;/a&gt;
  &lt;p class="author"&gt;by Eric Evans&lt;/p&gt;
- &lt;p class="description"&gt;The Big Blue Book which lay the basics of Domain-Driven Design methodology.
+ &lt;p class="description"&gt;The Big Blue Book that lays the basics of the Domain-Driven Design methodology.
 It provides a broad framework for making design decisions and a vocabulary for
 discussing domain design.&lt;/p&gt;
  &lt;/div&gt;
@@ -2481,7 +2481,7 @@ Communities&lt;/h1&gt;
  rel="noopener nofollow"
  &gt;Virtual DDD&lt;/a&gt; &lt;span class="lang"&gt;(EN)&lt;/span&gt; &lt;br&gt;
 A community-driven online meetup for people who want to get more in-depth knowledge of DDD
-from anywhere at anytime.&lt;/p&gt;
+from anywhere at any time.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://groups.google.com/g/dddcqrs?pli=1"
@@ -2501,7 +2501,7 @@ A mailing list with practical discussions on DDD, CQRS and Event Sourcing.&lt;/p
  target="_blank"
  rel="noopener nofollow"
  &gt;Domain-Driven Design Injection&lt;/a&gt; &lt;span class="lang"&gt;(RU)&lt;/span&gt; &lt;br&gt;
-Our own community for developers and engineers who look for the new ways of solving non-trivial software design tasks.
+Our own community for developers and engineers who look for new ways of solving non-trivial software design tasks.
 &lt;a href="https://dddi.dev/logbook"
  
  
@@ -2534,7 +2534,7 @@ Messaging&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" hre
 Command&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#command
  aria-label="Copy heading anchor"&gt;&lt;/a&gt;
 &lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;Commands are messages that instruct an entity within Spine framework to perform a certain action.
+&lt;p&gt;Commands are messages that instruct an entity within the Spine framework to perform a certain action.
 Compared with events, a command is not a statement of fact. They are a request, and, thus, can be
 refused. A typical way to convey refusal is to throw an error or rejection.&lt;/p&gt;</description></item><item><title>Dart Client Library</title><link>https://spine.io/docs/client-libs/dart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/client-libs/dart/</guid><description>&lt;h1 id="dart-client-library" data-title&gt;
 Dart Client Library&lt;/h1&gt;
@@ -2904,7 +2904,7 @@ Libraries and Frameworks&lt;/h1&gt;
  target="_blank"
  rel="noopener nofollow"
  &gt;Axon&lt;/a&gt;.
-Open source framework for event-driven microservices and domain-driven design.&lt;/p&gt;
+Open-source framework for event-driven microservices and domain-driven design.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://vlingo.io/"
@@ -2914,7 +2914,7 @@ Open source framework for event-driven microservices and domain-driven design.&l
  target="_blank"
  rel="noopener nofollow"
  &gt;Vlingo&lt;/a&gt;.
-The open source toolkit by Vaughn Vernon for fluent reactive, event-driven,
+The open-source toolkit by Vaughn Vernon for fluent reactive, event-driven,
 and microservices architectures.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -3000,7 +3000,7 @@ People&lt;/h1&gt;
  
  &lt;/div&gt;
  &lt;p&gt;The author of the DDD methodology. Domain linguist. The author
-of “Domain-Driven Design: Tackling Complexity in Software”.&lt;/p&gt;
+of “Domain-Driven Design: Tackling Complexity in the Heart of Software”.&lt;/p&gt;
  &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3104,7 +3104,7 @@ and &lt;a href="http://martinfowler.com/eaaDev/EventSourcing.html"
  target="_blank"
  rel="noopener nofollow"
  &gt;Event Sourcing&lt;/a&gt; architectural patterns.&lt;/p&gt;
-&lt;p&gt;Spine didn’t appear out of the blue. While working on our own CQRS/ES based projects we were
+&lt;p&gt;Spine didn’t appear out of the blue. While working on our own CQRS/ES-based projects we were
 alarmed at how much manual effort is spent on creating events and commands, delivering events and data
 to the web and mobile clients. It takes time, does not require much creativity from a developer,
 whilst this energy could have been spent on productive
@@ -3152,7 +3152,7 @@ see the &lt;a href="https://github.com/SpineEventEngine/documentation/wiki/Versi
  &gt;Versioning policy&lt;/a&gt; of the Spine SDK.&lt;/p&gt;</description></item><item><title>Project Structure</title><link>https://spine.io/docs/introduction/project-structure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/project-structure/</guid><description>&lt;h1 id="project-structure" data-title&gt;
 Project Structure&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
-&lt;p&gt;This document describes standard structure of a Spine-based project.
+&lt;p&gt;This document describes the standard structure of a Spine-based project.
 It assumes that you are familiar with &lt;a href="https://gradle.org"
  
  
@@ -3168,7 +3168,7 @@ the code generation done by Protobuf Compiler and Spine Model Compiler.&lt;/p&gt
 Handcrafted code&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#handcrafted-code
  aria-label="Copy heading anchor"&gt;&lt;/a&gt;
 &lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;Following standard Gradle conventions a manually written code is created under the
+&lt;p&gt;Following standard Gradle conventions manually written code is created under the
 &lt;code&gt;src/main/&lt;/code&gt; directory with subdirectories &lt;code&gt;proto&lt;/code&gt;, &lt;code&gt;java&lt;/code&gt;, etc. for corresponding languages.&lt;/p&gt;</description></item><item><title>Register the option</title><link>https://spine.io/docs/validation/user/05-custom-validation/register-the-option/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/validation/user/05-custom-validation/register-the-option/</guid><description>&lt;h1 id="register-the-option" data-title&gt;
 Register the option&lt;/h1&gt;
 &lt;p&gt;Two registrations are required before the build plugin can use a custom option:&lt;/p&gt;
@@ -3224,7 +3224,24 @@ execution time. It is deliberately small: there is no rule engine, no descriptor
 and no reflection-driven dispatch. The module ships the contracts that generated message
 and builder classes implement, the Protobuf types used to describe violations, the
 exception raised when a &lt;code&gt;build()&lt;/code&gt; call fails, and a single registry through which custom
-validators reach generated code.&lt;/p&gt;</description></item><item><title>Sites</title><link>https://spine.io/docs/resources/sites/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/sites/</guid><description>&lt;h1 id="sites" data-title&gt;
+validators reach generated code.&lt;/p&gt;</description></item><item><title>Security policy</title><link>https://spine.io/docs/security/policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/security/policy/</guid><description>&lt;h1 id="security-policy" data-title&gt;
+Security policy&lt;/h1&gt;
+&lt;p&gt;We take the security of the Spine Event Engine SDK seriously, and we appreciate the work of
+those who report vulnerabilities to us.&lt;/p&gt;
+&lt;h2 id="reporting-a-vulnerability" data-title&gt;
+Reporting a vulnerability&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#reporting-a-vulnerability
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Please do not report security vulnerabilities through public GitHub issues, pull requests,
+or discussions.&lt;/p&gt;
+&lt;p&gt;Instead, please follow our &lt;a href="https://spine.io/cvd-policy/"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener"
+ &gt;Coordinated Vulnerability Disclosure Policy&lt;/a&gt;. It names
+the single point of contact for reports, and describes what to include in one.&lt;/p&gt;</description></item><item><title>Sites</title><link>https://spine.io/docs/resources/sites/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/resources/sites/</guid><description>&lt;h1 id="sites" data-title&gt;
 Sites&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
 &lt;p&gt;Learning hubs&lt;/p&gt;
@@ -3426,7 +3443,35 @@ this goal.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;All of the validation features described here are currently supported in the Java environment.
 Many are supported in Dart as well. For more info, see the description of individual features
-given in the sections below.&lt;/p&gt;</description></item><item><title>Versioning Policy</title><link>https://spine.io/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/versioning/</guid><description>&lt;h1 id="versioning-policy" data-title&gt;
+given in the sections below.&lt;/p&gt;</description></item><item><title>Verifying artifacts</title><link>https://spine.io/docs/security/verifying-artifacts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/security/verifying-artifacts/</guid><description>&lt;h1 id="verifying-artifacts" data-title&gt;
+Verifying artifacts&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;The artifacts we publish to Maven repositories carry signed build provenance. This page shows
+how to check it for a file you downloaded.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="what-is-attested" data-title&gt;
+What is attested&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#what-is-attested
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Every file of every Maven publication is attested: the JARs, the POM, the Gradle module
+metadata, and the software bill of materials (SBOM, &lt;code&gt;*.spdx.json&lt;/code&gt;) published next to each
+module.&lt;/p&gt;
+&lt;p&gt;The attestation is a build provenance record in the format of &lt;a href="https://slsa.dev/spec/v1.0/provenance"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;SLSA&lt;/a&gt;
+(Supply-chain Levels for Software Artifacts) v1.0, signed with &lt;a href="https://www.sigstore.dev/"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;Sigstore&lt;/a&gt; and stored
+on GitHub. It names the repository, the branch, and the workflow that built the file, together
+with the file&amp;rsquo;s digest.&lt;/p&gt;</description></item><item><title>Versioning Policy</title><link>https://spine.io/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/versioning/</guid><description>&lt;h1 id="versioning-policy" data-title&gt;
 Versioning Policy&lt;/h1&gt;
 &lt;p&gt;Spine version format is &lt;code&gt;[MAJOR].[MINOR].[PATCH]&lt;/code&gt;, where:&lt;/p&gt;
 &lt;ul&gt;
@@ -3467,4 +3512,4 @@ are defined differently. Here is the summary of the differences:&lt;/p&gt;
 outer class.
 Spine Model Compiler for Java generates &lt;code&gt;ThrowableMessage&lt;/code&gt; classes for all these messages.
 These classes will be named after the classes of rejection messages.
-Putting rejection message classes under an outer class avoids name clash inside the package.&lt;/p&gt;</description></item></channel></rss>
+Putting rejection message classes under an outer class avoids a name clash inside the package.&lt;/p&gt;</description></item></channel></rss>

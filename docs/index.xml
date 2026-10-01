@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Spine Event Engine</title><link>https://spine.io/docs/</link><description>Recent content in Documentation on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://spine.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>API Reference</title><link>https://spine.io/docs/reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/reference/</guid><description>&lt;h1 id="api-reference" data-title&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Spine Event Engine</title><link>https://spine.io/docs/</link><description>Recent content in Documentation on Spine Event Engine</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 11 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://spine.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Coordinated Vulnerability Disclosure Policy</title><link>https://spine.io/docs/security/cvd-policy/</link><pubDate>Fri, 11 Sep 2026 00:00:00 +0000</pubDate><guid>https://spine.io/docs/security/cvd-policy/</guid><description>&lt;h1 id="coordinated-vulnerability-disclosure-policy" data-title&gt;
+Coordinated Vulnerability Disclosure Policy&lt;/h1&gt;
+
+&lt;p class="date"&gt;&lt;span&gt;Last updated:&amp;nbsp;&lt;/span&gt;&lt;time datetime="2026-09-11"&gt;September 11, 2026&lt;/time&gt;
+&lt;/p&gt;
+
+
+&lt;h2 id="why-we-have-this-policy" data-title&gt;
+Why we have this Policy&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#why-we-have-this-policy
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Security is an integral part of how we develop and maintain our product.&lt;/p&gt;
+&lt;p&gt;We welcome responsible disclosure of security risks and product vulnerabilities by our customers,
+security researchers, and anyone who may discover a potential vulnerability.&lt;/p&gt;
+&lt;p&gt;This Policy explains how to report a security vulnerability affecting Spine Event Engine
+(“Spine”), how we handle the information you provide, and what you can expect from us in
+response.&lt;/p&gt;</description></item><item><title>API Reference</title><link>https://spine.io/docs/reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/reference/</guid><description>&lt;h1 id="api-reference" data-title&gt;
 API Reference&lt;/h1&gt;
 &lt;h2 id="java" data-title&gt;
 Java&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#java
@@ -70,4 +86,49 @@ Dart&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#da
  target="_blank"
  rel="noopener"
  &gt;Dart Client&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item></channel></rss>
+&lt;/ul&gt;</description></item><item><title>Security policy</title><link>https://spine.io/docs/security/policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/security/policy/</guid><description>&lt;h1 id="security-policy" data-title&gt;
+Security policy&lt;/h1&gt;
+&lt;p&gt;We take the security of the Spine Event Engine SDK seriously, and we appreciate the work of
+those who report vulnerabilities to us.&lt;/p&gt;
+&lt;h2 id="reporting-a-vulnerability" data-title&gt;
+Reporting a vulnerability&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#reporting-a-vulnerability
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Please do not report security vulnerabilities through public GitHub issues, pull requests,
+or discussions.&lt;/p&gt;
+&lt;p&gt;Instead, please follow our &lt;a href="https://spine.io/cvd-policy/"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener"
+ &gt;Coordinated Vulnerability Disclosure Policy&lt;/a&gt;. It names
+the single point of contact for reports, and describes what to include in one.&lt;/p&gt;</description></item><item><title>Verifying artifacts</title><link>https://spine.io/docs/security/verifying-artifacts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/security/verifying-artifacts/</guid><description>&lt;h1 id="verifying-artifacts" data-title&gt;
+Verifying artifacts&lt;/h1&gt;
+&lt;div class="note-block lead"&gt;
+&lt;p&gt;The artifacts we publish to Maven repositories carry signed build provenance. This page shows
+how to check it for a file you downloaded.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="what-is-attested" data-title&gt;
+What is attested&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#what-is-attested
+ aria-label="Copy heading anchor"&gt;&lt;/a&gt;
+&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Every file of every Maven publication is attested: the JARs, the POM, the Gradle module
+metadata, and the software bill of materials (SBOM, &lt;code&gt;*.spdx.json&lt;/code&gt;) published next to each
+module.&lt;/p&gt;
+&lt;p&gt;The attestation is a build provenance record in the format of &lt;a href="https://slsa.dev/spec/v1.0/provenance"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;SLSA&lt;/a&gt;
+(Supply-chain Levels for Software Artifacts) v1.0, signed with &lt;a href="https://www.sigstore.dev/"
+ 
+ 
+ class="external-link"
+ target="_blank"
+ rel="noopener nofollow"
+ &gt;Sigstore&lt;/a&gt; and stored
+on GitHub. It names the repository, the branch, and the workflow that built the file, together
+with the file&amp;rsquo;s digest.&lt;/p&gt;</description></item></channel></rss>

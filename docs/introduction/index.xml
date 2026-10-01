@@ -5,7 +5,7 @@ with the server-side via &lt;code&gt;CommandService&lt;/code&gt;, &lt;code&gt;Qu
 &lt;p&gt;The diagram below shows &lt;span id="display-all-components"&gt;all server-side components&lt;/span&gt;
 of a cloud application. When developing with Spine, you will be interacting
 with only &lt;em&gt;&lt;span id="display-user-facing-components"&gt;some of them&lt;/span&gt;&lt;/em&gt;, which
-are not shaded on the diagram. The rest is handled by the framework.&lt;/p&gt;
+are not shaded in the diagram. The rest is handled by the framework.&lt;/p&gt;
 &lt;p&gt;Click on a component to navigate to its definition from the
 &lt;a href="https://spine.io/docs/introduction/concepts/"
  
@@ -28,7 +28,7 @@ Messaging&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" hre
 Command&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#command
  aria-label="Copy heading anchor"&gt;&lt;/a&gt;
 &lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;Commands are messages that instruct an entity within Spine framework to perform a certain action.
+&lt;p&gt;Commands are messages that instruct an entity within the Spine framework to perform a certain action.
 Compared with events, a command is not a statement of fact. They are a request, and, thus, can be
 refused. A typical way to convey refusal is to throw an error or rejection.&lt;/p&gt;</description></item><item><title>Naming Conventions</title><link>https://spine.io/docs/introduction/naming-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/naming-conventions/</guid><description>&lt;h1 id="naming-conventions" data-title&gt;
 Naming Conventions&lt;/h1&gt;
@@ -62,7 +62,7 @@ and &lt;a href="http://martinfowler.com/eaaDev/EventSourcing.html"
  target="_blank"
  rel="noopener nofollow"
  &gt;Event Sourcing&lt;/a&gt; architectural patterns.&lt;/p&gt;
-&lt;p&gt;Spine didn’t appear out of the blue. While working on our own CQRS/ES based projects we were
+&lt;p&gt;Spine didn’t appear out of the blue. While working on our own CQRS/ES-based projects we were
 alarmed at how much manual effort is spent on creating events and commands, delivering events and data
 to the web and mobile clients. It takes time, does not require much creativity from a developer,
 whilst this energy could have been spent on productive
@@ -76,7 +76,7 @@ whilst this energy could have been spent on productive
 detailing the Domain model and so on. Attempts to address this issue led to the Spine vision.&lt;/p&gt;</description></item><item><title>Project Structure</title><link>https://spine.io/docs/introduction/project-structure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/project-structure/</guid><description>&lt;h1 id="project-structure" data-title&gt;
 Project Structure&lt;/h1&gt;
 &lt;div class="note-block lead"&gt;
-&lt;p&gt;This document describes standard structure of a Spine-based project.
+&lt;p&gt;This document describes the standard structure of a Spine-based project.
 It assumes that you are familiar with &lt;a href="https://gradle.org"
  
  
@@ -92,7 +92,7 @@ the code generation done by Protobuf Compiler and Spine Model Compiler.&lt;/p&gt
 Handcrafted code&lt;span class="nowrap-icon"&gt;&amp;nbsp;&lt;a class="anchor-icon" href=#handcrafted-code
  aria-label="Copy heading anchor"&gt;&lt;/a&gt;
 &lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;Following standard Gradle conventions a manually written code is created under the
+&lt;p&gt;Following standard Gradle conventions manually written code is created under the
 &lt;code&gt;src/main/&lt;/code&gt; directory with subdirectories &lt;code&gt;proto&lt;/code&gt;, &lt;code&gt;java&lt;/code&gt;, etc. for corresponding languages.&lt;/p&gt;</description></item><item><title>Rules</title><link>https://spine.io/docs/introduction/rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spine.io/docs/introduction/rules/</guid><description>&lt;h1 id="rules" data-title&gt;
 Rules&lt;/h1&gt;
 &lt;p&gt;Here are the ground rules the framework is built upon:&lt;/p&gt;

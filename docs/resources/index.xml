@@ -66,7 +66,7 @@ Books&lt;/h1&gt;
  
  &lt;/a&gt;
  &lt;p class="author"&gt;by Eric Evans&lt;/p&gt;
- &lt;p class="description"&gt;The Big Blue Book which lay the basics of Domain-Driven Design methodology.
+ &lt;p class="description"&gt;The Big Blue Book that lays the basics of the Domain-Driven Design methodology.
 It provides a broad framework for making design decisions and a vocabulary for
 discussing domain design.&lt;/p&gt;
  &lt;/div&gt;
@@ -113,7 +113,7 @@ Communities&lt;/h1&gt;
  rel="noopener nofollow"
  &gt;Virtual DDD&lt;/a&gt; &lt;span class="lang"&gt;(EN)&lt;/span&gt; &lt;br&gt;
 A community-driven online meetup for people who want to get more in-depth knowledge of DDD
-from anywhere at anytime.&lt;/p&gt;
+from anywhere at any time.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://groups.google.com/g/dddcqrs?pli=1"
@@ -133,7 +133,7 @@ A mailing list with practical discussions on DDD, CQRS and Event Sourcing.&lt;/p
  target="_blank"
  rel="noopener nofollow"
  &gt;Domain-Driven Design Injection&lt;/a&gt; &lt;span class="lang"&gt;(RU)&lt;/span&gt; &lt;br&gt;
-Our own community for developers and engineers who look for the new ways of solving non-trivial software design tasks.
+Our own community for developers and engineers who look for new ways of solving non-trivial software design tasks.
 &lt;a href="https://dddi.dev/logbook"
  
  
@@ -161,7 +161,7 @@ Libraries and Frameworks&lt;/h1&gt;
  target="_blank"
  rel="noopener nofollow"
  &gt;Axon&lt;/a&gt;.
-Open source framework for event-driven microservices and domain-driven design.&lt;/p&gt;
+Open-source framework for event-driven microservices and domain-driven design.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://vlingo.io/"
@@ -171,7 +171,7 @@ Open source framework for event-driven microservices and domain-driven design.&l
  target="_blank"
  rel="noopener nofollow"
  &gt;Vlingo&lt;/a&gt;.
-The open source toolkit by Vaughn Vernon for fluent reactive, event-driven,
+The open-source toolkit by Vaughn Vernon for fluent reactive, event-driven,
 and microservices architectures.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -213,7 +213,7 @@ People&lt;/h1&gt;
  
  &lt;/div&gt;
  &lt;p&gt;The author of the DDD methodology. Domain linguist. The author
-of “Domain-Driven Design: Tackling Complexity in Software”.&lt;/p&gt;
+of “Domain-Driven Design: Tackling Complexity in the Heart of Software”.&lt;/p&gt;
  &lt;/div&gt;
 &lt;/div&gt;
 
