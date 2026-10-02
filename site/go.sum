@@ -4,6 +4,8 @@ github.com/SpineEventEngine/documentation/docs v0.0.0-20260522190949-135339f8eef
 github.com/SpineEventEngine/documentation/docs v0.0.0-20260522190949-135339f8eef6/go.mod h1:0lSB4kPZY9Qk429mepYiraNIEucYDIwiNVhJ3Wn3gKo=
 github.com/SpineEventEngine/documentation/docs v0.0.0-20260930201256-1d7c3e1021be h1:BAzioFLPEdwwLNZmkcPR1ab3kzIF6xUI3LJmD//Hcno=
 github.com/SpineEventEngine/documentation/docs v0.0.0-20260930201256-1d7c3e1021be/go.mod h1:fEPcJFgW19NDIdb/zGEXVPcUNVMGEBkqfgAZI0VMbVk=
+github.com/SpineEventEngine/documentation/docs v0.0.0-20261002133928-aeca7bbbea14 h1:DbEI4KZEG35Ds4GQ7N/XcniiNuA8mIz3D1muR/ZyDGM=
+github.com/SpineEventEngine/documentation/docs v0.0.0-20261002133928-aeca7bbbea14/go.mod h1:I7viy1Kfs2oYhwT7qLKL5Bem0i7ktLAOKSZGN/2Y7P8=
 github.com/SpineEventEngine/site-commons v0.0.0-20261001182820-d2b63aedd0f4 h1:PoGISjoFRXwKpWwG/oTaGuSG6qF3I3THV2p+/r7qgk0=
 github.com/SpineEventEngine/site-commons v0.0.0-20261001182820-d2b63aedd0f4/go.mod h1:tkAl4StIREKmz9r5PiJtuDhvwMMkFXKWcaTyxhIikho=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107 h1:2DHRIwwLudP6l3Kh7Nd4KR4uXcsDtIAXE9adW68ivME=
@@ -12,6 +14,8 @@ github.com/SpineEventEngine/validation/docs v0.0.0-20260522175555-cf09b4c706ea h
 github.com/SpineEventEngine/validation/docs v0.0.0-20260522175555-cf09b4c706ea/go.mod h1:4RnP1hlrfBI7ZlTsJkllaOEyluhzmz4mOBrRgbc/tts=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260523180634-dd65da5abb65 h1:gLlFsu7ZznIurecioKUHTP+sKD4EapeKFhtEqL/JvdU=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260523180634-dd65da5abb65/go.mod h1:4RnP1hlrfBI7ZlTsJkllaOEyluhzmz4mOBrRgbc/tts=
+github.com/SpineEventEngine/validation/docs v0.0.0-20260902132507-6465029c83b9 h1:Bsgd16jNYCBdqtpEyW/CYV2yFjO7Y4nAPSlYz0zjFb0=
+github.com/SpineEventEngine/validation/docs v0.0.0-20260902132507-6465029c83b9/go.mod h1:4RnP1hlrfBI7ZlTsJkllaOEyluhzmz4mOBrRgbc/tts=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20800 h1:j5myhhzYwIHTr5ctK96Elfgp5uRROvrlTzYwwe1nF8o=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20800/go.mod h1:P5GGyhdxi00C5zW7vkRo/IS532gZY/YS2TS395Xaxho=
 github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000 h1:GZxx4Hc+yb0/t3/rau1j8XlAxLE4CyXns2fqQbyqWfs=
