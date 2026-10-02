@@ -22,7 +22,7 @@
             <div class="content-col markdown">
                 <div class="article-container article-text">
                     {{ with .Params.date }}
-                        {{ partial "components/iso-date.html" (dict
+                        {{ partial "theme/components/iso-date.html" (dict
                             "date" .
                             "label" "Posted on"
                         ) }}
