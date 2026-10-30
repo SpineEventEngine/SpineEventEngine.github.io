@@ -8,6 +8,8 @@ github.com/SpineEventEngine/documentation/docs v0.0.0-20261002133928-aeca7bbbea1
 github.com/SpineEventEngine/documentation/docs v0.0.0-20261002133928-aeca7bbbea14/go.mod h1:I7viy1Kfs2oYhwT7qLKL5Bem0i7ktLAOKSZGN/2Y7P8=
 github.com/SpineEventEngine/site-commons v0.0.0-20261001182820-d2b63aedd0f4 h1:PoGISjoFRXwKpWwG/oTaGuSG6qF3I3THV2p+/r7qgk0=
 github.com/SpineEventEngine/site-commons v0.0.0-20261001182820-d2b63aedd0f4/go.mod h1:tkAl4StIREKmz9r5PiJtuDhvwMMkFXKWcaTyxhIikho=
+github.com/SpineEventEngine/site-commons v0.0.0-20261030153256-b79100d8a139 h1:DOYFVaEw9v3dML+40FysPUaTczyqK5+LqWJZQkK4Hs0=
+github.com/SpineEventEngine/site-commons v0.0.0-20261030153256-b79100d8a139/go.mod h1:TfFFABXgPop1uc4eBdfWZF0Es06TGmNHfReiOzkZqrk=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107 h1:2DHRIwwLudP6l3Kh7Nd4KR4uXcsDtIAXE9adW68ivME=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107/go.mod h1:STHyjXejVvPmfrxujfDvhofmjg55mMk+fwI3TVL0b4Y=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260522175555-cf09b4c706ea h1:YEMSlr5KJXkZdK7epMSnN+6HSr2K41n8O3c8OhtF8pM=
