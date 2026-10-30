@@ -1,11 +1,21 @@
 name: Gradle Wrapper validation
+
+# `migrate` distributes this workflow only to Hugo-only repositories that carry a
+# Gradle Wrapper. They keep the wrapper merely to run Hugo through Gradle tasks, and
+# none of their workflows sets Gradle up through `gradle/actions/setup-gradle`, so
+# nothing else checks that the wrapper JAR is genuine. A JVM repository does not
+# receive it: `setup-gradle`, used by every workflow that runs Gradle there,
+# validates the wrapper itself.
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
       - '**'
+
+permissions:
+  contents: read
 
 jobs:
   validation:
@@ -13,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Validate Gradle Wrapper
-        uses: gradle/actions/wrapper-validation@v4
+        uses: gradle/actions/wrapper-validation@v6

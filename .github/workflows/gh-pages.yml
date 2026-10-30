@@ -10,7 +10,13 @@ on:
   workflow_dispatch:
 
 env:
-  HUGO_VERSION: 0.161.1
+  HUGO_VERSION: 0.169.0
+  # Pinned to the release the Spine sites were checked with. Newer releases
+  # add Sass deprecations, which nobody has checked against those sites yet.
+  DART_SASS_VERSION: 1.99.0
+  # SHA256 of `dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz`, from the GitHub release.
+  # Update alongside DART_SASS_VERSION.
+  DART_SASS_SHA256: "f0a32ab99bc0a1eb62ea7140a056a1bca82d534390b7c3dba4f2016eb0077753"
 
 jobs:
   deploy:
@@ -31,6 +37,29 @@ jobs:
         with:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
+
+      # The Spine Hugo theme compiles its SCSS with Dart Sass, because Hugo
+      # deprecated LibSass in v0.153.0 and will remove it. Hugo does not
+      # bundle Dart Sass: it runs the `sass` binary it finds on `PATH`, and
+      # a site on that theme fails to build without one. The release
+      # tarball is standalone, so no Node or Dart setup is needed. The
+      # checksum guards the download. Sites still on LibSass ignore the
+      # binary.
+      - name: Install Dart Sass
+        run: |
+          archive="dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          curl -fsSLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/${archive}"
+          echo "${DART_SASS_SHA256}  ${archive}" | sha256sum --check --strict
+          tar -xzf "${archive}" -C "${RUNNER_TEMP}"
+          rm "${archive}"
+          echo "${RUNNER_TEMP}/dart-sass" >> "${GITHUB_PATH}"
+
+      # Hugo finds Dart Sass on `PATH`. `hugo env` lists it when it does.
+      # `GITHUB_PATH` only takes effect from the next step on, so this check
+      # cannot live in the install step above. It fails here, rather than
+      # mid-build, if the install did not put `sass` where Hugo looks.
+      - name: Check Dart Sass
+        run: hugo env | grep 'github.com/sass/dart-sass'
 
       - name: Setup Node
         uses: actions/setup-node@v3
