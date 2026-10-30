@@ -2,7 +2,7 @@
 slug: hugo-0-169-upgrade
 branch: hugo-0.169
 owner: claude
-status: in-progress
+status: in-review
 started: 2026-10-30
 ---
 
@@ -38,7 +38,7 @@ and CI checks links with the same Hugo version.
   no errors and no new warnings.
 - [x] Check the full-screen diagram page: script and PDF.
 - [x] Check that CI's older Go fetches Go 1.27.3 by itself.
-- [ ] Run the pre-PR checklist; open the PR.
+- [x] Run the pre-PR checklist; open the PR.
 
 ## Log
 
@@ -53,3 +53,9 @@ and CI checks links with the same Hugo version.
   trimmed whitespace. The code-theme toggle switches the palettes.
 - 2026-10-30 — `gh-pages.yml` sets up no Go. With Go 1.26.4 and an empty module
   cache, `go` downloads Go 1.27.3 by itself (`GOTOOLCHAIN=auto`) and the build passes.
+- 2026-10-30 — pre-PR: `review-docs` approves; its nit on the `allowContent`
+  comment is applied. Link check: the Lychee run passes, but, as in `documentation`,
+  it extracts only the `<head>` URLs because of the inline jQuery block in every
+  page's `<head>`. CI has the same blind spot. With that block stripped, 10 URLs
+  are broken, the same on `master`: 9 in `validation/docs` and a Gitter link that
+  now redirects. None comes from this branch.
