@@ -1,0 +1,23 @@
+# Lychee skips the URLs matching these patterns. It reads this file from the
+# directory it runs in, the repository root. `lychee.toml` comes from `config`
+# and `./config/pull` overwrites it, so links specific to this site go here.
+#
+# Remove a pattern once the module update that fixes its link lands here.
+
+# Broken in the docs of `SpineEventEngine/documentation`, which
+# `site/config/_default/hugo.toml` imports as a module. Fixed by
+# https://github.com/SpineEventEngine/documentation/pull/96.
+^https://stackoverflow\.com/a/31814967/3183076$
+
+# Broken in the docs of `SpineEventEngine/validation`, which come in through
+# `SpineEventEngine/documentation`, so they can only be fixed there.
+# See https://github.com/SpineEventEngine/documentation/issues/97.
+^https://github\.com/SpineEventEngine/validation/blob/master/\.agents/running-builds\.md$
+^https://github\.com/SpineEventEngine/validation/blob/master/\.agents/documentation-guidelines\.md$
+^https://github\.com/SpineEventEngine/embed-code-go/blob/master/EMBEDDING\.md$
+^https://github\.com/SpineEventEngine/embed-code-go/tree/master/bin$
+^https://plugins\.gradle\.org/plugin/io\.spine\.validation$
+# Relative links that resolve outside the module's pages.
+^http://localhost:[0-9]+/06-developers-guide/$
+^http://localhost:[0-9]+/developer/$
+^http://localhost:[0-9]+/typical_custom_option\.jpg$
