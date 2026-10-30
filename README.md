@@ -18,9 +18,17 @@ as a Hugo Module. This repository does not invoke `embed-code` itself.
 ## Prerequisites
 
 1. JDK 17+.
-2. [Go][go] `1.22` or newer.
+2. [Go][go] `1.27.3` or newer (matches `site/go.mod`).
 3. [Node.js][nodejs] `18+`.
-4. [Hugo Extended][hugo-quick-start] in version `v0.161.1` or higher.
+4. [Hugo Extended][hugo-quick-start] in version `v0.169.0` or higher.
+5. [Dart Sass][dart-sass] in version `1.99.0` or higher. On macOS, install it with Homebrew:
+
+   ```shell
+   brew install sass/sass/sass
+   ```
+
+   Hugo looks for the `sass` executable on `PATH`. When Hugo finds it,
+   `hugo env` lists `github.com/sass/dart-sass/...` entries.
 
 ## Configuration
 
@@ -129,6 +137,7 @@ the [`AUTHORING.md`](AUTHORING.md) file.
 [go]: https://go.dev/doc/install
 [nodejs]: https://nodejs.org/en/download/current
 [hugo-quick-start]: https://gohugo.io/getting-started/quick-start/#step-1-install-hugo
+[dart-sass]: https://gohugo.io/functions/css/sass/#dart-sass
 [site-commons]: https://github.com/SpineEventEngine/site-commons
 [hugo-modules]: https://gohugo.io/hugo-modules/introduction
 [embed-code]: https://github.com/SpineEventEngine/embed-code/tree/embed-code-go

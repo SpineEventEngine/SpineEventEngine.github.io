@@ -44,7 +44,7 @@ wrapper only** — no JVM compilation happens here.
 
 ## Constraints & guardrails
 
-- **Hugo Extended version is pinned.** Use `v0.161.1` or higher of the
+- **Hugo Extended version is pinned.** Use `v0.169.0` or higher of the
   *Extended* build. A mismatched/non-extended Hugo will break the theme
   pipeline and SCSS.
 - **The `config/` submodule is pinned to a specific commit.** Do not bump
