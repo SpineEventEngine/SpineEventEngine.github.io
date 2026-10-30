@@ -12,6 +12,8 @@
  * and limitations under the License.
  */
 
+@use "theme-main" as *;
+
 $docsearch-icon-color: rgba(white, .54);
 $docsearch-mobile-breakpoint: map-get($breakpoints, mobile-navbar);
 $docsearch-algolia-mobile: 750px;

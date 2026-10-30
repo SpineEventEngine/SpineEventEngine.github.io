@@ -12,6 +12,9 @@
  * and limitations under the License.
  */
 
+@use "../base/colors" as *;
+@use "theme-main" as *;
+
 .about {
   section {
     h2 {

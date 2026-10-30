@@ -12,6 +12,8 @@
  * and limitations under the License.
  */
 
+@use "theme-main" as *;
+
 .message-modal {
   position: fixed;
   inset: 0;

@@ -12,6 +12,8 @@
  * and limitations under the License.
  */
 
+@use "theme-main" as *;
+
 // Extends styles from `scss/docs/modules/_sidenav.scss`.
 
 $sidenav-first-level-left-padding: 24px;

@@ -12,6 +12,8 @@
  * and limitations under the License.
  */
 
+@use "theme-main" as *;
+
 .redirect-screen {
   // The section will be hidden until the order request button is pressed.
   display: none;

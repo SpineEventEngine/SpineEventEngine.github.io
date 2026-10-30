@@ -12,8 +12,8 @@
  * and limitations under the License.
  */
 
-@import "blog-container";
-@import "blog";
-@import "post-navigation";
-@import "post-info";
-@import "post";
+@use "blog-container";
+@use "blog";
+@use "post-navigation";
+@use "post-info";
+@use "post";

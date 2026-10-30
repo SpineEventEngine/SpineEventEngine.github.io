@@ -12,6 +12,9 @@
  * and limitations under the License.
  */
 
+@use "../base/colors" as *;
+@use "theme-main" as *;
+
 .landing-content-container {
   padding: 32px 0 56px;
   position: relative;

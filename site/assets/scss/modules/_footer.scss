@@ -12,6 +12,9 @@
  * and limitations under the License.
  */
 
+@use "../base/colors" as *;
+@use "theme-main" as *;
+
 $footer-header-color: #54595c;
 $footer-link-color: #b4bcbf;
 $copyright-bg-color: #1e2021;

@@ -12,6 +12,8 @@
  * and limitations under the License.
  */
 
+@use "theme-main" as *;
+
 :root {
   --pricing-card-side-padding: 32px;
   --pricing-card-header-side-padding: 32px;
