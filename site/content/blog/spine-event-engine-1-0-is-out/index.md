@@ -49,6 +49,6 @@ integration with web UI. We will announce the updates [@SpineEngine 𝕏][xtwitt
 [protobuf]: https://developers.google.com/protocol-buffers/
 [key-concepts]: docs/introduction/concepts/
 [examples]: https://github.com/spine-examples/
-[gitter-room]: https://gitter.im/SpineEventEngine/community
+[gitter-room]: https://app.gitter.im/#/room/#SpineEventEngine_community:gitter.im
 [spine-github]: https://github.com/SpineEventEngine/
 [xtwitter]: {{% get-site-data "socials.xtwitter" %}}
