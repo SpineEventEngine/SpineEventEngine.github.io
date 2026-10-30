@@ -36,10 +36,10 @@ disableKinds = ['taxonomy', 'term']
   id = '38b1283993fe8d87c0678be39b07ada2'
 
 [security]
-  # Since v0.162.0, Hugo denies HTML content files by default. The full-screen architecture
-  # diagram that `documentation/docs` brings in is such a file, so HTML is allowed; Org mode
-  # stays denied. Hugo ignores the `security` settings of an imported module, so this setting
-  # has to be in the site config.
+  # Since v0.162.0, Hugo denies HTML and Org mode content files by default. The full-screen
+  # architecture diagram that `documentation/docs` brings in is an HTML file, so HTML is allowed;
+  # Org mode stays denied. Hugo ignores the `security` settings of an imported module, so this
+  # setting has to be in the site config.
   allowContent = ['! ^text/org$']
   [security.exec]
     osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME)$']
