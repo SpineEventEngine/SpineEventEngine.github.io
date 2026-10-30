@@ -12,6 +12,7 @@
  * and limitations under the License.
  */
 
+@use "sass:color";
 @use "theme-main" as *;
 
 .intro-section {
@@ -26,7 +27,7 @@
 
 // Collapsible caret-icon in the mobile navigation and footer.
 .mobile-caret-icon {
-  background: fade-out($white, .97) url('img/icons/caret.svg') no-repeat center/cover;
+  background: color.adjust($white, $alpha: -.97) url('img/icons/caret.svg') no-repeat center/cover;
   opacity: 1;
   cursor: pointer;
   position: absolute;

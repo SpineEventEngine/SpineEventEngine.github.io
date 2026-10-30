@@ -12,10 +12,11 @@
  * and limitations under the License.
  */
 
+@use "sass:map";
 @use "theme-main" as *;
 
 $docsearch-icon-color: rgba(white, .54);
-$docsearch-mobile-breakpoint: map-get($breakpoints, mobile-navbar);
+$docsearch-mobile-breakpoint: map.get($breakpoints, mobile-navbar);
 $docsearch-algolia-mobile: 750px;
 $docsearch-border-color: #ebedf5;
 
@@ -71,7 +72,7 @@ mark {
 }
 
 .DocSearch-Container {
-  z-index: map_get($z-index, 'search-mobile') !important;
+  z-index: map.get($z-index, 'search-mobile') !important;
 
   @include breakpoint($docsearch-algolia-mobile) {
     position: fixed;

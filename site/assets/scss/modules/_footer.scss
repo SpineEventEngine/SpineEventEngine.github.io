@@ -12,6 +12,7 @@
  * and limitations under the License.
  */
 
+@use "sass:color";
 @use "../base/colors" as *;
 @use "theme-main" as *;
 
@@ -61,7 +62,7 @@ footer {
     }
 
     &:focus {
-      color: fade-out($white, .1);
+      color: color.adjust($white, $alpha: -.1);
     }
 
     &::after {
@@ -148,7 +149,7 @@ footer {
           .mobile-caret-icon {
             opacity: 1;
             background-size: contain;
-            background-color: fade-out($white, .97);
+            background-color: color.adjust($white, $alpha: -.97);
             border-radius: 50%;
           }
         }
