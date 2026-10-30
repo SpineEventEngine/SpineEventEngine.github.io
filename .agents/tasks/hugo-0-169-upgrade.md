@@ -23,10 +23,11 @@ and CI checks links with the same Hugo version.
   `module.hugoVersion.min = '0.169.0'` and needs Go 1.27.3, so it cannot land
   without the Hugo bump.
 - `.github/workflows/check-links.yml` comes from `config`, which still pins
-  `HUGO_VERSION: 0.161.1`. Bumping it here is needed for CI; `config` needs
-  the same bump, or the next `./config/pull` reverts it.
-- The `documentation` side is on its `hugo-0.169` branch, not merged yet,
-  so `github.com/SpineEventEngine/documentation/docs` stays at its current version.
+  `HUGO_VERSION: 0.161.1`. Bumping it here is needed for CI; SpineEventEngine/config#823
+  makes the same bump there, or the next `./config/pull` reverts it.
+- The `documentation` side is SpineEventEngine/documentation#94, merged. It changes
+  only `docs/_preview`, a separate Go module, so the `documentation/docs` content
+  that this site imports is the same.
 
 ## Plan
 
@@ -39,6 +40,7 @@ and CI checks links with the same Hugo version.
 - [x] Check the full-screen diagram page: script and PDF.
 - [x] Check that CI's older Go fetches Go 1.27.3 by itself.
 - [x] Run the pre-PR checklist; open the PR.
+- [x] Update `github.com/SpineEventEngine/documentation/docs` to `documentation` `master`.
 
 ## Log
 
@@ -59,3 +61,7 @@ and CI checks links with the same Hugo version.
   page's `<head>`. CI has the same blind spot. With that block stripped, 10 URLs
   are broken, the same on `master`: 9 in `validation/docs` and a Gitter link that
   now redirects. None comes from this branch.
+- 2026-10-30 — `documentation/docs` moved to `3045fa4` (after documentation#94).
+  Only the pinned version changes: the extracted module is identical, and so is the
+  built site, apart from the random IDs of cloaked e-mail addresses.
+  `validation/docs` stays where it was.
