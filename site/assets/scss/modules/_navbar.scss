@@ -12,6 +12,11 @@
  * and limitations under the License.
  */
 
+@use "sass:color";
+@use "sass:map";
+@use "../base/colors" as *;
+@use "theme-main" as *;
+
 .navigation-opened {
   @include breakpoint(mobile-navbar) {
     overflow: hidden;
@@ -27,7 +32,7 @@
 #header {
   width: 100%;
   min-height: $header-height;
-  z-index: map_get($z-index, 'header');
+  z-index: map.get($z-index, 'header');
   position: absolute;
 
   // Fixes the header on the page.
@@ -78,7 +83,7 @@
     @include breakpoint(mobile-navbar) {
       background-color: $footer-color;
       box-shadow: -1px 0px 8px 0px rgba(black, .25);
-      z-index: map_get($z-index, 'nav-mobile');
+      z-index: map.get($z-index, 'nav-mobile');
       display: block;
       position: fixed;
       top: 0;
@@ -94,7 +99,7 @@
         width: 100%;
         height: 56px;
         background-color: rgba($footer-color, .95);
-        z-index: map_get($z-index, 'header');
+        z-index: map.get($z-index, 'header');
         margin: -48px -24px;
       }
     }
@@ -181,7 +186,7 @@
           &:hover {
             opacity: 1;
             background-size: contain;
-            background-color: fade-out($white, .97);
+            background-color: color.adjust($white, $alpha: -.97);
             border-radius: 50%;
           }
         }
@@ -270,7 +275,7 @@
     position: relative;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
-    z-index: map_get($z-index, 'hamburger-menu');
+    z-index: map.get($z-index, 'hamburger-menu');
     cursor: pointer;
   }
 

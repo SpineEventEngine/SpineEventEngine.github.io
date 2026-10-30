@@ -13,34 +13,34 @@
  */
 
 /* Styles from `SpineEventEngine/site-commons`. */
-@import "theme-main";
+@use "theme-main";
 
-@import "base/colors";
-@import "base/common";
+@use "base/colors";
+@use "base/common";
 
-@import "modules/navbar";
-@import "modules/nav-search";
-@import "modules/buttons";
-@import "modules/footer";
-@import "modules/hero";
-@import "modules/feature-cards";
-@import "modules/call-to-action";
-@import "modules/go-top-button";
-@import "modules/subscribe-container";
-@import "modules/checkbox";
-@import "modules/redirect-screen";
-@import "modules/loader";
-@import "modules/forms";
-@import "modules/result-panel";
-@import "modules/message-modal";
+@use "modules/navbar";
+@use "modules/nav-search";
+@use "modules/buttons";
+@use "modules/footer";
+@use "modules/hero";
+@use "modules/feature-cards";
+@use "modules/call-to-action";
+@use "modules/go-top-button";
+@use "modules/subscribe-container";
+@use "modules/checkbox";
+@use "modules/redirect-screen";
+@use "modules/loader";
+@use "modules/forms";
+@use "modules/result-panel";
+@use "modules/message-modal";
 
-@import "pages/landing";
-@import "pages/release-notes/release-notes";
-@import "pages/release-notes/sidenav";
-@import "pages/faq";
-@import "pages/getting-help";
-@import "pages/about";
-@import "pages/licenses";
-@import "pages/privacy";
-@import "pages/checkout";
-@import "pages/blog";
+@use "pages/landing";
+@use "pages/release-notes/release-notes";
+@use "pages/release-notes/sidenav";
+@use "pages/faq";
+@use "pages/getting-help";
+@use "pages/about";
+@use "pages/licenses";
+@use "pages/privacy";
+@use "pages/checkout";
+@use "pages/blog";

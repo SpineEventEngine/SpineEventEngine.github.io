@@ -12,8 +12,10 @@
  * and limitations under the License.
  */
 
-@import 'libs/country-select/select2';
-@import 'libs/intl-tel-input/intl-tel-input';
+@use "../libs/country-select/select2";
+@use "../libs/intl-tel-input/intl-tel-input";
+@use "../modules/forms" as *;
+@use "theme-main" as *;
 
 $checkout-panel-width: 790px;
 

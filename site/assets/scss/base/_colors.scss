@@ -12,6 +12,8 @@
  * and limitations under the License.
  */
 
+@use "theme-main" as *;
+
 /* Extends colors from `site-commons`. */
 
 $nav-blue-gradient: linear-gradient(152deg, #1378da 0%, #0b64cc 100%);

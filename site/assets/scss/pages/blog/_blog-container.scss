@@ -12,6 +12,8 @@
  * and limitations under the License.
  */
 
+@use "theme-main" as *;
+
 .blog-container {
   $nav-col-width: 220px;
   $blog-one-column-breakpoint: 1024px;
