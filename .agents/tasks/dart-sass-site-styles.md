@@ -37,6 +37,11 @@ stays the same.
     before its users, so no CSS moves.
 - [x] `map-get()` → `map.get()`, `fade-out()` → `color.adjust($alpha: …)`.
 - [x] Verify: Sass warnings, and the CSS rule by rule against the previous build.
+- [x] Keep Check Links passing. With jQuery no longer inlined (site-commons#39),
+  Lychee reads whole pages and finds 14 links that were already broken.
+  - Point the Gitter link of the 1.0 blog post to where Gitter redirects.
+  - `.lycheeignore` lists the 13 broken in the imported docs, as in
+    SpineEventEngine/documentation#96.
 
 ## Log
 
