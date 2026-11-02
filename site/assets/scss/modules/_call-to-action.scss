@@ -12,6 +12,9 @@
  * and limitations under the License.
  */
 
+@use "../base/colors" as *;
+@use "theme-main" as *;
+
 .call-to-action {
   background-image: $nav-blue-gradient;
   padding: 80px 0 84px;

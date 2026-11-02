@@ -12,6 +12,10 @@
  * and limitations under the License.
  */
 
+@use "../base/colors" as *;
+@use "../base/common" as *;
+@use "theme-main" as *;
+
 $panel-padding: 16px 56px;
 $open-panel-padding: 8px 56px 24px;
 $open-panel-padding-mobile: 0 0 24px;

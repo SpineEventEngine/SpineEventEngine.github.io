@@ -12,6 +12,8 @@ github.com/SpineEventEngine/site-commons v0.0.0-20261001182820-d2b63aedd0f4 h1:P
 github.com/SpineEventEngine/site-commons v0.0.0-20261001182820-d2b63aedd0f4/go.mod h1:tkAl4StIREKmz9r5PiJtuDhvwMMkFXKWcaTyxhIikho=
 github.com/SpineEventEngine/site-commons v0.0.0-20261030153256-b79100d8a139 h1:DOYFVaEw9v3dML+40FysPUaTczyqK5+LqWJZQkK4Hs0=
 github.com/SpineEventEngine/site-commons v0.0.0-20261030153256-b79100d8a139/go.mod h1:TfFFABXgPop1uc4eBdfWZF0Es06TGmNHfReiOzkZqrk=
+github.com/SpineEventEngine/site-commons v0.0.0-20261030172811-9216e48eb656 h1:9H15KSiUrQP3U/uhDfVgSXMwqS7ehUppeqtQzRxR6LE=
+github.com/SpineEventEngine/site-commons v0.0.0-20261030172811-9216e48eb656/go.mod h1:TfFFABXgPop1uc4eBdfWZF0Es06TGmNHfReiOzkZqrk=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107 h1:2DHRIwwLudP6l3Kh7Nd4KR4uXcsDtIAXE9adW68ivME=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260205202311-181ba8844107/go.mod h1:STHyjXejVvPmfrxujfDvhofmjg55mMk+fwI3TVL0b4Y=
 github.com/SpineEventEngine/validation/docs v0.0.0-20260522175555-cf09b4c706ea h1:YEMSlr5KJXkZdK7epMSnN+6HSr2K41n8O3c8OhtF8pM=

@@ -12,10 +12,13 @@
  * and limitations under the License.
  */
 
+@use "sass:map";
+@use "theme-main" as *;
+
 .message-modal {
   position: fixed;
   inset: 0;
-  z-index: map_get($z-index, 'redirect-screen');
+  z-index: map.get($z-index, 'redirect-screen');
   display: flex;
   align-items: center;
   justify-content: center;

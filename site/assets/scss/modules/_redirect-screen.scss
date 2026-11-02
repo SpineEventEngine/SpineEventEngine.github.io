@@ -12,6 +12,9 @@
  * and limitations under the License.
  */
 
+@use "sass:map";
+@use "theme-main" as *;
+
 .redirect-screen {
   // The section will be hidden until the order request button is pressed.
   display: none;
@@ -22,7 +25,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: map_get($z-index, 'redirect-screen');
+    z-index: map.get($z-index, 'redirect-screen');
     background-color: rgba(255, 255, 255, .9);
     animation: fadeIn .23s linear forwards;
   }

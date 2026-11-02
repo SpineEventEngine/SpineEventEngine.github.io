@@ -8,6 +8,7 @@ on:
       - 'docs/**'
       - 'site/**'
       - 'lychee.toml'
+      - '.lycheeignore'
       - '.github/workflows/check-links.yml'
   workflow_dispatch:
 
@@ -110,13 +111,13 @@ jobs:
         if: steps.docs.outputs.present == 'true'
         run: hugo env | grep 'github.com/sass/dart-sass'
 
-      # `actions/setup-node@v4` ships with built-in npm caching that hashes
+      # `actions/setup-node` ships with built-in npm caching that hashes
       # the lockfile and restores `~/.npm`. We use that instead of a
-      # standalone `actions/cache@v4` block so there is only one source of
+      # standalone `actions/cache` block so there is only one source of
       # truth for the cache key (no drift between two layers).
       - name: Setup Node
         if: steps.docs.outputs.present == 'true'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '26'
           cache: 'npm'
@@ -128,7 +129,7 @@ jobs:
       # invalidates the cache deterministically regardless of site root.
       - name: Cache Hugo Modules
         if: steps.docs.outputs.present == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugomod-${{ hashFiles('docs/**/go.sum', 'site/**/go.sum') }}
@@ -152,7 +153,7 @@ jobs:
       # `max_cache_age` expires.
       - name: Cache Lychee results
         if: steps.docs.outputs.present == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .lycheecache
           key: cache-lychee-${{ runner.os }}-${{ hashFiles('lychee.toml') }}
@@ -167,7 +168,7 @@ jobs:
       - name: Cache Lychee executable
         if: steps.docs.outputs.present == 'true'
         id: cache-lychee
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: lychee
           key: ${{ runner.os }}-${{ env.LYCHEE_VERSION_TAG }}-${{ env.LYCHEE_RELEASE }}
@@ -187,7 +188,7 @@ jobs:
       # string when the file is absent, so this guard runs the download iff
       # neither the exact key nor any restore-key restored the binary.
       - name: Download Lychee executable
-        uses: robinraju/release-downloader@v1.7
+        uses: robinraju/release-downloader@v1.13
         if: steps.docs.outputs.present == 'true' && hashFiles('lychee/lychee') == ''
         with:
           repository: "lycheeverse/lychee"
@@ -239,9 +240,32 @@ jobs:
             exit 1
           fi
 
+      # Lychee prints broken links to this step's log only; the run page
+      # shows just "Process completed with exit code 2". `tee` keeps the
+      # report in the log and saves a copy, which the next step adds to the
+      # run summary. (`--output` would not do: it moves the report from the
+      # log to the file.) `pipefail` keeps Lychee's exit code. Without it,
+      # the step would take `tee`'s 0 and pass despite broken links.
       - name: Check links
         if: steps.docs.outputs.present == 'true'
         run: |
+          set -o pipefail
           ./lychee/lychee --config lychee.toml --timeout 60 \
           --base-url http://localhost:1313/ \
-          '${{ steps.docs.outputs.work_dir }}/public/**/*.html'
+          '${{ steps.docs.outputs.work_dir }}/public/**/*.html' \
+          | tee lychee-report.txt
+
+      # Runs after a failed `Check links` too, which is when the report
+      # matters most. `hashFiles` skips this step when Lychee never ran.
+      # `!cancelled()` needs the `${{ }}` wrapper: a bare leading `!` is
+      # a YAML tag.
+      - name: Publish link report
+        if: ${{ !cancelled() && hashFiles('lychee-report.txt') != '' }}
+        run: |
+          {
+            echo '## Link check'
+            echo
+            echo '```text'
+            cat lychee-report.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

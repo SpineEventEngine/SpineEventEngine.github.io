@@ -12,6 +12,9 @@
  * and limitations under the License.
  */
 
+@use "../base/colors" as *;
+@use "theme-main" as *;
+
 .nav-hero-container {
   background-image: $nav-blue-gradient;
   position: relative;

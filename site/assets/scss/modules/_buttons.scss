@@ -12,6 +12,8 @@
  * and limitations under the License.
  */
 
+@use "theme-main" as *;
+
 $btn-font-size: 14px;
 $btn-border-radius: $border-radius-m;
 $btn-primary-color: $main-brand-color;

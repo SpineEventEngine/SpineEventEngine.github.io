@@ -12,6 +12,9 @@
  * and limitations under the License.
  */
 
+@use "../base/colors" as *;
+@use "theme-main" as *;
+
 $feature-card-shadow: 0 1px 3px 0 rgba($footer-color, .08);
 
 .feature-section {

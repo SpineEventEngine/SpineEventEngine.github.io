@@ -12,6 +12,9 @@
  * and limitations under the License.
  */
 
+@use "sass:map";
+@use "theme-main" as *;
+
 #go-top-button {
   $top-button-size: 60px;
   $top-button-icon-size: $icon-size-l;
@@ -29,7 +32,7 @@
   height: $top-button-size;
   cursor: pointer;
   -webkit-transform: translate3d(0, 0, 0); // Prevents jumping on scroll in Chrome.
-  z-index: map_get($z-index, 'go-top-button');
+  z-index: map.get($z-index, 'go-top-button');
 
   &:after {
     content: "";
