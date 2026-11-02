@@ -43,15 +43,18 @@ see the recipes in &ldquo;<a href=/docs/validation/developer/documentation/proce
 depend on <code>updatePluginVersions</code>, so the example sources always reflect the
 current plugin versions before snippets are embedded or checked.</p><h3 id=embedcode data-title><code>embedCode</code><span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#embedcode aria-label="Copy heading anchor"></a></span></h3><p>Runs <code>_script/embed-code</code>. The script first runs</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git submodule update --remote --merge --recursive
 </span></span></code></pre></div><p>so that <code>_examples/</code> and <code>_time/</code> track their default remote branches. It
-then invokes <code>embed-code-macos</code> with <code>-mode="embed"</code> and the configuration at
+then invokes the macOS binary matching the host architecture —
+<code>embed-code-macos</code> on Apple silicon, <code>embed-code-macos-x86_64</code> on Intel —
+with <code>-mode="embed"</code> and the configuration at
 <code>_settings/embed-code.yml</code>, which rewrites the fenced regions in the Markdown
 pages under <code>content/</code> from their source snippets. Run this task manually
 after editing an embedded snippet or after pointing a source root at a new
 commit. See &ldquo;<a href=/docs/validation/developer/documentation/embedded-examples/>Embedded examples</a>&rdquo; for the
 configuration format and &ldquo;<a href=/docs/validation/developer/documentation/procedures/>Procedures</a>&rdquo; for the day-to-day
 recipe.</p><h3 id=checksamples data-title><code>checkSamples</code><span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#checksamples aria-label="Copy heading anchor"></a></span></h3><p>Runs <code>_script/check-samples</code>. The script selects <code>embed-code-linux</code> when the
-<code>GITHUB_ACTIONS</code> environment variable is <code>true</code>, and <code>embed-code-macos</code>
-otherwise, then invokes it with <code>-mode="check"</code>. The tool exits non-zero if
+<code>GITHUB_ACTIONS</code> environment variable is <code>true</code>, and the macOS binary
+matching the host architecture otherwise, then invokes it with
+<code>-mode="check"</code>. The tool exits non-zero if
 any embedded snippet drifts from its source. This task is executed by the
 <a href=https://github.com/SpineEventEngine/validation/blob/master/.github/workflows/check-code-embedding.yml class=external-link target=_blank rel="noopener nofollow">Code Embedding</a> GitHub workflow on every pull
 request.</p><h2 id=aggregate-tasks data-title>Aggregate tasks<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#aggregate-tasks aria-label="Copy heading anchor"></a></span></h2><p>These tasks tie the example projects under <code>docs/_examples/</code> into the main

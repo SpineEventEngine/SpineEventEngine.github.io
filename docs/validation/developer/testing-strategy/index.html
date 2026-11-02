@@ -62,8 +62,7 @@ cross-cutting specs. New built-ins typically add one fixture file here that
 exercises every supported field type.</li><li><strong><code>testFixtures/kotlin/</code></strong> — assertion helpers, placeholder builders, and
 test environments used across specs.</li><li><strong><code>src/test/kotlin/io/spine/test/options/</code></strong> — the specs themselves, organised
 by option (<code>required/</code>, <code>goes/</code>, <code>setonce/</code>) or by cross-cutting concern
-(<code>ChoiceITest.kt</code>, <code>ExternalConstraintITest.kt</code>,
-<code>CustomOptionsLoadingITest.kt</code>).</li></ul><p>The framework stack is JUnit 5 plus Kotest assertions plus <a href=https://truth.dev/ class=external-link target=_blank rel="noopener nofollow">Google Truth</a>
+(<code>ChoiceIgTest.kt</code>, <code>CustomOptionsLoadingIgTest.kt</code>).</li></ul><p>The framework stack is JUnit 5 plus Kotest assertions plus <a href=https://truth.dev/ class=external-link target=_blank rel="noopener nofollow">Google Truth</a>
 for the classes that already used it. Specs typically build a message, catch
 <code>ValidationException</code>, and assert on the shape of the resulting <code>ValidationError</code>
 — including placeholder resolution and the <code>field_path</code> of each violation.</p><p>This is the module used by the “<a href=/docs/validation/developer/adding-a-built-in-option/#6-test-the-option>Adding a new built-in validation option</a>”
@@ -116,8 +115,9 @@ generated wiring that calls into the registry from local messages.</p><h2 id=cho
 ends up in <code>:tests:vanilla</code> because it wanted to be near the Java-compilation
 pipeline but really tests <code>(required)</code> behaviour will rot — the vanilla suite
 intentionally stays small, and the test is more discoverable next to its
-peers in <code>:tests:validating</code>.</p><h2 id=conventions data-title>Conventions<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#conventions aria-label="Copy heading anchor"></a></span></h2><p>A handful of conventions keep specs across the suites consistent:</p><ul><li><strong>Kotest matchers</strong>, JUnit 5 lifecycle. Specs use the <code>*Spec</code> or <code>*ITest</code>
-naming convention; pick the suffix the surrounding directory already uses.</li><li><strong>Parameterised tests</strong> with <code>@MethodSource</code> for per-field-type matrices. The
+peers in <code>:tests:validating</code>.</p><h2 id=conventions data-title>Conventions<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#conventions aria-label="Copy heading anchor"></a></span></h2><p>A handful of conventions keep specs across the suites consistent:</p><ul><li><strong>Kotest matchers</strong>, JUnit 5 lifecycle. A unit-test suite for <code>X</code> is named
+<code>XSpec</code>; an integration suite is <code>XIgTest</code>, where <code>Ig</code> stands for
+“integration”.</li><li><strong>Parameterised tests</strong> with <code>@MethodSource</code> for per-field-type matrices. The
 built-in option specs in <code>:tests:validating</code> and <code>:tests:runtime</code> use this
 pattern liberally; copy it rather than handwriting per-type test methods.</li><li><strong>Fixtures are shared, specs are not.</strong> Move <code>.proto</code> files into
 <code>testFixtures</code> when more than one spec needs them; keep specs in
@@ -125,7 +125,7 @@ pattern liberally; copy it rather than handwriting per-type test methods.</li><l
 pattern this repository uses, and it tends to mask which module owns the
 behaviour.</li><li><strong>Inline comments are welcome in tests.</strong> The general rule against inline
 comments in production code does not apply to specs — see
-<code>.agents/documentation-guidelines.md</code>. Use them to explain non-obvious setup
+<code>.agents/guidelines/documentation.md</code>. Use them to explain non-obvious setup
 in fixtures or to flag the violation shape a spec is asserting.</li><li><strong>One concern per spec class.</strong> A spec named after an option covers that
 option; cross-cutting behaviour goes in its own spec. The
 <code>ValidationOfConstraintTest</code>/<code>OneofSpec</code> split in <code>:tests:runtime</code> is the

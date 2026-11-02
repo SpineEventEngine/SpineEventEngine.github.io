@@ -84,6 +84,7 @@ see “<a href=/docs/validation/developer/validation-model/#the-discovered-event
 shape mirrors the event, with <code>(entity).kind = PROJECTION</code> to mark it as a Bounded Context
 projection:</p><p><embed-code file=$context/src/main/proto/spine/validation/views.proto start="message RequiredField \{" end=^\}></embed-code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-protobuf data-lang=protobuf><span class=line><span class=cl><span class=kd>message</span> <span class=nc>RequiredField</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>option</span> <span class=p>(</span><span class=n>entity</span><span class=p>)</span><span class=o>.</span><span class=n>kind</span> <span class=o>=</span> <span class=n>PROJECTION</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>option</span> <span class=p>(</span><span class=n>is</span><span class=p>)</span><span class=o>.</span><span class=n>java_type</span> <span class=o>=</span> <span class=s>&#34;FieldView&#34;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=n>compiler.FieldRef</span> <span class=n>id</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
@@ -184,10 +185,13 @@ emitted code needs <code>JavaValueConverter</code> for default-value comparison:
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=cm>/**
 </span></span></span><span class=line><span class=cl><span class=cm>     * All `(required)` fields in the current compilation process.
+</span></span></span><span class=line><span class=cl><span class=cm>     *
+</span></span></span><span class=line><span class=cl><span class=cm>     * The fields of each message go in the order of declaration.
 </span></span></span><span class=line><span class=cl><span class=cm>     */</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>val</span> <span class=py>allRequiredFields</span> <span class=k>by</span> <span class=n>lazy</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=n>querying</span><span class=p>.</span><span class=n>select</span><span class=p>&lt;</span><span class=n>RequiredField</span><span class=p>&gt;()</span>
 </span></span><span class=line><span class=cl>            <span class=p>.</span><span class=n>all</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=p>.</span><span class=n>sortedByDeclaration</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=k>override</span> <span class=k>fun</span> <span class=nf>codeFor</span><span class=p>(</span><span class=n>type</span><span class=p>:</span> <span class=n>TypeName</span><span class=p>):</span> <span class=n>List</span><span class=p>&lt;</span><span class=n>SingleOptionCode</span><span class=p>&gt;</span> <span class=p>=</span>
@@ -197,7 +201,8 @@ emitted code needs <code>JavaValueConverter</code> for default-value comparison:
 </span></span><span class=line><span class=cl>            <span class=p>.</span><span class=n>map</span> <span class=p>{</span> <span class=n>GenerateRequired</span><span class=p>(</span><span class=k>it</span><span class=p>,</span> <span class=n>converter</span><span class=p>).</span><span class=n>code</span><span class=p>()</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></div><p>The pattern is uniform across the built-ins:</p><ul><li>Query the projection lazily — <code>querying</code> is not available until <code>inject()</code> returns,
-see “<a href=/docs/validation/developer/java-code-generation/#the-render-lifecycle>The render lifecycle</a>”.</li><li>Filter views by the message type currently being processed.</li><li>Delegate per-application code construction to a small helper class
+see “<a href=/docs/validation/developer/java-code-generation/#the-render-lifecycle>The render lifecycle</a>”.</li><li>Filter views by the message type currently being processed.</li><li>Sort the selected field views with <code>sortedByDeclaration()</code>, so that the generated code
+is the same from build to build. The views come in no particular order.</li><li>Delegate per-application code construction to a small helper class
 (<code>GenerateRequired</code> here). The helper produces a <code>CodeBlock</code> that runs inside the
 validate scope described in “<a href=/docs/validation/developer/java-code-generation/#the-validate-scope>The validate scope</a>” —
 <code>violations</code>,

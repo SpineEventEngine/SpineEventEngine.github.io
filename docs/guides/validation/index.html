@@ -36,7 +36,7 @@ it may be necessary to require a combination of fields. In this case, validation
 at the level of a corresponding message type.</p><h2 id=required-fields data-title>Required fields<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#required-fields aria-label="Copy heading anchor"></a></span></h2><p>When modelling a domain, we often come up to certain data points that cannot be skipped. Those are
 represented by required fields of an entity state, a Command, an Event, etc.</p><div class="note-block note"><p>Protobuf 2 used to have native support for required fields.
 However, from the serialization perspective, that proved to be
-a <a href=https://stackoverflow.com/a/31814967/3183076 class=external-link target=_blank rel="noopener nofollow">design mistake</a>. If a required field was missing,
+a <a href=https://stackoverflow.com/questions/31801257/why-were-required-and-optional-removed-in-protocol-buffers-3/31814967#31814967 class=external-link target=_blank rel="noopener nofollow">design mistake</a>. If a required field was missing,
 the message could not be serialized and sent over the wire. Also, it is often too easy to add a new
 required field, thereby breaking backwards-compatibility of the message type. In Protobuf 3 all
 the fields are optional.</p></div><p>In the Validation Library, we&rsquo;ve revived the concept of required fields, but on a different level.

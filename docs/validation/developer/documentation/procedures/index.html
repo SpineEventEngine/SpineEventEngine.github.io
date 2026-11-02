@@ -42,7 +42,8 @@ inside the submodule:</p><div class=highlight><pre tabindex=0 class=chroma><code
 </span></span><span class=line><span class=cl><span class=nb>cd</span> -
 </span></span></code></pre></div></li><li><p>Re-embed snippets without running <code>:docs:embedCode</code>, because that task
 would move the submodule back to the default remote branch before
-embedding:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./gradlew :docs:updatePluginVersions
+embedding. On an Intel Mac, run <code>./embed-code-macos-x86_64</code> instead of
+<code>./embed-code-macos</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./gradlew :docs:updatePluginVersions
 </span></span><span class=line><span class=cl><span class=nb>cd</span> docs/_bin
 </span></span><span class=line><span class=cl>./embed-code-macos -config-path<span class=o>=</span><span class=s2>&#34;../_settings/embed-code.yml&#34;</span> -mode<span class=o>=</span><span class=s2>&#34;embed&#34;</span>
 </span></span><span class=line><span class=cl><span class=nb>cd</span> -
@@ -52,8 +53,7 @@ embedding step:</p><div class=highlight><pre tabindex=0 class=chroma><code class
 </span></span><span class=line><span class=cl>git commit -m <span class=s2>&#34;Update Spine Time submodule -&gt; &lt;commit-or-ref&gt;&#34;</span>
 </span></span></code></pre></div></li></ol><h2 id=adding-a-new-embedded-code-example data-title>Adding a new embedded code example<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#adding-a-new-embedded-code-example aria-label="Copy heading anchor"></a></span></h2><ol><li><p>If the source file lives outside the existing source roots in
 <a href=https://github.com/SpineEventEngine/validation/blob/master/docs/_settings/embed-code.yml class=external-link target=_blank rel="noopener nofollow"><code>_settings/embed-code.yml</code></a>, add a new entry under
-<code>code-path</code> (a <code>name</code> plus a path relative to <code>docs/_bin/</code>). If the
-file extension is not yet listed, add a glob under <code>code-includes</code>.</p></li><li><p>In the target Markdown page, write an <code>&lt;embed-code></code> element followed
+<code>code-path</code> (a <code>name</code> plus a path relative to <code>docs/_bin/</code>).</p></li><li><p>In the target Markdown page, write an <code>&lt;embed-code></code> element followed
 by an empty fenced code block. For example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-markdown data-lang=markdown><span class=line><span class=cl>&lt;embed—code
 </span></span><span class=line><span class=cl>  file=&#34;$root/version.gradle.kts&#34;
 </span></span><span class=line><span class=cl>  start=&#34;val validationVersion&#34;
@@ -75,8 +75,8 @@ appropriate parent. The <code>file_path</code> is relative to
 <code>_index.md</code> maps to its directory path (for example,
 <code>developer/documentation</code>).</li><li>For a renamed or moved page, update the existing <code>file_path</code>.</li><li>For a deleted page, remove the entry.</li></ul><p>Do not edit <code>sidenav.yml</code> files under other version directories
 unless you are intentionally amending a historical version.</p></li><li><p>Preview locally (see &ldquo;Previewing the documentation locally&rdquo;) and
-click through every internal link.</p></li><li><p>Follow the project documentation guidelines in
-<a href=https://github.com/SpineEventEngine/validation/blob/master/.agents/documentation-guidelines.md class=external-link target=_blank rel="noopener nofollow"><code>documentation-guidelines.md</code></a> — formatting of file
+click through every internal link.</p></li><li><p>Follow the shared documentation guidelines in
+<a href=https://github.com/SpineEventEngine/agents/blob/master/guidelines/documentation.md class=external-link target=_blank rel="noopener nofollow"><code>documentation.md</code></a> — formatting of file
 and directory names as code, reference-style external links, no
 widows/runts/orphans/rivers.</p></li></ol><h2 id=updating-site-commons data-title>Updating <code>site-commons</code><span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#updating-site-commons aria-label="Copy heading anchor"></a></span></h2><p>This is the procedure documented under &ldquo;<a href=https://github.com/SpineEventEngine/site-commons#theme-updates class=external-link target=_blank rel="noopener nofollow">Theme updates</a>&rdquo;
 in the <code>site-commons</code> README, wrapped with the verification steps used
@@ -89,18 +89,19 @@ embedded snippets:</p><div class=highlight><pre tabindex=0 class=chroma><code cl
 <code>docs/_preview/go.mod</code> and <code>docs/_preview/go.sum</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git add docs/_preview/go.mod docs/_preview/go.sum
 </span></span><span class=line><span class=cl>git commit -m <span class=s2>&#34;Update site-commons&#34;</span>
 </span></span></code></pre></div></li></ol><h2 id=updating-embed-code-go data-title>Updating <code>embed-code-go</code><span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#updating-embed-code-go aria-label="Copy heading anchor"></a></span></h2><p>The tool is consumed as prebuilt binaries under <code>docs/_bin/</code>. The
-authoritative copies are published by the upstream project under
-<a href=https://github.com/SpineEventEngine/embed-code-go/tree/master/bin class=external-link target=_blank rel="noopener nofollow"><code>embed-code-go/bin</code></a>. We do <em>not</em> build the tool as
+authoritative copies are published by the upstream project as assets of
+its <a href=https://github.com/SpineEventEngine/embed-code-go/releases class=external-link target=_blank rel="noopener nofollow">GitHub releases</a>. We do <em>not</em> build the tool as
 part of the Validation documentation build — see the upstream repository
-for any build, test, or release questions.</p><ol><li><p>From <a href=https://github.com/SpineEventEngine/embed-code-go/tree/master/bin class=external-link target=_blank rel="noopener nofollow"><code>embed-code-go/bin</code></a>, download the three
-binaries on the branch or tag you want to ship:
-<code>embed-code-linux</code>, <code>embed-code-macos</code>, <code>embed-code-windows.exe</code>.</p></li><li><p>Replace the files of the same names under <code>docs/_bin/</code>.</p></li><li><p>Make sure the macOS and Linux binaries are executable:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>chmod +x docs/_bin/embed-code-macos docs/_bin/embed-code-linux
+for any build, test, or release questions.</p><ol><li><p>Download the assets of the release you want to ship, and verify them
+against the SHA-256 digests shown on the release page:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gh release download &lt;tag&gt; --repo SpineEventEngine/embed-code-go
+</span></span></code></pre></div></li><li><p>Unzip the archives, and replace the files under <code>docs/_bin/</code> as follows:</p><table><thead><tr><th>Release asset</th><th>File under <code>docs/_bin/</code></th></tr></thead><tbody><tr><td><code>embed-code-linux.zip</code></td><td><code>embed-code-linux</code></td></tr><tr><td><code>embed-code-macos-arm64.zip</code></td><td><code>embed-code-macos</code></td></tr><tr><td><code>embed-code-macos-x64.zip</code></td><td><code>embed-code-macos-x86_64</code></td></tr><tr><td><code>embed-code-windows.exe</code></td><td><code>embed-code-windows.exe</code></td></tr></tbody></table></li><li><p>Make sure the macOS and Linux binaries are executable:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>chmod +x docs/_bin/embed-code-macos docs/_bin/embed-code-macos-x86_64 <span class=se>\
+</span></span></span><span class=line><span class=cl>  docs/_bin/embed-code-linux
 </span></span></code></pre></div></li><li><p>Verify that the new binaries still produce the same embedded output
 the repository expects:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./gradlew :docs:checkSamples
 </span></span></code></pre></div><p>If <code>checkSamples</code> reports drift caused by the tool itself (formatting,
 whitespace, …), run <code>./gradlew :docs:embedCode</code> and inspect the diff
 before committing.</p></li><li><p>Commit the updated binaries under <code>docs/_bin/</code> with a message that
-names the upstream commit they were pulled from.</p></li></ol><h2 id=building-the-documentation-locally data-title>Building the documentation locally<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#building-the-documentation-locally aria-label="Copy heading anchor"></a></span></h2><ol><li><p>Build the site:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./gradlew :docs:buildSite
+names the upstream release they were pulled from.</p></li></ol><h2 id=building-the-documentation-locally data-title>Building the documentation locally<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#building-the-documentation-locally aria-label="Copy heading anchor"></a></span></h2><ol><li><p>Build the site:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./gradlew :docs:buildSite
 </span></span></code></pre></div></li><li><p>The generated static site appears under <code>docs/_preview/public/</code>. Open
 <code>docs/_preview/public/index.html</code> in a browser to inspect the output,
 or serve the directory through any static file server.</p></li><li><p>Treat this output as a <em>staging artifact only</em>. Publication to

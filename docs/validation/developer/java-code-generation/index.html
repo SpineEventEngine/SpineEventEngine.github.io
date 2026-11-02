@@ -77,10 +77,13 @@ is representative:</p><p><embed-code file=$java/src/main/kotlin/io/spine/tools/v
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=cm>/**
 </span></span></span><span class=line><span class=cl><span class=cm>     * All `(required)` fields in the current compilation process.
+</span></span></span><span class=line><span class=cl><span class=cm>     *
+</span></span></span><span class=line><span class=cl><span class=cm>     * The fields of each message go in the order of declaration.
 </span></span></span><span class=line><span class=cl><span class=cm>     */</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>val</span> <span class=py>allRequiredFields</span> <span class=k>by</span> <span class=n>lazy</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=n>querying</span><span class=p>.</span><span class=n>select</span><span class=p>&lt;</span><span class=n>RequiredField</span><span class=p>&gt;()</span>
 </span></span><span class=line><span class=cl>            <span class=p>.</span><span class=n>all</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=p>.</span><span class=n>sortedByDeclaration</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=k>override</span> <span class=k>fun</span> <span class=nf>codeFor</span><span class=p>(</span><span class=n>type</span><span class=p>:</span> <span class=n>TypeName</span><span class=p>):</span> <span class=n>List</span><span class=p>&lt;</span><span class=n>SingleOptionCode</span><span class=p>&gt;</span> <span class=p>=</span>

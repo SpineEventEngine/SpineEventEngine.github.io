@@ -9,7 +9,7 @@ consumers. It is the contributor-side counterpart to “<a href=/docs/validation
 build</a>” in the User&rsquo;s Guide:
 where that page shows how a <em>consumer</em> applies the plugin, this page shows how
 the plugin and its dependencies are <em>produced</em>.</p><p>For day-to-day commands (<code>./gradlew build</code>, <code>./gradlew dokka</code>, …) see
-<a href=https://github.com/SpineEventEngine/validation/blob/master/.agents/running-builds.md class=external-link target=_blank rel="noopener nofollow"><code>running-builds.md</code></a> in the <code>.agents/</code> directory; this page
+<a href=https://github.com/SpineEventEngine/agents/blob/master/guidelines/running-builds.md class=external-link target=_blank rel="noopener nofollow"><code>running-builds.md</code></a> in the shared agent guidelines; this page
 focuses on the structure rather than the commands.</p><h2 id=the-multi-project-layout data-title>The multi-project layout<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#the-multi-project-layout aria-label="Copy heading anchor"></a></span></h2><p>The repository is a single Gradle build. Subprojects are declared in
 <a href=https://github.com/SpineEventEngine/validation/blob/master/settings.gradle.kts class=external-link target=_blank rel="noopener nofollow"><code>settings.gradle.kts</code></a> and split into three groups:</p><table><thead><tr><th>Group</th><th>Modules</th><th>Role</th></tr></thead><tbody><tr><td>Core library</td><td><code>:context</code>, <code>:java</code>, <code>:jvm-runtime</code></td><td>The validation model, the Java code generator, and the runtime library.</td></tr><tr><td>Distribution</td><td><code>:java-bundle</code>, <code>:gradle-plugin</code></td><td>Packaging layer that turns the core library into something a consumer can apply.</td></tr><tr><td>Tests and docs</td><td><code>:context-tests</code>, <code>:tests:*</code>, <code>:docs</code></td><td>Compilation tests, integration suites, and the documentation site.</td></tr></tbody></table><p>Every published JVM subproject applies the <a href=https://github.com/SpineEventEngine/validation/blob/master/buildSrc/src/main/kotlin/module.gradle.kts class=external-link target=_blank rel="noopener nofollow"><code>module</code></a>
 convention plugin from <code>buildSrc/</code>, which sets up Java + Kotlin compilation,
@@ -20,7 +20,7 @@ modules do not publish, so they apply <code>id("module-testing")</code> instead 
 lighter convention that wires up JUnit, Kotest, and Truth as test dependencies
 and registers the test tasks without bringing in the publishing machinery.</p><p>The single source of truth for the project version is
 <a href=https://github.com/SpineEventEngine/validation/blob/master/version.gradle.kts class=external-link target=_blank rel="noopener nofollow"><code>version.gradle.kts</code></a>, which exposes <code>validationVersion</code>
-through Gradle&rsquo;s <code>extra</code> properties:</p><p><embed-code file=$root/version.gradle.kts start=validationVersion end=validationVersion></embed-code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=n>extra</span><span class=p>.</span><span class=k>set</span><span class=p>(</span><span class=s2>&#34;validationVersion&#34;</span><span class=p>,</span> <span class=s2>&#34;2.0.0-SNAPSHOT.462&#34;</span><span class=p>)</span>
+through Gradle&rsquo;s <code>extra</code> properties:</p><p><embed-code file=$root/version.gradle.kts start=validationVersion end=validationVersion></embed-code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=n>extra</span><span class=p>.</span><span class=k>set</span><span class=p>(</span><span class=s2>&#34;validationVersion&#34;</span><span class=p>,</span> <span class=s2>&#34;2.0.0-SNAPSHOT.470&#34;</span><span class=p>)</span>
 </span></span></code></pre></div><p>The root build script applies this file under <code>allprojects { … }</code> and assigns
 <code>validationVersion</code> to <code>project.version</code> for every subproject, so a single bump
 in <code>version.gradle.kts</code> moves every artifact this repository publishes — there
@@ -107,7 +107,6 @@ coordination step.</p><h2 id=the-build-pipeline-at-a-glance data-title>The build
     bundle[&#34;&lt;b&gt;&lt;code&gt;:java-bundle&lt;/code&gt;&lt;/b&gt;&lt;br/&gt;shadow JAR&#34;]
     runtime[&#34;&lt;b&gt;&lt;code&gt;:jvm-runtime&lt;/code&gt;&lt;/b&gt;&lt;br/&gt;runtime library&#34;]
     plugin[&#34;&lt;b&gt;&lt;code&gt;:gradle-plugin&lt;/code&gt;&lt;/b&gt;&lt;br/&gt;&lt;code&gt;io.spine.validation&lt;/code&gt;&#34;]
-    portal[&#34;Gradle Plugin Portal&#34;]
     maven[&#34;Maven repositories&lt;br/&gt;(GitHub, GCAR)&#34;]
     consumer[&#34;Consumer project&#34;]
 
@@ -115,28 +114,34 @@ coordination step.</p><h2 id=the-build-pipeline-at-a-glance data-title>The build
     java --&gt; bundle
     bundle --&gt; maven
     runtime --&gt; maven
-    plugin --&gt; portal
+    plugin --&gt; maven
     plugin -. records coords of .-&gt; bundle
     plugin -. records coords of .-&gt; runtime
-    portal --&gt; consumer
     maven --&gt; consumer
 </pre><p>For consumers, the important release contract is this: they apply the plugin
-from the Gradle Plugin Portal, and that plugin version selects the recorded
-bundle and runtime coordinates resolved from Maven repositories.</p><h2 id=publication-destinations data-title>Publication destinations<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#publication-destinations aria-label="Copy heading anchor"></a></span></h2><p>The publication targets are configured in the <code>spinePublishing { destinations }</code>
-block above. The library artifacts go to:</p><ul><li>The repository&rsquo;s <a href=https://github.com/SpineEventEngine/validation/packages class=external-link target=_blank rel="noopener nofollow">GitHub Packages registry</a>
-(<code>gitHub("validation")</code> resolves to <code>maven.pkg.github.com/SpineEventEngine/validation</code>).</li><li>Spine&rsquo;s Google Cloud Artifact Registry (<code>cloudArtifactRegistry</code>).</li></ul><p>The Gradle plugin has an additional destination — the <a href=https://plugins.gradle.org/plugin/io.spine.validation class=external-link target=_blank rel="noopener nofollow">Gradle Plugin
-Portal</a> — configured by the <code>java-gradle-plugin</code> and
-<code>com.gradle.plugin-publish</code> plugins applied via the publishing convention.
-That is the destination consumers reach when they write
-<code>id("io.spine.validation")</code> in their <code>plugins { … }</code> block.</p><p>Publication is automated by the
-<a href=https://github.com/SpineEventEngine/validation/blob/master/.github/workflows/publish.yml class=external-link target=_blank rel="noopener nofollow"><code>publish.yml</code></a> GitHub Actions workflow, which runs on every
-push to <code>master</code> after PR checks have already verified the build:</p><p><embed-code file=$root/.github/workflows/publish.yml start="- name: Publish artifacts to Maven" end="run: ./gradlew publish"></embed-code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Publish artifacts to Maven</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># Since we&#39;re in the `master` branch already, this means that tests of a PR passed.</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># So, no need to run the tests again when publishing.</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>./gradlew publish -x test --stacktrace</span><span class=w>
-</span></span></span></code></pre></div><p><code>-x test</code> relies on the per-PR build to keep publication fast. Every merge to
-<code>master</code> emits a new version of the artifacts for downstream consumers to
-refresh against.</p><h2 id=downstream-consumers data-title>Downstream consumers<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#downstream-consumers aria-label="Copy heading anchor"></a></span></h2><p>Two kinds of downstream consumer pick up Validation artifacts:</p><ul><li><p><strong>Application projects</strong> apply <code>id("io.spine.validation")</code> in their
+from Spine&rsquo;s Maven repositories, and that plugin version selects the recorded
+bundle and runtime coordinates resolved from the same repositories.</p><h2 id=publication-destinations data-title>Publication destinations<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#publication-destinations aria-label="Copy heading anchor"></a></span></h2><p>The publication targets are configured in the <code>spinePublishing { destinations }</code>
+block above. The library artifacts and the Gradle plugin go to:</p><ul><li>The repository&rsquo;s <a href=https://github.com/SpineEventEngine/validation/packages class=external-link target=_blank rel="noopener nofollow">GitHub Packages registry</a>
+(<code>gitHub("validation")</code> resolves to <code>maven.pkg.github.com/SpineEventEngine/validation</code>).</li><li>Spine&rsquo;s Google Cloud Artifact Registry (<code>cloudArtifactRegistry</code>).</li></ul><p><code>java-gradle-plugin</code> publishes the Gradle plugin together with its plugin
+marker artifact, <code>io.spine.validation:io.spine.validation.gradle.plugin</code>.
+Gradle looks up this marker when a consumer writes <code>id("io.spine.validation")</code>
+in their <code>plugins { … }</code> block. The plugin is not published to the Gradle Plugin
+Portal, so consumers add Spine&rsquo;s repositories to <code>pluginManagement</code>, as shown in
+“<a href=/docs/validation/user/01-getting-started/adding-to-build/>Adding Validation to your build</a>”.</p><p>Publication is automated by the <a href=https://github.com/SpineEventEngine/validation/blob/master/.github/workflows/publish.yml class=external-link target=_blank rel="noopener nofollow"><code>publish.yml</code></a> GitHub Actions
+workflow, which runs on every push to <code>master</code> after PR checks have already
+verified the build:</p><p><embed-code file=$root/.github/workflows/publish.yml start=^on: end="name: Publish to Maven repositories"></embed-code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=l>master]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>publish</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Publish to Maven repositories</span><span class=w>
+</span></span></span></code></pre></div><p>The workflow is a thin caller. The job itself — checkout, credentials, the Gradle
+publication, and the attestation — is the reusable <code>publishing.yml</code> workflow
+hosted by the <code>config</code> repository, which <code>publish.yml</code> references at the commit
+of <code>config</code> this repository pins. The job runs <code>./gradlew publish</code> with <code>-x test</code>,
+relying on the per-PR build to keep publication fast. Every merge to <code>master</code>
+emits a new version of the artifacts for downstream consumers to refresh against.</p><h2 id=downstream-consumers data-title>Downstream consumers<span class=nowrap-icon>&nbsp;<a class=anchor-icon href=#downstream-consumers aria-label="Copy heading anchor"></a></span></h2><p>Two kinds of downstream consumer pick up Validation artifacts:</p><ul><li><p><strong>Application projects</strong> apply <code>id("io.spine.validation")</code> in their
 <code>plugins { … }</code> block. They never reference <code>:java-bundle</code> or <code>:jvm-runtime</code>
 directly — the Gradle plugin adds both, and <code>version.gradle.kts</code> in <em>this</em>
 repository determines which versions they get. The consumer-side flow is
